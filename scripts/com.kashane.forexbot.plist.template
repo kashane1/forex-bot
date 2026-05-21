@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.kashane.forexbot</string>
+
+    <key>WorkingDirectory</key>
+    <string>@REPO_ROOT@</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>@PYTHON@</string>
+        <string>-m</string>
+        <string>forex_bot.cli</string>
+        <string>paper-loop</string>
+        <string>--config</string>
+        <string>@CONFIG_PATH@</string>
+        <string>--once</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>@REPO_ROOT@/logs/launchd.out</string>
+
+    <key>StandardErrorPath</key>
+    <string>@REPO_ROOT@/logs/launchd.err</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PYTHONUNBUFFERED</key>
+        <string>1</string>
+    </dict>
+
+    <!-- Run once every 30 minutes. Adjust only after demo stability. -->
+    <key>StartInterval</key>
+    <integer>1800</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Conservative restart: do not relaunch on crash; investigate instead. -->
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

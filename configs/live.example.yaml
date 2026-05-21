@@ -1,0 +1,108 @@
+# Live config TEMPLATE. Intentionally inert.
+#
+# Renaming this file to live.yaml does NOT enable live trading. To enable
+# live trading, you must:
+#   1. Manually complete every promotion gate in 12_ACCEPTANCE_CRITERIA.md.
+#   2. Set all four flags to true: trading_enabled, allow_order_submission,
+#      allow_live_trading, and provide an exact matching live_acknowledgement.
+#   3. Set approved_config_hash to the manually-reviewed hash for this file.
+#   4. Set OANDA_ACCOUNT_ID_LIVE and OANDA_ACCESS_TOKEN_LIVE outside the
+#      repo (env vars or secret manager). Never commit the real values.
+#
+# Tests in tests/unit/test_config_safety.py prove this file cannot start the
+# bot in live mode by default.
+app:
+  name: oanda-forex-research-bot
+  mode: live
+  trading_enabled: false
+  allow_order_submission: false
+  allow_live_trading: false
+  live_acknowledgement: "NOT_APPROVED"
+  required_live_acknowledgement: "I_ACCEPT_THE_RISK_AND_APPROVE_THIS_EXACT_CONFIG_HASH"
+  approved_config_hash: "replace_with_manual_approval_hash"
+  database_path: ./data/live-bot.sqlite3
+  log_path: ./logs/live-bot.jsonl
+  kill_switch_path: ./KILL_SWITCH
+
+broker:
+  name: oanda
+  environment: live
+  account_id_env: OANDA_ACCOUNT_ID_LIVE
+  token_env: OANDA_ACCESS_TOKEN_LIVE
+  request_timeout_seconds: 10
+  max_retries: 3
+
+market:
+  account_currency: USD
+  instruments:
+    - EUR_USD
+  granularity: H4
+  candle_price_components: BA
+  daily_alignment: 17
+  alignment_timezone: America/New_York
+  weekly_alignment: Friday
+
+strategy:
+  enabled:
+    - trend_following
+  trend_following:
+    version: 0.1.0
+    timeframe: H4
+    ema_fast: 50
+    ema_slow: 200
+    donchian_lookback: 20
+    atr_lookback: 14
+    atr_stop_multiple: 2.5
+    min_atr_pips:
+      EUR_USD: 5.0
+    max_bars_in_trade: 80
+
+risk:
+  starting_equity_usd: 500
+  risk_per_trade_pct: 0.25
+  max_risk_per_trade_pct: 0.50
+  max_daily_loss_pct: 1.00
+  max_weekly_loss_pct: 2.00
+  max_total_drawdown_pct: 8.00
+  max_open_positions: 1
+  max_pending_orders: 1
+  max_correlated_positions: 1
+  max_positions_per_instrument: 1
+  require_stop_loss: true
+  require_server_side_protection: true
+  allow_martingale: false
+  allow_grid: false
+  allow_averaging_down: false
+
+margin:
+  min_margin_available_pct_of_nav: 80
+  max_margin_used_pct_of_nav: 10
+  reject_if_margin_closeout_percent_above: 20
+
+spread_filter:
+  enabled: true
+  max_spread_to_atr_pct: 8.0
+  max_spread_pips:
+    EUR_USD: 1.5
+
+session_filter:
+  enabled: true
+  timezone: America/New_York
+  block_new_trades:
+    - name: rollover
+      start: "16:45"
+      end: "17:15"
+    - name: friday_close
+      day: Friday
+      start: "15:00"
+      end: "23:59"
+    - name: sunday_open
+      day: Sunday
+      start: "00:00"
+      end: "19:00"
+
+backtest:
+  fixed_slippage_pips: 0.5
+  spread_slippage_multiplier: 0.75
+  starting_equity_usd: 500
+  commission_per_unit: 0.0

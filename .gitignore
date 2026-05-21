@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Test/coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Secrets, runtime data, logs, ledger
+.env
+.env.*
+!.env.example
+secrets/
+data/
+!data/.gitkeep
+logs/
+!logs/.gitkeep
+*.sqlite3
+*.sqlite3-journal
+*.db
+
+# Reports
+reports/
+
+# Kill switch
+KILL_SWITCH
+
+# Lean output
+backtests/
+results/
+
+# Founders pack stays in repo but ignore any temp copies
+*.tmp
