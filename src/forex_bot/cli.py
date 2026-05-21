@@ -7,7 +7,9 @@ require broker credentials and is the entry point for new installations.
 
 from __future__ import annotations
 
+import json
 import subprocess
+from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
 
@@ -16,7 +18,9 @@ from rich.console import Console
 from rich.table import Table
 
 from forex_bot import __version__
-from forex_bot.backtesting.engine import BacktestEngine
+from forex_bot.backtesting.audit import audit_instrument, render_audit_markdown
+from forex_bot.backtesting.engine import BacktestEngine, compute_data_request_hash
+from forex_bot.backtesting.exporters import write_all
 from forex_bot.backtesting.fills import FillModel
 from forex_bot.broker.oanda import OandaBroker
 from forex_bot.clock import utcnow
@@ -82,6 +86,24 @@ def _git_short_sha() -> str | None:
     except FileNotFoundError:
         return None
     return result.stdout.strip() or None
+
+
+def _parse_date(value: str | None) -> datetime | None:
+    if value is None:
+        return None
+    for fmt in ("%Y-%m-%d", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M:%S%z"):
+        try:
+            dt = datetime.strptime(value, fmt)
+        except ValueError:
+            continue
+        return dt if dt.tzinfo else dt.replace(tzinfo=UTC)
+    raise typer.BadParameter(f"could not parse date '{value}'")
+
+
+def _parse_instruments(s: str | None, default: list[str]) -> list[str]:
+    if not s:
+        return default
+    return [x.strip().upper() for x in s.split(",") if x.strip()]
 
 
 # ---------------------------------------------------------------------------
@@ -153,72 +175,176 @@ def fetch_candles(
     instrument: str = typer.Option(..., "--instrument", "-i"),
     granularity: str = typer.Option("H4", "--granularity", "-g"),
     count: int = typer.Option(500, "--count", "-n"),
+    from_date: str | None = typer.Option(None, "--from", help="ISO date for start of fetch window"),
+    to_date: str | None = typer.Option(None, "--to", help="ISO date for end of fetch window"),
+    page_size: int = typer.Option(2500, "--page-size", help="Candles per OANDA call (max 5000)"),
 ) -> None:
+    """Fetch OANDA candles. With --from/--to, paginates forward until the
+    window is covered. Without dates, fetches the latest --count candles."""
     settings = _load(config)
     broker = _build_broker(settings)
     db = Database(settings.app.database_path)
     repo = CandleRepo(db)
-    request = CandleRequest(
-        instrument=instrument,
-        granularity=granularity,  # type: ignore[arg-type]
-        price=settings.market.candle_price_components,  # type: ignore[arg-type]
-        count=count,
-        daily_alignment=settings.market.daily_alignment,
-        alignment_timezone=settings.market.alignment_timezone,
-        weekly_alignment=settings.market.weekly_alignment,
-    )
-    candles = broker.get_candles(request)
-    n = repo.upsert_many(
-        candles,
-        source="oanda",
-        price_components=settings.market.candle_price_components,
-        request_hash=str(hash((instrument, granularity, count))),
-    )
-    console.print(f"[green]stored[/green] {n} candles for {instrument} {granularity}")
+    price = settings.market.candle_price_components
+
+    from_dt = _parse_date(from_date)
+    to_dt = _parse_date(to_date)
+
+    if from_dt is None and to_dt is None:
+        request = CandleRequest(
+            instrument=instrument,
+            granularity=granularity,  # type: ignore[arg-type]
+            price=price,  # type: ignore[arg-type]
+            count=count,
+            daily_alignment=settings.market.daily_alignment,
+            alignment_timezone=settings.market.alignment_timezone,
+            weekly_alignment=settings.market.weekly_alignment,
+        )
+        candles = broker.get_candles(request)
+        n = repo.upsert_many(
+            candles,
+            source="oanda",
+            price_components=price,
+            request_hash=str(hash((instrument, granularity, count))),
+        )
+        console.print(f"[green]stored[/green] {n} candles for {instrument} {granularity}")
+        return
+
+    # Paginated window fetch.
+    if from_dt is None:
+        raise typer.BadParameter("--from is required when --to is used or for windowed fetches")
+    if to_dt is None:
+        to_dt = utcnow()
+    cursor = from_dt
+    total = 0
+    while cursor < to_dt:
+        request = CandleRequest(
+            instrument=instrument,
+            granularity=granularity,  # type: ignore[arg-type]
+            price=price,  # type: ignore[arg-type]
+            count=page_size,
+            from_time=cursor,
+            to_time=to_dt,
+            daily_alignment=settings.market.daily_alignment,
+            alignment_timezone=settings.market.alignment_timezone,
+            weekly_alignment=settings.market.weekly_alignment,
+            include_first=True,
+        )
+        try:
+            candles = broker.get_candles(request)
+        except Exception as exc:
+            console.print(f"[red]fetch failed at {cursor}: {exc}[/red]")
+            raise typer.Exit(1)
+        if not candles:
+            break
+        n = repo.upsert_many(
+            candles,
+            source="oanda",
+            price_components=price,
+            request_hash=str(hash((instrument, granularity, cursor.isoformat()))),
+        )
+        total += n
+        last = candles[-1].time
+        if last <= cursor:
+            break
+        cursor = last + timedelta(seconds=1)
+        console.print(f"  page → {last.isoformat()} (+{n})")
+    console.print(f"[green]stored[/green] {total} candles for {instrument} {granularity}")
 
 
 @app.command()
 def backtest(
     config: Path = typer.Option(..., "--config", "-c", exists=True, dir_okay=False),
+    strategy: str | None = typer.Option(
+        None, "--strategy", help="Run only this strategy (defaults to all enabled in config)"
+    ),
     instrument: str | None = typer.Option(None, "--instrument", "-i"),
+    instruments: str | None = typer.Option(
+        None, "--instruments", help="Comma-separated list, overrides --instrument and config"
+    ),
     granularity: str = typer.Option("H4", "--granularity", "-g"),
+    from_date: str | None = typer.Option(None, "--from", help="ISO date inclusive"),
+    to_date: str | None = typer.Option(None, "--to", help="ISO date inclusive"),
+    spread_multiplier: float | None = typer.Option(
+        None, "--spread-multiplier", help="Override backtest.spread_slippage_multiplier"
+    ),
+    slippage_pips: float | None = typer.Option(
+        None, "--slippage-pips", help="Override backtest.fixed_slippage_pips"
+    ),
+    export_dir: Path | None = typer.Option(
+        None, "--export-dir", help="Write trades.csv, equity.csv, metrics.json, metrics.md per run"
+    ),
+    label: str | None = typer.Option(
+        None, "--label", help="Prefix label for exported files (default: instrument_strategy)"
+    ),
 ) -> None:
+    """Run one or more backtests and (optionally) export artifacts."""
     settings = _load(config)
     db = Database(settings.app.database_path)
     instr_repo = InstrumentRepo(db)
     candles = CandleRepo(db)
-    targets = [instrument] if instrument else settings.market.instruments
-    fill_model = FillModel(
-        fixed_slippage_pips=Decimal(str(settings.backtest.fixed_slippage_pips)),
-        spread_slippage_multiplier=Decimal(str(settings.backtest.spread_slippage_multiplier)),
+
+    targets = _parse_instruments(instruments, [instrument] if instrument else settings.market.instruments)
+
+    fixed_slip = (
+        Decimal(str(slippage_pips))
+        if slippage_pips is not None
+        else Decimal(str(settings.backtest.fixed_slippage_pips))
     )
+    spread_mult = (
+        Decimal(str(spread_multiplier))
+        if spread_multiplier is not None
+        else Decimal(str(settings.backtest.spread_slippage_multiplier))
+    )
+    fill_model = FillModel(
+        fixed_slippage_pips=fixed_slip,
+        spread_slippage_multiplier=spread_mult,
+    )
+
+    from_dt = _parse_date(from_date)
+    to_dt = _parse_date(to_date)
+
+    strategies_all = build_strategies(settings)
+    if strategy:
+        strategies_all = [(s, c) for s, c in strategies_all if s.name == strategy]
+        if not strategies_all:
+            console.print(f"[red]no strategy named '{strategy}' is enabled in config[/red]")
+            raise typer.Exit(2)
+
     table = Table(title="Backtest results")
-    for col in (
-        "instrument",
-        "trades",
-        "return%",
-        "max_dd%",
-        "pf",
-        "expectancy_r",
-        "win%",
-    ):
+    for col in ("instrument", "strategy", "trades", "return%", "max_dd%", "pf", "exp_R", "win%", "config_hash", "data_hash"):
         table.add_column(col)
 
+    summary_rows: list[dict] = []
     for inst_name in targets:
         instrument_meta = instr_repo.get(inst_name)
         if instrument_meta is None:
             console.print(f"[yellow]skip[/yellow] {inst_name}: no instrument metadata; run sync-instruments")
             continue
-        rows = candles.list(inst_name, granularity, completed_only=True)  # type: ignore[arg-type]
+        rows = candles.list(
+            inst_name,
+            granularity,  # type: ignore[arg-type]
+            completed_only=True,
+            from_time=from_dt,
+            to_time=to_dt,
+        )
         if not rows:
-            console.print(f"[yellow]skip[/yellow] {inst_name}: no candles; run fetch-candles")
+            console.print(f"[yellow]skip[/yellow] {inst_name}: no candles in window")
             continue
         frame = CandleFrame.from_candles(inst_name, granularity, rows)  # type: ignore[arg-type]
-        strategies = build_strategies(settings)
-        for strategy, cfg in strategies:
+
+        for strat, cfg in strategies_all:
+            data_hash = compute_data_request_hash(
+                instrument=inst_name,
+                granularity=granularity,
+                from_time=from_dt.isoformat() if from_dt else None,
+                to_time=to_dt.isoformat() if to_dt else None,
+                source="oanda-or-cached",
+                candle_count=len(rows),
+            )
             engine = BacktestEngine(
                 instrument=instrument_meta,
-                strategy=strategy,
+                strategy=strat,
                 strategy_config=cfg,
                 fill_model=fill_model,
                 starting_equity=Decimal(str(settings.backtest.starting_equity_usd)),
@@ -226,19 +352,125 @@ def backtest(
                 risk_per_trade_pct=Decimal(str(settings.risk.risk_per_trade_pct)),
                 max_bars_in_trade=int(cfg.get("max_bars_in_trade", 80)),
                 commission_per_unit=Decimal(str(settings.backtest.commission_per_unit)),
+                trailing_stop_atr_multiple=cfg.get("trailing_stop_atr_multiple"),
+                atr_lookback=int(cfg.get("atr_lookback", 14)),
             )
-            result = engine.run(frame)
+            result = engine.run(frame, data_request_hash=data_hash)
             m = result.metrics
             table.add_row(
                 inst_name,
+                strat.name,
                 str(m.trade_count),
                 f"{m.total_return_pct:.2f}",
                 f"{m.max_drawdown_pct:.2f}",
                 f"{m.profit_factor:.2f}" if m.profit_factor != float("inf") else "inf",
                 f"{m.expectancy_r:.3f}",
                 f"{m.win_rate*100:.1f}",
+                result.config_hash[:10],
+                data_hash[:10],
             )
+
+            if export_dir:
+                prefix = label or f"{inst_name}_{granularity}_{strat.name}"
+                paths = write_all(result, export_dir, prefix)
+                console.print(f"  wrote → {paths['summary_json']}")
+                summary_rows.append(
+                    {
+                        "instrument": inst_name,
+                        "strategy": strat.name,
+                        "config_hash": result.config_hash,
+                        "data_request_hash": data_hash,
+                        "trades": m.trade_count,
+                        "return_pct": m.total_return_pct,
+                        "max_dd_pct": m.max_drawdown_pct,
+                        "profit_factor": (
+                            None if m.profit_factor == float("inf") else m.profit_factor
+                        ),
+                        "expectancy_r": m.expectancy_r,
+                        "win_rate": m.win_rate,
+                        "summary_path": str(paths["summary_json"]),
+                    }
+                )
+
     console.print(table)
+    if export_dir and summary_rows:
+        index_path = export_dir / (label or "index") / "_index.json"
+        index_path.parent.mkdir(parents=True, exist_ok=True)
+        index_path.write_text(json.dumps(summary_rows, indent=2), encoding="utf-8")
+        console.print(f"[green]wrote index[/green] {index_path}")
+
+
+@app.command("audit-data")
+def audit_data(
+    config: Path = typer.Option(..., "--config", "-c", exists=True, dir_okay=False),
+    instruments: str | None = typer.Option(None, "--instruments"),
+    instrument: str | None = typer.Option(None, "--instrument", "-i"),
+    granularity: str = typer.Option("H4", "--granularity", "-g"),
+    from_date: str | None = typer.Option(None, "--from"),
+    to_date: str | None = typer.Option(None, "--to"),
+    out: Path | None = typer.Option(None, "--out", help="Write audit Markdown to this path"),
+) -> None:
+    """Audit stored candles for completeness, gaps, duplicates, abnormal spreads."""
+    settings = _load(config)
+    db = Database(settings.app.database_path)
+    instr_repo = InstrumentRepo(db)
+    candles = CandleRepo(db)
+    targets = _parse_instruments(
+        instruments, [instrument] if instrument else settings.market.instruments
+    )
+    from_dt = _parse_date(from_date)
+    to_dt = _parse_date(to_date)
+
+    sections: list[str] = []
+    table = Table(title="Data audit")
+    for col in (
+        "instrument",
+        "g",
+        "count",
+        "complete",
+        "bid/ask",
+        "gaps",
+        "dups",
+        "abn_spr",
+        "first",
+        "last",
+        "clean",
+    ):
+        table.add_column(col)
+
+    for inst_name in targets:
+        instrument_meta = instr_repo.get(inst_name)
+        if instrument_meta is None:
+            console.print(f"[yellow]skip[/yellow] {inst_name}: no instrument metadata")
+            continue
+        report = audit_instrument(
+            candles,
+            inst_name,
+            granularity,  # type: ignore[arg-type]
+            requested_from=from_dt,
+            requested_to=to_dt,
+            pip_size=instrument_meta.pip_size,
+        )
+        table.add_row(
+            inst_name,
+            granularity,
+            str(report.candle_count),
+            f"{report.completed_count}/{report.candle_count}",
+            f"{report.bid_available_count}/{report.ask_available_count}",
+            str(len(report.missing_intervals)),
+            str(len(report.duplicate_timestamps)),
+            str(len(report.abnormal_spreads)),
+            report.first_ts.strftime("%Y-%m-%d") if report.first_ts else "-",
+            report.last_ts.strftime("%Y-%m-%d") if report.last_ts else "-",
+            "[green]Y[/green]" if report.is_clean else "[red]N[/red]",
+        )
+        sections.append(render_audit_markdown(report))
+
+    console.print(table)
+    if out:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text("\n".join(["# Data audit", ""] + sections), encoding="utf-8")
+        console.print(f"[green]wrote[/green] {out}")
 
 
 @app.command("paper-loop")

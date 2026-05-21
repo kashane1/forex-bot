@@ -75,6 +75,10 @@ ignore = [
     "SIM105", # contextlib.suppress: try/except/pass is fine for two-line shutdown
     "SIM108", # ternary: less readable for parser fallbacks
     "N818",   # ConfigError naming
+    "RUF001", # × in strings: intentional for human-readable status
+    "RUF002", # × in docstrings: intentional
+    "RUF005", # list concat vs splat: stylistic
+    "RUF007", # itertools.pairwise vs zip: equivalent here
     "RUF059", # unused unpacked vars are sometimes documentation
 ]
 

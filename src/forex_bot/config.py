@@ -100,6 +100,7 @@ class TrendFollowingStrategyConfig(BaseModel):
     donchian_lookback: int = 20
     atr_lookback: int = 14
     atr_stop_multiple: float = 2.5
+    trailing_stop_atr_multiple: float | None = None
     min_atr_pips: dict[str, float] = Field(default_factory=dict)
     max_bars_in_trade: int = 80
 

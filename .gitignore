@@ -49,10 +49,10 @@ htmlcov/
 .env.*
 !.env.example
 secrets/
-data/
-!data/.gitkeep
-logs/
-!logs/.gitkeep
+/data/
+!/data/.gitkeep
+/logs/
+!/logs/.gitkeep
 *.sqlite3
 *.sqlite3-journal
 *.db
@@ -64,8 +64,18 @@ reports/
 KILL_SWITCH
 
 # Lean output
-backtests/
 results/
+
+# Per-run backtest artifacts are huge (700MB+ for CAMPAIGN_001) and
+# fully reproducible via scripts/run_campaign_001.py. Commit only the
+# top-level reports, audit summaries, indexes, and summary JSONs.
+backtests/campaign_001/runs/**/*_equity.csv
+backtests/campaign_001/runs/**/*_trades.csv
+backtests/campaign_001/runs/**/*_metrics.json
+backtests/campaign_001/runs/**/*_metrics.md
+backtests/campaign_001/runs.pre_pnl_fix/
+backtests/campaign_001/_*.log
+backtests/CAMPAIGN_001_REPORT.pre_pnl_fix.md
 
 # Founders pack stays in repo but ignore any temp copies
 *.tmp
