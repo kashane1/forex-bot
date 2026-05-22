@@ -19,6 +19,7 @@ from rich.console import Console
 from rich.table import Table
 
 from forex_bot import __version__
+from forex_bot.approval import StrategyNotApprovedError, assert_loop_strategies_approved
 from forex_bot.backtesting.audit import audit_instrument, render_audit_markdown
 from forex_bot.backtesting.engine import BacktestEngine, compute_data_request_hash
 from forex_bot.backtesting.exporters import write_all
@@ -43,11 +44,7 @@ from forex_bot.data.repositories import (
 )
 from forex_bot.domain.candles import CandleFrame, CandleRequest
 from forex_bot.execution.reconciliation import Reconciler
-from forex_bot.guards import (
-    StrategyNotApprovedError,
-    assert_loop_strategies_approved,
-    assert_practice_data_environment,
-)
+from forex_bot.guards import assert_practice_data_environment
 from forex_bot.logging_config import configure_logging, get_logger
 from forex_bot.loops import build_strategies, run_paper_loop, run_practice_loop
 from forex_bot.reporting.render import render_html, render_markdown

@@ -13,6 +13,7 @@ from collections.abc import Iterable, Sequence
 from dataclasses import dataclass
 from decimal import Decimal
 
+from forex_bot.approval import assert_loop_strategies_approved
 from forex_bot.broker.base import Broker
 from forex_bot.broker.mapping import map_spread_snapshot
 from forex_bot.clock import utcnow
@@ -37,7 +38,6 @@ from forex_bot.domain.signals import Signal
 from forex_bot.execution.executor import ExecutionResult, Executor
 from forex_bot.execution.planner import Planner
 from forex_bot.execution.reconciliation import Reconciler
-from forex_bot.guards import assert_loop_strategies_approved
 from forex_bot.logging_config import get_logger
 from forex_bot.risk.policy import RiskEngine, RiskInputs
 from forex_bot.strategies.base import Strategy, StrategyContext
@@ -155,10 +155,14 @@ def run_practice_loop(
     orders: BrokerOrderRepo,
     transactions: TransactionRepo,
 ) -> LoopOutcome:
-    # Research-freeze guard: refuse to run any strategy not in the
-    # approved-strategy registry. Live mode is additionally blocked by
-    # the existing config-layer live gates.
-    assert_loop_strategies_approved("demo", settings.strategy.enabled)
+    # Research-freeze guard: refuse to run any strategy not approved for
+    # this loop mode. A live-mode Settings has already passed the
+    # config-layer live gates (load_settings enforces them).
+    _loop_mode = "live" if settings.app.mode == "live" else "demo"
+    assert_loop_strategies_approved(
+        _loop_mode, settings.strategy.enabled,
+        live_gates_ok=(_loop_mode == "live"),
+    )
     risk_engine = RiskEngine(settings)
     planner = Planner(risk=risk_engine, signals=signals, decisions=decisions, plans=plans)
     reconciler = Reconciler(
