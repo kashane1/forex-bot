@@ -1,12 +1,17 @@
-# Lean parity harness — skeleton
+# Lean parity harness — preparation layer
 
-**Status: DESIGN / SKELETON ONLY.** QuantConnect Lean is **not** installed
-in this repo and was **not run**. Nothing here executes a backtest, a
-cloud job, or a live order. This directory holds the spec and setup
-instructions for a *future*, human-initiated parity check.
+**Status: PREPARATION HARNESS.** QuantConnect Lean is still **not**
+installed in this repo and was **not run** — no backtest, no cloud job,
+no live order. What changed in `infra-execution-fidelity-001` Phase 3:
+the parity prep is now partly *runnable*. Two scripts
+(`scripts/build_lean_parity_config.py`, `scripts/export_lean_parity_data.py`)
+extract the authoritative parameters and export the candle data; the
+remaining steps (install Lean, write the algorithm, run the backtest)
+stay manual and human-initiated.
 
-See `docs/research/LEAN_PARITY_DESIGN.md` for the full design and
-`src/forex_bot/lean/README.md` for the standing Lean boundary rules.
+See `docs/research/LEAN_PARITY_EXECUTION_GUIDE.md` for what runs now and
+what is manual, `docs/research/LEAN_PARITY_DESIGN.md` for the full
+design, and `src/forex_bot/lean/README.md` for the Lean boundary rules.
 
 ## What this is
 
@@ -18,12 +23,22 @@ cannot approve any strategy, and the target campaign is already REJECT.
 
 ## Files
 
-- `campaign_002_h4_spec.md` — the precise replication spec: exact
-  strategy parameters, data, cost model, exits, what to compare, and a
-  Lean algorithm skeleton.
+- `campaign_002_h4_spec.md` — the replication spec and Lean algorithm
+  skeleton. **Note:** its hand-written parameter table predates Phase 3
+  and was copied from the frozen baseline; for authoritative parameters
+  use `lean_parity_config.json` (below), not that table.
+- `lean_parity_config.json` — **authoritative** parameters, generated
+  from the committed CAMPAIGN_002 config by
+  `scripts/build_lean_parity_config.py`. Regenerate if the campaign
+  config changes.
+- `lean_h4_export_format.md` — the Lean custom-data CSV format that
+  `scripts/export_lean_parity_data.py` produces.
+- `CAMPAIGN_002_PARITY_CHECKLIST.md` — a tickable mapping + tolerance
+  checklist for the parity run.
 - (future) a Lean project directory created by `lean init`, the
-  exported candle data, and a backtest results folder. None of that is
-  committed yet — it does not exist until a human runs the setup below.
+  exported candle data (`exported/`), and a backtest results folder.
+  None of that is committed — it does not exist until a human runs the
+  setup below.
 
 ## Constraints (do not violate)
 

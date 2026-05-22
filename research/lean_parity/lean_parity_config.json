@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "description": "Authoritative Lean-parity parameters for the CAMPAIGN_002 H4 trend_following baseline, extracted from the committed campaign config \u2014 not hand-copied.",
+    "generated_by": "scripts/build_lean_parity_config.py",
+    "source_config": "configs/campaign_002_real_oanda.yaml",
+    "source_config_hash": "d536a9b06818197f9915de6224e0b8ae58e77abe2c6f3c19426338646fb077bf",
+    "parity_target": "CAMPAIGN_002 H4 trend_following baseline",
+    "verdict_on_record": "REJECT",
+    "is_an_approval": false,
+    "note": "Verification infrastructure only. CAMPAIGN_002 is already REJECT; a parity run validates the engine, it cannot approve any strategy.",
+    "generated_at": "2026-05-22T18:32:49+00:00"
+  },
+  "strategy": {
+    "name": "trend_following",
+    "version": "0.1.0-baseline-frozen",
+    "timeframe": "H4",
+    "ema_fast": 50,
+    "ema_slow": 200,
+    "donchian_lookback": 20,
+    "atr_lookback": 14,
+    "atr_stop_multiple": 2.0,
+    "trailing_stop_atr_multiple": 2.0,
+    "min_atr_pips": {},
+    "max_bars_in_trade": 240,
+    "adx_lookback": 14,
+    "adx_min": null
+  },
+  "market": {
+    "account_currency": "USD",
+    "instruments": [
+      "EUR_USD",
+      "GBP_USD",
+      "USD_JPY",
+      "AUD_USD",
+      "USD_CAD",
+      "USD_CHF",
+      "NZD_USD"
+    ],
+    "granularity": "H4",
+    "daily_alignment": 17,
+    "alignment_timezone": "America/New_York"
+  },
+  "cost_model": {
+    "fixed_slippage_pips": 0.2,
+    "spread_slippage_multiplier": 0.5,
+    "commission_per_unit": 0.0,
+    "fill_timing": "signal_bar_close",
+    "fill_rule": "bid/ask-aware: a long enters at the ask, a short at the bid, plus the slippage above",
+    "note": "CAMPAIGN_002 ran before the fill-timing model existed, so its behaviour corresponds to fill_timing=signal_bar_close. A next_bar_open parity would be a separate, later comparison."
+  },
+  "sizing": {
+    "starting_equity_usd": 500.0,
+    "risk_per_trade_pct": 0.25,
+    "rule": "fixed fractional \u2014 risk_per_trade_pct of equity per trade"
+  },
+  "splits": {
+    "train": [
+      "2020-01-01",
+      "2022-12-31"
+    ],
+    "validation": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "test_untouched": [
+      "2025-01-01",
+      "2026-05-20"
+    ],
+    "full": [
+      "2020-01-01",
+      "2026-05-20"
+    ]
+  },
+  "first_parity_target": {
+    "instrument": "EUR_USD",
+    "split": "full",
+    "note": "Start with EUR_USD over the full window; expand to the other pairs only if single-pair parity passes."
+  },
+  "excluded_from_parity": [
+    "financing \u2014 unmodeled in both engines",
+    "RiskEngine spread / session / correlation / margin filters \u2014 bespoke; compare only the bespoke engine's accepted trades"
+  ]
+}
