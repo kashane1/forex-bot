@@ -243,6 +243,22 @@ def test_export_manifest_records_the_produced_bundle():
     assert "gitignored" in manifest.lower()
 
 
+def test_export_bundle_covers_all_seven_campaign_002_pairs():
+    """Phase 2: the bundle covers the full CAMPAIGN_002 universe — the
+    six majors plus NZD_USD."""
+    bundle = (
+        _REPO / "research" / "lean_parity" / "exports" / "campaign_002_h4"
+    )
+    provs = {
+        p.name.split("_H4_")[0]
+        for p in bundle.glob("*_H4_lean.provenance.json")
+    }
+    assert provs == {
+        "EUR_USD", "GBP_USD", "USD_JPY", "AUD_USD",
+        "USD_CAD", "USD_CHF", "NZD_USD",
+    }
+
+
 def test_committed_provenance_sidecars_are_present_and_credential_free():
     """Every committed Lean-parity provenance sidecar carries hashes,
     counts, and a window only — never an account id or token."""

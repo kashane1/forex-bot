@@ -1,32 +1,34 @@
 # CAMPAIGN_002 H4 — Lean parity export bundle
 
-**Date:** 2026-05-22 · **Branch:** `oanda-practice-readonly-001` · Phase 7
-**Supersedes:** the `infra-data-parity-001` Phase 3 manifest (export was
-blocked then — no OANDA credentials).
+**Date:** 2026-05-22 · **Branch:** `infra-lean-parity-001` · Phase 2
+**Supersedes:** the `oanda-practice-readonly-001` Phase 7 six-pair
+manifest — this bundle is now the **complete seven-pair** CAMPAIGN_002
+universe.
 
 The export bundle for the CAMPAIGN_002 H4 `trend_following` Lean parity
 run. **Verification only** — CAMPAIGN_002 is already REJECT; a parity
 result validates the bespoke engine and approves nothing.
 
-## Status — export produced
+## Status — complete seven-pair export produced
 
 The export ran against the real, rehydrated local OANDA practice H4
-store (`data/oanda_h4_research.sqlite3`, built in Phase 4). A **full**
-export was generated for all six pairs present in that store — not a
-sample.
+store (`data/oanda_h4_research.sqlite3`). A **full** export was
+generated for **all seven CAMPAIGN_002 instruments** — the six majors
+plus NZD_USD, which was added to the store in `infra-lean-parity-001`
+Phase 1. This is not a sample.
 
 | artifact | state |
 |---|---|
 | `EXPORT_MANIFEST.md` (this file) | committed |
-| `<INSTRUMENT>_H4_lean.csv` (candle data, 6 files) | **produced — gitignored, not committed** |
-| `<INSTRUMENT>_H4_lean.provenance.json` (hashes, 6 files) | **produced — committed** |
+| `<INSTRUMENT>_H4_lean.csv` (candle data, 7 files) | **produced — gitignored, not committed** |
+| `<INSTRUMENT>_H4_lean.provenance.json` (hashes, 7 files) | **produced — committed** |
 
 The candle CSVs are bulky market data (~0.95 MB each) and are
 **gitignored** (`research/lean_parity/exports/**/*.csv`); they are
 regenerable from the local store with the command below. The small
 provenance JSONs are committed.
 
-### Exported instruments
+## Instrument coverage
 
 Full window 2020-01-01 → 2026-05-19, granularity H4, source
 `oanda-practice`, completed candles only.
@@ -39,23 +41,23 @@ Full window 2020-01-01 → 2026-05-19, granularity H4, source
 | AUD_USD | 9931 | `fb9e619a93fb24d1…` | `f80ebeddf05ab414` |
 | USD_CAD | 9931 | `77f9bf8839b20831…` | `279da4f7950b782b` |
 | USD_CHF | 9931 | `64ab6151e649080e…` | `ee37f52e9aee64b2` |
+| NZD_USD | 9935 | `3ba489b194c63734…` | `84c1e5b0e9ad2b07` |
 
-**NZD_USD** is the seventh CAMPAIGN_002 instrument but is **not** in the
-six-pair H4 research store (the rehydration universe is deliberately the
-six majors). It was therefore not exported. A NZD_USD parity export
-would need a separate rehydration fetch and is out of this sprint's
-scope. The first parity target is EUR_USD; the other five are exported
-and ready should single-pair parity pass.
+**Total: 69,522 completed H4 candles across all seven CAMPAIGN_002
+pairs.** The first parity target remains EUR_USD; the other six are
+exported and ready.
 
 ## Producing / regenerating the export
 
 ```bash
-# 1. Build the local H4 store (needs OANDA practice credentials):
+# 1. Build the local H4 store (needs OANDA practice credentials).
+#    The six majors plus NZD_USD:
 set -a && source .env && set +a
 python scripts/rehydrate_oanda_h4_store.py
+python scripts/rehydrate_oanda_h4_store.py --instruments NZD_USD
 
 # 2. Export each CAMPAIGN_002 H4 pair into this bundle (read-only):
-for inst in EUR_USD GBP_USD USD_JPY AUD_USD USD_CAD USD_CHF; do
+for inst in EUR_USD GBP_USD USD_JPY AUD_USD USD_CAD USD_CHF NZD_USD; do
   python scripts/export_lean_parity_data.py \
       --db data/oanda_h4_research.sqlite3 --instrument "$inst" \
       --from 2020-01-01 --to 2026-05-20

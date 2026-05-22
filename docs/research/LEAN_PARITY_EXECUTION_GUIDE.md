@@ -1,9 +1,9 @@
 # Lean Parity Execution Guide
 
 **Date:** 2026-05-22 · **Branch:** `infra-execution-fidelity-001` · Phase 3
-**Updated:** 2026-05-22 · `oanda-practice-readonly-001` Phase 7 — the
-local real-OANDA H4 store is built and the CAMPAIGN_002 H4 export bundle
-is produced (six pairs). See §2 and the export manifest.
+**Updated:** 2026-05-22 · `infra-lean-parity-001` Phase 2 — the
+CAMPAIGN_002 H4 export bundle is now **complete (all seven pairs,
+including NZD_USD)**. See §2 and the export manifest.
 
 Moves Lean parity from **design-only** to a **runnable local
 preparation harness**. It builds on `docs/research/LEAN_PARITY_DESIGN.md`
@@ -56,7 +56,7 @@ generated JSON is the single source of truth; trust it over any prose.
 python scripts/build_lean_parity_config.py
 ```
 
-### `scripts/export_lean_parity_data.py` — produced (Phase 7)
+### `scripts/export_lean_parity_data.py` — produced, seven pairs
 
 Reads completed OANDA H4 bid/ask candles from the local store and writes
 a Lean custom-data CSV plus a provenance sidecar (see
@@ -70,23 +70,22 @@ candle CSVs are bulky market data and are gitignored
 (`research/lean_parity/exports/**/*.csv`); the provenance JSONs and the
 manifest are committed.
 
-As of `oanda-practice-readonly-001` Phase 7 the export **has been
-produced** — a full export of all six pairs in the local H4 store
-(EUR_USD, GBP_USD, USD_JPY, AUD_USD, USD_CAD, USD_CHF), full window
-2020-01-01 → 2026-05-19, ~9,931 candles each. NZD_USD (the 7th
-CAMPAIGN_002 instrument) is not in the six-pair store and was not
-exported.
+As of `infra-lean-parity-001` Phase 2 the export is **complete for all
+seven CAMPAIGN_002 instruments** — the six majors plus NZD_USD (added to
+the store in Phase 1). Full window 2020-01-01 → 2026-05-19, ~9,931
+candles each (NZD_USD 9,935), 69,522 candles total.
 
-Exact commands — build the store, then export all six CAMPAIGN_002 H4
+Exact commands — build the store, then export all seven CAMPAIGN_002 H4
 pairs into the bundle:
 
 ```bash
 # 1. Build the local real-OANDA H4 store (needs practice credentials):
 set -a && source .env && set +a
 python scripts/rehydrate_oanda_h4_store.py
+python scripts/rehydrate_oanda_h4_store.py --instruments NZD_USD
 
 # 2. Export each CAMPAIGN_002 H4 pair (read-only — local store only):
-for inst in EUR_USD GBP_USD USD_JPY AUD_USD USD_CAD USD_CHF; do
+for inst in EUR_USD GBP_USD USD_JPY AUD_USD USD_CAD USD_CHF NZD_USD; do
   python scripts/export_lean_parity_data.py \
       --db data/oanda_h4_research.sqlite3 --instrument "$inst" \
       --from 2020-01-01 --to 2026-05-20
