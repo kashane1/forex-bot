@@ -1,0 +1,84 @@
+{
+  "parity_target": "CAMPAIGN_002 H4 trend_following baseline",
+  "risk_engine_used": false,
+  "fill_timing": "signal_bar_close",
+  "window": [
+    "2020-01-01",
+    "2026-05-20"
+  ],
+  "config_hash": "d536a9b06818197f9915de6224e0b8ae58e77abe2c6f3c19426338646fb077bf",
+  "strategy_evidence": false,
+  "total_trades": 1647,
+  "pairs": [
+    {
+      "instrument": "EUR_USD",
+      "candle_count": 9931,
+      "trades": 233,
+      "expectancy_r": -0.1961,
+      "return_pct": -10.8345,
+      "profit_factor": 0.5839,
+      "win_rate": 0.3047,
+      "max_drawdown_pct": -12.3143
+    },
+    {
+      "instrument": "GBP_USD",
+      "candle_count": 9931,
+      "trades": 215,
+      "expectancy_r": -0.0971,
+      "return_pct": -5.1182,
+      "profit_factor": 0.774,
+      "win_rate": 0.3721,
+      "max_drawdown_pct": -7.2561
+    },
+    {
+      "instrument": "USD_JPY",
+      "candle_count": 9932,
+      "trades": 247,
+      "expectancy_r": -0.0001,
+      "return_pct": -1.3735,
+      "profit_factor": 0.9465,
+      "win_rate": 0.3603,
+      "max_drawdown_pct": -3.6892
+    },
+    {
+      "instrument": "AUD_USD",
+      "candle_count": 9931,
+      "trades": 237,
+      "expectancy_r": -0.2134,
+      "return_pct": -11.9013,
+      "profit_factor": 0.5661,
+      "win_rate": 0.2785,
+      "max_drawdown_pct": -12.9207
+    },
+    {
+      "instrument": "USD_CAD",
+      "candle_count": 9931,
+      "trades": 251,
+      "expectancy_r": -0.1804,
+      "return_pct": -14.1096,
+      "profit_factor": 0.5123,
+      "win_rate": 0.2869,
+      "max_drawdown_pct": -14.6336
+    },
+    {
+      "instrument": "USD_CHF",
+      "candle_count": 9931,
+      "trades": 224,
+      "expectancy_r": -0.143,
+      "return_pct": -7.0322,
+      "profit_factor": 0.6895,
+      "win_rate": 0.3571,
+      "max_drawdown_pct": -8.0895
+    },
+    {
+      "instrument": "NZD_USD",
+      "candle_count": 9935,
+      "trades": 240,
+      "expectancy_r": -0.2645,
+      "return_pct": -14.7032,
+      "profit_factor": 0.4828,
+      "win_rate": 0.2875,
+      "max_drawdown_pct": -15.3618
+    }
+  ]
+}

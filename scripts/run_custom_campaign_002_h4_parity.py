@@ -27,6 +27,7 @@ See docs/research/INFRA_LEAN_PARITY_001_PLAN.md.
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -204,6 +205,7 @@ def render_doc(
     config_hash: str,
     generated_at: datetime,
     db_display: str,
+    risk_engine_used: bool = True,
 ) -> str:
     total_trades = sum(r.trade_count for r in results)
     lines: list[str] = [
@@ -228,7 +230,12 @@ def render_doc(
         f"| config hash | `{config_hash[:16]}…` |",
         "| fill timing | `signal_bar_close` (CAMPAIGN_002's timing) |",
         "| cost model | base regime — 0.2 pip slippage, 0.5× spread |",
-        "| risk engine | wired in (`mode=backtest`) — as CAMPAIGN_002 ran |",
+        (
+            "| risk engine | wired in (`mode=backtest`) — as CAMPAIGN_002 ran |"
+            if risk_engine_used
+            else "| risk engine | **not wired** — parity-isolation run "
+            "(`risk_engine=None`), strategy + engine mechanics only |"
+        ),
         f"| window | {WINDOW_FROM} → {WINDOW_TO} (full split) |",
         f"| data store | `{db_display}` (gitignored) |",
         "",
@@ -261,38 +268,55 @@ def render_doc(
     lines.append("")
     lines.append(f"**Total trades across the seven pairs: {total_trades}.**")
 
-    lines += [
-        "",
-        "## Comparison to the committed CAMPAIGN_002 report",
-        "",
-        "Reference numbers are the CAMPAIGN_002 H4 full-split, base-cost "
-        "per-pair figures from `backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md`. "
-        "A small delta is expected (the store was independently "
-        "re-fetched); a large delta would itself be a finding to "
-        "investigate — never tuned away.",
-        "",
-        "| instrument | trades (repro / ref / Δ) | expectancy R (repro / ref / Δ) |",
-        "|---|---|---|",
-    ]
-    for r in results:
-        ref = CAMPAIGN_002_H4_REFERENCE.get(r.instrument)
-        if ref is None:
+    if risk_engine_used:
+        lines += [
+            "",
+            "## Comparison to the committed CAMPAIGN_002 report",
+            "",
+            "Reference numbers are the CAMPAIGN_002 H4 full-split, base-cost "
+            "per-pair figures from `backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md`. "
+            "A small delta is expected (the store was independently "
+            "re-fetched); a large delta would itself be a finding to "
+            "investigate — never tuned away.",
+            "",
+            "| instrument | trades (repro / ref / Δ) | expectancy R (repro / ref / Δ) |",
+            "|---|---|---|",
+        ]
+        for r in results:
+            ref = CAMPAIGN_002_H4_REFERENCE.get(r.instrument)
+            if ref is None:
+                lines.append(
+                    f"| {r.instrument} | {r.trade_count} / — / — | "
+                    f"{r.expectancy_r:.3f} / — / — |"
+                )
+                continue
             lines.append(
-                f"| {r.instrument} | {r.trade_count} / — / — | "
-                f"{r.expectancy_r:.3f} / — / — |"
+                f"| {r.instrument} | {r.trade_count} / {int(ref['trades'])} / "
+                f"{r.trade_count - int(ref['trades']):+d} | "
+                f"{r.expectancy_r:.3f} / {ref['expectancy_r']:.3f} / "
+                f"{_delta(r.expectancy_r, ref['expectancy_r'])} |"
             )
-            continue
-        lines.append(
-            f"| {r.instrument} | {r.trade_count} / {int(ref['trades'])} / "
-            f"{r.trade_count - int(ref['trades']):+d} | "
-            f"{r.expectancy_r:.3f} / {ref['expectancy_r']:.3f} / "
-            f"{_delta(r.expectancy_r, ref['expectancy_r'])} |"
-        )
+        lines += [
+            "",
+            f"Reproduction total trades **{total_trades}** vs committed "
+            f"**{REFERENCE_TOTAL_TRADES}** "
+            f"(Δ {total_trades - REFERENCE_TOTAL_TRADES:+d}).",
+        ]
+    else:
+        lines += [
+            "",
+            "## Parity-isolation run (no RiskEngine)",
+            "",
+            "This run wires **no** RiskEngine — it is the strategy + engine "
+            "mechanics in isolation, the engine's `risk_engine=None` path. "
+            "Its trade count is therefore **higher** than the "
+            f"with-RiskEngine CAMPAIGN_002 result ({REFERENCE_TOTAL_TRADES} "
+            "trades): the RiskEngine's spread / session / loss-limit gates "
+            "are not applied here. This is the apples-to-apples reference "
+            "for a Lean parity algorithm that replicates the strategy and "
+            "mechanics but not the bespoke RiskEngine.",
+        ]
     lines += [
-        "",
-        f"Reproduction total trades **{total_trades}** vs committed "
-        f"**{REFERENCE_TOTAL_TRADES}** "
-        f"(Δ {total_trades - REFERENCE_TOTAL_TRADES:+d}).",
         "",
         "## What this establishes",
         "",
@@ -320,7 +344,17 @@ def main(argv: list[str] | None = None) -> int:
     )
     ap.add_argument("--db", default=str(DEFAULT_DB))
     ap.add_argument("--config", default=str(DEFAULT_CONFIG))
-    ap.add_argument("--out", default=str(DEFAULT_OUT))
+    ap.add_argument("--out", default=None)
+    ap.add_argument(
+        "--no-risk-engine", action="store_true",
+        help="run the engine's risk_engine=None parity-isolation path "
+             "(strategy + mechanics only); the apples-to-apples Lean "
+             "parity reference",
+    )
+    ap.add_argument(
+        "--json", default=None, metavar="PATH",
+        help="also write a machine-readable summary JSON to PATH",
+    )
     args = ap.parse_args(argv)
 
     db_path = Path(args.db)
@@ -337,7 +371,8 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     settings = load_settings(Path(args.config))
-    risk_engine = RiskEngine(settings, mode="backtest")
+    risk_engine_used = not args.no_risk_engine
+    risk_engine = RiskEngine(settings, mode="backtest") if risk_engine_used else None
     candle_repo = CandleRepo(Database(db_path))
     from_dt = datetime.fromisoformat(WINDOW_FROM).replace(tzinfo=UTC)
     to_dt = datetime.fromisoformat(WINDOW_TO).replace(tzinfo=UTC)
@@ -358,7 +393,17 @@ def main(argv: list[str] | None = None) -> int:
             f"expectancy_r={result.expectancy_r:.3f}"
         )
 
-    out_path = Path(args.out)
+    # Default output path — distinct per mode so the no-RiskEngine run
+    # never clobbers the committed with-RiskEngine reproduction.
+    out_path = Path(
+        args.out
+        if args.out
+        else (
+            DEFAULT_OUT
+            if risk_engine_used
+            else DEFAULT_OUT.with_name("custom_campaign_002_h4_parity_norisk.md")
+        )
+    )
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(
         render_doc(
@@ -366,9 +411,42 @@ def main(argv: list[str] | None = None) -> int:
             config_hash=settings.config_hash,  # type: ignore[attr-defined]
             generated_at=datetime.now(UTC),
             db_display=db_display,
+            risk_engine_used=risk_engine_used,
         ),
         encoding="utf-8",
     )
+    if args.json:
+        json_payload = {
+            "parity_target": "CAMPAIGN_002 H4 trend_following baseline",
+            "risk_engine_used": risk_engine_used,
+            "fill_timing": "signal_bar_close",
+            "window": [WINDOW_FROM, WINDOW_TO],
+            "config_hash": settings.config_hash,  # type: ignore[attr-defined]
+            "strategy_evidence": False,
+            "total_trades": sum(r.trade_count for r in results),
+            "pairs": [
+                {
+                    "instrument": r.instrument,
+                    "candle_count": r.candle_count,
+                    "trades": r.trade_count,
+                    "expectancy_r": round(r.expectancy_r, 4),
+                    "return_pct": round(r.total_return_pct, 4),
+                    "profit_factor": (
+                        round(r.profit_factor, 4)
+                        if r.profit_factor is not None
+                        else None
+                    ),
+                    "win_rate": round(r.win_rate, 4),
+                    "max_drawdown_pct": round(r.max_drawdown_pct, 4),
+                }
+                for r in results
+            ],
+        }
+        Path(args.json).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.json).write_text(
+            json.dumps(json_payload, indent=2) + "\n", encoding="utf-8"
+        )
+        print(f"  machine-readable summary → {args.json}")
     try:
         out_display = str(out_path.resolve().relative_to(ROOT))
     except ValueError:
