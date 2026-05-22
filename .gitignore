@@ -110,6 +110,13 @@ backtests/campaign_008_range_mean_reversion/runs/**/*_equity.csv
 backtests/campaign_008_range_mean_reversion/runs/**/*_trades.csv
 backtests/campaign_008_range_mean_reversion/runs/**/*_metrics.json
 backtests/campaign_008_range_mean_reversion/runs/**/*_metrics.md
+# CAMPAIGN_009 (human-authorized follow-up): same policy — commit summary
+# JSONs + risk_rejections CSVs + _index.json; gitignore the bulky
+# equity/trade/metrics CSVs.
+backtests/campaign_009_mean_reversion/runs/**/*_equity.csv
+backtests/campaign_009_mean_reversion/runs/**/*_trades.csv
+backtests/campaign_009_mean_reversion/runs/**/*_metrics.json
+backtests/campaign_009_mean_reversion/runs/**/*_metrics.md
 
 # Founders pack stays in repo but ignore any temp copies
 *.tmp

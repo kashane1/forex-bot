@@ -198,6 +198,9 @@ class MeanReversionStrategyConfig(BaseModel):
     atr_stop_multiple: float = 1.5
     trailing_stop_atr_multiple: float | None = None
     max_bars_in_trade: int = 40
+    # Opt-in midline-target exit (CAMPAIGN_009). False → behaviour is
+    # identical to CAMPAIGN_008 (mean_reversion 0.1.0-c008).
+    midline_exit: bool = False
     min_atr_pips: dict[str, float] = Field(default_factory=dict)
 
     @model_validator(mode="after")

@@ -8,6 +8,7 @@ side.
 
 from __future__ import annotations
 
+import random
 from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 
@@ -143,3 +144,59 @@ def test_no_signal_when_position_open(eur_usd):
         config=ctx.config,
     )
     assert MeanReversionStrategy(version="0.1.0-c008").generate_signal(ctx) is None
+
+
+def _oversold_range_rows() -> list[tuple[float, float, float, float]]:
+    """A flat, low-ADX range followed by a sharp 7-bar dip — the canonical
+    reversion-long setup (strongly negative z-score, low RSI, low ADX)."""
+    rows: list[tuple[float, float, float, float]] = []
+    base = 1.1000
+    rng = random.Random(7)
+    for _ in range(250):
+        m = base + rng.uniform(-0.0010, 0.0010)
+        rows.append((m, m + 0.0006, m - 0.0006, m))
+    for k in range(1, 8):
+        m = base - 0.0009 * k
+        rows.append((m + 0.0002, m + 0.0004, m - 0.0004, m))
+    return rows
+
+
+def test_midline_exit_off_keeps_c008_signal(eur_usd):
+    """With midline_exit absent (the c008 default) the Signal is identical
+    to CAMPAIGN_008: no take_profit_price, exit_model unchanged, no midline
+    feature. Proves CAMPAIGN_009's change is strictly opt-in."""
+    frame = _frame(_oversold_range_rows())
+    sig = MeanReversionStrategy(version="0.1.0-c008").generate_signal(
+        _ctx(frame, eur_usd)
+    )
+    assert sig is not None
+    assert sig.side == "long"
+    assert sig.take_profit_price is None
+    assert sig.exit_model == "hard_stop_or_time"
+    assert "midline" not in sig.features
+
+
+def test_midline_exit_sets_take_profit_target(eur_usd):
+    """CAMPAIGN_009: with midline_exit=True a reversion long carries a
+    take_profit_price at the rolling mean — above the oversold close and
+    above the hard stop — so the engine can exit at the mean instead of
+    waiting out the time stop."""
+    frame = _frame(_oversold_range_rows())
+    base_ctx = _ctx(frame, eur_usd)
+    cfg = dict(_CFG)
+    cfg["midline_exit"] = True
+    ctx = StrategyContext(
+        instrument=base_ctx.instrument, candles=base_ctx.candles,
+        market_state=base_ctx.market_state,
+        open_positions=base_ctx.open_positions, config=cfg,
+    )
+    sig = MeanReversionStrategy(version="0.2.0-c009").generate_signal(ctx)
+    assert sig is not None
+    assert sig.side == "long"
+    assert sig.take_profit_price is not None
+    last_close = Decimal(str(sig.features["last_close"]))
+    # a sane long bracket: hard stop below entry, midline target above it
+    assert sig.stop_price < last_close < sig.take_profit_price
+    assert sig.exit_model == "hard_stop_target_or_time"
+    assert "midline" in sig.features
+    assert abs(sig.features["midline"] - float(sig.take_profit_price)) < 1e-4

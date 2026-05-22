@@ -1,8 +1,8 @@
-"""Range mean-reversion strategy — `mean_reversion 0.1.0-c008`.
+"""Range mean-reversion strategy — `mean_reversion` (c008 / c009).
 
-CAMPAIGN_008, RESEARCH ONLY. Mean reversion has fat-tailed loss risk
-(a range that breaks into a trend is catastrophic for a reversion
-trade). This strategy therefore:
+RESEARCH ONLY. Mean reversion has fat-tailed loss risk (a range that
+breaks into a trend is catastrophic for a reversion trade). This
+strategy therefore:
 
   * only acts in a *low-trend* regime (ADX-14 below a threshold),
   * always carries a hard ATR stop,
@@ -10,7 +10,23 @@ trade). This strategy therefore:
     single Signal; the RiskEngine enforces one position per instrument),
 
 and it **cannot be promoted beyond REVISE without human review** —
-`paper_only = True`, and the marathon caps its report at REVISE.
+`paper_only = True`.
+
+Two campaigns share this module, distinguished only by the opt-in
+`midline_exit` config flag:
+
+  * CAMPAIGN_008 (`mean_reversion 0.1.0-c008`, `midline_exit=False`):
+    exits are the hard stop or the `max_bars_in_trade` time stop only.
+  * CAMPAIGN_009 (`mean_reversion 0.2.0-c009`, `midline_exit=True`):
+    the one predeclared rule change — a midline-target exit. The
+    strategy emits a `take_profit_price` at the rolling mean (the same
+    mean the z-score is measured against), so a reversion trade can
+    exit when price reverts to the mean instead of waiting out the
+    time stop. The hard stop, the time stop, the regime filter and
+    every entry/regime parameter are unchanged from c008.
+
+With `midline_exit=False` the emitted Signal is byte-identical to c008,
+so CAMPAIGN_008 stays exactly reproducible.
 
 Entry logic (completed bars only, prior bars only, no lookahead) at the
 latest completed bar `t`:
@@ -22,9 +38,9 @@ latest completed bar `t`:
   3. Direction is *counter* to the extension (buy the dip, sell the
      rip) — reversion toward the mean.
 
-Stop = `atr_stop_multiple` × ATR-14. Exit is the hard stop or the
-`max_bars_in_trade` time stop (the engine has no midline-target exit;
-the time stop is the reversion horizon).
+Stop = `atr_stop_multiple` × ATR-14. Exit is the hard stop, the midline
+target (c009 only), or the `max_bars_in_trade` time stop — whichever
+comes first; the adverse stop wins a same-bar tie.
 """
 
 from __future__ import annotations
@@ -45,7 +61,7 @@ class MeanReversionStrategy:
     name: str = "mean_reversion"
     paper_only: bool = True  # research-only — never auto-promoted to live
 
-    def __init__(self, version: str = "0.1.0-c008") -> None:
+    def __init__(self, version: str = "0.2.0-c009") -> None:
         self.version = version
 
     def warmup_bars_required(self) -> int:
@@ -63,6 +79,7 @@ class MeanReversionStrategy:
         adx_len = int(cfg.get("adx_lookback", 14))
         adx_max = float(cfg.get("adx_max", 20.0))
         atr_multiple = float(cfg.get("atr_stop_multiple", 1.5))
+        midline_exit = bool(cfg.get("midline_exit", False))
         timeframe = cfg.get("timeframe", "H4")
         min_atr_pips_by_pair = cfg.get("min_atr_pips", {}) or {}
         min_atr_pips = float(min_atr_pips_by_pair.get(ctx.instrument.name, 0.0))
@@ -79,14 +96,21 @@ class MeanReversionStrategy:
         z = zscore(close, z_len)
         r = rsi(close, rsi_len)
         adx_series = adx(high, low, close, adx_len)
+        # The mean the z-score is measured against — the level a reversion
+        # trade is expected to revert *to*. Same window as the z-score, so
+        # the midline target is exactly "z-score back to zero".
+        midline_series = close.rolling(window=z_len, min_periods=z_len).mean()
 
         last_close = float(close.iloc[-1])
         last_atr = float(atr_series.iloc[-1])
         last_z = float(z.iloc[-1])
         last_rsi = float(r.iloc[-1])
         last_adx = float(adx_series.iloc[-1])
+        last_midline = float(midline_series.iloc[-1])
 
-        if any(_isnan(v) for v in (last_atr, last_z, last_rsi, last_adx)):
+        if any(
+            _isnan(v) for v in (last_atr, last_z, last_rsi, last_adx, last_midline)
+        ):
             return None
 
         if any(
@@ -128,6 +152,30 @@ class MeanReversionStrategy:
         else:
             stop = last_close + atr_multiple * last_atr
 
+        # Midline-target exit — the one predeclared CAMPAIGN_009 rule
+        # change, opt-in via `midline_exit`. The target is the rolling
+        # mean (the level the z-score reverts to). The entry math
+        # guarantees it sits on the favourable side of the close: a long
+        # fires only when z <= z_long < 0, i.e. close is below the mean
+        # (mirror for a short). With `midline_exit=False` take_profit
+        # stays None and the Signal is byte-identical to c008.
+        take_profit: Decimal | None = None
+        exit_model = "hard_stop_or_time"
+        if midline_exit:
+            take_profit = ctx.instrument.round_price(Decimal(str(last_midline)))
+            exit_model = "hard_stop_target_or_time"
+
+        features: dict[str, Any] = {
+            "atr": last_atr,
+            "atr_pips": atr_pips,
+            "zscore": last_z,
+            "rsi": last_rsi,
+            "adx": last_adx,
+            "last_close": last_close,
+        }
+        if midline_exit:
+            features["midline"] = last_midline
+
         last_idx = df.index[-1]
         return Signal(
             signal_id=_stable_signal_id(
@@ -143,15 +191,9 @@ class MeanReversionStrategy:
             entry_intent="market",
             stop_model=f"ATR{atr_len}*{atr_multiple}",
             stop_price=ctx.instrument.round_price(Decimal(str(stop))),
-            exit_model="hard_stop_or_time",
-            features={
-                "atr": last_atr,
-                "atr_pips": atr_pips,
-                "zscore": last_z,
-                "rsi": last_rsi,
-                "adx": last_adx,
-                "last_close": last_close,
-            },
+            take_profit_price=take_profit,
+            exit_model=exit_model,
+            features=features,
             reason=reason,
         )
 

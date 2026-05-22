@@ -88,6 +88,9 @@ class _OpenTrade:
     initial_stop_price: Decimal
     spread_pips_at_entry: Decimal
     bars_held: int = 0
+    # Optional fixed take-profit / midline-target level (CAMPAIGN_009).
+    # When set, the trade exits if price reaches it. None = no target.
+    take_profit_price: Decimal | None = None
 
 
 class BacktestEngine:
@@ -191,6 +194,19 @@ class BacktestEngine:
                     if row["ask_high"] is not None
                     else Decimal(str(row["high"]))
                 )
+                # bid_high / ask_low: the *favourable* extreme used to test a
+                # take-profit / midline-target exit (long sells at bid,
+                # short buys back at ask).
+                bid_high = (
+                    Decimal(str(row["bid_high"]))
+                    if row["bid_high"] is not None
+                    else Decimal(str(row["high"]))
+                )
+                ask_low = (
+                    Decimal(str(row["ask_low"]))
+                    if row["ask_low"] is not None
+                    else Decimal(str(row["low"]))
+                )
                 bid_close = (
                     Decimal(str(row["bid_close"]))
                     if row["bid_close"] is not None
@@ -224,6 +240,11 @@ class BacktestEngine:
                 exit_reason: str | None = None
                 exit_price: Decimal | None = None
 
+                # Exit precedence within a bar: the adverse stop is checked
+                # first (conservative — assume the loss filled before any
+                # favourable target), then the take-profit target, then the
+                # time stop.
+                tp = open_trade.take_profit_price
                 if open_trade.side == "long":
                     if bid_low <= open_trade.stop_price:
                         exit_reason = (
@@ -232,6 +253,9 @@ class BacktestEngine:
                             else "stop"
                         )
                         exit_price = open_trade.stop_price
+                    elif tp is not None and bid_high >= tp:
+                        exit_reason = "target"
+                        exit_price = tp
                     elif open_trade.bars_held >= self.max_bars_in_trade:
                         exit_reason = "time"
                         exit_price = bid_close
@@ -243,6 +267,9 @@ class BacktestEngine:
                             else "stop"
                         )
                         exit_price = open_trade.stop_price
+                    elif tp is not None and ask_low <= tp:
+                        exit_reason = "target"
+                        exit_price = tp
                     elif open_trade.bars_held >= self.max_bars_in_trade:
                         exit_reason = "time"
                         exit_price = ask_close
@@ -389,6 +416,15 @@ class BacktestEngine:
                 units = sizing.units
                 stop_price_to_use = signal.stop_price
 
+            # Optional fixed take-profit / midline target carried by the
+            # signal (e.g. CAMPAIGN_009 mean reversion). Only honoured if it
+            # sits on the favourable side of the entry.
+            tp_price = signal.take_profit_price
+            if tp_price is not None and (
+                (signal.side == "long" and tp_price <= entry)
+                or (signal.side == "short" and tp_price >= entry)
+            ):
+                tp_price = None
             open_trade = _OpenTrade(
                 side=signal.side,
                 units=units,
@@ -397,6 +433,7 @@ class BacktestEngine:
                 stop_price=stop_price_to_use,
                 initial_stop_price=stop_price_to_use,
                 spread_pips_at_entry=spread_pips,
+                take_profit_price=tp_price,
             )
             equity -= float(self.commission_per_unit * units)
 
