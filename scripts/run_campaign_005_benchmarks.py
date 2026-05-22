@@ -9,7 +9,6 @@ nothing. See docs/research/CAMPAIGN_005_BENCHMARKS_PRECOMMIT.md.
 
 from __future__ import annotations
 
-import json
 import statistics
 import subprocess
 import sys
