@@ -76,3 +76,26 @@ Newest entries at the bottom.
   reversion, research-only).
 
 ---
+
+### Phase 4 — CAMPAIGN_008 range mean-reversion (research-only)
+
+- Rewrote `mean_reversion 0.1.0-c008` — regime-filtered (ADX-14 < 20)
+  reversion of z-score ±2 extremes with RSI confirmation, mandatory
+  ATR stop, no averaging down / grid / martingale (5 strategy tests).
+- Screening run (36 runs, H4):
+  - **validation +0.172 R, PF 1.29, +1.04%, 6/6 pairs positive**
+  - cost stress positive at base/15x/2x (+0.069 / +0.040 / +0.027)
+  - **train −0.017 R, PF 1.02** — flat, marginally negative.
+- **Screening gate FAIL — by a single criterion**: the pre-committed
+  gate requires train expectancy ≥ 0; train is −0.017. Not relaxed
+  post-hoc. The 2025-2026 test window was **not** opened.
+- Verdict: **REJECT** (research-only; capped at REVISE anyway).
+- **BUT this is the marathon's one real near-miss** — the only
+  campaign with clearly positive validation, broad pair breadth, and
+  cost-stress survival; it beats the CAMPAIGN_005 random benchmark on
+  every split. Flagged for human review as the recommended next
+  decision point.
+- Report: `backtests/CAMPAIGN_008_RANGE_MEAN_REVERSION_REPORT.md`.
+- Status: **complete**. Ladder finished → Phase 5.
+
+---
