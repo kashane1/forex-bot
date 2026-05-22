@@ -65,8 +65,9 @@ and per-run risk-rejection CSVs are committed under each campaign's
 
 ## Diagnostic & parity artifacts (NOT strategy evidence)
 
-Infrastructure outputs from the `infra-execution-fidelity-001` and
-`infra-data-parity-001` sprints. **These are not campaign evidence.**
+Infrastructure outputs from the `infra-execution-fidelity-001`,
+`infra-data-parity-001`, and `oanda-practice-readonly-001` sprints.
+**These are not campaign evidence.**
 They are mechanical plumbing checks and independent-verification
 inputs — none measures, implies, or can establish a strategy edge, and
 none can approve anything. The machine-readable manifest lists them
@@ -86,6 +87,21 @@ Supporting infrastructure docs:
 [OANDA H4 rehydration](OANDA_H4_DATA_REHYDRATION.md) ·
 [data rehydration runbook](DATA_REHYDRATION_RUNBOOK.md) ·
 [data/parity sprint plan](INFRA_DATA_PARITY_001_PLAN.md).
+
+### OANDA practice read-only integration (`oanda-practice-readonly-001`)
+
+Read-only OANDA practice integration and data-foundation reports. All
+diagnostic / infrastructure outputs — none is strategy evidence, none
+approves anything, and the research freeze is unaffected.
+
+| document | what it is |
+|---|---|
+| [`OANDA_PRACTICE_READONLY_001_PLAN.md`](OANDA_PRACTICE_READONLY_001_PLAN.md) | the read-only sprint plan |
+| [`OANDA_PRACTICE_CREDENTIAL_CHECK.md`](OANDA_PRACTICE_CREDENTIAL_CHECK.md) | practice credential & environment gate (redacted) |
+| [`OANDA_READONLY_HEALTHCHECK_RESULT.md`](OANDA_READONLY_HEALTHCHECK_RESULT.md) | read-only OANDA API healthcheck result |
+| [`OANDA_INSTRUMENT_METADATA_AUDIT.md`](OANDA_INSTRUMENT_METADATA_AUDIT.md) | instrument metadata audit |
+| [`OANDA_H4_REHYDRATION_RESULT.md`](OANDA_H4_REHYDRATION_RESULT.md) | real OANDA H4 store rehydration result |
+| [`OANDA_H4_DATA_QUALITY_AUDIT.md`](OANDA_H4_DATA_QUALITY_AUDIT.md) | H4 data quality audit |
 
 ## Research-freeze documents (this branch)
 
