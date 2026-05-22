@@ -307,6 +307,39 @@ MIGRATIONS: list[tuple[int, list[str]]] = [
             """,
         ],
     ),
+    (
+        3,
+        [
+            # Observed financing events — capture infrastructure for FUTURE
+            # paper/demo observation. account_id_hash holds a SHA-256 digest
+            # only; the raw account id is never stored. event_key is a
+            # deterministic idempotency key. No current loop writes here.
+            """
+            CREATE TABLE IF NOT EXISTS observed_financing_events (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                event_key TEXT NOT NULL UNIQUE,
+                transaction_id TEXT NOT NULL,
+                account_id_hash TEXT NOT NULL,
+                instrument TEXT,
+                trade_id TEXT,
+                units TEXT,
+                financing TEXT NOT NULL,
+                currency TEXT NOT NULL,
+                time TEXT NOT NULL,
+                source TEXT NOT NULL,
+                inserted_at TEXT NOT NULL DEFAULT (datetime('now'))
+            )
+            """,
+            """
+            CREATE INDEX IF NOT EXISTS idx_observed_financing_instrument
+                ON observed_financing_events(instrument, time DESC)
+            """,
+            """
+            CREATE INDEX IF NOT EXISTS idx_observed_financing_account
+                ON observed_financing_events(account_id_hash, time DESC)
+            """,
+        ],
+    ),
 ]
 
 

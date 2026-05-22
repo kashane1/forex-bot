@@ -173,6 +173,59 @@ TRANSACTIONS_SINCEID_RESPONSE = {
     "lastTransactionID": "43",
 }
 
+# A DAILY_FINANCING transaction with a per-instrument / per-trade
+# breakdown. Mixed signs: EUR_USD and GBP_USD are debits, USD_JPY a
+# credit. GBP_USD has no openTradeFinancings (position-level only).
+DAILY_FINANCING_TRANSACTION = {
+    "id": "512",
+    "type": "DAILY_FINANCING",
+    "accountID": "001-001-1234567-001",
+    "time": "2024-03-04T22:00:00.000000000Z",
+    "financing": "-0.8234",
+    "accountBalance": "499.1766",
+    "positionFinancings": [
+        {
+            "instrument": "EUR_USD",
+            "financing": "-0.5123",
+            "openTradeFinancings": [
+                {"tradeID": "200", "financing": "-0.3000"},
+                {"tradeID": "205", "financing": "-0.2123"},
+            ],
+        },
+        {
+            "instrument": "USD_JPY",
+            "financing": "0.3111",
+            "openTradeFinancings": [{"tradeID": "210", "financing": "0.3111"}],
+        },
+        {"instrument": "GBP_USD", "financing": "-0.6222"},
+    ],
+}
+
+# A DAILY_FINANCING transaction with no per-position breakdown — only the
+# account-level total is available.
+DAILY_FINANCING_NO_BREAKDOWN = {
+    "id": "513",
+    "type": "DAILY_FINANCING",
+    "accountID": "001-001-1234567-001",
+    "time": "2024-03-05T22:00:00.000000000Z",
+    "financing": "-0.4500",
+    "accountBalance": "498.7266",
+}
+
+# An ORDER_FILL that realized financing when it closed a trade.
+ORDER_FILL_WITH_FINANCING = {
+    "id": "514",
+    "type": "ORDER_FILL",
+    "accountID": "001-001-1234567-001",
+    "time": "2024-03-06T14:00:00.000000000Z",
+    "instrument": "EUR_USD",
+    "units": "-100",
+    "price": "1.08550",
+    "pl": "1.2000",
+    "financing": "-0.1850",
+    "tradesClosed": [{"tradeID": "200", "units": "-100"}],
+}
+
 ACCOUNT_DETAILS_RESPONSE = {
     "account": {
         "id": "001-001-1234567-001",

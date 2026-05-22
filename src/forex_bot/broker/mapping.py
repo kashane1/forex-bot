@@ -12,7 +12,12 @@ from forex_bot.domain.instruments import Instrument
 from forex_bot.domain.market import Quote, SpreadSnapshot
 from forex_bot.domain.orders import BrokerOrder
 from forex_bot.domain.positions import Position, Trade
-from forex_bot.domain.transactions import Heartbeat, Transaction
+from forex_bot.domain.transactions import (
+    Heartbeat,
+    ObservedFinancingEvent,
+    Transaction,
+    hash_account_id,
+)
 
 
 def _dec(value: Any, default: Decimal | None = None) -> Decimal | None:
@@ -207,3 +212,107 @@ def map_heartbeat(payload: dict[str, Any]) -> Heartbeat:
         time=parse_rfc3339(payload["time"]),
         last_transaction_id=payload.get("lastTransactionID"),
     )
+
+
+def _financing_trade_id(payload: dict[str, Any]) -> str | None:
+    """Best-effort trade id for a financing-bearing transaction (an
+    ORDER_FILL records financing against the trade it opened/closed)."""
+    for key in ("tradeOpened", "tradeReduced"):
+        sub = payload.get(key) or {}
+        if sub.get("tradeID"):
+            return str(sub["tradeID"])
+    closed = payload.get("tradesClosed") or []
+    if closed and closed[0].get("tradeID"):
+        return str(closed[0]["tradeID"])
+    return None
+
+
+def map_daily_financing(
+    payload: dict[str, Any], *, source: str, account_currency: str
+) -> list[ObservedFinancingEvent]:
+    """Parse an OANDA v20 DAILY_FINANCING transaction into per-instrument
+    / per-trade observed financing events.
+
+    Breakdown precedence: ``openTradeFinancings`` (per trade) when
+    present, else ``positionFinancings`` (per instrument), else a single
+    account-level event carrying the transaction's total ``financing``.
+
+    The account id is hashed before it enters any event — the raw id is
+    never returned. This produces observation records only; it solves
+    nothing about *historical* financing (see
+    docs/research/OBSERVED_FINANCING_CAPTURE.md).
+    """
+    if payload.get("type") != "DAILY_FINANCING":
+        raise ValueError(
+            "map_daily_financing expects a DAILY_FINANCING transaction, got "
+            f"type={payload.get('type')!r}"
+        )
+    account_hash = hash_account_id(str(payload.get("accountID", "")))
+    tx_id = str(payload["id"])
+    when = parse_rfc3339(payload.get("time", "1970-01-01T00:00:00Z"))
+
+    def _event(
+        instrument: str | None, trade_id: str | None,
+        units: Any, financing: Any,
+    ) -> ObservedFinancingEvent:
+        return ObservedFinancingEvent(
+            transaction_id=tx_id,
+            account_id_hash=account_hash,
+            instrument=instrument,
+            trade_id=trade_id,
+            units=_dec(units),
+            financing=_dec(financing, Decimal("0")) or Decimal("0"),
+            currency=account_currency,
+            time=when,
+            source=source,
+        )
+
+    events: list[ObservedFinancingEvent] = []
+    for pf in payload.get("positionFinancings") or []:
+        instrument = pf.get("instrument")
+        open_trade_financings = pf.get("openTradeFinancings") or []
+        if open_trade_financings:
+            for otf in open_trade_financings:
+                trade_id = str(otf["tradeID"]) if otf.get("tradeID") else None
+                events.append(
+                    _event(instrument, trade_id, otf.get("units"), otf.get("financing"))
+                )
+        else:
+            events.append(_event(instrument, None, None, pf.get("financing")))
+
+    if not events:
+        # No per-position breakdown — record the account-level total.
+        events.append(_event(None, None, None, payload.get("financing")))
+    return events
+
+
+def observed_financing_events(
+    payload: dict[str, Any], *, source: str, account_currency: str
+) -> list[ObservedFinancingEvent]:
+    """Observed financing events from any transaction payload.
+
+    A DAILY_FINANCING transaction is broken down per instrument/trade.
+    Any other transaction carrying a non-zero ``financing`` field (e.g.
+    an ORDER_FILL that realized financing on close) yields one event.
+    A transaction with no financing yields an empty list.
+    """
+    if payload.get("type") == "DAILY_FINANCING":
+        return map_daily_financing(
+            payload, source=source, account_currency=account_currency
+        )
+    financing = _dec(payload.get("financing"))
+    if financing is None or financing == 0:
+        return []
+    return [
+        ObservedFinancingEvent(
+            transaction_id=str(payload["id"]),
+            account_id_hash=hash_account_id(str(payload.get("accountID", ""))),
+            instrument=payload.get("instrument"),
+            trade_id=_financing_trade_id(payload),
+            units=_dec(payload.get("units")),
+            financing=financing,
+            currency=account_currency,
+            time=parse_rfc3339(payload.get("time", "1970-01-01T00:00:00Z")),
+            source=source,
+        )
+    ]

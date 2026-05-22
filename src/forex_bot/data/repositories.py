@@ -16,7 +16,7 @@ from forex_bot.domain.market import Quote, SpreadSnapshot
 from forex_bot.domain.orders import BrokerOrder, BrokerOrderResult, OrderPlan
 from forex_bot.domain.risk import RiskDecision, RiskRejectionCode
 from forex_bot.domain.signals import Signal
-from forex_bot.domain.transactions import Transaction
+from forex_bot.domain.transactions import ObservedFinancingEvent, Transaction
 
 
 def _d(value: Any) -> str | None:
@@ -688,3 +688,91 @@ class DataSourceRepo:
             (campaign,),
         )
         return [dict(r) for r in rows]
+
+
+# ---------------------------------------------------------------------------
+
+
+class ObservedFinancingEventRepo:
+    """Stores and retrieves observed financing events.
+
+    Capture infrastructure for FUTURE paper/demo observation. No current
+    loop writes here — the research freeze keeps every order-capable loop
+    refused — and an empty table is the expected state. Inserts are
+    idempotent on `event_key`, so re-capturing the same transactions is
+    safe. See docs/research/OBSERVED_FINANCING_CAPTURE.md.
+    """
+
+    def __init__(self, db: Database) -> None:
+        self.db = db
+
+    def insert_many(self, events: list[ObservedFinancingEvent]) -> int:
+        """Idempotently store events. Returns the number of new rows."""
+        if not events:
+            return 0
+        before = self.count()
+        with self.db.transaction() as conn:
+            for e in events:
+                conn.execute(
+                    """
+                    INSERT OR IGNORE INTO observed_financing_events(
+                        event_key, transaction_id, account_id_hash, instrument,
+                        trade_id, units, financing, currency, time, source
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        e.event_key,
+                        e.transaction_id,
+                        e.account_id_hash,
+                        e.instrument,
+                        e.trade_id,
+                        _d(e.units),
+                        _d(e.financing),
+                        e.currency,
+                        _iso(e.time),
+                        e.source,
+                    ),
+                )
+        return self.count() - before
+
+    def count(self) -> int:
+        row = self.db.fetchone("SELECT COUNT(*) AS n FROM observed_financing_events")
+        return int(row["n"]) if row else 0
+
+    def list(
+        self,
+        *,
+        instrument: str | None = None,
+        account_id_hash: str | None = None,
+        limit: int | None = None,
+    ) -> list[ObservedFinancingEvent]:
+        clauses: list[str] = []
+        params: list[object] = []
+        if instrument is not None:
+            clauses.append("instrument=?")
+            params.append(instrument)
+        if account_id_hash is not None:
+            clauses.append("account_id_hash=?")
+            params.append(account_id_hash)
+        sql = "SELECT * FROM observed_financing_events"
+        if clauses:
+            sql += " WHERE " + " AND ".join(clauses)
+        sql += " ORDER BY time ASC, id ASC"
+        if limit is not None:
+            sql += " LIMIT ?"
+            params.append(limit)
+        return [self._row(r) for r in self.db.fetchall(sql, tuple(params))]
+
+    @staticmethod
+    def _row(row: Any) -> ObservedFinancingEvent:
+        return ObservedFinancingEvent(
+            transaction_id=row["transaction_id"],
+            account_id_hash=row["account_id_hash"],
+            instrument=row["instrument"],
+            trade_id=row["trade_id"],
+            units=_dec(row["units"]),
+            financing=Decimal(str(row["financing"])),
+            currency=row["currency"],
+            time=datetime.fromisoformat(row["time"]),
+            source=row["source"],
+        )
