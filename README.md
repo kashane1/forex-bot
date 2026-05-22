@@ -33,6 +33,12 @@ is frozen — see [`docs/research/FINAL_RESEARCH_DECISION_MEMO.md`](docs/researc
   (`scripts/aggregate_h4_to_d1.py`); financing has an explicit
   treatment interface (`forex_bot.financing`); the research archive is
   auditable via `scripts/validate_research_archive.py`.
+- **Execution fidelity (infra-execution-fidelity-001 sprint):** the
+  backtester has an explicit fill-timing model — `signal_bar_close`
+  (default, reproduces prior campaigns) and the honest opt-in
+  `next_bar_open` ([`FILL_TIMING_MODEL.md`](docs/research/FILL_TIMING_MODEL.md));
+  the research-only freeze is guarded by
+  `scripts/check_research_freeze.py`.
 - **Standing live-promotion blockers:** financing/swap is still only
   *estimated* (a conservative stress overlay), never modeled in engine
   PnL; native OANDA D1 remains invalid — use the aggregate source. Both
@@ -51,6 +57,13 @@ Infrastructure-foundation sprint:
 [D1 aggregation](docs/research/D1_AGGREGATION_DESIGN.md) ·
 [financing model](docs/research/FINANCING_MODEL_DESIGN.md) ·
 [Lean parity](docs/research/LEAN_PARITY_DESIGN.md).
+
+Infrastructure execution-fidelity sprint:
+[plan](docs/research/INFRA_EXECUTION_FIDELITY_001_PLAN.md) ·
+[summary](docs/research/INFRA_EXECUTION_FIDELITY_001_SUMMARY.md) ·
+[fill timing](docs/research/FILL_TIMING_MODEL.md) ·
+[Lean parity execution](docs/research/LEAN_PARITY_EXECUTION_GUIDE.md) ·
+[observed financing](docs/research/OBSERVED_FINANCING_CAPTURE.md).
 
 ### Validating the archive & starting future research
 
