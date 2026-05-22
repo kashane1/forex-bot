@@ -424,6 +424,8 @@ def render_report(
         f"- Generated: `{datetime.now().isoformat(timespec='seconds')}`",
         f"- Data mode: **{mode}**",
         f"- Overall mechanical status: **{'PASS' if all_ok else 'FAIL'}**",
+        "- `strategy_evidence: false` — a diagnostic artifact is never "
+        "strategy evidence; this approves nothing and recommends nothing.",
         "- See `docs/research/FILL_TIMING_MODEL.md`, "
         "`docs/research/D1_AGGREGATION_DESIGN.md`, and "
         "`docs/research/OANDA_H4_DATA_REHYDRATION.md`.",

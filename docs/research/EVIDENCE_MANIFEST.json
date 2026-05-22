@@ -185,7 +185,7 @@
       "artifact_id": "D1AGG_NEXT_OPEN_SIX_PAIR_SMOKE",
       "path": "backtests/diagnostics/d1agg_next_open_six_pair_smoke.md",
       "kind": "diagnostic_smoke",
-      "description": "Mechanical D1AGG + next-bar-open fill-path smoke across the six majors (infra-data-parity-001). A plumbing check driven by a fixed-bar diagnostic probe — not strategy evidence.",
+      "description": "Mechanical D1AGG + next-bar-open fill-path smoke across the six majors, re-run on the real rehydrated OANDA practice H4 store (oanda-practice-readonly-001). A plumbing check driven by a fixed-bar diagnostic probe — not strategy evidence.",
       "strategy_evidence": false
     },
     {
