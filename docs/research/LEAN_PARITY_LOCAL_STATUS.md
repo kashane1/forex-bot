@@ -2,54 +2,63 @@
 
 **Date:** 2026-05-22 · **Branch:** `infra-data-parity-001` · Phase 4
 **Updated:** 2026-05-22 · `oanda-practice-readonly-001` Phase 8 — Lean
-re-detected (still not installed); the data prerequisite is now cleared.
+re-detected (not installed); data prerequisite cleared.
+**Updated:** 2026-05-22 · `infra-lean-parity-001` Phase 3 — the `lean`
+CLI is now **installed in an isolated venv** (see below).
 
 Records whether QuantConnect Lean can be run locally for the CAMPAIGN_002
 H4 parity dry run, and — when it cannot — exactly how to enable it.
 
-## Detection result (2026-05-22, oanda-practice-readonly-001 Phase 8)
+## Detection result (2026-05-22, infra-lean-parity-001 Phase 3)
 
 | component | status |
 |---|---|
-| `lean` CLI on `PATH` | **not installed** |
-| `lean` Python package | **not installed** |
+| `lean` CLI on system `PATH` | not on PATH |
+| `lean` CLI in isolated venv `/tmp/lean-venv` | **installed — `lean 1.0.225`** |
+| `lean` Python package (isolated venv) | installed |
 | `dotnet` on host | not installed (not required — see note) |
 | Docker | installed (Docker 29.1.3) |
-| Lean workspace in repo | none |
+| `quantconnect/lean` Docker engine image | not pulled |
+| Lean workspace | none |
 
-**Lean is not available locally. The parity dry run was NOT executed.**
-No Lean result was produced, and none was fabricated. There is no
-`docs/research/LEAN_PARITY_CAMPAIGN_002_RESULT.md` and no
-`research/lean_parity/results/campaign_002_h4/` — those exist only after
-a real local run.
+## Install attempt (Phase 3)
 
-Per Phase 8's rule ("if Lean is already installed, run it; if not,
-document the blocker"), Lean is **not already installed**, so this
-sprint documents the blocker and skips execution. Installing the Lean
-toolchain is a deliberate, human-initiated step — the documented manual
-boundary from `docs/research/LEAN_PARITY_DESIGN.md` §12 and
-`docs/research/LEAN_PARITY_EXECUTION_GUIDE.md` §3. This sprint does not
-install it.
+`pip install lean` was attempted and **succeeded**, installing `lean
+1.0.225` into a **dedicated, isolated virtual environment** at
+`/tmp/lean-venv`. The isolated venv is deliberate: installing the Lean
+CLI into the same environment as `forex-bot` risks dependency-version
+conflicts that could break the project's test suite. The isolated venv
+**cannot disturb** the forex-bot environment — `pytest` and `ruff` are
+unaffected.
+
+The Lean CLI is run as `/tmp/lean-venv/bin/lean`. The venv is a
+session-local working install; it is not committed and not referenced
+by any repo code. For a persistent local setup, a human should create a
+dedicated venv they control (see the steps below).
 
 > **Note on `dotnet`:** the Lean engine is .NET-based, but the local
 > backtester runs the engine **inside a Docker image** that already
 > carries the .NET runtime. A host `dotnet` install is therefore **not**
 > required — only the `lean` CLI (a Python package) and Docker are.
 
-## What changed since the infra-data-parity-001 status
+## What is now in place vs. what remains
 
-The earlier status listed **two** blockers. The second is now cleared:
+**In place** (as of this sprint):
+- The seven-pair CAMPAIGN_002 H4 data and Lean export bundle
+  (`research/lean_parity/exports/campaign_002_h4/`, Phases 1–2).
+- The authoritative parity config (`lean_parity_config.json`).
+- The `lean` CLI (isolated venv).
+- Docker.
 
-- ~~The export bundle needs the local OANDA H4 store, which needs OANDA
-  practice credentials.~~ **Cleared.** The local real-OANDA H4 store
-  was built in `oanda-practice-readonly-001` Phase 4
-  (`data/oanda_h4_research.sqlite3`) and the CAMPAIGN_002 H4 export
-  bundle was produced in Phase 7
-  (`research/lean_parity/exports/campaign_002_h4/`).
-
-So the **only remaining blocker is the Lean toolchain itself.** The data
-side is ready: a Lean run now needs only the CLI installed and an
-algorithm written.
+**Still required for a meaningful Lean backtest:**
+1. A Lean workspace (`lean init`) outside this repo's package tree.
+2. The `quantconnect/lean` Docker engine image (pulled on first
+   `lean backtest` — a multi-GB download).
+3. A **faithful** Lean algorithm reimplementing the CAMPAIGN_002 H4
+   `trend_following` baseline, consuming the exported CSV as custom
+   data. Faithfulness is the hard part: an unfaithful algorithm yields
+   a divergence that reflects authoring error, not a custom-engine bug.
+   The skeleton is `research/lean_parity/campaign_002_h4_spec.md`.
 
 ## Exact setup steps (to enable a local parity run)
 
@@ -57,30 +66,29 @@ All local and free — no QuantConnect cloud, no paid tier, no brokerage
 connection.
 
 ```bash
-# 1. Install the open-source Lean CLI.
-pip install lean
+# 1. Install the Lean CLI in a dedicated venv (NOT the forex-bot venv,
+#    to avoid dependency conflicts).
+python3 -m venv ~/lean-cli-venv
+~/lean-cli-venv/bin/pip install lean
 
-# 2. Docker is already installed here; ensure Docker Desktop is running
-#    (Lean's local backtester executes algorithms in Docker).
+# 2. Docker is already installed here; ensure Docker Desktop is running.
 
 # 3. Initialize a Lean workspace OUTSIDE this repo's package tree.
 cd ~/some/scratch/dir
-lean init
+~/lean-cli-venv/bin/lean init
 
-# 4. DATA — already done (oanda-practice-readonly-001 Phases 4 & 7):
-#    the local H4 store and the CAMPAIGN_002 export bundle exist. The
-#    exported candle CSVs are at
+# 4. DATA — already done (Phases 1-2): the seven-pair CAMPAIGN_002 H4
+#    export bundle exists at
 #    research/lean_parity/exports/campaign_002_h4/<INST>_H4_lean.csv
-#    (gitignored — regenerate with the commands in EXPORT_MANIFEST.md if
-#    they are not present in your checkout).
+#    (gitignored — regenerate via EXPORT_MANIFEST.md if absent).
 
-# 5. Create the Lean algorithm from the skeleton in
-#    research/lean_parity/campaign_002_h4_spec.md, consuming the
-#    exported EUR_USD_H4_lean.csv as custom data. Use the authoritative
-#    parameters in research/lean_parity/lean_parity_config.json.
+# 5. Write a faithful Lean algorithm from the skeleton in
+#    research/lean_parity/campaign_002_h4_spec.md, using the
+#    authoritative parameters in
+#    research/lean_parity/lean_parity_config.json.
 
-# 6. Run the local backtest:
-lean backtest "TrendFollowingC002Parity"
+# 6. Run the local backtest (pulls the quantconnect/lean image once):
+~/lean-cli-venv/bin/lean backtest "TrendFollowingC002Parity"
 ```
 
 Then capture the result into `research/lean_parity/results/campaign_002_h4/`
@@ -100,11 +108,13 @@ Then capture the result into `research/lean_parity/results/campaign_002_h4/`
 
 ## Current blockers
 
-1. The `lean` CLI is not installed — this doc's reason for skipping. A
-   deliberate human step (`pip install lean` + a Lean workspace +
-   writing the algorithm).
+1. **No Lean workspace + faithful algorithm.** The `lean` CLI is now
+   installed, but a meaningful backtest still needs a `lean init`
+   workspace and a *faithful* CAMPAIGN_002 algorithm. Authoring a
+   faithful reimplementation is a deliberate, careful step — an
+   unfaithful algorithm produces a misleading parity result.
+2. **The `quantconnect/lean` Docker image is not pulled** — a multi-GB
+   download performed on the first `lean backtest`.
 
-The data prerequisite (a local OANDA H4 store and the parity export
-bundle) is **no longer a blocker** — both exist as of Phases 4 and 7.
-Until the Lean toolchain is installed and an algorithm written, the
-local Lean parity dry run stays documented-but-unexecuted.
+No QuantConnect cloud account and no paid tier are required — the local
+Docker backtester is free and open-source.
