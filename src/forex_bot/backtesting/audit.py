@@ -150,6 +150,66 @@ def _spans_weekend(start: datetime, end: datetime) -> bool:
     return False
 
 
+def _is_year_end_holiday_gap(start: datetime, end: datetime) -> bool:
+    """True if a gap overlaps the Dec 24 – Jan 2 window. FX is technically
+    open over the year-end but liquidity is thin and OANDA H4 coverage is
+    sparse, so a gap there is an expected holiday closure, not an outage."""
+    cursor = start.date()
+    end_date = end.date()
+    while cursor <= end_date:
+        if (cursor.month == 12 and cursor.day >= 24) or (
+            cursor.month == 1 and cursor.day <= 2
+        ):
+            return True
+        cursor += timedelta(days=1)
+    return False
+
+
+@dataclass
+class GapClassification:
+    """An audit report's gaps split into expected vs. concerning groups.
+
+    `weekend` and `year_end_holiday` are expected market closures.
+    `outage_like` (a multi-bar non-holiday gap) and `suspicious_short`
+    (a 1-2 bar non-holiday gap) are the groups that warrant a look.
+    """
+
+    weekend: list[tuple[datetime, datetime, int]] = field(default_factory=list)
+    year_end_holiday: list[tuple[datetime, datetime, int]] = field(default_factory=list)
+    outage_like: list[tuple[datetime, datetime, int]] = field(default_factory=list)
+    suspicious_short: list[tuple[datetime, datetime, int]] = field(default_factory=list)
+
+    @property
+    def expected_count(self) -> int:
+        return len(self.weekend) + len(self.year_end_holiday)
+
+    @property
+    def concerning_count(self) -> int:
+        return len(self.outage_like) + len(self.suspicious_short)
+
+
+def classify_gaps(
+    report: AuditReport, *, short_gap_max_bars: int = 2
+) -> GapClassification:
+    """Split an audit report's gaps into weekend (expected), year-end
+    holiday (expected), outage-like (a concerning multi-bar non-holiday
+    gap), and suspicious-short (a concerning 1-2 bar non-holiday gap).
+
+    `report.weekend_gaps` is already weekend-classified by
+    `audit_instrument`; this only sub-classifies `report.missing_intervals`.
+    """
+    result = GapClassification(weekend=list(report.weekend_gaps))
+    for gap in report.missing_intervals:
+        start, end, bars = gap
+        if _is_year_end_holiday_gap(start, end):
+            result.year_end_holiday.append(gap)
+        elif bars <= short_gap_max_bars:
+            result.suspicious_short.append(gap)
+        else:
+            result.outage_like.append(gap)
+    return result
+
+
 def render_audit_markdown(report: AuditReport) -> str:
     def _trunc(items: list, limit: int = 8) -> tuple[list, str]:
         if len(items) <= limit:
