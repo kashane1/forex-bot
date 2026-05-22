@@ -66,8 +66,9 @@ and per-run risk-rejection CSVs are committed under each campaign's
 ## Diagnostic & parity artifacts (NOT strategy evidence)
 
 Infrastructure outputs from the `infra-execution-fidelity-001`,
-`infra-data-parity-001`, `oanda-practice-readonly-001`, and
-`infra-lean-parity-001` sprints. **These are not campaign evidence.**
+`infra-data-parity-001`, `oanda-practice-readonly-001`,
+`infra-lean-parity-001`, and `infra-lean-parity-run-001` sprints.
+**These are not campaign evidence.**
 They are mechanical plumbing checks and independent-verification
 inputs — none measures, implies, or can establish a strategy edge, and
 none can approve anything. The machine-readable manifest lists them
@@ -116,9 +117,22 @@ none approves anything; CAMPAIGN_002 stays REJECT.
 | [`INFRA_LEAN_PARITY_001_PLAN.md`](INFRA_LEAN_PARITY_001_PLAN.md) | the Lean-parity sprint plan |
 | [`OANDA_H4_NZDUSD_REHYDRATION_RESULT.md`](OANDA_H4_NZDUSD_REHYDRATION_RESULT.md) | NZD_USD H4 rehydration result |
 | [`OANDA_H4_DATA_QUALITY_AUDIT_7PAIR.md`](OANDA_H4_DATA_QUALITY_AUDIT_7PAIR.md) | seven-pair H4 data quality audit |
-| [`LEAN_PARITY_CAMPAIGN_002_BLOCKED.md`](LEAN_PARITY_CAMPAIGN_002_BLOCKED.md) | Lean dry-run blocker (faithful algorithm pending) |
+| [`LEAN_PARITY_CAMPAIGN_002_BLOCKED.md`](LEAN_PARITY_CAMPAIGN_002_BLOCKED.md) | Lean dry-run blocker (`lean init` needs a QuantConnect account) |
 | [`CAMPAIGN_002_H4_PARITY_STATUS.md`](CAMPAIGN_002_H4_PARITY_STATUS.md) | independent-engine parity status |
 | [`INFRA_LEAN_PARITY_001_SUMMARY.md`](INFRA_LEAN_PARITY_001_SUMMARY.md) | sprint summary & handoff |
+
+### Lean parity run (`infra-lean-parity-run-001`)
+
+The faithful Lean parity algorithm and comparison harness for the
+CAMPAIGN_002 H4 baseline. All verification infrastructure — none is
+strategy evidence; CAMPAIGN_002 stays REJECT.
+
+| document | what it is |
+|---|---|
+| [`INFRA_LEAN_PARITY_RUN_001_PLAN.md`](INFRA_LEAN_PARITY_RUN_001_PLAN.md) | the Lean-parity-run sprint plan |
+| [`CAMPAIGN_002_LEAN_MAPPING_SPEC.md`](CAMPAIGN_002_LEAN_MAPPING_SPEC.md) | bespoke→Lean behavior mapping spec |
+| [`LEAN_ALGORITHM_IMPLEMENTATION_NOTES.md`](LEAN_ALGORITHM_IMPLEMENTATION_NOTES.md) | Lean algorithm — faithful vs approximated |
+| [`LEAN_PARITY_COMPARISON_METHOD.md`](LEAN_PARITY_COMPARISON_METHOD.md) | comparison metrics, tolerances, pass/fail |
 
 ## Research-freeze documents (this branch)
 

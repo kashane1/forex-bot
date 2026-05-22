@@ -1,6 +1,7 @@
 # CAMPAIGN_002 H4 — Independent-Engine Parity Status
 
-**Date:** 2026-05-22 · **Branch:** `infra-lean-parity-001`
+**Date:** 2026-05-22 · **Updated by:** `infra-lean-parity-run-001` Phase 6
+**Supersedes** the `infra-lean-parity-001` status.
 
 A human-readable status of independent-engine parity for the
 CAMPAIGN_002 H4 `trend_following` baseline. `strategy_evidence: false` —
@@ -14,124 +15,109 @@ REJECT and stays REJECT** regardless of any parity outcome.
 |---|---|
 | Seven-pair H4 data (CAMPAIGN_002 universe) | **complete** |
 | Seven-pair Lean export bundle | **complete** |
-| Custom-engine CAMPAIGN_002 H4 reproduction | **done — exact match** |
-| Lean CLI installed locally | **done** (isolated venv) |
-| Lean parity backtest executed | **not yet — blocked** |
+| Custom-engine reproduction (with RiskEngine) | **done — exact match** |
+| No-RiskEngine bespoke reference | **done — 1,647 trades** |
+| CAMPAIGN_002 → Lean mapping spec | **done** |
+| Faithful Lean parity algorithm | **authored — not yet validated** |
+| Parity comparison harness | **done — tested** |
+| Lean parity backtest executed | **not run — blocked** |
 | Independent-engine (Lean ↔ custom) comparison | **not yet verified** |
 
-**Overall: parity is data- and custom-engine-ready. The remaining gap
-is the Lean side — a faithful Lean algorithm and a local Lean run.**
+**Overall: parity is fully prepared on the bespoke side and the Lean
+algorithm + harness are written. The single remaining gap is executing
+the Lean backtest, which is blocked by a cloud-credential requirement
+(below).**
 
 ## Seven-pair data status
 
-The local real-OANDA practice H4 store now holds the **full seven-pair
-CAMPAIGN_002 universe**: EUR_USD, GBP_USD, USD_JPY, AUD_USD, USD_CAD,
-USD_CHF, NZD_USD — 2020-01-01 → 2026-05-19, ~9,931 completed H4 candles
-each (NZD_USD 9,935). The seven-pair data-quality audit
-(`OANDA_H4_DATA_QUALITY_AUDIT_7PAIR.md`) found every pair acceptable:
-0 incomplete candles, 0 duplicates, full bid/ask coverage, only the
-expected weekend / holiday gaps.
-
-**Strong signal:** the freshly-rehydrated store's normalized candle
-hashes **match the hashes recorded in the committed CAMPAIGN_002 report**
-(`backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md`) — e.g. EUR_USD
-`f5d1d1b19302…`, USD_JPY `64836ea0f08e…`, NZD_USD `c8724ce78e4c…`. The
-re-fetched data is provably the **same candles** CAMPAIGN_002 used.
+The local real-OANDA practice H4 store holds the full seven-pair
+CAMPAIGN_002 universe; the seven-pair data-quality audit found every
+pair acceptable. The store's normalized candle hashes match the hashes
+recorded in the committed CAMPAIGN_002 report — the data is provably the
+same candles CAMPAIGN_002 used.
 
 ## Custom-engine reproduction status
 
-`scripts/run_custom_campaign_002_h4_parity.py` re-ran the CAMPAIGN_002
-H4 baseline on the bespoke engine, the committed campaign config, and
-the seven-pair store, with CAMPAIGN_002's fill timing
-(`signal_bar_close`) and the RiskEngine wired in.
+Two bespoke references now exist:
 
-**Result: an exact match to the committed CAMPAIGN_002 report** — all
-seven pairs identical on trade count and expectancy R, 1,032 total
-trades vs 1,032 committed (Δ +0). Full table:
-`backtests/diagnostics/custom_campaign_002_h4_parity.md`.
+- **With RiskEngine** — `backtests/diagnostics/custom_campaign_002_h4_parity.md`:
+  an **exact** reproduction of the committed CAMPAIGN_002 report —
+  1,032 trades, per-pair deltas of zero.
+- **No RiskEngine** — `research/lean_parity/campaign_002_h4_bespoke_reference.json`:
+  the strategy + engine mechanics in isolation (the engine's
+  `risk_engine=None` parity path) — **1,647 trades**. This is the
+  apples-to-apples reference for the Lean algorithm, which replicates
+  the strategy + mechanics but not the bespoke RiskEngine (see
+  `CAMPAIGN_002_LEAN_MAPPING_SPEC.md` §0).
 
-The custom-engine side of the parity is therefore **reproducible and
-hash-pinned** — a future Lean run has a committed reference to compare
-against.
+## Lean algorithm implementation status
 
-## Lean export status
+A faithful Lean algorithm is **authored** —
+`research/lean_parity/algorithms/campaign_002_h4_baseline/main.py` — a
+direct port of the strategy + engine mechanics from the mapping spec:
+EMA(50/200) regime, Donchian(20) prior-bar breakout, ATR stop/trailing
+stop, the exit precedence and time stop, `signal_bar_close` fills, and
+0.25%-risk sizing, using Lean's own EMA / ATR indicators.
 
-The seven-pair CAMPAIGN_002 H4 Lean export bundle is **complete**:
-`research/lean_parity/exports/campaign_002_h4/` carries seven
-`<INST>_H4_lean.csv` files (gitignored — bulky) and seven committed
-`*_H4_lean.provenance.json` sidecars, plus the `EXPORT_MANIFEST.md` and
-the authoritative `lean_parity_config.json`. 69,522 candles total.
+It is **not yet validated** — authored offline, never executed against
+Lean. `docs/research/LEAN_ALGORITHM_IMPLEMENTATION_NOTES.md` documents
+every approximation and the Lean-mechanics differences a first run is
+expected to surface.
 
-## Lean local run status
+## Lean run status — BLOCKED
 
-**Not run — blocked.** The `lean` CLI (1.0.225) is installed in an
-isolated venv and Docker is present, but no Lean parity backtest was
-executed and no result was fabricated. The blocker is documented in
-`LEAN_PARITY_CAMPAIGN_002_BLOCKED.md`:
+The local Lean backtest **was not executed**. `lean init` — the standard
+step to scaffold a Lean workspace — requires **QuantConnect account
+credentials** (a user id + API token) and aborts without them. The
+sprint rules forbid using QuantConnect cloud or requiring such
+credentials, so this sprint did not authenticate. Full detail, the
+verbatim CLI output, and the exact next steps are in
+`docs/research/LEAN_PARITY_CAMPAIGN_002_BLOCKED.md`.
 
-1. **No faithful Lean algorithm.** `research/lean_parity/campaign_002_h4_spec.md`
-   is a spec + skeleton; the signal / exit / sizing / custom-data logic
-   is unwritten. A faithful reimplementation must be authored and its
-   faithfulness reviewed before any Lean number is trustworthy.
-2. The `quantconnect/lean` Docker engine image is not yet pulled.
+## Comparison result
+
+**Not available** — no Lean result exists to compare. The comparison
+harness `scripts/compare_lean_campaign_002_parity.py` is written and
+tested and will run the moment a Lean `parity_summary.json` exists.
 
 ## What matched
 
-- **Custom engine ↔ committed CAMPAIGN_002 report:** exact — every pair,
-  trade count and expectancy R, Δ +0 / Δ ±0.000.
-- **Re-fetched H4 data ↔ CAMPAIGN_002's recorded data hashes:** match —
-  the store holds the identical candles.
+- **Custom engine ↔ committed CAMPAIGN_002 report:** exact (1,032
+  trades, zero per-pair deltas).
+- **Re-fetched H4 data ↔ CAMPAIGN_002's recorded data hashes:** match.
 
 ## What remains unverified
 
-- **The independent-engine cross-check.** No Lean (or any non-bespoke
-  engine) run has been compared against the custom engine. The bespoke
-  engine is internally reproducible, but it has **not yet** been
-  corroborated by an independent implementation. That is the open item.
+- **The independent-engine cross-check.** No Lean (or other non-bespoke)
+  engine has been run against the bespoke engine. The bespoke engine is
+  internally reproducible and now has a faithful Lean algorithm + harness
+  ready, but it has **not yet** been corroborated by an independent
+  engine. That is the open item.
 
 ## Exact next step
 
-Author and run the Lean side (a deliberate, review-gated task):
-
-```bash
-# Lean CLI in a dedicated venv:
-python3 -m venv ~/lean-cli-venv && ~/lean-cli-venv/bin/pip install lean
-
-# Lean workspace, outside this repo:
-cd ~/scratch && ~/lean-cli-venv/bin/lean init
-
-# Author a FAITHFUL trend_following_c002_parity.py from the skeleton in
-# research/lean_parity/campaign_002_h4_spec.md, using the authoritative
-# params in research/lean_parity/lean_parity_config.json and consuming
-# the exported <INST>_H4_lean.csv as custom data. Review it for
-# faithfulness before trusting any number.
-
-~/lean-cli-venv/bin/lean backtest "TrendFollowingC002Parity"
-# → capture into research/lean_parity/results/campaign_002_h4/ and
-#   write docs/research/LEAN_PARITY_CAMPAIGN_002_RESULT.md.
-```
+A human who creates a free QuantConnect account can run `lean init`,
+copy in the committed algorithm, place the exported CSVs, run
+`lean backtest`, and feed the result to
+`scripts/compare_lean_campaign_002_parity.py` — see
+`LEAN_PARITY_CAMPAIGN_002_BLOCKED.md` for the exact commands. The first
+run is expected to need a debugging iteration before its numbers are
+trustworthy.
 
 ## What would count as successful parity
 
-Comparing the Lean run against the custom-engine reproduction
-(`custom_campaign_002_h4_parity.md`) and the committed CAMPAIGN_002
-report, within the tolerances in `LEAN_PARITY_EXECUTION_GUIDE.md` §4–5:
-
-- ≥ 95% of trade entries on the **same bar**;
-- trade count within **±5%**, total return within **±0.5 pp**,
-  expectancy within **±0.03 R**;
-- both engines read the **same verdict — REJECT**.
-
-A PASS corroborates the bespoke engine. A FAIL localizes a bespoke-engine
-bug to fix — never tuned away, never reported as a strategy result.
+The Lean run, compared against the **no-RiskEngine** bespoke reference
+(1,647 trades) within the tolerances in `LEAN_PARITY_COMPARISON_METHOD.md`:
+trade count within ±5%, expectancy within ±0.03 R, return within
+±0.5 pp per pair. A PASS corroborates the bespoke engine; a FAIL
+localizes a parity-implementation bug or a real engine discrepancy —
+never tuned away.
 
 ## Why this still does not approve a strategy
 
-CAMPAIGN_002 closed **REJECT** in Research Marathon 001. Parity is
-verification of the engine that produced that verdict, not of the
-strategy. A parity PASS would only mean "the bespoke engine measured
-correctly"; the thing it measured is still a rejected strategy.
-`configs/approved_strategies.yaml` remains empty; every order-capable
-loop still refuses. Nothing in this status, and nothing in any parity
-result derived from it, approves a strategy or lifts the research
-freeze.
+CAMPAIGN_002 closed **REJECT**. Parity verifies the engine that produced
+that verdict, not the strategy. Even a full parity PASS would only mean
+"two engines agree on the numbers" — and the numbers are a rejected
+strategy's. `configs/approved_strategies.yaml` remains empty; every
+order-capable loop still refuses. Nothing here approves a strategy or
+lifts the research freeze.
