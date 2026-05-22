@@ -192,7 +192,14 @@
       "artifact_id": "LEAN_PARITY_CAMPAIGN_002_EXPORT",
       "path": "research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md",
       "kind": "lean_parity_export",
-      "description": "Lean-parity export bundle manifest for the CAMPAIGN_002 H4 baseline. Independent-engine verification input — not strategy evidence; cannot approve a strategy.",
+      "description": "Lean-parity export bundle manifest for the CAMPAIGN_002 H4 baseline, completed to all seven pairs (infra-lean-parity-001). Independent-engine verification input — not strategy evidence; cannot approve a strategy.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CUSTOM_CAMPAIGN_002_H4_PARITY",
+      "path": "backtests/diagnostics/custom_campaign_002_h4_parity.md",
+      "kind": "parity_reproduction",
+      "description": "Custom-engine reproduction of the already-REJECTED CAMPAIGN_002 H4 trend_following baseline on the seven-pair real-OANDA H4 store (infra-lean-parity-001). The hash-pinned custom-engine side of the Lean parity comparison — not strategy evidence; reproduces a rejected baseline and approves nothing.",
       "strategy_evidence": false
     }
   ]

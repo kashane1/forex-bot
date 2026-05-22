@@ -66,8 +66,8 @@ and per-run risk-rejection CSVs are committed under each campaign's
 ## Diagnostic & parity artifacts (NOT strategy evidence)
 
 Infrastructure outputs from the `infra-execution-fidelity-001`,
-`infra-data-parity-001`, and `oanda-practice-readonly-001` sprints.
-**These are not campaign evidence.**
+`infra-data-parity-001`, `oanda-practice-readonly-001`, and
+`infra-lean-parity-001` sprints. **These are not campaign evidence.**
 They are mechanical plumbing checks and independent-verification
 inputs — none measures, implies, or can establish a strategy edge, and
 none can approve anything. The machine-readable manifest lists them
@@ -78,7 +78,8 @@ by `scripts/validate_research_archive.py`.
 |---|---|
 | [`backtests/diagnostics/d1agg_next_open_smoke.md`](../../backtests/diagnostics/d1agg_next_open_smoke.md) | D1AGG + next-bar-open fill-path smoke (single-pair) |
 | [`backtests/diagnostics/d1agg_next_open_six_pair_smoke.md`](../../backtests/diagnostics/d1agg_next_open_six_pair_smoke.md) | D1AGG + next-bar-open smoke across the six majors |
-| [`research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md`](../../research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md) | Lean-parity export bundle for the CAMPAIGN_002 H4 baseline |
+| [`research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md`](../../research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md) | Lean-parity export bundle for the CAMPAIGN_002 H4 baseline (seven pairs) |
+| [`backtests/diagnostics/custom_campaign_002_h4_parity.md`](../../backtests/diagnostics/custom_campaign_002_h4_parity.md) | custom-engine reproduction of the rejected CAMPAIGN_002 H4 baseline |
 
 Supporting infrastructure docs:
 [fill-timing model](FILL_TIMING_MODEL.md) ·
@@ -103,6 +104,20 @@ approves anything, and the research freeze is unaffected.
 | [`OANDA_H4_REHYDRATION_RESULT.md`](OANDA_H4_REHYDRATION_RESULT.md) | real OANDA H4 store rehydration result |
 | [`OANDA_H4_DATA_QUALITY_AUDIT.md`](OANDA_H4_DATA_QUALITY_AUDIT.md) | H4 data quality audit |
 | [`OANDA_PRACTICE_READONLY_001_SUMMARY.md`](OANDA_PRACTICE_READONLY_001_SUMMARY.md) | sprint summary & handoff |
+
+### Lean parity completeness (`infra-lean-parity-001`)
+
+Independent-engine parity readiness for the CAMPAIGN_002 H4 baseline.
+All diagnostic / infrastructure outputs — none is strategy evidence,
+none approves anything; CAMPAIGN_002 stays REJECT.
+
+| document | what it is |
+|---|---|
+| [`INFRA_LEAN_PARITY_001_PLAN.md`](INFRA_LEAN_PARITY_001_PLAN.md) | the Lean-parity sprint plan |
+| [`OANDA_H4_NZDUSD_REHYDRATION_RESULT.md`](OANDA_H4_NZDUSD_REHYDRATION_RESULT.md) | NZD_USD H4 rehydration result |
+| [`OANDA_H4_DATA_QUALITY_AUDIT_7PAIR.md`](OANDA_H4_DATA_QUALITY_AUDIT_7PAIR.md) | seven-pair H4 data quality audit |
+| [`LEAN_PARITY_CAMPAIGN_002_BLOCKED.md`](LEAN_PARITY_CAMPAIGN_002_BLOCKED.md) | Lean dry-run blocker (faithful algorithm pending) |
+| [`CAMPAIGN_002_H4_PARITY_STATUS.md`](CAMPAIGN_002_H4_PARITY_STATUS.md) | independent-engine parity status |
 
 ## Research-freeze documents (this branch)
 
