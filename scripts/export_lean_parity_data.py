@@ -16,7 +16,7 @@ in research/lean_parity/lean_h4_export_format.md.
 
 Usage:
     python scripts/export_lean_parity_data.py \\
-        --db data/campaign_002.sqlite3 --instrument EUR_USD \\
+        --db data/oanda_h4_research.sqlite3 --instrument EUR_USD \\
         --from 2020-01-01 --to 2026-05-20
 
 See docs/research/LEAN_PARITY_EXECUTION_GUIDE.md.
@@ -40,8 +40,9 @@ from forex_bot.data.db import Database
 from forex_bot.data.repositories import CandleRepo
 from forex_bot.domain.candles import Candle
 
-DEFAULT_DB = ROOT / "data" / "campaign_002.sqlite3"
-DEFAULT_OUT_DIR = ROOT / "research" / "lean_parity" / "exported"
+# The rehydrated real-OANDA H4 store (scripts/rehydrate_oanda_h4_store.py).
+DEFAULT_DB = ROOT / "data" / "oanda_h4_research.sqlite3"
+DEFAULT_OUT_DIR = ROOT / "research" / "lean_parity" / "exports" / "campaign_002_h4"
 
 # Lean custom-data CSV columns. `time` is the OANDA bar OPEN time
 # (17:00-NY aligned); bid/ask OHLC are carried separately so the Lean
@@ -138,9 +139,13 @@ def main() -> int:
     args = ap.parse_args()
 
     db_path = Path(args.db)
+    try:
+        db_display = str(db_path.resolve().relative_to(ROOT))
+    except ValueError:
+        db_display = str(db_path)
     if not db_path.exists():
         print(
-            f"ERROR: no OANDA H4 candle store at {args.db}.\n"
+            f"ERROR: no OANDA H4 candle store at {db_display}.\n"
             "This script exports REAL stored candles only — it never "
             "fabricates data. Fetch real OANDA practice candles first "
             "(see docs/research/LEAN_PARITY_EXECUTION_GUIDE.md), then re-run.",

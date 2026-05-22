@@ -55,17 +55,32 @@ python scripts/build_lean_parity_config.py
 
 ### `scripts/export_lean_parity_data.py` — runnable when real H4 data exists
 
-Reads completed OANDA H4 bid/ask candles from a local SQLite store and
-writes a Lean custom-data CSV plus a provenance sidecar (see
+Reads completed OANDA H4 bid/ask candles from the local store and writes
+a Lean custom-data CSV plus a provenance sidecar (see
 `research/lean_parity/lean_h4_export_format.md`). It exports **real data
 only** — it refuses any candle whose source is not `oanda-*`, and it
 fabricates nothing.
 
+The export bundle lives in `research/lean_parity/exports/campaign_002_h4/`
+(`EXPORT_MANIFEST.md` plus, once produced, the candle CSV and provenance
+JSON). The candle CSVs are bulky market data and are gitignored; the
+provenance JSON and the manifest are committed.
+
+Exact commands — build the store, then export the first parity target:
+
 ```bash
+# 1. Build the local real-OANDA H4 store (needs practice credentials):
+python scripts/rehydrate_oanda_h4_store.py
+
+# 2. Export CAMPAIGN_002 H4 candles into the bundle:
 python scripts/export_lean_parity_data.py \
-    --db data/campaign_002.sqlite3 --instrument EUR_USD \
+    --db data/oanda_h4_research.sqlite3 --instrument EUR_USD \
     --from 2020-01-01 --to 2026-05-20
 ```
+
+Expected outputs (in `research/lean_parity/exports/campaign_002_h4/`):
+`EUR_USD_H4_lean.csv` (the candles) and `EUR_USD_H4_lean.provenance.json`
+(`data_sha256`, `campaign_002_data_request_hash`, counts, window).
 
 ## 3. What remains manual (and why)
 
@@ -82,13 +97,31 @@ paid QuantConnect tier and no cloud compute are needed for the local
 parity backtest. This sprint deliberately does **not** install the
 toolchain or run a backtest — that is the documented manual boundary.
 
+### Exact local Lean command (when Lean is installed)
+
+Once the export exists and a Lean algorithm has been written from the
+skeleton in `research/lean_parity/campaign_002_h4_spec.md`:
+
+```bash
+# In the Lean workspace (created by `lean init`, outside this repo):
+lean backtest "TrendFollowingC002Parity"
+```
+
+Inputs: the exported `EUR_USD_H4_lean.csv` consumed as Lean custom data,
+preserving the 17:00-NY-aligned open timestamps. Outputs: Lean's trade
+list and statistics, compared against the committed CAMPAIGN_002
+artifacts using §4. Whether Lean is installed is checked by
+`docs/research/LEAN_PARITY_LOCAL_STATUS.md`.
+
 ### Current data blocker
 
-`data/` is gitignored and holds no committed candle store, and this
-sprint makes no OANDA calls. So `export_lean_parity_data.py` cannot
-produce a real CSV right now — it is wired and tested, and runs the
-moment a real OANDA H4 store is present. This is a data-availability
-blocker, not a code gap.
+The local real-OANDA H4 store is built by
+`scripts/rehydrate_oanda_h4_store.py`, which needs OANDA **practice**
+credentials. When credentials are unavailable, `rehydrate` and therefore
+`export_lean_parity_data.py` cannot run — both are wired and tested and
+run the moment the store exists. This is a data-availability blocker,
+not a code gap. The store and the candle CSVs are gitignored and never
+committed.
 
 ## 4. Comparison metrics that matter
 
@@ -136,6 +169,9 @@ later comparison and is out of scope here.
 | `research/lean_parity/lean_h4_export_format.md` | the export CSV format |
 | `research/lean_parity/CAMPAIGN_002_PARITY_CHECKLIST.md` | tickable mapping + tolerance checklist |
 | `research/lean_parity/lean_parity_config.json` | generated authoritative parameters |
+| `research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md` | the export bundle manifest (status, mapping, assumptions, tolerances) |
 | `scripts/build_lean_parity_config.py` | generates the parameter JSON |
 | `scripts/export_lean_parity_data.py` | exports real H4 candles to Lean CSV |
+| `scripts/rehydrate_oanda_h4_store.py` | builds the local real-OANDA H4 store the export reads |
+| `docs/research/OANDA_H4_DATA_REHYDRATION.md` | how to build / verify the H4 store |
 | `src/forex_bot/lean/parity_notes.md` | where to record every divergence |

@@ -14,6 +14,7 @@ strategy (CAMPAIGN_002 is already REJECT).
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 from datetime import UTC, datetime, timedelta
 from decimal import Decimal
@@ -101,8 +102,6 @@ def test_extract_parity_config_records_cost_model_and_splits():
 def test_committed_lean_parity_config_is_present_and_current():
     """The generated config is committed; it must match a fresh extraction
     from the campaign config (re-run the script if this fails)."""
-    import json
-
     committed = json.loads(
         (_REPO / "research" / "lean_parity" / "lean_parity_config.json").read_text(
             encoding="utf-8"
@@ -169,3 +168,64 @@ def test_build_provenance_carries_hashes_and_window():
     assert prov["campaign_002_data_request_hash"]
     assert prov["first_ts"] == candles[0].time.isoformat()
     assert prov["last_ts"] == candles[-1].time.isoformat()
+
+
+def test_provenance_carries_no_credential_shaped_fields():
+    """The provenance sidecar must be safe to commit — no account id,
+    no token, no field named for one."""
+    prov = export.build_provenance(
+        instrument="EUR_USD",
+        candles=[_h4(k) for k in range(5)],
+        source="oanda-practice",
+        from_arg="2020-01-01",
+        to_arg="2020-01-05",
+        csv_name="EUR_USD_H4_lean.csv",
+    )
+    text = json.dumps(prov).lower()
+    assert "account" not in text
+    assert "token" not in text
+    assert "secret" not in text
+
+
+def test_export_handles_a_jpy_pair():
+    """Instrument coverage: the exporter is not EUR_USD-specific — a JPY
+    pair (3-decimal prices) exports cleanly too."""
+    o = Decimal("150.250")
+    jpy = [
+        Candle(
+            instrument="USD_JPY", granularity="H4",
+            time=datetime(2020, 1, 1, 22, tzinfo=UTC) + timedelta(hours=4 * k),
+            complete=True, volume=900 + k,
+            bid_o=o, bid_h=o + Decimal("0.200"), bid_l=o - Decimal("0.200"),
+            bid_c=o + Decimal("0.050"),
+            ask_o=o + Decimal("0.018"), ask_h=o + Decimal("0.218"),
+            ask_l=o - Decimal("0.182"), ask_c=o + Decimal("0.068"),
+        )
+        for k in range(6)
+    ]
+    row = export.candle_to_lean_row(jpy[0])
+    assert row[1] == "150.250"  # exact decimal, no float drift
+    prov = export.build_provenance(
+        instrument="USD_JPY", candles=jpy, source="oanda-practice",
+        from_arg="2020-01-01", to_arg="2020-01-02", csv_name="USD_JPY_H4_lean.csv",
+    )
+    assert prov["instrument"] == "USD_JPY"
+    assert prov["candle_count"] == 6
+
+
+def test_default_export_dir_is_the_campaign_002_bundle():
+    assert export.DEFAULT_OUT_DIR.name == "campaign_002_h4"
+    assert export.DEFAULT_OUT_DIR.parent.name == "exports"
+
+
+def test_export_manifest_is_committed_and_references_the_target():
+    manifest = (
+        _REPO / "research" / "lean_parity" / "exports" / "campaign_002_h4"
+        / "EXPORT_MANIFEST.md"
+    )
+    assert manifest.is_file()
+    text = manifest.read_text(encoding="utf-8")
+    assert "CAMPAIGN_002" in text
+    assert "EUR_USD" in text
+    # The manifest must state it is verification-only, not strategy evidence.
+    assert "approves nothing" in text.lower() or "not strategy evidence" in text.lower()

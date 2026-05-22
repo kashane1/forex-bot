@@ -66,6 +66,11 @@ KILL_SWITCH
 # Lean output
 results/
 
+# Lean parity data exports — the H4 candle CSVs are bulky market data,
+# regenerable via scripts/export_lean_parity_data.py. The small manifests
+# and provenance JSONs ARE committed.
+research/lean_parity/exports/**/*.csv
+
 # Per-run backtest artifacts are huge (700MB+ per campaign) and
 # fully reproducible via scripts/run_campaign_00X.py. Commit only the
 # top-level reports, audit summaries, indexes, and summary JSONs.
