@@ -26,6 +26,7 @@ See docs/research/OANDA_PRACTICE_READONLY_001_PLAN.md.
 from __future__ import annotations
 
 import argparse
+import subprocess
 import sys
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -131,14 +132,17 @@ def _spread(value: float | None) -> str:
 
 
 def render_doc(
-    audits: list[PairAudit], *, generated_at: datetime, db_display: str
+    audits: list[PairAudit],
+    *,
+    generated_at: datetime,
+    db_display: str,
+    branch: str = "unknown",
 ) -> str:
     all_ok = all(a.acceptable for a in audits)
     lines: list[str] = [
-        "# OANDA H4 Data Quality Audit — `oanda-practice-readonly-001` Phase 5",
+        "# OANDA H4 Data Quality Audit",
         "",
-        f"**Generated:** {generated_at.isoformat()} · "
-        f"**Branch:** `oanda-practice-readonly-001`",
+        f"**Generated:** {generated_at.isoformat()} · **Branch:** `{branch}`",
         f"**Store:** `{db_display}` · "
         f"**Overall:** **{'PASS' if all_ok else 'REVIEW'}**",
         "",
@@ -270,14 +274,35 @@ def render_doc(
 # --------------------------------------------------------------------------
 
 
+def _git_branch() -> str:
+    try:
+        out = subprocess.run(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+            cwd=ROOT, capture_output=True, text=True, check=False,
+        )
+        return out.stdout.strip() or "unknown"
+    except OSError:
+        return "unknown"
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
         description="Audit the local OANDA H4 research store for data quality."
     )
     ap.add_argument("--db", default=str(DEFAULT_DB))
     ap.add_argument("--out", default=str(DEFAULT_OUT))
+    ap.add_argument(
+        "--instruments", default=None, metavar="LIST",
+        help="comma-separated instruments to audit "
+             f"(default: the six majors {','.join(PAIRS)})",
+    )
     args = ap.parse_args(argv)
 
+    pairs = (
+        [s.strip().upper() for s in args.instruments.split(",") if s.strip()]
+        if args.instruments
+        else list(PAIRS)
+    )
     db_path = Path(args.db)
     try:
         db_display = str(db_path.resolve().relative_to(ROOT))
@@ -291,12 +316,17 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 1
 
-    audits = audit_store(Database(db_path), PAIRS)
+    audits = audit_store(Database(db_path), pairs)
 
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(
-        render_doc(audits, generated_at=datetime.now(UTC), db_display=db_display),
+        render_doc(
+            audits,
+            generated_at=datetime.now(UTC),
+            db_display=db_display,
+            branch=_git_branch(),
+        ),
         encoding="utf-8",
     )
     try:

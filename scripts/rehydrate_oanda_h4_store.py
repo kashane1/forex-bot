@@ -210,9 +210,17 @@ def fetch_pair(
     )
 
 
-def rehydrate(settings: Settings, db: Database, *, from_dt: datetime, to_dt: datetime) -> dict:
-    """Fetch all six majors into the store. Requires a verified practice
-    environment (the caller must have run the env guard)."""
+def rehydrate(
+    settings: Settings,
+    db: Database,
+    *,
+    from_dt: datetime,
+    to_dt: datetime,
+    pairs: list[str],
+) -> dict:
+    """Fetch each instrument in `pairs` into the store. Requires a
+    verified practice environment (the caller must have run the env
+    guard). Idempotent — re-running tops up an existing store."""
     guard = assert_practice_data_environment(settings)
     broker = OandaBroker(
         environment="practice",
@@ -226,7 +234,7 @@ def rehydrate(settings: Settings, db: Database, *, from_dt: datetime, to_dt: dat
     host = "https://api-fxpractice.oanda.com"
     results: dict[str, dict] = {}
     try:
-        for pair in H4_PAIRS:
+        for pair in pairs:
             record = fetch_pair(
                 broker, candle_repo,
                 instrument=pair,
@@ -415,12 +423,22 @@ def main() -> int:
         help="read-only: write the rehydration result Markdown to PATH, "
              "no OANDA call",
     )
+    ap.add_argument(
+        "--instruments", default=None, metavar="LIST",
+        help="comma-separated instruments to fetch / verify / report "
+             f"(default: the six majors {','.join(H4_PAIRS)})",
+    )
     args = ap.parse_args()
     db_path = Path(args.db)
     try:
         db_display = str(db_path.resolve().relative_to(ROOT))
     except ValueError:
         db_display = str(db_path)
+    pairs = (
+        [s.strip().upper() for s in args.instruments.split(",") if s.strip()]
+        if args.instruments
+        else list(H4_PAIRS)
+    )
 
     if args.report:
         if not db_path.exists():
@@ -431,7 +449,7 @@ def main() -> int:
             )
             return 1
         doc = render_result_doc(
-            Database(db_path), H4_PAIRS,
+            Database(db_path), pairs,
             db_display=db_display, generated_at=datetime.now(UTC),
         )
         Path(args.report).write_text(doc, encoding="utf-8")
@@ -446,7 +464,7 @@ def main() -> int:
                 file=sys.stderr,
             )
             return 1
-        manifest = store_manifest(Database(db_path), H4_PAIRS)
+        manifest = store_manifest(Database(db_path), pairs)
         _print_manifest(manifest)
         if not manifest["all_real_oanda"]:
             print(
@@ -472,14 +490,18 @@ def main() -> int:
         )
         return 2
 
-    print(f"rehydrating H4 store → {db_display} (practice OANDA, six majors)")
+    print(
+        f"rehydrating H4 store → {db_display} "
+        f"(practice OANDA: {', '.join(pairs)})"
+    )
     db = Database(db_path)
     rehydrate(
         settings, db,
         from_dt=_parse_day(args.from_date), to_dt=_parse_day(args.to_date),
+        pairs=pairs,
     )
     print()
-    _print_manifest(store_manifest(db, H4_PAIRS))
+    _print_manifest(store_manifest(db, pairs))
     print(f"\n[store written] {db_display}  (gitignored — not committed)")
     return 0
 
