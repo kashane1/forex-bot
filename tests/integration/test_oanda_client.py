@@ -19,6 +19,7 @@ from tests.fixtures.oanda_payloads import (
     ACCOUNT_SUMMARY,
     CANDLES_RESPONSE,
     INSTRUMENTS_LIST,
+    OPEN_ORDERS_EMPTY,
     ORDER_FILL_RESPONSE,
     ORDER_REJECT_RESPONSE,
     PRICING_RESPONSE,
@@ -197,3 +198,48 @@ def test_account_details_round_trip():
     details = _broker().get_account_details()
     assert "200" in details.open_trade_ids
     assert "EUR_USD" in details.open_position_instruments
+
+
+@respx.mock
+def test_get_candles_count_only_omits_include_first():
+    # A count-only request must NOT send `includeFirst` — real OANDA
+    # returns HTTP 400 when `includeFirst` is sent without `from`.
+    route = respx.get(
+        f"{BASE}/v3/accounts/{ACCOUNT_ID}/instruments/EUR_USD/candles"
+    ).mock(return_value=httpx.Response(200, json=CANDLES_RESPONSE))
+    _broker().get_candles(
+        CandleRequest(instrument="EUR_USD", granularity="H4", price="BA", count=2)
+    )
+    params = route.calls.last.request.url.params
+    assert "includeFirst" not in params
+    assert params["count"] == "2"
+
+
+@respx.mock
+def test_get_candles_with_from_includes_include_first():
+    # When `from` is specified, `includeFirst` is meaningful and IS sent.
+    route = respx.get(
+        f"{BASE}/v3/accounts/{ACCOUNT_ID}/instruments/EUR_USD/candles"
+    ).mock(return_value=httpx.Response(200, json=CANDLES_RESPONSE))
+    _broker().get_candles(
+        CandleRequest(
+            instrument="EUR_USD",
+            granularity="H4",
+            price="BA",
+            from_time=utcnow(),
+            include_first=True,
+        )
+    )
+    assert route.calls.last.request.url.params["includeFirst"] == "true"
+
+
+@respx.mock
+def test_list_open_orders_uses_pending_orders_endpoint():
+    # OANDA v20 has no /openOrders route; pending orders live at
+    # /pendingOrders (a /openOrders call 404s as an unrecognized endpoint).
+    route = respx.get(
+        f"{BASE}/v3/accounts/{ACCOUNT_ID}/pendingOrders"
+    ).mock(return_value=httpx.Response(200, json=OPEN_ORDERS_EMPTY))
+    out = _broker().list_open_orders()
+    assert out == []
+    assert route.called

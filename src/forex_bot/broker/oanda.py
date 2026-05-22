@@ -158,12 +158,13 @@ class OandaBroker:
             "dailyAlignment": request.daily_alignment,
             "alignmentTimezone": request.alignment_timezone,
             "weeklyAlignment": request.weekly_alignment,
-            "includeFirst": "true" if request.include_first else "false",
         }
         if request.count is not None:
             params["count"] = request.count
         if request.from_time is not None:
             params["from"] = request.from_time.isoformat().replace("+00:00", "Z")
+            # OANDA rejects `includeFirst` unless `from` is also specified.
+            params["includeFirst"] = "true" if request.include_first else "false"
         if request.to_time is not None:
             params["to"] = request.to_time.isoformat().replace("+00:00", "Z")
         return params
@@ -234,7 +235,9 @@ class OandaBroker:
     # ---------- trades / orders / positions ----------
 
     def list_open_orders(self) -> list[BrokerOrder]:
-        payload = self._request("GET", self._account_path("/openOrders"))
+        # OANDA v20 lists pending orders at /pendingOrders; there is no
+        # /openOrders route (it 404s as an unrecognized endpoint).
+        payload = self._request("GET", self._account_path("/pendingOrders"))
         return [map_broker_order(item) for item in payload.get("orders", [])]
 
     def list_open_trades(self) -> list[Trade]:
