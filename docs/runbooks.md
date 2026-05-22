@@ -27,6 +27,11 @@ Financing is modelled only as a conservative *estimate* — a hard live
 blocker. See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md` and the
 infra-foundation-001 / infra-execution-fidelity-001 sprint docs.
 
+Local research data stores (the OANDA H4 store, D1AGG, Lean-parity
+exports) are gitignored and rebuilt — practice account only — with
+`scripts/prepare_local_research_data.py`. Full procedure:
+`docs/research/DATA_REHYDRATION_RUNBOOK.md`.
+
 ## Before merging research infrastructure
 
 Run this checklist before merging any research-infra change. It exists

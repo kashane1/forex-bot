@@ -65,6 +65,12 @@ Infrastructure execution-fidelity sprint:
 [Lean parity execution](docs/research/LEAN_PARITY_EXECUTION_GUIDE.md) ·
 [observed financing](docs/research/OBSERVED_FINANCING_CAPTURE.md).
 
+Infrastructure data-parity sprint:
+[plan](docs/research/INFRA_DATA_PARITY_001_PLAN.md) ·
+[summary](docs/research/INFRA_DATA_PARITY_001_SUMMARY.md) ·
+[data rehydration runbook](docs/research/DATA_REHYDRATION_RUNBOOK.md) ·
+[H4 rehydration](docs/research/OANDA_H4_DATA_REHYDRATION.md).
+
 ### Validating the archive & starting future research
 
 ```bash
