@@ -1,0 +1,154 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-11-04T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.9 > cap 2.0 pips,2.9,82.74217481597286,166.9,22,Wed,Asia/late
+2020-11-04T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.9,82.74217481597286,166.9,22,Wed,Asia/late
+2020-11-23T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.1 > cap 2.0 pips,3.1,69.86384988368573,141.3,22,Mon,Asia/late
+2020-11-23T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.1,69.86384988368573,141.3,22,Mon,Asia/late
+2020-11-26T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 13.0 > cap 2.0 pips,13.0,63.89767791343208,134.3,22,Thu,Asia/late
+2020-11-26T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 20.35% > 8.0%,13.0,63.89767791343208,134.3,22,Thu,Asia/late
+2020-11-26T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,13.0,63.89767791343208,134.3,22,Thu,Asia/late
+2020-12-01T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.3 > cap 2.0 pips,3.3,62.440615297306906,126.5,22,Tue,Asia/late
+2020-12-01T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.3,62.440615297306906,126.5,22,Tue,Asia/late
+2020-12-02T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,61.64485706178496,124.0,22,Wed,Asia/late
+2020-12-09T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 7.4 > cap 2.0 pips,7.4,64.66457217052677,133.0,22,Wed,Asia/late
+2020-12-09T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 11.44% > 8.0%,7.4,64.66457217052677,133.0,22,Wed,Asia/late
+2020-12-09T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,7.4,64.66457217052677,133.0,22,Wed,Asia/late
+2020-12-16T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 15.0 > cap 2.0 pips,15.0,62.187439933717,131.9,22,Wed,Asia/late
+2020-12-16T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 24.12% > 8.0%,15.0,62.187439933717,131.9,22,Wed,Asia/late
+2020-12-16T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,15.0,62.187439933717,131.9,22,Wed,Asia/late
+2020-12-29T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,66.85276397284468,134.6,22,Tue,Asia/late
+2020-12-30T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,66.78470940335585,134.9,22,Wed,Asia/late
+2020-12-30T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.7,66.78470940335585,134.9,22,Wed,Asia/late
+2021-01-04T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,72.52967290391398,146.2,22,Mon,Asia/late
+2021-01-04T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.3,72.52967290391398,146.2,22,Mon,Asia/late
+2021-01-05T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 5.0 > cap 2.0 pips,5.0,73.54898198220586,149.6,22,Tue,Asia/late
+2021-01-05T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,5.0,73.54898198220586,149.6,22,Tue,Asia/late
+2021-02-18T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.9 > cap 2.0 pips,3.9,66.41794642787247,134.8,22,Thu,Asia/late
+2021-02-18T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.9,66.41794642787247,134.8,22,Thu,Asia/late
+2021-02-21T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,66.94880739731013,135.1,22,Sun,Asia/late
+2021-02-21T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.5,66.94880739731013,135.1,22,Sun,Asia/late
+2021-02-23T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,66.89208392931334,134.5,22,Tue,Asia/late
+2021-04-18T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 13.1 > cap 2.0 pips,13.1,68.52030478725102,143.6,21,Sun,Asia/late
+2021-04-18T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 19.12% > 8.0%,13.1,68.52030478725102,143.6,21,Sun,Asia/late
+2021-04-18T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,13.1,68.52030478725102,143.6,21,Sun,Asia/late
+2021-05-06T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.4 > cap 2.0 pips,3.4,73.40545272756653,148.5,21,Thu,Asia/late
+2021-05-06T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.4,73.40545272756653,148.5,21,Thu,Asia/late
+2021-08-16T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 5.9 > cap 2.0 pips,5.9,59.43284581794341,121.8,21,Mon,Asia/late
+2021-08-16T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 9.93% > 8.0%,5.9,59.43284581794341,121.8,21,Mon,Asia/late
+2021-08-16T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,5.9,59.43284581794341,121.8,21,Mon,Asia/late
+2021-08-17T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.6 > cap 2.0 pips,4.6,58.10549968809031,118.5,21,Tue,Asia/late
+2021-08-17T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.6,58.10549968809031,118.5,21,Tue,Asia/late
+2021-08-18T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,61.64796399608382,124.4,21,Wed,Asia/late
+2021-08-18T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.2,61.64796399608382,124.4,21,Wed,Asia/late
+2021-08-19T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 11.9 > cap 2.0 pips,11.9,60.82310942493495,127.6,21,Thu,Asia/late
+2021-08-19T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 19.56% > 8.0%,11.9,60.82310942493495,127.6,21,Thu,Asia/late
+2021-08-19T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,11.9,60.82310942493495,127.6,21,Thu,Asia/late
+2021-09-28T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.7,66.41995667465308,133.7,21,Tue,Asia/late
+2021-11-10T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 14.9 > cap 2.0 pips,14.9,62.53334487228647,132.5,22,Wed,Asia/late
+2021-11-10T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 23.83% > 8.0%,14.9,62.53334487228647,132.5,22,Wed,Asia/late
+2021-11-10T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,14.9,62.53334487228647,132.5,22,Wed,Asia/late
+2021-11-16T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 3.8 > cap 2.0 pips,3.8,61.21106864060209,124.3,22,Tue,Asia/late
+2021-11-16T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,3.8,61.21106864060209,124.3,22,Tue,Asia/late
+2021-11-18T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 15.0 > cap 2.0 pips,15.0,60.37102347072321,128.2,22,Thu,Asia/late
+2021-11-18T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 24.85% > 8.0%,15.0,60.37102347072321,128.2,22,Thu,Asia/late
+2021-11-18T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,15.0,60.37102347072321,128.2,22,Thu,Asia/late
+2021-11-21T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 3.4 > cap 2.0 pips,3.4,59.78737893710012,121.3,22,Sun,Asia/late
+2021-11-21T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,3.4,59.78737893710012,121.3,22,Sun,Asia/late
+2021-11-23T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 3.9 > cap 2.0 pips,3.9,56.67585224678529,115.3,22,Tue,Asia/late
+2021-11-23T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,3.9,56.67585224678529,115.3,22,Tue,Asia/late
+2021-11-25T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 15.0 > cap 2.0 pips,15.0,57.12407668217713,121.7,22,Thu,Asia/late
+2021-11-25T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 26.26% > 8.0%,15.0,57.12407668217713,121.7,22,Thu,Asia/late
+2021-11-25T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,15.0,57.12407668217713,121.7,22,Thu,Asia/late
+2021-12-02T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 6.4 > cap 2.0 pips,6.4,63.16209067195882,129.5,22,Thu,Asia/late
+2021-12-02T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 10.13% > 8.0%,6.4,63.16209067195882,129.5,22,Thu,Asia/late
+2021-12-02T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,6.4,63.16209067195882,129.5,22,Thu,Asia/late
+2022-01-26T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.8,67.1296551025974,135.2,22,Wed,Asia/late
+2022-01-27T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 15.0 > cap 2.0 pips,15.0,67.93467973812612,143.4,22,Thu,Asia/late
+2022-01-27T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 22.08% > 8.0%,15.0,67.93467973812612,143.4,22,Thu,Asia/late
+2022-01-27T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,15.0,67.93467973812612,143.4,22,Thu,Asia/late
+2022-04-03T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.0,69.78069907159339,140.6,21,Sun,Asia/late
+2022-04-04T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.0,73.74993485219383,148.5,21,Mon,Asia/late
+2022-05-01T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.9,85.051948736054,171.1,21,Sun,Asia/late
+2022-05-08T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,94.60544081717386,190.3,21,Sun,Asia/late
+2022-05-08T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.2,94.60544081717386,190.3,21,Sun,Asia/late
+2022-05-09T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.9,93.25505218737571,187.5,21,Mon,Asia/late
+2022-05-11T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,97.64160112074738,196.5,21,Wed,Asia/late
+2022-05-11T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.5,97.64160112074738,196.5,21,Wed,Asia/late
+2022-06-13T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.5,91.45461539058861,183.7,21,Mon,Asia/late
+2022-06-30T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.8 > cap 2.0 pips,2.8,88.20627361425983,177.8,21,Thu,Asia/late
+2022-06-30T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.8,88.20627361425983,177.8,21,Thu,Asia/late
+2022-07-10T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.9,92.91723292614215,186.8,21,Sun,Asia/late
+2022-08-31T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.9,85.97879313163732,172.9,21,Wed,Asia/late
+2022-09-05T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.8,83.56567365532328,168.0,21,Mon,Asia/late
+2022-09-20T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.6,82.99639150863874,166.8,21,Tue,Asia/late
+2022-09-22T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 11.7 > cap 2.0 pips,11.7,88.31091920897929,182.5,21,Thu,Asia/late
+2022-09-22T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 13.25% > 8.0%,11.7,88.31091920897929,182.5,21,Thu,Asia/late
+2022-09-22T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,11.7,88.31091920897929,182.5,21,Thu,Asia/late
+2022-09-25T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.9,89.1994249797665,179.3,21,Sun,Asia/late
+2022-09-26T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.7,89.89589462406889,180.6,21,Mon,Asia/late
+2022-10-09T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.7,102.12136061026233,205.1,21,Sun,Asia/late
+2022-10-10T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.3,101.88054913810079,204.4,21,Mon,Asia/late
+2023-03-06T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.6,82.56618678536319,165.9,22,Mon,Asia/late
+2023-04-25T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.5,70.22645260116181,141.2,21,Tue,Asia/late
+2023-05-23T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.8,65.4431970538156,131.8,21,Tue,Asia/late
+2023-05-24T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.4,64.34011154997164,129.4,21,Wed,Asia/late
+2023-08-01T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.5,80.00691667248687,160.8,21,Tue,Asia/late
+2023-08-10T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 3.9 > cap 2.0 pips,3.9,73.38116724012052,148.7,21,Thu,Asia/late
+2023-08-10T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,3.9,73.38116724012052,148.7,21,Thu,Asia/late
+2023-08-15T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.4,71.10820861025682,142.9,21,Tue,Asia/late
+2023-08-16T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.1,72.15405085238133,144.9,21,Wed,Asia/late
+2023-09-26T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.4,57.84948329151717,116.4,21,Tue,Asia/late
+2023-10-02T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.2,64.59871257520362,129.8,21,Mon,Asia/late
+2024-02-12T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.4,57.521717320511335,115.7,22,Mon,Asia/late
+2024-04-11T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.2,57.18027996934816,115.0,21,Thu,Asia/late
+2024-04-14T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.2,57.056688542966164,114.7,21,Sun,Asia/late
+2024-04-15T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.2,57.009782218468565,114.6,21,Mon,Asia/late
+2024-07-02T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.4,49.07235322756544,98.8,21,Tue,Asia/late
+2024-07-04T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.7,47.26595762989064,95.4,21,Thu,Asia/late
+2024-08-18T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,59.78603568257585,120.3,21,Sun,Asia/late
+2024-08-19T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,58.09060456239192,116.9,21,Mon,Asia/late
+2024-08-22T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,58.97494833220664,118.8,21,Thu,Asia/late
+2024-09-23T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,58.54556778821339,117.8,21,Mon,Asia/late
+2024-12-03T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.7,58.69638321147684,118.2,22,Tue,Asia/late
+2024-12-05T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 7.3 > cap 2.0 pips,7.3,58.82519776907951,121.3,22,Thu,Asia/late
+2024-12-05T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 12.41% > 8.0%,7.3,58.82519776907951,121.3,22,Thu,Asia/late
+2024-12-05T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,7.3,58.82519776907951,121.3,22,Thu,Asia/late
+2024-12-16T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.8,57.56661551769923,116.0,22,Mon,Asia/late
+2024-12-17T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.9,62.53685726643503,126.0,22,Tue,Asia/late
+2024-12-30T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.0,55.48341232686524,112.0,22,Mon,Asia/late
+2025-01-09T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 6.1 > cap 2.0 pips,6.1,56.02224502195012,115.1,22,Thu,Asia/late
+2025-01-09T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 10.89% > 8.0%,6.1,56.02224502195012,115.1,22,Thu,Asia/late
+2025-01-09T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,6.1,56.02224502195012,115.1,22,Thu,Asia/late
+2025-04-03T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 7.6 > cap 2.0 pips,7.6,85.04969870642653,173.9,21,Thu,Asia/late
+2025-04-03T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 8.94% > 8.0%,7.6,85.04969870642653,173.9,21,Thu,Asia/late
+2025-04-03T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,7.6,85.04969870642653,173.9,21,Thu,Asia/late
+2025-04-06T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.3 > cap 2.0 pips,4.3,92.90329165596755,188.0,21,Sun,Asia/late
+2025-04-06T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.3,92.90329165596755,188.0,21,Sun,Asia/late
+2025-06-29T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,61.518475384677885,123.8,21,Sun,Asia/late
+2025-07-22T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.3,56.80110683197076,114.3,21,Tue,Asia/late
+2025-09-07T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.7,49.546262493836664,99.9,21,Sun,Asia/late
+2025-09-10T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.6,50.995695589999734,102.8,21,Wed,Asia/late
+2025-09-14T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.7,49.35776813627537,99.6,21,Sun,Asia/late
+2025-09-15T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,47.85364184082713,96.5,21,Mon,Asia/late
+2025-12-02T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,44.001272943175046,88.9,22,Tue,Asia/late
+2025-12-03T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.6,42.711896304376836,86.2,22,Wed,Asia/late
+2025-12-04T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 10.2 > cap 2.0 pips,10.2,42.771760854064205,90.6,22,Thu,Asia/late
+2025-12-04T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 23.85% > 8.0%,10.2,42.771760854064205,90.6,22,Thu,Asia/late
+2025-12-04T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,10.2,42.771760854064205,90.6,22,Thu,Asia/late
+2025-12-09T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,43.5109360773977,87.9,22,Tue,Asia/late
+2025-12-22T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.7,42.47583551466863,85.8,22,Mon,Asia/late
+2025-12-23T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.0 pips,6.0,40.848990120763666,84.7,22,Tue,Asia/late
+2025-12-23T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 14.69% > 8.0%,6.0,40.848990120763666,84.7,22,Tue,Asia/late
+2025-12-23T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,40.848990120763666,84.7,22,Tue,Asia/late
+2026-01-05T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.7,40.80029594477359,82.5,22,Mon,Asia/late
+2026-01-21T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.9,46.01703195277601,93.0,22,Wed,Asia/late
+2026-01-22T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.4 > cap 2.0 pips,6.4,47.36581538472058,97.9,22,Thu,Asia/late
+2026-01-22T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 13.51% > 8.0%,6.4,47.36581538472058,97.9,22,Thu,Asia/late
+2026-01-22T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.4,47.36581538472058,97.9,22,Thu,Asia/late
+2026-01-25T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.6,47.178971428669115,95.2,22,Sun,Asia/late
+2026-01-26T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,52.01618775519275,104.9,22,Mon,Asia/late
+2026-01-27T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.3,53.0364600583932,106.7,22,Tue,Asia/late
+2026-01-28T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2,58.19814148279372,117.4,22,Wed,Asia/late
+2026-02-10T22:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.9,69.83414863812207,140.6,22,Tue,Asia/late
+2026-04-13T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.9,78.27997204029658,157.5,21,Mon,Asia/late
+2026-04-14T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.7,77.00997403741826,154.9,21,Tue,Asia/late
+2026-05-05T21:00:00+00:00,AUD_USD,D,full,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.6,69.01887167615672,138.8,21,Tue,Asia/late

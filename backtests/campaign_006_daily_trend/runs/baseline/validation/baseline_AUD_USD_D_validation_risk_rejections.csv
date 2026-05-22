@@ -1,0 +1,19 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-12-26T22:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,62.64522231678757,126.0,22,Tue,Asia/late
+2024-02-12T22:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.4,57.521717292759554,115.7,22,Mon,Asia/late
+2024-04-11T21:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.2,57.180279968201724,115.0,21,Thu,Asia/late
+2024-04-14T21:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.2,57.05668854190162,114.7,21,Sun,Asia/late
+2024-04-15T21:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.2,57.009782217480065,114.6,21,Mon,Asia/late
+2024-07-02T21:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.4,49.07235322754986,98.8,21,Tue,Asia/late
+2024-07-04T21:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.7,47.2659576298772,95.4,21,Thu,Asia/late
+2024-08-18T21:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,59.78603568257449,120.3,21,Sun,Asia/late
+2024-08-19T21:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,58.09060456239066,116.9,21,Mon,Asia/late
+2024-08-22T21:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,58.97494833220564,118.8,21,Thu,Asia/late
+2024-09-23T21:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.5,58.54556778821319,117.8,21,Mon,Asia/late
+2024-12-03T22:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.7,58.69638321147684,118.2,22,Tue,Asia/late
+2024-12-05T22:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 7.3 > cap 2.0 pips,7.3,58.82519776907951,121.3,22,Thu,Asia/late
+2024-12-05T22:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 12.41% > 8.0%,7.3,58.82519776907951,121.3,22,Thu,Asia/late
+2024-12-05T22:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,7.3,58.82519776907951,121.3,22,Thu,Asia/late
+2024-12-16T22:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.8,57.56661551769923,116.0,22,Mon,Asia/late
+2024-12-17T22:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.9,62.53685726643503,126.0,22,Tue,Asia/late
+2024-12-30T22:00:00+00:00,AUD_USD,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.0,55.48341232686524,112.0,22,Mon,Asia/late

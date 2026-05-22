@@ -34,3 +34,25 @@ Newest entries at the bottom.
 - Status: **complete**. Ladder continues to CAMPAIGN_006.
 
 ---
+
+### Phase 2 — CAMPAIGN_006 daily (D1) trend
+
+- Fetched real OANDA practice D1 candles (6 pairs, ~1656 each) into
+  `data/campaign_002.sqlite3`; provenance recorded.
+- Ran `trend_following 0.1.0-baseline-frozen` on D1 — screening phase,
+  36 runs. **Result: 0 trades in every run.**
+- Root cause = **infrastructure incompatibility, not a strategy
+  result.** D1 candles close at the 17:00 NY rollover, so (a) every
+  signal hits the session-filter rollover blackout — `SESSION_BLOCKED`
+  100/100 — and (b) the D1 close bid/ask is the rollover spread
+  (EUR_USD D1 median 2.0 vs H4 1.5 pips). The intraday-designed
+  backtester cannot validly test D1 without next-bar-open fills + a
+  non-rollover spread reference.
+- Did **not** hack the config to force trades — that would yield
+  unreliable rollover-spread evidence.
+- Verdict: **REJECT — no valid result (D1 infrastructure blocker).**
+  Scoped to D1; H4 path validated and unaffected → marathon continues.
+- Report: `backtests/CAMPAIGN_006_DAILY_TREND_REPORT.md`.
+- Status: **complete**. Ladder continues to CAMPAIGN_007 (H4 pullback).
+
+---

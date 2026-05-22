@@ -1,0 +1,43 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-11-12T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,85.7180573633674,172.5,22,Sun,Asia/late
+2023-11-12T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.2,85.7180573633674,172.5,22,Sun,Asia/late
+2024-01-15T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,148.365060245373,297.9,22,Mon,Asia/late
+2024-01-15T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.3,148.365060245373,297.9,22,Mon,Asia/late
+2024-01-16T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,148.16398451356065,297.4,22,Tue,Asia/late
+2024-01-16T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.1,148.16398451356065,297.4,22,Tue,Asia/late
+2024-02-07T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,127.34464386569518,255.6,22,Wed,Asia/late
+2024-02-12T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.3,120.87337192891113,242.4,22,Mon,Asia/late
+2024-03-18T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,104.53313906029607,210.2,21,Mon,Asia/late
+2024-03-18T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.2,104.53313906029607,210.2,21,Mon,Asia/late
+2024-03-19T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,104.92362912741773,210.9,21,Tue,Asia/late
+2024-03-19T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.1,104.92362912741773,210.9,21,Tue,Asia/late
+2024-04-09T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,80.34757399379065,161.9,21,Tue,Asia/late
+2024-04-09T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.4,80.34757399379065,161.9,21,Tue,Asia/late
+2024-04-10T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,78.62631870851988,158.4,21,Wed,Asia/late
+2024-04-10T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.2,78.62631870851988,158.4,21,Wed,Asia/late
+2024-04-14T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.0,83.57473398846862,168.1,21,Sun,Asia/late
+2024-04-15T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.0,83.96582441786374,168.9,21,Mon,Asia/late
+2024-04-21T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.3,80.26205125985554,161.2,21,Sun,Asia/late
+2024-04-23T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.9,75.96141154548765,152.9,21,Tue,Asia/late
+2024-04-24T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.3,74.47131072081007,149.6,21,Wed,Asia/late
+2024-04-25T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 7.2 > cap 2.0 pips,7.2,93.97693138360923,191.6,21,Thu,Asia/late
+2024-04-25T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,7.2,93.97693138360923,191.6,21,Thu,Asia/late
+2024-06-19T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,106.30933912239107,213.9,21,Wed,Asia/late
+2024-06-19T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.5,106.30933912239107,213.9,21,Wed,Asia/late
+2024-06-20T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 8.0 > cap 2.0 pips,8.0,107.16938632793462,218.3,21,Thu,Asia/late
+2024-06-20T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,8.0,107.16938632793462,218.3,21,Thu,Asia/late
+2024-06-25T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.2 > cap 2.0 pips,6.2,105.91892921372907,214.9,21,Tue,Asia/late
+2024-06-25T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.2,105.91892921372907,214.9,21,Tue,Asia/late
+2024-06-30T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 8.2 > cap 2.0 pips,8.2,102.07266307673561,208.2,21,Sun,Asia/late
+2024-06-30T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 8.03% > 8.0%,8.2,102.07266307673561,208.2,21,Sun,Asia/late
+2024-06-30T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,8.2,102.07266307673561,208.2,21,Sun,Asia/late
+2024-09-05T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 8.5 > cap 2.0 pips,8.5,188.09550698626873,380.4,21,Thu,Asia/late
+2024-09-05T21:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,8.5,188.09550698626873,380.4,21,Thu,Asia/late
+2024-11-12T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.6 > cap 2.0 pips,2.6,152.59892710181865,306.5,22,Tue,Asia/late
+2024-11-12T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.6,152.59892710181865,306.5,22,Tue,Asia/late
+2024-11-13T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,149.38828945168882,300.0,22,Wed,Asia/late
+2024-11-13T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.5,149.38828945168882,300.0,22,Wed,Asia/late
+2024-12-18T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.5 > cap 2.0 pips,3.5,160.67962814793867,323.1,22,Wed,Asia/late
+2024-12-18T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.5,160.67962814793867,323.1,22,Wed,Asia/late
+2024-12-25T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.6 > cap 2.0 pips,2.6,147.08480735977912,295.5,22,Wed,Asia/late
+2024-12-25T22:00:00+00:00,USD_JPY,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.6,147.08480735977912,295.5,22,Wed,Asia/late

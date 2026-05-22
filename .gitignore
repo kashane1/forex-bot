@@ -96,6 +96,20 @@ backtests/campaign_004_volatility_breakout/runs/**/*_trades.csv
 backtests/campaign_004_volatility_breakout/runs/**/*_metrics.json
 backtests/campaign_004_volatility_breakout/runs/**/*_metrics.md
 backtests/campaign_004_volatility_breakout/_*.log
+# Research Marathon 001 campaigns (006-008): commit summary JSONs +
+# risk_rejections CSVs, gitignore the bulky equity/trade/metrics CSVs.
+backtests/campaign_006_daily_trend/runs/**/*_equity.csv
+backtests/campaign_006_daily_trend/runs/**/*_trades.csv
+backtests/campaign_006_daily_trend/runs/**/*_metrics.json
+backtests/campaign_006_daily_trend/runs/**/*_metrics.md
+backtests/campaign_007_h4_pullback/runs/**/*_equity.csv
+backtests/campaign_007_h4_pullback/runs/**/*_trades.csv
+backtests/campaign_007_h4_pullback/runs/**/*_metrics.json
+backtests/campaign_007_h4_pullback/runs/**/*_metrics.md
+backtests/campaign_008_range_mean_reversion/runs/**/*_equity.csv
+backtests/campaign_008_range_mean_reversion/runs/**/*_trades.csv
+backtests/campaign_008_range_mean_reversion/runs/**/*_metrics.json
+backtests/campaign_008_range_mean_reversion/runs/**/*_metrics.md
 
 # Founders pack stays in repo but ignore any temp copies
 *.tmp

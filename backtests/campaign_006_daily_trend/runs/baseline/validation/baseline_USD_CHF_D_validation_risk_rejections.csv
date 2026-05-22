@@ -1,0 +1,25 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-11-19T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,59.0180532484891,119.1,22,Sun,Asia/late
+2023-11-19T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.2,59.0180532484891,119.1,22,Sun,Asia/late
+2023-11-26T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.9,52.94357093545705,106.8,22,Sun,Asia/late
+2023-11-27T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.7,53.28688729721011,107.4,22,Mon,Asia/late
+2023-11-28T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.8,54.091395347409374,109.1,22,Tue,Asia/late
+2023-12-18T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,64.02042467485794,129.2,22,Mon,Asia/late
+2023-12-18T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.4,64.02042467485794,129.2,22,Mon,Asia/late
+2023-12-20T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.8,64.11301923495407,129.1,22,Wed,Asia/late
+2023-12-21T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.6 > cap 2.0 pips,4.6,63.787089289600246,129.9,22,Thu,Asia/late
+2023-12-21T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.6,63.787089289600246,129.9,22,Thu,Asia/late
+2023-12-26T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.7,68.25876576501253,137.4,22,Tue,Asia/late
+2024-04-09T21:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,60.34660956501178,121.7,21,Tue,Asia/late
+2024-04-09T21:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.1,60.34660956501178,121.7,21,Tue,Asia/late
+2024-04-29T21:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,57.947468316371406,117.2,21,Mon,Asia/late
+2024-04-29T21:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.7,57.947468316371406,117.2,21,Mon,Asia/late
+2024-07-31T21:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.4,54.251371192088875,109.2,21,Wed,Asia/late
+2024-08-01T21:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 3.0 > cap 2.0 pips,3.0,61.95841610693965,125.4,21,Thu,Asia/late
+2024-08-01T21:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,3.0,61.95841610693965,125.4,21,Thu,Asia/late
+2024-08-04T21:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.8 > cap 2.0 pips,2.8,69.94352924215819,141.3,21,Sun,Asia/late
+2024-08-04T21:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.8,69.94352924215819,141.3,21,Sun,Asia/late
+2024-08-26T21:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.6,68.94353567538087,138.7,21,Mon,Asia/late
+2024-12-17T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,63.00100609591373,126.9,22,Tue,Asia/late
+2024-12-29T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.6,60.156933522260445,121.1,22,Sun,Asia/late
+2024-12-30T22:00:00+00:00,USD_CHF,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,59.9707239849561,120.8,22,Mon,Asia/late

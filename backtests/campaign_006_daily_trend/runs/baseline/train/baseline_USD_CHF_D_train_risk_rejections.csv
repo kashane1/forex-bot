@@ -1,0 +1,75 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-11-05T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 25.1 > cap 2.0 pips,25.1,60.93183251965861,134.4,22,Thu,Asia/late
+2020-11-05T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 41.19% > 8.0%,25.1,60.93183251965861,134.4,22,Thu,Asia/late
+2020-11-05T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,25.1,60.93183251965861,134.4,22,Thu,Asia/late
+2020-12-01T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,58.98346764474528,119.1,22,Tue,Asia/late
+2020-12-01T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.2,58.98346764474528,119.1,22,Tue,Asia/late
+2020-12-02T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.0,59.23107709869201,119.5,22,Wed,Asia/late
+2020-12-09T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.6 > cap 2.0 pips,2.6,55.65405152838969,112.6,22,Wed,Asia/late
+2020-12-09T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.6,55.65405152838969,112.6,22,Wed,Asia/late
+2020-12-29T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 3.1 > cap 2.0 pips,3.1,53.52349836842221,108.6,22,Tue,Asia/late
+2020-12-29T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,3.1,53.52349836842221,108.6,22,Tue,Asia/late
+2021-01-04T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.0,54.14199195168498,109.3,22,Mon,Asia/late
+2021-05-06T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 15.1 > cap 2.0 pips,15.1,60.20499232963746,128.0,21,Thu,Asia/late
+2021-05-06T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 25.08% > 8.0%,15.1,60.20499232963746,128.0,21,Thu,Asia/late
+2021-05-06T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,15.1,60.20499232963746,128.0,21,Thu,Asia/late
+2021-05-17T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 6.3 > cap 2.0 pips,6.3,56.69888861185316,116.5,21,Mon,Asia/late
+2021-05-17T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 11.11% > 8.0%,6.3,56.69888861185316,116.5,21,Mon,Asia/late
+2021-05-17T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,6.3,56.69888861185316,116.5,21,Mon,Asia/late
+2021-05-24T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 3.3 > cap 2.0 pips,3.3,56.974247336230285,115.6,21,Mon,Asia/late
+2021-05-24T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,3.3,56.974247336230285,115.6,21,Mon,Asia/late
+2021-07-27T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,56.098934058438175,113.3,21,Tue,Asia/late
+2021-07-27T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.2,56.098934058438175,113.3,21,Tue,Asia/late
+2021-07-28T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,55.49901019712112,112.2,21,Wed,Asia/late
+2021-07-28T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.4,55.49901019712112,112.2,21,Wed,Asia/late
+2021-09-15T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.3 > cap 2.0 pips,6.3,55.65795001094785,114.5,21,Wed,Asia/late
+2021-09-15T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 11.32% > 8.0%,6.3,55.65795001094785,114.5,21,Wed,Asia/late
+2021-09-15T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.3,55.65795001094785,114.5,21,Wed,Asia/late
+2021-09-16T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.9 > cap 2.0 pips,3.9,56.32166786730874,114.6,21,Thu,Asia/late
+2021-09-16T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.9,56.32166786730874,114.6,21,Thu,Asia/late
+2021-09-28T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,56.46847752303168,114.3,21,Tue,Asia/late
+2021-09-28T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.7,56.46847752303168,114.3,21,Tue,Asia/late
+2021-11-15T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.0,56.865940839090634,114.7,22,Mon,Asia/late
+2021-11-21T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.2 > cap 2.0 pips,3.2,55.81417472681351,113.2,22,Sun,Asia/late
+2021-11-21T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.2,55.81417472681351,113.2,22,Sun,Asia/late
+2022-01-26T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.9,61.86013080856853,124.7,22,Wed,Asia/late
+2022-03-10T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.9 > cap 2.0 pips,3.9,62.61644101730425,127.2,22,Thu,Asia/late
+2022-03-10T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.9,62.61644101730425,127.2,22,Thu,Asia/late
+2022-03-13T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,62.94740951606822,127.0,21,Sun,Asia/late
+2022-03-13T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.3,62.94740951606822,127.0,21,Sun,Asia/late
+2022-03-14T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,62.736880264920494,126.7,21,Mon,Asia/late
+2022-03-14T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.4,62.736880264920494,126.7,21,Mon,Asia/late
+2022-04-17T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.2 > cap 2.0 pips,3.2,59.18796922829142,120.0,21,Sun,Asia/late
+2022-04-17T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.2,59.18796922829142,120.0,21,Sun,Asia/late
+2022-04-18T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,61.374542854842026,124.1,21,Mon,Asia/late
+2022-04-18T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.7,61.374542854842026,124.1,21,Mon,Asia/late
+2022-04-21T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.8 > cap 2.0 pips,3.8,65.16795577699999,132.2,21,Thu,Asia/late
+2022-04-21T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.8,65.16795577699999,132.2,21,Thu,Asia/late
+2022-04-24T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,64.11667322150005,129.6,21,Sun,Asia/late
+2022-04-24T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.7,64.11667322150005,129.6,21,Sun,Asia/late
+2022-04-25T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,63.99048227710719,129.1,21,Mon,Asia/late
+2022-04-25T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.2,63.99048227710719,129.1,21,Mon,Asia/late
+2022-04-26T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,65.62687640017094,132.4,21,Tue,Asia/late
+2022-04-26T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.2,65.62687640017094,132.4,21,Tue,Asia/late
+2022-04-27T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3 > cap 2.0 pips,3,67.303528085873,136.1,21,Wed,Asia/late
+2022-04-27T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3,67.303528085873,136.1,21,Wed,Asia/late
+2022-05-01T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.2 > cap 2.0 pips,3.2,68.4540624822068,138.5,21,Sun,Asia/late
+2022-05-01T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.2,68.4540624822068,138.5,21,Sun,Asia/late
+2022-05-03T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.3 > cap 2.0 pips,3.3,69.57620693618853,140.8,21,Tue,Asia/late
+2022-05-03T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.3,69.57620693618853,140.8,21,Tue,Asia/late
+2022-05-08T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,77.15941204038126,155.6,21,Sun,Asia/late
+2022-05-08T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.5,77.15941204038126,155.6,21,Sun,Asia/late
+2022-05-11T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,80.65232443612159,162.7,21,Wed,Asia/late
+2022-05-11T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.7,80.65232443612159,162.7,21,Wed,Asia/late
+2022-08-29T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.6 > cap 2.0 pips,2.6,78.4874139310847,158.3,21,Mon,Asia/late
+2022-08-29T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.6,78.4874139310847,158.3,21,Mon,Asia/late
+2022-08-30T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,78.66688436457865,158.5,21,Tue,Asia/late
+2022-08-30T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.3,78.66688436457865,158.5,21,Tue,Asia/late
+2022-08-31T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 5.7 > cap 2.0 pips,5.7,81.39424976710878,165.6,21,Wed,Asia/late
+2022-08-31T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,5.7,81.39424976710878,165.6,21,Wed,Asia/late
+2022-09-25T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 4.2 > cap 2.0 pips,4.2,99.34125867350066,200.8,21,Sun,Asia/late
+2022-09-25T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,4.2,99.34125867350066,200.8,21,Sun,Asia/late
+2022-10-09T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.1 > cap 2.0 pips,3.1,109.56633203500743,220.7,21,Sun,Asia/late
+2022-10-09T21:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.1,109.56633203500743,220.7,21,Sun,Asia/late
+2022-12-12T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,99.61375123175469,200.3,22,Mon,Asia/late
+2022-12-12T22:00:00+00:00,USD_CHF,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.1,99.61375123175469,200.3,22,Mon,Asia/late

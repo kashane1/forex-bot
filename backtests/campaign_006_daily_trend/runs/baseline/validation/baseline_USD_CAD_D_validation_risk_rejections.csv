@@ -1,0 +1,32 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2024-04-09T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.6,70.05976343384361,140.9,21,Tue,Asia/late
+2024-04-11T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.4 > cap 2.5 pips,3.4,72.23775520571215,146.2,21,Thu,Asia/late
+2024-04-11T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.4,72.23775520571215,146.2,21,Thu,Asia/late
+2024-04-14T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.0,71.96720126244699,144.9,21,Sun,Asia/late
+2024-04-15T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.1,71.97668688655787,145.0,21,Mon,Asia/late
+2024-06-06T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.4,68.17916402748905,137.6,21,Thu,Asia/late
+2024-07-21T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,52.050088193264344,105.0,21,Sun,Asia/late
+2024-07-22T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.9,50.70365332231688,102.4,21,Mon,Asia/late
+2024-07-23T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.8,49.842678085008544,100.6,21,Tue,Asia/late
+2024-07-24T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.6,50.0396296503651,100.9,21,Wed,Asia/late
+2024-07-28T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.6,49.39360923934525,99.6,21,Sun,Asia/late
+2024-07-31T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.9,52.79366235380522,106.5,21,Wed,Asia/late
+2024-09-23T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,1.7,63.20595569325985,127.3,21,Mon,Asia/late
+2024-10-24T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.5 pips,2.7,54.90082066211891,111.2,21,Thu,Asia/late
+2024-10-24T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.7,54.90082066211891,111.2,21,Thu,Asia/late
+2024-10-28T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.3,52.87800353009239,106.9,21,Mon,Asia/late
+2024-10-31T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 10.0 > cap 2.5 pips,10.0,52.77438912376555,110.5,21,Thu,Asia/late
+2024-10-31T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 18.95% > 8.0%,10.0,52.77438912376555,110.5,21,Thu,Asia/late
+2024-10-31T21:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,10.0,52.77438912376555,110.5,21,Thu,Asia/late
+2024-11-12T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.2,64.15528711971538,129.4,22,Tue,Asia/late
+2024-11-13T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.4,65.04419518259286,131.3,22,Wed,Asia/late
+2024-11-14T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 5.6 > cap 2.5 pips,5.6,65.57318124097905,133.9,22,Thu,Asia/late
+2024-11-14T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 8.54% > 8.0%,5.6,65.57318124097905,133.9,22,Thu,Asia/late
+2024-11-14T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,5.6,65.57318124097905,133.9,22,Thu,Asia/late
+2024-12-09T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.2,74.23609158874157,149.6,22,Mon,Asia/late
+2024-12-11T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,1.9,76.14387489029261,153.2,22,Wed,Asia/late
+2024-12-12T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 12.0 > cap 2.5 pips,12.0,73.27288382670028,152.5,22,Thu,Asia/late
+2024-12-12T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 16.38% > 8.0%,12.0,73.27288382670028,152.5,22,Thu,Asia/late
+2024-12-12T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,12.0,73.27288382670028,152.5,22,Thu,Asia/late
+2024-12-16T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.2,73.40748656485894,147.9,22,Mon,Asia/late
+2024-12-17T22:00:00+00:00,USD_CAD,D,validation,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.2,78.5069518102262,158.1,22,Tue,Asia/late

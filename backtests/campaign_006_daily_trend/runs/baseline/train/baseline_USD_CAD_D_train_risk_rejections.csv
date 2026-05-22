@@ -1,0 +1,73 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-11-04T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,100.95461947938308,204.2,22,Wed,Asia/late
+2020-11-04T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,100.95461947938308,204.2,22,Wed,Asia/late
+2020-11-08T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,101.37030965314153,205.0,22,Sun,Asia/late
+2020-11-08T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,101.37030965314153,205.0,22,Sun,Asia/late
+2020-12-01T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,75.55316201089029,153.4,22,Tue,Asia/late
+2020-12-01T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,75.55316201089029,153.4,22,Tue,Asia/late
+2020-12-02T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,76.52793615296959,155.3,22,Wed,Asia/late
+2020-12-02T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,76.52793615296959,155.3,22,Wed,Asia/late
+2020-12-03T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.7 > cap 2.5 pips,4.7,78.31522642775741,159.0,22,Thu,Asia/late
+2020-12-03T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.7,78.31522642775741,159.0,22,Thu,Asia/late
+2020-12-09T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,78.10567555193624,158.5,22,Wed,Asia/late
+2020-12-09T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,78.10567555193624,158.5,22,Wed,Asia/late
+2020-12-14T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,77.64051355233387,157.5,22,Mon,Asia/late
+2020-12-14T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,77.64051355233387,157.5,22,Mon,Asia/late
+2021-02-23T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,80.88134383708922,164.0,22,Tue,Asia/late
+2021-02-23T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,80.88134383708922,164.0,22,Tue,Asia/late
+2021-03-16T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,89.49584926622555,181.2,21,Tue,Asia/late
+2021-03-16T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,89.49584926622555,181.2,21,Tue,Asia/late
+2021-04-25T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,86.942199575166,176.1,21,Sun,Asia/late
+2021-04-25T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,86.942199575166,176.1,21,Sun,Asia/late
+2021-04-27T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,84.71495779695424,171.7,21,Tue,Asia/late
+2021-04-27T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,84.71495779695424,171.7,21,Tue,Asia/late
+2021-04-28T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,82.17460366860035,166.6,21,Wed,Asia/late
+2021-04-28T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,82.17460366860035,166.6,21,Wed,Asia/late
+2021-05-05T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,81.9822412535061,166.2,21,Wed,Asia/late
+2021-05-05T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,81.9822412535061,166.2,21,Wed,Asia/late
+2021-05-06T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 10.0 > cap 2.5 pips,10.0,81.17279544968432,167.3,21,Thu,Asia/late
+2021-05-06T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 12.32% > 8.0%,10.0,81.17279544968432,167.3,21,Thu,Asia/late
+2021-05-06T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,10.0,81.17279544968432,167.3,21,Thu,Asia/late
+2021-05-09T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,79.34973863184959,160.9,21,Sun,Asia/late
+2021-05-09T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,79.34973863184959,160.9,21,Sun,Asia/late
+2021-10-07T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 10.0 > cap 2.5 pips,10.0,98.52812399533187,202.1,21,Thu,Asia/late
+2021-10-07T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 10.15% > 8.0%,10.0,98.52812399533187,202.1,21,Thu,Asia/late
+2021-10-07T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,10.0,98.52812399533187,202.1,21,Thu,Asia/late
+2021-10-13T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,89.86561847747488,182.0,21,Wed,Asia/late
+2021-10-13T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.5,89.86561847747488,182.0,21,Wed,Asia/late
+2021-12-02T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 10.0 > cap 2.5 pips,10.0,82.53396066241986,170.1,22,Thu,Asia/late
+2021-12-02T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 12.12% > 8.0%,10.0,82.53396066241986,170.1,22,Thu,Asia/late
+2021-12-02T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,10.0,82.53396066241986,170.1,22,Thu,Asia/late
+2021-12-13T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,83.66572369706245,169.6,22,Mon,Asia/late
+2021-12-13T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,4.5,83.66572369706245,169.6,22,Mon,Asia/late
+2021-12-19T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,88.40859627529667,179.1,22,Sun,Asia/late
+2021-12-19T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,4.5,88.40859627529667,179.1,22,Sun,Asia/late
+2022-02-23T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,82.57559995405347,167.4,22,Wed,Asia/late
+2022-02-23T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,4.5,82.57559995405347,167.4,22,Wed,Asia/late
+2022-03-07T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,98.96300231333873,200.2,22,Mon,Asia/late
+2022-03-07T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,4.5,98.96300231333873,200.2,22,Mon,Asia/late
+2022-05-08T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.5,100.92391429669368,203.1,21,Sun,Asia/late
+2022-05-09T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.6 > cap 2.5 pips,2.6,100.19006327550119,201.7,21,Mon,Asia/late
+2022-05-09T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.6,100.19006327550119,201.7,21,Mon,Asia/late
+2022-06-13T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.5,97.28611409535469,195.8,21,Mon,Asia/late
+2022-06-16T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 5.4 > cap 2.5 pips,5.4,103.37344849398477,209.4,21,Thu,Asia/late
+2022-06-16T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,5.4,103.37344849398477,209.4,21,Thu,Asia/late
+2022-07-13T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.4,109.0783109017087,219.4,21,Wed,Asia/late
+2022-08-18T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 3.9 > cap 2.5 pips,3.9,94.6665323075154,191.3,21,Thu,Asia/late
+2022-08-18T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,3.9,94.6665323075154,191.3,21,Thu,Asia/late
+2022-08-21T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.9 > cap 2.5 pips,2.9,94.30106571412146,190.1,21,Sun,Asia/late
+2022-08-21T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.9,94.30106571412146,190.1,21,Sun,Asia/late
+2022-08-29T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.5,99.03998731774615,199.3,21,Mon,Asia/late
+2022-08-30T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.1,97.5192739379072,196.1,21,Tue,Asia/late
+2022-08-31T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.0,96.61432579948533,194.2,21,Wed,Asia/late
+2022-09-14T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.3,98.46674572280092,198.1,21,Wed,Asia/late
+2022-09-15T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.5 > cap 2.5 pips,6.5,97.23697817117224,197.7,21,Thu,Asia/late
+2022-09-15T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.5,97.23697817117224,197.7,21,Thu,Asia/late
+2022-09-19T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.1,100.94846587208211,202.9,21,Mon,Asia/late
+2022-09-20T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 2.8 > cap 2.5 pips,2.8,101.60571830979055,204.6,21,Tue,Asia/late
+2022-09-20T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.8,101.60571830979055,204.6,21,Tue,Asia/late
+2022-09-21T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.4,104.03745271623411,209.3,21,Wed,Asia/late
+2022-09-22T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 5.7 > cap 2.5 pips,5.7,106.91692037936038,216.7,21,Thu,Asia/late
+2022-09-22T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,5.7,106.91692037936038,216.7,21,Thu,Asia/late
+2022-09-25T21:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.2,117.04071178083474,235.2,21,Sun,Asia/late
+2022-12-05T22:00:00+00:00,USD_CAD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,2.1,131.6080874468219,264.3,22,Mon,Asia/late

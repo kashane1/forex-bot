@@ -1,0 +1,88 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-11-09T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,129.2726437460458,261.5,22,Mon,Asia/late
+2020-11-09T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,129.2726437460458,261.5,22,Mon,Asia/late
+2020-11-22T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,111.02288623250753,225.0,22,Sun,Asia/late
+2020-11-22T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,111.02288623250753,225.0,22,Sun,Asia/late
+2020-11-30T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,104.99519313979555,213.0,22,Mon,Asia/late
+2020-11-30T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,104.99519313979555,213.0,22,Mon,Asia/late
+2020-12-02T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,111.20070224808889,225.4,22,Wed,Asia/late
+2020-12-02T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,111.20070224808889,225.4,22,Wed,Asia/late
+2020-12-16T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,136.7010183909439,276.4,22,Wed,Asia/late
+2020-12-16T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,136.7010183909439,276.4,22,Wed,Asia/late
+2020-12-30T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,142.14146712287305,287.3,22,Wed,Asia/late
+2020-12-30T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,142.14146712287305,287.3,22,Wed,Asia/late
+2021-01-20T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,117.43143883107138,237.9,22,Wed,Asia/late
+2021-01-20T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,117.43143883107138,237.9,22,Wed,Asia/late
+2021-02-08T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,103.12838204832629,209.3,22,Mon,Asia/late
+2021-02-08T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,103.12838204832629,209.3,22,Mon,Asia/late
+2021-02-09T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,100.29778333058859,203.6,22,Tue,Asia/late
+2021-02-09T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,100.29778333058859,203.6,22,Tue,Asia/late
+2021-02-14T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6 > cap 2.5 pips,6,94.71881558939614,192.4,22,Sun,Asia/late
+2021-02-14T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6,94.71881558939614,192.4,22,Sun,Asia/late
+2021-02-17T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,96.55520694238473,196.1,22,Wed,Asia/late
+2021-02-17T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,96.55520694238473,196.1,22,Wed,Asia/late
+2021-02-18T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 15.0 > cap 2.5 pips,15.0,95.70483501792863,198.9,22,Thu,Asia/late
+2021-02-18T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TO_ATR,spread/atr 15.67% > 8.0%,15.0,95.70483501792863,198.9,22,Thu,Asia/late
+2021-02-18T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,15.0,95.70483501792863,198.9,22,Thu,Asia/late
+2021-02-21T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,96.42948965950521,195.9,22,Sun,Asia/late
+2021-02-21T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,96.42948965950521,195.9,22,Sun,Asia/late
+2021-02-22T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,94.07738325525489,191.2,22,Mon,Asia/late
+2021-02-22T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,94.07738325525489,191.2,22,Mon,Asia/late
+2021-02-23T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,98.82542730845091,200.7,22,Tue,Asia/late
+2021-02-23T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,98.82542730845091,200.7,22,Tue,Asia/late
+2021-04-18T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,97.58796325947128,198.2,21,Sun,Asia/late
+2021-04-18T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,97.58796325947128,198.2,21,Sun,Asia/late
+2021-05-09T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,97.62041395765287,198.2,21,Sun,Asia/late
+2021-05-09T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,97.62041395765287,198.2,21,Sun,Asia/late
+2021-05-17T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,90.87496672763432,184.7,21,Mon,Asia/late
+2021-05-17T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6.0,90.87496672763432,184.7,21,Mon,Asia/late
+2021-07-28T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SPREAD_TOO_WIDE,spread 6 > cap 2.5 pips,6,96.14135775237794,195.3,21,Wed,Asia/late
+2021-07-28T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,long,SESSION_BLOCKED,inside blocked session window,6,96.14135775237794,195.3,21,Wed,Asia/late
+2021-11-03T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,93.89925905600326,190.8,21,Wed,Asia/late
+2021-11-03T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,6.0,93.89925905600326,190.8,21,Wed,Asia/late
+2021-11-09T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,99.88888452463848,202.8,22,Tue,Asia/late
+2021-11-09T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,6.0,99.88888452463848,202.8,22,Tue,Asia/late
+2021-11-10T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,98.05039277287872,199.1,22,Wed,Asia/late
+2021-11-10T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,6.0,98.05039277287872,199.1,22,Wed,Asia/late
+2021-11-23T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,85.47664415723942,174.0,22,Tue,Asia/late
+2021-11-23T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,6.0,85.47664415723942,174.0,22,Tue,Asia/late
+2022-01-26T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 6 > cap 2.5 pips,6,81.83286292394504,166.7,22,Wed,Asia/late
+2022-01-26T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,6,81.83286292394504,166.7,22,Wed,Asia/late
+2022-03-03T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 15 > cap 2.5 pips,15,102.6957310955309,212.9,22,Thu,Asia/late
+2022-03-03T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 14.61% > 8.0%,15,102.6957310955309,212.9,22,Thu,Asia/late
+2022-03-03T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,15,102.6957310955309,212.9,22,Thu,Asia/late
+2022-03-06T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,105.96746458870714,214.9,22,Sun,Asia/late
+2022-03-06T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,6.0,105.96746458870714,214.9,22,Sun,Asia/late
+2022-03-10T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 4.9 > cap 2.5 pips,4.9,103.14548251036172,208.7,22,Thu,Asia/late
+2022-03-10T22:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,4.9,103.14548251036172,208.7,22,Thu,Asia/late
+2022-03-13T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,101.41366233105015,205.8,21,Sun,Asia/late
+2022-03-13T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,6.0,101.41366233105015,205.8,21,Sun,Asia/late
+2022-04-21T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 15.0 > cap 2.5 pips,15.0,92.72921246360163,193.0,21,Thu,Asia/late
+2022-04-21T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TO_ATR,spread/atr 16.18% > 8.0%,15.0,92.72921246360163,193.0,21,Thu,Asia/late
+2022-04-21T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,15.0,92.72921246360163,193.0,21,Thu,Asia/late
+2022-04-24T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.1,96.83069728763009,194.7,21,Sun,Asia/late
+2022-04-25T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.2,104.28921890994235,209.7,21,Mon,Asia/late
+2022-04-26T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.1,103.95070327351785,209.0,21,Tue,Asia/late
+2022-04-27T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.7 > cap 2.5 pips,2.7,107.87208161112368,217.1,21,Wed,Asia/late
+2022-04-27T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.7,107.87208161112368,217.1,21,Wed,Asia/late
+2022-05-04T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.5,131.14539402785834,263.5,21,Wed,Asia/late
+2022-05-10T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.1,129.67250491539093,260.4,21,Tue,Asia/late
+2022-05-11T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.1,126.9994688500059,255.0,21,Wed,Asia/late
+2022-06-12T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 3.8 > cap 2.5 pips,3.8,128.42868052282535,258.8,21,Sun,Asia/late
+2022-06-12T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,3.8,128.42868052282535,258.8,21,Sun,Asia/late
+2022-06-13T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.7 > cap 2.5 pips,2.7,138.84806048548057,279.0,21,Mon,Asia/late
+2022-06-13T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.7,138.84806048548057,279.0,21,Mon,Asia/late
+2022-08-18T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 8.0 > cap 2.5 pips,8.0,128.21597287640336,260.4,21,Thu,Asia/late
+2022-08-18T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,8.0,128.21597287640336,260.4,21,Thu,Asia/late
+2022-08-21T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.5,126.24340338523164,253.7,21,Sun,Asia/late
+2022-08-28T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 3.2 > cap 2.5 pips,3.2,123.86382696404925,249.3,21,Sun,Asia/late
+2022-08-28T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,3.2,123.86382696404925,249.3,21,Sun,Asia/late
+2022-08-30T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 3.5 > cap 2.5 pips,3.5,122.82952427002212,247.4,21,Tue,Asia/late
+2022-08-30T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,3.5,122.82952427002212,247.4,21,Tue,Asia/late
+2022-08-31T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.3,123.18455825073468,247.5,21,Wed,Asia/late
+2022-09-20T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.7 > cap 2.5 pips,2.7,123.45089582054375,248.3,21,Tue,Asia/late
+2022-09-20T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.7,123.45089582054375,248.3,21,Tue,Asia/late
+2022-09-22T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 8.6 > cap 2.5 pips,8.6,147.70357853914223,299.7,21,Thu,Asia/late
+2022-09-22T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,8.6,147.70357853914223,299.7,21,Thu,Asia/late
+2022-09-25T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SPREAD_TOO_WIDE,spread 2.7 > cap 2.5 pips,2.7,177.97118007206066,357.3,21,Sun,Asia/late
+2022-09-25T21:00:00+00:00,GBP_USD,D,train,0.1.0-baseline-frozen,short,SESSION_BLOCKED,inside blocked session window,2.7,177.97118007206066,357.3,21,Sun,Asia/late
