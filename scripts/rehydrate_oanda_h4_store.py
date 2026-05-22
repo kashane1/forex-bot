@@ -273,6 +273,133 @@ def _print_manifest(manifest: dict) -> None:
         )
 
 
+# --------------------------------------------------------------------------
+# Result document (read-only — no OANDA call, no credentials)
+# --------------------------------------------------------------------------
+
+
+def build_result_rows(db: Database, pairs: list[str]) -> list[dict]:
+    """Combine the candle store with `data_sources` provenance for the
+    rehydration result doc. Read-only — no OANDA call, no credentials."""
+    candle_repo = CandleRepo(db)
+    ds_repo = DataSourceRepo(db)
+    rows: list[dict] = []
+    for pair in pairs:
+        candles = candle_repo.list(pair, "H4", completed_only=True)
+        prov = ds_repo.latest_for(pair, "H4") or {}
+        rows.append(
+            {
+                "instrument": pair,
+                "candle_count": len(candles),
+                "complete_count": sum(1 for c in candles if c.complete),
+                "first_ts": candles[0].time.isoformat() if candles else None,
+                "last_ts": candles[-1].time.isoformat() if candles else None,
+                "content_hash": normalized_candle_hash(candles) if candles else None,
+                "bid_available": sum(1 for c in candles if c.bid_c is not None),
+                "ask_available": sum(1 for c in candles if c.ask_c is not None),
+                "page_count": prov.get("page_count"),
+                "dropped_incomplete": prov.get("candles_dropped_incomplete"),
+                "raw_sha256": prov.get("raw_sha256"),
+                "normalized_sha256": prov.get("normalized_sha256"),
+                "source": prov.get("source"),
+                "host": prov.get("host"),
+            }
+        )
+    return rows
+
+
+def render_result_doc(
+    db: Database, pairs: list[str], *, db_display: str, generated_at: datetime
+) -> str:
+    """Render the Phase 4 rehydration result doc. Carries counts, hashes,
+    and provenance only — never a credential value."""
+    rows = build_result_rows(db, pairs)
+    total = sum(r["candle_count"] for r in rows)
+    hosts = sorted({r["host"] for r in rows if r["host"]})
+    lines: list[str] = [
+        "# OANDA H4 Data Rehydration Result — "
+        "`oanda-practice-readonly-001` Phase 4",
+        "",
+        f"**Generated:** {generated_at.isoformat()} · "
+        f"**Branch:** `oanda-practice-readonly-001`",
+        "",
+        "> Real OANDA **practice** H4 bid/ask candles, completed candles "
+        "only. No synthetic data. No credential value appears here.",
+        "",
+        "## Fetch parameters",
+        "",
+        "| field | value |",
+        "|---|---|",
+        f"| date range | {WINDOW_FROM} → {WINDOW_TO} |",
+        "| granularity | H4 |",
+        "| price components | BA (bid + ask) |",
+        f"| universe | {', '.join(pairs)} |",
+        f"| OANDA host | {', '.join(hosts) if hosts else 'n/a'} |",
+        "| completeness | completed candles only; incomplete dropped |",
+        f"| local store | `{db_display}` (gitignored — not committed) |",
+        "",
+        "## Exact command",
+        "",
+        "```bash",
+        "# .env sourced into the shell (practice credentials).",
+        "set -a && source .env && set +a",
+        "python scripts/rehydrate_oanda_h4_store.py",
+        "# read-only result doc (no OANDA call):",
+        "python scripts/rehydrate_oanda_h4_store.py --report "
+        "docs/research/OANDA_H4_REHYDRATION_RESULT.md",
+        "```",
+        "",
+        "## Instrument coverage",
+        "",
+        "| instrument | candles | complete | first ts | last ts | pages | "
+        "dropped | bid avail | ask avail |",
+        "|---|---|---|---|---|---|---|---|---|",
+    ]
+    for r in rows:
+        lines.append(
+            f"| {r['instrument']} | {r['candle_count']} | "
+            f"{r['complete_count']} | {r['first_ts']} | {r['last_ts']} | "
+            f"{r['page_count']} | {r['dropped_incomplete']} | "
+            f"{r['bid_available']} | {r['ask_available']} |"
+        )
+    lines += [
+        "",
+        f"**Total: {total} completed H4 candles across {len(rows)} pairs.**",
+        "",
+        "## Provenance hashes",
+        "",
+        "Hashes are recorded in the `data_sources` table of the local "
+        "store. `raw` is the SHA-256 of the concatenated raw OANDA "
+        "response bytes; `normalized` / `content` are SHA-256 over the "
+        "normalized, time-sorted candle rows.",
+        "",
+        "| instrument | source | raw_sha256 | normalized_sha256 | content_hash |",
+        "|---|---|---|---|---|",
+    ]
+    for r in rows:
+        lines.append(
+            f"| {r['instrument']} | {r['source']} | "
+            f"`{(r['raw_sha256'] or 'n/a')[:16]}…` | "
+            f"`{(r['normalized_sha256'] or 'n/a')[:16]}…` | "
+            f"`{(r['content_hash'] or 'n/a')[:16]}…` |"
+        )
+    lines += [
+        "",
+        "## Safety statement",
+        "",
+        f"- The local store `{db_display}` is **gitignored** "
+        "(`/data/` and `*.sqlite3` in `.gitignore`) and is **not** "
+        "committed. This document carries only counts, timestamps, and "
+        "hash prefixes.",
+        "- All candles are real OANDA **practice** data fetched read-only "
+        "(`GET .../candles`). No synthetic data. No order was submitted.",
+        "- **No credential value** — account id or token — was printed, "
+        "logged, or committed.",
+        "",
+    ]
+    return "\n".join(lines)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Rehydrate/verify the OANDA H4 store.")
     ap.add_argument("--config", default=str(DEFAULT_CONFIG))
@@ -283,12 +410,33 @@ def main() -> int:
         "--verify", action="store_true",
         help="read-only: summarize an existing store, no OANDA call",
     )
+    ap.add_argument(
+        "--report", default=None, metavar="PATH",
+        help="read-only: write the rehydration result Markdown to PATH, "
+             "no OANDA call",
+    )
     args = ap.parse_args()
     db_path = Path(args.db)
     try:
         db_display = str(db_path.resolve().relative_to(ROOT))
     except ValueError:
         db_display = str(db_path)
+
+    if args.report:
+        if not db_path.exists():
+            print(
+                f"BLOCKER: no H4 store at {db_display}. Run a rehydration "
+                "fetch first (requires OANDA practice credentials).",
+                file=sys.stderr,
+            )
+            return 1
+        doc = render_result_doc(
+            Database(db_path), H4_PAIRS,
+            db_display=db_display, generated_at=datetime.now(UTC),
+        )
+        Path(args.report).write_text(doc, encoding="utf-8")
+        print(f"rehydration result doc written to {args.report}")
+        return 0
 
     if args.verify:
         if not db_path.exists():

@@ -175,3 +175,53 @@ def test_verify_mode_reports_a_missing_store(monkeypatch, tmp_path):
     )
     # Verify mode needs no credentials; a missing store is a clean exit 1.
     assert rehydrate.main() == 1
+
+
+# --------------------------------------------------------------------------
+# Result document (read-only, no OANDA call)
+# --------------------------------------------------------------------------
+
+
+def test_build_result_rows_summarizes_the_store(temp_db):
+    _seed(temp_db, "EUR_USD", 8, source="oanda-practice")
+    rows = rehydrate.build_result_rows(temp_db, ["EUR_USD"])
+    assert len(rows) == 1
+    row = rows[0]
+    assert row["instrument"] == "EUR_USD"
+    assert row["candle_count"] == 8
+    assert row["complete_count"] == 8
+    assert row["bid_available"] == 8
+    assert row["ask_available"] == 8
+    assert row["source"] == "oanda-practice"
+    assert len(row["content_hash"]) == 64
+
+
+def test_render_result_doc_carries_no_credentials(temp_db):
+    for pair in rehydrate.H4_PAIRS:
+        _seed(temp_db, pair, 5, source="oanda-practice")
+    doc = rehydrate.render_result_doc(
+        temp_db,
+        rehydrate.H4_PAIRS,
+        db_display="data/oanda_h4_research.sqlite3",
+        generated_at=datetime(2026, 5, 22, tzinfo=UTC),
+    )
+    assert "gitignored" in doc
+    assert "No credential value" in doc
+    assert "Total: 30 completed H4 candles" in doc
+    # provenance / counts only — no env-var name or bearer-token text.
+    assert "OANDA_ACCOUNT" not in doc
+    assert "Bearer" not in doc
+
+
+def test_report_mode_blocks_on_a_missing_store(monkeypatch, tmp_path):
+    _clear_oanda_env(monkeypatch)
+    monkeypatch.setattr(
+        sys, "argv",
+        [
+            "rehydrate_oanda_h4_store", "--report", str(tmp_path / "out.md"),
+            "--db", str(tmp_path / "absent.sqlite3"),
+        ],
+    )
+    # Report mode needs no credentials; a missing store is a clean exit 1.
+    assert rehydrate.main() == 1
+    assert not (tmp_path / "out.md").exists()
