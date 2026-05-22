@@ -26,6 +26,8 @@ class TradeRecord:
     bars_held: int
     spread_paid_pips: Decimal
     exit_reason: str
+    # Which bar the entry filled against — see forex_bot.backtesting.fills.
+    fill_timing: str = "signal_bar_close"
 
     def to_dict(self) -> dict[str, str | int]:
         d = {k: str(v) for k, v in asdict(self).items() if not isinstance(v, int)}

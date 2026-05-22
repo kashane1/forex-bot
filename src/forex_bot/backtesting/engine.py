@@ -22,7 +22,11 @@ from typing import Any
 
 import pandas as pd
 
-from forex_bot.backtesting.fills import FillModel
+from forex_bot.backtesting.fills import (
+    NEXT_BAR_OPEN_UNAVAILABLE,
+    FillModel,
+    FillTiming,
+)
 from forex_bot.backtesting.metrics import (
     BacktestMetrics,
     TradeRecord,
@@ -74,6 +78,7 @@ class BacktestResult:
     from_time: str | None = None
     to_time: str | None = None
     fill_model_repr: str = ""
+    fill_timing: str = "signal_bar_close"
     risk_engine_used: bool = False
     notes: str = ""
 
@@ -101,6 +106,7 @@ class BacktestEngine:
         strategy: Strategy,
         strategy_config: dict[str, Any],
         fill_model: FillModel,
+        fill_timing: FillTiming = "signal_bar_close",
         starting_equity: Decimal,
         account_currency: str = "USD",
         risk_per_trade_pct: Decimal = Decimal("0.25"),
@@ -115,6 +121,7 @@ class BacktestEngine:
         self.strategy = strategy
         self.strategy_config = strategy_config
         self.fill_model = fill_model
+        self.fill_timing: FillTiming = fill_timing
         self.starting_equity = starting_equity
         self.account_currency = account_currency
         self.risk_per_trade_pct = risk_per_trade_pct
@@ -140,6 +147,7 @@ class BacktestEngine:
             from_time=df.index[0].isoformat() if not df.empty else None,
             to_time=df.index[-1].isoformat() if not df.empty else None,
             fill_model_repr=repr(self.fill_model),
+            fill_timing=self.fill_timing,
             data_request_hash=data_request_hash,
             risk_engine_used=self.risk_engine is not None,
             config_hash=_hash({
@@ -151,6 +159,14 @@ class BacktestEngine:
                 "atr_lookback": self.atr_lookback,
                 "fill_model": repr(self.fill_model),
                 "risk_engine": self.risk_engine is not None,
+                # Only hash fill_timing when it departs from the default, so
+                # a signal_bar_close run reproduces its exact pre-fidelity
+                # config_hash and prior campaign artifacts stay comparable.
+                **(
+                    {"fill_timing": self.fill_timing}
+                    if self.fill_timing != "signal_bar_close"
+                    else {}
+                ),
             }),
         )
 
@@ -298,6 +314,7 @@ class BacktestEngine:
                             bars_held=open_trade.bars_held,
                             spread_paid_pips=open_trade.spread_pips_at_entry,
                             exit_reason=exit_reason,
+                            fill_timing=self.fill_timing,
                         )
                     )
                     open_trade = None
@@ -348,13 +365,84 @@ class BacktestEngine:
             if signal is None:
                 continue
 
+            # ---- resolve the fill timing -------------------------------
+            # The strategy decision above used bar N (this completed bar)
+            # only. signal_bar_close fills at bar N's close — optimistic,
+            # since that price has already passed by the time the bar is
+            # known complete. next_bar_open fills at bar N+1's open, the
+            # first price actually tradeable once the signal exists; it
+            # uses no future data beyond that single open.
+            if self.fill_timing == "next_bar_open":
+                if i + 1 >= len(df):
+                    # Signal on the final bar — there is no bar N+1 to fill
+                    # against. Record an explicit skipped signal, never a
+                    # silent drop and never a same-bar fallback fill.
+                    atr_pips_val = signal.features.get("atr_pips")
+                    rejected_signals.append(
+                        RejectedSignalRecord(
+                            timestamp=ts.to_pydatetime(),
+                            instrument=self.instrument.name,
+                            granularity=candle_frame.granularity,
+                            side=signal.side,
+                            rejection_codes=[NEXT_BAR_OPEN_UNAVAILABLE],
+                            rejection_messages=[
+                                "next_bar_open fill timing: the signal fired "
+                                "on the final bar, so there is no bar N+1 to "
+                                "fill at; the signal is skipped, not filled"
+                            ],
+                            spread_pips=spread_pips,
+                            atr_pips=(
+                                Decimal(str(atr_pips_val))
+                                if atr_pips_val is not None
+                                else None
+                            ),
+                        )
+                    )
+                    continue
+                next_row = df.iloc[i + 1]
+                entry_ts = df.index[i + 1]
+                next_mid_open = Decimal(str(next_row["open"]))
+                fill_bid = (
+                    Decimal(str(next_row["bid_open"]))
+                    if next_row["bid_open"] is not None
+                    else next_mid_open
+                )
+                fill_ask = (
+                    Decimal(str(next_row["ask_open"]))
+                    if next_row["ask_open"] is not None
+                    else next_mid_open
+                )
+                fill_quote = Quote(
+                    instrument=self.instrument.name,
+                    time=entry_ts.to_pydatetime(),
+                    bid=fill_bid,
+                    ask=fill_ask,
+                )
+                fill_spread_pips = (fill_ask - fill_bid) / self.instrument.pip_size
+                fill_market_state = MarketState(
+                    quote=fill_quote,
+                    spread_snapshot=SpreadSnapshot(
+                        instrument=self.instrument.name,
+                        time=fill_quote.time,
+                        bid=fill_bid,
+                        ask=fill_ask,
+                        spread_pips=fill_spread_pips,
+                    ),
+                )
+            else:
+                entry_ts = ts
+                fill_bid, fill_ask = bid_close, ask_close
+                fill_quote = quote
+                fill_spread_pips = spread_pips
+                fill_market_state = market_state
+
             entry = self.fill_model.entry_price(
                 side=signal.side,
-                bid=bid_close,
-                ask=ask_close,
+                bid=fill_bid,
+                ask=fill_ask,
                 pip_size=self.instrument.pip_size,
             )
-            quotes_for_sizing = {self.instrument.name: quote}
+            quotes_for_sizing = {self.instrument.name: fill_quote}
 
             # ---- risk engine path (preferred) ----
             if self.risk_engine is not None:
@@ -365,7 +453,7 @@ class BacktestEngine:
                     signal=signal,
                     instrument=self.instrument,
                     account=account_snap,
-                    market_state=market_state,
+                    market_state=fill_market_state,
                     positions=[],  # backtester only opens one at a time; flat at entry time
                     quotes_by_instrument=quotes_for_sizing,
                     realized_pl_today=realized_today,
@@ -388,7 +476,7 @@ class BacktestEngine:
                             side=signal.side,
                             rejection_codes=[c.value for c in decision.rejection_codes],
                             rejection_messages=list(decision.rejection_messages),
-                            spread_pips=spread_pips,
+                            spread_pips=fill_spread_pips,
                             stop_distance_pips=decision.stop_distance_pips,
                             atr_pips=(
                                 Decimal(str(atr_pips_val))
@@ -429,10 +517,10 @@ class BacktestEngine:
                 side=signal.side,
                 units=units,
                 entry_price=entry,
-                entry_time=ts,
+                entry_time=entry_ts,
                 stop_price=stop_price_to_use,
                 initial_stop_price=stop_price_to_use,
-                spread_pips_at_entry=spread_pips,
+                spread_pips_at_entry=fill_spread_pips,
                 take_profit_price=tp_price,
             )
             equity -= float(self.commission_per_unit * units)
@@ -473,6 +561,7 @@ class BacktestEngine:
                     bars_held=open_trade.bars_held,
                     spread_paid_pips=open_trade.spread_pips_at_entry,
                     exit_reason="eod",
+                    fill_timing=self.fill_timing,
                 )
             )
             equity_bars.append(_EquityBar(df.index[-1].to_pydatetime(), equity))

@@ -49,6 +49,7 @@ def write_trades_csv(result: BacktestResult, path: Path) -> None:
         "bars_held",
         "spread_paid_pips",
         "exit_reason",
+        "fill_timing",
     ]
     with path.open("w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames)
@@ -69,6 +70,7 @@ def write_trades_csv(result: BacktestResult, path: Path) -> None:
                     "bars_held": t.bars_held,
                     "spread_paid_pips": str(t.spread_paid_pips),
                     "exit_reason": t.exit_reason,
+                    "fill_timing": t.fill_timing,
                 }
             )
 
@@ -156,6 +158,7 @@ def write_metrics_json(result: BacktestResult, path: Path) -> None:
         "from_time": result.from_time,
         "to_time": result.to_time,
         "fill_model": result.fill_model_repr,
+        "fill_timing": result.fill_timing,
         "config_hash": result.config_hash,
         "data_request_hash": result.data_request_hash,
         "metrics": asdict(result.metrics),
@@ -174,6 +177,7 @@ def write_metrics_markdown(result: BacktestResult, path: Path) -> None:
         f"- Config hash: `{result.config_hash}`",
         f"- Data request hash: `{result.data_request_hash}`",
         f"- Fill model: `{result.fill_model_repr}`",
+        f"- Fill timing: `{result.fill_timing}`",
         "",
         "## Metrics",
         "",
@@ -207,6 +211,7 @@ def write_summary_json(result: BacktestResult, path: Path, **extras: Any) -> Non
         "config_hash": result.config_hash,
         "data_request_hash": result.data_request_hash,
         "fill_model": result.fill_model_repr,
+        "fill_timing": result.fill_timing,
         "metrics": asdict(result.metrics),
         **extras,
     }

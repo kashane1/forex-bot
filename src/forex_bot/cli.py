@@ -23,7 +23,7 @@ from forex_bot.approval import StrategyNotApprovedError, assert_loop_strategies_
 from forex_bot.backtesting.audit import audit_instrument, render_audit_markdown
 from forex_bot.backtesting.engine import BacktestEngine, compute_data_request_hash
 from forex_bot.backtesting.exporters import write_all
-from forex_bot.backtesting.fills import FillModel
+from forex_bot.backtesting.fills import FILL_TIMINGS, FillModel
 from forex_bot.broker.oanda import OandaBroker
 from forex_bot.clock import utcnow
 from forex_bot.config import ConfigError, Settings, load_settings
@@ -394,6 +394,12 @@ def backtest(
     slippage_pips: float | None = typer.Option(
         None, "--slippage-pips", help="Override backtest.fixed_slippage_pips"
     ),
+    fill_timing: str | None = typer.Option(
+        None,
+        "--fill-timing",
+        help="Fill timing: signal_bar_close | next_bar_open. "
+        "Overrides backtest.fill_timing (default signal_bar_close).",
+    ),
     export_dir: Path | None = typer.Option(
         None, "--export-dir", help="Write trades.csv, equity.csv, metrics.json, metrics.md per run"
     ),
@@ -423,6 +429,14 @@ def backtest(
         fixed_slippage_pips=fixed_slip,
         spread_slippage_multiplier=spread_mult,
     )
+    resolved_fill_timing = fill_timing or settings.backtest.fill_timing
+    if resolved_fill_timing not in FILL_TIMINGS:
+        console.print(
+            f"[red]invalid --fill-timing '{resolved_fill_timing}'; expected one "
+            f"of {sorted(FILL_TIMINGS)}[/red]"
+        )
+        raise typer.Exit(2)
+    console.print(f"[dim]fill timing: {resolved_fill_timing}[/dim]")
 
     from_dt = _parse_date(from_date)
     to_dt = _parse_date(to_date)
@@ -470,6 +484,7 @@ def backtest(
                 strategy=strat,
                 strategy_config=cfg,
                 fill_model=fill_model,
+                fill_timing=resolved_fill_timing,  # type: ignore[arg-type]
                 starting_equity=Decimal(str(settings.backtest.starting_equity_usd)),
                 account_currency=settings.market.account_currency,
                 risk_per_trade_pct=Decimal(str(settings.risk.risk_per_trade_pct)),

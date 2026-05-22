@@ -334,6 +334,11 @@ class BacktestConfig(BaseModel):
     spread_slippage_multiplier: float = 0.5
     starting_equity_usd: float = 500.0
     commission_per_unit: float = 0.0
+    # When a backtest entry fills. Defaults to signal_bar_close so prior
+    # campaign configs (which omit this key) reproduce their exact prior
+    # behaviour. next_bar_open is strictly opt-in. See
+    # docs/research/FILL_TIMING_MODEL.md.
+    fill_timing: Literal["signal_bar_close", "next_bar_open"] = "signal_bar_close"
 
 
 class KillSwitchConfig(BaseModel):
