@@ -52,8 +52,13 @@ def build_strategies(settings: Settings) -> list[tuple[Strategy, dict]]:
     sc = settings.strategy
     if "trend_following" in sc.enabled and sc.trend_following is not None:
         out.append((TrendFollowingStrategy(version=sc.trend_following.version), sc.trend_following.model_dump()))
-    if "volatility_breakout" in sc.enabled:
-        out.append((VolatilityBreakoutStrategy(), {}))
+    if "volatility_breakout" in sc.enabled and sc.volatility_breakout is not None:
+        out.append(
+            (
+                VolatilityBreakoutStrategy(version=sc.volatility_breakout.version),
+                sc.volatility_breakout.model_dump(),
+            )
+        )
     if "mean_reversion" in sc.enabled:
         if settings.app.mode != "paper":
             logger.warning("mean_reversion is paper-only; ignoring in mode=%s", settings.app.mode)

@@ -1,0 +1,53 @@
+{
+  "instrument": "USD_JPY",
+  "strategy_name": "volatility_breakout",
+  "strategy_version": "0.1.0-c004",
+  "granularity": "H4",
+  "from_time": "2023-01-01T22:00:00+00:00",
+  "to_time": "2024-12-30T22:00:00+00:00",
+  "config_hash": "5501b38cd57c5fc5",
+  "data_request_hash": "8a57e2979f604bde",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -2.3609283023590666,
+    "final_equity": 488.19535848820465,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -2.5025384695516095,
+    "max_drawdown_duration_bars": 2875,
+    "sharpe": -0.8552001353169263,
+    "sortino": -0.7468673682409526,
+    "profit_factor": 0.690639615503497,
+    "expectancy_r": -0.0009160423278320115,
+    "average_r": -0.0009160423278320115,
+    "median_r": -0.0019490334345756439,
+    "win_rate": 0.410958904109589,
+    "average_win": 0.8784526055947999,
+    "average_loss": -0.8874004576660282,
+    "trade_count": 73,
+    "largest_single_loss": -1.2654042988741043,
+    "average_spread_paid_pips": 1.6465753424657534,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-c004",
+    "timeframe": "H4",
+    "atr_lookback": 14,
+    "breakout_lookback": 20,
+    "compression_lookback": 60,
+    "compression_percentile": 40.0,
+    "atr_stop_multiple": 2.0,
+    "trailing_stop_atr_multiple": 2.0,
+    "max_bars_in_trade": 120
+  },
+  "split": "validation",
+  "cost_regime": "base",
+  "label": "baseline_USD_JPY_H4_validation",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TOO_WIDE": 10,
+    "SESSION_BLOCKED": 10,
+    "SPREAD_TO_ATR": 3
+  },
+  "rejected_signal_count": 20
+}

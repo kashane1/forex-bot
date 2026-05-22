@@ -1,0 +1,53 @@
+{
+  "instrument": "USD_CHF",
+  "strategy_name": "volatility_breakout",
+  "strategy_version": "0.1.0-c004",
+  "granularity": "H4",
+  "from_time": "2023-01-01T22:00:00+00:00",
+  "to_time": "2024-12-30T22:00:00+00:00",
+  "config_hash": "5501b38cd57c5fc5",
+  "data_request_hash": "eb8da165e37c1a9b",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -4.106534375421145,
+    "final_equity": 479.4673281228943,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -4.473791187285679,
+    "max_drawdown_duration_bars": 2979,
+    "sharpe": -1.3962651256501466,
+    "sortino": -1.3825084019301326,
+    "profit_factor": 0.5119614180030019,
+    "expectancy_r": -0.26716841562864985,
+    "average_r": -0.26716841562864985,
+    "median_r": -0.5215420672871077,
+    "win_rate": 0.3188405797101449,
+    "average_win": 0.9790522341845609,
+    "average_loss": -0.8951451282801277,
+    "trade_count": 69,
+    "largest_single_loss": -1.2635857559423875,
+    "average_spread_paid_pips": 1.598550724637681,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-c004",
+    "timeframe": "H4",
+    "atr_lookback": 14,
+    "breakout_lookback": 20,
+    "compression_lookback": 60,
+    "compression_percentile": 40.0,
+    "atr_stop_multiple": 2.0,
+    "trailing_stop_atr_multiple": 2.0,
+    "max_bars_in_trade": 120
+  },
+  "split": "validation",
+  "cost_regime": "base",
+  "label": "baseline_USD_CHF_H4_validation",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TOO_WIDE": 5,
+    "SESSION_BLOCKED": 6,
+    "SPREAD_TO_ATR": 34
+  },
+  "rejected_signal_count": 38
+}

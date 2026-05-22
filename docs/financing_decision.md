@@ -66,3 +66,23 @@ A subsequent campaign must either:
 
 Documented as a blocking limitation in
 [`backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md`](../backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md).
+
+## CAMPAIGN_004 update — investigation outcome
+
+Before CAMPAIGN_004, the financing question was re-investigated against
+the live OANDA practice account:
+
+- `GET /v3/accounts/{id}/instruments` returns a `financing` object, but
+  on the practice account `longRate` and `shortRate` are **both 0** —
+  practice accounts carry no real financing rates.
+- The v20 REST API publishes **no historical financing-rate series**;
+  there is nothing to backtest 2020-2026 against.
+- `DAILY_FINANCING` transactions exist only for trades actually held;
+  this bot has submitted no orders, so there is no empirical history.
+
+**Conclusion: accurate historical financing still cannot be modeled.**
+Option 2 stands. The conservative stress estimate is now implemented as
+a tested module — [`src/forex_bot/financing.py`](../src/forex_bot/financing.py)
+(`tests/unit/test_financing.py`) — and campaign reports apply it as a
+financing-stressed column that the pass/fail gates evaluate. Financing
+remains a hard blocker for any live promotion.

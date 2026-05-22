@@ -1,0 +1,53 @@
+{
+  "instrument": "USD_CAD",
+  "strategy_name": "volatility_breakout",
+  "strategy_version": "0.1.0-c004",
+  "granularity": "H4",
+  "from_time": "2020-01-01T22:00:00+00:00",
+  "to_time": "2022-12-30T18:00:00+00:00",
+  "config_hash": "5501b38cd57c5fc5",
+  "data_request_hash": "3cf380e718827472",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -4.663218663479496,
+    "final_equity": 476.6839066826025,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -4.799523630380447,
+    "max_drawdown_duration_bars": 4502,
+    "sharpe": -1.171421082176181,
+    "sortino": -0.8993234757010736,
+    "profit_factor": 0.5515065925636106,
+    "expectancy_r": -0.15128325599773476,
+    "average_r": -0.15128325599773476,
+    "median_r": -0.2728293868581819,
+    "win_rate": 0.30851063829787234,
+    "average_win": 0.9886724480888097,
+    "average_loss": -0.7998091432611206,
+    "trade_count": 94,
+    "largest_single_loss": -1.2674407500109066,
+    "average_spread_paid_pips": 1.8148936170212766,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-c004",
+    "timeframe": "H4",
+    "atr_lookback": 14,
+    "breakout_lookback": 20,
+    "compression_lookback": 60,
+    "compression_percentile": 40.0,
+    "atr_stop_multiple": 2.0,
+    "trailing_stop_atr_multiple": 2.0,
+    "max_bars_in_trade": 120
+  },
+  "split": "train",
+  "cost_regime": "base",
+  "label": "baseline_USD_CAD_H4_train",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TO_ATR": 21,
+    "SPREAD_TOO_WIDE": 16,
+    "SESSION_BLOCKED": 11
+  },
+  "rejected_signal_count": 36
+}

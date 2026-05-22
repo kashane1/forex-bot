@@ -1,0 +1,53 @@
+{
+  "instrument": "EUR_USD",
+  "strategy_name": "volatility_breakout",
+  "strategy_version": "0.1.0-c004",
+  "granularity": "H4",
+  "from_time": "2023-01-01T22:00:00+00:00",
+  "to_time": "2024-12-30T22:00:00+00:00",
+  "config_hash": "5501b38cd57c5fc5",
+  "data_request_hash": "49a39daf47fbdf7c",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -3.9520236120173746,
+    "final_equity": 480.2398819399131,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -3.952023612017376,
+    "max_drawdown_duration_bars": 2974,
+    "sharpe": -1.6672694560887724,
+    "sortino": -1.1764018092987778,
+    "profit_factor": 0.40065381987926013,
+    "expectancy_r": -0.2991944615874053,
+    "average_r": -0.2991944615874053,
+    "median_r": -0.45643374254845914,
+    "win_rate": 0.24528301886792453,
+    "average_win": 1.0161029885091515,
+    "average_loss": -0.8242364227676463,
+    "trade_count": 53,
+    "largest_single_loss": -1.256145,
+    "average_spread_paid_pips": 1.4415094339622643,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-c004",
+    "timeframe": "H4",
+    "atr_lookback": 14,
+    "breakout_lookback": 20,
+    "compression_lookback": 60,
+    "compression_percentile": 40.0,
+    "atr_stop_multiple": 2.0,
+    "trailing_stop_atr_multiple": 2.0,
+    "max_bars_in_trade": 120
+  },
+  "split": "validation",
+  "cost_regime": "base",
+  "label": "baseline_EUR_USD_H4_validation",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TOO_WIDE": 43,
+    "SESSION_BLOCKED": 8,
+    "SPREAD_TO_ATR": 29
+  },
+  "rejected_signal_count": 66
+}

@@ -1,0 +1,42 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-04-11T21:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SESSION_BLOCKED,inside blocked session window,2.0,27.35806842351593,55.7,21,Tue,Asia/late
+2024-01-15T22:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SESSION_BLOCKED,inside blocked session window,1.8,27.498593712128297,55.9,22,Mon,Asia/late
+2024-01-19T18:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TOO_WIDE,spread 4.1 > cap 2.5 pips,4.1,28.343089247406088,58.7,18,Fri,NY
+2024-01-19T18:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 14.47% > 8.0%,4.1,28.343089247406088,58.7,18,Fri,NY
+2024-02-22T06:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.87% > 8.0%,2,22.553817614373134,46.1,6,Thu,London
+2024-02-28T06:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.01% > 8.0%,1.9,23.711672959094855,48.4,6,Wed,London
+2024-03-06T14:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.11% > 8.0%,1.9,23.43971412530955,47.8,14,Wed,London/NY overlap
+2024-03-31T21:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SESSION_BLOCKED,inside blocked session window,1.8,22.786883059504017,46.5,21,Sun,Asia/late
+2024-04-04T05:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 9.30% > 8.0%,1.9,20.43309366953966,41.8,5,Thu,Asia/late
+2024-04-04T09:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.22% > 8.0%,1.7,20.684301264572646,42.2,9,Thu,London
+2024-05-10T09:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.19% > 8.0%,1.9,23.201561518775673,47.4,9,Fri,London
+2024-05-29T21:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.89% > 8.0%,1.8,20.258549448916888,41.4,21,Wed,Asia/late
+2024-05-29T21:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SESSION_BLOCKED,inside blocked session window,1.8,20.258549448916888,41.4,21,Wed,Asia/late
+2024-06-19T09:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.79% > 8.0%,1.7,19.332652640184982,39.5,9,Wed,London
+2024-06-21T01:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 10.36% > 8.0%,1.8,17.371064919570962,35.6,1,Fri,Asia/late
+2024-06-24T13:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.97% > 8.0%,1.7,18.96200478043651,38.8,13,Mon,London/NY overlap
+2024-06-25T01:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 10.62% > 8.0%,1.9,17.895198433899118,36.7,1,Tue,Asia/late
+2024-07-05T05:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 10.20% > 8.0%,1.8,17.64293926635132,36.2,5,Fri,Asia/late
+2024-07-11T09:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 9.65% > 8.0%,1.7,17.607888119082155,36.1,9,Thu,London
+2024-07-19T09:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 10.09% > 8.0%,1.8,17.832418306488933,36.6,9,Fri,London
+2024-07-19T13:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.05% > 8.0%,1.7,18.780102713168255,38.4,13,Fri,London/NY overlap
+2024-07-23T17:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 10.75% > 8.0%,1.9,17.667678729883946,36.3,17,Tue,NY
+2024-07-24T01:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 11.10% > 8.0%,1.9,17.11269237423671,35.2,1,Wed,Asia/late
+2024-07-24T17:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.83% > 8.0%,1.8,18.315657718153265,37.5,17,Wed,NY
+2024-07-25T01:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.67% > 8.0%,1.7,17.583653848816006,36.0,1,Thu,Asia/late
+2024-07-25T05:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 11.76% > 8.0%,2.1,17.852678573900572,36.8,5,Thu,Asia/late
+2024-08-13T17:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 12.08% > 8.0%,2.4,19.86573635422378,40.9,17,Tue,NY
+2024-08-16T17:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 11.68% > 8.0%,2.4,20.555478101731417,42.3,17,Fri,NY
+2024-08-18T21:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 9.84% > 8.0%,2.0,20.330086808750657,41.7,21,Sun,Asia/late
+2024-08-18T21:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SESSION_BLOCKED,inside blocked session window,2.0,20.330086808750657,41.7,21,Sun,Asia/late
+2024-08-19T01:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.13% > 8.0%,1.6,19.670794893839854,40.1,1,Mon,Asia/late
+2024-08-19T13:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.81% > 8.0%,1.8,20.422790226591346,41.7,13,Mon,London/NY overlap
+2024-08-20T05:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 10.60% > 8.0%,2.1,19.804573918723616,40.7,5,Tue,Asia/late
+2024-08-21T09:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 10.02% > 8.0%,1.9,18.970271010692805,38.9,9,Wed,London
+2024-08-21T13:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 9.41% > 8.0%,1.9,20.190251652786074,41.3,13,Wed,London/NY overlap
+2024-09-03T01:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 10.28% > 8.0%,2.0,19.449264661065822,39.9,1,Tue,Asia/late
+2024-09-10T13:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.17% > 8.0%,1.8,22.036297651370255,45.0,13,Tue,London/NY overlap
+2024-10-03T17:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.10% > 8.0%,1.9,23.465946846434093,47.9,17,Thu,NY
+2024-10-21T13:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.78% > 8.0%,1.6,18.213260042195213,37.2,13,Mon,London/NY overlap
+2024-10-24T13:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.09% > 8.0%,1.7,18.691741582544427,38.2,13,Thu,London/NY overlap
+2024-10-25T13:00:00+00:00,USD_CAD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.97% > 8.0%,1.9,19.05447832327263,39.1,13,Fri,London/NY overlap

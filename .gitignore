@@ -89,6 +89,13 @@ backtests/campaign_003_controlled_adx/runs/**/*_trades.csv
 backtests/campaign_003_controlled_adx/runs/**/*_metrics.json
 backtests/campaign_003_controlled_adx/runs/**/*_metrics.md
 backtests/campaign_003_controlled_adx/_*.log
+# CAMPAIGN_004: same policy — commit summary JSONs + risk_rejections CSVs,
+# gitignore the bulky equity/trade/metrics CSVs.
+backtests/campaign_004_volatility_breakout/runs/**/*_equity.csv
+backtests/campaign_004_volatility_breakout/runs/**/*_trades.csv
+backtests/campaign_004_volatility_breakout/runs/**/*_metrics.json
+backtests/campaign_004_volatility_breakout/runs/**/*_metrics.md
+backtests/campaign_004_volatility_breakout/_*.log
 
 # Founders pack stays in repo but ignore any temp copies
 *.tmp

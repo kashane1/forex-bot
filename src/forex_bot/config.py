@@ -123,11 +123,43 @@ class TrendFollowingStrategyConfig(BaseModel):
         return self
 
 
+class VolatilityBreakoutStrategyConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    atr_lookback: int = 14
+    breakout_lookback: int = 20
+    compression_lookback: int = 60
+    compression_percentile: float = 40.0
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = 2.0
+    max_bars_in_trade: int = 120
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> VolatilityBreakoutStrategyConfig:
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.breakout_lookback < 5:
+            raise ConfigError("breakout_lookback must be >= 5")
+        if self.compression_lookback < 20:
+            raise ConfigError(
+                "compression_lookback must be >= 20 for a stable percentile"
+            )
+        if not (0 < self.compression_percentile < 100):
+            raise ConfigError("compression_percentile must be between 0 and 100")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     enabled: list[str]
     trend_following: TrendFollowingStrategyConfig | None = None
+    volatility_breakout: VolatilityBreakoutStrategyConfig | None = None
 
     @model_validator(mode="after")
     def _check_enabled(self) -> StrategyConfig:
@@ -135,6 +167,13 @@ class StrategyConfig(BaseModel):
             raise ConfigError("strategy.enabled must list at least one strategy")
         if "trend_following" in self.enabled and self.trend_following is None:
             raise ConfigError("strategy.trend_following config required when enabled")
+        if (
+            "volatility_breakout" in self.enabled
+            and self.volatility_breakout is None
+        ):
+            raise ConfigError(
+                "strategy.volatility_breakout config required when enabled"
+            )
         return self
 
 

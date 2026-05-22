@@ -1,0 +1,57 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2025-02-09T22:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SESSION_BLOCKED,inside blocked session window,1.7,23.808159760248234,48.5,22,Sun,Asia/late
+2025-03-30T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.75% > 8.0%,1.7,19.432097345752016,39.7,21,Sun,Asia/late
+2025-03-30T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SESSION_BLOCKED,inside blocked session window,1.7,19.432097345752016,39.7,21,Sun,Asia/late
+2025-05-20T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TOO_WIDE,spread 3.1 > cap 2.0 pips,3.1,31.535204869831624,64.6,17,Tue,NY
+2025-05-20T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 9.83% > 8.0%,3.1,31.535204869831624,64.6,17,Tue,NY
+2025-05-20T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SESSION_BLOCKED,inside blocked session window,1.8,31.568404521986498,64.0,21,Tue,Asia/late
+2025-05-28T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,30.9195660829734,62.9,21,Wed,Asia/late
+2025-05-28T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SESSION_BLOCKED,inside blocked session window,2.1,30.9195660829734,62.9,21,Wed,Asia/late
+2025-06-11T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SESSION_BLOCKED,inside blocked session window,1.7,23.07701976284936,47.0,21,Wed,Asia/late
+2025-06-18T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TOO_WIDE,spread 8.2 > cap 2.0 pips,8.2,25.11369122464831,54.3,17,Wed,NY
+2025-06-18T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 32.65% > 8.0%,8.2,25.11369122464831,54.3,17,Wed,NY
+2025-07-09T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.40% > 8.0%,1.8,21.439368589406172,43.8,21,Wed,Asia/late
+2025-07-09T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SESSION_BLOCKED,inside blocked session window,1.8,21.439368589406172,43.8,21,Wed,Asia/late
+2025-08-20T13:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.88% > 8.0%,1.7,19.13851789487449,39.1,13,Wed,London/NY overlap
+2025-08-22T01:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.88% > 8.0%,1.8,18.215441662940975,37.3,1,Fri,Asia/late
+2025-09-02T05:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.70% > 8.0%,1.8,20.697809518276415,42.3,5,Tue,Asia/late
+2025-09-15T09:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.30% > 8.0%,1.5,18.064787990291073,36.9,9,Mon,London
+2025-09-16T05:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 9.26% > 8.0%,1.6,17.274547207412073,35.3,5,Tue,Asia/late
+2025-09-16T09:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.51% > 8.0%,1.5,17.6335081211684,36.0,9,Tue,London
+2025-09-25T09:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.56% > 8.0%,1.6,18.686176126962664,38.2,9,Thu,London
+2025-09-30T13:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.17% > 8.0%,1.6,19.587112584379376,40.0,13,Tue,London/NY overlap
+2025-10-08T13:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.52% > 8.0%,1.7,19.956168289067435,40.8,13,Wed,London/NY overlap
+2025-10-22T09:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.07% > 8.0%,1.5,18.590589695024462,37.9,9,Wed,London
+2025-12-08T10:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.43% > 8.0%,1.4,16.6089822415817,33.9,10,Mon,London
+2025-12-08T14:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.60% > 8.0%,1.7,17.715483510040183,36.3,14,Mon,London/NY overlap
+2025-12-10T18:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TOO_WIDE,spread 3.4 > cap 2.0 pips,3.4,18.127362635630735,38.0,18,Wed,NY
+2025-12-10T18:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 18.76% > 8.0%,3.4,18.127362635630735,38.0,18,Wed,NY
+2025-12-22T14:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 9.85% > 8.0%,1.7,17.266224654298366,35.4,14,Mon,London/NY overlap
+2025-12-22T22:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 9.38% > 8.0%,1.6,17.050724319267452,34.9,22,Mon,Asia/late
+2025-12-22T22:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SESSION_BLOCKED,inside blocked session window,1.6,17.050724319267452,34.9,22,Mon,Asia/late
+2025-12-31T02:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 10.38% > 8.0%,1.8,17.34839049523685,35.6,2,Wed,Asia/late
+2025-12-31T06:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.83% > 8.0%,1.7,17.30207688843418,35.5,6,Wed,London
+2026-01-08T14:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.16% > 8.0%,1.6,17.463227251388,35.7,14,Thu,London/NY overlap
+2026-01-09T14:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 10.14% > 8.0%,1.8,17.759026653972377,36.4,14,Fri,London/NY overlap
+2026-02-19T10:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.48% > 8.0%,1.7,17.93586662026063,36.7,10,Thu,London
+2026-03-26T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TOO_WIDE,spread 4.6 > cap 2.0 pips,4.6,25.412834191153504,53.1,17,Thu,NY
+2026-03-26T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 18.10% > 8.0%,4.6,25.412834191153504,53.1,17,Thu,NY
+2026-04-07T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SESSION_BLOCKED,inside blocked session window,1.7,27.29529010974129,55.4,21,Tue,Asia/late
+2026-04-22T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,19.87574204344688,41.0,17,Wed,NY
+2026-04-22T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 12.08% > 8.0%,2.4,19.87574204344688,41.0,17,Wed,NY
+2026-04-28T05:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.13% > 8.0%,1.7,18.629762052266848,38.1,5,Tue,Asia/late
+2026-05-08T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TOO_WIDE,spread 4.3 > cap 2.0 pips,4.3,19.682360637196215,41.5,17,Fri,NY
+2026-05-08T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 21.85% > 8.0%,4.3,19.682360637196215,41.5,17,Fri,NY
+2026-05-12T13:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.56% > 8.0%,1.5,17.51989467943897,35.8,13,Tue,London/NY overlap
+2026-05-13T09:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.46% > 8.0%,1.6,16.909852396346977,34.6,9,Wed,London
+2026-05-14T13:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 11.48% > 8.0%,1.7,14.813684209849065,30.5,13,Thu,London/NY overlap
+2026-05-14T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,14.52699248057419,30.3,17,Thu,NY
+2026-05-14T17:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 16.52% > 8.0%,2.4,14.52699248057419,30.3,17,Thu,NY
+2026-05-14T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 11.58% > 8.0%,1.7,14.67863587481891,30.2,21,Thu,Asia/late
+2026-05-14T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SESSION_BLOCKED,inside blocked session window,1.7,14.67863587481891,30.2,21,Thu,Asia/late
+2026-05-15T01:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 11.78% > 8.0%,1.7,14.433733312331876,29.7,1,Fri,Asia/late
+2026-05-15T09:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 10.75% > 8.0%,1.7,15.811229233592359,32.5,9,Fri,London
+2026-05-17T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.62% > 8.0%,1.5,15.585904018295313,31.9,21,Sun,Asia/late
+2026-05-17T21:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SESSION_BLOCKED,inside blocked session window,1.5,15.585904018295313,31.9,21,Sun,Asia/late
+2026-05-19T09:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.73% > 8.0%,1.6,16.446554279514718,33.7,9,Tue,London
+2026-05-19T13:00:00+00:00,USD_CHF,H4,test_untouched,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.27% > 8.0%,1.6,17.257514688120814,35.3,13,Tue,London/NY overlap

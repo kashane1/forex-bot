@@ -1,8 +1,24 @@
-"""Volatility breakout strategy.
+"""Volatility-breakout strategy — a genuinely different entry family.
 
-Trades a break of a compressed Donchian range. Compression is defined as
-current Donchian width below a percentile of recent widths. The break
-direction also has to agree with the higher-timeframe EMA regime.
+`volatility_breakout 0.1.0-c004` (CAMPAIGN_004). This is NOT a Donchian
+trend rescue: it does not use an EMA 50/200 regime filter. It trades a
+breakout that occurs *out of a volatility-compressed regime*.
+
+Entry logic (all prior-bars-only, no lookahead) at the latest completed
+bar `t`:
+
+  1. Compression: ATR-14 at bar `t-1` is at or below the
+     `compression_percentile` of the ATR-14 distribution over the
+     `compression_lookback` bars ending at `t-1`. I.e. the regime going
+     *into* the breakout bar was quiet.
+  2. Breakout: `close[t]` closes beyond the `breakout_lookback`-bar
+     Donchian channel built from bars strictly before `t`.
+  3. Direction = the breakout direction. No trend filter.
+
+Stop: `atr_stop_multiple` × ATR-14, with an optional ATR trailing stop.
+The strategy emits stop_price only; the RiskEngine sizes the position.
+
+Predeclared parameters and rationale: docs/research/CAMPAIGN_004_PRECOMMIT.md.
 """
 
 from __future__ import annotations
@@ -16,92 +32,125 @@ import pandas as pd
 
 from forex_bot.domain.signals import Signal
 from forex_bot.strategies.base import StrategyContext
-from forex_bot.strategies.indicators import atr, donchian_high, donchian_low, ema
+from forex_bot.strategies.indicators import atr, donchian_high, donchian_low
 
 
 class VolatilityBreakoutStrategy:
     name: str = "volatility_breakout"
 
-    def __init__(self, version: str = "0.1.0") -> None:
+    def __init__(self, version: str = "0.1.0-c004") -> None:
         self.version = version
 
     def warmup_bars_required(self) -> int:
-        return 240
+        # compression_lookback (default 60) + ATR warmup + buffer. The
+        # per-call `needed` check below is the real correctness guard.
+        return 120
 
     def generate_signal(self, ctx: StrategyContext) -> Signal | None:
         df = ctx.candles.completed_only().df
         cfg = ctx.config
-        donchian_len = int(cfg.get("donchian_lookback", 20))
-        compression_lookback = int(cfg.get("compression_lookback", 60))
-        compression_pct = float(cfg.get("compression_percentile", 25.0))
         atr_len = int(cfg.get("atr_lookback", 14))
+        breakout_len = int(cfg.get("breakout_lookback", 20))
+        compression_len = int(cfg.get("compression_lookback", 60))
+        compression_pct = float(cfg.get("compression_percentile", 40.0))
         atr_multiple = float(cfg.get("atr_stop_multiple", 2.0))
-        regime_ema = int(cfg.get("regime_ema", 200))
         timeframe = cfg.get("timeframe", "H4")
+        min_atr_pips_by_pair = cfg.get("min_atr_pips", {}) or {}
+        min_atr_pips = float(min_atr_pips_by_pair.get(ctx.instrument.name, 0.0))
 
-        needed = max(regime_ema, compression_lookback, donchian_len, atr_len) + 2
+        needed = max(atr_len + compression_len, breakout_len) + 3
         if len(df) < needed:
             return None
 
         close = df["close"]
         high = df["high"]
         low = df["low"]
-        d_high = donchian_high(high, donchian_len)
-        d_low = donchian_low(low, donchian_len)
-        widths = (d_high - d_low).dropna()
-        if len(widths) < compression_lookback:
-            return None
-        recent_widths = widths.iloc[-compression_lookback:]
-        last_width = float(widths.iloc[-1])
-        threshold = float(recent_widths.quantile(compression_pct / 100.0))
-        if last_width > threshold:
-            return None
 
         atr_series = atr(high, low, close, atr_len)
-        regime = ema(close, regime_ema)
+        d_high = donchian_high(high, breakout_len)  # prior bars only
+        d_low = donchian_low(low, breakout_len)
+
         last_close = float(close.iloc[-1])
         last_dh = float(d_high.iloc[-1])
         last_dl = float(d_low.iloc[-1])
         last_atr = float(atr_series.iloc[-1])
-        last_regime = float(regime.iloc[-1])
+        prior_atr = float(atr_series.iloc[-2])  # ATR at bar t-1
 
+        if any(_isnan(v) for v in (last_dh, last_dl, last_atr, prior_atr)):
+            return None
+
+        # Block new entries if a position is already open in this instrument.
+        if any(
+            not pos.is_flat and pos.instrument == ctx.instrument.name
+            for pos in ctx.open_positions
+        ):
+            return None
+
+        pip_size = float(ctx.instrument.pip_size)
+        atr_pips = last_atr / pip_size if pip_size else 0.0
+        if atr_pips < min_atr_pips:
+            return None
+
+        # ---- Step 1: compression as of bar t-1 (prior bars only) ----
+        # The window is the `compression_len` ATR values ending at t-1.
+        comp_window = atr_series.iloc[-(compression_len + 1):-1]
+        if len(comp_window) < compression_len or comp_window.isna().any():
+            return None
+        threshold = float(comp_window.quantile(compression_pct / 100.0))
+        if prior_atr > threshold:
+            return None  # regime going into bar t was NOT compressed
+
+        # ---- Step 2 + 3: breakout out of the compressed regime ----
         side: str | None = None
-        if last_close > last_dh and last_close > last_regime:
+        reason = ""
+        if last_close > last_dh:
             side = "long"
-        elif last_close < last_dl and last_close < last_regime:
+            reason = (
+                f"expansion long: close>{last_dh:.5f} (Donchian-{breakout_len}) "
+                f"out of ATR compression (prior ATR {prior_atr:.6f} <= p"
+                f"{compression_pct:.0f} {threshold:.6f})"
+            )
+        elif last_close < last_dl:
             side = "short"
+            reason = (
+                f"expansion short: close<{last_dl:.5f} (Donchian-{breakout_len}) "
+                f"out of ATR compression (prior ATR {prior_atr:.6f} <= p"
+                f"{compression_pct:.0f} {threshold:.6f})"
+            )
         else:
             return None
 
         if side == "long":
-            stop = min(last_dl, last_close - atr_multiple * last_atr)
+            stop = last_close - atr_multiple * last_atr
         else:
-            stop = max(last_dh, last_close + atr_multiple * last_atr)
+            stop = last_close + atr_multiple * last_atr
 
-        if any(not pos.is_flat and pos.instrument == ctx.instrument.name for pos in ctx.open_positions):
-            return None
-
-        timestamp = pd.Timestamp(df.index[-1]).tz_convert(UTC).to_pydatetime()
+        last_idx = df.index[-1]
+        signal_id = _stable_signal_id(
+            self.name, self.version, ctx.instrument.name, timeframe, last_idx, side
+        )
         return Signal(
-            signal_id=hashlib.sha1(
-                f"{self.name}|{self.version}|{ctx.instrument.name}|{timestamp.isoformat()}|{side}".encode()
-            ).hexdigest()[:24],
+            signal_id=signal_id,
             strategy_name=self.name,
             strategy_version=self.version,
             instrument=ctx.instrument.name,
             timeframe=timeframe,
-            timestamp=timestamp,
+            timestamp=pd.Timestamp(last_idx).tz_convert(UTC).to_pydatetime(),
             side=side,  # type: ignore[arg-type]
             entry_intent="market",
-            stop_model=f"compressed_range_or_ATR{atr_len}*{atr_multiple}",
+            stop_model=f"ATR{atr_len}*{atr_multiple}",
             stop_price=ctx.instrument.round_price(Decimal(str(stop))),
-            exit_model="trailing_or_time",
+            exit_model="atr_trailing_or_time",
             features={
-                "last_width": last_width,
+                "atr": last_atr,
+                "atr_pips": atr_pips,
+                "prior_atr": prior_atr,
                 "compression_threshold": threshold,
-                "regime_ema": last_regime,
+                "donchian_high": last_dh,
+                "donchian_low": last_dl,
+                "last_close": last_close,
             },
-            reason="compression break with regime agreement",
+            reason=reason,
         )
 
 
@@ -110,3 +159,8 @@ def _isnan(v: Any) -> bool:
         return v != v
     except TypeError:
         return False
+
+
+def _stable_signal_id(*parts: Any) -> str:
+    canonical = "|".join(str(p) for p in parts)
+    return hashlib.sha1(canonical.encode("utf-8")).hexdigest()[:24]

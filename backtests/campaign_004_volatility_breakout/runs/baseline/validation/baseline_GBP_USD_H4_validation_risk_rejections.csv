@@ -1,0 +1,19 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-04-24T21:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SESSION_BLOCKED,inside blocked session window,1.9,32.268011301197035,65.5,21,Mon,Asia/late
+2024-03-19T01:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.22% > 8.0%,1.7,20.68960794029638,42.2,1,Tue,Asia/late
+2024-03-19T05:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.75% > 8.0%,1.9,21.718921658846725,44.4,5,Tue,Asia/late
+2024-05-27T13:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.06% > 8.0%,1.7,21.09917368264426,43.0,13,Mon,London/NY overlap
+2024-06-20T17:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.01% > 8.0%,1.8,22.479573720734468,45.9,17,Thu,NY
+2024-06-26T21:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.02% > 8.0%,1.7,21.20447372923484,43.3,21,Wed,Asia/late
+2024-06-26T21:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,short,SESSION_BLOCKED,inside blocked session window,1.7,21.20447372923484,43.3,21,Wed,Asia/late
+2024-07-05T05:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.23% > 8.0%,1.7,20.66603560487979,42.2,5,Fri,Asia/late
+2024-07-10T13:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.08% > 8.0%,1.7,21.05038433023805,43.0,13,Wed,London/NY overlap
+2024-07-10T17:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.24% > 8.0%,1.9,20.57178544950666,42.1,17,Wed,NY
+2024-07-10T21:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 10.06% > 8.0%,2.0,19.888086488827525,40.8,21,Wed,Asia/late
+2024-07-10T21:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SESSION_BLOCKED,inside blocked session window,2.0,19.888086488827525,40.8,21,Wed,Asia/late
+2024-07-11T05:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.70% > 8.0%,1.9,19.583860288836085,40.1,5,Thu,Asia/late
+2024-07-19T05:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 8.49% > 8.0%,1.9,22.38332447323416,45.7,5,Fri,Asia/late
+2024-07-24T01:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,short,SPREAD_TO_ATR,spread/atr 9.79% > 8.0%,1.9,19.406737068681515,39.8,1,Wed,Asia/late
+2024-09-05T17:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 9.48% > 8.0%,2.5,26.375348403404423,54.0,17,Thu,NY
+2024-10-29T17:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SPREAD_TO_ATR,spread/atr 8.30% > 8.0%,2.1,25.299071401215976,51.6,17,Tue,NY
+2024-11-28T22:00:00+00:00,GBP_USD,H4,validation,0.1.0-c004,long,SESSION_BLOCKED,inside blocked session window,2,33.15626984836421,67.3,22,Thu,Asia/late
