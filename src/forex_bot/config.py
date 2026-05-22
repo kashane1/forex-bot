@@ -154,12 +154,73 @@ class VolatilityBreakoutStrategyConfig(BaseModel):
         return self
 
 
+class PullbackContinuationStrategyConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    ema_fast: int = 50
+    ema_slow: int = 200
+    atr_lookback: int = 14
+    pullback_lookback: int = 6
+    pullback_band: float = 0.5
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = 2.0
+    max_bars_in_trade: int = 120
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> PullbackContinuationStrategyConfig:
+        if self.ema_fast >= self.ema_slow:
+            raise ConfigError("ema_fast must be < ema_slow")
+        if self.pullback_lookback < 2:
+            raise ConfigError("pullback_lookback must be >= 2")
+        if self.pullback_band <= 0:
+            raise ConfigError("pullback_band must be > 0")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        return self
+
+
+class MeanReversionStrategyConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    atr_lookback: int = 14
+    zscore_lookback: int = 20
+    zscore_long_threshold: float = -2.0
+    zscore_short_threshold: float = 2.0
+    rsi_lookback: int = 14
+    regime_ema: int = 200
+    adx_lookback: int = 14
+    adx_max: float = 20.0
+    atr_stop_multiple: float = 1.5
+    trailing_stop_atr_multiple: float | None = None
+    max_bars_in_trade: int = 40
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> MeanReversionStrategyConfig:
+        if self.zscore_long_threshold >= 0 or self.zscore_short_threshold <= 0:
+            raise ConfigError(
+                "zscore_long_threshold must be < 0 and short threshold > 0"
+            )
+        if not (0 < self.adx_max < 100):
+            raise ConfigError("adx_max must be between 0 and 100")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     enabled: list[str]
     trend_following: TrendFollowingStrategyConfig | None = None
     volatility_breakout: VolatilityBreakoutStrategyConfig | None = None
+    pullback_continuation: PullbackContinuationStrategyConfig | None = None
+    mean_reversion: MeanReversionStrategyConfig | None = None
 
     @model_validator(mode="after")
     def _check_enabled(self) -> StrategyConfig:
@@ -173,6 +234,17 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.volatility_breakout config required when enabled"
+            )
+        if (
+            "pullback_continuation" in self.enabled
+            and self.pullback_continuation is None
+        ):
+            raise ConfigError(
+                "strategy.pullback_continuation config required when enabled"
+            )
+        if "mean_reversion" in self.enabled and self.mean_reversion is None:
+            raise ConfigError(
+                "strategy.mean_reversion config required when enabled"
             )
         return self
 

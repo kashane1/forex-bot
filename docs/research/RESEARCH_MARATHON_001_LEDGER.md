@@ -56,3 +56,23 @@ Newest entries at the bottom.
 - Status: **complete**. Ladder continues to CAMPAIGN_007 (H4 pullback).
 
 ---
+
+### Phase 3 — CAMPAIGN_007 H4 pullback-continuation
+
+- New strategy `pullback_continuation 0.1.0-c007` — non-breakout
+  entry: established trend + pullback to the EMA + continuation bar
+  (6 strategy unit tests). Real OANDA H4 data reused.
+- Screening run (36 runs, H4): **train expectancy −0.164 R, validation
+  −0.166 R**, both clearly negative. Validation PF 0.66. Only 1/6 pairs
+  positive on validation (USD_JPY, marginal +0.70%).
+- **Screening gate FAIL** → the 2025-2026 reported test window was
+  **not opened** (lockbox intact, per discipline).
+- Avoiding breakout exhaustion did not help: the pullback-continuation
+  entry is no better than the breakout entries — H4 trends in 2020-2024
+  lack the persistence for a resumption to follow through.
+- Verdict: **REJECT**. Report:
+  `backtests/CAMPAIGN_007_H4_PULLBACK_REPORT.md`.
+- Status: **complete**. Ladder continues to CAMPAIGN_008 (mean
+  reversion, research-only).
+
+---

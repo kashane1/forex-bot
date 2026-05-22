@@ -1,0 +1,88 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-03-01T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.3,30.30163392437179,61.3,22,Wed,Asia/late
+2023-03-05T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.3,27.396719237555015,55.4,22,Sun,Asia/late
+2023-03-13T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.4,37.22045503294904,75.1,21,Mon,Asia/late
+2023-04-02T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.6,27.423911452578473,55.6,21,Sun,Asia/late
+2023-05-03T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.2,26.07896508534089,52.8,21,Wed,Asia/late
+2023-07-02T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.5,25.0360892036209,50.8,21,Sun,Asia/late
+2023-07-19T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,SESSION_BLOCKED,inside blocked session window,1.3,26.14013306532382,52.9,21,Wed,Asia/late
+2023-09-20T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.3,24.255062149065438,49.2,21,Wed,Asia/late
+2023-10-19T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.3,25.96586853598814,52.6,21,Thu,Asia/late
+2023-11-30T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,SESSION_BLOCKED,inside blocked session window,1.3,26.443497354786665,53.5,22,Thu,Asia/late
+2024-03-03T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.2,19.063611429451047,38.7,22,Sun,Asia/late
+2024-03-05T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.1,16.689260620443864,33.9,22,Tue,Asia/late
+2024-03-20T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,SESSION_BLOCKED,inside blocked session window,1.3,20.436773718701907,41.5,21,Wed,Asia/late
+2024-03-21T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,SESSION_BLOCKED,inside blocked session window,1.2,20.12989818581038,40.9,21,Thu,Asia/late
+2024-03-29T17:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SPREAD_TOO_WIDE,spread 13.2 > cap 2.0 pips,13.2,17.382149851763998,41.4,17,Fri,NY
+2024-03-29T17:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SPREAD_TO_ATR,spread/atr 75.94% > 8.0%,13.2,17.382149851763998,41.4,17,Fri,NY
+2024-04-02T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SPREAD_TO_ATR,spread/atr 8.04% > 8.0%,1.4,17.422710174333503,35.5,21,Tue,Asia/late
+2024-04-02T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.4,17.422710174333503,35.5,21,Tue,Asia/late
+2024-06-24T05:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,SPREAD_TO_ATR,spread/atr 8.45% > 8.0%,1.4,16.559833526642183,33.8,5,Mon,Asia/late
+2024-07-02T09:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,19.133238049901518,38.9,9,Tue,London
+2024-07-03T01:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,17.958750571200426,36.6,1,Wed,Asia/late
+2024-07-03T13:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,20.223715380804517,41.1,13,Wed,London/NY overlap
+2024-07-03T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,SESSION_BLOCKED,inside blocked session window,1.5,19.464581119163192,39.7,21,Wed,Asia/late
+2024-07-03T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.5,19.464581119163192,39.7,21,Wed,Asia/late
+2024-07-17T05:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,16.762461998861156,34.2,5,Wed,Asia/late
+2024-08-01T17:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,25.203149590771016,51.1,17,Thu,NY
+2024-08-04T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.5,26.74337639321853,54.2,21,Sun,Asia/late
+2024-08-04T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.5,26.74337639321853,54.2,21,Sun,Asia/late
+2024-08-05T05:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.8,35.39990107374453,71.7,5,Mon,Asia/late
+2024-08-06T09:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.5,37.075143143180064,74.9,9,Tue,London
+2024-08-07T17:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.7,34.40457094287088,69.7,17,Wed,NY
+2024-09-01T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,SESSION_BLOCKED,inside blocked session window,1.2,20.729710614906473,42.1,21,Sun,Asia/late
+2024-09-01T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,20.729710614906473,42.1,21,Sun,Asia/late
+2024-09-02T05:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,21.038883132240805,42.7,5,Mon,Asia/late
+2024-09-02T13:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,20.434292088513732,41.6,13,Mon,London/NY overlap
+2024-09-06T09:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,20.77352566445697,42.1,9,Fri,London
+2024-09-12T13:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.5,23.363383384617585,47.5,13,Thu,London/NY overlap
+2024-09-12T17:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,23.18028457143059,47.1,17,Thu,NY
+2024-09-12T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,SESSION_BLOCKED,inside blocked session window,1.2,22.28169281632837,45.2,21,Thu,Asia/late
+2024-09-12T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,22.28169281632837,45.2,21,Thu,Asia/late
+2024-09-15T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,SESSION_BLOCKED,inside blocked session window,1.4,20.490632559707485,41.7,21,Sun,Asia/late
+2024-09-15T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,20.490632559707485,41.7,21,Sun,Asia/late
+2024-09-16T01:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,20.752015948299853,42.2,1,Mon,Asia/late
+2024-09-16T05:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,21.10187195199275,42.9,5,Mon,Asia/late
+2024-09-16T17:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.5,19.846014095673528,40.4,17,Mon,NY
+2024-09-19T01:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,27.52336503348713,55.7,1,Thu,Asia/late
+2024-09-19T05:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,28.450267531095193,57.6,5,Thu,Asia/late
+2024-09-26T01:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.1,25.314199522034922,51.2,1,Thu,Asia/late
+2024-09-26T05:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,25.57389955617527,51.8,5,Thu,Asia/late
+2024-09-26T09:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,long,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,25.67576387359135,52.0,9,Thu,London
+2024-10-21T05:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,19.268804193743144,39.2,5,Mon,Asia/late
+2024-10-21T13:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,20.747846473176534,42.1,13,Mon,London/NY overlap
+2024-11-04T06:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,23.51504881831214,47.6,6,Mon,London
+2024-11-05T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.6,23.503299502043486,47.8,22,Tue,Asia/late
+2024-11-05T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.6,23.503299502043486,47.8,22,Tue,Asia/late
+2024-11-06T02:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.5,27.79234953761181,56.3,2,Wed,Asia/late
+2024-11-08T10:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,31.35873867932982,63.4,10,Fri,London
+2024-11-08T14:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,33.17954305937765,67.1,14,Fri,London/NY overlap
+2024-11-11T06:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,29.38929298518562,59.4,6,Mon,London
+2024-11-11T10:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,29.032914914815215,58.8,10,Mon,London
+2024-11-12T02:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,25.9338500333725,52.5,2,Tue,Asia/late
+2024-11-12T06:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,25.592146459560166,51.8,6,Tue,London
+2024-11-19T06:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.1,22.843737861442833,46.2,6,Tue,London
+2024-11-20T06:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,22.606252550389854,45.9,6,Wed,London
+2024-11-20T10:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,22.223663082504928,45.1,10,Wed,London
+2024-11-21T06:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,20.230885916010585,41.2,6,Thu,London
+2024-11-22T02:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,21.064937645797364,42.7,2,Fri,Asia/late
+2024-11-25T14:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,25.87228155735075,52.4,14,Mon,London/NY overlap
+2024-11-25T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.3,28.51028358771567,57.7,22,Mon,Asia/late
+2024-11-25T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,28.51028358771567,57.7,22,Mon,Asia/late
+2024-11-26T14:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,28.897930798332617,58.4,14,Tue,London/NY overlap
+2024-11-28T02:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,24.90321999027269,50.4,2,Thu,Asia/late
+2024-12-01T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.4,21.46068057113857,43.6,22,Sun,Asia/late
+2024-12-01T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,21.46068057113857,43.6,22,Sun,Asia/late
+2024-12-02T10:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,21.763890384399183,44.2,10,Mon,London
+2024-12-02T14:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,22.362898214084947,45.4,14,Mon,London/NY overlap
+2024-12-03T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.4,23.71845711408707,48.1,22,Tue,Asia/late
+2024-12-03T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.4,23.71845711408707,48.1,22,Tue,Asia/late
+2024-12-04T02:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,25.556424463080837,51.8,2,Wed,Asia/late
+2024-12-04T10:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.5,25.871100685003327,52.5,10,Wed,London
+2024-12-09T18:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.7,27.017050201845116,54.9,18,Mon,NY
+2024-12-09T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,SESSION_BLOCKED,inside blocked session window,1.3,26.980118044570492,54.6,22,Mon,Asia/late
+2024-12-09T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,26.980118044570492,54.6,22,Mon,Asia/late
+2024-12-10T02:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,28.867252469958324,58.4,2,Tue,Asia/late
+2024-12-10T14:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,27.93648093166861,56.5,14,Tue,London/NY overlap
+2024-12-12T10:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.3,27.050065486685178,54.8,10,Thu,London
+2024-12-12T14:00:00+00:00,AUD_USD,H4,validation,0.1.0-c007,short,DRAWDOWN_LIMIT,drawdown 8.0914% >= cap 8.0%,1.2,27.617917951921992,55.8,14,Thu,London/NY overlap
