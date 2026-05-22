@@ -1,0 +1,176 @@
+{
+  "manifest_version": 1,
+  "description": "Machine-readable index of all research evidence (CAMPAIGN_001-009). Audited by scripts/validate_research_archive.py. Every campaign is unapproved; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze.",
+  "generated": "2026-05-22",
+  "branch": "infra-research-foundation-001",
+  "no_approved_strategy": true,
+  "campaigns": [
+    {
+      "campaign_id": "CAMPAIGN_001",
+      "title": "Trend-following baseline (synthetic data — harness validation)",
+      "report_path": "backtests/CAMPAIGN_001_REPORT.md",
+      "artifact_folder": "backtests/campaign_001",
+      "strategy_family": "trend_following",
+      "data_source": "synthetic",
+      "verdict": "SYNTHETIC_NOT_EVIDENCE",
+      "key_metrics": {
+        "note": "synthetic candles — metrics are not evidence of edge; superseded by CAMPAIGN_002"
+      },
+      "commit_hash": "152d3a5",
+      "test_window_opened": true,
+      "risk_engine_used": false,
+      "financing_treatment": "unmodeled",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "title": "Trend-following baseline on real OANDA data",
+      "report_path": "backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md",
+      "artifact_folder": "backtests/campaign_002_real_oanda",
+      "strategy_family": "trend_following",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "expectancy_r": -0.085,
+        "profit_factor": 0.75,
+        "return_pct": -1.02
+      },
+      "commit_hash": "56709b2",
+      "test_window_opened": true,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "title": "Trend-following + ADX-14 trend-strength gate",
+      "report_path": "backtests/CAMPAIGN_003_CONTROLLED_ADX_REPORT.md",
+      "artifact_folder": "backtests/campaign_003_controlled_adx",
+      "strategy_family": "trend_following",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "expectancy_r": -0.071,
+        "profit_factor": 0.77,
+        "return_pct": -0.63
+      },
+      "commit_hash": "3a7d205",
+      "test_window_opened": true,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "title": "Volatility breakout (ATR-compression entry family)",
+      "report_path": "backtests/CAMPAIGN_004_VOLATILITY_BREAKOUT_REPORT.md",
+      "artifact_folder": "backtests/campaign_004_volatility_breakout",
+      "strategy_family": "volatility_breakout",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "expectancy_r": -0.163,
+        "profit_factor": 0.63,
+        "return_pct": -1.40
+      },
+      "commit_hash": "9cfa0fc",
+      "test_window_opened": true,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_005",
+      "title": "Benchmarks & diagnostics (Research Marathon 001)",
+      "report_path": "backtests/CAMPAIGN_005_BENCHMARKS_REPORT.md",
+      "artifact_folder": null,
+      "strategy_family": "none",
+      "data_source": "oanda-practice",
+      "verdict": "DIAGNOSTIC",
+      "key_metrics": {
+        "note": "diagnostic only, no pass/fail gate; random-entry baseline -0.095 R; efficiency ratio 0.24 (choppy H4 majors)"
+      },
+      "commit_hash": "2f5199b",
+      "test_window_opened": false,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_006",
+      "title": "D1 daily trend (Research Marathon 001)",
+      "report_path": "backtests/CAMPAIGN_006_DAILY_TREND_REPORT.md",
+      "artifact_folder": "backtests/campaign_006_daily_trend",
+      "strategy_family": "trend_following",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT_NO_VALID_RESULT",
+      "key_metrics": {
+        "note": "no valid result — native OANDA D1 rollover/session/spread contamination (infrastructure blocker; see docs/research/D1_AGGREGATION_DESIGN.md)"
+      },
+      "commit_hash": "b71f55c",
+      "test_window_opened": false,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "title": "H4 pullback-continuation (Research Marathon 001)",
+      "report_path": "backtests/CAMPAIGN_007_H4_PULLBACK_REPORT.md",
+      "artifact_folder": "backtests/campaign_007_h4_pullback",
+      "strategy_family": "pullback_continuation",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "train_expectancy_r": -0.164,
+        "validation_expectancy_r": -0.166,
+        "note": "screening failed outright; test window not opened"
+      },
+      "commit_hash": "68fdf69",
+      "test_window_opened": false,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "title": "H4 range mean-reversion (Research Marathon 001)",
+      "report_path": "backtests/CAMPAIGN_008_RANGE_MEAN_REVERSION_REPORT.md",
+      "artifact_folder": "backtests/campaign_008_range_mean_reversion",
+      "strategy_family": "mean_reversion",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "train_expectancy_r": -0.017,
+        "validation_expectancy_r": 0.172,
+        "validation_profit_factor": 1.29,
+        "note": "narrow miss — failed the train >= 0 screening gate; test window not opened"
+      },
+      "commit_hash": "6f96cd2",
+      "test_window_opened": false,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "title": "Mean-reversion + midline-target exit (human-authorized follow-up)",
+      "report_path": "backtests/CAMPAIGN_009_MEAN_REVERSION_REPORT.md",
+      "artifact_folder": "backtests/campaign_009_mean_reversion",
+      "strategy_family": "mean_reversion",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "train_expectancy_r": -0.062,
+        "validation_expectancy_r": 0.170,
+        "validation_profit_factor": 1.37,
+        "note": "midline-exit hypothesis falsified; failed the train screening gate; test window not opened"
+      },
+      "commit_hash": "db3ffae",
+      "test_window_opened": false,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
+    }
+  ]
+}

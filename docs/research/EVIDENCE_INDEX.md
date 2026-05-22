@@ -73,6 +73,31 @@ and per-run risk-rejection CSVs are committed under each campaign's
 | [`docs/research/EVIDENCE_INDEX.md`](EVIDENCE_INDEX.md) | this index |
 | [`configs/approved_strategies.yaml`](../../configs/approved_strategies.yaml) | machine-enforced approved-strategy registry (empty) |
 
+## Machine-readable manifest & validation
+
+- [`docs/research/EVIDENCE_MANIFEST.json`](EVIDENCE_MANIFEST.json) — a
+  machine-readable index of all nine campaigns: report path, strategy
+  family, data source, verdict, key metrics, commit hash, artifact
+  folder, whether the test window was opened, whether the RiskEngine was
+  used, the financing treatment, and `strategy_approved` (false for
+  every campaign).
+- [`scripts/validate_research_archive.py`](../../scripts/validate_research_archive.py)
+  audits the archive's integrity. Run it any time — before trusting a
+  report, after editing docs, or in CI:
+
+  ```bash
+  .venv/bin/python scripts/validate_research_archive.py
+  ```
+
+  It checks that the approved-strategy registry is empty, that every
+  report and artifact folder named in the manifest exists, that no
+  campaign is marked approved, that every verdict is a non-approval
+  verdict, that each report corroborates its manifest verdict, that
+  every link in this index resolves, and that no committed artifact
+  contains a credential-shaped string. The check logic lives in
+  `forex_bot.research_archive` and is unit-tested by
+  `tests/unit/test_validate_research_archive.py`.
+
 ## How to read the evidence
 
 - **Verdicts are bright lines.** Every campaign fixed its gates in a
