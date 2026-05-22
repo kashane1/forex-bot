@@ -1,46 +1,72 @@
 # CAMPAIGN_002 H4 — Lean parity export bundle
 
-**Date:** 2026-05-22 · **Branch:** `infra-data-parity-001` · Phase 3
+**Date:** 2026-05-22 · **Branch:** `oanda-practice-readonly-001` · Phase 7
+**Supersedes:** the `infra-data-parity-001` Phase 3 manifest (export was
+blocked then — no OANDA credentials).
 
 The export bundle for the CAMPAIGN_002 H4 `trend_following` Lean parity
 run. **Verification only** — CAMPAIGN_002 is already REJECT; a parity
 result validates the bespoke engine and approves nothing.
 
-## Status
+## Status — export produced
+
+The export ran against the real, rehydrated local OANDA practice H4
+store (`data/oanda_h4_research.sqlite3`, built in Phase 4). A **full**
+export was generated for all six pairs present in that store — not a
+sample.
 
 | artifact | state |
 |---|---|
 | `EXPORT_MANIFEST.md` (this file) | committed |
-| `<INSTRUMENT>_H4_lean.csv` (the candle data) | **not produced — see blocker** |
-| `<INSTRUMENT>_H4_lean.provenance.json` (hashes) | not produced |
+| `<INSTRUMENT>_H4_lean.csv` (candle data, 6 files) | **produced — gitignored, not committed** |
+| `<INSTRUMENT>_H4_lean.provenance.json` (hashes, 6 files) | **produced — committed** |
 
-**Blocker:** the export needs the local real OANDA H4 store
-(`data/oanda_h4_research.sqlite3`), which requires OANDA practice
-credentials to build (Phase 1). No credentials were available this
-sprint, so the data export did not run. The exporter
-(`scripts/export_lean_parity_data.py`) is wired, tested, and runs the
-moment the store exists. This is a data-availability blocker, not a
-code gap.
+The candle CSVs are bulky market data (~0.95 MB each) and are
+**gitignored** (`research/lean_parity/exports/**/*.csv`); they are
+regenerable from the local store with the command below. The small
+provenance JSONs are committed.
 
-The candle CSVs are bulky market data and are **gitignored**
-(`research/lean_parity/exports/**/*.csv`); the small provenance JSON is
-committed. Nothing in this bundle is committed until it actually exists.
+### Exported instruments
 
-## Producing the export
+Full window 2020-01-01 → 2026-05-19, granularity H4, source
+`oanda-practice`, completed candles only.
+
+| instrument | candles | data_sha256 (prefix) | campaign_002_data_request_hash |
+|---|---|---|---|
+| EUR_USD | 9931 | `866d75446030655b…` | `aadc096b771961e6` |
+| GBP_USD | 9931 | `354a2da02ce350f8…` | `f8e36995228587e4` |
+| USD_JPY | 9932 | `868b90906652525b…` | `68c0df540212891c` |
+| AUD_USD | 9931 | `fb9e619a93fb24d1…` | `f80ebeddf05ab414` |
+| USD_CAD | 9931 | `77f9bf8839b20831…` | `279da4f7950b782b` |
+| USD_CHF | 9931 | `64ab6151e649080e…` | `ee37f52e9aee64b2` |
+
+**NZD_USD** is the seventh CAMPAIGN_002 instrument but is **not** in the
+six-pair H4 research store (the rehydration universe is deliberately the
+six majors). It was therefore not exported. A NZD_USD parity export
+would need a separate rehydration fetch and is out of this sprint's
+scope. The first parity target is EUR_USD; the other five are exported
+and ready should single-pair parity pass.
+
+## Producing / regenerating the export
 
 ```bash
 # 1. Build the local H4 store (needs OANDA practice credentials):
+set -a && source .env && set +a
 python scripts/rehydrate_oanda_h4_store.py
 
-# 2. Export the CAMPAIGN_002 H4 candles for the first parity target:
-python scripts/export_lean_parity_data.py \
-    --db data/oanda_h4_research.sqlite3 --instrument EUR_USD \
-    --from 2020-01-01 --to 2026-05-20
-#    → research/lean_parity/exports/campaign_002_h4/EUR_USD_H4_lean.csv
-#    → research/lean_parity/exports/campaign_002_h4/EUR_USD_H4_lean.provenance.json
+# 2. Export each CAMPAIGN_002 H4 pair into this bundle (read-only):
+for inst in EUR_USD GBP_USD USD_JPY AUD_USD USD_CAD USD_CHF; do
+  python scripts/export_lean_parity_data.py \
+      --db data/oanda_h4_research.sqlite3 --instrument "$inst" \
+      --from 2020-01-01 --to 2026-05-20
+done
+#   → research/lean_parity/exports/campaign_002_h4/<INST>_H4_lean.csv
+#   → research/lean_parity/exports/campaign_002_h4/<INST>_H4_lean.provenance.json
 ```
 
-The CSV format is specified in `../../lean_h4_export_format.md`.
+`export_lean_parity_data.py` reads only the local store — no OANDA
+call, no network — and refuses any candle whose source is not
+`oanda-*`. The CSV format is specified in `../../lean_h4_export_format.md`.
 
 ## Hashes / provenance
 
@@ -53,6 +79,9 @@ carrying:
   comparing a Lean run, confirm this matches the CAMPAIGN_002 artifacts**
   — that proves both engines replay the identical candles;
 - `candle_count`, `first_ts`, `last_ts`, `source` (`oanda-practice`).
+
+The provenance JSONs carry counts, timestamps, and hashes only — **no
+account id, no token, no credential of any kind.**
 
 ## Config
 
@@ -119,5 +148,7 @@ Full pass/fail rules: `docs/research/LEAN_PARITY_EXECUTION_GUIDE.md` and
 ## Not strategy evidence
 
 This bundle is parity verification input. It carries candles, hashes,
-and parameters — no signals, no trades, no metrics, no verdict. Nothing
-here, and no parity result derived from it, can approve a strategy.
+and parameters — no signals, no trades, no metrics, no verdict.
+`strategy_evidence: false`. Nothing here, and no parity result derived
+from it, can approve a strategy; CAMPAIGN_002 stays REJECT regardless of
+any parity outcome.

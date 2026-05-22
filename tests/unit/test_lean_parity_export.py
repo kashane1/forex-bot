@@ -229,3 +229,35 @@ def test_export_manifest_is_committed_and_references_the_target():
     assert "EUR_USD" in text
     # The manifest must state it is verification-only, not strategy evidence.
     assert "approves nothing" in text.lower() or "not strategy evidence" in text.lower()
+
+
+def test_export_manifest_records_the_produced_bundle():
+    """Phase 7: the manifest reflects a produced export, not the old
+    'blocked — no credentials' state."""
+    manifest = (
+        _REPO / "research" / "lean_parity" / "exports" / "campaign_002_h4"
+        / "EXPORT_MANIFEST.md"
+    ).read_text(encoding="utf-8")
+    assert "export produced" in manifest.lower()
+    assert "strategy_evidence: false" in manifest
+    assert "gitignored" in manifest.lower()
+
+
+def test_committed_provenance_sidecars_are_present_and_credential_free():
+    """Every committed Lean-parity provenance sidecar carries hashes,
+    counts, and a window only — never an account id or token."""
+    bundle = (
+        _REPO / "research" / "lean_parity" / "exports" / "campaign_002_h4"
+    )
+    provs = sorted(bundle.glob("*_H4_lean.provenance.json"))
+    assert provs, "no provenance sidecars in the committed bundle"
+    for path in provs:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        assert data["source"].startswith("oanda")
+        assert data["granularity"] == "H4"
+        assert data["candle_count"] > 0
+        assert len(data["data_sha256"]) == 64
+        text = json.dumps(data).lower()
+        assert "token" not in text
+        assert "account" not in text
+        assert "secret" not in text

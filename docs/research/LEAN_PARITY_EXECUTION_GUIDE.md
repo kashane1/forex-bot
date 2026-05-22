@@ -1,6 +1,9 @@
 # Lean Parity Execution Guide
 
 **Date:** 2026-05-22 · **Branch:** `infra-execution-fidelity-001` · Phase 3
+**Updated:** 2026-05-22 · `oanda-practice-readonly-001` Phase 7 — the
+local real-OANDA H4 store is built and the CAMPAIGN_002 H4 export bundle
+is produced (six pairs). See §2 and the export manifest.
 
 Moves Lean parity from **design-only** to a **runnable local
 preparation harness**. It builds on `docs/research/LEAN_PARITY_DESIGN.md`
@@ -53,34 +56,47 @@ generated JSON is the single source of truth; trust it over any prose.
 python scripts/build_lean_parity_config.py
 ```
 
-### `scripts/export_lean_parity_data.py` — runnable when real H4 data exists
+### `scripts/export_lean_parity_data.py` — produced (Phase 7)
 
 Reads completed OANDA H4 bid/ask candles from the local store and writes
 a Lean custom-data CSV plus a provenance sidecar (see
 `research/lean_parity/lean_h4_export_format.md`). It exports **real data
-only** — it refuses any candle whose source is not `oanda-*`, and it
-fabricates nothing.
+only** — it refuses any candle whose source is not `oanda-*`, reads only
+the local store (no OANDA call), and fabricates nothing.
 
 The export bundle lives in `research/lean_parity/exports/campaign_002_h4/`
-(`EXPORT_MANIFEST.md` plus, once produced, the candle CSV and provenance
-JSON). The candle CSVs are bulky market data and are gitignored; the
-provenance JSON and the manifest are committed.
+(`EXPORT_MANIFEST.md` plus the candle CSVs and provenance JSONs). The
+candle CSVs are bulky market data and are gitignored
+(`research/lean_parity/exports/**/*.csv`); the provenance JSONs and the
+manifest are committed.
 
-Exact commands — build the store, then export the first parity target:
+As of `oanda-practice-readonly-001` Phase 7 the export **has been
+produced** — a full export of all six pairs in the local H4 store
+(EUR_USD, GBP_USD, USD_JPY, AUD_USD, USD_CAD, USD_CHF), full window
+2020-01-01 → 2026-05-19, ~9,931 candles each. NZD_USD (the 7th
+CAMPAIGN_002 instrument) is not in the six-pair store and was not
+exported.
+
+Exact commands — build the store, then export all six CAMPAIGN_002 H4
+pairs into the bundle:
 
 ```bash
 # 1. Build the local real-OANDA H4 store (needs practice credentials):
+set -a && source .env && set +a
 python scripts/rehydrate_oanda_h4_store.py
 
-# 2. Export CAMPAIGN_002 H4 candles into the bundle:
-python scripts/export_lean_parity_data.py \
-    --db data/oanda_h4_research.sqlite3 --instrument EUR_USD \
-    --from 2020-01-01 --to 2026-05-20
+# 2. Export each CAMPAIGN_002 H4 pair (read-only — local store only):
+for inst in EUR_USD GBP_USD USD_JPY AUD_USD USD_CAD USD_CHF; do
+  python scripts/export_lean_parity_data.py \
+      --db data/oanda_h4_research.sqlite3 --instrument "$inst" \
+      --from 2020-01-01 --to 2026-05-20
+done
 ```
 
-Expected outputs (in `research/lean_parity/exports/campaign_002_h4/`):
-`EUR_USD_H4_lean.csv` (the candles) and `EUR_USD_H4_lean.provenance.json`
-(`data_sha256`, `campaign_002_data_request_hash`, counts, window).
+Outputs (in `research/lean_parity/exports/campaign_002_h4/`), per pair:
+`<INST>_H4_lean.csv` (the candles, gitignored) and
+`<INST>_H4_lean.provenance.json` (`data_sha256`,
+`campaign_002_data_request_hash`, counts, window — committed).
 
 ## 3. What remains manual (and why)
 
@@ -113,15 +129,16 @@ list and statistics, compared against the committed CAMPAIGN_002
 artifacts using §4. Whether Lean is installed is checked by
 `docs/research/LEAN_PARITY_LOCAL_STATUS.md`.
 
-### Current data blocker
+### Current status (no data blocker)
 
-The local real-OANDA H4 store is built by
-`scripts/rehydrate_oanda_h4_store.py`, which needs OANDA **practice**
-credentials. When credentials are unavailable, `rehydrate` and therefore
-`export_lean_parity_data.py` cannot run — both are wired and tested and
-run the moment the store exists. This is a data-availability blocker,
-not a code gap. The store and the candle CSVs are gitignored and never
-committed.
+The prior data-availability blocker is **cleared**. The local real-OANDA
+H4 store (`data/oanda_h4_research.sqlite3`) was built in
+`oanda-practice-readonly-001` Phase 4 and the CAMPAIGN_002 H4 export
+bundle was produced in Phase 7. The store and the candle CSVs remain
+gitignored and are never committed; the provenance JSONs and the export
+manifest are committed. What still requires a deliberate human step is
+installing the Lean toolchain and running the Lean backtest — see §3 and
+`docs/research/LEAN_PARITY_LOCAL_STATUS.md`.
 
 ## 4. Comparison metrics that matter
 

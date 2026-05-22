@@ -1,0 +1,16 @@
+{
+  "instrument": "GBP_USD",
+  "granularity": "H4",
+  "source": "oanda-practice",
+  "requested_from": "2020-01-01",
+  "requested_to": "2026-05-20",
+  "candle_count": 9931,
+  "first_ts": "2020-01-01T22:00:00+00:00",
+  "last_ts": "2026-05-19T21:00:00+00:00",
+  "data_sha256": "354a2da02ce350f8abd32e9e95c30a40b2fc9684f41f616bec89e23babe02dc5",
+  "campaign_002_data_request_hash": "f8e36995228587e4",
+  "lean_csv": "GBP_USD_H4_lean.csv",
+  "exported_by": "scripts/export_lean_parity_data.py",
+  "exported_at": "2026-05-22T20:38:20+00:00",
+  "note": "Real OANDA H4 bid/ask candles. Before comparing a Lean run, confirm campaign_002_data_request_hash matches the value in the CAMPAIGN_002 artifacts \u2014 that proves both engines replay the same candles."
+}
