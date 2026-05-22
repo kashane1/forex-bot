@@ -28,16 +28,45 @@ is frozen — see [`docs/research/FINAL_RESEARCH_DECISION_MEMO.md`](docs/researc
   [`docs/research/EVIDENCE_INDEX.md`](docs/research/EVIDENCE_INDEX.md).
 - **Backtesting and research remain fully available** — only the
   signal-emitting / order-capable loops are gated.
-- **Standing infrastructure blockers:** financing/swap is unmodeled
-  in-engine, and D1 (daily) backtesting is invalid (rollover
-  contamination). Both must be resolved before any future live
-  consideration.
+- **Research platform (infra-foundation-001 sprint):** D1 research now
+  has a valid path via H4→D1 aggregation
+  (`scripts/aggregate_h4_to_d1.py`); financing has an explicit
+  treatment interface (`forex_bot.financing`); the research archive is
+  auditable via `scripts/validate_research_archive.py`.
+- **Standing live-promotion blockers:** financing/swap is still only
+  *estimated* (a conservative stress overlay), never modeled in engine
+  PnL; native OANDA D1 remains invalid — use the aggregate source. Both
+  must be resolved before any live consideration.
 
 Research-freeze documents:
 [decision memo](docs/research/FINAL_RESEARCH_DECISION_MEMO.md) ·
 [strategy status](docs/research/STRATEGY_STATUS.md) ·
 [evidence index](docs/research/EVIDENCE_INDEX.md) ·
-[future backlog](docs/research/FUTURE_RESEARCH_BACKLOG.md).
+[future backlog](docs/research/FUTURE_RESEARCH_BACKLOG.md) ·
+[approval process](docs/research/STRATEGY_APPROVAL_PROCESS.md).
+
+Infrastructure-foundation sprint:
+[plan](docs/research/INFRA_FOUNDATION_001_PLAN.md) ·
+[summary](docs/research/INFRA_FOUNDATION_001_SUMMARY.md) ·
+[D1 aggregation](docs/research/D1_AGGREGATION_DESIGN.md) ·
+[financing model](docs/research/FINANCING_MODEL_DESIGN.md) ·
+[Lean parity](docs/research/LEAN_PARITY_DESIGN.md).
+
+### Validating the archive & starting future research
+
+```bash
+# Audit the research archive — reports, manifest, registry, credentials:
+python scripts/validate_research_archive.py
+```
+
+Future research must follow
+[`STRATEGY_APPROVAL_PROCESS.md`](docs/research/STRATEGY_APPROVAL_PROCESS.md)
+and [`FUTURE_RESEARCH_BACKLOG.md`](docs/research/FUTURE_RESEARCH_BACKLOG.md):
+a pre-commit before any run, the 2025–2026 test window sealed until
+screening passes, and — only after a campaign passes every gate — a
+deliberate human approval entry in `configs/approved_strategies.yaml`.
+Backtesting and the research tooling are always available; only the
+order-capable loops are gated.
 
 ## Non-negotiable principles
 
@@ -115,6 +144,9 @@ market data
 - `src/forex_bot/backtesting/` — bid/ask-aware fills + metrics.
 - `src/forex_bot/reporting/` — weekly report builder + renderers.
 - `src/forex_bot/lean/` — parity notes for the optional Lean track.
+- `src/forex_bot/approval.py`, `research_archive.py`, `financing.py` —
+  research platform: approval registry, archive validation, financing.
+- `src/forex_bot/backtesting/d1_aggregation.py` — H4→D1 research candles.
 
 ## Safety properties (tested)
 

@@ -8,9 +8,22 @@ Operational playbooks. The authoritative spec is
 As of the research freeze (Research Marathon 001 = NO-GO), **no strategy
 is approved for trading**. `bot paper-loop` and `bot demo-loop` refuse to
 start: they check `configs/approved_strategies.yaml` (empty) and exit
-non-zero. The loop steps below will not run until a strategy is
-explicitly approved by a human. Backtesting and all research commands
-are unaffected. See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
+non-zero. The loops will not run until a strategy is explicitly approved
+by a human via the process in
+`docs/research/STRATEGY_APPROVAL_PROCESS.md`. Backtesting and all
+research commands are unaffected.
+
+Audit the research archive at any time:
+
+```bash
+python scripts/validate_research_archive.py
+```
+
+D1 (daily) research uses H4→D1 aggregation (`scripts/aggregate_h4_to_d1.py`),
+never native OANDA D1. Financing is modelled only as a conservative
+*estimate* — a hard live blocker. See
+`docs/research/FINAL_RESEARCH_DECISION_MEMO.md` and the
+infra-foundation-001 sprint docs.
 
 ## Local setup (Mac, Python 3.12+)
 
