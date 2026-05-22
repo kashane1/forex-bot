@@ -20,10 +20,54 @@ python scripts/validate_research_archive.py
 ```
 
 D1 (daily) research uses H4→D1 aggregation (`scripts/aggregate_h4_to_d1.py`),
-never native OANDA D1. Financing is modelled only as a conservative
-*estimate* — a hard live blocker. See
-`docs/research/FINAL_RESEARCH_DECISION_MEMO.md` and the
-infra-foundation-001 sprint docs.
+never native OANDA D1. Backtest fill timing defaults to
+`signal_bar_close`; `next_bar_open` is the honest, opt-in timing for
+low-frequency research — see `docs/research/FILL_TIMING_MODEL.md`.
+Financing is modelled only as a conservative *estimate* — a hard live
+blocker. See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md` and the
+infra-foundation-001 / infra-execution-fidelity-001 sprint docs.
+
+## Before merging research infrastructure
+
+Run this checklist before merging any research-infra change. It exists
+so a code change cannot quietly weaken the research-only freeze.
+
+1. **Run the freeze gate** — one command, must exit 0:
+
+   ```bash
+   python scripts/check_research_freeze.py
+   ```
+
+   It checks: the approved-strategy registry is empty; the research
+   archive is internally consistent; no committed artifact looks like a
+   credential; and paper-loop / demo-loop refuse every strategy.
+
+2. **Run the test suite and lint** — both must be green:
+
+   ```bash
+   python -m pytest -q
+   ruff check src tests scripts
+   ```
+
+3. **Confirm the registry is still empty** — this must print
+   `approved: []`:
+
+   ```bash
+   grep -nE '^[^#]' configs/approved_strategies.yaml
+   ```
+
+4. **Confirm no credentials are staged** — review `git diff --staged`;
+   `.env` and `.env.*` must stay gitignored and untracked.
+
+5. **Confirm the change did not make paper / demo / live easier to
+   run.** Research infrastructure may improve fidelity, auditability,
+   and tooling — it must never relax an approval gate, a loop guard, or
+   a config-layer safety check. Adding a name to
+   `configs/approved_strategies.yaml` is a separate, deliberate human
+   action governed by `docs/research/STRATEGY_APPROVAL_PROCESS.md` — it
+   is never part of an infrastructure merge.
+
+If any step fails, do not merge: investigate and fix the root cause.
 
 ## Local setup (Mac, Python 3.12+)
 
