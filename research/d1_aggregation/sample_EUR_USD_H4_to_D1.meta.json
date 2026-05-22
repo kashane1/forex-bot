@@ -1,0 +1,17 @@
+{
+  "instrument": "EUR_USD",
+  "source": "H4 -> D1AGG aggregation (no strategy, no trading result)",
+  "window": {
+    "from": "2024-01-01",
+    "to": "2024-02-01"
+  },
+  "source_h4_count": 133,
+  "source_hash": "5b05561e0f2788df9de1f8ef325f919f654519af6c8fa2061a6d8449d7eb5b79",
+  "alignment_hour": 17,
+  "alignment_tz": "America/New_York",
+  "d1agg_candles": 22,
+  "aggregated_days": 22,
+  "incomplete_days": 1,
+  "ambiguous_days": 0,
+  "missing_weekdays": []
+}

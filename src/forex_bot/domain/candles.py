@@ -9,7 +9,11 @@ from typing import Literal
 import pandas as pd
 from pydantic import BaseModel, ConfigDict, Field
 
-Granularity = Literal["M1", "M5", "M15", "M30", "H1", "H4", "D"]
+# "D" is native OANDA daily (closes at the 17:00 NY rollover — invalid for
+# this backtester, see CAMPAIGN_006). "D1AGG" is a synthetic daily bar
+# aggregated from H4 candles by forex_bot.backtesting.d1_aggregation; it is
+# the only valid daily-research source. The two are deliberately distinct.
+Granularity = Literal["M1", "M5", "M15", "M30", "H1", "H4", "D", "D1AGG"]
 PriceComponent = Literal["B", "A", "M", "BA", "BM", "AM", "BAM"]
 
 
