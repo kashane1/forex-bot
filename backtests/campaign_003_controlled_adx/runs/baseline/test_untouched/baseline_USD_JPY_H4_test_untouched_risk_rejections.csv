@@ -1,0 +1,6 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2025-04-10T21:00:00+00:00,USD_JPY,H4,test_untouched,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,2.0,122.412111240938,245.8,21,Thu,Asia/late
+2025-06-12T21:00:00+00:00,USD_JPY,H4,test_untouched,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.9,54.590158069349194,110.1,21,Thu,Asia/late
+2025-10-05T21:00:00+00:00,USD_JPY,H4,test_untouched,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.9,54.42639499882509,109.8,21,Sun,Asia/late
+2026-01-12T22:00:00+00:00,USD_JPY,H4,test_untouched,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.8,37.96764137114042,76.8,22,Mon,Asia/late
+2026-03-08T21:00:00+00:00,USD_JPY,H4,test_untouched,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.5,50.35220861251075,101.5,21,Sun,Asia/late

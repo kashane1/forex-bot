@@ -1,0 +1,7 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2025-04-10T21:00:00+00:00,GBP_USD,H4,test_untouched,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,2.3,65.89151577786703,132.9,21,Thu,Asia/late
+2025-09-08T21:00:00+00:00,GBP_USD,H4,test_untouched,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.7,32.106777167524434,65.1,21,Mon,Asia/late
+2026-01-25T22:00:00+00:00,GBP_USD,H4,test_untouched,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,2.1,38.74281803995124,78.5,22,Sun,Asia/late
+2026-03-13T17:00:00+00:00,GBP_USD,H4,test_untouched,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 9.8 > cap 2.5 pips,9.8,45.35357794320428,95.6,17,Fri,NY
+2026-03-13T17:00:00+00:00,GBP_USD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 21.61% > 8.0%,9.8,45.35357794320428,95.6,17,Fri,NY
+2026-04-13T21:00:00+00:00,GBP_USD,H4,test_untouched,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,2.0,35.071630598201516,71.1,21,Mon,Asia/late

@@ -1,0 +1,31 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-03-19T13:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,91.57839054480058,184.0,13,Thu,London/NY overlap
+2020-04-03T05:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.9 > cap 1.5 pips,1.9,51.37710726950939,103.7,5,Fri,Asia/late
+2020-04-03T09:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,50.62874246454437,102.1,9,Fri,London
+2020-05-06T05:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 2.3 > cap 1.5 pips,2.3,31.771076325862296,64.7,5,Wed,Asia/late
+2020-10-09T17:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 10.0 > cap 1.5 pips,10.0,22.722425861444716,50.4,17,Fri,NY
+2020-10-09T17:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 44.01% > 8.0%,10.0,22.722425861444716,50.4,17,Fri,NY
+2020-10-21T01:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,23.74592758352299,48.3,1,Wed,Asia/late
+2021-04-25T21:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.3,25.34096245187684,51.3,21,Sun,Asia/late
+2021-06-17T05:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,27.264961158400233,55.4,5,Thu,Asia/late
+2021-07-01T05:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,20.792314022527258,42.4,5,Thu,Asia/late
+2021-09-02T21:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.3,17.517810312381954,35.7,21,Thu,Asia/late
+2021-09-03T09:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.16% > 8.0%,1.5,18.379711828098884,37.5,9,Fri,London
+2021-11-11T06:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,27.278439625233233,55.4,6,Thu,London
+2022-01-26T18:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.9 > cap 1.5 pips,1.9,24.33228571946369,49.6,18,Wed,NY
+2022-01-26T22:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.4,23.572836739501906,47.8,22,Wed,Asia/late
+2022-03-02T06:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,42.63799756786975,86.1,6,Wed,London
+2022-03-03T14:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,42.332042637558764,85.5,14,Thu,London/NY overlap
+2022-04-04T17:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.9 > cap 1.5 pips,1.9,30.702661339214654,62.4,17,Mon,NY
+2022-07-05T05:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,38.87556695341721,78.6,5,Tue,Asia/late
+2022-07-14T13:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,49.070787410690635,98.9,13,Thu,London/NY overlap
+2022-09-23T05:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,45.15123272972416,91.1,5,Fri,Asia/late
+2022-09-25T21:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 4.8 > cap 1.5 pips,4.8,54.739438202666975,111.9,21,Sun,Asia/late
+2022-09-25T21:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.77% > 8.0%,4.8,54.739438202666975,111.9,21,Sun,Asia/late
+2022-09-25T21:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,4.8,54.739438202666975,111.9,21,Sun,Asia/late
+2022-09-28T01:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,51.92642369059915,104.7,1,Wed,Asia/late
+2022-10-26T17:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.9 > cap 1.5 pips,2.9,45.336411727723714,92.1,17,Wed,NY
+2022-11-10T10:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,57.82666923836226,116.5,10,Thu,London
+2022-11-10T18:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.4 > cap 1.5 pips,2.4,60.52911786368985,122.3,18,Thu,NY
+2022-11-11T06:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,59.68247884348645,120.2,6,Fri,London
+2022-12-14T18:00:00+00:00,EUR_USD,H4,train,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.5 > cap 1.5 pips,2.5,42.24295797149315,85.7,18,Wed,NY

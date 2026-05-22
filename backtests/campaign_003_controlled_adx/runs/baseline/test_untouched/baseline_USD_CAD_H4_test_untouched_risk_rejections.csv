@@ -1,0 +1,33 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2025-03-03T18:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 6.1 > cap 2.5 pips,6.1,43.165895053202654,89.4,18,Mon,NY
+2025-03-03T18:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 14.13% > 8.0%,6.1,43.165895053202654,89.4,18,Mon,NY
+2025-07-22T17:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.82% > 8.0%,2.2,24.94036645975951,51.0,17,Tue,NY
+2025-07-22T21:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.21% > 8.0%,2,24.351768855490857,49.7,21,Tue,Asia/late
+2025-07-22T21:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,2,24.351768855490857,49.7,21,Tue,Asia/late
+2025-07-23T05:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.04% > 8.0%,1.9,23.645912941724337,48.2,5,Wed,Asia/late
+2025-07-30T09:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.04% > 8.0%,1.9,23.63302952618384,48.2,9,Wed,London
+2025-08-21T09:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 9.77% > 8.0%,1.8,18.42002774418094,37.7,9,Thu,London
+2025-08-21T13:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 9.24% > 8.0%,1.7,18.390025762453746,37.6,13,Thu,London/NY overlap
+2025-08-21T17:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 11.29% > 8.0%,2.1,18.608595350849953,38.3,17,Thu,NY
+2025-08-22T01:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 10.17% > 8.0%,1.8,17.69746231782468,36.3,1,Fri,Asia/late
+2025-09-04T09:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 10.03% > 8.0%,1.9,18.941999053106535,38.8,9,Thu,London
+2025-09-04T13:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.83% > 8.0%,1.8,20.381856263598824,41.7,13,Thu,London/NY overlap
+2025-09-24T09:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.43% > 8.0%,1.7,20.162877953347493,41.2,9,Wed,London
+2025-10-02T13:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.14% > 8.0%,1.7,20.875345034572803,42.6,13,Thu,London/NY overlap
+2025-10-13T17:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.5 pips,2.7,21.07561291945057,43.5,17,Mon,NY
+2025-10-13T17:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 12.81% > 8.0%,2.7,21.07561291945057,43.5,17,Mon,NY
+2025-10-14T05:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.32% > 8.0%,1.7,20.4320413935979,41.7,5,Tue,Asia/late
+2025-10-14T09:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 9.74% > 8.0%,2.0,20.536895579769418,42.1,9,Tue,London
+2025-11-03T06:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.35% > 8.0%,2.0,23.94603792778636,48.9,6,Mon,London
+2025-12-05T10:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 9.25% > 8.0%,2.0,21.617849642663508,44.2,10,Fri,London
+2025-12-23T06:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.68% > 8.0%,1.8,20.735909304624446,42.4,6,Tue,London
+2025-12-23T10:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.62% > 8.0%,1.8,20.88334435429417,42.7,10,Tue,London
+2025-12-23T18:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 11.36% > 8.0%,2.5,22.015995897325105,45.3,18,Tue,NY
+2025-12-23T22:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.7,21.550567618944857,44.0,22,Tue,Asia/late
+2025-12-24T06:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.35% > 8.0%,1.7,20.35048942653921,41.6,6,Wed,London
+2025-12-26T10:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 9.65% > 8.0%,1.9,19.69687569051414,40.3,10,Fri,London
+2026-01-23T10:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.67% > 8.0%,1.9,21.92093637891438,44.8,10,Fri,London
+2026-03-19T05:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.48% > 8.0%,2.1,24.771144217835666,50.6,5,Thu,Asia/late
+2026-03-26T17:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 3.4 > cap 2.5 pips,3.4,27.162406657752932,56.0,17,Thu,NY
+2026-03-26T17:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 12.52% > 8.0%,3.4,27.162406657752932,56.0,17,Thu,NY
+2026-04-20T13:00:00+00:00,USD_CAD,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.25% > 8.0%,1.9,23.0194636514778,47.0,13,Mon,London/NY overlap

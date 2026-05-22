@@ -1,0 +1,48 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-03-08T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.4,58.88998431392586,118.5,21,Sun,Asia/late
+2020-03-09T01:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 2.8 > cap 2.0 pips,2.8,73.62284257721686,148.6,1,Mon,Asia/late
+2020-08-17T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.5,22.956929276032415,46.7,21,Mon,Asia/late
+2021-01-12T22:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.3,23.55386303349155,47.8,22,Tue,Asia/late
+2021-01-28T22:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.2,18.033624196063652,36.7,22,Thu,Asia/late
+2021-06-16T17:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.61% > 8.0%,1.8,20.90272960686038,42.7,17,Wed,NY
+2021-06-16T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.2,20.966820349227522,42.5,21,Wed,Asia/late
+2021-07-01T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.2,19.605165733469807,39.8,21,Thu,Asia/late
+2021-08-11T05:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.23% > 8.0%,1.3,15.803263863226254,32.3,5,Wed,Asia/late
+2021-11-10T22:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.5,27.89568362729013,56.5,22,Wed,Asia/late
+2021-11-11T22:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.4,26.03406790848158,52.8,22,Thu,Asia/late
+2021-12-27T14:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.46% > 8.0%,1.4,16.54170729179768,33.8,14,Mon,London/NY overlap
+2021-12-29T06:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 9.29% > 8.0%,1.4,15.063496764779352,30.8,6,Wed,London
+2022-03-28T05:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,55.91078979087789,112.9,5,Mon,Asia/late
+2022-04-15T01:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.9 > cap 2.0 pips,2.9,41.07428198138686,83.6,1,Fri,Asia/late
+2022-06-12T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.7,56.57740435417388,114.0,21,Sun,Asia/late
+2022-06-14T17:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,64.90680515080774,131.2,17,Tue,NY
+2022-07-13T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.9,47.61842924849076,96.2,21,Wed,Asia/late
+2022-08-21T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.6,52.46023030789685,105.7,21,Sun,Asia/late
+2023-01-02T10:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 5.4 > cap 2.0 pips,5.4,50.95298380414803,104.6,10,Mon,London
+2023-01-02T10:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 10.60% > 8.0%,5.4,50.95298380414803,104.6,10,Mon,London
+2023-01-02T22:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,54.419918155143485,110.0,22,Mon,Asia/late
+2023-01-02T22:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,2.3,54.419918155143485,110.0,22,Mon,Asia/late
+2023-04-30T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.9,56.37084054098356,113.7,21,Sun,Asia/late
+2023-07-13T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,2.0,54.14302644648189,109.3,21,Thu,Asia/late
+2023-10-25T17:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 10.49% > 8.0%,2.0,19.064255220612143,39.1,17,Wed,NY
+2023-10-26T01:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 9.06% > 8.0%,1.8,19.873771083078758,40.6,1,Thu,Asia/late
+2023-12-07T14:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,76.22682676466967,153.8,14,Thu,London/NY overlap
+2024-04-14T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.5,34.447890531142,69.6,21,Sun,Asia/late
+2024-05-07T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.6,60.999825599714754,122.8,21,Tue,Asia/late
+2024-06-20T17:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,31.250513246331025,63.8,17,Thu,NY
+2024-06-20T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.7,31.23261944302168,63.3,21,Thu,Asia/late
+2024-06-26T17:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 6.2 > cap 2.0 pips,6.2,34.92488277014688,72.9,17,Wed,NY
+2024-06-26T17:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 17.75% > 8.0%,6.2,34.92488277014688,72.9,17,Wed,NY
+2024-06-27T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,2.0,34.571266999392634,70.1,21,Thu,Asia/late
+2024-07-30T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.8,76.14273510659754,153.2,21,Tue,Asia/late
+2024-08-23T17:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 4.8 > cap 2.0 pips,4.8,77.24638869376919,156.9,17,Fri,NY
+2024-08-25T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.4,78.4359323584999,157.6,21,Sun,Asia/late
+2024-10-22T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.9,42.22215003024798,85.4,21,Tue,Asia/late
+2024-10-27T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.9,51.560074560022805,104.1,21,Sun,Asia/late
+2024-11-06T02:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,68.72641641405038,138.6,2,Wed,Asia/late
+2024-12-19T02:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,53.656919439975184,108.7,2,Thu,Asia/late
+2025-04-10T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,2.0,122.41211124093773,245.8,21,Thu,Asia/late
+2025-06-12T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.9,54.590158069349194,110.1,21,Thu,Asia/late
+2025-10-05T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.9,54.42639499882509,109.8,21,Sun,Asia/late
+2026-01-12T22:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.8,37.96764137114042,76.8,22,Mon,Asia/late
+2026-03-08T21:00:00+00:00,USD_JPY,H4,full,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.5,50.35220861251075,101.5,21,Sun,Asia/late

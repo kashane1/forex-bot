@@ -1,0 +1,29 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-04-11T21:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.45% > 8.0%,2.0,23.678726267224754,48.4,21,Tue,Asia/late
+2023-04-11T21:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,2.0,23.678726267224754,48.4,21,Tue,Asia/late
+2023-07-10T17:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,25.63255429801971,52.5,17,Mon,NY
+2023-07-10T17:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 9.36% > 8.0%,2.4,25.63255429801971,52.5,17,Mon,NY
+2023-07-10T21:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.6,25.444514705303995,51.7,21,Mon,Asia/late
+2023-09-18T09:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 10.25% > 8.0%,2.0,19.514025141830988,40.0,9,Mon,London
+2023-09-20T17:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.26% > 8.0%,1.8,21.804152983981588,44.5,17,Wed,NY
+2023-09-20T21:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.23% > 8.0%,1.8,21.87171348512578,44.6,21,Wed,Asia/late
+2023-09-20T21:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.8,21.87171348512578,44.6,21,Wed,Asia/late
+2023-11-19T22:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 9.00% > 8.0%,1.9,21.105192570931738,43.2,22,Sun,Asia/late
+2023-11-19T22:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.9,21.105192570931738,43.2,22,Sun,Asia/late
+2023-11-20T02:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.55% > 8.0%,1.8,21.061964530150895,43.0,2,Mon,Asia/late
+2023-11-28T10:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 9.38% > 8.0%,1.7,18.130543095883226,37.1,10,Tue,London
+2023-11-28T14:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.75% > 8.0%,1.7,19.4283614461773,39.7,14,Tue,London/NY overlap
+2024-03-20T05:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.85% > 8.0%,1.5,16.94834258625462,34.6,5,Wed,Asia/late
+2024-03-20T09:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.22% > 8.0%,1.4,17.023460972950737,34.7,9,Wed,London
+2024-06-17T21:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.5,19.55504285974067,39.9,21,Mon,Asia/late
+2024-10-09T17:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,21.62269024977797,44.5,17,Wed,NY
+2024-10-09T17:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 11.56% > 8.0%,2.5,21.62269024977797,44.5,17,Wed,NY
+2024-10-14T13:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.67% > 8.0%,1.8,20.772824701091984,42.4,13,Mon,London/NY overlap
+2024-10-16T13:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 9.11% > 8.0%,1.8,19.758339642842554,40.4,13,Wed,London/NY overlap
+2024-10-17T01:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.77% > 8.0%,1.6,18.250208525993212,37.3,1,Thu,Asia/late
+2024-10-28T01:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 11.85% > 8.0%,1.8,15.184032584046317,31.3,1,Mon,Asia/late
+2024-11-11T18:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,24.444809564501398,49.9,18,Mon,NY
+2024-11-11T18:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.59% > 8.0%,2.1,24.444809564501398,49.9,18,Mon,NY
+2024-11-11T22:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SESSION_BLOCKED,inside blocked session window,1.7,23.820180309894127,48.5,22,Mon,Asia/late
+2024-12-27T14:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 10.34% > 8.0%,1.8,17.409594451349925,35.7,14,Fri,London/NY overlap
+2024-12-30T10:00:00+00:00,USD_CHF,H4,validation,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 8.42% > 8.0%,1.6,19.002300571609116,38.8,10,Mon,London

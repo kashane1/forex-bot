@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+import numpy as np
 import pandas as pd
 import pytest
 
-from forex_bot.strategies.indicators import atr, donchian_high, donchian_low, ema
+from forex_bot.strategies.indicators import adx, atr, donchian_high, donchian_low, ema
 
 
 def _series(values: list[float]) -> pd.Series:
@@ -67,3 +68,57 @@ def test_indicator_invalid_length():
         donchian_high(s, 0)
     with pytest.raises(ValueError):
         atr(s, s, s, 0)
+
+
+def test_adx_strong_uptrend_is_high():
+    """A clean monotone uptrend should drive ADX well above 25."""
+    n = 80
+    high = _series([1.0 + 0.01 * i for i in range(n)])
+    low = _series([0.99 + 0.01 * i for i in range(n)])
+    close = _series([0.995 + 0.01 * i for i in range(n)])
+    a = adx(high, low, close, length=14)
+    assert pd.notna(a.iloc[-1])
+    assert float(a.iloc[-1]) > 25.0
+
+
+def test_adx_flat_chop_is_low():
+    """A noisy, directionless market should keep ADX low (no trend)."""
+    rng = np.random.default_rng(42)
+    n = 200
+    # Mean-reverting noise around 1.00 — no sustained direction.
+    close_vals = 1.00 + rng.normal(0, 0.002, n)
+    close = _series(close_vals.tolist())
+    high = _series((close_vals + np.abs(rng.normal(0, 0.001, n))).tolist())
+    low = _series((close_vals - np.abs(rng.normal(0, 0.001, n))).tolist())
+    a = adx(high, low, close, length=14)
+    assert pd.notna(a.iloc[-1])
+    assert float(a.iloc[-1]) < 25.0
+
+
+def test_adx_bounded_0_100():
+    rng = np.random.default_rng(7)
+    n = 200
+    close = _series((100 + rng.normal(0, 1, n).cumsum()).tolist())
+    high = close + 0.5
+    low = close - 0.5
+    a = adx(high, low, close, length=14).dropna()
+    assert (a >= 0).all()
+    assert (a <= 100).all()
+
+
+def test_adx_no_lookahead():
+    """ADX at bar t must not change when future bars are appended."""
+    n = 100
+    high = _series([1.0 + 0.01 * i for i in range(n)])
+    low = _series([0.99 + 0.01 * i for i in range(n)])
+    close = _series([0.995 + 0.01 * i for i in range(n)])
+    full = adx(high, low, close, length=14)
+    truncated = adx(high.iloc[:60], low.iloc[:60], close.iloc[:60], length=14)
+    # The value at index 59 must be identical whether or not bars 60..99 exist.
+    assert abs(float(full.iloc[59]) - float(truncated.iloc[59])) < 1e-9
+
+
+def test_adx_invalid_length():
+    s = _series([1.0, 2.0, 3.0])
+    with pytest.raises(ValueError):
+        adx(s, s, s, 0)

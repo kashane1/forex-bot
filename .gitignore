@@ -81,6 +81,14 @@ backtests/campaign_002_real_oanda/runs/**/*_trades.csv
 backtests/campaign_002_real_oanda/runs/**/*_metrics.json
 backtests/campaign_002_real_oanda/runs/**/*_metrics.md
 backtests/campaign_002_real_oanda/_*.log
+# CAMPAIGN_003: gitignore the bulky equity/trade/metrics CSVs but DO commit
+# the small summary JSONs and the per-signal risk_rejections CSVs (the Step 0
+# deliverable — ~400KB, referenced by the report).
+backtests/campaign_003_controlled_adx/runs/**/*_equity.csv
+backtests/campaign_003_controlled_adx/runs/**/*_trades.csv
+backtests/campaign_003_controlled_adx/runs/**/*_metrics.json
+backtests/campaign_003_controlled_adx/runs/**/*_metrics.md
+backtests/campaign_003_controlled_adx/_*.log
 
 # Founders pack stays in repo but ignore any temp copies
 *.tmp

@@ -3,6 +3,17 @@
 Long: EMA fast > EMA slow AND prior-bar Donchian high broken AND ATR
 floor met. Short: mirror. Stop is ATR-based; the strategy emits stop_price
 but never sizes the position (that is the risk engine's job).
+
+Optional ADX trend-strength gate
+--------------------------------
+If `config["adx_min"]` is set, an entry is additionally required to have
+ADX-`adx_lookback` above that threshold (CAMPAIGN_003 strategy version
+`0.2.0-c003`). When `adx_min` is absent — as in the frozen
+`0.1.0-baseline-frozen` config — this gate is skipped entirely and the
+strategy's output is byte-identical to the frozen baseline. The
+unchanged-baseline guarantee is covered by the existing
+`tests/unit/test_strategies.py` suite (which sets no `adx_min`) plus an
+explicit equivalence test in `test_adx_filter.py`.
 """
 
 from __future__ import annotations
@@ -16,7 +27,7 @@ import pandas as pd
 
 from forex_bot.domain.signals import Signal
 from forex_bot.strategies.base import StrategyContext
-from forex_bot.strategies.indicators import atr, donchian_high, donchian_low, ema
+from forex_bot.strategies.indicators import adx, atr, donchian_high, donchian_low, ema
 
 
 class TrendFollowingStrategy:
@@ -39,8 +50,11 @@ class TrendFollowingStrategy:
         timeframe = cfg.get("timeframe", "H4")
         min_atr_pips_by_pair = cfg.get("min_atr_pips", {}) or {}
         min_atr_pips = float(min_atr_pips_by_pair.get(ctx.instrument.name, 0.0))
+        # Optional ADX trend-strength gate. None → gate disabled (baseline).
+        adx_min = cfg.get("adx_min")
+        adx_len = int(cfg.get("adx_lookback", 14))
 
-        needed = max(ema_slow_len, donchian_len, atr_len) + 2
+        needed = max(ema_slow_len, donchian_len, atr_len, adx_len) + 2
         if len(df) < needed:
             return None
 
@@ -85,6 +99,18 @@ class TrendFollowingStrategy:
         else:
             return None
 
+        # Optional ADX trend-strength gate (CAMPAIGN_003 0.2.0-c003).
+        # Skipped entirely when adx_min is not configured.
+        adx_value: float | None = None
+        if adx_min is not None:
+            last_adx = float(adx(high, low, close, adx_len).iloc[-1])
+            if _isnan(last_adx):
+                return None
+            adx_value = last_adx
+            if last_adx <= float(adx_min):
+                return None
+            reason += f"; ADX{adx_len}={last_adx:.1f}>{adx_min}"
+
         if side == "long":
             stop = last_close - atr_multiple * last_atr
         else:
@@ -119,6 +145,7 @@ class TrendFollowingStrategy:
                 "atr": last_atr,
                 "atr_pips": atr_pips,
                 "last_close": last_close,
+                "adx": adx_value,
             },
             reason=reason,
         )

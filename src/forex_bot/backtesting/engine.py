@@ -49,11 +49,13 @@ class RejectedSignalRecord:
 
     timestamp: datetime
     instrument: str
+    granularity: str
     side: str
     rejection_codes: list[str]
     rejection_messages: list[str]
     spread_pips: Decimal | None = None
     stop_distance_pips: Decimal | None = None
+    atr_pips: Decimal | None = None
 
 
 @dataclass
@@ -355,11 +357,17 @@ class BacktestEngine:
                         RejectedSignalRecord(
                             timestamp=ts.to_pydatetime(),
                             instrument=self.instrument.name,
+                            granularity=candle_frame.granularity,
                             side=signal.side,
                             rejection_codes=[c.value for c in decision.rejection_codes],
                             rejection_messages=list(decision.rejection_messages),
                             spread_pips=spread_pips,
                             stop_distance_pips=decision.stop_distance_pips,
+                            atr_pips=(
+                                Decimal(str(atr_pips_val))
+                                if atr_pips_val is not None
+                                else None
+                            ),
                         )
                     )
                     continue

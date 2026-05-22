@@ -103,6 +103,10 @@ class TrendFollowingStrategyConfig(BaseModel):
     trailing_stop_atr_multiple: float | None = None
     min_atr_pips: dict[str, float] = Field(default_factory=dict)
     max_bars_in_trade: int = 80
+    # Optional ADX trend-strength gate. None → disabled (frozen baseline
+    # behavior). Set (e.g. 25.0) → entry requires ADX-adx_lookback above it.
+    adx_lookback: int = 14
+    adx_min: float | None = None
 
     @model_validator(mode="after")
     def _check_lookbacks(self) -> TrendFollowingStrategyConfig:
@@ -112,6 +116,10 @@ class TrendFollowingStrategyConfig(BaseModel):
             raise ConfigError("donchian_lookback must be >= 5")
         if self.atr_stop_multiple <= 0:
             raise ConfigError("atr_stop_multiple must be > 0")
+        if self.adx_lookback < 2:
+            raise ConfigError("adx_lookback must be >= 2")
+        if self.adx_min is not None and not (0 < self.adx_min < 100):
+            raise ConfigError("adx_min must be between 0 and 100 when set")
         return self
 
 

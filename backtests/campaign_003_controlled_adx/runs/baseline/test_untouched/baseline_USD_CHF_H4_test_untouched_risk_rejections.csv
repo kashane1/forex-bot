@@ -1,0 +1,16 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2025-02-23T22:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.49% > 8.0%,1.8,21.212706281035107,43.3,22,Sun,Asia/late
+2025-02-23T22:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.8,21.212706281035107,43.3,22,Sun,Asia/late
+2025-02-25T10:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 8.41% > 8.0%,1.7,20.214560153067943,41.3,10,Tue,London
+2025-04-08T21:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.8,58.37619735820209,117.7,21,Tue,Asia/late
+2025-06-12T21:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,2.0,28.53917524725273,58.1,21,Thu,Asia/late
+2025-09-16T17:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 4.3 > cap 2.0 pips,4.3,19.08297383917073,40.3,17,Tue,NY
+2025-09-16T17:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 22.53% > 8.0%,4.3,19.08297383917073,40.3,17,Tue,NY
+2025-12-22T14:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 9.85% > 8.0%,1.7,17.266224654298366,35.4,14,Mon,London/NY overlap
+2025-12-22T22:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 9.38% > 8.0%,1.6,17.050724319267452,34.9,22,Mon,Asia/late
+2025-12-22T22:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.6,17.050724319267452,34.9,22,Mon,Asia/late
+2026-01-23T18:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SPREAD_TOO_WIDE,spread 6.3 > cap 2.0 pips,6.3,28.622072111411455,60.4,18,Fri,NY
+2026-01-23T18:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SPREAD_TO_ATR,spread/atr 22.01% > 8.0%,6.3,28.622072111411455,60.4,18,Fri,NY
+2026-01-25T22:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,short,SESSION_BLOCKED,inside blocked session window,1.7,30.838352674882064,62.5,22,Sun,Asia/late
+2026-03-27T17:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,long,SPREAD_TOO_WIDE,spread 4.3 > cap 2.0 pips,4.3,23.93094820044253,50.0,17,Fri,NY
+2026-03-27T17:00:00+00:00,USD_CHF,H4,test_untouched,0.2.0-c003,long,SPREAD_TO_ATR,spread/atr 17.97% > 8.0%,4.3,23.93094820044253,50.0,17,Fri,NY
