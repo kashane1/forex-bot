@@ -43,7 +43,8 @@ ROOT = Path(__file__).resolve().parent.parent
 # shorter hex block. A bare SHA-256 (64 hex, no hyphen+hex suffix) does
 # not match — so committed data hashes are not false positives.
 OANDA_TOKEN_RE = re.compile(r"\b[0-9a-f]{64}-[0-9a-f]{12,}\b")
-# OANDA account id: e.g. 101-001-12345678-001 (3-3-(7..9)-3 digits).
+# OANDA account id shape: three short digit groups around a 7-9 digit
+# block, hyphen-separated (shape NNN-NNN-NNNNNNNN-NNN).
 OANDA_ACCOUNT_RE = re.compile(r"\b\d{3}-\d{3}-\d{7,9}-\d{3}\b")
 
 # Tracked file extensions worth scanning as text.
