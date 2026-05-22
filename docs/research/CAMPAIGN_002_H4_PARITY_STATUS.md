@@ -1,7 +1,14 @@
 # CAMPAIGN_002 H4 — Independent-Engine Parity Status
 
 **Date:** 2026-05-22 · **Updated by:** `infra-lean-parity-run-001` Phase 6
-**Supersedes** the `infra-lean-parity-001` status.
+**Re-confirmed:** `infra-lean-parity-execute-001` Phase 6 — the
+execute sprint checked whether local Lean CLI credentials
+(`~/.lean/credentials`) were present and **found them absent**; per the
+sprint's "do not prompt for, request, or create QC credentials" rule,
+no execution proceeded. The blocker chain is identical to the prior
+sprint and now also documented in
+[`LEAN_PARITY_EXECUTE_BLOCKED.md`](LEAN_PARITY_EXECUTE_BLOCKED.md) with
+the auth-specific detail and verbatim next-step commands.
 
 A human-readable status of independent-engine parity for the
 CAMPAIGN_002 H4 `trend_following` baseline. `strategy_evidence: false` —

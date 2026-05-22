@@ -67,8 +67,9 @@ and per-run risk-rejection CSVs are committed under each campaign's
 
 Infrastructure outputs from the `infra-execution-fidelity-001`,
 `infra-data-parity-001`, `oanda-practice-readonly-001`,
-`infra-lean-parity-001`, and `infra-lean-parity-run-001` sprints.
-**These are not campaign evidence.**
+`infra-lean-parity-001`, `infra-lean-parity-run-001`, and
+`infra-lean-parity-execute-001` sprints. **These are not campaign
+evidence.**
 They are mechanical plumbing checks and independent-verification
 inputs — none measures, implies, or can establish a strategy edge, and
 none can approve anything. The machine-readable manifest lists them
@@ -134,6 +135,18 @@ strategy evidence; CAMPAIGN_002 stays REJECT.
 | [`LEAN_ALGORITHM_IMPLEMENTATION_NOTES.md`](LEAN_ALGORITHM_IMPLEMENTATION_NOTES.md) | Lean algorithm — faithful vs approximated |
 | [`LEAN_PARITY_COMPARISON_METHOD.md`](LEAN_PARITY_COMPARISON_METHOD.md) | comparison metrics, tolerances, pass/fail |
 | [`INFRA_LEAN_PARITY_RUN_001_SUMMARY.md`](INFRA_LEAN_PARITY_RUN_001_SUMMARY.md) | sprint summary & handoff |
+
+### Lean parity execute attempt (`infra-lean-parity-execute-001`)
+
+A second attempt at running the local Lean parity backtest, gated on
+locally-present QuantConnect/Lean CLI credentials. Auth was absent;
+execution did not proceed and no Lean result was fabricated.
+
+| document | what it is |
+|---|---|
+| [`INFRA_LEAN_PARITY_EXECUTE_001_PLAN.md`](INFRA_LEAN_PARITY_EXECUTE_001_PLAN.md) | the execute-sprint plan + auth-handling rules |
+| [`LEAN_LOCAL_WORKSPACE_STATUS.md`](LEAN_LOCAL_WORKSPACE_STATUS.md) | local Lean tooling / auth / workspace state |
+| [`LEAN_PARITY_EXECUTE_BLOCKED.md`](LEAN_PARITY_EXECUTE_BLOCKED.md) | precise execution blocker + exact next human steps |
 
 ## Research-freeze documents (this branch)
 
