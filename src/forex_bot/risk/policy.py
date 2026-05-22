@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
+from typing import Literal
 from zoneinfo import ZoneInfo
 
 from forex_bot.clock import utcnow
@@ -22,6 +23,8 @@ from forex_bot.domain.signals import Signal
 from forex_bot.risk.exposure import currency_exposure, has_open_position
 from forex_bot.risk.kill_switch import KillSwitch
 from forex_bot.risk.sizing import size_position
+
+RiskMode = Literal["live", "backtest"]
 
 
 @dataclass
@@ -54,10 +57,18 @@ class _DecisionDraft:
 
 
 class RiskEngine:
-    """Stateless evaluator. The caller persists every decision."""
+    """Stateless evaluator. The caller persists every decision.
 
-    def __init__(self, settings: Settings) -> None:
+    `mode="live"` runs every gate including operational ones (trading_enabled,
+    kill switch, reconciliation, pending order count). `mode="backtest"`
+    skips those because they don't apply in a historical replay — but every
+    *strategy/risk* gate (stop loss, spread, session blackout, sizing,
+    exposure, margin) still runs identically.
+    """
+
+    def __init__(self, settings: Settings, *, mode: RiskMode = "live") -> None:
         self.settings = settings
+        self.mode: RiskMode = mode
         self.config_hash = settings.config_hash
         self.risk: RiskConfig = settings.risk
         self.spread_filter: SpreadFilterConfig = settings.spread_filter
@@ -76,14 +87,17 @@ class RiskEngine:
         if signal.stop_price is None:
             draft.reject(RiskRejectionCode.MISSING_STOP_LOSS, "signal has no stop_price")
 
-        if not inputs.reconciled:
-            draft.reject(RiskRejectionCode.UNRECONCILED, "ledger not reconciled with broker")
-
-        if self.kill_switch.is_active():
-            draft.reject(RiskRejectionCode.KILL_SWITCH, self.kill_switch.reason())
-
-        if not self.settings.app.trading_enabled:
-            draft.reject(RiskRejectionCode.TRADING_DISABLED, "trading_enabled=false")
+        # Operational gates — skipped in backtest mode because they don't apply
+        # in a historical replay.
+        if self.mode == "live":
+            if not inputs.reconciled:
+                draft.reject(
+                    RiskRejectionCode.UNRECONCILED, "ledger not reconciled with broker"
+                )
+            if self.kill_switch.is_active():
+                draft.reject(RiskRejectionCode.KILL_SWITCH, self.kill_switch.reason())
+            if not self.settings.app.trading_enabled:
+                draft.reject(RiskRejectionCode.TRADING_DISABLED, "trading_enabled=false")
 
         # Market sanity
         quote = inputs.market_state.quote
@@ -162,11 +176,13 @@ class RiskEngine:
                 f"existing exposure on {signal_base} or {signal_quote}",
             )
 
-        if inputs.account.pending_order_count >= self.risk.max_pending_orders:
-            draft.reject(
-                RiskRejectionCode.MAX_PENDING_ORDERS,
-                f"pending={inputs.account.pending_order_count} cap={self.risk.max_pending_orders}",
-            )
+        if self.mode == "live":
+            if inputs.account.pending_order_count >= self.risk.max_pending_orders:
+                draft.reject(
+                    RiskRejectionCode.MAX_PENDING_ORDERS,
+                    f"pending={inputs.account.pending_order_count} "
+                    f"cap={self.risk.max_pending_orders}",
+                )
 
         # Margin closeout floor
         if inputs.account.margin_closeout_percent >= Decimal(

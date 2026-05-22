@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime  # noqa: TCH003
+from dataclasses import dataclass
+from datetime import datetime
 from decimal import Decimal
 from typing import Any
 
@@ -608,3 +609,82 @@ class SystemEventRepo:
                 json.dumps(extras or {}, default=str, sort_keys=True),
             ),
         )
+
+
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class DataSourceRecord:
+    """One row in data_sources. Proves a candle batch came from a real source."""
+
+    instrument: str
+    granularity: str
+    source: str
+    host: str | None = None
+    from_time: str | None = None
+    to_time: str | None = None
+    price_components: str | None = None
+    page_count: int = 0
+    candles_written: int = 0
+    candles_dropped_incomplete: int = 0
+    first_ts: str | None = None
+    last_ts: str | None = None
+    raw_sha256: str | None = None
+    normalized_sha256: str | None = None
+    request_params_json: str | None = None
+    broker_account_id_redacted: str | None = None
+    campaign: str | None = None
+
+
+class DataSourceRepo:
+    def __init__(self, db: Database) -> None:
+        self.db = db
+
+    def insert(self, rec: DataSourceRecord) -> int:
+        cur = self.db.execute(
+            """
+            INSERT INTO data_sources(
+                campaign, instrument, granularity, source, host,
+                from_time, to_time, price_components,
+                page_count, candles_written, candles_dropped_incomplete,
+                first_ts, last_ts, raw_sha256, normalized_sha256,
+                request_params_json, broker_account_id_redacted
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                rec.campaign,
+                rec.instrument,
+                rec.granularity,
+                rec.source,
+                rec.host,
+                rec.from_time,
+                rec.to_time,
+                rec.price_components,
+                rec.page_count,
+                rec.candles_written,
+                rec.candles_dropped_incomplete,
+                rec.first_ts,
+                rec.last_ts,
+                rec.raw_sha256,
+                rec.normalized_sha256,
+                rec.request_params_json,
+                rec.broker_account_id_redacted,
+            ),
+        )
+        return int(cur.lastrowid or 0)
+
+    def latest_for(self, instrument: str, granularity: str) -> dict[str, Any] | None:
+        row = self.db.fetchone(
+            "SELECT * FROM data_sources WHERE instrument=? AND granularity=? "
+            "ORDER BY id DESC LIMIT 1",
+            (instrument, granularity),
+        )
+        return dict(row) if row else None
+
+    def all_in_campaign(self, campaign: str) -> list[dict[str, Any]]:
+        rows = self.db.fetchall(
+            "SELECT * FROM data_sources WHERE campaign=? ORDER BY id ASC",
+            (campaign,),
+        )
+        return [dict(r) for r in rows]

@@ -1,20 +1,16 @@
 #!/usr/bin/env python3
-"""CAMPAIGN_001 runner.
+"""CAMPAIGN_002 runner. Real OANDA practice candles, RiskEngine wired in.
 
-Sequence (per the user's spec):
-  1. Baseline trend_following across splits {train, validation, test, full}
-     × instruments {7 pairs} × granularity {H4, H1}.
-  2. Cost stress on the full window: {base, 1.5×spread+0.3pip, 2×spread+0.5pip}.
-  3. Robustness grid: ema_fast × ema_slow × donchian × atr_stop after baseline
-     results are saved.
+Differences from CAMPAIGN_001:
+  - Uses configs/campaign_002_real_oanda.yaml (separate SQLite DB).
+  - data_source label = 'oanda-practice'.
+  - BacktestEngine receives a RiskEngine(mode='backtest') instance so the
+    same gates that protect paper/demo trading also apply to backtest.
+  - Summary JSONs additionally record:
+      * rejection_counts (by RiskRejectionCode)
+      * risk_engine_used: true
 
-Every run writes a summary.json with config_hash + data_request_hash; the
-runner also writes a combined index.json and prepares the input the report
-generator consumes.
-
-Strategy rules are NEVER modified after seeing results in this run. Any
-parameter changes would create a new versioned experiment via a new
-config file with a fresh strategy version string.
+Identical to CAMPAIGN_001 in everything else (splits, costs, grid, hashes).
 """
 
 from __future__ import annotations
@@ -41,8 +37,9 @@ from forex_bot.backtesting.exporters import write_all
 from forex_bot.backtesting.fills import FillModel
 from forex_bot.config import load_settings
 from forex_bot.data.db import Database
-from forex_bot.data.repositories import CandleRepo, InstrumentRepo
+from forex_bot.data.repositories import CandleRepo, DataSourceRepo, InstrumentRepo
 from forex_bot.domain.candles import CandleFrame
+from forex_bot.risk.policy import RiskEngine
 from forex_bot.strategies.trend_following import TrendFollowingStrategy
 
 PAIRS = ["EUR_USD", "GBP_USD", "USD_JPY", "AUD_USD", "USD_CAD", "USD_CHF", "NZD_USD"]
@@ -80,8 +77,8 @@ class RunRecord:
     data_request_hash: str
     strategy_params: dict
     metrics: dict
+    rejection_counts: dict
     summary_path: str
-    notes: str = ""
 
 
 def _parse(d: str) -> datetime:
@@ -101,8 +98,17 @@ def _git_commit() -> str:
     return r.stdout.strip() or "unknown"
 
 
-def _git_short() -> str:
-    return _git_commit()[:12]
+def _git_dirty() -> bool:
+    try:
+        r = subprocess.run(
+            ["git", "-C", str(ROOT), "status", "--porcelain"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    except FileNotFoundError:
+        return False
+    return bool(r.stdout.strip())
 
 
 @dataclass
@@ -112,7 +118,9 @@ class CampaignContext:
     db: Database
     instr_repo: InstrumentRepo
     candle_repo: CandleRepo
+    ds_repo: DataSourceRepo
     out_root: Path
+    risk_engine: RiskEngine
     runs: list[RunRecord] = field(default_factory=list)
 
 
@@ -126,8 +134,17 @@ def load_context(config_path: Path, out_root: Path) -> CampaignContext:
         db=db,
         instr_repo=InstrumentRepo(db),
         candle_repo=CandleRepo(db),
+        ds_repo=DataSourceRepo(db),
         out_root=out_root,
+        risk_engine=RiskEngine(settings, mode="backtest"),
     )
+
+
+def _data_source_label(ctx: CampaignContext, instrument: str, granularity: str) -> str:
+    latest = ctx.ds_repo.latest_for(instrument, granularity)
+    if latest:
+        return latest["source"]
+    return "unknown"
 
 
 def run_single(
@@ -154,12 +171,13 @@ def run_single(
     if not rows:
         return None
     frame = CandleFrame.from_candles(instrument, granularity, rows)  # type: ignore[arg-type]
+    source = _data_source_label(ctx, instrument, granularity)
     data_hash = compute_data_request_hash(
         instrument=instrument,
         granularity=granularity,
         from_time=from_dt.isoformat(),
         to_time=to_dt.isoformat(),
-        source="synthetic-v1",
+        source=source,
         candle_count=len(rows),
     )
     fill_model = FillModel(
@@ -180,17 +198,21 @@ def run_single(
         commission_per_unit=Decimal(str(ctx.settings.backtest.commission_per_unit)),
         trailing_stop_atr_multiple=cfg.get("trailing_stop_atr_multiple"),
         atr_lookback=int(cfg.get("atr_lookback", 14)),
+        risk_engine=ctx.risk_engine,
+        settings=ctx.settings,
     )
     result = engine.run(frame, data_request_hash=data_hash)
     export_dir = ctx.out_root / sub_dir
     paths = write_all(result, export_dir, label)
-    # Augment summary.json with strategy params + run classification so the
-    # report builder can pick them up from a glob of summary files alone.
     summary = json.loads(paths["summary_json"].read_text(encoding="utf-8"))
     summary["strategy_params"] = {k: v for k, v in cfg.items() if k != "min_atr_pips"}
     summary["split"] = split
     summary["cost_regime"] = cost_regime
     summary["label"] = label
+    summary["data_source"] = source
+    summary["risk_engine_used"] = result.risk_engine_used
+    summary["rejection_counts"] = result.rejection_counts
+    summary["rejected_signal_count"] = len(result.rejected_signals)
     paths["summary_json"].write_text(json.dumps(summary, indent=2, default=str), encoding="utf-8")
     record = RunRecord(
         label=label,
@@ -202,6 +224,7 @@ def run_single(
         data_request_hash=data_hash,
         strategy_params={k: v for k, v in cfg.items() if k != "min_atr_pips"},
         metrics=_metrics_to_dict(result.metrics),
+        rejection_counts=result.rejection_counts,
         summary_path=str(paths["summary_json"].relative_to(ctx.out_root)),
     )
     ctx.runs.append(record)
@@ -288,13 +311,6 @@ def run_cost_stress(ctx: CampaignContext) -> None:
 
 
 def run_robustness(ctx: CampaignContext) -> None:
-    """Robustness on the FULL window only, H4 only, at base costs.
-
-    The user spec mandates recording every run, not only winners. The grid has
-    3 × 3 × 3 × 3 = 81 combinations per pair × granularity. Running for all 7
-    pairs × 2 granularities would be 1134 runs; we hold granularity to H4 to
-    keep runtime tractable for v0 and document the choice.
-    """
     base_regime = COST_REGIMES[0]
     base_cfg = baseline_params(ctx.settings)
     granularity = "H4"
@@ -311,7 +327,6 @@ def run_robustness(ctx: CampaignContext) -> None:
     )
     for ef, es, dl, atrm in combos:
         if ef >= es:
-            # Skip invalid combinations rejected by the config validator.
             continue
         params = {
             **base_cfg,
@@ -320,13 +335,9 @@ def run_robustness(ctx: CampaignContext) -> None:
             "donchian_lookback": dl,
             "atr_stop_multiple": float(atrm),
             "trailing_stop_atr_multiple": float(atrm),
-            "version": (
-                f"0.1.0-grid-ef{ef}-es{es}-dl{dl}-atr{atrm}"
-            ),
+            "version": f"0.1.0-grid-ef{ef}-es{es}-dl{dl}-atr{atrm}",
         }
-        param_tag = hashlib.sha1(
-            f"{ef}|{es}|{dl}|{atrm}".encode()
-        ).hexdigest()[:8]
+        param_tag = hashlib.sha1(f"{ef}|{es}|{dl}|{atrm}".encode()).hexdigest()[:8]
         for pair in PAIRS:
             label = f"grid_{param_tag}_{pair}_{granularity}"
             run_single(
@@ -348,10 +359,10 @@ def run_robustness(ctx: CampaignContext) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", default=str(ROOT / "configs/campaign_001_baseline.yaml"))
-    parser.add_argument("--out", default=str(ROOT / "backtests/campaign_001/runs"))
+    parser.add_argument("--config", default=str(ROOT / "configs/campaign_002_real_oanda.yaml"))
+    parser.add_argument("--out", default=str(ROOT / "backtests/campaign_002_real_oanda/runs"))
     parser.add_argument("--phase", default="all", choices=["all", "baseline", "cost", "robustness"])
-    parser.add_argument("--clean", action="store_true", help="wipe out dir first")
+    parser.add_argument("--clean", action="store_true")
     args = parser.parse_args()
 
     out_root = Path(args.out)
@@ -375,19 +386,15 @@ def main() -> int:
     dt = time.time() - t0
 
     index = {
-        "campaign_id": "CAMPAIGN_001",
+        "campaign_id": "CAMPAIGN_002",
         "generated_at": datetime.now(UTC).isoformat(),
         "git_commit": _git_commit(),
-        "git_commit_short": _git_short(),
+        "git_commit_short": _git_commit()[:12],
+        "git_dirty": _git_dirty(),
         "config_path": str(config_path),
         "config_hash": ctx.settings.config_hash,
-        "data_source": "synthetic-v1",
-        "data_source_warning": (
-            "OANDA credentials were not available at campaign time; candles in "
-            "data/campaign.sqlite3 were produced by scripts/synthesize_candles.py "
-            "and are NOT real OANDA data. Re-run with real credentials before "
-            "drawing any operational conclusions."
-        ),
+        "data_source": "oanda-practice",
+        "risk_engine_mode": "backtest",
         "total_runs": len(ctx.runs),
         "elapsed_seconds": dt,
         "runs": [dataclasses.asdict(r) for r in ctx.runs],

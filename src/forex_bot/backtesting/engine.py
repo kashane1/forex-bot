@@ -1,11 +1,22 @@
-"""Backtest engine. Single-instrument, single-position-at-a-time. Replays
-the strategy bar-by-bar over completed candles, using bid/ask-aware fills
-and the same Decimal sizing as live."""
+"""Backtest engine. Single-instrument, single-position-at-a-time.
+
+The engine replays the strategy bar-by-bar over completed candles using
+bid/ask-aware fills. It calls the production `RiskEngine.evaluate()` for
+every signal (mode='backtest') so the same gates that govern paper/demo
+execution govern the backtest — except for purely operational gates
+(trading_enabled, kill_switch, reconciled, pending_order_count) which
+cannot apply in a historical replay.
+
+If `risk_engine=None` is passed, the engine falls back to legacy direct
+sizing without rejection bookkeeping. The CLI defaults to wiring a risk
+engine, and `--no-risk-engine` is supported for old-behavior comparison.
+"""
 
 from __future__ import annotations
 
 import hashlib
 from dataclasses import dataclass, field
+from datetime import UTC, datetime
 from decimal import Decimal
 from typing import Any
 
@@ -18,13 +29,31 @@ from forex_bot.backtesting.metrics import (
     _EquityBar,
     compute_metrics,
 )
+from forex_bot.clock import utcnow
+from forex_bot.config import Settings
+from forex_bot.domain.account import AccountSnapshot
 from forex_bot.domain.candles import CandleFrame
 from forex_bot.domain.instruments import Instrument
 from forex_bot.domain.market import MarketState, Quote, SpreadSnapshot
 from forex_bot.domain.positions import Position
+from forex_bot.risk.policy import RiskEngine, RiskInputs
 from forex_bot.risk.sizing import size_position
 from forex_bot.strategies.base import Strategy, StrategyContext
 from forex_bot.strategies.indicators import atr
+
+
+@dataclass
+class RejectedSignalRecord:
+    """One rejected backtest signal — mirrors what the production
+    RiskEngine writes to risk_decisions in live mode."""
+
+    timestamp: datetime
+    instrument: str
+    side: str
+    rejection_codes: list[str]
+    rejection_messages: list[str]
+    spread_pips: Decimal | None = None
+    stop_distance_pips: Decimal | None = None
 
 
 @dataclass
@@ -32,6 +61,8 @@ class BacktestResult:
     metrics: BacktestMetrics
     trades: list[TradeRecord] = field(default_factory=list)
     equity_curve: list[_EquityBar] = field(default_factory=list)
+    rejected_signals: list[RejectedSignalRecord] = field(default_factory=list)
+    rejection_counts: dict[str, int] = field(default_factory=dict)
     config_hash: str = ""
     data_request_hash: str = ""
     instrument: str = ""
@@ -41,6 +72,7 @@ class BacktestResult:
     from_time: str | None = None
     to_time: str | None = None
     fill_model_repr: str = ""
+    risk_engine_used: bool = False
     notes: str = ""
 
 
@@ -71,6 +103,8 @@ class BacktestEngine:
         commission_per_unit: Decimal = Decimal("0"),
         trailing_stop_atr_multiple: float | None = None,
         atr_lookback: int = 14,
+        risk_engine: RiskEngine | None = None,
+        settings: Settings | None = None,
     ) -> None:
         self.instrument = instrument
         self.strategy = strategy
@@ -83,6 +117,8 @@ class BacktestEngine:
         self.commission_per_unit = commission_per_unit
         self.trailing_stop_atr_multiple = trailing_stop_atr_multiple
         self.atr_lookback = atr_lookback
+        self.risk_engine = risk_engine
+        self.settings = settings
 
     def run(
         self,
@@ -100,6 +136,7 @@ class BacktestEngine:
             to_time=df.index[-1].isoformat() if not df.empty else None,
             fill_model_repr=repr(self.fill_model),
             data_request_hash=data_request_hash,
+            risk_engine_used=self.risk_engine is not None,
             config_hash=_hash({
                 "strategy_config": self.strategy_config,
                 "risk_pct": str(self.risk_per_trade_pct),
@@ -108,6 +145,7 @@ class BacktestEngine:
                 "trail_atr": self.trailing_stop_atr_multiple,
                 "atr_lookback": self.atr_lookback,
                 "fill_model": repr(self.fill_model),
+                "risk_engine": self.risk_engine is not None,
             }),
         )
 
@@ -120,8 +158,12 @@ class BacktestEngine:
         warmup = max(self.strategy.warmup_bars_required(), 5)
         trades: list[TradeRecord] = []
         equity_bars: list[_EquityBar] = []
+        rejected_signals: list[RejectedSignalRecord] = []
         equity = float(self.starting_equity)
         open_trade: _OpenTrade | None = None
+
+        # Rolling loss windows for risk-engine inputs in backtest mode.
+        realized_pnls: list[tuple[datetime, Decimal]] = []
 
         atr_series = (
             atr(df["high"], df["low"], df["close"], self.atr_lookback)
@@ -158,7 +200,6 @@ class BacktestEngine:
                     else Decimal(str(row["close"]))
                 )
 
-                # Trail the stop ONLY in the favourable direction.
                 if (
                     self.trailing_stop_atr_multiple is not None
                     and atr_series is not None
@@ -166,11 +207,15 @@ class BacktestEngine:
                 ):
                     cur_atr = Decimal(str(atr_series.iloc[i]))
                     if open_trade.side == "long":
-                        new_stop = bid_close - cur_atr * Decimal(str(self.trailing_stop_atr_multiple))
+                        new_stop = bid_close - cur_atr * Decimal(
+                            str(self.trailing_stop_atr_multiple)
+                        )
                         if new_stop > open_trade.stop_price:
                             open_trade.stop_price = new_stop
                     else:
-                        new_stop = ask_close + cur_atr * Decimal(str(self.trailing_stop_atr_multiple))
+                        new_stop = ask_close + cur_atr * Decimal(
+                            str(self.trailing_stop_atr_multiple)
+                        )
                         if new_stop < open_trade.stop_price:
                             open_trade.stop_price = new_stop
 
@@ -203,6 +248,7 @@ class BacktestEngine:
                 if exit_reason and exit_price is not None:
                     pnl = self._pnl(open_trade, exit_price)
                     equity += float(pnl)
+                    realized_pnls.append((ts.to_pydatetime(), pnl))
                     risk_distance = (
                         (open_trade.entry_price - open_trade.initial_stop_price).copy_abs()
                         * open_trade.units
@@ -272,6 +318,7 @@ class BacktestEngine:
             signal = self.strategy.generate_signal(ctx)
             if signal is None:
                 continue
+
             entry = self.fill_model.entry_price(
                 side=signal.side,
                 bid=bid_close,
@@ -279,27 +326,71 @@ class BacktestEngine:
                 pip_size=self.instrument.pip_size,
             )
             quotes_for_sizing = {self.instrument.name: quote}
-            sizing = size_position(
-                instrument=self.instrument,
-                account_currency=self.account_currency,
-                nav_home=Decimal(str(equity)),
-                risk_per_trade_pct=self.risk_per_trade_pct,
-                entry_price=entry,
-                stop_price=signal.stop_price,
-                quotes_by_instrument=quotes_for_sizing,
-            )
-            if sizing is None or sizing.units <= 0:
-                continue
+
+            # ---- risk engine path (preferred) ----
+            if self.risk_engine is not None:
+                account_snap = self._synthetic_account_snapshot(ts, equity)
+                realized_today, realized_week = self._realized_windows(ts, realized_pnls)
+                atr_pips_val = signal.features.get("atr_pips")
+                inputs = RiskInputs(
+                    signal=signal,
+                    instrument=self.instrument,
+                    account=account_snap,
+                    market_state=market_state,
+                    positions=[],  # backtester only opens one at a time; flat at entry time
+                    quotes_by_instrument=quotes_for_sizing,
+                    realized_pl_today=realized_today,
+                    realized_pl_week=realized_week,
+                    drawdown_pct=self._drawdown_pct(equity_bars, equity),
+                    atr_pips=(
+                        Decimal(str(atr_pips_val))
+                        if atr_pips_val is not None
+                        else None
+                    ),
+                    reconciled=True,
+                )
+                decision, plan = self.risk_engine.evaluate(inputs)
+                if not decision.approved or plan is None:
+                    rejected_signals.append(
+                        RejectedSignalRecord(
+                            timestamp=ts.to_pydatetime(),
+                            instrument=self.instrument.name,
+                            side=signal.side,
+                            rejection_codes=[c.value for c in decision.rejection_codes],
+                            rejection_messages=list(decision.rejection_messages),
+                            spread_pips=spread_pips,
+                            stop_distance_pips=decision.stop_distance_pips,
+                        )
+                    )
+                    continue
+                units = plan.units
+                stop_price_to_use = plan.stop_loss_price
+            else:
+                # Legacy direct-sizing path (kept for opt-out / parity tests).
+                sizing = size_position(
+                    instrument=self.instrument,
+                    account_currency=self.account_currency,
+                    nav_home=Decimal(str(equity)),
+                    risk_per_trade_pct=self.risk_per_trade_pct,
+                    entry_price=entry,
+                    stop_price=signal.stop_price,
+                    quotes_by_instrument=quotes_for_sizing,
+                )
+                if sizing is None or sizing.units <= 0:
+                    continue
+                units = sizing.units
+                stop_price_to_use = signal.stop_price
+
             open_trade = _OpenTrade(
                 side=signal.side,
-                units=sizing.units,
+                units=units,
                 entry_price=entry,
                 entry_time=ts,
-                stop_price=signal.stop_price,
-                initial_stop_price=signal.stop_price,
+                stop_price=stop_price_to_use,
+                initial_stop_price=stop_price_to_use,
                 spread_pips_at_entry=spread_pips,
             )
-            equity -= float(self.commission_per_unit * sizing.units)
+            equity -= float(self.commission_per_unit * units)
 
         # Close any open trade at the last close for accounting honesty.
         if open_trade is not None:
@@ -341,11 +432,18 @@ class BacktestEngine:
             )
             equity_bars.append(_EquityBar(df.index[-1].to_pydatetime(), equity))
 
+        rejection_counts: dict[str, int] = {}
+        for r_rec in rejected_signals:
+            for code in r_rec.rejection_codes:
+                rejection_counts[code] = rejection_counts.get(code, 0) + 1
+
         metrics = compute_metrics(trades, equity_bars, float(self.starting_equity))
         return BacktestResult(
             metrics=metrics,
             trades=trades,
             equity_curve=equity_bars,
+            rejected_signals=rejected_signals,
+            rejection_counts=rejection_counts,
             **meta,
         )
 
@@ -361,18 +459,71 @@ class BacktestEngine:
         if self.instrument.quote_currency == home:
             gross_home = gross_quote
         elif self.instrument.base_currency == home:
-            # For USD_JPY with USD home, PnL accrues in JPY: convert with exit
-            # mid price. e.g. 500 JPY / 142 ≈ $3.52. Without this conversion
-            # the engine overstates JPY PnL by ~100×.
             gross_home = gross_quote / exit_price
         else:
-            # Cross pair without a runtime cross-quote — leave as the
-            # approximation, but mark it. Real backtests should not hit this
-            # branch because the engine doesn't accept cross pairs from
-            # configs without their conversion quote being available.
-            gross_home = gross_quote
+            # Unsupported cross. The CLI should refuse to construct an
+            # engine for these without a runtime cross-quote.
+            raise ValueError(
+                f"BacktestEngine._pnl: unsupported cross pair "
+                f"{self.instrument.name} for account_currency={home}; "
+                "no conversion quote available"
+            )
 
         return gross_home - self.commission_per_unit * trade.units
+
+    # ----- risk-engine helpers -------------------------------------------
+
+    def _synthetic_account_snapshot(
+        self, ts: pd.Timestamp, equity: float
+    ) -> AccountSnapshot:
+        eq = Decimal(str(equity))
+        return AccountSnapshot(
+            account_id="backtest",
+            currency=self.account_currency,
+            balance=eq,
+            nav=eq,
+            margin_used=Decimal("0"),
+            margin_available=eq,
+            margin_closeout_percent=Decimal("0"),
+            unrealized_pl=Decimal("0"),
+            pl=Decimal("0"),
+            open_trade_count=0,
+            open_position_count=0,
+            pending_order_count=0,
+            time=ts.to_pydatetime() if hasattr(ts, "to_pydatetime") else utcnow(),
+        )
+
+    @staticmethod
+    def _realized_windows(
+        ts: pd.Timestamp,
+        realized: list[tuple[datetime, Decimal]],
+    ) -> tuple[Decimal, Decimal]:
+        if not realized:
+            return Decimal("0"), Decimal("0")
+        now = ts.to_pydatetime() if hasattr(ts, "to_pydatetime") else utcnow()
+        if now.tzinfo is None:
+            now = now.replace(tzinfo=UTC)
+        day_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        week_start = day_start - pd.Timedelta(days=day_start.weekday())
+        today = sum(
+            (pnl for t, pnl in realized if t >= day_start),
+            start=Decimal("0"),
+        )
+        week = sum(
+            (pnl for t, pnl in realized if t >= week_start),
+            start=Decimal("0"),
+        )
+        return today, week
+
+    @staticmethod
+    def _drawdown_pct(equity_bars: list[_EquityBar], current_equity: float) -> Decimal:
+        if not equity_bars:
+            return Decimal("0")
+        peak = max(b.equity for b in equity_bars + [_EquityBar(datetime.now(UTC), current_equity)])
+        if peak <= 0:
+            return Decimal("0")
+        dd = (peak - current_equity) / peak * 100
+        return Decimal(str(round(dd, 4)))
 
 
 def _hash(payload: Any) -> str:

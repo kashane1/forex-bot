@@ -275,6 +275,38 @@ MIGRATIONS: list[tuple[int, list[str]]] = [
             """,
         ],
     ),
+    (
+        2,
+        [
+            """
+            CREATE TABLE IF NOT EXISTS data_sources (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                campaign TEXT,
+                instrument TEXT NOT NULL,
+                granularity TEXT NOT NULL,
+                source TEXT NOT NULL,
+                host TEXT,
+                from_time TEXT,
+                to_time TEXT,
+                price_components TEXT,
+                page_count INTEGER NOT NULL DEFAULT 0,
+                candles_written INTEGER NOT NULL DEFAULT 0,
+                candles_dropped_incomplete INTEGER NOT NULL DEFAULT 0,
+                first_ts TEXT,
+                last_ts TEXT,
+                raw_sha256 TEXT,
+                normalized_sha256 TEXT,
+                request_params_json TEXT,
+                broker_account_id_redacted TEXT,
+                fetched_at TEXT NOT NULL DEFAULT (datetime('now'))
+            )
+            """,
+            """
+            CREATE INDEX IF NOT EXISTS idx_data_sources_inst_gran
+                ON data_sources(instrument, granularity, fetched_at DESC)
+            """,
+        ],
+    ),
 ]
 
 

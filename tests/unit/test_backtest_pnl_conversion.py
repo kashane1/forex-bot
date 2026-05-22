@@ -6,6 +6,7 @@ from __future__ import annotations
 from decimal import Decimal
 
 import pandas as pd
+import pytest
 
 from forex_bot.backtesting.engine import BacktestEngine, _OpenTrade
 from forex_bot.backtesting.fills import FillModel
@@ -86,3 +87,44 @@ def test_usd_jpy_losing_trade_does_not_explode_equity(usd_jpy):
     pnl = eng._pnl(trade, Decimal("140.00"))
     assert pnl < Decimal("0")
     assert pnl > Decimal("-2.00"), f"loss {pnl} should be ~$1.24, not multi-USD"
+
+
+# ---------------------------------------------------------------------------
+# Extra Task E (CAMPAIGN_002) coverage
+# ---------------------------------------------------------------------------
+
+
+def test_eur_usd_short_pnl_in_home_directly(eur_usd):
+    """EUR_USD short: quote currency is USD = account currency. PnL stays
+    in USD without any conversion. A 50 pip favourable move on 2000 units
+    is 0.0050 USD × 2000 = $10."""
+    eng = _engine(eur_usd)
+    trade = _trade("short", Decimal("2000"), Decimal("1.0850"), Decimal("1.0900"))
+    pnl = eng._pnl(trade, Decimal("1.0800"))
+    assert pnl == Decimal("10.00")
+
+
+def test_usd_jpy_pnl_at_recent_market_levels(usd_jpy):
+    """USD_JPY at ~155 (mid-2024 levels). 1000 units, 1.5 JPY favourable.
+    Expected: 1500 JPY / 155 ≈ $9.677."""
+    eng = _engine(usd_jpy)
+    trade = _trade("long", Decimal("1000"), Decimal("155.000"), Decimal("154.000"))
+    pnl = eng._pnl(trade, Decimal("156.500"))
+    expected = Decimal("1500") / Decimal("156.500")
+    assert abs(pnl - expected) < Decimal("0.0001")
+    # Sanity: PnL is on the order of ~$9, not ~$1500.
+    assert pnl < Decimal("15")
+    assert pnl > Decimal("8")
+
+
+def test_unsupported_cross_pair_raises_loudly(gbp_jpy):
+    """GBP_JPY with USD account: base != home, quote != home.
+    BacktestEngine._pnl must refuse loudly rather than silently
+    approximate. Live execution would have a runtime cross quote; the
+    backtester does not. The CLI is responsible for not building an engine
+    for these in the first place; this test guards against silent regression
+    if a caller bypasses that check."""
+    eng = _engine(gbp_jpy)
+    trade = _trade("long", Decimal("100"), Decimal("192.000"), Decimal("191.500"))
+    with pytest.raises(ValueError, match="unsupported cross pair"):
+        eng._pnl(trade, Decimal("193.000"))

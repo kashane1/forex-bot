@@ -12,6 +12,7 @@ import subprocess
 from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
+from typing import Any
 
 import typer
 from rich.console import Console
@@ -30,6 +31,8 @@ from forex_bot.data.repositories import (
     AccountSnapshotRepo,
     BrokerOrderRepo,
     CandleRepo,
+    DataSourceRecord,
+    DataSourceRepo,
     InstrumentRepo,
     OrderPlanRepo,
     RiskDecisionRepo,
@@ -40,6 +43,7 @@ from forex_bot.data.repositories import (
 )
 from forex_bot.domain.candles import CandleFrame, CandleRequest
 from forex_bot.execution.reconciliation import Reconciler
+from forex_bot.guards import assert_practice_data_environment
 from forex_bot.logging_config import configure_logging, get_logger
 from forex_bot.loops import build_strategies, run_paper_loop, run_practice_loop
 from forex_bot.reporting.render import render_html, render_markdown
@@ -178,19 +182,88 @@ def fetch_candles(
     from_date: str | None = typer.Option(None, "--from", help="ISO date for start of fetch window"),
     to_date: str | None = typer.Option(None, "--to", help="ISO date for end of fetch window"),
     page_size: int = typer.Option(2500, "--page-size", help="Candles per OANDA call (max 5000)"),
+    keep_incomplete: bool = typer.Option(
+        False,
+        "--keep-incomplete/--drop-incomplete",
+        help="Default drops incomplete candles per the data spec.",
+    ),
+    campaign: str | None = typer.Option(
+        None, "--campaign", help="Tag rows in data_sources with this campaign label."
+    ),
 ) -> None:
     """Fetch OANDA candles. With --from/--to, paginates forward until the
-    window is covered. Without dates, fetches the latest --count candles."""
+    window is covered. Without dates, fetches the latest --count candles.
+
+    Drops incomplete candles by default, captures raw-bytes + normalized
+    hashes per fetch into the data_sources table, and refuses to run
+    unless the practice-data environment guard passes.
+    """
+    import hashlib
+
     settings = _load(config)
+    guard = assert_practice_data_environment(settings)
+    console.print(
+        f"[green]env guard ok[/green] account={guard.account_id_redacted} "
+        f"env={guard.declared_environment}"
+    )
+
     broker = _build_broker(settings)
     db = Database(settings.app.database_path)
     repo = CandleRepo(db)
+    ds_repo = DataSourceRepo(db)
+    events = SystemEventRepo(db)
     price = settings.market.candle_price_components
+    source_label = f"oanda-{settings.broker.environment}"
 
     from_dt = _parse_date(from_date)
     to_dt = _parse_date(to_date)
 
+    raw_hasher = hashlib.sha256()
+    norm_hasher = hashlib.sha256()
+    pages = 0
+    written_total = 0
+    dropped_total = 0
+    first_ts: str | None = None
+    last_ts: str | None = None
+
+    def _record_batch(candles_list, raw_bytes: bytes) -> int:
+        """Drop incompletes (unless --keep-incomplete), accumulate hashes,
+        upsert, return the count actually written."""
+        nonlocal dropped_total, first_ts, last_ts
+        kept = candles_list if keep_incomplete else [c for c in candles_list if c.complete]
+        dropped_total += len(candles_list) - len(kept)
+        if not kept:
+            return 0
+        raw_hasher.update(raw_bytes)
+        for c in kept:
+            iso = c.time.isoformat()
+            # Normalized hash: deterministic over (ts, bid/ask OHLC strings).
+            parts = (
+                c.instrument,
+                granularity,
+                iso,
+                str(c.bid_o), str(c.bid_h), str(c.bid_l), str(c.bid_c),
+                str(c.ask_o), str(c.ask_h), str(c.ask_l), str(c.ask_c),
+                str(c.volume),
+            )
+            norm_hasher.update("|".join(parts).encode("utf-8"))
+        if first_ts is None or kept[0].time.isoformat() < first_ts:
+            first_ts = kept[0].time.isoformat()
+        last_ts_str = kept[-1].time.isoformat()
+        if last_ts is None or last_ts_str > last_ts:
+            last_ts = last_ts_str
+        n = repo.upsert_many(
+            kept,
+            source=source_label,
+            price_components=price,
+            request_hash=hashlib.sha1(raw_bytes).hexdigest()[:16],
+        )
+        return n
+
+    request_params: dict[str, Any] = {}
+
     if from_dt is None and to_dt is None:
+        # Latest --count candles, single call.
         request = CandleRequest(
             instrument=instrument,
             granularity=granularity,  # type: ignore[arg-type]
@@ -200,56 +273,105 @@ def fetch_candles(
             alignment_timezone=settings.market.alignment_timezone,
             weekly_alignment=settings.market.weekly_alignment,
         )
-        candles = broker.get_candles(request)
-        n = repo.upsert_many(
-            candles,
-            source="oanda",
-            price_components=price,
-            request_hash=str(hash((instrument, granularity, count))),
-        )
-        console.print(f"[green]stored[/green] {n} candles for {instrument} {granularity}")
-        return
-
-    # Paginated window fetch.
-    if from_dt is None:
-        raise typer.BadParameter("--from is required when --to is used or for windowed fetches")
-    if to_dt is None:
-        to_dt = utcnow()
-    cursor = from_dt
-    total = 0
-    while cursor < to_dt:
-        request = CandleRequest(
-            instrument=instrument,
-            granularity=granularity,  # type: ignore[arg-type]
-            price=price,  # type: ignore[arg-type]
-            count=page_size,
-            from_time=cursor,
-            to_time=to_dt,
-            daily_alignment=settings.market.daily_alignment,
-            alignment_timezone=settings.market.alignment_timezone,
-            weekly_alignment=settings.market.weekly_alignment,
-            include_first=True,
-        )
         try:
-            candles = broker.get_candles(request)
+            candles, raw = broker.get_candles_with_raw(request)
         except Exception as exc:
-            console.print(f"[red]fetch failed at {cursor}: {exc}[/red]")
+            console.print(f"[red]fetch failed: {exc}[/red]")
             raise typer.Exit(1)
-        if not candles:
-            break
-        n = repo.upsert_many(
-            candles,
-            source="oanda",
-            price_components=price,
-            request_hash=str(hash((instrument, granularity, cursor.isoformat()))),
-        )
-        total += n
-        last = candles[-1].time
-        if last <= cursor:
-            break
-        cursor = last + timedelta(seconds=1)
-        console.print(f"  page → {last.isoformat()} (+{n})")
-    console.print(f"[green]stored[/green] {total} candles for {instrument} {granularity}")
+        request_params = request.model_dump(mode="json")
+        n = _record_batch(candles, raw)
+        pages = 1
+        written_total = n
+    else:
+        if from_dt is None:
+            raise typer.BadParameter("--from is required when --to is used")
+        if to_dt is None:
+            to_dt = utcnow()
+        cursor = from_dt
+        while cursor < to_dt:
+            # OANDA forbids count + from + to together. Use count + from for
+            # pagination; we check against to_dt ourselves.
+            request = CandleRequest(
+                instrument=instrument,
+                granularity=granularity,  # type: ignore[arg-type]
+                price=price,  # type: ignore[arg-type]
+                count=page_size,
+                from_time=cursor,
+                to_time=None,
+                daily_alignment=settings.market.daily_alignment,
+                alignment_timezone=settings.market.alignment_timezone,
+                weekly_alignment=settings.market.weekly_alignment,
+                include_first=True,
+            )
+            try:
+                candles, raw = broker.get_candles_with_raw(request)
+            except Exception as exc:
+                console.print(f"[red]fetch failed at {cursor}: {exc}[/red]")
+                raise typer.Exit(1)
+            if not candles:
+                break
+            # Clip to the requested window: drop candles whose time > to_dt.
+            in_window = [c for c in candles if c.time <= to_dt]
+            n = _record_batch(in_window, raw)
+            pages += 1
+            written_total += n
+            last_in_window = in_window[-1].time if in_window else cursor
+            last_received = candles[-1].time
+            console.print(
+                f"  page {pages} → {last_received.isoformat()} (+{n}, dropped={dropped_total})"
+            )
+            if last_received <= cursor:
+                break  # OANDA didn't advance
+            cursor = last_received + timedelta(seconds=1)
+            if last_in_window >= to_dt:
+                break  # we've covered the window
+        request_params = {
+            "instrument": instrument,
+            "granularity": granularity,
+            "price": price,
+            "from": from_dt.isoformat(),
+            "to": to_dt.isoformat(),
+            "page_size": page_size,
+        }
+
+    # Record provenance in data_sources.
+    record = DataSourceRecord(
+        instrument=instrument,
+        granularity=granularity,
+        source=source_label,
+        host=f"https://api-fx{settings.broker.environment}.oanda.com",
+        from_time=from_dt.isoformat() if from_dt else None,
+        to_time=to_dt.isoformat() if to_dt else None,
+        price_components=price,
+        page_count=pages,
+        candles_written=written_total,
+        candles_dropped_incomplete=dropped_total,
+        first_ts=first_ts,
+        last_ts=last_ts,
+        raw_sha256=raw_hasher.hexdigest() if pages else None,
+        normalized_sha256=norm_hasher.hexdigest() if written_total else None,
+        request_params_json=json.dumps(request_params, default=str, sort_keys=True),
+        broker_account_id_redacted=guard.account_id_redacted,
+        campaign=campaign,
+    )
+    ds_id = ds_repo.insert(record)
+    events.record(
+        "data_source",
+        "info",
+        f"fetched {instrument} {granularity}: {written_total} candles, "
+        f"{pages} pages, dropped_incomplete={dropped_total}",
+        {
+            "data_source_id": ds_id,
+            "instrument": instrument,
+            "granularity": granularity,
+            "raw_sha256_prefix": record.raw_sha256[:16] if record.raw_sha256 else None,
+            "normalized_sha256_prefix": record.normalized_sha256[:16] if record.normalized_sha256 else None,
+        },
+    )
+    console.print(
+        f"[green]stored[/green] {written_total} candles for {instrument} {granularity} "
+        f"(pages={pages}, dropped={dropped_total}, raw_sha256={record.raw_sha256[:12] if record.raw_sha256 else 'n/a'}…)"
+    )
 
 
 @app.command()

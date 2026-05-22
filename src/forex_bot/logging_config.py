@@ -21,11 +21,18 @@ _SECRET_KEY_PATTERNS = re.compile(
 
 _BEARER_PATTERN = re.compile(r"(Bearer\s+)[A-Za-z0-9._\-]+", re.IGNORECASE)
 _LONG_HEX_PATTERN = re.compile(r"\b[a-f0-9]{32,}\b", re.IGNORECASE)
+# OANDA-style account IDs: NNN-NNN-NNNNNNN-NNN. Keep the first triplet so logs
+# remain debuggable but mask the unique digits.
+_OANDA_ACCOUNT_PATTERN = re.compile(r"\b(\d{3}-\d{3})-(\d{4,10})-(\d{3})\b")
+# OANDA personal access tokens: 32hex-32hex.
+_OANDA_TOKEN_PATTERN = re.compile(r"\b[a-f0-9]{32}-[a-f0-9]{32}\b", re.IGNORECASE)
 
 
 def _scrub_value(value: Any) -> Any:
     if isinstance(value, str):
+        value = _OANDA_TOKEN_PATTERN.sub("[REDACTED_TOKEN]", value)
         value = _BEARER_PATTERN.sub(r"\1[REDACTED]", value)
+        value = _OANDA_ACCOUNT_PATTERN.sub(r"\1-XXXXXXX-XXX", value)
         value = _LONG_HEX_PATTERN.sub("[REDACTED]", value)
         return value
     if isinstance(value, dict):
@@ -99,6 +106,12 @@ def configure_logging(level: str = "INFO", log_path: str | Path | None = None) -
         except Exception:
             pass
         root.removeHandler(handler)
+
+    # httpx and httpcore emit request URLs at INFO. URLs contain account IDs.
+    # Our scrubber redacts on the way out, but suppress at WARNING for defense
+    # in depth.
+    for noisy in ("httpx", "httpcore", "urllib3"):
+        logging.getLogger(noisy).setLevel(logging.WARNING)
 
     formatter = JsonFormatter()
     stream = logging.StreamHandler(sys.stderr)

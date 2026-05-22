@@ -22,15 +22,12 @@ Sections (per the spec):
 from __future__ import annotations
 
 import argparse
-import csv
 import json
 import statistics
+import sys
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Any
-
-import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))

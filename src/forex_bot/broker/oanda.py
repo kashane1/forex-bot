@@ -151,7 +151,7 @@ class OandaBroker:
 
     # ---------- market data ----------
 
-    def get_candles(self, request: CandleRequest) -> list[Candle]:
+    def _candle_params(self, request: CandleRequest) -> dict[str, Any]:
         params: dict[str, Any] = {
             "granularity": request.granularity,
             "price": request.price,
@@ -166,16 +166,53 @@ class OandaBroker:
             params["from"] = request.from_time.isoformat().replace("+00:00", "Z")
         if request.to_time is not None:
             params["to"] = request.to_time.isoformat().replace("+00:00", "Z")
+        return params
+
+    def get_candles(self, request: CandleRequest) -> list[Candle]:
         payload = self._request(
             "GET",
             self._account_path(f"/instruments/{request.instrument}/candles"),
-            params=params,
+            params=self._candle_params(request),
         )
         candles = [
             map_candle(request.instrument, request.granularity, item)
             for item in payload.get("candles", [])
         ]
         return candles
+
+    def get_candles_with_raw(self, request: CandleRequest) -> tuple[list[Candle], bytes]:
+        """Same as get_candles but also returns raw response bytes so callers
+        can compute a data-provenance hash. Bypasses _request() so that we
+        get the original byte stream OANDA sent, not pydantic's re-encoding.
+        """
+        path = self._account_path(f"/instruments/{request.instrument}/candles")
+        try:
+            response = self._client.request("GET", path, params=self._candle_params(request))
+        except httpx.TimeoutException as exc:
+            raise BrokerServerError(f"timeout on GET {path}") from exc
+        except httpx.HTTPError as exc:
+            raise BrokerServerError(f"http error on GET {path}: {exc}") from exc
+
+        if response.status_code in {401, 403}:
+            raise BrokerAuthError(f"auth failed {response.status_code}")
+        if response.status_code == 404:
+            raise BrokerInvalidAccountError(
+                f"not found {response.status_code}: {response.text[:200]}"
+            )
+        if response.status_code == 429:
+            raise BrokerRateLimitError(f"rate limited: {response.text[:200]}")
+        if response.status_code >= 500:
+            raise BrokerServerError(f"server {response.status_code}: {response.text[:200]}")
+        if response.status_code >= 400:
+            raise BrokerOrderRejectError(f"{response.status_code}: {response.text[:500]}")
+
+        raw = response.content
+        payload = response.json() if raw else {}
+        candles = [
+            map_candle(request.instrument, request.granularity, item)
+            for item in payload.get("candles", [])
+        ]
+        return candles, raw
 
     def get_prices(self, instruments: list[str]) -> list[Quote]:
         if not instruments:
