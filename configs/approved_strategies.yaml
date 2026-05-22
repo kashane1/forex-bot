@@ -1,0 +1,22 @@
+# Approved-strategy registry — the research-freeze safety gate.
+#
+# A strategy family may run in a paper-loop, demo-loop, or live loop ONLY
+# if its name appears in the `approved` list below. Backtests are research
+# and are NEVER gated by this file.
+#
+# As of Research Marathon 001 = NO-GO, NO strategy has earned even
+# PAPER-TRADE-ONLY status. The list is therefore EMPTY and every
+# order-capable / signal-emitting loop refuses to start. See:
+#   docs/research/FINAL_RESEARCH_DECISION_MEMO.md
+#   docs/research/STRATEGY_STATUS.md
+#
+# Adding a name here is a deliberate, reviewed human action that asserts
+# the strategy has passed a fresh pre-committed campaign and a human has
+# explicitly approved it for paper trading. Do NOT add a name to silence
+# an error — that defeats the entire point of this gate.
+#
+# Strategy names must match forex_bot.config.StrategyConfig.enabled
+# entries: trend_following, volatility_breakout, pullback_continuation,
+# mean_reversion.
+
+approved: []

@@ -43,7 +43,11 @@ from forex_bot.data.repositories import (
 )
 from forex_bot.domain.candles import CandleFrame, CandleRequest
 from forex_bot.execution.reconciliation import Reconciler
-from forex_bot.guards import assert_practice_data_environment
+from forex_bot.guards import (
+    StrategyNotApprovedError,
+    assert_loop_strategies_approved,
+    assert_practice_data_environment,
+)
 from forex_bot.logging_config import configure_logging, get_logger
 from forex_bot.loops import build_strategies, run_paper_loop, run_practice_loop
 from forex_bot.reporting.render import render_html, render_markdown
@@ -604,6 +608,11 @@ def paper_loop(
     if settings.app.mode != "paper":
         console.print(f"[red]paper-loop requires mode=paper, got {settings.app.mode}[/red]")
         raise typer.Exit(2)
+    try:
+        assert_loop_strategies_approved("paper", settings.strategy.enabled)
+    except StrategyNotApprovedError as exc:
+        console.print(f"[red]{exc}[/red]")
+        raise typer.Exit(2)
     broker = _build_broker(settings)
     db = Database(settings.app.database_path)
     outcome = run_paper_loop(
@@ -637,6 +646,11 @@ def demo_loop(
         raise typer.Exit(2)
     if not settings.app.trading_enabled or not settings.app.allow_order_submission:
         console.print("[red]demo-loop requires trading_enabled and allow_order_submission[/red]")
+        raise typer.Exit(2)
+    try:
+        assert_loop_strategies_approved("demo", settings.strategy.enabled)
+    except StrategyNotApprovedError as exc:
+        console.print(f"[red]{exc}[/red]")
         raise typer.Exit(2)
     broker = _build_broker(settings)
     db = Database(settings.app.database_path)

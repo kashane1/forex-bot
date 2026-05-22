@@ -3,6 +3,15 @@
 Operational playbooks. The authoritative spec is
 [`forex_bot_founders_pack/10_RUNBOOKS.md`](../forex_bot_founders_pack/10_RUNBOOKS.md).
 
+## Research status — loops are frozen
+
+As of the research freeze (Research Marathon 001 = NO-GO), **no strategy
+is approved for trading**. `bot paper-loop` and `bot demo-loop` refuse to
+start: they check `configs/approved_strategies.yaml` (empty) and exit
+non-zero. The loop steps below will not run until a strategy is
+explicitly approved by a human. Backtesting and all research commands
+are unaffected. See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
+
 ## Local setup (Mac, Python 3.12+)
 
 1. `python3 -m venv .venv && source .venv/bin/activate`
@@ -12,8 +21,11 @@ Operational playbooks. The authoritative spec is
 5. `bot sync-instruments --config configs/paper.yaml`
 6. `bot fetch-candles --config configs/paper.yaml --instrument EUR_USD --granularity H4 --count 1000`
 7. `bot backtest --config configs/paper.yaml`
-8. `bot paper-loop --config configs/paper.yaml --once`
-9. Only after the above is clean: `bot demo-loop --config configs/practice.yaml --once`.
+8. `bot paper-loop --config configs/paper.yaml --once` — **refused
+   while the research is frozen** (no approved strategy).
+9. `bot demo-loop --config configs/practice.yaml --once` — likewise
+   refused. Loops run only after a strategy is approved in
+   `configs/approved_strategies.yaml`.
 
 ## Kill switch
 

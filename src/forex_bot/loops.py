@@ -37,6 +37,7 @@ from forex_bot.domain.signals import Signal
 from forex_bot.execution.executor import ExecutionResult, Executor
 from forex_bot.execution.planner import Planner
 from forex_bot.execution.reconciliation import Reconciler
+from forex_bot.guards import assert_loop_strategies_approved
 from forex_bot.logging_config import get_logger
 from forex_bot.risk.policy import RiskEngine, RiskInputs
 from forex_bot.strategies.base import Strategy, StrategyContext
@@ -122,6 +123,9 @@ def run_paper_loop(
     spreads: SpreadSnapshotRepo,
     events: SystemEventRepo,
 ) -> LoopOutcome:
+    # Research-freeze guard: refuse to run any strategy not in the
+    # approved-strategy registry. Backtests are unaffected.
+    assert_loop_strategies_approved("paper", settings.strategy.enabled)
     risk_engine = RiskEngine(settings)
     planner = Planner(risk=risk_engine, signals=signals, decisions=decisions, plans=plans)
     return _execute_loop(
@@ -151,6 +155,10 @@ def run_practice_loop(
     orders: BrokerOrderRepo,
     transactions: TransactionRepo,
 ) -> LoopOutcome:
+    # Research-freeze guard: refuse to run any strategy not in the
+    # approved-strategy registry. Live mode is additionally blocked by
+    # the existing config-layer live gates.
+    assert_loop_strategies_approved("demo", settings.strategy.enabled)
     risk_engine = RiskEngine(settings)
     planner = Planner(risk=risk_engine, signals=signals, decisions=decisions, plans=plans)
     reconciler = Reconciler(

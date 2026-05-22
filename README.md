@@ -8,6 +8,37 @@ practice mode. Live trading is gated behind multiple explicit flags and
 a manually approved config hash; see
 [`forex_bot_founders_pack/12_ACCEPTANCE_CRITERIA.md`](forex_bot_founders_pack/12_ACCEPTANCE_CRITERIA.md).
 
+## Research status — FROZEN (NO-GO)
+
+**This repository is currently a research / backtesting platform. There
+is no approved trading strategy.**
+
+Nine backtest campaigns (CAMPAIGN_001–009) and Research Marathon 001
+tested five strategy families on real OANDA practice data. None earned
+even PAPER-TRADE-ONLY status under its pre-committed gates. The research
+is frozen — see [`docs/research/FINAL_RESEARCH_DECISION_MEMO.md`](docs/research/FINAL_RESEARCH_DECISION_MEMO.md).
+
+- **No approved strategy.** `configs/approved_strategies.yaml` is empty.
+- **Order-capable loops are blocked.** `paper-loop`, `demo-loop`, and
+  live mode refuse to start unless a strategy is explicitly listed in
+  the approved-strategy registry — a deliberate human action that has
+  not been taken.
+- **All existing campaigns are historical research.** Their reports and
+  artifacts are immutable evidence; see
+  [`docs/research/EVIDENCE_INDEX.md`](docs/research/EVIDENCE_INDEX.md).
+- **Backtesting and research remain fully available** — only the
+  signal-emitting / order-capable loops are gated.
+- **Standing infrastructure blockers:** financing/swap is unmodeled
+  in-engine, and D1 (daily) backtesting is invalid (rollover
+  contamination). Both must be resolved before any future live
+  consideration.
+
+Research-freeze documents:
+[decision memo](docs/research/FINAL_RESEARCH_DECISION_MEMO.md) ·
+[strategy status](docs/research/STRATEGY_STATUS.md) ·
+[evidence index](docs/research/EVIDENCE_INDEX.md) ·
+[future backlog](docs/research/FUTURE_RESEARCH_BACKLOG.md).
+
 ## Non-negotiable principles
 
 1. **No LLM in the live order path.**
@@ -41,16 +72,19 @@ bot fetch-candles --config configs/paper.yaml --instrument EUR_USD --granularity
 bot backtest --config configs/paper.yaml --instrument EUR_USD --granularity H4
 
 # 6. Run a single paper-loop iteration.
+#    NOTE: the paper-loop currently REFUSES to run — the research freeze
+#    means no strategy is approved (see "Research status" above).
 bot paper-loop --config configs/paper.yaml --once
 
 # 7. Generate a weekly report.
 bot report weekly --config configs/paper.yaml --out reports/
 ```
 
-To exercise the practice loop (still no live trading), switch to
-`configs/practice.yaml`. It enables `trading_enabled` and
-`allow_order_submission`, but `allow_live_trading` and broker
-environment remain practice-only.
+The practice (demo) loop uses `configs/practice.yaml`. It enables
+`trading_enabled` and `allow_order_submission`, but `allow_live_trading`
+and the broker environment remain practice-only. **As of the research
+freeze the demo-loop also refuses to run** — no strategy is approved in
+`configs/approved_strategies.yaml`.
 
 ```bash
 bot demo-loop --config configs/practice.yaml --once
