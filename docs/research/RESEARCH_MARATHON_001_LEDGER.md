@@ -99,3 +99,16 @@ Newest entries at the bottom.
 - Status: **complete**. Ladder finished → Phase 5.
 
 ---
+
+### Phase 5 — marathon conclusion: NO-GO
+
+- 4 campaigns run (005 diagnostic, 006/007/008 hypotheses). Ladder
+  complete; no broad-optimizer search performed.
+- **No strategy reached PAPER-TRADE-ONLY.** No reported test window
+  was opened for any marathon strategy (screening discipline held).
+- Marathon outcome: **NO-GO** — a valid negative-evidence result.
+- One near-miss: CAMPAIGN_008 mean reversion (validation +0.172 R,
+  6/6 pairs, cost-stress survivor) — failed screening by train −0.017
+  R only; handed to human review.
+- Conclusion: `docs/research/RESEARCH_MARATHON_001_NO_GO.md`.
+- Status: **MARATHON COMPLETE.**
