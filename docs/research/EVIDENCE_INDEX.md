@@ -63,6 +63,30 @@ Diagnostics scripts live under `scripts/` (e.g. `diagnostics_campaign_002.py`),
 and per-run risk-rejection CSVs are committed under each campaign's
 `backtests/campaign_00X*/runs/` tree.
 
+## Diagnostic & parity artifacts (NOT strategy evidence)
+
+Infrastructure outputs from the `infra-execution-fidelity-001` and
+`infra-data-parity-001` sprints. **These are not campaign evidence.**
+They are mechanical plumbing checks and independent-verification
+inputs — none measures, implies, or can establish a strategy edge, and
+none can approve anything. The machine-readable manifest lists them
+under `diagnostic_artifacts` with `strategy_evidence: false`, enforced
+by `scripts/validate_research_archive.py`.
+
+| artifact | what it is |
+|---|---|
+| [`backtests/diagnostics/d1agg_next_open_smoke.md`](../../backtests/diagnostics/d1agg_next_open_smoke.md) | D1AGG + next-bar-open fill-path smoke (single-pair) |
+| [`backtests/diagnostics/d1agg_next_open_six_pair_smoke.md`](../../backtests/diagnostics/d1agg_next_open_six_pair_smoke.md) | D1AGG + next-bar-open smoke across the six majors |
+| [`research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md`](../../research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md) | Lean-parity export bundle for the CAMPAIGN_002 H4 baseline |
+
+Supporting infrastructure docs:
+[fill-timing model](FILL_TIMING_MODEL.md) ·
+[Lean parity execution](LEAN_PARITY_EXECUTION_GUIDE.md) ·
+[Lean parity local status](LEAN_PARITY_LOCAL_STATUS.md) ·
+[OANDA H4 rehydration](OANDA_H4_DATA_REHYDRATION.md) ·
+[data rehydration runbook](DATA_REHYDRATION_RUNBOOK.md) ·
+[data/parity sprint plan](INFRA_DATA_PARITY_001_PLAN.md).
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
@@ -80,7 +104,9 @@ and per-run risk-rejection CSVs are committed under each campaign's
   family, data source, verdict, key metrics, commit hash, artifact
   folder, whether the test window was opened, whether the RiskEngine was
   used, the financing treatment, and `strategy_approved` (false for
-  every campaign).
+  every campaign). Manifest version 2 adds a `diagnostic_artifacts`
+  array — the diagnostic / parity outputs above, each carrying
+  `strategy_evidence: false`.
 - [`scripts/validate_research_archive.py`](../../scripts/validate_research_archive.py)
   audits the archive's integrity. Run it any time — before trusting a
   report, after editing docs, or in CI:
@@ -93,8 +119,10 @@ and per-run risk-rejection CSVs are committed under each campaign's
   report and artifact folder named in the manifest exists, that no
   campaign is marked approved, that every verdict is a non-approval
   verdict, that each report corroborates its manifest verdict, that
-  every link in this index resolves, and that no committed artifact
-  contains a credential-shaped string. The check logic lives in
+  every declared diagnostic artifact exists and is not marked strategy
+  evidence, that every link in this index resolves, and that no
+  committed artifact contains a credential-shaped string. The check
+  logic lives in
   `forex_bot.research_archive` and is unit-tested by
   `tests/unit/test_validate_research_archive.py`.
 

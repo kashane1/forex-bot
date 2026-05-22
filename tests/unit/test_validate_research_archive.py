@@ -13,6 +13,7 @@ import pytest
 
 from forex_bot.research_archive import (
     check_artifact_folders_exist,
+    check_diagnostic_artifacts,
     check_evidence_index_links,
     check_manifest_schema,
     check_no_approved_strategy,
@@ -119,6 +120,39 @@ def test_credential_scan_passes_a_clean_file(tmp_path):
     clean = tmp_path / "clean.md"
     clean.write_text("config hash abcdef0123456789 — no credentials here\n", encoding="utf-8")
     assert scan_files_for_credentials([clean]).ok is True
+
+
+def test_diagnostic_artifacts_check_passes_on_valid_entries(tmp_path):
+    (tmp_path / "smoke.md").write_text("diagnostic\n", encoding="utf-8")
+    entries = [
+        {"artifact_id": "X", "path": "smoke.md", "strategy_evidence": False},
+    ]
+    assert check_diagnostic_artifacts(entries, repo_root=tmp_path).ok is True
+    # An empty diagnostics list is fine.
+    assert check_diagnostic_artifacts([], repo_root=tmp_path).ok is True
+
+
+def test_diagnostic_artifacts_check_catches_a_missing_artifact(tmp_path):
+    entries = [{"artifact_id": "X", "path": "nope.md", "strategy_evidence": False}]
+    assert check_diagnostic_artifacts(entries, repo_root=tmp_path).ok is False
+
+
+def test_diagnostic_artifacts_check_catches_a_strategy_evidence_claim(tmp_path):
+    """A diagnostic artifact may never claim to be strategy evidence."""
+    (tmp_path / "smoke.md").write_text("diagnostic\n", encoding="utf-8")
+    entries = [{"artifact_id": "X", "path": "smoke.md", "strategy_evidence": True}]
+    assert check_diagnostic_artifacts(entries, repo_root=tmp_path).ok is False
+    # A missing flag is treated as a claim too — it must be explicitly false.
+    entries = [{"artifact_id": "X", "path": "smoke.md"}]
+    assert check_diagnostic_artifacts(entries, repo_root=tmp_path).ok is False
+
+
+def test_real_manifest_diagnostic_artifacts_are_present_and_not_evidence():
+    manifest = load_manifest()
+    diagnostics = manifest.get("diagnostic_artifacts", [])
+    assert diagnostics, "the manifest should declare diagnostic artifacts"
+    assert all(d["strategy_evidence"] is False for d in diagnostics)
+    assert check_diagnostic_artifacts(diagnostics).ok is True
 
 
 if __name__ == "__main__":  # pragma: no cover

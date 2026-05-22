@@ -184,6 +184,41 @@ def check_no_approved_strategy(campaigns: list[dict]) -> CheckResult:
     )
 
 
+def check_diagnostic_artifacts(
+    diagnostics: list[dict], repo_root: Path = REPO_ROOT
+) -> CheckResult:
+    """Every declared diagnostic / parity artifact exists and is
+    explicitly flagged as NOT strategy evidence.
+
+    Diagnostic and parity artifacts (D1AGG smokes, Lean-parity exports)
+    are mechanical infrastructure outputs. This check keeps them
+    machine-distinguishable from campaign evidence — a diagnostic
+    artifact may never carry `strategy_evidence` true.
+    """
+    msgs: list[str] = []
+    for entry in diagnostics:
+        aid = entry.get("artifact_id", "<unknown>")
+        rel = entry.get("path")
+        if not rel:
+            msgs.append(f"{aid}: no path")
+        elif not (repo_root / rel).is_file():
+            msgs.append(f"{aid}: artifact missing: {rel}")
+        if entry.get("strategy_evidence") is not False:
+            msgs.append(
+                f"{aid}: strategy_evidence must be false — a diagnostic "
+                "artifact is never strategy evidence"
+            )
+    if msgs:
+        return CheckResult("diagnostic_artifacts", False, msgs)
+    return CheckResult(
+        "diagnostic_artifacts", True,
+        [
+            f"{len(diagnostics)} diagnostic artifact(s) present; none claim "
+            "strategy evidence"
+        ],
+    )
+
+
 def check_verdicts_non_approval(campaigns: list[dict]) -> CheckResult:
     """Every campaign verdict is a known non-approval verdict."""
     msgs: list[str] = []
@@ -308,6 +343,7 @@ def validate_archive(repo_root: Path = REPO_ROOT) -> ArchiveValidation:
     try:
         manifest = load_manifest(manifest_path)
         campaigns = manifest.get("campaigns", [])
+        diagnostics = manifest.get("diagnostic_artifacts", [])
     except (OSError, json.JSONDecodeError) as exc:
         checks.append(CheckResult("manifest_load", False, [f"cannot load manifest: {exc}"]))
         return ArchiveValidation(checks)
@@ -319,6 +355,7 @@ def validate_archive(repo_root: Path = REPO_ROOT) -> ArchiveValidation:
     checks.append(check_no_approved_strategy(campaigns))
     checks.append(check_verdicts_non_approval(campaigns))
     checks.append(check_report_verdict_tokens(campaigns, repo_root))
+    checks.append(check_diagnostic_artifacts(diagnostics, repo_root))
     checks.append(
         check_evidence_index_links(
             repo_root / "docs" / "research" / "EVIDENCE_INDEX.md", repo_root

@@ -1,8 +1,8 @@
 {
-  "manifest_version": 1,
-  "description": "Machine-readable index of all research evidence (CAMPAIGN_001-009). Audited by scripts/validate_research_archive.py. Every campaign is unapproved; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze.",
+  "manifest_version": 2,
+  "description": "Machine-readable index of all research evidence: nine campaigns (CAMPAIGN_001-009) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze.",
   "generated": "2026-05-22",
-  "branch": "infra-research-foundation-001",
+  "branch": "infra-data-parity-001",
   "no_approved_strategy": true,
   "campaigns": [
     {
@@ -171,6 +171,29 @@
       "risk_engine_used": true,
       "financing_treatment": "estimated",
       "strategy_approved": false
+    }
+  ],
+  "diagnostic_artifacts": [
+    {
+      "artifact_id": "D1AGG_NEXT_OPEN_SMOKE",
+      "path": "backtests/diagnostics/d1agg_next_open_smoke.md",
+      "kind": "diagnostic_smoke",
+      "description": "Mechanical D1AGG + next-bar-open fill-path smoke, single-pair (infra-execution-fidelity-001). A plumbing check driven by a fixed-bar diagnostic probe — not strategy evidence.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "D1AGG_NEXT_OPEN_SIX_PAIR_SMOKE",
+      "path": "backtests/diagnostics/d1agg_next_open_six_pair_smoke.md",
+      "kind": "diagnostic_smoke",
+      "description": "Mechanical D1AGG + next-bar-open fill-path smoke across the six majors (infra-data-parity-001). A plumbing check driven by a fixed-bar diagnostic probe — not strategy evidence.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "LEAN_PARITY_CAMPAIGN_002_EXPORT",
+      "path": "research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md",
+      "kind": "lean_parity_export",
+      "description": "Lean-parity export bundle manifest for the CAMPAIGN_002 H4 baseline. Independent-engine verification input — not strategy evidence; cannot approve a strategy.",
+      "strategy_evidence": false
     }
   ]
 }
