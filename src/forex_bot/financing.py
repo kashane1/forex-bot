@@ -34,7 +34,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from decimal import Decimal
-from enum import Enum
+from enum import StrEnum
 
 # Conservative carry cost, basis points of notional per calendar day a
 # position is open. Each value is the worse (more expensive) of the long
@@ -139,7 +139,7 @@ def financing_debit_r(
 # PnL; the engine's behaviour corresponds to NoFinancingModel (UNMODELED).
 
 
-class FinancingTreatment(str, Enum):
+class FinancingTreatment(StrEnum):
     """How financing is treated for a backtest / campaign / approval.
 
     * MODELED   — real per-day financing is in the engine's PnL. No
