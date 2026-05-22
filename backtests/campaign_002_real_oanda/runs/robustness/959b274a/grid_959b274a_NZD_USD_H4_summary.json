@@ -1,0 +1,53 @@
+{
+  "instrument": "NZD_USD",
+  "strategy_name": "trend_following",
+  "strategy_version": "0.1.0-grid-ef40-es250-dl15-atr2.5",
+  "granularity": "H4",
+  "from_time": "2020-01-01T22:00:00+00:00",
+  "to_time": "2026-05-19T21:00:00+00:00",
+  "config_hash": "4842819852353ec7",
+  "data_request_hash": "b62683f67f9fc916",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -1.6016162360394937,
+    "final_equity": 491.99191881980255,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.60161623603949,
+    "max_drawdown_duration_bars": 9476,
+    "sharpe": -0.5591922321228733,
+    "sortino": -0.1616338121624417,
+    "profit_factor": 0.5329399802896195,
+    "expectancy_r": -0.17687232659752644,
+    "average_r": -0.17687232659752644,
+    "median_r": -0.32270714275455026,
+    "win_rate": 0.3611111111111111,
+    "average_win": 0.7028954353131653,
+    "average_loss": -0.7454661669247251,
+    "trade_count": 36,
+    "largest_single_loss": -1.252475,
+    "average_spread_paid_pips": 2.3333333333333335,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-grid-ef40-es250-dl15-atr2.5",
+    "timeframe": "H4",
+    "ema_fast": 40,
+    "ema_slow": 250,
+    "donchian_lookback": 15,
+    "atr_lookback": 14,
+    "atr_stop_multiple": 2.5,
+    "trailing_stop_atr_multiple": 2.5,
+    "max_bars_in_trade": 240
+  },
+  "split": "full",
+  "cost_regime": "base",
+  "label": "grid_959b274a_NZD_USD_H4",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TOO_WIDE": 279,
+    "SPREAD_TO_ATR": 601,
+    "SESSION_BLOCKED": 98
+  },
+  "rejected_signal_count": 645
+}

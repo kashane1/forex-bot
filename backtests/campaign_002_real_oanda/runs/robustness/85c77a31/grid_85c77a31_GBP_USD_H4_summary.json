@@ -1,0 +1,53 @@
+{
+  "instrument": "GBP_USD",
+  "strategy_name": "trend_following",
+  "strategy_version": "0.1.0-grid-ef50-es250-dl20-atr2.0",
+  "granularity": "H4",
+  "from_time": "2020-01-01T22:00:00+00:00",
+  "to_time": "2026-05-19T21:00:00+00:00",
+  "config_hash": "ae0d5c663db67367",
+  "data_request_hash": "ca2a95816825492e",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -4.43548910080872,
+    "final_equity": 477.8225544959564,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -6.673831720922843,
+    "max_drawdown_duration_bars": 8709,
+    "sharpe": -0.4297496152040767,
+    "sortino": -0.4500616712411895,
+    "profit_factor": 0.7882386209121823,
+    "expectancy_r": -0.0907243538985132,
+    "average_r": -0.0907243538985132,
+    "median_r": -0.3461461091224991,
+    "win_rate": 0.35384615384615387,
+    "average_win": 1.1963916776408563,
+    "average_loss": -0.8311783433433573,
+    "trade_count": 195,
+    "largest_single_loss": -1.26973,
+    "average_spread_paid_pips": 1.8123076923076922,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-grid-ef50-es250-dl20-atr2.0",
+    "timeframe": "H4",
+    "ema_fast": 50,
+    "ema_slow": 250,
+    "donchian_lookback": 20,
+    "atr_lookback": 14,
+    "atr_stop_multiple": 2.0,
+    "trailing_stop_atr_multiple": 2.0,
+    "max_bars_in_trade": 240
+  },
+  "split": "full",
+  "cost_regime": "base",
+  "label": "grid_85c77a31_GBP_USD_H4",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TOO_WIDE": 21,
+    "SPREAD_TO_ATR": 21,
+    "SESSION_BLOCKED": 28
+  },
+  "rejected_signal_count": 55
+}

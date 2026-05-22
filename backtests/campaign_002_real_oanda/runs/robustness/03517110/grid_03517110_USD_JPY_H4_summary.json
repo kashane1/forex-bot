@@ -1,0 +1,53 @@
+{
+  "instrument": "USD_JPY",
+  "strategy_name": "trend_following",
+  "strategy_version": "0.1.0-grid-ef60-es250-dl30-atr2.5",
+  "granularity": "H4",
+  "from_time": "2020-01-01T22:00:00+00:00",
+  "to_time": "2026-05-19T21:00:00+00:00",
+  "config_hash": "1589a8ebf3622819",
+  "data_request_hash": "e1a6a5025f0cdc19",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": 0.9120987563378424,
+    "final_equity": 504.56049378168916,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -3.2339249701467794,
+    "max_drawdown_duration_bars": 5395,
+    "sharpe": 0.09878583815866245,
+    "sortino": 0.09935253987956394,
+    "profit_factor": 1.0548133529319201,
+    "expectancy_r": 0.00027837420427396505,
+    "average_r": 0.00027837420427396505,
+    "median_r": -0.0024282682926604886,
+    "win_rate": 0.35668789808917195,
+    "average_win": 1.5671591082612666,
+    "average_loss": -0.8237664978310992,
+    "trade_count": 157,
+    "largest_single_loss": -1.3113890312660175,
+    "average_spread_paid_pips": 1.532484076433121,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-grid-ef60-es250-dl30-atr2.5",
+    "timeframe": "H4",
+    "ema_fast": 60,
+    "ema_slow": 250,
+    "donchian_lookback": 30,
+    "atr_lookback": 14,
+    "atr_stop_multiple": 2.5,
+    "trailing_stop_atr_multiple": 2.5,
+    "max_bars_in_trade": 240
+  },
+  "split": "full",
+  "cost_regime": "base",
+  "label": "grid_03517110_USD_JPY_H4",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SESSION_BLOCKED": 39,
+    "SPREAD_TO_ATR": 12,
+    "SPREAD_TOO_WIDE": 26
+  },
+  "rejected_signal_count": 65
+}

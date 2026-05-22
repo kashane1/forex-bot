@@ -1,0 +1,53 @@
+{
+  "instrument": "USD_CHF",
+  "strategy_name": "trend_following",
+  "strategy_version": "0.1.0-baseline-frozen",
+  "granularity": "H1",
+  "from_time": "2020-01-01T22:00:00+00:00",
+  "to_time": "2026-05-20T00:00:00+00:00",
+  "config_hash": "702fe6a48f4cdce5",
+  "data_request_hash": "dca1554f6332a604",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -3.6951418726196783,
+    "final_equity": 481.5242906369016,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -3.695141872619683,
+    "max_drawdown_duration_bars": 38391,
+    "sharpe": -0.9044074728513688,
+    "sortino": -0.34178998629869795,
+    "profit_factor": 0.4510483087298958,
+    "expectancy_r": -0.3144308731989651,
+    "average_r": -0.3144308731989651,
+    "median_r": -0.602827567890889,
+    "win_rate": 0.3018867924528302,
+    "average_win": 0.9487899383197195,
+    "average_loss": -0.9096310371949737,
+    "trade_count": 53,
+    "largest_single_loss": -1.266686197456283,
+    "average_spread_paid_pips": 1.609433962264151,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-baseline-frozen",
+    "timeframe": "H4",
+    "ema_fast": 50,
+    "ema_slow": 200,
+    "donchian_lookback": 20,
+    "atr_lookback": 14,
+    "atr_stop_multiple": 2.0,
+    "trailing_stop_atr_multiple": 2.0,
+    "max_bars_in_trade": 240
+  },
+  "split": "full",
+  "cost_regime": "base",
+  "label": "cost_base_USD_CHF_H1",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TO_ATR": 2373,
+    "SPREAD_TOO_WIDE": 200,
+    "SESSION_BLOCKED": 46
+  },
+  "rejected_signal_count": 2380
+}

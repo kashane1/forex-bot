@@ -1,0 +1,53 @@
+{
+  "instrument": "GBP_USD",
+  "strategy_name": "trend_following",
+  "strategy_version": "0.1.0-baseline-frozen",
+  "granularity": "H1",
+  "from_time": "2020-01-01T22:00:00+00:00",
+  "to_time": "2022-12-30T21:00:00+00:00",
+  "config_hash": "702fe6a48f4cdce5",
+  "data_request_hash": "5d2bcf993066cafe",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -5.065128553183296,
+    "final_equity": 474.6743572340835,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -6.150029421525008,
+    "max_drawdown_duration_bars": 17304,
+    "sharpe": -0.7360053979686382,
+    "sortino": -0.9374316543274296,
+    "profit_factor": 0.7896194800756384,
+    "expectancy_r": -0.09288133374351384,
+    "average_r": -0.09288133374351384,
+    "median_r": -0.3884371293831923,
+    "win_rate": 0.37155963302752293,
+    "average_win": 1.1735126826494877,
+    "average_loss": -0.8786873727045604,
+    "trade_count": 218,
+    "largest_single_loss": -1.274,
+    "average_spread_paid_pips": 1.7348623853211012,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-baseline-frozen",
+    "timeframe": "H4",
+    "ema_fast": 50,
+    "ema_slow": 200,
+    "donchian_lookback": 20,
+    "atr_lookback": 14,
+    "atr_stop_multiple": 2.0,
+    "trailing_stop_atr_multiple": 2.0,
+    "max_bars_in_trade": 240
+  },
+  "split": "train",
+  "cost_regime": "base",
+  "label": "baseline_GBP_USD_H1_train",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TOO_WIDE": 63,
+    "SPREAD_TO_ATR": 579,
+    "SESSION_BLOCKED": 16
+  },
+  "rejected_signal_count": 594
+}

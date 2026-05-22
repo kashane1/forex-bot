@@ -1,0 +1,53 @@
+{
+  "instrument": "EUR_USD",
+  "strategy_name": "trend_following",
+  "strategy_version": "0.1.0-grid-ef50-es200-dl30-atr2.5",
+  "granularity": "H4",
+  "from_time": "2020-01-01T22:00:00+00:00",
+  "to_time": "2026-05-19T21:00:00+00:00",
+  "config_hash": "64fb65762c64c9ea",
+  "data_request_hash": "ed353315b8ffd5a9",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -5.875161620780722,
+    "final_equity": 470.62419189609636,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -7.432618642314861,
+    "max_drawdown_duration_bars": 8943,
+    "sharpe": -0.826336603467886,
+    "sortino": -0.6860781807720755,
+    "profit_factor": 0.5973282710826718,
+    "expectancy_r": -0.18636103947435573,
+    "average_r": -0.18636103947435573,
+    "median_r": -0.49851411892455855,
+    "win_rate": 0.3125,
+    "average_win": 1.0894110143726834,
+    "average_loss": -0.8290028258955803,
+    "trade_count": 128,
+    "largest_single_loss": -1.2669,
+    "average_spread_paid_pips": 1.3968749999999999,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-grid-ef50-es200-dl30-atr2.5",
+    "timeframe": "H4",
+    "ema_fast": 50,
+    "ema_slow": 200,
+    "donchian_lookback": 30,
+    "atr_lookback": 14,
+    "atr_stop_multiple": 2.5,
+    "trailing_stop_atr_multiple": 2.5,
+    "max_bars_in_trade": 240
+  },
+  "split": "full",
+  "cost_regime": "base",
+  "label": "grid_12efd448_EUR_USD_H4",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TOO_WIDE": 118,
+    "SESSION_BLOCKED": 34,
+    "SPREAD_TO_ATR": 23
+  },
+  "rejected_signal_count": 144
+}

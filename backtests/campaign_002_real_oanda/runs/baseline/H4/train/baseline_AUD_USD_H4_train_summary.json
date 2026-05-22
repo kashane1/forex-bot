@@ -1,0 +1,53 @@
+{
+  "instrument": "AUD_USD",
+  "strategy_name": "trend_following",
+  "strategy_version": "0.1.0-baseline-frozen",
+  "granularity": "H4",
+  "from_time": "2020-01-01T22:00:00+00:00",
+  "to_time": "2022-12-30T18:00:00+00:00",
+  "config_hash": "702fe6a48f4cdce5",
+  "data_request_hash": "a99b361405ea09f9",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -4.094740709170397,
+    "final_equity": 479.526296454148,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -4.622451393685272,
+    "max_drawdown_duration_bars": 3927,
+    "sharpe": -0.923829334813004,
+    "sortino": -0.8664016047591304,
+    "profit_factor": 0.6517610992927396,
+    "expectancy_r": -0.16028270427336683,
+    "average_r": -0.16028270427336683,
+    "median_r": -0.423194984544438,
+    "win_rate": 0.30097087378640774,
+    "average_win": 1.2360779785535423,
+    "average_loss": -0.8165572344584956,
+    "trade_count": 103,
+    "largest_single_loss": -1.26929,
+    "average_spread_paid_pips": 1.3825242718446602,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-baseline-frozen",
+    "timeframe": "H4",
+    "ema_fast": 50,
+    "ema_slow": 200,
+    "donchian_lookback": 20,
+    "atr_lookback": 14,
+    "atr_stop_multiple": 2.0,
+    "trailing_stop_atr_multiple": 2.0,
+    "max_bars_in_trade": 240
+  },
+  "split": "train",
+  "cost_regime": "base",
+  "label": "baseline_AUD_USD_H4_train",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TO_ATR": 10,
+    "SPREAD_TOO_WIDE": 13,
+    "SESSION_BLOCKED": 24
+  },
+  "rejected_signal_count": 38
+}

@@ -1,0 +1,53 @@
+{
+  "instrument": "GBP_USD",
+  "strategy_name": "trend_following",
+  "strategy_version": "0.1.0-baseline-frozen",
+  "granularity": "H4",
+  "from_time": "2023-01-01T22:00:00+00:00",
+  "to_time": "2024-12-30T22:00:00+00:00",
+  "config_hash": "702fe6a48f4cdce5",
+  "data_request_hash": "1f50c172361a28f9",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -3.383305366405698,
+    "final_equity": 483.08347316797153,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -3.995471150403284,
+    "max_drawdown_duration_bars": 2866,
+    "sharpe": -1.1394522012047765,
+    "sortino": -1.2669066740340664,
+    "profit_factor": 0.5528694579500395,
+    "expectancy_r": -0.2056107295349037,
+    "average_r": -0.2056107295349037,
+    "median_r": -0.44687238286288716,
+    "win_rate": 0.30303030303030304,
+    "average_win": 1.045850164600906,
+    "average_loss": -0.8224680461749255,
+    "trade_count": 66,
+    "largest_single_loss": -1.24784,
+    "average_spread_paid_pips": 1.746969696969697,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-baseline-frozen",
+    "timeframe": "H4",
+    "ema_fast": 50,
+    "ema_slow": 200,
+    "donchian_lookback": 20,
+    "atr_lookback": 14,
+    "atr_stop_multiple": 2.0,
+    "trailing_stop_atr_multiple": 2.0,
+    "max_bars_in_trade": 240
+  },
+  "split": "validation",
+  "cost_regime": "base",
+  "label": "baseline_GBP_USD_H4_validation",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SESSION_BLOCKED": 3,
+    "SPREAD_TOO_WIDE": 1,
+    "SPREAD_TO_ATR": 8
+  },
+  "rejected_signal_count": 10
+}

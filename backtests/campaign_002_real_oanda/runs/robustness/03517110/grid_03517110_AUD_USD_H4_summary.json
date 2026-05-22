@@ -1,0 +1,53 @@
+{
+  "instrument": "AUD_USD",
+  "strategy_name": "trend_following",
+  "strategy_version": "0.1.0-grid-ef60-es250-dl30-atr2.5",
+  "granularity": "H4",
+  "from_time": "2020-01-01T22:00:00+00:00",
+  "to_time": "2026-05-19T21:00:00+00:00",
+  "config_hash": "1589a8ebf3622819",
+  "data_request_hash": "c36cbd0228ebffc4",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "metrics": {
+    "total_return_pct": -6.466309637112211,
+    "final_equity": 467.6684518144389,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -7.585318962269094,
+    "max_drawdown_duration_bars": 9449,
+    "sharpe": -0.8191647662686246,
+    "sortino": -0.6921534382688316,
+    "profit_factor": 0.5953485784220796,
+    "expectancy_r": -0.1775417250694742,
+    "average_r": -0.1775417250694742,
+    "median_r": -0.4296249941296487,
+    "win_rate": 0.28187919463087246,
+    "average_win": 1.1325762786505997,
+    "average_loss": -0.7467266531671596,
+    "trade_count": 149,
+    "largest_single_loss": -1.258215,
+    "average_spread_paid_pips": 1.3302013422818793,
+    "exposure_pct": 0.0
+  },
+  "strategy_params": {
+    "version": "0.1.0-grid-ef60-es250-dl30-atr2.5",
+    "timeframe": "H4",
+    "ema_fast": 60,
+    "ema_slow": 250,
+    "donchian_lookback": 30,
+    "atr_lookback": 14,
+    "atr_stop_multiple": 2.5,
+    "trailing_stop_atr_multiple": 2.5,
+    "max_bars_in_trade": 240
+  },
+  "split": "full",
+  "cost_regime": "base",
+  "label": "grid_03517110_AUD_USD_H4",
+  "data_source": "oanda-practice",
+  "risk_engine_used": true,
+  "rejection_counts": {
+    "SPREAD_TOO_WIDE": 13,
+    "SPREAD_TO_ATR": 18,
+    "SESSION_BLOCKED": 29
+  },
+  "rejected_signal_count": 47
+}
