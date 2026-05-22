@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import importlib.util
 import sys
-from datetime import UTC, datetime, timedelta
+from datetime import UTC, date, datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
 
@@ -204,8 +204,78 @@ def test_report_states_diagnostic_only_disclaimers():
         data_source="fixture",
         provenance=smoke.Check("data_is_real_oanda", True, "fixture"),
     )
-    text = smoke.render_report("test mode", [result], []).lower()
+    text = smoke.render_report("test mode", [result], [], {}).lower()
     assert "diagnostic-only" in text
     assert "no strategy evidence" in text
     assert "no trading recommendation" in text
     assert "no approval" in text
+
+
+# --------------------------------------------------------------------------
+# Six-pair smoke from an H4 store
+# --------------------------------------------------------------------------
+
+
+def _h4_trading_day(instrument: str, day: date, base: Decimal) -> list[Candle]:
+    """Six well-formed H4 candles for one OANDA trading day (NY 17/21/01/
+    05/09/13 = UTC 22/02/06/10/14/18 in winter EST), monotone in price."""
+    prev = day - timedelta(days=1)
+    times = [datetime(prev.year, prev.month, prev.day, 22, tzinfo=UTC)] + [
+        datetime(day.year, day.month, day.day, h, tzinfo=UTC)
+        for h in (2, 6, 10, 14, 18)
+    ]
+    step = Decimal("0.0010")
+    out: list[Candle] = []
+    for k, t in enumerate(times):
+        o = base + step * k
+        out.append(
+            Candle(
+                instrument=instrument, granularity="H4", time=t,
+                complete=True, volume=100,
+                bid_o=o, bid_h=o + Decimal("0.0030"),
+                bid_l=o - Decimal("0.0030"), bid_c=o + step,
+                ask_o=o + Decimal("0.0002"), ask_h=o + Decimal("0.0032"),
+                ask_l=o - Decimal("0.0028"), ask_c=o + step + Decimal("0.0002"),
+            )
+        )
+    return out
+
+
+def _seed_pair(db: Database, pair: str, *, source: str, days: int = 16) -> None:
+    candles: list[Candle] = []
+    for offset in range(days):
+        candles += _h4_trading_day(
+            pair, date(2024, 1, 2) + timedelta(days=offset), Decimal("1.1000")
+        )
+    CandleRepo(db).upsert_many(
+        candles, source=source, price_components="BA", request_hash="x"
+    )
+
+
+def test_six_pair_smoke_covers_all_majors(temp_db):
+    """smoke_from_store aggregates and smokes every one of the six majors."""
+    for pair in smoke.SIX_MAJORS:
+        _seed_pair(temp_db, pair, source="oanda-practice")
+    smokes, blockers, coverage = smoke.smoke_from_store(temp_db.path)
+
+    assert blockers == []
+    assert {s.instrument for s in smokes} == set(smoke.SIX_MAJORS)
+    assert len(smokes) == 6
+    assert all(s.ok for s in smokes), [
+        (s.instrument, [c.name for c in s.checks if not c.ok]) for s in smokes
+    ]
+    assert all("aggregated" in coverage[pair] for pair in smoke.SIX_MAJORS)
+
+
+def test_six_pair_smoke_refuses_a_synthetic_pair(temp_db):
+    """A pair whose candles are not real OANDA is refused, not smoked."""
+    for pair in smoke.SIX_MAJORS:
+        _seed_pair(temp_db, pair, source="oanda-practice")
+    _seed_pair(temp_db, "USD_CHF", source="synthetic-v1")  # overwrite the source
+
+    smokes, blockers, coverage = smoke.smoke_from_store(temp_db.path)
+    assert "USD_CHF" not in {s.instrument for s in smokes}
+    assert "refused" in coverage["USD_CHF"]
+    assert any("USD_CHF" in b for b in blockers)
+    # The other five still smoke cleanly.
+    assert len(smokes) == 5

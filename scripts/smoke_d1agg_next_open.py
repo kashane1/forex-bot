@@ -56,9 +56,10 @@ from forex_bot.domain.signals import Signal
 from forex_bot.strategies.base import StrategyContext
 
 SIX_MAJORS = ["EUR_USD", "GBP_USD", "USD_JPY", "AUD_USD", "USD_CAD", "USD_CHF"]
-DEFAULT_DB = ROOT / "data" / "campaign_002.sqlite3"
+# The rehydrated real-OANDA H4 store (scripts/rehydrate_oanda_h4_store.py).
+DEFAULT_DB = ROOT / "data" / "oanda_h4_research.sqlite3"
 SAMPLE_CSV = ROOT / "research" / "d1_aggregation" / "sample_EUR_USD_H4_to_D1.csv"
-DEFAULT_OUT = ROOT / "backtests" / "diagnostics" / "d1agg_next_open_smoke.md"
+DEFAULT_OUT = ROOT / "backtests" / "diagnostics" / "d1agg_next_open_six_pair_smoke.md"
 
 # Per-major pip metadata. USD_JPY is the only JPY pair (pip_location -2).
 _PIP_LOCATION = {"USD_JPY": -2}
@@ -86,6 +87,7 @@ class InstrumentSmoke:
     instrument: str
     data_source: str
     d1agg_count: int
+    data_hash: str | None = None
     checks: list[Check] = field(default_factory=list)
 
     @property
@@ -337,8 +339,9 @@ def smoke_instrument(
     *,
     data_source: str,
     provenance: Check,
+    data_hash: str | None = None,
 ) -> InstrumentSmoke:
-    smoke = InstrumentSmoke(instrument.name, data_source, len(d1agg))
+    smoke = InstrumentSmoke(instrument.name, data_source, len(d1agg), data_hash=data_hash)
     smoke.checks.append(provenance)
     smoke.checks.append(check_blackout(d1agg))
     smoke.checks.append(check_next_bar_open_data_available(d1agg))
@@ -347,34 +350,92 @@ def smoke_instrument(
     return smoke
 
 
+def smoke_from_store(
+    db_path: Path,
+) -> tuple[list[InstrumentSmoke], list[str], dict[str, str]]:
+    """Run the six-pair smoke against a real OANDA H4 store: aggregate
+    each major to D1AGG and smoke it. Returns the per-instrument smokes,
+    any blockers, and a six-pair coverage map. Synthetic-sourced candles
+    are refused outright."""
+    db = Database(db_path)
+    repo = CandleRepo(db)
+    smokes: list[InstrumentSmoke] = []
+    blockers: list[str] = []
+    coverage: dict[str, str] = {}
+    for pair in SIX_MAJORS:
+        h4 = repo.list(pair, "H4", completed_only=True)
+        if not h4:
+            blockers.append(f"{pair}: no H4 candles in the store")
+            coverage[pair] = "blocked — no H4 candles in store"
+            continue
+        sources = distinct_h4_sources(db, pair)
+        if not sources or not all(s.startswith("oanda") for s in sources):
+            blockers.append(
+                f"{pair}: H4 source(s) {sources} are not real OANDA — refused"
+            )
+            coverage[pair] = f"refused — non-OANDA source {sources}"
+            continue
+        agg = aggregate_h4_to_d1(list(h4), instrument=pair)
+        provenance = Check(
+            "data_is_real_oanda", True,
+            f"H4 source(s) {sources}; {agg.aggregated_count} trading days "
+            f"aggregated; source_hash {agg.source_hash[:16]}…",
+        )
+        smokes.append(
+            smoke_instrument(
+                make_instrument(pair), agg.candles,
+                data_source=f"OANDA H4 → D1AGG ({len(h4)} H4 bars)",
+                provenance=provenance,
+                data_hash=agg.source_hash,
+            )
+        )
+        coverage[pair] = (
+            f"aggregated — {agg.aggregated_count} D1AGG bars, "
+            f"source_hash {agg.source_hash[:12]}…"
+        )
+    return smokes, blockers, coverage
+
+
 # --------------------------------------------------------------------------
 # Report
 # --------------------------------------------------------------------------
 
 
 def render_report(
-    mode: str, smokes: list[InstrumentSmoke], blockers: list[str]
+    mode: str,
+    smokes: list[InstrumentSmoke],
+    blockers: list[str],
+    coverage: dict[str, str],
 ) -> str:
     all_ok = bool(smokes) and all(s.ok for s in smokes)
     lines = [
-        "# D1AGG + next-bar-open — diagnostic smoke report",
+        "# D1AGG + next-bar-open — six-pair diagnostic smoke report",
         "",
         "**DIAGNOSTIC-ONLY.** This report contains **no strategy evidence**, "
         "**no trading recommendation**, and **no approval**. It is a "
         "mechanical plumbing check of the D1AGG aggregation path and the "
-        "`next_bar_open` fill timing. The engine here is driven by a "
-        "deterministic fixed-bar *diagnostic probe* with no indicators and "
-        "no edge logic; its trades are mechanical artifacts, not results. "
-        "No strategy was run, no campaign was opened, no test-window "
-        "research decision was made, and the research freeze is unaffected.",
+        "`next_bar_open` fill timing across the six major pairs. The engine "
+        "here is driven by a deterministic fixed-bar *diagnostic probe* with "
+        "no indicators and no edge logic; its trades are mechanical "
+        "artifacts, not results. No strategy was run, no campaign was opened, "
+        "no test-window research decision was made, and the research freeze "
+        "is unaffected.",
         "",
         f"- Generated: `{datetime.now().isoformat(timespec='seconds')}`",
         f"- Data mode: **{mode}**",
         f"- Overall mechanical status: **{'PASS' if all_ok else 'FAIL'}**",
-        "- See `docs/research/FILL_TIMING_MODEL.md` and "
-        "`docs/research/D1_AGGREGATION_DESIGN.md`.",
+        "- See `docs/research/FILL_TIMING_MODEL.md`, "
+        "`docs/research/D1_AGGREGATION_DESIGN.md`, and "
+        "`docs/research/OANDA_H4_DATA_REHYDRATION.md`.",
         "",
+        "## Instrument coverage (six majors)",
+        "",
+        "| pair | status |",
+        "|---|---|",
     ]
+    for pair in SIX_MAJORS:
+        lines.append(f"| {pair} | {coverage.get(pair, 'not evaluated')} |")
+    lines.append("")
 
     if blockers:
         lines += ["## Blockers / limitations", ""]
@@ -383,9 +444,12 @@ def render_report(
             "",
             "A blocker here is a *data-availability* limitation, not a "
             "mechanical failure. The six-pair H4→D1AGG smoke needs a real "
-            "OANDA H4 candle store; `data/` is gitignored and this sprint "
-            "does not fetch from OANDA. The mechanical D1AGG→`next_bar_open` "
-            "verification below still runs on real, provenance-tracked data.",
+            "OANDA practice H4 store — rebuild it with "
+            "`scripts/rehydrate_oanda_h4_store.py` (see "
+            "`docs/research/OANDA_H4_DATA_REHYDRATION.md`). The store is "
+            "gitignored and never committed. The mechanical "
+            "D1AGG→`next_bar_open` verification below still runs on real, "
+            "provenance-tracked data.",
             "",
         ]
 
@@ -395,6 +459,7 @@ def render_report(
             "",
             f"- Data source: {smoke.data_source}",
             f"- D1AGG bars: {smoke.d1agg_count}",
+            f"- Data hash: `{smoke.data_hash or 'n/a'}`",
             "",
             "| check | status | detail |",
             "|---|---|---|",
@@ -427,11 +492,12 @@ def render_report(
 
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser(
-        description="Diagnostic-only D1AGG + next_bar_open smoke check."
+        description="Diagnostic-only six-pair D1AGG + next_bar_open smoke check."
     )
     ap.add_argument(
         "--db", default=str(DEFAULT_DB),
-        help="SQLite store of real OANDA H4 candles (default: data/campaign_002.sqlite3)",
+        help="SQLite store of real OANDA H4 candles "
+        "(default: data/oanda_h4_research.sqlite3)",
     )
     ap.add_argument(
         "--out", default=str(DEFAULT_OUT), help="output diagnostic report path",
@@ -447,68 +513,48 @@ def _display_path(path: Path) -> str:
         return str(path)
 
 
+def _sample_source_hash() -> str | None:
+    meta_path = SAMPLE_CSV.with_suffix(".meta.json")
+    if not meta_path.exists():
+        return None
+    return json.loads(meta_path.read_text(encoding="utf-8")).get("source_hash")
+
+
 def main() -> int:
     args = parse_args()
     db_path = Path(args.db)
     db_display = _display_path(db_path)
-    smokes: list[InstrumentSmoke] = []
-    blockers: list[str] = []
 
     if db_path.exists():
         mode = f"real OANDA H4 store ({db_display})"
-        db = Database(db_path)
-        repo = CandleRepo(db)
-        for pair in SIX_MAJORS:
-            h4 = repo.list(pair, "H4", completed_only=True)
-            if not h4:
-                blockers.append(f"{pair}: no H4 candles in {db_path.name}")
-                continue
-            sources = distinct_h4_sources(db, pair)
-            if not sources or not all(s.startswith("oanda") for s in sources):
-                # Refuse synthetic / unknown-provenance data outright.
-                blockers.append(
-                    f"{pair}: H4 source(s) {sources} are not real OANDA — refused"
-                )
-                continue
-            agg = aggregate_h4_to_d1(list(h4), instrument=pair)
-            provenance = Check(
-                "data_is_real_oanda", True,
-                f"H4 source(s) {sources}; {agg.aggregated_count} trading days "
-                f"aggregated, source_hash {agg.source_hash[:16]}…",
-            )
-            smokes.append(
-                smoke_instrument(
-                    make_instrument(pair), agg.candles,
-                    data_source=f"OANDA H4 → D1AGG ({len(h4)} H4 bars)",
-                    provenance=provenance,
-                )
-            )
+        smokes, blockers, coverage = smoke_from_store(db_path)
     else:
         mode = "committed D1AGG sample (no real OANDA H4 store present)"
-        blockers.append(
+        smokes, blockers = [], [
             f"no real OANDA H4 candle store at {db_display} — the six-pair "
-            "H4→D1AGG aggregation smoke could not run for "
-            f"{', '.join(SIX_MAJORS)}"
-        )
+            f"H4→D1AGG aggregation smoke could not run for {', '.join(SIX_MAJORS)}"
+        ]
+        coverage = {pair: "blocked — no H4 store" for pair in SIX_MAJORS}
 
     # Fallback so the mechanical verification always runs on real data.
     if not smokes:
         if not SAMPLE_CSV.exists():
             blockers.append(f"committed D1AGG sample missing: {SAMPLE_CSV}")
         else:
-            sample = load_d1agg_sample(SAMPLE_CSV)
             smokes.append(
                 smoke_instrument(
-                    make_instrument("EUR_USD"), sample,
+                    make_instrument("EUR_USD"),
+                    load_d1agg_sample(SAMPLE_CSV),
                     data_source=(
                         f"committed real D1AGG sample "
                         f"{SAMPLE_CSV.relative_to(ROOT)}"
                     ),
                     provenance=check_sample_provenance(SAMPLE_CSV),
+                    data_hash=_sample_source_hash(),
                 )
             )
 
-    report = render_report(mode, smokes, blockers)
+    report = render_report(mode, smokes, blockers, coverage)
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(report, encoding="utf-8")
