@@ -295,6 +295,26 @@ fetched. No MODELED financing. Live blocker remains.**
 | [`FINANCING_OBSERVED_CAPTURE_PILOT_STATUS.md`](FINANCING_OBSERVED_CAPTURE_PILOT_STATUS.md) | headline status — script (`scripts/capture_oanda_observed_financing_pilot.py`), tests (27 cases pass), no broker data fetched, no MODELED, live blocker remains |
 | [`RESEARCH_FINANCING_OBSERVED_CAPTURE_PILOT_001_SUMMARY.md`](RESEARCH_FINANCING_OBSERVED_CAPTURE_PILOT_001_SUMMARY.md) | sprint summary & handoff |
 
+### Financing bp/day fixture expansion (`research-financing-bp-day-fixture-expansion-001`)
+
+Synthetic-data sprint. Expands the rate-fixture coverage so
+all seven CAMPAIGN_002 H4 universe pairs (EUR_USD,
+GBP_USD, USD_JPY, AUD_USD, USD_CAD, USD_CHF, NZD_USD)
+have committed synthetic rate fixtures + a non-EUR
+observed companion. Infrastructure only — no broker call,
+no code change in `research/financing/` Python, no
+production-path change. Every fixture continues to feed
+`TableRateSource(treatment=ESTIMATED)`; **MODELED is
+refused at all four pipeline layers**. The live blocker
+remains.
+
+| document | what it is |
+|---|---|
+| [`FINANCING_BP_DAY_FIXTURE_EXPANSION_001_PLAN.md`](FINANCING_BP_DAY_FIXTURE_EXPANSION_001_PLAN.md) | sprint plan |
+| [`FINANCING_BP_DAY_FIXTURE_EXPANSION_CONVENTIONS.md`](FINANCING_BP_DAY_FIXTURE_EXPANSION_CONVENTIONS.md) | per-pair sign / precision / missing-rate / triple-swap / weekend conventions; contributor checklist for adding more pair fixtures |
+| [`FINANCING_BP_DAY_FIXTURE_EXPANSION_SYNTHETIC_RUNS.md`](FINANCING_BP_DAY_FIXTURE_EXPANSION_SYNTHETIC_RUNS.md) | 7 synthetic reconciliation runs (commands, exit codes, summaries); confirms no broker data fetched |
+| [`FINANCING_BP_DAY_FIXTURE_EXPANSION_STATUS.md`](FINANCING_BP_DAY_FIXTURE_EXPANSION_STATUS.md) | headline status — 7-pair coverage, fixture files added, tests (16 cases pass), synthetic run status, MODELED unavailable, live blocker remains |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
