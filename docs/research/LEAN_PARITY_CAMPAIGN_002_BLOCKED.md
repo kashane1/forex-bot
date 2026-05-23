@@ -4,6 +4,20 @@
 **Supersedes:** the `infra-lean-parity-001` Phase 4 blocker (the faithful
 algorithm now exists; the blocker has moved downstream).
 
+> **SUPERSEDED — QuantConnect/LEAN CLI execution is RETIRED for this
+> project** (decision date 2026-05-22, branch
+> `infra-retire-quantconnect-lean-001`). The blocker described here
+> (and any later `lean init` / `lean login` / "create a free
+> QuantConnect account" instruction in this file) is **retired**. The
+> free-tier QuantConnect account does not provide the API access
+> required for the intended local LEAN CLI workflow, and a paid
+> QuantConnect upgrade has been declined. **Do not run `lean login`,
+> `lean init`, or any LEAN backtest.** See
+> `docs/research/QUANTCONNECT_LEAN_RETIREMENT_DECISION.md` and
+> `docs/research/FREE_LOCAL_PARITY_VERIFIER_PLAN.md`. The LEAN
+> algorithm and harness are preserved as historical infrastructure
+> evidence only. No LEAN result exists; CAMPAIGN_002 remains REJECT.
+
 The local Lean parity **dry run for CAMPAIGN_002 H4 was not executed.**
 No Lean result was produced and **none was fabricated** — there is no
 `LEAN_PARITY_CAMPAIGN_002_RESULT.md` and no

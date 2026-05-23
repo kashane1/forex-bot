@@ -2,6 +2,20 @@
 
 **Date:** 2026-05-22 · **Branch:** `infra-lean-parity-execute-001` · Phase 1
 
+> **SUPERSEDED — QuantConnect/LEAN CLI execution is RETIRED for this
+> project** (decision date 2026-05-22, branch
+> `infra-retire-quantconnect-lean-001`). The workspace state described
+> below is preserved as historical evidence of the environment at the
+> point the LEAN path was retired. **Do not run `lean login`,
+> `lean init`, or any other LEAN/QuantConnect-authenticating
+> command.** The free-tier QuantConnect account does not provide the
+> API access required for the intended local LEAN CLI workflow, and a
+> paid QuantConnect upgrade has been declined. The local `/tmp/lean-venv`
+> Lean CLI install and the absence of `~/.lean/credentials` are both
+> left as-is; nothing in this project is expected to use them. See
+> `docs/research/QUANTCONNECT_LEAN_RETIREMENT_DECISION.md` and
+> `docs/research/FREE_LOCAL_PARITY_VERIFIER_PLAN.md`.
+
 The factual state of the local Lean tooling, authentication, and
 workspace, captured at the start of this sprint. The auth check is a
 **file-presence test only** — no QuantConnect credential is read,
@@ -38,16 +52,17 @@ the algorithm would be copied. None has been created here.
 
 ## Blockers
 
-1. **Lean CLI authentication is absent.** `lean init` requires a
-   QuantConnect user id + API token to scaffold a workspace (it
-   authenticates to the QuantConnect API and downloads Lean's
-   reference-data bundle). Without `~/.lean/credentials`, `lean init`
-   aborts at the credentials prompt and no workspace is created.
-
-   Detail and the exact next steps: `LEAN_PARITY_EXECUTE_BLOCKED.md`.
+1. **QuantConnect/LEAN CLI path is RETIRED for this project.** The
+   reason is no longer "auth absent": it is an explicit decision not
+   to use QuantConnect because the free-tier account does not provide
+   the API access required for the intended local LEAN CLI workflow,
+   and a paid QuantConnect upgrade has been declined. **No further
+   LEAN/QuantConnect authentication will be attempted.** See
+   `QUANTCONNECT_LEAN_RETIREMENT_DECISION.md`. The replacement path is
+   `FREE_LOCAL_PARITY_VERIFIER_PLAN.md`.
 
 2. **The `quantconnect/lean` Docker engine image is not pulled** —
-   downstream of `lean init`; not reached.
+   downstream of `lean init`; not reached, and now retired.
 
 ## Safety statement
 

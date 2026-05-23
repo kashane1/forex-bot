@@ -3,6 +3,24 @@
 **Date:** 2026-05-22 · **Branch:** `infra-lean-parity-execute-001`
 **Base commit:** `f1c9d9f` (HEAD of `infra-lean-parity-run-001`)
 
+> **SUPERSEDED — QuantConnect/LEAN CLI execution is RETIRED for this
+> project** (decision date 2026-05-22, branch
+> `infra-retire-quantconnect-lean-001`). The free-tier QuantConnect
+> account does not provide the API access required for the intended
+> local LEAN CLI workflow, and a paid QuantConnect upgrade has been
+> declined. **No further LEAN authentication attempts are to be made.**
+> Any wording below that recommends creating a (free) QuantConnect
+> account, running `lean login`, or running `lean init` is retired and
+> must not be acted on. The existing LEAN algorithm / mapping spec /
+> harness artifacts are preserved as **historical infrastructure
+> evidence only**. No LEAN result exists; no LEAN comparison exists;
+> no strategy is approved; CAMPAIGN_002 remains **REJECT**;
+> paper / demo / live remain blocked.
+> See `docs/research/QUANTCONNECT_LEAN_RETIREMENT_DECISION.md` for the
+> decision record and
+> `docs/research/FREE_LOCAL_PARITY_VERIFIER_PLAN.md` for the replacement
+> direction.
+
 This sprint was prepared to run the local Lean parity backtest if Lean
 CLI credentials were already present on this machine. They were **not
 present**, and per the sprint's auth-handling rules the sprint did not
@@ -112,29 +130,33 @@ No new local files were created this sprint that aren't committed.
 
 ## Remaining blockers
 
-1. **`~/.lean/credentials` absent** — a deliberate human decision is
-   needed: create a (free) QuantConnect account and `lean login`. This
-   sprint did not take that step on the user's behalf, per its rules.
-2. **The Lean algorithm is not yet validated** — even with auth, the
-   first run will need a debugging iteration (custom-data path,
-   resolution, slice semantics).
+1. **QuantConnect/LEAN CLI path is RETIRED** — see the supersedence
+   banner above and
+   `docs/research/QUANTCONNECT_LEAN_RETIREMENT_DECISION.md`. The
+   free-tier QuantConnect account does not provide the API access
+   required for the intended local LEAN CLI workflow; a paid
+   QuantConnect upgrade is declined. **No further LEAN authentication
+   attempts are to be made.**
+2. **The Lean algorithm was never validated** — and will not be under
+   this branch's direction. It remains in the tree as historical
+   infrastructure evidence only.
 3. **Financing is estimated / stress-only** — standing live blocker.
 
 ## Recommended next human decision points
 
-1. Decide whether to create a free QuantConnect account and run
-   `lean login` + `lean init` on this machine. Once `~/.lean/credentials`
-   exists, this sprint's machinery (algorithm, harness, reference,
-   CSVs) is ready to drive a local Lean parity backtest end-to-end —
-   see `LEAN_PARITY_EXECUTE_BLOCKED.md` for the exact commands.
-2. If the resulting Lean run diverges, treat it per
-   `LEAN_PARITY_COMPARISON_METHOD.md`: localize a Lean-side parity bug
-   (fix it) or document a real bespoke-engine discrepancy — never tune
-   it away.
+1. **Do NOT** create a QuantConnect account, run `lean login`, or run
+   `lean init`. The LEAN CLI path is retired. The replacement direction
+   is a free / local independent verifier — see
+   `docs/research/FREE_LOCAL_PARITY_VERIFIER_PLAN.md`.
+2. Reviewing the comparison-method doc (`LEAN_PARITY_COMPARISON_METHOD.md`)
+   is still useful: its tolerance and divergence-classification framing
+   carries over to the free / local verifier, even though the LEAN
+   implementation will not run.
 3. The research freeze stands. The bespoke engine is internally
-   reproducible (exact CAMPAIGN_002 reproduction), but not yet
-   corroborated by an independent engine — and even a full parity PASS
-   would approve nothing.
+   reproducible (exact CAMPAIGN_002 reproduction), but **not** yet
+   corroborated by an independent engine. The free / local verifier
+   plan is the replacement path — and even a full PASS there would
+   approve nothing.
 
 ## Files to review first
 

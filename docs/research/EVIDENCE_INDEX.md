@@ -67,9 +67,9 @@ and per-run risk-rejection CSVs are committed under each campaign's
 
 Infrastructure outputs from the `infra-execution-fidelity-001`,
 `infra-data-parity-001`, `oanda-practice-readonly-001`,
-`infra-lean-parity-001`, `infra-lean-parity-run-001`, and
-`infra-lean-parity-execute-001` sprints. **These are not campaign
-evidence.**
+`infra-lean-parity-001`, `infra-lean-parity-run-001`,
+`infra-lean-parity-execute-001`, and `infra-retire-quantconnect-lean-001`
+sprints. **These are not campaign evidence.**
 They are mechanical plumbing checks and independent-verification
 inputs — none measures, implies, or can establish a strategy edge, and
 none can approve anything. The machine-readable manifest lists them
@@ -85,8 +85,8 @@ by `scripts/validate_research_archive.py`.
 
 Supporting infrastructure docs:
 [fill-timing model](FILL_TIMING_MODEL.md) ·
-[Lean parity execution](LEAN_PARITY_EXECUTION_GUIDE.md) ·
-[Lean parity local status](LEAN_PARITY_LOCAL_STATUS.md) ·
+[Lean parity execution](LEAN_PARITY_EXECUTION_GUIDE.md) (LEAN path retired — historical) ·
+[Lean parity local status](LEAN_PARITY_LOCAL_STATUS.md) (LEAN path retired — historical) ·
 [OANDA H4 rehydration](OANDA_H4_DATA_REHYDRATION.md) ·
 [data rehydration runbook](DATA_REHYDRATION_RUNBOOK.md) ·
 [data/parity sprint plan](INFRA_DATA_PARITY_001_PLAN.md).
@@ -148,6 +148,20 @@ execution did not proceed and no Lean result was fabricated.
 | [`LEAN_LOCAL_WORKSPACE_STATUS.md`](LEAN_LOCAL_WORKSPACE_STATUS.md) | local Lean tooling / auth / workspace state |
 | [`LEAN_PARITY_EXECUTE_BLOCKED.md`](LEAN_PARITY_EXECUTE_BLOCKED.md) | precise execution blocker + exact next human steps |
 | [`INFRA_LEAN_PARITY_EXECUTE_001_SUMMARY.md`](INFRA_LEAN_PARITY_EXECUTE_001_SUMMARY.md) | sprint summary & handoff |
+
+### QuantConnect/LEAN retirement (`infra-retire-quantconnect-lean-001`)
+
+QuantConnect/LEAN CLI execution is **retired** for this project
+(decision date 2026-05-22). The free-tier QuantConnect account does
+not provide the API access required for the intended local LEAN CLI
+workflow, and a paid QuantConnect upgrade is declined. The LEAN
+algorithm / mapping spec / harness artifacts are preserved as
+**historical infrastructure evidence only**; no LEAN result exists; no
+LEAN comparison exists; no strategy is approved; CAMPAIGN_002 remains
+**REJECT**; paper / demo / live remain blocked. The replacement
+direction is a free / local independent verifier. The retirement
+decision record, the verifier plan, and the sprint summary are added
+to this index by their respective phases of this branch.
 
 ## Research-freeze documents (this branch)
 

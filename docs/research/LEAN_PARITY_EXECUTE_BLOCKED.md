@@ -2,6 +2,22 @@
 
 **Date:** 2026-05-22 · **Branch:** `infra-lean-parity-execute-001` · Phase 1
 
+> **SUPERSEDED — QuantConnect/LEAN CLI execution is RETIRED for this
+> project** (decision date 2026-05-22, branch
+> `infra-retire-quantconnect-lean-001`). The blocker described here is
+> no longer "auth absent, please log in"; it is now an explicit project
+> decision **not to use QuantConnect/LEAN** because the free-tier
+> QuantConnect account does not provide the API access required for
+> the intended local LEAN CLI workflow, and a paid QuantConnect
+> upgrade has been declined. **Do not run `lean login`, `lean init`, or
+> any other command that authenticates to QuantConnect.** The "Exact
+> next steps" below are retired and must not be acted on; they are
+> retained only as historical evidence of what the prior plan was.
+> See `docs/research/QUANTCONNECT_LEAN_RETIREMENT_DECISION.md` for the
+> decision record and
+> `docs/research/FREE_LOCAL_PARITY_VERIFIER_PLAN.md` for the replacement
+> direction.
+
 The local Lean parity **execution was not performed.** No Lean backtest
 ran and no Lean result was fabricated — there is no
 `LEAN_PARITY_CAMPAIGN_002_RESULT.md` (this sprint), no
@@ -61,42 +77,30 @@ Everything the run needs except the workspace:
 - **Comparison harness** —
   `scripts/compare_lean_campaign_002_parity.py` (tested).
 
-## Exact next steps (deliberate human decision)
+## Exact next steps (RETIRED — do not run)
 
-A human who chooses to create a free QuantConnect account can complete
-the run — the algorithm and harness are ready. **This sprint does not
-take that step itself**, per its rules.
+> The command list below was the prior plan and is **retired**. The
+> QuantConnect/LEAN CLI path will not be reopened unless the user
+> explicitly says so. **Do not run `lean login`, `lean init`, or
+> `lean backtest`. Do not create a QuantConnect account. Do not
+> connect a paid QuantConnect upgrade.** This block is preserved only
+> as historical evidence of what the prior plan would have done.
 
 ```bash
-# 1. Authenticate the Lean CLI to QuantConnect (free account). This
-#    writes ~/.lean/credentials; the values stay local to the user.
-/tmp/lean-venv/bin/lean login          # interactive: user id + API token
-
-# 2. Initialise a Lean workspace OUTSIDE this repo:
-cd ~/scratch && /tmp/lean-venv/bin/lean init
-
-# 3. Create a Lean project; copy in the committed algorithm:
-#    research/lean_parity/algorithms/campaign_002_h4_baseline/{main.py,config.json}
-
-# 4. Place the exported candle CSVs where the custom-data reader
-#    expects them — a campaign_002_h4/ folder under the Lean data
-#    directory. Regenerate them via
-#    research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md
-#    if they are not present in your checkout.
-
-# 5. Run the local Docker backtest (pulls the quantconnect/lean image
-#    on first invocation):
-/tmp/lean-venv/bin/lean backtest "<project>"
-
-# 6. Compare against the bespoke reference:
-python3 scripts/compare_lean_campaign_002_parity.py \
-    --lean <path-to>/parity_summary.json \
-    --out docs/research/LEAN_PARITY_CAMPAIGN_002_RESULT.md
+# RETIRED — do not run. Preserved for historical accuracy.
+# /tmp/lean-venv/bin/lean login          # would authenticate to QuantConnect
+# cd ~/scratch && /tmp/lean-venv/bin/lean init
+# /tmp/lean-venv/bin/lean backtest "<project>"
+# python3 scripts/compare_lean_campaign_002_parity.py \
+#     --lean <path-to>/parity_summary.json \
+#     --out docs/research/LEAN_PARITY_CAMPAIGN_002_RESULT.md
 ```
 
-Per `LEAN_ALGORITHM_IMPLEMENTATION_NOTES.md`, the algorithm is authored
-offline and **not yet validated** — a first run is expected to need a
-debugging iteration (custom-data path, resolution, slice semantics).
+For the active path forward, see
+`docs/research/FREE_LOCAL_PARITY_VERIFIER_PLAN.md`. The algorithm at
+`research/lean_parity/algorithms/campaign_002_h4_baseline/main.py`
+remains as historical infrastructure evidence only and is not
+expected to be executed under this project.
 
 ## What this sprint did and did not do
 

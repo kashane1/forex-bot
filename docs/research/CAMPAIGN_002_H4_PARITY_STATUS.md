@@ -10,6 +10,24 @@ sprint and now also documented in
 [`LEAN_PARITY_EXECUTE_BLOCKED.md`](LEAN_PARITY_EXECUTE_BLOCKED.md) with
 the auth-specific detail and verbatim next-step commands.
 
+> **SUPERSEDED for the LEAN path — QuantConnect/LEAN CLI execution is
+> RETIRED for this project** (decision date 2026-05-22, branch
+> `infra-retire-quantconnect-lean-001`). The free-tier QuantConnect
+> account does not provide the API access required for the intended
+> local LEAN CLI workflow, and a paid QuantConnect upgrade has been
+> declined. **Do not create a QC account, do not run `lean login`, do
+> not run `lean init`, do not run any LEAN backtest.** The
+> independent-engine parity gap described below is **not** going to be
+> closed by LEAN; the replacement direction is a free / local
+> independent verifier — see
+> [`FREE_LOCAL_PARITY_VERIFIER_PLAN.md`](FREE_LOCAL_PARITY_VERIFIER_PLAN.md)
+> and the decision record in
+> [`QUANTCONNECT_LEAN_RETIREMENT_DECISION.md`](QUANTCONNECT_LEAN_RETIREMENT_DECISION.md).
+> The LEAN algorithm / mapping spec / harness artifacts referenced in
+> this doc are preserved as **historical infrastructure evidence only.**
+> CAMPAIGN_002 remains **REJECT** regardless of any parity work, LEAN
+> or otherwise.
+
 A human-readable status of independent-engine parity for the
 CAMPAIGN_002 H4 `trend_following` baseline. `strategy_evidence: false` —
 parity verifies the *measurement instrument* (the bespoke backtest
@@ -71,15 +89,18 @@ Lean. `docs/research/LEAN_ALGORITHM_IMPLEMENTATION_NOTES.md` documents
 every approximation and the Lean-mechanics differences a first run is
 expected to surface.
 
-## Lean run status — BLOCKED
+## Lean run status — RETIRED
 
-The local Lean backtest **was not executed**. `lean init` — the standard
-step to scaffold a Lean workspace — requires **QuantConnect account
-credentials** (a user id + API token) and aborts without them. The
-sprint rules forbid using QuantConnect cloud or requiring such
-credentials, so this sprint did not authenticate. Full detail, the
-verbatim CLI output, and the exact next steps are in
-`docs/research/LEAN_PARITY_CAMPAIGN_002_BLOCKED.md`.
+The local Lean backtest **was not executed and will not be executed
+under this project**. QuantConnect/LEAN CLI execution is retired
+(decision date 2026-05-22) because the free-tier QuantConnect account
+does not provide the API access required for the intended local LEAN
+CLI workflow, and a paid QuantConnect upgrade has been declined. No
+LEAN result exists, no LEAN comparison exists, and no further LEAN
+authentication attempts are to be made. See
+`QUANTCONNECT_LEAN_RETIREMENT_DECISION.md`. The historical "auth
+absent" record is in `LEAN_PARITY_EXECUTE_BLOCKED.md` (also marked
+superseded).
 
 ## Comparison result
 
@@ -103,13 +124,15 @@ tested and will run the moment a Lean `parity_summary.json` exists.
 
 ## Exact next step
 
-A human who creates a free QuantConnect account can run `lean init`,
-copy in the committed algorithm, place the exported CSVs, run
-`lean backtest`, and feed the result to
-`scripts/compare_lean_campaign_002_parity.py` — see
-`LEAN_PARITY_CAMPAIGN_002_BLOCKED.md` for the exact commands. The first
-run is expected to need a debugging iteration before its numbers are
-trustworthy.
+The LEAN-based independent-engine parity path is **retired**. The
+replacement direction is a free / local independent verifier — see
+`FREE_LOCAL_PARITY_VERIFIER_PLAN.md` for candidate approaches and the
+recommended plan. The free / local verifier will use the same
+no-RiskEngine bespoke reference (1,647 trades) and the same seven-pair
+H4 export bundle, and will reuse the divergence-classification framing
+from `LEAN_PARITY_COMPARISON_METHOD.md`. Until the free / local
+verifier is implemented and run, the bespoke engine remains internally
+reproducible but not yet corroborated by an independent engine.
 
 ## What would count as successful parity
 
