@@ -368,6 +368,35 @@ baseline (702 prior + 33 new) is preserved.
 | [`CAMPAIGN_010_FINANCING_RISK_READINESS.md`](CAMPAIGN_010_FINANCING_RISK_READINESS.md) | financing + portfolio-risk readiness: ESTIMATED-only via default_stress_rate_source(); per-pair TableRateSource diagnostic sample; MODELED refused at four layers; expected 0–1 rollover events per trade; risk-engine diagnostic checklist with note on conservative max_open_positions=1 |
 | [`ASIAN_LONDON_SESSION_BREAKOUT_001_SUMMARY.md`](ASIAN_LONDON_SESSION_BREAKOUT_001_SUMMARY.md) | sprint summary & handoff |
 
+### CAMPAIGN_010 walk-forward evidence (`research-asian-london-session-breakout-walk-forward-001`)
+
+Walk-forward evidence sprint that ran the full
+`PREFERRED_CANDIDATE_EVALUATION_DESIGN` pipeline against the
+`session_breakout 0.1.0-c010` candidate on the 7-pair × 6-year
+real OANDA practice H4 universe. Verdict: **REJECT** —
+`fold_pass_rate = 0/8`, `aggregate_expectancy_r = -0.0408`,
+`profit_factor = 0.04`, `pairs_positive = 1/7` (USD_CHF only,
+which flips to net negative under conservative-stress financing).
+CAMPAIGN_010 reclassifies from `candidate-scaffold (no verdict)`
+to `rejected`. `configs/approved_strategies.yaml` remains
+`approved: []`; CAMPAIGN_002 remains REJECT and untouched.
+Paper / demo / live remain blocked. No broker call, no credential
+read, no engine edit.
+
+| document | what it is |
+|---|---|
+| [`ASIAN_LONDON_SESSION_BREAKOUT_WALK_FORWARD_001_PLAN.md`](ASIAN_LONDON_SESSION_BREAKOUT_WALK_FORWARD_001_PLAN.md) | Phase 0 repo truth audit + 8-phase sprint plan; baseline 735 pytests pass; data status (existing 7-pair × 6-year H4 store reused via gitignored symlink) |
+| [`CAMPAIGN_010_DATA_PROVENANCE.md`](CAMPAIGN_010_DATA_PROVENANCE.md) | Phase 1 data provenance — per-pair counts, first/last bar timestamps, recorded raw/normalized SHA-256 prefixes; reconfirms `source=oanda-practice`; no rehydration this sprint |
+| [`CAMPAIGN_010_WALK_FORWARD_PLAN.md`](CAMPAIGN_010_WALK_FORWARD_PLAN.md) | Phase 2 authoritative walk-forward plan — 8 folds rolling/frozen, 540/180/180/180 days, universe 2020-01-01 → 2026-05-20, `validate_plan()` PASS, `strategy_evidence=false` Pydantic-pinned |
+| [`CAMPAIGN_010_WALK_FORWARD_EXECUTION.md`](CAMPAIGN_010_WALK_FORWARD_EXECUTION.md) | Phase 3 per-fold execution — 56 backtests (8 folds × 7 pairs) in 7.9 s, 2,791 trades, frozen-parameter assertion in runner, no implementation bug fixes required |
+| [`CAMPAIGN_010_WALK_FORWARD_RESULT.md`](CAMPAIGN_010_WALK_FORWARD_RESULT.md) | Phase 4 formal verdict — REJECT against verbatim gates from `CAMPAIGN_010_PRECOMMIT_CHECKLIST.md` §10 (5 gates fail, 4 pass) |
+| [`CAMPAIGN_010_FINANCING_OVERLAY.md`](CAMPAIGN_010_FINANCING_OVERLAY.md) | Phase 5 financing overlay — ESTIMATED + `default_stress_rate_source()` (MODELED refused at four layers); 2,483 rollover events; cashflow_home_stress_total = -$55.69; USD_CHF flips +→- under stress |
+| [`CAMPAIGN_010_PORTFOLIO_RISK_DIAGNOSTICS.md`](CAMPAIGN_010_PORTFOLIO_RISK_DIAGNOSTICS.md) | Phase 6 risk diagnostics — concurrency structurally bounded; per-pair exposure under risk cap; 75.5 % time-stop exit; RiskEngine rejected 29.8 % of raw signals as cost-unsafe |
+| [`CAMPAIGN_010_INDEPENDENT_VERIFIER_STATUS.md`](CAMPAIGN_010_INDEPENDENT_VERIFIER_STATUS.md) | Phase 7 verifier capability assessment — verifier capability-locked to CAMPAIGN_002 trend_following; did NOT run for CAMPAIGN_010; would only matter for a hypothetical PASS (not for this REJECT) |
+| [`CAMPAIGN_010_EVIDENCE_SUMMARY.md`](CAMPAIGN_010_EVIDENCE_SUMMARY.md) | Phase 8 one-page evidence summary — headline numbers, six-evidence-ladder status, committed artifact tree, safety state |
+| [`CAMPAIGN_010_STATUS.md`](CAMPAIGN_010_STATUS.md) (updated) | now reclassified `candidate-scaffold → rejected`; verdict, gates, evidence artifacts, safety state |
+| [`ASIAN_LONDON_SESSION_BREAKOUT_WALK_FORWARD_001_SUMMARY.md`](ASIAN_LONDON_SESSION_BREAKOUT_WALK_FORWARD_001_SUMMARY.md) | sprint summary & handoff |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |

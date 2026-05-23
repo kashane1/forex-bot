@@ -35,22 +35,25 @@ strategy is approved.**
 | `pullback_continuation` | rejected | NO | NO | NO | CAMPAIGN_007 |
 | `mean_reversion 0.1.0-c008` | rejected (research-only) | NO | NO | NO | CAMPAIGN_008 |
 | `mean_reversion 0.2.0-c009` | rejected (research-only) | NO | NO | NO | CAMPAIGN_009 |
-| `session_breakout 0.1.0-c010` | candidate-scaffold (no verdict) | NO | NO | NO | CAMPAIGN_010 (scaffold only) |
+| `session_breakout 0.1.0-c010` | rejected | NO | NO | NO | CAMPAIGN_010 |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
 validly backtested by the current engine.
 
-`session_breakout 0.1.0-c010` is a **research candidate scaffold**, not
-a rejected strategy: it has been implemented, unit-tested, and
-config-loaded, but no backtest has been run and no walk-forward /
-financing / risk-diagnostic evidence has been produced. The
-`candidate-scaffold (no verdict)` status persists until a future
-evidence sprint either passes every gate in
+`session_breakout 0.1.0-c010` is **rejected**: the
+`research-asian-london-session-breakout-walk-forward-001`
+evidence sprint ran the full 8-fold walk-forward (rolling, frozen,
+540/180/180/180 days, 7-pair OANDA practice H4 universe), the
+ESTIMATED + conservative-stress financing overlay, and the
+portfolio-risk diagnostics, and recorded a clean REJECT against
+the verbatim gates in
 [`CAMPAIGN_010_PRECOMMIT_CHECKLIST.md`](CAMPAIGN_010_PRECOMMIT_CHECKLIST.md)
-§10 (→ candidate becomes eligible for the separate human-approval
-step per [`STRATEGY_APPROVAL_PROCESS.md`](STRATEGY_APPROVAL_PROCESS.md)),
-or fails any gate (→ candidate becomes `rejected`).
+§10. The independent verifier did not run (it is capability-locked
+to CAMPAIGN_002); this matters only for a hypothetical PASS, not
+for a REJECT. See
+[`CAMPAIGN_010_WALK_FORWARD_RESULT.md`](CAMPAIGN_010_WALK_FORWARD_RESULT.md)
+for the gate-by-gate evidence.
 
 ## Per-strategy detail
 
@@ -119,6 +122,23 @@ or fails any gate (→ candidate becomes `rejected`).
 - **Paper / demo / live:** NO / NO / NO.
 - **Reason:** Failed its pre-committed train-split gate by a wider
   margin than c008. The 2025–2026 test window was never opened.
+
+### `session_breakout 0.1.0-c010`
+
+- **Status:** rejected.
+- **Evidence:** CAMPAIGN_010 walk-forward
+  (`research-asian-london-session-breakout-walk-forward-001`),
+  real OANDA practice H4, 7-pair universe, 8 folds rolling/frozen,
+  2,791 trades total: **fold pass rate 0 / 8, aggregate
+  expectancy −0.041 R, profit factor 0.04, aggregate return
+  −36.6 %, 1 / 7 pairs positive (USD_CHF only)**.
+- **Paper / demo / live:** NO / NO / NO.
+- **Reason:** Negative expectancy on out-of-sample data on the
+  pre-committed 7-pair × 6-year universe under frozen parameters.
+  Conservative-stress financing strictly worsens the verdict; the
+  only marginally positive pair (USD_CHF) flips to net negative.
+  The breakout direction does not persist over a 6-bar H4 holding
+  window; 75.5 % of trades hit the time stop.
 
 ### D1 daily trend (CAMPAIGN_006) — blocked, not a strategy verdict
 

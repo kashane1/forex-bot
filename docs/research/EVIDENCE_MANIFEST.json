@@ -200,6 +200,34 @@
       "risk_engine_used": true,
       "financing_treatment": "estimated",
       "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "title": "Asian-range / London-open session breakout (research-asian-london-session-breakout-walk-forward-001)",
+      "report_path": "docs/research/CAMPAIGN_010_WALK_FORWARD_RESULT.md",
+      "artifact_folder": "backtests/CAMPAIGN_010_session_breakout",
+      "strategy_family": "session_breakout",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "fold_count": 8,
+        "fold_pass_rate": 0.0,
+        "total_trades": 2791,
+        "aggregate_expectancy_r": -0.0408,
+        "aggregate_profit_factor": 0.0428,
+        "aggregate_return_pct": -36.56,
+        "pairs_positive": 1,
+        "single_fold_dominance_pct": 30.25,
+        "single_pair_dominance_pct": 24.1,
+        "financing_cashflow_home_stress_total_usd": -55.69,
+        "financing_missing_rate_event_count": 0,
+        "note": "walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4; 0/8 folds pass gates; aggregate expectancy and profit factor fail by wide margins; conservative-stress financing flips USD_CHF (the only +ve pair) to net negative; independent verifier did not run (capability-locked to CAMPAIGN_002 — only matters for hypothetical PASS); MODELED financing remains refused at four layers"
+      },
+      "commit_hash": "cdfdcbc",
+      "test_window_opened": true,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
     }
   ],
   "diagnostic_artifacts": [
