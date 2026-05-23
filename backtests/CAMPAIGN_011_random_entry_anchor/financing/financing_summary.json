@@ -1,0 +1,142 @@
+{
+  "campaign_id": "CAMPAIGN_011",
+  "rate_source": "conservative_stress",
+  "rate_source_treatment": "estimated",
+  "modeled_refused": true,
+  "financing_in_engine_pnl": false,
+  "financing_is_live_blocker": true,
+  "missing_rate_event_count": 0,
+  "report_fields": {
+    "event_count": 1080,
+    "cashflow_home_total": -24.3819057527,
+    "cashflow_home_stress_total": -24.3819057527
+  },
+  "trade_pnl": {
+    "total_usd": -2.674193105173738
+  },
+  "by_pair": {
+    "EUR_USD": {
+      "trades": 119,
+      "events": 103,
+      "cashflow_home_total": -1.9622806532999997,
+      "cashflow_home_stress_total": -1.9622806532999997,
+      "trade_pnl_usd": -6.09771
+    },
+    "GBP_USD": {
+      "trades": 196,
+      "events": 186,
+      "cashflow_home_total": -4.051695307099998,
+      "cashflow_home_stress_total": -4.051695307099998,
+      "trade_pnl_usd": 20.94767000000001
+    },
+    "USD_JPY": {
+      "trades": 174,
+      "events": 159,
+      "cashflow_home_total": -5.461079999999998,
+      "cashflow_home_stress_total": -5.461079999999998,
+      "trade_pnl_usd": 1.7623363678877932
+    },
+    "AUD_USD": {
+      "trades": 190,
+      "events": 174,
+      "cashflow_home_total": -2.831745717850001,
+      "cashflow_home_stress_total": -2.831745717850001,
+      "trade_pnl_usd": -8.64534999999999
+    },
+    "USD_CAD": {
+      "trades": 182,
+      "events": 170,
+      "cashflow_home_total": -3.4234999999999993,
+      "cashflow_home_stress_total": -3.4234999999999993,
+      "trade_pnl_usd": -2.1840990828979328
+    },
+    "USD_CHF": {
+      "trades": 177,
+      "events": 160,
+      "cashflow_home_total": -4.47813,
+      "cashflow_home_stress_total": -4.47813,
+      "trade_pnl_usd": 4.617044609836406
+    },
+    "NZD_USD": {
+      "trades": 139,
+      "events": 128,
+      "cashflow_home_total": -2.1734740744500005,
+      "cashflow_home_stress_total": -2.1734740744500005,
+      "trade_pnl_usd": -13.074085000000002
+    }
+  },
+  "by_side": {
+    "long": {
+      "trades": 610,
+      "events": 556,
+      "cashflow_home_total": -12.401149689399995,
+      "cashflow_home_stress_total": -12.401149689399995,
+      "trade_pnl_usd": -23.476573769005448
+    },
+    "short": {
+      "trades": 567,
+      "events": 524,
+      "cashflow_home_total": -11.980756063300014,
+      "cashflow_home_stress_total": -11.980756063300014,
+      "trade_pnl_usd": 20.802380663831702
+    }
+  },
+  "by_fold": {
+    "fold_00": {
+      "trades": 143,
+      "events": 123,
+      "cashflow_home_total": -2.8272352590500005,
+      "cashflow_home_stress_total": -2.8272352590500005,
+      "trade_pnl_usd": -23.970879357171242
+    },
+    "fold_01": {
+      "trades": 150,
+      "events": 132,
+      "cashflow_home_total": -2.031340075999999,
+      "cashflow_home_stress_total": -2.031340075999999,
+      "trade_pnl_usd": -2.4212954411573158
+    },
+    "fold_02": {
+      "trades": 153,
+      "events": 142,
+      "cashflow_home_total": -2.6441823375999993,
+      "cashflow_home_stress_total": -2.6441823375999993,
+      "trade_pnl_usd": 21.1627033051783
+    },
+    "fold_03": {
+      "trades": 150,
+      "events": 142,
+      "cashflow_home_total": -3.4215541891500005,
+      "cashflow_home_stress_total": -3.4215541891500005,
+      "trade_pnl_usd": -4.135699704487292
+    },
+    "fold_04": {
+      "trades": 162,
+      "events": 147,
+      "cashflow_home_total": -3.876612161849998,
+      "cashflow_home_stress_total": -3.876612161849998,
+      "trade_pnl_usd": -0.42230491163731887
+    },
+    "fold_05": {
+      "trades": 153,
+      "events": 145,
+      "cashflow_home_total": -3.4327600423500004,
+      "cashflow_home_stress_total": -3.4327600423500004,
+      "trade_pnl_usd": 2.7180498350820033
+    },
+    "fold_06": {
+      "trades": 128,
+      "events": 124,
+      "cashflow_home_total": -2.5760399116999997,
+      "cashflow_home_stress_total": -2.5760399116999997,
+      "trade_pnl_usd": 4.684976139868881
+    },
+    "fold_07": {
+      "trades": 138,
+      "events": 125,
+      "cashflow_home_total": -3.5721817750000016,
+      "cashflow_home_stress_total": -3.5721817750000016,
+      "trade_pnl_usd": -0.28974297084973805
+    }
+  }
+}
