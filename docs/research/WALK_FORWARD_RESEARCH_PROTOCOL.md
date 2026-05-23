@@ -133,10 +133,13 @@ The harness enforces:
 
 1. **No train ↔ validation overlap.** `train_end < validation_start`.
 2. **No validation ↔ test overlap.** `validation_end < test_start`.
-3. **No fold-N test ↔ fold-(N+1) train overlap** when running in
-   rolling mode (test windows are the *only* evaluation surface;
-   each fold's test bars must be unseen by every later fold's
-   train+validation).
+3. **No consecutive test-window overlap.** `fold N+1`'s
+   `test_start > fold N`'s `test_end`. Adjacent folds' *train* and
+   *validation* windows may overlap (that's standard walk-forward
+   — the train slides by `step_days` each fold while spanning many
+   `step_days` of history); but their *test* windows must be
+   disjoint so aggregate metrics don't double-count trades on
+   overlapped bars. Applies to both rolling and expanding modes.
 4. **No future-leakage in fold ordering.** Fold *N*'s test_start
    must be strictly after fold *N−1*'s test_start; folds proceed
    forward in time.
