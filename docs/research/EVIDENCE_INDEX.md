@@ -273,6 +273,7 @@ any verdict, and does not lift the live-promotion blocker.
 | [`FINANCING_RECONCILIATION_TOOLING_PROTOCOL.md`](FINANCING_RECONCILIATION_TOOLING_PROTOCOL.md) | CLI protocol — inputs, JSON + markdown output shapes, classification rules, exit codes, defense-in-depth MODELED guard |
 | [`FINANCING_RECONCILIATION_SYNTHETIC_RUNS.md`](FINANCING_RECONCILIATION_SYNTHETIC_RUNS.md) | records of five synthetic runs (commands, inputs, exit codes, per-run summaries); confirms no broker / OANDA data fetched |
 | [`FINANCING_RECONCILIATION_TOOLING_STATUS.md`](FINANCING_RECONCILIATION_TOOLING_STATUS.md) | headline status — script (`scripts/reconcile_financing_fixtures.py`), tests (22 cases pass), no broker data fetched, MODELED unavailable, live blocker remains |
+| [`RESEARCH_FINANCING_RECONCILIATION_TOOLING_001_SUMMARY.md`](RESEARCH_FINANCING_RECONCILIATION_TOOLING_001_SUMMARY.md) | sprint summary & handoff |
 
 ## Research-freeze documents (this branch)
 
