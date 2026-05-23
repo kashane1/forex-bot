@@ -34,6 +34,14 @@ from research.financing.calculator import (
     calculate_position,
     calculate_run,
 )
+from research.financing.fixtures import (
+    FixtureValidationError,
+    ObservedEventDict,
+    canonical_event_key,
+    load_observed_event_fixture,
+    load_rate_fixture,
+    utc_date_of,
+)
 from research.financing.models import (
     DailyFinancingEvent,
     FinancingCalculatorConfig,
@@ -64,15 +72,21 @@ __all__ = [
     "FinancingRateSource",
     "FinancingRunReport",
     "FinancingTreatment",
+    "FixtureValidationError",
     "MissingFinancingRateError",
     "MissingRatePolicy",
+    "ObservedEventDict",
     "PositionFinancingSummary",
     "PositionInterval",
     "RatePair",
     "TableRateSource",
     "calculate_position",
     "calculate_run",
+    "canonical_event_key",
     "default_stress_rate_source",
     "dump_events_json",
+    "load_observed_event_fixture",
+    "load_rate_fixture",
     "render_summary_md",
+    "utc_date_of",
 ]
