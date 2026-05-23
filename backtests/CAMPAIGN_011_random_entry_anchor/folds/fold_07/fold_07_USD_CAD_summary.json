@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_CAD",
+  "strategy_name": "random_entry_anchor",
+  "strategy_version": "0.1.0-c011",
+  "granularity": "H4",
+  "from_time": "2025-06-03T01:00:00+00:00",
+  "to_time": "2025-11-28T18:00:00+00:00",
+  "config_hash": "d5f1238ff3ee922e",
+  "data_request_hash": "066e578c75055ea5",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": 0.6357768384304796,
+    "final_equity": 503.1788841921524,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -0.38186035107357297,
+    "max_drawdown_duration_bars": 270,
+    "sharpe": 1.0158973730550396,
+    "sortino": 0.8498765332258333,
+    "profit_factor": 1.5407935798293846,
+    "expectancy_r": 0.07933934080838574,
+    "average_r": 0.07933934080838574,
+    "median_r": 0.03178583777648228,
+    "win_rate": 0.5652173913043478,
+    "average_win": 0.6966975566415564,
+    "average_loss": -0.5878184044187893,
+    "trade_count": 23,
+    "largest_single_loss": -1.2934560980981407,
+    "average_spread_paid_pips": 1.9304347826086956,
+    "exposure_pct": 0.0
+  }
+}

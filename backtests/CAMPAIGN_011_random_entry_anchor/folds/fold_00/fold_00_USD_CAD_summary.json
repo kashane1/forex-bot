@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_CAD",
+  "strategy_name": "random_entry_anchor",
+  "strategy_version": "0.1.0-c011",
+  "granularity": "H4",
+  "from_time": "2021-12-21T02:00:00+00:00",
+  "to_time": "2022-06-17T17:00:00+00:00",
+  "config_hash": "d5f1238ff3ee922e",
+  "data_request_hash": "4b0a5e99e5fbfde3",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -1.3351884832712435,
+    "final_equity": 493.32405758364376,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.335188483271247,
+    "max_drawdown_duration_bars": 716,
+    "sharpe": -2.1221486932853573,
+    "sortino": -1.703863793404921,
+    "profit_factor": 0.4263325711910666,
+    "expectancy_r": -0.19770124737506178,
+    "average_r": -0.19770124737506178,
+    "median_r": -0.21058302206929216,
+    "win_rate": 0.42857142857142855,
+    "average_win": 0.5512624277019326,
+    "average_loss": -0.9697753554728,
+    "trade_count": 21,
+    "largest_single_loss": -1.272108252431019,
+    "average_spread_paid_pips": 2.0285714285714285,
+    "exposure_pct": 0.0
+  }
+}
