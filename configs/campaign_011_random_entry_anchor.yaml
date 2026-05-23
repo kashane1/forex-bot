@@ -1,0 +1,140 @@
+# CAMPAIGN_011 — Random-entry diagnostic anchor (null model)
+# RESEARCH CANDIDATE SCAFFOLD ONLY — NOT APPROVED FOR PAPER / DEMO / LIVE.
+#
+# Strategy: random_entry_anchor 0.1.0-c011 — the C5 diagnostic /
+# null-model anchor selected by the
+# research-new-candidate-strategy-discovery-002 sprint as the next
+# preferred candidate. **NULL MODEL BY DESIGN — cannot be approved,
+# cannot be deployed, cannot be used for paper / demo / live trading.**
+#
+# The entry is a deterministic-seed coin flip per H4 bar (R3/R4 in the
+# implementation spec); the seed contains only
+# (master_seed, instrument_name, bar_timestamp_iso) — never any bar-t
+# price data. The strategy's purpose is to validate the research
+# evidence pipeline (walk-forward + financing overlay + portfolio-risk
+# diagnostics + verifier readiness) and establish a per-fold + aggregate
+# random-entry baseline that every future "real" candidate must beat by
+# a meaningful margin to count as evidence of an edge.
+#
+# Exact rules + parameter rationale:
+# - docs/research/RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_IMPLEMENTATION_SPEC.md
+# - docs/research/NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_002.md
+# - docs/research/CAMPAIGN_011_PRECOMMIT_CHECKLIST.md
+#
+# This config is provided so future research / smoke / walk-forward
+# sprints can load it via forex_bot.config.load_settings(...). Loading
+# this config does NOT approve the strategy. configs/approved_strategies.yaml
+# remains approved: [] and the paper-loop / demo-loop refusal still
+# blocks every order-capable loop.
+#
+# DATA REUSE: database_path points at data/campaign_002.sqlite3 — the
+# real OANDA practice H4 candles from CAMPAIGN_002, provenance hashes
+# already recorded. No re-fetch, no synthetic data. Same data source as
+# CAMPAIGN_010 for a clean entry-signal comparison.
+#
+# CAMPAIGN_002 remains REJECT and is untouched. CAMPAIGN_010 remains
+# REJECT and is untouched.
+
+app:
+  name: oanda-forex-research-bot
+  mode: paper
+  trading_enabled: false
+  allow_order_submission: false
+  allow_live_trading: false
+  database_path: ./data/campaign_002.sqlite3
+  log_path: ./logs/campaign_011.jsonl
+  kill_switch_path: ./KILL_SWITCH
+
+broker:
+  name: oanda
+  environment: practice
+  account_id_env: OANDA_ACCOUNT_ID_PRACTICE
+  token_env: OANDA_ACCESS_TOKEN_PRACTICE
+  request_timeout_seconds: 15
+  max_retries: 3
+
+market:
+  account_currency: USD
+  instruments:
+    - EUR_USD
+    - GBP_USD
+    - USD_JPY
+    - AUD_USD
+    - USD_CAD
+    - USD_CHF
+    - NZD_USD
+  granularity: H4
+  candle_price_components: BA
+  daily_alignment: 17
+  alignment_timezone: America/New_York
+  weekly_alignment: Friday
+
+strategy:
+  enabled:
+    - random_entry_anchor
+  random_entry_anchor:
+    version: 0.1.0-c011
+    timeframe: H4
+    master_seed: 20260523
+    entry_probability_per_bar: 0.05
+    atr_lookback: 14
+    atr_stop_multiple: 2.0
+    trailing_stop_atr_multiple: null
+    max_bars_in_trade: 6
+    min_atr_pips: {}
+
+risk:
+  starting_equity_usd: 500
+  risk_per_trade_pct: 0.25
+  max_risk_per_trade_pct: 0.50
+  max_daily_loss_pct: 1.00
+  max_weekly_loss_pct: 2.00
+  max_total_drawdown_pct: 8.00
+  max_open_positions: 1
+  max_pending_orders: 1
+  max_correlated_positions: 1
+  max_positions_per_instrument: 1
+  require_stop_loss: true
+  require_server_side_protection: true
+  allow_martingale: false
+  allow_grid: false
+  allow_averaging_down: false
+
+margin:
+  min_margin_available_pct_of_nav: 80
+  max_margin_used_pct_of_nav: 10
+  reject_if_margin_closeout_percent_above: 20
+
+spread_filter:
+  enabled: true
+  max_spread_to_atr_pct: 8.0
+  max_spread_pips:
+    EUR_USD: 1.5
+    GBP_USD: 2.5
+    USD_JPY: 2.0
+    AUD_USD: 2.0
+    USD_CAD: 2.5
+    USD_CHF: 2.0
+    NZD_USD: 2.5
+
+session_filter:
+  enabled: true
+  timezone: America/New_York
+  block_new_trades:
+    - name: rollover
+      start: "16:45"
+      end: "17:15"
+    - name: friday_close
+      day: Friday
+      start: "15:00"
+      end: "23:59"
+    - name: sunday_open
+      day: Sunday
+      start: "00:00"
+      end: "19:00"
+
+backtest:
+  fixed_slippage_pips: 0.2
+  spread_slippage_multiplier: 0.5
+  starting_equity_usd: 500
+  commission_per_unit: 0.0
