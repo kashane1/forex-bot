@@ -70,17 +70,33 @@ def evaluate_entry(
 def initial_stop_price(
     *,
     side: Side,
-    entry_price: float,
+    close_price: float,
     atr_value: float,
     atr_stop_multiple: float,
 ) -> float:
-    """Initial hard stop placement from the strategy spec §5."""
+    """Initial hard stop placement from the strategy spec §5.
+
+    Per ``src/forex_bot/strategies/trend_following.py`` (the strategy
+    that emits ``signal.stop_price``), the stop is anchored at the
+    **bar's mid close**, *not* at the post-slippage entry price:
+
+        long:  stop = close - atr_multiple * atr
+        short: stop = close + atr_multiple * atr
+
+    The bespoke engine then carries that ``signal.stop_price`` through
+    sizing and into the open trade without re-deriving it from the
+    fill. Using the post-slippage entry price here would offset the
+    stop by ``slip`` pips, which manifests as a systematic divergence
+    in stop-hit timing and per-trade R magnitude. See
+    ``docs/research/FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md``
+    Bug #1 for the trace.
+    """
 
     distance = atr_value * atr_stop_multiple
     if side is Side.LONG:
-        return entry_price - distance
+        return close_price - distance
     if side is Side.SHORT:
-        return entry_price + distance
+        return close_price + distance
     raise ValueError(f"initial_stop_price: invalid side {side!r}")
 
 

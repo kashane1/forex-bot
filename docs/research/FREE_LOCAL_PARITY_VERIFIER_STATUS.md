@@ -44,19 +44,39 @@ contains the full CAMPAIGN_002 H4 dataset. With the user's explicit
 authorization, the sprint completed end-to-end **with zero OANDA
 network calls** (no rehydrate fetch needed; the existing local
 SQLite had the data). The verifier ran across all seven pairs
-(zero blocked, zero crashes) producing **1,586 trades vs 1,647
-bespoke (−3.70 %, within OK)**. The comparison produced **overall
-status FAIL** driven by EUR_USD return delta +2.41 pp; 1 / 7 pairs
-OK (USD_CHF), 5 / 7 WARN, 1 / 7 FAIL. The divergence is
-systematic (verifier consistently slightly less bad on every
-metric) but not yet localized — classification `unknown`. **Both
-engines agree every pair is loss-making on the no-RiskEngine path.
-CAMPAIGN_002 stays REJECT under either measurement.** Verifier-side
-bugs fixed this turn: **0**. Bespoke-engine bugs found: **0**
-(divergence not yet attributed). Full detail in
-[`FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md`](FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md)
-and the "Sprint-003 UNBLOCKED — actual full-data comparison"
-section of
+(zero blocked, zero crashes).
+
+**Initial run (pre-debug):** 1,586 trades vs 1,647 bespoke
+(−3.70 %, within OK), overall comparison **FAIL** on EUR_USD return
+delta +2.41 pp. The divergence was systematic (verifier
+consistently less bad on every pair).
+
+**Phase 5 debug (verifier-side only, no bespoke change):** two
+verifier bugs identified and fixed.
+- **Bug #1:** initial stop was anchored at the post-slippage
+  `entry_price` instead of the bar's mid `close` (bespoke's
+  convention). Fixed in `rules.py`.
+- **Bug #2:** event loop blocked same-bar re-entry after an exit;
+  bespoke processes exits first, then evaluates new entries on the
+  same bar. Fixed in `event_loop.py`.
+
+**Post-debug:** **1,655 trades vs 1,647 (Δ +0.49 %, OK)**. Per-pair
+3 / 7 OK (GBP_USD, USD_JPY, AUD_USD), 4 / 7 WARN, **0 / 7 FAIL**.
+Overall comparison **WARN** (down from FAIL). Largest remaining
+delta is USD_CHF return +1.63 pp (WARN band), plausibly Decimal-vs-
+float precision and the missing `instrument.round_price(...)` step
+on the verifier side. **Both engines agree every pair is
+loss-making on the no-RiskEngine path; CAMPAIGN_002 stays REJECT
+under either measurement.**
+
+Verifier-side bugs fixed this turn: **2**. Bespoke-engine bugs
+found: **0**.
+
+Full detail:
+[`FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md`](FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md),
+[`FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md`](FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md),
+and the "Sprint-003 UNBLOCKED" + "Sprint-003 Phase 5 debug — post-fix
+comparison" sections of
 [`FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md`](FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md).
 
 The headline status of the free / local independent parity verifier

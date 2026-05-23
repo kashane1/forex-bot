@@ -292,6 +292,70 @@ def test_run_pair_uses_authoritative_config_shape() -> None:
     assert trades == []
 
 
+def test_same_bar_re_entry_after_exit() -> None:
+    """Regression for Bug #2: bespoke ``backtesting/engine.py`` checks
+    exits first, closes the trade, then evaluates a new signal on the
+    SAME bar. Original verifier consumed the bar after recording the
+    exit, blocking same-bar re-entry. This caused systematic
+    under-counting of trades and underweight losses (the missed entries
+    were on average losers because the strategy is a net loser).
+
+    Constructed fixture: a long position is open with a trailing stop
+    just below the current bid. The next bar's bid drops to hit the
+    stop AND the bar's mid close pushes above a fresh Donchian high
+    in a rising EMA-fast > EMA-slow regime. Both engines should:
+    (a) exit the long via the stop, and (b) re-enter long on the same
+    bar's close.
+    """
+
+    from research.parity_verifier.event_loop import run_pair
+    from research.parity_verifier.instruments import get_instrument
+    from research.parity_verifier.models import CandleSeries
+
+    inst = get_instrument("EUR_USD")
+    start = datetime(2024, 1, 1, tzinfo=UTC)
+    bars: list[Bar] = []
+    # 6 flat bars to seed EMA(3)/EMA(5)/ATR(3)/Donchian(3) warmup
+    for i in range(6):
+        bars.append(_bar(start + timedelta(hours=4 * i), 1.0, 1.001, 0.999, 1.0))
+    # Climb 4 bars to push EMA_fast > EMA_slow and raise Donchian
+    closes = [1.005, 1.010, 1.015, 1.020]
+    for k, close in enumerate(closes):
+        idx = 6 + k
+        bars.append(
+            _bar(start + timedelta(hours=4 * idx),
+                 close - 0.002, close + 0.001, close - 0.003, close)
+        )
+    # Breakout long entry
+    idx = 6 + len(closes)
+    bars.append(_bar(start + timedelta(hours=4 * idx),
+                     1.020, 1.040, 1.018, 1.035))
+    # Bar drops fast enough to hit the initial long stop, then closes
+    # above the fresh donchian for a re-entry long signal in the same
+    # bar (made possible by closing far above the prior 3-bar high).
+    idx += 1
+    bars.append(_bar(start + timedelta(hours=4 * idx),
+                     1.030, 1.080, 0.990, 1.075))
+    # Settle out so the trade(s) can resolve.
+    for _ in range(3):
+        idx += 1
+        bars.append(_bar(start + timedelta(hours=4 * idx),
+                         1.075, 1.078, 1.072, 1.074))
+
+    result, trades = run_pair(
+        candles=CandleSeries(instrument="EUR_USD", bars=bars),
+        instrument=inst,
+        config=_config(),
+    )
+    # The original buggy verifier produced exactly one trade (the long
+    # that exited via stop on the volatile bar, with no same-bar
+    # re-entry). The fixed verifier should produce at least two trades:
+    # the stopped-out long and the re-entered long.
+    assert result.trades >= 2, (
+        f"expected at least 2 trades (entry + same-bar re-entry); got {result.trades}"
+    )
+
+
 def test_usd_jpy_instrument_runs_without_crashing() -> None:
     """JPY pip math is different (0.01 not 0.0001) — make sure the
     event loop handles the divide-by-mid sizing path without error

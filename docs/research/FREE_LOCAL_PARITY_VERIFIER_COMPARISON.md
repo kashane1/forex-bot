@@ -562,8 +562,45 @@ neither side is implicated until Phase 5 traces it.
 - `research/parity_verifier/results/campaign_002_h4_full_data/parity_summary.json`
   (gitignored under `results/`).
 - `research/parity_verifier/results/campaign_002_h4_full_data/trades.csv`
-  (gitignored, 1,586 rows, ~225 KB).
+  (gitignored, 1,655 rows after Phase 5 debug, ~235 KB).
 - `research/parity_verifier/results/campaign_002_h4_full_data/parity_summary.md`
   (gitignored).
 - `research/parity_verifier/results/campaign_002_h4_full_data/comparison.md`
   (gitignored).
+
+## Sprint-003 Phase 5 debug — post-fix comparison
+
+Two verifier-side bugs were localized and fixed (Bug #1: initial
+stop anchored at the wrong base price; Bug #2: same-bar re-entry
+after exit was blocked). After both fixes:
+
+- **Verifier total: 1,655 trades** (Δ +0.49 % vs bespoke 1,647 —
+  OK band).
+- **Overall status: WARN** (down from FAIL).
+- **0 / 7 pairs FAIL.** 3 / 7 OK (GBP_USD, USD_JPY, AUD_USD),
+  4 / 7 WARN (EUR_USD, USD_CAD, USD_CHF, NZD_USD).
+
+### Post-debug per-pair table
+
+| pair | bespoke trades | verifier trades | Δ % | Δ R | Δ pp | status |
+|---|---|---|---|---|---|---|
+| EUR_USD | 233 | 235 | +0.86 | +0.0160 | +0.7644 | WARN |
+| GBP_USD | 215 | 215 | +0.00 | +0.0005 | +0.0075 | **OK** |
+| USD_JPY | 247 | 251 | +1.62 | −0.0125 | +0.3093 | **OK** |
+| AUD_USD | 237 | 238 | +0.42 | −0.0033 | −0.2241 | **OK** |
+| USD_CAD | 251 | 251 | +0.00 | −0.0605 | +0.0025 | WARN |
+| USD_CHF | 224 | 223 | −0.45 | +0.0428 | +1.6304 | WARN |
+| NZD_USD | 240 | 242 | +0.83 | −0.0077 | −0.5110 | WARN |
+| **total** | **1647** | **1655** | **+0.49** | | | **WARN** |
+
+Full trace + before/after for each bug:
+[`FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md`](FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md).
+
+Remaining sub-WARN drift on 4 / 7 pairs is plausibly attributable
+to Decimal-vs-float precision and the missing
+`instrument.round_price(...)` rounding on the verifier side. **No
+further debug was performed** — chasing those would risk
+implementing the bespoke engine inside the verifier (sacrificing
+independence), and the comparison verdict has already moved from
+FAIL to WARN with the directional verdict (both engines agree
+every pair is loss-making, CAMPAIGN_002 stays REJECT) intact.

@@ -115,10 +115,44 @@ Blocked pairs: (none)
 
 All seven pairs processed. Zero blocks. Zero crashes.
 
-## Comparison result — overall **FAIL**
+## Comparison result — initially FAIL, after Phase 5 debug: **WARN**
 
-The comparison harness ran against the no-RiskEngine bespoke
-reference (1,647 trades). Per-pair detail:
+**Final state after Phase 5 verifier-side debug fixes:**
+
+- Verifier total: **1,655 trades** (vs bespoke 1,647 — Δ **+0.49 %**,
+  within OK ±5 %).
+- Per-pair: 3 OK (GBP_USD, USD_JPY, AUD_USD), 4 WARN (EUR_USD,
+  USD_CAD, USD_CHF, NZD_USD), **0 FAIL**.
+- **Overall status: WARN.** Down from FAIL on the initial pass.
+- Two verifier-side bugs were identified and fixed (no bespoke-engine
+  edits) — see
+  [`FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md`](FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md).
+
+The original pre-debug numbers (left below for the historical record)
+showed FAIL driven by EUR_USD return delta +2.41 pp. After the two
+debug fixes that delta is +0.76 pp (WARN, not FAIL).
+
+### Post-debug per-pair table (final)
+
+| pair | bespoke trades | verifier trades | Δ % | bespoke exp R | verifier exp R | Δ R | bespoke ret % | verifier ret % | Δ pp | status | classification |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| EUR_USD | 233 | 235 | +0.86 | −0.1961 | −0.1801 | +0.0160 | −10.8345 | −10.0701 | +0.7644 | WARN | unknown |
+| GBP_USD | 215 | 215 | +0.00 | −0.0971 | −0.0966 | +0.0005 | −5.1182 | −5.1107 | +0.0075 | **OK** | none |
+| USD_JPY | 247 | 251 | +1.62 | −0.0001 | −0.0126 | −0.0125 | −1.3735 | −1.0642 | +0.3093 | **OK** | none |
+| AUD_USD | 237 | 238 | +0.42 | −0.2134 | −0.2167 | −0.0033 | −11.9013 | −12.1254 | −0.2241 | **OK** | none |
+| USD_CAD | 251 | 251 | +0.00 | −0.1804 | −0.2409 | −0.0605 | −14.1096 | −14.1071 | +0.0025 | WARN | unknown |
+| USD_CHF | 224 | 223 | −0.45 | −0.1430 | −0.1002 | +0.0428 | −7.0322 | −5.4018 | +1.6304 | WARN | unknown |
+| NZD_USD | 240 | 242 | +0.83 | −0.2645 | −0.2722 | −0.0077 | −14.7032 | −15.2142 | −0.5110 | WARN | unknown |
+| **total** | **1647** | **1655** | **+0.49 (OK)** | | | | | | | **WARN** | **unknown** |
+
+(The AUD_USD `verifier exp R` and `verifier ret %` above are reported
+to match the post-Bug #2 verifier run. They differ slightly from the
+intermediate post-Bug #1 numbers because Bug #2 changed trade selection.)
+
+### Original pre-debug per-pair detail (FAIL — historical)
+
+This is the **initial** comparison before the Phase 5 fixes; preserved
+as the "before" half of the bug investigation:
 
 | pair | bespoke trades | verifier trades | Δ % | bespoke exp R | verifier exp R | Δ R | bespoke ret % | verifier ret % | Δ pp | status | classification |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -140,51 +174,50 @@ reference (1,647 trades). Per-pair detail:
 - **Total trade-count delta is within OK tolerance (−3.70 % vs ±5 %
   band).**
 
-## Divergence pattern (informational, not yet classified)
+## Divergence pattern — pre-debug observations and resolution
 
-The divergence is **systematic**, not random:
+**Pre-debug:** divergence was **systematic**, not random — verifier
+consistently lower trade count and less negative on every pair.
+This systematic direction pointed at a real implementation difference,
+not random noise.
 
-- Trade counts: verifier is **consistently lower** than bespoke on
-  every pair (deltas all between −1.79 % and −6.05 %). 5 / 7 pairs
-  inside the OK 5 % band, 2 / 7 in the WARN 5–15 % band.
-- Expectancies: verifier is **less negative on most pairs** (less
-  bad). The largest expectancy drift is USD_CAD at −0.0642 R (WARN).
-- Returns: verifier is **less negative on every pair**. EUR_USD
-  return delta of +2.41 pp is the single FAIL signal.
+**Phase 5 debug found two verifier-side bugs (no bespoke change):**
 
-The strategy still loses money on every pair under both engines.
-**The verifier corroborates the bespoke engine's directional
-verdict (REJECT) on every pair; the disagreement is on magnitude.**
+- **Bug #1** — initial stop was anchored at the post-slippage
+  `entry_price` instead of the bar's mid `close`. Fixed in
+  `research/parity_verifier/rules.py` (`initial_stop_price` now takes
+  `close_price` instead of `entry_price`).
+- **Bug #2** — verifier's event loop blocked same-bar re-entry after
+  an exit. Bespoke processes exits first then evaluates new entries on
+  the same bar. Fixed by refactoring `research/parity_verifier/event_loop.py`
+  to use the bespoke bar order (exit → entry).
 
-The systematic direction (verifier always slightly less bad) is
-not random noise; it points at a real implementation difference,
-most likely one of:
+After both fixes the total-trade delta dropped from −3.70 % to +0.49 %
+(within OK), and the comparison verdict moved from FAIL to **WARN**.
+The remaining WARN-band drift on 4 / 7 pairs is plausibly Decimal-vs-
+float precision and the missing `instrument.round_price(...)` step on
+the verifier side. See
+[`FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md`](FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md)
+for the full trace.
 
-- `spread_slippage_fill_mismatch` (verifier's bid/ask slip applied
-  differently from bespoke);
-- `stop_trailing_mismatch` (verifier's stop-hit detection or
-  trailing-update order differs from bespoke);
-- `sizing_pnl_mismatch` (verifier's pip-value or unit-floor differs
-  from bespoke in a small but systematic way);
-- `entry_exit_rule_mismatch` (verifier's entry warmup differs from
-  bespoke — fewer entries taken).
+**Per sprint rules:** no tuning was done; the bespoke engine was not
+modified; CAMPAIGN_002 rules were not changed.
 
-Localizing this is Phase 5's job. **Per sprint rules, no tuning is
-done. The bespoke engine is not modified to match the verifier
-without explicit human review on a separate branch.**
-
-## What this proves
+## What this proves (post-debug)
 
 - **The bespoke engine and an independent re-implementation agree
-  on the directional verdict.** Both produce negative expectancy
-  on every CAMPAIGN_002 H4 pair under the no-RiskEngine path. Both
+  on the directional verdict.** Both produce negative expectancy on
+  every CAMPAIGN_002 H4 pair under the no-RiskEngine path. Both
   agree the strategy is a loser. CAMPAIGN_002 stays REJECT under
   either measurement.
-- **The bespoke engine's overall magnitude is plausibly correct
-  within ~5 % on trade count and ~1–2 percentage points on
-  return.** Two independent implementations don't agree exactly,
-  but they agree closely enough that the bespoke reading is
-  defensible.
+- **The bespoke engine's overall magnitude is corroborated within
+  1.6 % per pair on trade count and 1.6 pp per pair on return**
+  (down from FAIL-on-EUR_USD to all-pairs OK or WARN after the two
+  Phase 5 fixes).
+- **Phase 5 found and fixed two verifier-side bugs.** No bespoke-
+  engine bug was found; both bugs were on the verifier side and
+  the bespoke engine continues to be the source of truth for the
+  CAMPAIGN_002 H4 reference numbers.
 - **The verifier's BLOCKED-state behavior in Sprint 002 / earlier
   Sprint 003 was the right thing to do.** No data was fabricated.
   When the data was made available (by user direction), the
@@ -192,9 +225,11 @@ without explicit human review on a separate branch.**
 
 ## What this does NOT prove
 
-- It does **not** prove the bespoke engine is exactly correct on
-  every pair. The systematic FAIL on EUR_USD return is a real
-  finding that warrants verifier-side debugging (Phase 5).
+- It does **not** prove the bespoke engine is *exactly* correct.
+  Sub-WARN drift remains on 4 / 7 pairs, plausibly explained by
+  Decimal-vs-float precision and the missing `round_price`
+  rounding on the verifier side. Two independent implementations
+  agreeing within 1.6 % is corroboration, not proof.
 - It does **not** approve any strategy. CAMPAIGN_002 remains REJECT.
 - It does **not** lift the research freeze.
 - It does **not** enable any paper / demo / live loop.

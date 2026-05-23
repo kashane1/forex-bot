@@ -143,16 +143,16 @@ def test_no_entry_below_atr_floor() -> None:
 # ---------- initial_stop_price ----------
 
 
-def test_initial_stop_long_subtracts_atr_x_multiple() -> None:
+def test_initial_stop_long_subtracts_atr_x_multiple_from_close() -> None:
     stop = initial_stop_price(
-        side=Side.LONG, entry_price=1.1500, atr_value=0.005, atr_stop_multiple=2.0
+        side=Side.LONG, close_price=1.1500, atr_value=0.005, atr_stop_multiple=2.0
     )
     assert stop == pytest.approx(1.1500 - 0.010)
 
 
-def test_initial_stop_short_adds_atr_x_multiple() -> None:
+def test_initial_stop_short_adds_atr_x_multiple_to_close() -> None:
     stop = initial_stop_price(
-        side=Side.SHORT, entry_price=1.0800, atr_value=0.005, atr_stop_multiple=2.0
+        side=Side.SHORT, close_price=1.0800, atr_value=0.005, atr_stop_multiple=2.0
     )
     assert stop == pytest.approx(1.0800 + 0.010)
 
@@ -160,8 +160,33 @@ def test_initial_stop_short_adds_atr_x_multiple() -> None:
 def test_initial_stop_rejects_flat() -> None:
     with pytest.raises(ValueError):
         initial_stop_price(
-            side=Side.FLAT, entry_price=1.0, atr_value=0.005, atr_stop_multiple=2.0
+            side=Side.FLAT, close_price=1.0, atr_value=0.005, atr_stop_multiple=2.0
         )
+
+
+def test_initial_stop_uses_close_not_post_slippage_entry() -> None:
+    """Regression: the verifier originally passed ``entry_price`` (post-
+    slippage ask + slip for long) as the base. The bespoke strategy
+    anchors the stop at the bar's mid close. For a long with close=1.1500,
+    ATR=0.005, multiple=2.0, slip=1 pip (0.0001):
+
+      bespoke stop (correct)  = 1.1500 - 0.010 = 1.1400
+      buggy verifier stop     = 1.1501 - 0.010 = 1.1401  (1 pip too high)
+
+    A 1-pip stop offset accumulates into a systematic per-trade R
+    difference. Pin the close-based behaviour here.
+    """
+
+    close = 1.1500
+    bug_entry = 1.1501  # ask_close + slip for a long
+    correct_stop = initial_stop_price(
+        side=Side.LONG, close_price=close, atr_value=0.005, atr_stop_multiple=2.0
+    )
+    assert correct_stop == pytest.approx(1.1400)
+    # Sanity: had we passed entry_price=bug_entry, we'd get a different
+    # (higher) stop — but the function no longer accepts ``entry_price``,
+    # so this construct cannot happen by accident.
+    assert correct_stop != pytest.approx(bug_entry - 0.010)
 
 
 # ---------- ratchet_trailing_stop ----------
