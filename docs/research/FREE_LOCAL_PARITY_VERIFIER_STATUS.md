@@ -79,6 +79,38 @@ and the "Sprint-003 UNBLOCKED" + "Sprint-003 Phase 5 debug — post-fix
 comparison" sections of
 [`FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md`](FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md).
 
+**Re-confirmed + extended:** `infra-free-local-parity-verifier-004-rounding-closure`
+— focused precision/rounding closure sprint. Audited bespoke
+`instrument.round_price` (Decimal.quantize at `display_precision`,
+ROUND_HALF_UP; 5 for USD-quote majors, 3 for USD_JPY); confirmed
+bespoke applies it on the **initial stop** only (trailing /
+fills / PnL not rounded). Verifier-only fix applied: added
+`display_precision` to `InstrumentSpec`, populated per-pair,
+implemented an identical-formula `round_price` helper, wired it
+into the event loop's initial-stop computation. **Observed impact
+on the comparison: negligible** — totals unchanged (1,655 vs
+1,647, +0.49 %, OK), all pair statuses unchanged (3 OK / 4 WARN /
+0 FAIL, overall WARN), per-pair return shifts under 0.01 pp. The
+rounding fix is correct (proven against the bespoke formula in
+`test_round_price_matches_bespoke_formula`) but the fractional-
+pip difference is too small to flip borderline stop-pierce
+comparisons on H4 bars whose intrabar ranges are many pips. The
+remaining WARN drift is therefore **localized** to float-vs-
+Decimal arithmetic precision; the cleanest evidence is USD_CAD
+(identical 251-vs-251 trade count, identical 0.0000 pp return
+delta, but −0.0605 R expectancy drift — the R denominator
+`initial_stop_distance × units` differs at sub-pip float
+precision). Verifier-side bugs fixed this turn: **0** (no new bugs
+found; rounding was a precision improvement, not a bug fix).
+Bespoke-engine bugs found: **0**. Recommendation: accept
+remaining WARN drift as inherent float-precision noise; do not
+convert verifier to Decimal end-to-end (would re-implement the
+bespoke engine inside the verifier). Full detail:
+[`INFRA_FREE_LOCAL_PARITY_VERIFIER_004_PLAN.md`](INFRA_FREE_LOCAL_PARITY_VERIFIER_004_PLAN.md),
+[`FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_AUDIT.md`](FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_AUDIT.md),
+[`FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_FIXES.md`](FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_FIXES.md),
+[`FREE_LOCAL_PARITY_VERIFIER_004_REMAINING_DRIFT.md`](FREE_LOCAL_PARITY_VERIFIER_004_REMAINING_DRIFT.md).
+
 The headline status of the free / local independent parity verifier
 after the implementation sprint. Per-phase detail lives in the doc
 links below.

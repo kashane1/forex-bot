@@ -265,6 +265,27 @@
       "kind": "free_local_parity_verifier",
       "description": "Sprint-003 Phase 5 verifier-side debug notes (infra-free-local-parity-verifier-003-with-data). Localizes and documents two verifier-side bugs: Bug #1 (initial stop anchored at the post-slippage entry_price instead of the bar's mid close, per src/forex_bot/strategies/trend_following.py:114-117) and Bug #2 (event loop blocked same-bar re-entry after an exit, contrary to bespoke backtesting/engine.py:322-329 which evaluates new signals after closing a trade on the same bar). Before/after numbers, root-cause traces, and regression tests recorded. Verifier-side fixes only — no bespoke-engine edits, no CAMPAIGN_002 rule changes, no parameter tuning. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_AUDIT",
+      "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_AUDIT.md",
+      "kind": "free_local_parity_verifier",
+      "description": "Sprint-004 rounding audit (infra-free-local-parity-verifier-004-rounding-closure). Read-only audit of bespoke instrument metadata, round_price (Decimal.quantize at display_precision, ROUND_HALF_UP), sizing, fills, trailing stops, and PnL against the verifier. Produces a five-entry mismatch table: M1 missing initial-stop rounding (FIXED in Sprint-004); M2 missing display_precision field on InstrumentSpec (FIXED as M1 prerequisite); M3 float-vs-Decimal arithmetic throughout (DEFERRED — would re-implement bespoke inside verifier, sacrificing independence); M4 trailing-stop rounding (no fix needed — bespoke also doesn't round); M5 units rounding (no fix needed — int(raw) equivalent to ROUND_DOWN for positive). No code changes this phase. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_FIXES",
+      "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_FIXES.md",
+      "kind": "free_local_parity_verifier",
+      "description": "Sprint-004 verifier-side rounding fixes (infra-free-local-parity-verifier-004-rounding-closure). Added display_precision to InstrumentSpec; populated per-pair (5 for USD-quote majors, 3 for USD_JPY); implemented a Decimal-based round_price helper with the identical formula to bespoke instrument.round_price; wired it into the event loop's initial-stop computation. Observed impact on the comparison: negligible (totals unchanged at 1655 vs 1647, all pair statuses unchanged at 3 OK / 4 WARN / 0 FAIL, per-pair return shifts under 0.01 pp). The fix is correct but the fractional-pip difference is too small to flip borderline stop-pierce comparisons on H4 bars. Verifier-side bugs fixed this turn: 0 (rounding was a precision improvement, not a bug fix). Bespoke-engine bugs found: 0. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_004_REMAINING_DRIFT",
+      "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_004_REMAINING_DRIFT.md",
+      "kind": "free_local_parity_verifier",
+      "description": "Sprint-004 remaining-drift classification (infra-free-local-parity-verifier-004-rounding-closure). Localizes the WARN-band drift surviving the round_price fix on 4/7 pairs (EUR_USD, USD_CAD, USD_CHF, NZD_USD). The cleanest single piece of evidence is USD_CAD: identical 251 vs 251 trade count, identical +0.0000 pp return delta, but -0.0605 R expectancy drift — same trade set + same total return + different per-trade R means the R denominator (initial_stop_distance * units) differs at sub-pip float-vs-Decimal precision. USD_CHF's +1.6 pp return drift on a USD-base pair points at accumulated divide-by-exit_price precision drift. EUR_USD and NZD_USD classified `unknown` (most plausibly same precision class; not provable without a bespoke trade list). Classification: sizing_pnl_mismatch (float-vs-Decimal flavour) for USD_CAD and USD_CHF; unknown (precision-adjacent) for EUR_USD and NZD_USD. Recommendation: accept as inherent float-precision noise; do not convert verifier to Decimal (would sacrifice independence). Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "strategy_evidence": false
     }
   ]
 }
