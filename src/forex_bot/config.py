@@ -266,6 +266,43 @@ class SessionBreakoutStrategyConfig(BaseModel):
         return self
 
 
+class RandomEntryAnchorStrategyConfig(BaseModel):
+    # CAMPAIGN_011 research candidate (`random_entry_anchor 0.1.0-c011`).
+    # CANDIDATE SCAFFOLD ONLY — NULL MODEL by design; cannot be approved,
+    # cannot be deployed, cannot be used for paper/demo/live.
+    # See docs/research/RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_IMPLEMENTATION_SPEC.md.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    master_seed: int = 20260523
+    entry_probability_per_bar: float = 0.05
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_bars_in_trade: int = 6
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> RandomEntryAnchorStrategyConfig:
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1:
+            raise ConfigError("max_bars_in_trade must be >= 1")
+        if not (0.0 < self.entry_probability_per_bar < 1.0):
+            raise ConfigError(
+                "entry_probability_per_bar must be in (0, 1) (exclusive)"
+            )
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError(
+                "trailing_stop_atr_multiple must be None in v1 — "
+                "the null model uses time-stop only"
+            )
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -275,6 +312,7 @@ class StrategyConfig(BaseModel):
     pullback_continuation: PullbackContinuationStrategyConfig | None = None
     mean_reversion: MeanReversionStrategyConfig | None = None
     session_breakout: SessionBreakoutStrategyConfig | None = None
+    random_entry_anchor: RandomEntryAnchorStrategyConfig | None = None
 
     @model_validator(mode="after")
     def _check_enabled(self) -> StrategyConfig:
@@ -303,6 +341,13 @@ class StrategyConfig(BaseModel):
         if "session_breakout" in self.enabled and self.session_breakout is None:
             raise ConfigError(
                 "strategy.session_breakout config required when enabled"
+            )
+        if (
+            "random_entry_anchor" in self.enabled
+            and self.random_entry_anchor is None
+        ):
+            raise ConfigError(
+                "strategy.random_entry_anchor config required when enabled"
             )
         return self
 
