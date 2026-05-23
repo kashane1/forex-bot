@@ -342,6 +342,32 @@ named `research-asian-london-session-breakout-001`. The
 | [`NEW_CANDIDATE_STRATEGY_DISCOVERY_HELPER_SCAFFOLDING_NOTE.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_HELPER_SCAFFOLDING_NOTE.md) | Phase B5 decision note — five helper-code options considered, all rejected with documented rationale; zero code added |
 | [`NEW_CANDIDATE_STRATEGY_DISCOVERY_001_SUMMARY.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_001_SUMMARY.md) | sprint summary & handoff |
 
+### CAMPAIGN_010 candidate scaffold (`research-asian-london-session-breakout-001`)
+
+Candidate-scaffold sprint for **C1 — Asian-range / London-open
+session breakout** (strategy `session_breakout 0.1.0-c010`,
+campaign label `CAMPAIGN_010`). Adds the strategy module, the
+`StrategyConfig.session_breakout` schema slot, the candidate
+config YAML, 33 unit + structural-audit tests, and the
+candidate's pre-commit / status / smoke / readiness docs.
+**CANDIDATE SCAFFOLD ONLY — not approved for paper / demo / live.**
+`configs/approved_strategies.yaml` remains `approved: []`;
+CAMPAIGN_002 remains REJECT; the candidate is structurally
+ready for a future evidence sprint to generate walk-forward
+results + financing overlay + risk diagnostics. The 735-test
+baseline (702 prior + 33 new) is preserved.
+
+| document | what it is |
+|---|---|
+| [`ASIAN_LONDON_SESSION_BREAKOUT_001_PLAN.md`](ASIAN_LONDON_SESSION_BREAKOUT_001_PLAN.md) | Phase 0 sprint plan + repo truth audit (verified preconditions, 702 baseline, all safety gates) |
+| [`ASIAN_LONDON_SESSION_BREAKOUT_IMPLEMENTATION_SPEC.md`](ASIAN_LONDON_SESSION_BREAKOUT_IMPLEMENTATION_SPEC.md) | machine-facing implementation spec: candidate identity, R1–R11 rule table, session window definitions with half-open intervals + midnight wrap, frozen parameter table (12 strategy params + 2 RiskConfig params), no-lookahead rules, H4/intraday limitation risks (DST, holidays), data + risk + financing + walk-forward interface assumptions, expected test cases (≥ 24 floor), explicit non-evidence warning |
+| [`CAMPAIGN_010_PRECOMMIT_CHECKLIST.md`](CAMPAIGN_010_PRECOMMIT_CHECKLIST.md) | candidate-pre-commit citing hypothesis verbatim, implementation + config files, frozen parameters, required local-only evaluation commands, required walk-forward / financing / risk artifacts, verbatim pass/fail gates from design §8–§15, explicit no-approval statement |
+| [`CAMPAIGN_010_STATUS.md`](CAMPAIGN_010_STATUS.md) | candidate-scaffold-only status (no verdict; no campaign report; no approval; safety state confirmed) |
+| [`CAMPAIGN_010_SMOKE_RESULT.md`](CAMPAIGN_010_SMOKE_RESULT.md) | Phase 5 NON-EVIDENCE smokes: config-load PASS; signal-generation unit suite PASS (33 cases); walk-forward dry-run PASS (8-fold validated plan, ≥ 6 floor satisfied); local historical backtest BLOCKED (no SQLite store) |
+| [`CAMPAIGN_010_WALK_FORWARD_READINESS.md`](CAMPAIGN_010_WALK_FORWARD_READINESS.md) | walk-forward integration readiness: harness plug-in READY; fold-by-fold sketch; missing adapters (only the per-fold backtest driver); data soft-blocker (data/ empty); strict gates restated |
+| [`CAMPAIGN_010_FINANCING_RISK_READINESS.md`](CAMPAIGN_010_FINANCING_RISK_READINESS.md) | financing + portfolio-risk readiness: ESTIMATED-only via default_stress_rate_source(); per-pair TableRateSource diagnostic sample; MODELED refused at four layers; expected 0–1 rollover events per trade; risk-engine diagnostic checklist with note on conservative max_open_positions=1 |
+| [`ASIAN_LONDON_SESSION_BREAKOUT_001_SUMMARY.md`](ASIAN_LONDON_SESSION_BREAKOUT_001_SUMMARY.md) | sprint summary & handoff |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |

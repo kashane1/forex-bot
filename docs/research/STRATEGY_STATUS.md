@@ -35,10 +35,22 @@ strategy is approved.**
 | `pullback_continuation` | rejected | NO | NO | NO | CAMPAIGN_007 |
 | `mean_reversion 0.1.0-c008` | rejected (research-only) | NO | NO | NO | CAMPAIGN_008 |
 | `mean_reversion 0.2.0-c009` | rejected (research-only) | NO | NO | NO | CAMPAIGN_009 |
+| `session_breakout 0.1.0-c010` | candidate-scaffold (no verdict) | NO | NO | NO | CAMPAIGN_010 (scaffold only) |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
 validly backtested by the current engine.
+
+`session_breakout 0.1.0-c010` is a **research candidate scaffold**, not
+a rejected strategy: it has been implemented, unit-tested, and
+config-loaded, but no backtest has been run and no walk-forward /
+financing / risk-diagnostic evidence has been produced. The
+`candidate-scaffold (no verdict)` status persists until a future
+evidence sprint either passes every gate in
+[`CAMPAIGN_010_PRECOMMIT_CHECKLIST.md`](CAMPAIGN_010_PRECOMMIT_CHECKLIST.md)
+§10 (→ candidate becomes eligible for the separate human-approval
+step per [`STRATEGY_APPROVAL_PROCESS.md`](STRATEGY_APPROVAL_PROCESS.md)),
+or fails any gate (→ candidate becomes `rejected`).
 
 ## Per-strategy detail
 
