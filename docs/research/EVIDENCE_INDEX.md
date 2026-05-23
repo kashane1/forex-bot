@@ -239,6 +239,23 @@ financing blocker.
 | [`FINANCING_MODEL_STATUS.md`](FINANCING_MODEL_STATUS.md) | headline status — implemented pieces, tests (71 cases pass), limitations, usage |
 | [`RESEARCH_FINANCING_MODEL_001_SUMMARY.md`](RESEARCH_FINANCING_MODEL_001_SUMMARY.md) | sprint summary & handoff |
 
+### Financing rate-source fixtures & pilot spec (`research-financing-rate-source-fixtures-001`)
+
+The fixture format, loader/adapter, and pilot specification a
+future observed-financing capture sprint will land into.
+Synthetic fixtures only; **no broker data fetched**.
+Infrastructure, not a strategy. Diagnostic only — every
+emitted artifact carries `strategy_evidence: false`. Sprint
+adds no campaign, does not change any verdict, and does not
+lift the live-promotion financing blocker.
+
+| document | what it is |
+|---|---|
+| [`FINANCING_RATE_SOURCE_FIXTURES_001_PLAN.md`](FINANCING_RATE_SOURCE_FIXTURES_001_PLAN.md) | sprint plan |
+| [`FINANCING_OBSERVED_FIXTURE_SCHEMA.md`](FINANCING_OBSERVED_FIXTURE_SCHEMA.md) | on-disk fixture schema (observed-events + financing-rates shapes; mirrors the canonical `ObservedFinancingEvent` field-for-field) |
+| [`FINANCING_OBSERVED_CAPTURE_PILOT_SPEC.md`](FINANCING_OBSERVED_CAPTURE_PILOT_SPEC.md) | future-facing specification for the read-only `DAILY_FINANCING` capture pilot (authorization, endpoint allow-list, redaction, reconciliation, `MODELED` acceptance criteria, why `MODELED` remains blocked) |
+| [`FINANCING_RATE_SOURCE_FIXTURES_STATUS.md`](FINANCING_RATE_SOURCE_FIXTURES_STATUS.md) | headline status — schema, fixtures (9 files ~9 KB), loader/adapter, tests (43 cases pass), no broker data fetched, MODELED unavailable, live blocker remains |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
