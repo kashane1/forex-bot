@@ -32,6 +32,12 @@ for the field-by-field schema (two top-level shapes:
 | `observed_missing_rate_fallback.json` | events | An event-fixture variant that omits a known-missing date to assert the loader does not invent rows |
 | `observed_weekend_skip.json` | events | A position held across a weekend, with rollovers only on Fri and Mon (no Sat/Sun rows present) |
 | `rates_two_week_eur_usd.json` | rates | Two business weeks of EUR_USD long/short rates with one explicit `missing_dates` entry to exercise the calculator's conservative fallback |
+| `rates_two_week_gbp_usd.json` | rates | GBP_USD — USD-quote; long `-14.6` short `+7.3` annual bp; missing `2026-05-21` |
+| `rates_two_week_usd_jpy.json` | rates | USD_JPY — USD-base + JPY-precision; long `+18.25` short `-36.5` annual bp; missing `2026-05-22` |
+| `rates_two_week_aud_usd.json` | rates | AUD_USD — USD-quote, long-AUD carry; long `+10.95` short `-21.9` annual bp; missing `2026-05-19` |
+| `rates_two_week_usd_cad.json` | rates | USD_CAD — USD-base; long `-10.95` short `+5.475` annual bp; missing `2026-05-20` (Wednesday — also tests triple-swap × conservative-fallback interaction) |
+| `rates_two_week_usd_chf.json` | rates | USD_CHF — USD-base; long `+25.55` short `-50.4` annual bp (CHF low rates → long USD earns); missing `2026-05-22` |
+| `rates_two_week_nzd_usd.json` | rates | NZD_USD — USD-quote, long-NZD carry; long `+9.125` short `-18.25` annual bp; missing `2026-05-19` |
 
 ## Synthetic id provenance
 

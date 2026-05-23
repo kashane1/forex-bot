@@ -1,0 +1,64 @@
+{
+  "kind": "financing_rates",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "synthetic NZD_USD rates — USD-quote pair; long_annual_bp = +9.125 (~0.025 bp/day credit) and short_annual_bp = -18.25 (~0.05 bp/day debit) modeling a long-NZD-carry regime similar to AUD/USD. 2026-05-19 INTENTIONALLY listed in missing_dates and absent from rates",
+  "rate_unit": "annual_bp",
+  "missing_dates": ["2026-05-19"],
+  "rates": [
+    {
+      "date_utc": "2026-05-18",
+      "instrument": "NZD_USD",
+      "long_annual_bp": 9.125,
+      "short_annual_bp": -18.25
+    },
+    {
+      "date_utc": "2026-05-20",
+      "instrument": "NZD_USD",
+      "long_annual_bp": 9.125,
+      "short_annual_bp": -18.25
+    },
+    {
+      "date_utc": "2026-05-21",
+      "instrument": "NZD_USD",
+      "long_annual_bp": 9.125,
+      "short_annual_bp": -18.25
+    },
+    {
+      "date_utc": "2026-05-22",
+      "instrument": "NZD_USD",
+      "long_annual_bp": 9.125,
+      "short_annual_bp": -18.25
+    },
+    {
+      "date_utc": "2026-05-25",
+      "instrument": "NZD_USD",
+      "long_annual_bp": 9.125,
+      "short_annual_bp": -18.25
+    },
+    {
+      "date_utc": "2026-05-26",
+      "instrument": "NZD_USD",
+      "long_annual_bp": 9.125,
+      "short_annual_bp": -18.25
+    },
+    {
+      "date_utc": "2026-05-27",
+      "instrument": "NZD_USD",
+      "long_annual_bp": 9.125,
+      "short_annual_bp": -18.25
+    },
+    {
+      "date_utc": "2026-05-28",
+      "instrument": "NZD_USD",
+      "long_annual_bp": 9.125,
+      "short_annual_bp": -18.25
+    },
+    {
+      "date_utc": "2026-05-29",
+      "instrument": "NZD_USD",
+      "long_annual_bp": 9.125,
+      "short_annual_bp": -18.25
+    }
+  ]
+}

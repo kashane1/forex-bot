@@ -1,0 +1,64 @@
+{
+  "kind": "financing_rates",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "synthetic AUD_USD rates — USD-quote pair; long_annual_bp = +10.95 (~0.03 bp/day credit) and short_annual_bp = -21.9 (~0.06 bp/day debit) modeling a classic long-AUD carry regime. 2026-05-19 INTENTIONALLY listed in missing_dates and absent from rates to exercise the conservative fallback",
+  "rate_unit": "annual_bp",
+  "missing_dates": ["2026-05-19"],
+  "rates": [
+    {
+      "date_utc": "2026-05-18",
+      "instrument": "AUD_USD",
+      "long_annual_bp": 10.95,
+      "short_annual_bp": -21.9
+    },
+    {
+      "date_utc": "2026-05-20",
+      "instrument": "AUD_USD",
+      "long_annual_bp": 10.95,
+      "short_annual_bp": -21.9
+    },
+    {
+      "date_utc": "2026-05-21",
+      "instrument": "AUD_USD",
+      "long_annual_bp": 10.95,
+      "short_annual_bp": -21.9
+    },
+    {
+      "date_utc": "2026-05-22",
+      "instrument": "AUD_USD",
+      "long_annual_bp": 10.95,
+      "short_annual_bp": -21.9
+    },
+    {
+      "date_utc": "2026-05-25",
+      "instrument": "AUD_USD",
+      "long_annual_bp": 10.95,
+      "short_annual_bp": -21.9
+    },
+    {
+      "date_utc": "2026-05-26",
+      "instrument": "AUD_USD",
+      "long_annual_bp": 10.95,
+      "short_annual_bp": -21.9
+    },
+    {
+      "date_utc": "2026-05-27",
+      "instrument": "AUD_USD",
+      "long_annual_bp": 10.95,
+      "short_annual_bp": -21.9
+    },
+    {
+      "date_utc": "2026-05-28",
+      "instrument": "AUD_USD",
+      "long_annual_bp": 10.95,
+      "short_annual_bp": -21.9
+    },
+    {
+      "date_utc": "2026-05-29",
+      "instrument": "AUD_USD",
+      "long_annual_bp": 10.95,
+      "short_annual_bp": -21.9
+    }
+  ]
+}

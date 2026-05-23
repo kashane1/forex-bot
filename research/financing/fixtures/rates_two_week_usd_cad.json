@@ -1,0 +1,64 @@
+{
+  "kind": "financing_rates",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "synthetic USD_CAD rates — USD-base pair (notional in USD = units); long_annual_bp = -10.95 (~0.03 bp/day debit) and short_annual_bp = +5.475 (~0.015 bp/day credit) for sign variety vs the AUD/USD pattern. 2026-05-20 INTENTIONALLY listed in missing_dates (Wednesday, also tests the triple-swap × conservative-fallback interaction) and absent from rates",
+  "rate_unit": "annual_bp",
+  "missing_dates": ["2026-05-20"],
+  "rates": [
+    {
+      "date_utc": "2026-05-18",
+      "instrument": "USD_CAD",
+      "long_annual_bp": -10.95,
+      "short_annual_bp": 5.475
+    },
+    {
+      "date_utc": "2026-05-19",
+      "instrument": "USD_CAD",
+      "long_annual_bp": -10.95,
+      "short_annual_bp": 5.475
+    },
+    {
+      "date_utc": "2026-05-21",
+      "instrument": "USD_CAD",
+      "long_annual_bp": -10.95,
+      "short_annual_bp": 5.475
+    },
+    {
+      "date_utc": "2026-05-22",
+      "instrument": "USD_CAD",
+      "long_annual_bp": -10.95,
+      "short_annual_bp": 5.475
+    },
+    {
+      "date_utc": "2026-05-25",
+      "instrument": "USD_CAD",
+      "long_annual_bp": -10.95,
+      "short_annual_bp": 5.475
+    },
+    {
+      "date_utc": "2026-05-26",
+      "instrument": "USD_CAD",
+      "long_annual_bp": -10.95,
+      "short_annual_bp": 5.475
+    },
+    {
+      "date_utc": "2026-05-27",
+      "instrument": "USD_CAD",
+      "long_annual_bp": -10.95,
+      "short_annual_bp": 5.475
+    },
+    {
+      "date_utc": "2026-05-28",
+      "instrument": "USD_CAD",
+      "long_annual_bp": -10.95,
+      "short_annual_bp": 5.475
+    },
+    {
+      "date_utc": "2026-05-29",
+      "instrument": "USD_CAD",
+      "long_annual_bp": -10.95,
+      "short_annual_bp": 5.475
+    }
+  ]
+}
