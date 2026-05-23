@@ -468,14 +468,21 @@ def run(argv: list[str] | None = None) -> int:
         )
         return EXIT_RUNTIME
 
+    try:
+        now = _parse_now(args.generated_at_utc)
+    except FixtureValidationError as exc:
+        print(f"[reconcile_financing_fixtures] {exc}", file=sys.stderr)
+        return EXIT_SCHEMA
+
     if not events:
         # Zero-event observation. The script still emits an output;
         # the calculator runs against an empty position set so it
         # produces zero events too. The result: empty rows, summary
-        # all zero, exit OK.
+        # all zero, exit OK. Window uses `now` (not datetime.now)
+        # so the empty-path output is also deterministic for tests.
         instruments_present: list[str] = []
-        window_open = datetime.now(UTC).replace(microsecond=0)
-        window_close = window_open
+        window_open = now
+        window_close = now
         positions: list[PositionInterval] = []
     else:
         instruments_present = _instruments(events)
@@ -500,12 +507,6 @@ def run(argv: list[str] | None = None) -> int:
                 file=sys.stderr,
             )
             return EXIT_RUNTIME
-
-    try:
-        now = _parse_now(args.generated_at_utc)
-    except FixtureValidationError as exc:
-        print(f"[reconcile_financing_fixtures] {exc}", file=sys.stderr)
-        return EXIT_SCHEMA
 
     cfg = FinancingCalculatorConfig(
         missing_rate_policy=MissingRatePolicy(args.missing_rate_policy),
