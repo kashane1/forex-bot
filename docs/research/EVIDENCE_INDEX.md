@@ -275,6 +275,25 @@ any verdict, and does not lift the live-promotion blocker.
 | [`FINANCING_RECONCILIATION_TOOLING_STATUS.md`](FINANCING_RECONCILIATION_TOOLING_STATUS.md) | headline status — script (`scripts/reconcile_financing_fixtures.py`), tests (22 cases pass), no broker data fetched, MODELED unavailable, live blocker remains |
 | [`RESEARCH_FINANCING_RECONCILIATION_TOOLING_001_SUMMARY.md`](RESEARCH_FINANCING_RECONCILIATION_TOOLING_001_SUMMARY.md) | sprint summary & handoff |
 
+### Observed-financing capture pilot (`research-financing-observed-capture-pilot-001`)
+
+Read-only OANDA practice DAILY_FINANCING capture pilot.
+Authorized for **practice transaction history only** —
+no orders, trades, positions, pricing, mutation, or live
+access. The pilot run did **not** execute (practice
+credentials absent in the worktree); the script, tests,
+allowlist + denylist, and dry-run path are all in place
+for a future credentialed sprint. **No OANDA data
+fetched. No MODELED financing. Live blocker remains.**
+
+| document | what it is |
+|---|---|
+| [`FINANCING_OBSERVED_CAPTURE_PILOT_001_PLAN.md`](FINANCING_OBSERVED_CAPTURE_PILOT_001_PLAN.md) | sprint plan + endpoint allow/denylist + credential / redaction rules |
+| [`FINANCING_OBSERVED_CAPTURE_EXISTING_PATH_AUDIT.md`](FINANCING_OBSERVED_CAPTURE_EXISTING_PATH_AUDIT.md) | code-level audit of the existing parser / schema / repo / read-only endpoint; confirms minimal pilot wiring |
+| [`FINANCING_OBSERVED_CAPTURE_PILOT_RUN.md`](FINANCING_OBSERVED_CAPTURE_PILOT_RUN.md) | record of the attempted dry-run (no credentials → exit 2; valid pilot result) |
+| [`FINANCING_OBSERVED_CAPTURE_RECONCILIATION.md`](FINANCING_OBSERVED_CAPTURE_RECONCILIATION.md) | reconciliation blocker (no captured events to reconcile); records the would-be command and the rate-fixture coverage gap |
+| [`FINANCING_OBSERVED_CAPTURE_PILOT_STATUS.md`](FINANCING_OBSERVED_CAPTURE_PILOT_STATUS.md) | headline status — script (`scripts/capture_oanda_observed_financing_pilot.py`), tests (27 cases pass), no broker data fetched, no MODELED, live blocker remains |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
