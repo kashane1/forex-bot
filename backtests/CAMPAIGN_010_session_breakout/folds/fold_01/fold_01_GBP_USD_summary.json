@@ -1,0 +1,32 @@
+{
+  "instrument": "GBP_USD",
+  "strategy_name": "session_breakout",
+  "strategy_version": "0.1.0-c010",
+  "granularity": "H4",
+  "from_time": "2022-06-19T21:00:00+00:00",
+  "to_time": "2022-12-15T22:00:00+00:00",
+  "config_hash": "c3b236b24b32f0de",
+  "data_request_hash": "fa4f6f95cf70f2b8",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.5660620000000116,
+    "final_equity": 497.16968999999995,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -2.0967193752686097,
+    "max_drawdown_duration_bars": 717,
+    "sharpe": -0.47656886134950344,
+    "sortino": -0.5696524226723212,
+    "profit_factor": 0.9049033101951132,
+    "expectancy_r": -0.032906471408532444,
+    "average_r": -0.032906471408532444,
+    "median_r": -0.057287560107464844,
+    "win_rate": 0.45588235294117646,
+    "average_win": 0.8687785483870968,
+    "average_loss": -0.8043904054054055,
+    "trade_count": 68,
+    "largest_single_loss": -1.26352,
+    "average_spread_paid_pips": 1.9161764705882354,
+    "exposure_pct": 0.0
+  }
+}

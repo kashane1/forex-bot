@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_JPY",
+  "strategy_name": "session_breakout",
+  "strategy_version": "0.1.0-c010",
+  "granularity": "H4",
+  "from_time": "2025-06-03T01:00:00+00:00",
+  "to_time": "2025-11-28T18:00:00+00:00",
+  "config_hash": "c3b236b24b32f0de",
+  "data_request_hash": "f3e4421ce1b3297e",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": 0.2386248601472296,
+    "final_equity": 501.1931243007362,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.838870621159549,
+    "max_drawdown_duration_bars": 401,
+    "sharpe": 0.2050323119528282,
+    "sortino": 0.2817043725509137,
+    "profit_factor": 1.0468306143624158,
+    "expectancy_r": 0.00010153898111954981,
+    "average_r": 0.00010153898111954981,
+    "median_r": -0.0006432844215597202,
+    "win_rate": 0.44776119402985076,
+    "average_win": 0.8890189048020122,
+    "average_loss": -0.6885795363060584,
+    "trade_count": 67,
+    "largest_single_loss": -1.288506098596813,
+    "average_spread_paid_pips": 1.6044776119402984,
+    "exposure_pct": 0.0
+  }
+}

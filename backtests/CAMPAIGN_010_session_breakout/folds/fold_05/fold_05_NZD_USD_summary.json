@@ -1,0 +1,32 @@
+{
+  "instrument": "NZD_USD",
+  "strategy_name": "session_breakout",
+  "strategy_version": "0.1.0-c010",
+  "granularity": "H4",
+  "from_time": "2024-06-09T21:00:00+00:00",
+  "to_time": "2024-12-04T22:00:00+00:00",
+  "config_hash": "c3b236b24b32f0de",
+  "data_request_hash": "2724a8ab225e0189",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.1986829999999995,
+    "final_equity": 499.00658500000003,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -0.25417599999999535,
+    "max_drawdown_duration_bars": 517,
+    "sharpe": -1.00449253822832,
+    "sortino": 0.0,
+    "profit_factor": 0.2183250975701876,
+    "expectancy_r": -0.39068994181213634,
+    "average_r": -0.39068994181213634,
+    "median_r": -0.39068994181213634,
+    "win_rate": 0.5,
+    "average_win": 0.277465,
+    "average_loss": -1.27088,
+    "trade_count": 2,
+    "largest_single_loss": -1.27088,
+    "average_spread_paid_pips": 2.25,
+    "exposure_pct": 0.0
+  }
+}

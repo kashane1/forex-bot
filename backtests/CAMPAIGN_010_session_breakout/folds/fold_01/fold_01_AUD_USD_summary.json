@@ -1,0 +1,32 @@
+{
+  "instrument": "AUD_USD",
+  "strategy_name": "session_breakout",
+  "strategy_version": "0.1.0-c010",
+  "granularity": "H4",
+  "from_time": "2022-06-19T21:00:00+00:00",
+  "to_time": "2022-12-15T22:00:00+00:00",
+  "config_hash": "c3b236b24b32f0de",
+  "data_request_hash": "fa5f2438ce1762a9",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -1.705190000000012,
+    "final_equity": 491.4740499999999,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -2.258509000000015,
+    "max_drawdown_duration_bars": 714,
+    "sharpe": -1.4983044360856408,
+    "sortino": -1.5136839875254637,
+    "profit_factor": 0.712315311825577,
+    "expectancy_r": -0.1032130377117164,
+    "average_r": -0.1032130377117164,
+    "median_r": -0.10816282411100844,
+    "win_rate": 0.4393939393939394,
+    "average_win": 0.7279479310344827,
+    "average_loss": -0.8009848648648648,
+    "trade_count": 66,
+    "largest_single_loss": -1.25837,
+    "average_spread_paid_pips": 1.3181818181818181,
+    "exposure_pct": 0.0
+  }
+}

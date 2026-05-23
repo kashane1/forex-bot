@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_CHF",
+  "strategy_name": "session_breakout",
+  "strategy_version": "0.1.0-c010",
+  "granularity": "H4",
+  "from_time": "2023-06-14T01:00:00+00:00",
+  "to_time": "2023-12-10T22:00:00+00:00",
+  "config_hash": "c3b236b24b32f0de",
+  "data_request_hash": "d196e7df0127b06b",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": 0.46911945064622707,
+    "final_equity": 502.3455972532312,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -2.114872373090592,
+    "max_drawdown_duration_bars": 461,
+    "sharpe": 0.396929660693428,
+    "sortino": 0.4477356512513924,
+    "profit_factor": 1.1158666351226967,
+    "expectancy_r": 0.036398725396386125,
+    "average_r": 0.036398725396386125,
+    "median_r": 0.12029610630889884,
+    "win_rate": 0.5357142857142857,
+    "average_win": 0.7529845877099588,
+    "average_loss": -0.7786130914641377,
+    "trade_count": 56,
+    "largest_single_loss": -1.2874086752745486,
+    "average_spread_paid_pips": 1.6178571428571427,
+    "exposure_pct": 0.0
+  }
+}

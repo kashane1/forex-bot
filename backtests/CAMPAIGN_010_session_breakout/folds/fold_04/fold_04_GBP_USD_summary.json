@@ -1,0 +1,32 @@
+{
+  "instrument": "GBP_USD",
+  "strategy_name": "session_breakout",
+  "strategy_version": "0.1.0-c010",
+  "granularity": "H4",
+  "from_time": "2023-12-11T02:00:00+00:00",
+  "to_time": "2024-06-07T17:00:00+00:00",
+  "config_hash": "c3b236b24b32f0de",
+  "data_request_hash": "baccc3ac90e6e94e",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -2.918580000000004,
+    "final_equity": 485.40709999999996,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -3.4985756053078494,
+    "max_drawdown_duration_bars": 683,
+    "sharpe": -2.3512548410541663,
+    "sortino": -2.427467355819053,
+    "profit_factor": 0.5527651412471022,
+    "expectancy_r": -0.16904369717808376,
+    "average_r": -0.16904369717808376,
+    "median_r": -0.23008849557522124,
+    "win_rate": 0.36231884057971014,
+    "average_win": 0.7214506,
+    "average_loss": -0.7415719318181817,
+    "trade_count": 69,
+    "largest_single_loss": -1.262475,
+    "average_spread_paid_pips": 1.7405797101449272,
+    "exposure_pct": 0.0
+  }
+}
