@@ -293,6 +293,13 @@
       "kind": "free_local_parity_verifier",
       "description": "Closeout reference for the free / local independent parity verifier (research-close-free-local-verifier-and-next-direction-001 Phase 1). The verifier work is ACCEPTED as WARN-band corroborating evidence for the bespoke backtest engine on CAMPAIGN_002 H4 trend_following: verifier 1,655 vs bespoke 1,647 trades (+0.49% OK total), 3 OK / 4 WARN / 0 FAIL pairs, overall WARN. Verifier-side bugs fixed across the four sprints: 2 (both Sprint 003). Bespoke-engine bugs found: 0. Both engines agree every pair is loss-making on the no-RiskEngine path; CAMPAIGN_002 stays REJECT under either measurement. Records why exact parity is not required, why the Decimal end-to-end rewrite is deferred (see DECIMAL_PRECISION_DEFERRED), what the verifier corroborates, what it does not prove, and the remaining WARN-drift summary. No further verifier sprints planned. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "WALK_FORWARD_HARNESS_STATUS",
+      "path": "docs/research/WALK_FORWARD_HARNESS_STATUS.md",
+      "kind": "walk_forward_harness",
+      "description": "Headline status of the walk-forward research harness (research-walk-forward-harness-001). Implementation complete (research/walk_forward/ package + scripts/run_walk_forward_dry_run.py); 42 fixture tests pass; protocol documented in WALK_FORWARD_RESEARCH_PROTOCOL.md; metadata-only CAMPAIGN_002 retrospective demonstrates usage without re-running. Harness produces fold plans (train/validation/test windows) and validates them at fold-boundary level; per-fold backtest execution is the campaign code's responsibility. Only `frozen` parameter mode is authorized under the current research freeze. A WalkForwardResults with overall_verdict='PASS' is one of six required evidence items before paper/demo per NEXT_RESEARCH_DIRECTION_AFTER_CAMPAIGN_002_REJECT §8. Infrastructure only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "strategy_evidence": false
     }
   ]
 }
