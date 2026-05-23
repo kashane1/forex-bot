@@ -257,6 +257,23 @@ lift the live-promotion financing blocker.
 | [`FINANCING_RATE_SOURCE_FIXTURES_STATUS.md`](FINANCING_RATE_SOURCE_FIXTURES_STATUS.md) | headline status — schema, fixtures (9 files ~9 KB), loader/adapter, tests (43 cases pass), no broker data fetched, MODELED unavailable, live blocker remains |
 | [`RESEARCH_FINANCING_RATE_SOURCE_FIXTURES_001_SUMMARY.md`](RESEARCH_FINANCING_RATE_SOURCE_FIXTURES_001_SUMMARY.md) | sprint summary & handoff |
 
+### Financing reconciliation tooling (`research-financing-reconciliation-tooling-001`)
+
+Local-only CLI that reconciles an observed-financing
+fixture against the calculator's prediction for the same
+window. Diagnostic only — every output carries
+`strategy_evidence: false` and at most
+`financing_treatment: estimated`. No broker call, no
+credential read. Sprint adds no campaign, does not change
+any verdict, and does not lift the live-promotion blocker.
+
+| document | what it is |
+|---|---|
+| [`FINANCING_RECONCILIATION_TOOLING_001_PLAN.md`](FINANCING_RECONCILIATION_TOOLING_001_PLAN.md) | sprint plan |
+| [`FINANCING_RECONCILIATION_TOOLING_PROTOCOL.md`](FINANCING_RECONCILIATION_TOOLING_PROTOCOL.md) | CLI protocol — inputs, JSON + markdown output shapes, classification rules, exit codes, defense-in-depth MODELED guard |
+| [`FINANCING_RECONCILIATION_SYNTHETIC_RUNS.md`](FINANCING_RECONCILIATION_SYNTHETIC_RUNS.md) | records of five synthetic runs (commands, inputs, exit codes, per-run summaries); confirms no broker / OANDA data fetched |
+| [`FINANCING_RECONCILIATION_TOOLING_STATUS.md`](FINANCING_RECONCILIATION_TOOLING_STATUS.md) | headline status — script (`scripts/reconcile_financing_fixtures.py`), tests (22 cases pass), no broker data fetched, MODELED unavailable, live blocker remains |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
