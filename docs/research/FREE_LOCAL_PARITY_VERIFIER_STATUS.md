@@ -2,6 +2,22 @@
 
 **Date:** 2026-05-22 · **Branch:** `infra-free-local-parity-verifier-001`
 **Phase:** 7 · `strategy_evidence: false`
+**Re-confirmed:** `infra-free-local-parity-verifier-002-full-data-run`
+Phase 5 — the data unblock was attempted and could not be performed
+under the sprint rules (no local `data/oanda_h4_research.sqlite3`, no
+`.env` with OANDA practice credentials, no `OANDA_*` env vars in the
+shell). The verifier script was invoked end-to-end against the absent
+CSVs and produced a clean BLOCKED state (7 × BLOCKED, exit code 2, no
+crash, no fabricated data). The comparison harness was re-run
+programmatically against the real bespoke no-RiskEngine reference
+(1,647 trades) and produced a structurally identical seven-row
+BLOCKED report. **Verifier bugs found: 0. Bespoke-engine bugs found:
+N/A** (engine not exercised; no real-candle cross-check possible
+without the CSVs). Detail:
+[`FREE_LOCAL_PARITY_VERIFIER_DATA_UNBLOCK_STATUS.md`](FREE_LOCAL_PARITY_VERIFIER_DATA_UNBLOCK_STATUS.md),
+[`FREE_LOCAL_PARITY_VERIFIER_FULL_DATA_RUN.md`](FREE_LOCAL_PARITY_VERIFIER_FULL_DATA_RUN.md),
+[`FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md`](FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md)
+"Sprint-002 re-run record" section.
 
 The headline status of the free / local independent parity verifier
 after the implementation sprint. Per-phase detail lives in the doc

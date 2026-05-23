@@ -235,7 +235,14 @@
       "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_STATUS",
       "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_STATUS.md",
       "kind": "free_local_parity_verifier",
-      "description": "Headline status of the free / local independent parity verifier (infra-free-local-parity-verifier-001). Implementation complete (research/parity_verifier/), 85 fixture tests pass; full seven-pair full-window comparison against the bespoke no-RiskEngine reference (1647 trades) is BLOCKED locally because the gitignored H4 export CSVs are absent on this branch. Verification only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "Headline status of the free / local independent parity verifier (infra-free-local-parity-verifier-001 with Sprint-002 re-confirmation). Implementation complete (research/parity_verifier/), 85 fixture tests pass; full seven-pair full-window comparison against the bespoke no-RiskEngine reference (1647 trades) is BLOCKED locally because the gitignored H4 export CSVs are absent on this branch and no practice credentials are configured. Verifier bugs found: 0; bespoke-engine bugs found: N/A. Verification only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_FULL_DATA_RUN",
+      "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_FULL_DATA_RUN.md",
+      "kind": "free_local_parity_verifier",
+      "description": "First attempted full-data execution of the free / local verifier (infra-free-local-parity-verifier-002-full-data-run). BLOCKED — all seven H4 CSV exports absent locally; the script reports BLOCKED per pair, exits 2, writes a deterministic zero-trade summary, and does not fabricate data. Verifier-side bugs: 0. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     }
   ]
