@@ -216,6 +216,56 @@ class MeanReversionStrategyConfig(BaseModel):
         return self
 
 
+class SessionBreakoutStrategyConfig(BaseModel):
+    # CAMPAIGN_010 research candidate (`session_breakout 0.1.0-c010`).
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/ASIAN_LONDON_SESSION_BREAKOUT_IMPLEMENTATION_SPEC.md.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_bars_in_trade: int = 6
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+    asian_session_hours_utc_start: int = 22
+    asian_session_hours_utc_end: int = 6
+    london_session_hours_utc_start: int = 6
+    london_session_hours_utc_end: int = 12
+    min_asian_range_atr_fraction: float = 0.30
+
+    @model_validator(mode="after")
+    def _check(self) -> SessionBreakoutStrategyConfig:
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1:
+            raise ConfigError("max_bars_in_trade must be >= 1")
+        if self.min_asian_range_atr_fraction <= 0:
+            raise ConfigError("min_asian_range_atr_fraction must be > 0")
+        for name in (
+            "asian_session_hours_utc_start",
+            "asian_session_hours_utc_end",
+            "london_session_hours_utc_start",
+            "london_session_hours_utc_end",
+        ):
+            value = getattr(self, name)
+            if not (0 <= value <= 24):
+                raise ConfigError(f"{name} must be in [0, 24]")
+        if self.asian_session_hours_utc_start == self.asian_session_hours_utc_end:
+            raise ConfigError(
+                "asian_session_hours_utc_start must differ from asian_session_hours_utc_end"
+            )
+        if self.london_session_hours_utc_start >= self.london_session_hours_utc_end:
+            raise ConfigError(
+                "london_session_hours_utc_start must be < london_session_hours_utc_end "
+                "(London window does not wrap midnight in v1)"
+            )
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -224,6 +274,7 @@ class StrategyConfig(BaseModel):
     volatility_breakout: VolatilityBreakoutStrategyConfig | None = None
     pullback_continuation: PullbackContinuationStrategyConfig | None = None
     mean_reversion: MeanReversionStrategyConfig | None = None
+    session_breakout: SessionBreakoutStrategyConfig | None = None
 
     @model_validator(mode="after")
     def _check_enabled(self) -> StrategyConfig:
@@ -248,6 +299,10 @@ class StrategyConfig(BaseModel):
         if "mean_reversion" in self.enabled and self.mean_reversion is None:
             raise ConfigError(
                 "strategy.mean_reversion config required when enabled"
+            )
+        if "session_breakout" in self.enabled and self.session_breakout is None:
+            raise ConfigError(
+                "strategy.session_breakout config required when enabled"
             )
         return self
 
