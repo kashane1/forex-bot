@@ -2,6 +2,18 @@
 
 **Date:** 2026-05-22 · **Branch:** `infra-free-local-parity-verifier-001`
 **Phase:** 5 · `strategy_evidence: false`
+**Re-confirmed:** `infra-free-local-parity-verifier-002-full-data-run`
+Phase 3 — the full-data run was attempted again on the new branch
+and produced the same BLOCKED outcome (all seven CSVs absent
+locally, no practice credentials configured, no SQLite store to
+re-export from). The comparison harness was invoked programmatically
+against `compare.blocked_report` with the real bespoke reference
+JSON, producing a structurally identical seven-row BLOCKED report.
+The full verbatim BLOCKED comparison output is preserved under
+`/tmp/parity_verifier_002_run/comparison.md` (outside repo, not
+committed); a transcript follows under "Sprint-002 re-run record"
+below. Verifier-side bugs: **0**. Bespoke-side bugs: **N/A** (engine
+not exercised; no real-candle cross-check possible without the CSVs).
 
 > A PASS or FAIL here describes agreement between two engines on a
 > rejected strategy. It **does not** approve a strategy and does not
@@ -170,3 +182,110 @@ The comparison logic correctly:
 - That CAMPAIGN_002 is any less REJECT than it was before this
   sprint. It is **still REJECT**.
 - That any strategy is approved. None is.
+
+## Sprint-002 re-run record
+
+Captured 2026-05-22 on branch
+`infra-free-local-parity-verifier-002-full-data-run` Phase 3. The
+verifier was re-invoked end-to-end against the same absent-CSV
+state, and the comparison harness was re-run programmatically.
+
+### Verifier output (BLOCKED)
+
+```text
+Loaded bespoke reference: …campaign_002_h4_bespoke_reference.json (1647 trades, 7 pairs).
+BLOCKED — AUD_USD: CSV not found at …AUD_USD_H4_lean.csv. …
+BLOCKED — EUR_USD: CSV not found …
+BLOCKED — GBP_USD: …
+BLOCKED — NZD_USD: …
+BLOCKED — USD_CAD: …
+BLOCKED — USD_CHF: …
+BLOCKED — USD_JPY: …
+Verifier total trades: 0
+Blocked pairs: ['AUD_USD', 'EUR_USD', 'GBP_USD', 'NZD_USD', 'USD_CAD', 'USD_CHF', 'USD_JPY']
+```
+
+Exit code: **2** (every pair blocked).
+
+### Comparison report — BLOCKED
+
+- Bespoke reference path: `research/lean_parity/campaign_002_h4_bespoke_reference.json`
+- Bespoke total trades: **1,647**
+- Verifier result path: — (not produced)
+- Verifier total trades: — (none — BLOCKED)
+- Δ %: —
+- **Overall status: BLOCKED**
+- **Overall classification: `unknown`** (the verifier did not run
+  on candles, so divergence cannot be classified into a specific
+  bucket; the comparison correctly avoids labelling the absence of
+  output as PASS or FAIL).
+
+### Per-pair table (sourced from the real bespoke reference)
+
+| instrument | bespoke trades | verifier trades | Δ % | bespoke exp R | verifier exp R | Δ R | bespoke ret % | verifier ret % | Δ pp | status | classification |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| EUR_USD | 233 | — | — | -0.1961 | — | — | -10.8345 | — | — | BLOCKED | unknown |
+| GBP_USD | 215 | — | — | -0.0971 | — | — | -5.1182 | — | — | BLOCKED | unknown |
+| USD_JPY | 247 | — | — | -0.0001 | — | — | -1.3735 | — | — | BLOCKED | unknown |
+| AUD_USD | 237 | — | — | -0.2134 | — | — | -11.9013 | — | — | BLOCKED | unknown |
+| USD_CAD | 251 | — | — | -0.1804 | — | — | -14.1096 | — | — | BLOCKED | unknown |
+| USD_CHF | 224 | — | — | -0.1430 | — | — | -7.0322 | — | — | BLOCKED | unknown |
+| NZD_USD | 240 | — | — | -0.2645 | — | — | -14.7032 | — | — | BLOCKED | unknown |
+
+### Reference scope confirmation (Sprint-002 lookup)
+
+The bespoke reference used is the **no-RiskEngine** bespoke run at
+`research/lean_parity/campaign_002_h4_bespoke_reference.json`,
+exactly as the LEAN-era mapping spec §0 requires for an apples-to-
+apples comparison with the verifier's strategy + engine mechanics
+replica. The reference's top-level keys confirm scope:
+
+- `parity_target`: `"CAMPAIGN_002 H4 trend_following baseline"`
+- `risk_engine_used`: `false`
+- `fill_timing`: `"signal_bar_close"`
+- `window`: `["2020-01-01", "2026-05-20"]`
+- `config_hash`: `d536a9b06818197f9915de6224e0b8ae58e77abe2c6f3c19426338646fb077bf`
+- `strategy_evidence`: `false`
+- `total_trades`: `1647`
+- 7 pairs: EUR_USD, GBP_USD, USD_JPY, AUD_USD, USD_CAD, USD_CHF, NZD_USD.
+
+The **1,032-trade with-RiskEngine** reference is **not** used; mixing
+references is explicitly forbidden by the mapping spec §0 and was
+not done.
+
+### What this Sprint-002 comparison adds beyond Sprint 001
+
+- A direct, programmatic invocation of `compare.blocked_report`
+  against the real bespoke JSON on the new branch (not just the
+  fixture-test invocation from Sprint 001).
+- A full output transcript captured under
+  `/tmp/parity_verifier_002_run/comparison.md` (outside repo, not
+  committed) so the BLOCKED comparison shape is reviewable verbatim.
+- Re-confirmation that the verifier's BLOCKED behavior, the
+  comparison-harness BLOCKED behavior, and the script's exit code 2
+  all line up.
+
+### Divergence classification (Sprint-002)
+
+- **Per pair:** `unknown` for all seven — the verifier never
+  produced numbers to diverge from. Not classified as
+  `data_mismatch` because the data side has not even been
+  attempted (no fetch, no export); not `indicator_mismatch` because
+  no indicator series ran; etc.
+- **Overall:** `unknown`.
+- **No divergence was hidden, relabelled, or tuned away.**
+
+### Files committed by Sprint-002 Phase 3
+
+- This `## Sprint-002 re-run record` section appended to the
+  existing comparison doc.
+
+### Files produced but not committed
+
+- `/tmp/parity_verifier_002_run/parity_summary.json`
+- `/tmp/parity_verifier_002_run/trades.csv` (header-only)
+- `/tmp/parity_verifier_002_run/parity_summary.md`
+- `/tmp/parity_verifier_002_run/comparison.md`
+- `/tmp/parity_verifier_002_run/run.log`
+
+All four live outside the repo and are not staged.
