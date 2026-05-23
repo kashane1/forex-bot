@@ -164,6 +164,7 @@ direction is a free / local independent verifier.
 | document | what it is |
 |---|---|
 | [`QUANTCONNECT_LEAN_RETIREMENT_DECISION.md`](QUANTCONNECT_LEAN_RETIREMENT_DECISION.md) | decision record retiring the QuantConnect/LEAN path |
+| [`FREE_LOCAL_PARITY_VERIFIER_PLAN.md`](FREE_LOCAL_PARITY_VERIFIER_PLAN.md) | plan for the free / local independent verifier |
 
 ## Research-freeze documents (this branch)
 
