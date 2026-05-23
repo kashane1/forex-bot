@@ -1,0 +1,64 @@
+{
+  "kind": "financing_rates",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "synthetic USD_JPY rates — USD-base pair (notional in USD = units); long_annual_bp = +18.25 (~0.05 bp/day credit) and short_annual_bp = -36.5 (~0.1 bp/day debit) modeling a classic USD/JPY carry regime where USD-yield >> JPY-yield. 2026-05-22 INTENTIONALLY listed in missing_dates and absent from rates to exercise the conservative fallback. JPY precision: notional is units in USD so entry-price scale does not affect cents-region reconciliation",
+  "rate_unit": "annual_bp",
+  "missing_dates": ["2026-05-22"],
+  "rates": [
+    {
+      "date_utc": "2026-05-18",
+      "instrument": "USD_JPY",
+      "long_annual_bp": 18.25,
+      "short_annual_bp": -36.5
+    },
+    {
+      "date_utc": "2026-05-19",
+      "instrument": "USD_JPY",
+      "long_annual_bp": 18.25,
+      "short_annual_bp": -36.5
+    },
+    {
+      "date_utc": "2026-05-20",
+      "instrument": "USD_JPY",
+      "long_annual_bp": 18.25,
+      "short_annual_bp": -36.5
+    },
+    {
+      "date_utc": "2026-05-21",
+      "instrument": "USD_JPY",
+      "long_annual_bp": 18.25,
+      "short_annual_bp": -36.5
+    },
+    {
+      "date_utc": "2026-05-25",
+      "instrument": "USD_JPY",
+      "long_annual_bp": 18.25,
+      "short_annual_bp": -36.5
+    },
+    {
+      "date_utc": "2026-05-26",
+      "instrument": "USD_JPY",
+      "long_annual_bp": 18.25,
+      "short_annual_bp": -36.5
+    },
+    {
+      "date_utc": "2026-05-27",
+      "instrument": "USD_JPY",
+      "long_annual_bp": 18.25,
+      "short_annual_bp": -36.5
+    },
+    {
+      "date_utc": "2026-05-28",
+      "instrument": "USD_JPY",
+      "long_annual_bp": 18.25,
+      "short_annual_bp": -36.5
+    },
+    {
+      "date_utc": "2026-05-29",
+      "instrument": "USD_JPY",
+      "long_annual_bp": 18.25,
+      "short_annual_bp": -36.5
+    }
+  ]
+}

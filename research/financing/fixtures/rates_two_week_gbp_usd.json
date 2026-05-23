@@ -1,0 +1,64 @@
+{
+  "kind": "financing_rates",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "synthetic GBP_USD rates — USD-quote pair; long_annual_bp = -14.6 (~0.04 bp/day debit) and short_annual_bp = +7.3 (~0.02 bp/day credit) modeling a USD-yield > GBP-yield regime. 2026-05-21 INTENTIONALLY listed in missing_dates and absent from rates to exercise the conservative fallback",
+  "rate_unit": "annual_bp",
+  "missing_dates": ["2026-05-21"],
+  "rates": [
+    {
+      "date_utc": "2026-05-18",
+      "instrument": "GBP_USD",
+      "long_annual_bp": -14.6,
+      "short_annual_bp": 7.3
+    },
+    {
+      "date_utc": "2026-05-19",
+      "instrument": "GBP_USD",
+      "long_annual_bp": -14.6,
+      "short_annual_bp": 7.3
+    },
+    {
+      "date_utc": "2026-05-20",
+      "instrument": "GBP_USD",
+      "long_annual_bp": -14.6,
+      "short_annual_bp": 7.3
+    },
+    {
+      "date_utc": "2026-05-22",
+      "instrument": "GBP_USD",
+      "long_annual_bp": -14.6,
+      "short_annual_bp": 7.3
+    },
+    {
+      "date_utc": "2026-05-25",
+      "instrument": "GBP_USD",
+      "long_annual_bp": -14.6,
+      "short_annual_bp": 7.3
+    },
+    {
+      "date_utc": "2026-05-26",
+      "instrument": "GBP_USD",
+      "long_annual_bp": -14.6,
+      "short_annual_bp": 7.3
+    },
+    {
+      "date_utc": "2026-05-27",
+      "instrument": "GBP_USD",
+      "long_annual_bp": -14.6,
+      "short_annual_bp": 7.3
+    },
+    {
+      "date_utc": "2026-05-28",
+      "instrument": "GBP_USD",
+      "long_annual_bp": -14.6,
+      "short_annual_bp": 7.3
+    },
+    {
+      "date_utc": "2026-05-29",
+      "instrument": "GBP_USD",
+      "long_annual_bp": -14.6,
+      "short_annual_bp": 7.3
+    }
+  ]
+}

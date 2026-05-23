@@ -1,0 +1,34 @@
+{
+  "kind": "observed_financing_events",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "long EUR_USD across Tue/Wed/Thu rollovers; long pays negative carry — all three events are debits, the Wednesday row is ~3x the surrounding rows (triple swap on T+2 settlement)",
+  "account_currency": "USD",
+  "account_id_hash": "c4e91d9f7c03827938cbb2c82608bba023e98f23d52b2f84784cbcf9652df69f",
+  "events": [
+    {
+      "transaction_id": "fix-txn-eur-001",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-eur-long-001",
+      "units": "10000",
+      "financing": "-0.054",
+      "time": "2026-05-19T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-eur-002",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-eur-long-001",
+      "units": "10000",
+      "financing": "-0.162",
+      "time": "2026-05-20T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-eur-003",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-eur-long-001",
+      "units": "10000",
+      "financing": "-0.054",
+      "time": "2026-05-21T21:00:00+00:00"
+    }
+  ]
+}

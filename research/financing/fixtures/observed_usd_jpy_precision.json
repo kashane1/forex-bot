@@ -1,0 +1,18 @@
+{
+  "kind": "observed_financing_events",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "long USD_JPY (USD-base pair) — units already in USD; financing settles in USD home currency; one rollover; preserves JPY-precision-region values via stringified Decimals",
+  "account_currency": "USD",
+  "account_id_hash": "c4e91d9f7c03827938cbb2c82608bba023e98f23d52b2f84784cbcf9652df69f",
+  "events": [
+    {
+      "transaction_id": "fix-txn-usdjpy-001",
+      "instrument": "USD_JPY",
+      "trade_id": "fix-trade-usdjpy-long-001",
+      "units": "10000",
+      "financing": "0.050000",
+      "time": "2026-05-19T21:00:00+00:00"
+    }
+  ]
+}

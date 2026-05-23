@@ -1,0 +1,26 @@
+{
+  "kind": "observed_financing_events",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "long EUR_USD held Fri → Mon across a weekend; the broker emits DAILY_FINANCING only at Friday's and Monday's rollovers (Sat/Sun are NOT in the file because no DAILY_FINANCING arrives on those days)",
+  "account_currency": "USD",
+  "account_id_hash": "c4e91d9f7c03827938cbb2c82608bba023e98f23d52b2f84784cbcf9652df69f",
+  "events": [
+    {
+      "transaction_id": "fix-txn-wk-001",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-wk-long-001",
+      "units": "10000",
+      "financing": "-0.054",
+      "time": "2026-05-22T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-wk-002",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-wk-long-001",
+      "units": "10000",
+      "financing": "-0.054",
+      "time": "2026-05-25T21:00:00+00:00"
+    }
+  ]
+}
