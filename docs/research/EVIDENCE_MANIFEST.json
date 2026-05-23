@@ -286,6 +286,13 @@
       "kind": "free_local_parity_verifier",
       "description": "Sprint-004 remaining-drift classification (infra-free-local-parity-verifier-004-rounding-closure). Localizes the WARN-band drift surviving the round_price fix on 4/7 pairs (EUR_USD, USD_CAD, USD_CHF, NZD_USD). The cleanest single piece of evidence is USD_CAD: identical 251 vs 251 trade count, identical +0.0000 pp return delta, but -0.0605 R expectancy drift — same trade set + same total return + different per-trade R means the R denominator (initial_stop_distance * units) differs at sub-pip float-vs-Decimal precision. USD_CHF's +1.6 pp return drift on a USD-base pair points at accumulated divide-by-exit_price precision drift. EUR_USD and NZD_USD classified `unknown` (most plausibly same precision class; not provable without a bespoke trade list). Classification: sizing_pnl_mismatch (float-vs-Decimal flavour) for USD_CAD and USD_CHF; unknown (precision-adjacent) for EUR_USD and NZD_USD. Recommendation: accept as inherent float-precision noise; do not convert verifier to Decimal (would sacrifice independence). Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_ACCEPTED_STATUS",
+      "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_ACCEPTED_STATUS.md",
+      "kind": "free_local_parity_verifier",
+      "description": "Closeout reference for the free / local independent parity verifier (research-close-free-local-verifier-and-next-direction-001 Phase 1). The verifier work is ACCEPTED as WARN-band corroborating evidence for the bespoke backtest engine on CAMPAIGN_002 H4 trend_following: verifier 1,655 vs bespoke 1,647 trades (+0.49% OK total), 3 OK / 4 WARN / 0 FAIL pairs, overall WARN. Verifier-side bugs fixed across the four sprints: 2 (both Sprint 003). Bespoke-engine bugs found: 0. Both engines agree every pair is loss-making on the no-RiskEngine path; CAMPAIGN_002 stays REJECT under either measurement. Records why exact parity is not required, why the Decimal end-to-end rewrite is deferred (see DECIMAL_PRECISION_DEFERRED), what the verifier corroborates, what it does not prove, and the remaining WARN-drift summary. No further verifier sprints planned. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "strategy_evidence": false
     }
   ]
 }

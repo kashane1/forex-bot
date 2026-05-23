@@ -2,6 +2,15 @@
 
 **Date:** 2026-05-22 · **Branch:** `infra-free-local-parity-verifier-001`
 **Phase:** 7 · `strategy_evidence: false`
+
+> **ACCEPTED — verifier evidence loop closed.** This doc is the
+> historical status thread; the single closeout reference is
+> [`FREE_LOCAL_PARITY_VERIFIER_ACCEPTED_STATUS.md`](FREE_LOCAL_PARITY_VERIFIER_ACCEPTED_STATUS.md).
+> No further free / local verifier sprints are planned. The
+> Decimal-precision rewrite is **explicitly deferred** — see
+> [`FREE_LOCAL_PARITY_VERIFIER_DECIMAL_PRECISION_DEFERRED.md`](FREE_LOCAL_PARITY_VERIFIER_DECIMAL_PRECISION_DEFERRED.md).
+> Next research direction:
+> [`NEXT_RESEARCH_DIRECTION_AFTER_CAMPAIGN_002_REJECT.md`](NEXT_RESEARCH_DIRECTION_AFTER_CAMPAIGN_002_REJECT.md).
 **Re-confirmed:** `infra-free-local-parity-verifier-002-full-data-run`
 Phase 5 — the data unblock was attempted and could not be performed
 under the sprint rules (no local `data/oanda_h4_research.sqlite3`, no
