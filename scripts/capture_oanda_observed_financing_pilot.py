@@ -114,12 +114,14 @@ def _is_allowed_url(url: str, account_id: str) -> bool:
     tail_path = tail.split("?", 1)[0]
     if tail_path in allowed_paths:
         return True
-    # Allow /transactions/{id} (single-transaction lookup; no
-    # further slashes after the id segment).
-    return (
-        tail_path.startswith("/transactions/")
-        and "/" not in tail_path[len("/transactions/"):]
-    )
+    # Allow /transactions/{id} (single-transaction lookup). OANDA
+    # transaction ids are integer strings; this also implicitly
+    # rejects /transactions/stream (which is a denylisted
+    # streaming endpoint).
+    if not tail_path.startswith("/transactions/"):
+        return False
+    id_segment = tail_path[len("/transactions/"):]
+    return id_segment.isdigit()
 
 
 def _safe_get(
