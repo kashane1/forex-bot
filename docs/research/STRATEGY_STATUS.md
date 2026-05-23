@@ -55,18 +55,25 @@ for a REJECT. See
 [`CAMPAIGN_010_WALK_FORWARD_RESULT.md`](CAMPAIGN_010_WALK_FORWARD_RESULT.md)
 for the gate-by-gate evidence.
 
-**Next candidate selected (not yet scaffolded):** the
+**Next candidate scaffolded (no evidence verdict yet):** the
 `research-new-candidate-strategy-discovery-002` sprint selected
 **C5 — H4 random-entry diagnostic anchor** for future
-**`CAMPAIGN_011 / random_entry_anchor 0.1.0-c011`**. Selection
-is **not** approval; the candidate is a **null model by design**
-and cannot enter `configs/approved_strategies.yaml` under any
-circumstance. The future scaffold sprint is
-[`research-random-entry-diagnostic-anchor-001`](NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_002.md);
-the future evidence sprint is
-[`research-random-entry-diagnostic-anchor-walk-forward-001`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_002.md).
-Neither sprint has run yet; the row below will appear here
-once the evidence sprint records a verdict.
+**`CAMPAIGN_011 / random_entry_anchor 0.1.0-c011`**. The
+scaffold sprint
+[`research-random-entry-diagnostic-anchor-001`](RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_001_SUMMARY.md)
+**completed** (strategy module + config sub-model + 36 unit
+tests + research config + CAMPAIGN_011 pre-commit + status +
+smoke + 3 readiness docs committed; baseline 735 → 771 pytests
+pass). The candidate is a **null model by design** and cannot
+enter `configs/approved_strategies.yaml` under any circumstance.
+The future evidence sprint is
+[`research-random-entry-diagnostic-anchor-walk-forward-001`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_002.md);
+it has **not** run yet. Status for the random-entry anchor will
+appear here once the evidence sprint records a verdict (expected
+REJECT; an unexpected PASS would trigger the investigation
+playbook per
+[`CAMPAIGN_011_PRECOMMIT_CHECKLIST.md`](CAMPAIGN_011_PRECOMMIT_CHECKLIST.md)
+§12, never promotion).
 
 ## Per-strategy detail
 

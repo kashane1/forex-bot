@@ -425,6 +425,33 @@ no broker call, no approval. The 735-test baseline is preserved.
 | [`NEW_CANDIDATE_DISCOVERY_002_HELPER_DECISION.md`](NEW_CANDIDATE_DISCOVERY_002_HELPER_DECISION.md) | Phase 6 — five helper-code options considered, all rejected with documented rationale; zero code added; matches prior discovery sprint's identical no-helper decision |
 | [`NEW_CANDIDATE_STRATEGY_DISCOVERY_002_SUMMARY.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_002_SUMMARY.md) | Phase 7 — sprint summary & handoff; final validation; recommended next branch is the scaffold sprint |
 
+### CAMPAIGN_011 candidate scaffold (`research-random-entry-diagnostic-anchor-001`)
+
+Scaffold sprint for **CAMPAIGN_011** / `random_entry_anchor
+0.1.0-c011` — the C5 diagnostic-anchor null model. Adds the
+strategy module, the `StrategyConfig.random_entry_anchor`
+schema slot, the candidate config YAML, 36 unit + structural-audit
+tests, and the CAMPAIGN_011 pre-commit / status / smoke /
+readiness docs. **CANDIDATE SCAFFOLD ONLY; NULL MODEL BY DESIGN
+— cannot be approved under any circumstance.** `configs/approved_strategies.yaml`
+remains `approved: []`; CAMPAIGN_002 / CAMPAIGN_010 remain
+REJECT; the candidate is structurally ready for the future
+evidence sprint to generate `WalkForwardResults`. The 771-test
+baseline (735 prior + 36 new) is preserved.
+
+| document | what it is |
+|---|---|
+| [`RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_001_PLAN.md`](RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_001_PLAN.md) | Phase 0 sprint plan + repo truth audit (verified preconditions, 735 baseline, all safety gates) |
+| [`RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_IMPLEMENTATION_SPEC.md`](RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_IMPLEMENTATION_SPEC.md) | Phase 1 binding spec — R1-R8 rule table; frozen parameters (master_seed=20260523, entry_probability=0.05, atr_lookback=14, atr_multiple=2.0, max_bars=6, trailing=None); no-lookahead invariants (seed input never contains close[t]/ATR); distribution/determinism expectations; null-model restrictions |
+| [`CAMPAIGN_011_PRECOMMIT_CHECKLIST.md`](CAMPAIGN_011_PRECOMMIT_CHECKLIST.md) | candidate pre-commit; null-model hypothesis verbatim; implementation + config files; frozen parameters; binding no-seed-optimization rule; required local-only evaluation commands; required walk-forward / financing / risk artifacts; verbatim gate vector inherited from CAMPAIGN_010 §10; unexpected-PASS investigation playbook |
+| [`CAMPAIGN_011_STATUS.md`](CAMPAIGN_011_STATUS.md) | candidate-scaffold-only status; null model / diagnostic anchor; no backtest verdict yet; no evidence campaign run; no strategy approval possible (by design) |
+| [`CAMPAIGN_011_SMOKE_RESULT.md`](CAMPAIGN_011_SMOKE_RESULT.md) | Phase 5 NON-EVIDENCE smokes: config-load PASS; unit-test suite PASS (36 cases); walk-forward dry-run plan PASS (8 folds; matches CAMPAIGN_010); full repo regression 771 passes. Explicit "this is not evidence" framing |
+| [`RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_READINESS.md`](RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_READINESS.md) | scaffold readiness GREEN across all 11 dimensions; future evidence branch identity (`research-random-entry-diagnostic-anchor-walk-forward-001`); comparison vs CAMPAIGN_005 (strictly stronger anchor); pre-flight checklist |
+| [`CAMPAIGN_011_WALK_FORWARD_READINESS.md`](CAMPAIGN_011_WALK_FORWARD_READINESS.md) | walk-forward integration readiness; harness plug-in READY; fold table identical to CAMPAIGN_010 (8 folds); inherited gate vector; per-fold backtest invocation deferred to future evidence sprint |
+| [`CAMPAIGN_011_FINANCING_RISK_READINESS.md`](CAMPAIGN_011_FINANCING_RISK_READINESS.md) | financing + portfolio-risk readiness; ESTIMATED + conservative-stress; MODELED refused at 4 layers; expected uniform per-pair distribution and uniform session-of-day distribution (KEY contrast with CAMPAIGN_010); expected ~$30-60 cashflow_home_stress |
+| [`CAMPAIGN_011_INDEPENDENT_VERIFIER_READINESS.md`](CAMPAIGN_011_INDEPENDENT_VERIFIER_READINESS.md) | verifier capability-locked to CAMPAIGN_002; extension NOT required for the REJECT verdict (null model cannot be paper-promoted); recommended follow-up `infra-free-local-parity-verifier-random-entry-001` because deterministic seed allows EXACT (not WARN-band) corroboration |
+| [`RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_001_SUMMARY.md`](RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_001_SUMMARY.md) | sprint summary & handoff; recommended next branch is the evidence sprint |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
