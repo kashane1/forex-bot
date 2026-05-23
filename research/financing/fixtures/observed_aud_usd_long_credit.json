@@ -1,0 +1,34 @@
+{
+  "kind": "observed_financing_events",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "long AUD_USD across Mon/Tue/Wed/Thu rollovers — non-EUR USD-quote example. Long-AUD carry → all four events are credits (financing > 0). Wed (2026-05-20) row is ~3x the surrounding rows. Numbers reconcile against rates_two_week_aud_usd.json under --missing-rate-policy skip (the rate fixture has no 2026-05-19 row, so 5/19 is intentionally missing here too)",
+  "account_currency": "USD",
+  "account_id_hash": "c4e91d9f7c03827938cbb2c82608bba023e98f23d52b2f84784cbcf9652df69f",
+  "events": [
+    {
+      "transaction_id": "fix-txn-aud-001",
+      "instrument": "AUD_USD",
+      "trade_id": "fix-trade-aud-long-001",
+      "units": "10000",
+      "financing": "0.0198",
+      "time": "2026-05-18T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-aud-003",
+      "instrument": "AUD_USD",
+      "trade_id": "fix-trade-aud-long-001",
+      "units": "10000",
+      "financing": "0.0594",
+      "time": "2026-05-20T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-aud-004",
+      "instrument": "AUD_USD",
+      "trade_id": "fix-trade-aud-long-001",
+      "units": "10000",
+      "financing": "0.0198",
+      "time": "2026-05-21T21:00:00+00:00"
+    }
+  ]
+}

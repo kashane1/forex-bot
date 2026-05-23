@@ -31,6 +31,7 @@ for the field-by-field schema (two top-level shapes:
 | `observed_multi_day_with_triple.json` | events | A 5-day long EUR_USD position spanning Mon → Fri with four rollovers, including the Wednesday triple |
 | `observed_missing_rate_fallback.json` | events | An event-fixture variant that omits a known-missing date to assert the loader does not invent rows |
 | `observed_weekend_skip.json` | events | A position held across a weekend, with rollovers only on Fri and Mon (no Sat/Sun rows present) |
+| `observed_aud_usd_long_credit.json` | events | Long AUD_USD across three rollovers (Mon/Wed=triple/Thu) all carrying positive carry — reconciles against `rates_two_week_aud_usd.json` under `--missing-rate-policy skip` |
 | `rates_two_week_eur_usd.json` | rates | Two business weeks of EUR_USD long/short rates with one explicit `missing_dates` entry to exercise the calculator's conservative fallback |
 | `rates_two_week_gbp_usd.json` | rates | GBP_USD — USD-quote; long `-14.6` short `+7.3` annual bp; missing `2026-05-21` |
 | `rates_two_week_usd_jpy.json` | rates | USD_JPY — USD-base + JPY-precision; long `+18.25` short `-36.5` annual bp; missing `2026-05-22` |
