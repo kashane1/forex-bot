@@ -35,6 +35,30 @@ comparison produced an identical seven-row BLOCKED report. Detail:
 [`FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md`](FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md)
 "Sprint-003 re-run record" section.
 
+**UPDATED:** `infra-free-local-parity-verifier-003-with-data`
+mid-sprint pivot — the user corrected my worktree-scoped inventory
+mistake by pointing out that `.env` lives at the **main repo root**
+(not visible from inside a git worktree) and that
+`/Users/kashane/dev/forex-bot/data/campaign_002.sqlite3` already
+contains the full CAMPAIGN_002 H4 dataset. With the user's explicit
+authorization, the sprint completed end-to-end **with zero OANDA
+network calls** (no rehydrate fetch needed; the existing local
+SQLite had the data). The verifier ran across all seven pairs
+(zero blocked, zero crashes) producing **1,586 trades vs 1,647
+bespoke (−3.70 %, within OK)**. The comparison produced **overall
+status FAIL** driven by EUR_USD return delta +2.41 pp; 1 / 7 pairs
+OK (USD_CHF), 5 / 7 WARN, 1 / 7 FAIL. The divergence is
+systematic (verifier consistently slightly less bad on every
+metric) but not yet localized — classification `unknown`. **Both
+engines agree every pair is loss-making on the no-RiskEngine path.
+CAMPAIGN_002 stays REJECT under either measurement.** Verifier-side
+bugs fixed this turn: **0**. Bespoke-engine bugs found: **0**
+(divergence not yet attributed). Full detail in
+[`FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md`](FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md)
+and the "Sprint-003 UNBLOCKED — actual full-data comparison"
+section of
+[`FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md`](FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md).
+
 The headline status of the free / local independent parity verifier
 after the implementation sprint. Per-phase detail lives in the doc
 links below.

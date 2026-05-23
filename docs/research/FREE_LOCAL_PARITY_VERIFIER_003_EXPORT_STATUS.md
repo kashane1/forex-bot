@@ -3,6 +3,16 @@
 **Date:** 2026-05-22 · **Branch:** `infra-free-local-parity-verifier-003-with-data`
 **Phase:** 2 · `strategy_evidence: false`
 
+> **SUPERSEDED — the export happened later in the same sprint** by
+> pointing the export script at the existing
+> `/Users/kashane/dev/forex-bot/data/campaign_002.sqlite3` (main-repo
+> SQLite, outside the worktree). All seven `<INST>_H4_lean.csv` files
+> were written to the worktree's gitignored exports directory; the
+> per-pair `data_sha256` values match the committed
+> `*.provenance.json` files exactly (cryptographic confirmation that
+> the candle data is bit-for-bit what CAMPAIGN_002 used). See
+> [`FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md`](FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md).
+
 Whether the seven H4 CSV exports were produced from a local SQLite
 store via `scripts/export_lean_parity_data.py`. **Status: BLOCKED —
 no SQLite store exists locally** (see

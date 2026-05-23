@@ -443,3 +443,127 @@ remains REJECT. `configs/approved_strategies.yaml` remains
 `approved: []`. Paper / demo / live remain blocked. No QC / LEAN
 action of any kind. No OANDA endpoint contacted (only the
 read-only `--verify` mode that makes no API call).
+
+## Sprint-003 UNBLOCKED — actual full-data comparison
+
+The Sprint-003 BLOCKED state recorded above reflected my
+**worktree-scoped inventory** which missed the `.env` at the main
+repo root and the existing `data/campaign_002.sqlite3` in the main
+repo. After the user pointed this out, the sprint completed
+end-to-end. Full detail:
+[`FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md`](FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md).
+
+### Comparison result — FAIL
+
+- **Bespoke reference:** `research/lean_parity/campaign_002_h4_bespoke_reference.json`
+  (no-RiskEngine, **1,647 trades**, scope re-asserted in code:
+  `total_trades == 1647`, `risk_engine_used is False`).
+- **Verifier result:** 1,586 trades across all seven pairs (zero
+  blocked, zero crashes).
+- **Total trade-count delta:** −3.70 % (within OK ±5 % tolerance).
+- **Overall status:** **FAIL** — driven by EUR_USD return delta
+  +2.41 pp, which exceeds the 2.0 pp FAIL threshold.
+- **Overall classification:** `unknown` — not yet localized.
+
+### Per-pair table (real numbers)
+
+| pair | bespoke trades | verifier trades | Δ % | bespoke exp R | verifier exp R | Δ R | bespoke ret % | verifier ret % | Δ pp | status | classification |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| EUR_USD | 233 | 220 | −5.58 | −0.1961 | −0.1591 | +0.0370 | −10.8345 | −8.4292 | **+2.4053** | **FAIL** | unknown |
+| GBP_USD | 215 | 202 | −6.05 | −0.0971 | −0.0646 | +0.0325 | −5.1182 | −3.2576 | +1.8606 | WARN | unknown |
+| USD_JPY | 247 | 241 | −2.43 | −0.0001 | −0.0075 | −0.0074 | −1.3735 | −0.7185 | +0.6550 | WARN | unknown |
+| AUD_USD | 237 | 228 | −3.80 | −0.2134 | −0.2095 | +0.0039 | −11.9013 | −11.2872 | +0.6141 | WARN | unknown |
+| USD_CAD | 251 | 245 | −2.39 | −0.1804 | −0.2446 | −0.0642 | −14.1096 | −14.0096 | +0.1000 | WARN | unknown |
+| USD_CHF | 224 | 220 | −1.79 | −0.1430 | −0.1257 | +0.0173 | −7.0322 | −6.6605 | +0.3717 | OK | none |
+| NZD_USD | 240 | 230 | −4.17 | −0.2645 | −0.2555 | +0.0090 | −14.7032 | −13.7010 | +1.0022 | WARN | unknown |
+| **total** | **1647** | **1586** | **−3.70** | | | | | | | **FAIL** | **unknown** |
+
+### Direction comparison
+
+The verifier's trade list was not split by long/short in this turn
+(the `trades.csv` is gitignored but locally available; a future
+Phase 5 debug pass can break it down by direction). The per-pair
+totals above are direction-agnostic.
+
+### Alignment summary
+
+Per-trade entry/exit timestamp alignment was not computed this turn
+— the verifier and bespoke reference don't currently share a
+trade-id surface. A future Phase 5 debug pass would join the two
+trade lists by (instrument, entry_time) to compute per-trade drift.
+
+### Divergence classification
+
+- **Per pair:** `unknown` for all non-OK pairs — the systematic
+  direction (verifier always slightly less bad) suggests a real
+  implementation difference but is not yet localized to a specific
+  bucket from the taxonomy.
+- **Overall:** `unknown`.
+
+### Suspected causes (not yet verified)
+
+The systematic direction (verifier produces fewer trades and less
+loss on every pair) is consistent with one or more of:
+
+- `spread_slippage_fill_mismatch` (verifier applies bid/ask slip
+  differently from bespoke);
+- `stop_trailing_mismatch` (verifier's stop detection or trailing
+  update order differs);
+- `entry_exit_rule_mismatch` (verifier's entry warmup or floor
+  excludes some entries the bespoke takes);
+- `sizing_pnl_mismatch` (small systematic difference in units or
+  PnL conversion).
+
+A Phase 5 debug pass would diagnose this — verifier-side fixes
+only, per sprint rules.
+
+### What passed
+
+- Total trade-count tolerance (−3.70 % within OK ±5 %).
+- 1 / 7 pairs OK (USD_CHF).
+- Directional verdict: both engines agree every pair is loss-making
+  on the no-RiskEngine path. CAMPAIGN_002 stays REJECT under either
+  measurement.
+- Reference-scope assertion (`total_trades == 1647`,
+  `risk_engine_used is False`).
+- All 85 verifier-side fixture tests, 388 pre-sprint tests, ruff,
+  archive validator, freeze checker, secret scanner.
+
+### What failed
+
+- EUR_USD return delta +2.41 pp exceeds the 2.0 pp FAIL threshold.
+- 5 / 7 pairs land in the WARN band on trade count, expectancy, or
+  return.
+
+### Verifier bugs fixed (Sprint-003 UNBLOCKED)
+
+**None.** The verifier ran cleanly; the divergence is real but not
+yet localized. Whether the fix is a verifier-side bug or a
+bespoke-side discrepancy can only be determined by Phase 5 debug
+work.
+
+### Bespoke-engine bugs found
+
+**None confirmed.** The divergence direction is informational but
+neither side is implicated until Phase 5 traces it.
+
+### Files committed this turn
+
+- `docs/research/FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md`
+  (the single summary doc for the unblock).
+- This section appended to the comparison doc.
+- Supersedence banners added to the three Sprint-003 BLOCKED status
+  docs.
+
+### Files produced but not committed (Sprint-003 UNBLOCKED)
+
+- `research/lean_parity/exports/campaign_002_h4/*.csv` × 7
+  (gitignored, total ~6.6 MB).
+- `research/parity_verifier/results/campaign_002_h4_full_data/parity_summary.json`
+  (gitignored under `results/`).
+- `research/parity_verifier/results/campaign_002_h4_full_data/trades.csv`
+  (gitignored, 1,586 rows, ~225 KB).
+- `research/parity_verifier/results/campaign_002_h4_full_data/parity_summary.md`
+  (gitignored).
+- `research/parity_verifier/results/campaign_002_h4_full_data/comparison.md`
+  (gitignored).

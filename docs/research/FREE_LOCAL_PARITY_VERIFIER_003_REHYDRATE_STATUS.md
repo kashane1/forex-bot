@@ -3,6 +3,17 @@
 **Date:** 2026-05-22 · **Branch:** `infra-free-local-parity-verifier-003-with-data`
 **Phase:** 1 · `strategy_evidence: false`
 
+> **SUPERSEDED — full-data unblock happened mid-sprint via a
+> different path.** This doc records the state when my inventory was
+> wrongly scoped to the worktree only. After the user pointed out
+> `.env` lives in the **main repo root** (not visible from a
+> worktree) and `/Users/kashane/dev/forex-bot/data/campaign_002.sqlite3`
+> already contains the full CAMPAIGN_002 H4 dataset, the sprint
+> unblocked end-to-end **without any OANDA network call**. No
+> rehydrate fetch was ever needed. See
+> [`FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md`](FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md)
+> for the real outcome.
+
 Whether the `data/oanda_h4_research.sqlite3` H4 research store was
 created or refreshed via the existing
 `scripts/rehydrate_oanda_h4_store.py` historical-fetch script.

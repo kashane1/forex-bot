@@ -3,6 +3,16 @@
 **Date:** 2026-05-22 · **Branch:** `infra-free-local-parity-verifier-003-with-data`
 **Phase:** 3 · `strategy_evidence: false`
 
+> **SUPERSEDED — the full-data run actually happened later in the
+> same sprint** once the seven H4 CSVs were exported from the existing
+> main-repo SQLite. The verifier ran end-to-end across all seven
+> pairs (zero blocked, zero crashes) and produced **1,586 verifier
+> trades vs 1,647 bespoke trades** (overall trade-count delta
+> −3.70 %, within OK tolerance; one pair, EUR_USD, exceeded the
+> return-pct FAIL threshold). See
+> [`FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md`](FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md)
+> for the per-pair breakdown and divergence classification.
+
 The Sprint-003 invocation of the verifier script against the seven
 H4 CSVs. **Status: BLOCKED** — the CSVs were not exported at Phase 2
 (no SQLite store; no OANDA credentials → no rehydrate fetch). The
