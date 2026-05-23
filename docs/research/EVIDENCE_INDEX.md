@@ -219,6 +219,25 @@ adds no campaign and does not change any verdict.
 | [`WALK_FORWARD_HARNESS_STATUS.md`](WALK_FORWARD_HARNESS_STATUS.md) | headline status — implemented pieces, tests (42 cases pass), limitations, usage |
 | [`RESEARCH_WALK_FORWARD_HARNESS_001_SUMMARY.md`](RESEARCH_WALK_FORWARD_HARNESS_001_SUMMARY.md) | sprint summary & handoff |
 
+### Research-grade financing calculator (`research-financing-model-001`)
+
+Reusable per-day rollover-event calculator that future strategy
+campaigns can attach to their trade lists for a richer, calendar-
+and side-aware financing diagnostic than the existing per-trade
+overlay. Infrastructure, not a strategy. Diagnostic only — every
+emitted artifact carries `strategy_evidence: false` and is at
+most `financing_treatment: estimated`. Sprint adds no campaign,
+does not change any verdict, and does not lift the live-promotion
+financing blocker.
+
+| document | what it is |
+|---|---|
+| [`FINANCING_MODEL_001_PLAN.md`](FINANCING_MODEL_001_PLAN.md) | sprint plan |
+| [`FINANCING_MODEL_CURRENT_ASSUMPTIONS.md`](FINANCING_MODEL_CURRENT_ASSUMPTIONS.md) | audit of how the repo currently handles (and mostly does not handle) financing in engine PnL, overlays, observed-event capture, instrument metadata, and risk |
+| [`FINANCING_MODEL_PROTOCOL.md`](FINANCING_MODEL_PROTOCOL.md) | protocol the new `research/financing/` calculator follows (inputs, outputs, rollover convention, triple swap, weekend skip, missing-rate fallback, currency conversion, stress mode, required/optional/deferred classification, approval-gate non-interaction) |
+| [`CAMPAIGN_002_FINANCING_RETROSPECTIVE.md`](CAMPAIGN_002_FINANCING_RETROSPECTIVE.md) | diagnostic-only retrospective showing how the calculator attaches to CAMPAIGN_002-shaped positions; no real CAMPAIGN_002 artifact loaded; verdict unchanged |
+| [`FINANCING_MODEL_STATUS.md`](FINANCING_MODEL_STATUS.md) | headline status — implemented pieces, tests (71 cases pass), limitations, usage |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
