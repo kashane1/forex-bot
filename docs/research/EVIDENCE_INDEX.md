@@ -397,6 +397,34 @@ read, no engine edit.
 | [`CAMPAIGN_010_STATUS.md`](CAMPAIGN_010_STATUS.md) (updated) | now reclassified `candidate-scaffold → rejected`; verdict, gates, evidence artifacts, safety state |
 | [`ASIAN_LONDON_SESSION_BREAKOUT_WALK_FORWARD_001_SUMMARY.md`](ASIAN_LONDON_SESSION_BREAKOUT_WALK_FORWARD_001_SUMMARY.md) | sprint summary & handoff |
 
+### New candidate strategy discovery — Sprint 002 (`research-new-candidate-strategy-discovery-002`)
+
+Second candidate-discovery sprint, opened after CAMPAIGN_010
+(`session_breakout 0.1.0-c010`) was REJECTED. Re-scores the
+prior shortlist (C2-C5) against the now-5 rejected baseline,
+codifies rejected-family anti-overfit guardrails, and selects
+**C5 — H4 random-entry diagnostic anchor (future CAMPAIGN_011)**
+as the next preferred candidate. **Selection is not approval.**
+The selected candidate is a null model by design and cannot be
+paper-promoted; its purpose is to validate the full evidence
+pipeline and establish a per-fold + aggregate falsifiability
+floor that every subsequent C2 / C3 / C4 / new-family candidate
+must beat by a meaningful margin. No strategy code, no backtest,
+no broker call, no approval. The 735-test baseline is preserved.
+
+| document | what it is |
+|---|---|
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_002_PLAN.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_002_PLAN.md) | Phase 0 audit + 8-phase sprint plan; verifies safety state at the close of CAMPAIGN_010's REJECT; baseline 735 pytests pass |
+| [`CAMPAIGN_010_REJECTION_CLOSEOUT.md`](CAMPAIGN_010_REJECTION_CLOSEOUT.md) | Phase 1 — formal closeout for `session_breakout 0.1.0-c010`; codifies which session-breakout parameters are off-limits to retune; binding cooldown rule against re-attempts |
+| [`REJECTED_FAMILY_OVERFIT_GUARDRAILS.md`](REJECTED_FAMILY_OVERFIT_GUARDRAILS.md) | Phase 1 — cross-cutting anti-overfit guardrails for every future candidate; concrete illegitimate-vs-legitimate examples for each of the 7 disqualifier patterns; universe/stop/exit/data/financing/selection/verifier/approval guardrails |
+| [`CANDIDATE_STRATEGY_FAMILY_REASSESSMENT_002.md`](CANDIDATE_STRATEGY_FAMILY_REASSESSMENT_002.md) | Phase 2 — full scoring of C2 / C3 / C4 / C5 against the now-5 rejected families plus implementation complexity, engine compatibility, data availability, walk-forward compatibility, financing dependency, portfolio-risk implications, verifier feasibility, overfit risk, diagnostic value, paper-candidate suitability; blockers per candidate; recommendation = C5 |
+| [`NEXT_PREFERRED_CANDIDATE_002.md`](NEXT_PREFERRED_CANDIDATE_002.md) | Phase 3 — C5 selected as CAMPAIGN_011 (`random_entry_anchor 0.1.0-c011`); distinctness vs CAMPAIGN_002 + CAMPAIGN_010; why not parameter tuning; compatibility checks; success/rejection criteria; cooldown/re-attempt rule; C2 / C3 / C4 deferred (not abandoned) |
+| [`NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_002.md`](NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_002.md) | Phase 4 binding design — hypothesis, R1-R8 signal rules, frozen parameters (master_seed=20260523, entry_probability=0.05, atr_lookback=14, atr_multiple=2.0, max_bars=6), no-lookahead rules, config schema, walk-forward (inherits CAMPAIGN_010's 8-fold rolling/frozen 540/180/180/180), financing (ESTIMATED + conservative stress; MODELED refused), risk diagnostics (uniform-distribution expectations), verifier (extension recommended but not required for REJECT), rejection criteria + UNEXPECTED-PASS investigation playbook |
+| [`NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_002.md`](NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_002.md) | Phase 5a — future scaffold-branch prompt (`research-random-entry-diagnostic-anchor-001`); 8 phases; strategy module + config + ≥ 20 unit tests + research config + CAMPAIGN_011 docs + smoke; baseline 735 → ≥ 755 pytests; no backtest run |
+| [`NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_002.md`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_002.md) | Phase 5b — future evidence-branch prompt (`research-random-entry-diagnostic-anchor-walk-forward-001`); 9 phases mirroring CAMPAIGN_010 exactly; full walk-forward + financing + risk + verifier; expected verdict REJECT; UNEXPECTED-PASS playbook |
+| [`NEW_CANDIDATE_DISCOVERY_002_HELPER_DECISION.md`](NEW_CANDIDATE_DISCOVERY_002_HELPER_DECISION.md) | Phase 6 — five helper-code options considered, all rejected with documented rationale; zero code added; matches prior discovery sprint's identical no-helper decision |
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_002_SUMMARY.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_002_SUMMARY.md) | Phase 7 — sprint summary & handoff; final validation; recommended next branch is the scaffold sprint |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |

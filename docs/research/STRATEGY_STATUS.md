@@ -55,6 +55,19 @@ for a REJECT. See
 [`CAMPAIGN_010_WALK_FORWARD_RESULT.md`](CAMPAIGN_010_WALK_FORWARD_RESULT.md)
 for the gate-by-gate evidence.
 
+**Next candidate selected (not yet scaffolded):** the
+`research-new-candidate-strategy-discovery-002` sprint selected
+**C5 — H4 random-entry diagnostic anchor** for future
+**`CAMPAIGN_011 / random_entry_anchor 0.1.0-c011`**. Selection
+is **not** approval; the candidate is a **null model by design**
+and cannot enter `configs/approved_strategies.yaml` under any
+circumstance. The future scaffold sprint is
+[`research-random-entry-diagnostic-anchor-001`](NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_002.md);
+the future evidence sprint is
+[`research-random-entry-diagnostic-anchor-walk-forward-001`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_002.md).
+Neither sprint has run yet; the row below will appear here
+once the evidence sprint records a verdict.
+
 ## Per-strategy detail
 
 ### `trend_following 0.1.0` — EMA + Donchian baseline
