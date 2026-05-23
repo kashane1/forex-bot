@@ -604,3 +604,36 @@ implementing the bespoke engine inside the verifier (sacrificing
 independence), and the comparison verdict has already moved from
 FAIL to WARN with the directional verdict (both engines agree
 every pair is loss-making, CAMPAIGN_002 stays REJECT) intact.
+
+## Sprint-004 round_price wired in — post-fix comparison
+
+Sprint 004 closed the missing-`round_price` half of the suspected
+remaining drift. The verifier now rounds initial stops to the
+instrument's `display_precision` (5 for USD-quote majors, 3 for
+USD_JPY) via a Decimal-based helper that uses the bespoke formula
+(`Decimal(str(price)).quantize(10**(-display_precision), ROUND_HALF_UP)`).
+
+**Observed impact: negligible.** All pair statuses unchanged.
+Per-pair return shifts under 0.01 pp. The rounding fix is correct
+(see `test_round_price_matches_bespoke_formula`) but the
+fractional-pip difference is too small to flip borderline stop-pierce
+comparisons on H4 bars whose intrabar ranges are many pips.
+
+| pair | bespoke trades | verifier trades | Δ % | Δ R | Δ pp | status |
+|---|---|---|---|---|---|---|
+| EUR_USD | 233 | 235 | +0.86 | +0.0160 | +0.7604 | WARN |
+| GBP_USD | 215 | 215 | +0.00 | +0.0005 | +0.0141 | **OK** |
+| USD_JPY | 247 | 251 | +1.62 | −0.0125 | +0.3069 | **OK** |
+| AUD_USD | 237 | 238 | +0.42 | −0.0033 | −0.2232 | **OK** |
+| USD_CAD | 251 | 251 | +0.00 | −0.0605 | +0.0000 | WARN |
+| USD_CHF | 224 | 223 | −0.45 | +0.0428 | +1.6332 | WARN |
+| NZD_USD | 240 | 242 | +0.83 | −0.0078 | −0.5096 | WARN |
+| **total** | **1647** | **1655** | **+0.49** | | | **WARN** |
+
+Detail: [`FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_FIXES.md`](FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_FIXES.md).
+
+The remaining drift is therefore **not** rounding-driven. It is
+most plausibly inherent float-vs-Decimal arithmetic accumulating
+across thousands of indicator-evaluation and trade-by-trade
+compounding steps — explicitly out of scope this sprint to
+preserve the verifier's independence from the bespoke engine.

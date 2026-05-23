@@ -29,6 +29,7 @@ from research.parity_verifier.rules import (
     fill_entry_price,
     initial_stop_price,
     ratchet_trailing_stop,
+    round_price,
     size_position,
     trade_pnl,
 )
@@ -202,12 +203,17 @@ def run_pair(
         # Bespoke strategy anchors the initial stop at the bar's mid
         # CLOSE (not at the post-slippage entry price) — see
         # src/forex_bot/strategies/trend_following.py and
-        # FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md Bug #1.
-        stop_price = initial_stop_price(
-            side=side,
-            close_price=bar.close,
-            atr_value=atr_series[i],
-            atr_stop_multiple=config.atr_stop_multiple,
+        # FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md Bug #1 —
+        # then rounds to the instrument's display_precision via
+        # round_price (Sprint 004 audit M1). Match exactly.
+        stop_price = round_price(
+            initial_stop_price(
+                side=side,
+                close_price=bar.close,
+                atr_value=atr_series[i],
+                atr_stop_multiple=config.atr_stop_multiple,
+            ),
+            instrument.display_precision,
         )
         stop_state = StopState(
             initial_stop_price=stop_price, stop_price=stop_price, has_trailed=False
