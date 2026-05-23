@@ -15,6 +15,17 @@ committed); a transcript follows under "Sprint-002 re-run record"
 below. Verifier-side bugs: **0**. Bespoke-side bugs: **N/A** (engine
 not exercised; no real-candle cross-check possible without the CSVs).
 
+**Re-confirmed:** `infra-free-local-parity-verifier-003-with-data`
+Phase 4 — guarded OANDA-practice rehydrate + export + verifier
+attempted under strict safety rules. Same BLOCKED outcome (no
+credentials configured locally → no rehydrate, no SQLite, no CSVs,
+no comparison numbers). The 1,647-trade no-RiskEngine bespoke
+reference scope was explicitly re-verified against the file's own
+top-level keys before the comparison was invoked. Verifier-side
+bugs: **0**. Bespoke-side bugs: **N/A** (engine not exercised; no
+real-candle cross-check possible). See "Sprint-003 re-run record"
+below.
+
 > A PASS or FAIL here describes agreement between two engines on a
 > rejected strategy. It **does not** approve a strategy and does not
 > lift the freeze. CAMPAIGN_002 remains REJECT.
@@ -289,3 +300,146 @@ not done.
 - `/tmp/parity_verifier_002_run/run.log`
 
 All four live outside the repo and are not staged.
+
+## Sprint-003 re-run record
+
+Captured 2026-05-22 on branch
+`infra-free-local-parity-verifier-003-with-data` Phase 4. The
+guarded OANDA-practice rehydrate path was the explicit Phase 1
+target. The credential-presence check found **no** credentials
+configured locally (no `.env`, all six probed `OANDA_*` env vars
+unset), so the rehydrate was not attempted (per the sprint rules
+"If credentials are absent, stop and document the blocker"). The
+verifier was re-invoked against the absent CSVs and the comparison
+harness was re-run programmatically.
+
+### Comparison command
+
+```bash
+# Reference-scope confirmation (Python one-liner, values printed only
+# for the documented immutable fields; no credentials touched):
+python3 - <<'PY'
+from research.parity_verifier.data_loader import (
+    DEFAULT_BESPOKE_REFERENCE_PATH, load_bespoke_reference,
+)
+bespoke = load_bespoke_reference(DEFAULT_BESPOKE_REFERENCE_PATH)
+assert bespoke['total_trades'] == 1647
+assert bespoke['risk_engine_used'] is False
+PY
+```
+
+This **must** hold before the comparison runs; the 1,032-trade
+with-RiskEngine reference is **not** the target.
+
+### Reference scope (confirmed against the JSON's own top-level keys)
+
+- `parity_target`: `"CAMPAIGN_002 H4 trend_following baseline"`
+- `risk_engine_used`: `false`
+- `fill_timing`: `"signal_bar_close"`
+- `window`: `["2020-01-01", "2026-05-20"]`
+- `config_hash`: `d536a9b06818197f9915de6224e0b8ae58e77abe2c6f3c19426338646fb077bf`
+- `strategy_evidence`: `false`
+- `total_trades`: **1647**
+- pair count: **7** (EUR_USD, GBP_USD, USD_JPY, AUD_USD, USD_CAD, USD_CHF, NZD_USD)
+
+### Verifier result used
+
+- Path: `/tmp/parity_verifier_003_run/parity_summary.json` (outside
+  repo, not committed).
+- Shape: valid `VerifierResult`, `total_trades: 0`, `pairs: []`,
+  `strategy_evidence: false`, `risk_engine_used: false`.
+
+### Total trade comparison
+
+| side | bespoke | verifier | Δ |
+|---|---|---|---|
+| total | **1,647** | — (not produced) | — |
+
+### Pair-level comparison
+
+| instrument | bespoke trades | verifier trades | Δ % | status | classification |
+|---|---|---|---|---|---|
+| EUR_USD | 233 | — | — | BLOCKED | unknown |
+| GBP_USD | 215 | — | — | BLOCKED | unknown |
+| USD_JPY | 247 | — | — | BLOCKED | unknown |
+| AUD_USD | 237 | — | — | BLOCKED | unknown |
+| USD_CAD | 251 | — | — | BLOCKED | unknown |
+| USD_CHF | 224 | — | — | BLOCKED | unknown |
+| NZD_USD | 240 | — | — | BLOCKED | unknown |
+| **total** | **1647** | **—** | — | **BLOCKED** | **unknown** |
+
+### Direction comparison
+
+**N/A** — no verifier trades were produced; long / short counts on
+the verifier side are 0 / 0.
+
+### Alignment summary
+
+**N/A** — no verifier trades to align against. Entry timestamp
+alignment, exit timestamp alignment, entry/exit price drift,
+R-multiple drift, missing-trade and extra-trade counts cannot be
+computed.
+
+### Divergence classification
+
+- **Per pair:** `unknown` for all seven — the verifier produced no
+  numbers to diverge from.
+- **Overall:** `unknown`.
+- **Not** classified as `data_mismatch`: the data side has not been
+  attempted on this branch. Not `indicator_mismatch`: no indicator
+  series ran. Not `entry_exit_rule_mismatch`: no entries evaluated.
+  Etc.
+
+### Suspected causes
+
+The single root cause is **missing input data** — both upstream
+(SQLite store) and immediate (CSVs). No verifier-side or
+bespoke-side cause is involved because neither engine was exercised
+on real candles this sprint.
+
+### What passed
+
+- The reference-scope assertion (`total_trades == 1647`,
+  `risk_engine_used == False`).
+- The verifier script's BLOCKED-state behavior (7 × BLOCKED, exit 2,
+  valid empty summary).
+- The comparison harness's BLOCKED-report path (seven-row report
+  with full bespoke-side values preserved, `unknown`
+  classification).
+- All 85 verifier-side fixture tests, 388 pre-sprint tests, ruff,
+  archive validator, freeze checker, secret scanner.
+
+### What failed
+
+- The end-to-end full-data comparison — **expected**, because the
+  data is missing. This is not a verifier or bespoke implementation
+  failure; it is a credential / data availability failure documented
+  in the Sprint-003 rehydrate and export status docs.
+
+### Verifier bugs fixed (Sprint-003)
+
+**None.** No verifier code change was needed; the implementation
+behaves correctly in the no-data state.
+
+### Bespoke-engine bugs found (Sprint-003)
+
+**N/A.** The bespoke engine was not exercised; no real-candle
+cross-check happened.
+
+### Files produced but not committed (Sprint-003)
+
+- `/tmp/parity_verifier_003_run/parity_summary.json`
+- `/tmp/parity_verifier_003_run/trades.csv` (header-only)
+- `/tmp/parity_verifier_003_run/parity_summary.md`
+- `/tmp/parity_verifier_003_run/comparison.md`
+- `/tmp/parity_verifier_003_run/run.log`
+
+All five live outside the repo (`/tmp/`) and are not staged.
+
+### Explicit statement (Sprint-003)
+
+This comparison does **not** approve a strategy. CAMPAIGN_002
+remains REJECT. `configs/approved_strategies.yaml` remains
+`approved: []`. Paper / demo / live remain blocked. No QC / LEAN
+action of any kind. No OANDA endpoint contacted (only the
+read-only `--verify` mode that makes no API call).
