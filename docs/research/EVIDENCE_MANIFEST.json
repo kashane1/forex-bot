@@ -230,6 +230,13 @@
       "kind": "parity_reproduction",
       "description": "Custom-engine reproduction of the already-REJECTED CAMPAIGN_002 H4 trend_following baseline on the seven-pair real-OANDA H4 store (infra-lean-parity-001). The hash-pinned custom-engine side of the Lean parity comparison — not strategy evidence; reproduces a rejected baseline and approves nothing.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_STATUS",
+      "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_STATUS.md",
+      "kind": "free_local_parity_verifier",
+      "description": "Headline status of the free / local independent parity verifier (infra-free-local-parity-verifier-001). Implementation complete (research/parity_verifier/), 85 fixture tests pass; full seven-pair full-window comparison against the bespoke no-RiskEngine reference (1647 trades) is BLOCKED locally because the gitignored H4 export CSVs are absent on this branch. Verification only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "strategy_evidence": false
     }
   ]
 }
