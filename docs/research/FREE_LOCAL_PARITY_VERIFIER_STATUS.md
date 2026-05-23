@@ -19,6 +19,22 @@ without the CSVs). Detail:
 [`FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md`](FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md)
 "Sprint-002 re-run record" section.
 
+**Re-confirmed:** `infra-free-local-parity-verifier-003-with-data`
+Phase 6 — the guarded OANDA-practice rehydrate + export + verifier
+sprint was executed and also stayed BLOCKED for the same reasons
+(no `.env`, all six probed `OANDA_*` env vars unset, no SQLite
+store). The rehydrate script ran in `--verify` mode only (no API
+call). No OANDA endpoint was contacted. No orders were submitted.
+The 1,647-trade no-RiskEngine bespoke reference scope was explicitly
+re-asserted before the comparison harness was invoked
+(`total_trades == 1647`, `risk_engine_used is False`). The
+comparison produced an identical seven-row BLOCKED report. Detail:
+[`FREE_LOCAL_PARITY_VERIFIER_003_REHYDRATE_STATUS.md`](FREE_LOCAL_PARITY_VERIFIER_003_REHYDRATE_STATUS.md),
+[`FREE_LOCAL_PARITY_VERIFIER_003_EXPORT_STATUS.md`](FREE_LOCAL_PARITY_VERIFIER_003_EXPORT_STATUS.md),
+[`FREE_LOCAL_PARITY_VERIFIER_003_FULL_DATA_RUN.md`](FREE_LOCAL_PARITY_VERIFIER_003_FULL_DATA_RUN.md),
+[`FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md`](FREE_LOCAL_PARITY_VERIFIER_COMPARISON.md)
+"Sprint-003 re-run record" section.
+
 The headline status of the free / local independent parity verifier
 after the implementation sprint. Per-phase detail lives in the doc
 links below.

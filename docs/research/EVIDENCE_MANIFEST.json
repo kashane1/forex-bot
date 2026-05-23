@@ -244,6 +244,13 @@
       "kind": "free_local_parity_verifier",
       "description": "First attempted full-data execution of the free / local verifier (infra-free-local-parity-verifier-002-full-data-run). BLOCKED — all seven H4 CSV exports absent locally; the script reports BLOCKED per pair, exits 2, writes a deterministic zero-trade summary, and does not fabricate data. Verifier-side bugs: 0. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_003_FULL_DATA_RUN",
+      "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_003_FULL_DATA_RUN.md",
+      "kind": "free_local_parity_verifier",
+      "description": "Sprint-003 guarded OANDA-practice rehydrate + export + verifier attempt (infra-free-local-parity-verifier-003-with-data). BLOCKED — no .env, all OANDA_* env vars unset, no SQLite store; rehydrate ran only in --verify mode (no API call); no OANDA endpoint contacted; no orders submitted. Verifier-side bugs: 0; bespoke-engine bugs: N/A (engine not exercised). The 1,647-trade no-RiskEngine bespoke reference scope was re-asserted before the comparison harness was invoked. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "strategy_evidence": false
     }
   ]
 }
