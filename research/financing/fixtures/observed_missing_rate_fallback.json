@@ -1,0 +1,26 @@
+{
+  "kind": "observed_financing_events",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "observed events for two rollovers; the in-between Tuesday rollover is INTENTIONALLY MISSING from the fixture — a Phase 4 reconciliation test pairs this with rates_two_week_eur_usd.json (which lists the matching date in missing_dates) to assert the calculator's conservative fallback would fire on that date",
+  "account_currency": "USD",
+  "account_id_hash": "c4e91d9f7c03827938cbb2c82608bba023e98f23d52b2f84784cbcf9652df69f",
+  "events": [
+    {
+      "transaction_id": "fix-txn-miss-001",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-miss-long-001",
+      "units": "10000",
+      "financing": "-0.054",
+      "time": "2026-05-18T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-miss-003",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-miss-long-001",
+      "units": "10000",
+      "financing": "-0.162",
+      "time": "2026-05-20T21:00:00+00:00"
+    }
+  ]
+}

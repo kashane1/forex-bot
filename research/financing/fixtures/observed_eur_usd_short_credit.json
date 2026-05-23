@@ -1,0 +1,18 @@
+{
+  "kind": "observed_financing_events",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "short EUR_USD across one Tuesday rollover with the short side carrying positive carry (USD-yield higher than EUR) — the rollover arrives as a credit",
+  "account_currency": "USD",
+  "account_id_hash": "c4e91d9f7c03827938cbb2c82608bba023e98f23d52b2f84784cbcf9652df69f",
+  "events": [
+    {
+      "transaction_id": "fix-txn-eur-short-001",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-eur-short-001",
+      "units": "10000",
+      "financing": "0.027",
+      "time": "2026-05-19T21:00:00+00:00"
+    }
+  ]
+}

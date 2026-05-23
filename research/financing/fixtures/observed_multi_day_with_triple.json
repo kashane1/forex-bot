@@ -1,0 +1,42 @@
+{
+  "kind": "observed_financing_events",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "long EUR_USD held Mon → Fri with four rollovers (Mon, Tue, Wed=triple, Thu); the Wed row is ~3x the surrounding rows because spot settles T+2 and Wednesday's rollover accrues Sat+Sun+Mon's financing on top of Wednesday's",
+  "account_currency": "USD",
+  "account_id_hash": "c4e91d9f7c03827938cbb2c82608bba023e98f23d52b2f84784cbcf9652df69f",
+  "events": [
+    {
+      "transaction_id": "fix-txn-multi-001",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-multi-long-001",
+      "units": "10000",
+      "financing": "-0.054",
+      "time": "2026-05-18T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-multi-002",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-multi-long-001",
+      "units": "10000",
+      "financing": "-0.054",
+      "time": "2026-05-19T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-multi-003",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-multi-long-001",
+      "units": "10000",
+      "financing": "-0.162",
+      "time": "2026-05-20T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-multi-004",
+      "instrument": "EUR_USD",
+      "trade_id": "fix-trade-multi-long-001",
+      "units": "10000",
+      "financing": "-0.054",
+      "time": "2026-05-21T21:00:00+00:00"
+    }
+  ]
+}

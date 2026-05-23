@@ -1,0 +1,34 @@
+{
+  "kind": "observed_financing_events",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "short USD_CAD across Mon/Tue/Wed rollovers; the Wednesday row is ~3x the surrounding rows; USD-base pair so notional is units in USD",
+  "account_currency": "USD",
+  "account_id_hash": "c4e91d9f7c03827938cbb2c82608bba023e98f23d52b2f84784cbcf9652df69f",
+  "events": [
+    {
+      "transaction_id": "fix-txn-usdcad-001",
+      "instrument": "USD_CAD",
+      "trade_id": "fix-trade-usdcad-short-001",
+      "units": "10000",
+      "financing": "-0.0411",
+      "time": "2026-05-18T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-usdcad-002",
+      "instrument": "USD_CAD",
+      "trade_id": "fix-trade-usdcad-short-001",
+      "units": "10000",
+      "financing": "-0.0411",
+      "time": "2026-05-19T21:00:00+00:00"
+    },
+    {
+      "transaction_id": "fix-txn-usdcad-003",
+      "instrument": "USD_CAD",
+      "trade_id": "fix-trade-usdcad-short-001",
+      "units": "10000",
+      "financing": "-0.1233",
+      "time": "2026-05-20T21:00:00+00:00"
+    }
+  ]
+}

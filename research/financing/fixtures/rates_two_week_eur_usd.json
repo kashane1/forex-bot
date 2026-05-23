@@ -1,0 +1,64 @@
+{
+  "kind": "financing_rates",
+  "schema_version": 1,
+  "synthetic": true,
+  "provenance": "synthetic EUR_USD rates that reconcile against observed_multi_day_with_triple.json — long_annual_bp = -18.25 (0.05 bp/day debit) and short_annual_bp = +9.125 (0.025 bp/day credit), held flat across two business weeks. 2026-05-19 is INTENTIONALLY listed in missing_dates and absent from rates to exercise the calculator's conservative fallback in a Phase 4 reconciliation test",
+  "rate_unit": "annual_bp",
+  "missing_dates": ["2026-05-19"],
+  "rates": [
+    {
+      "date_utc": "2026-05-18",
+      "instrument": "EUR_USD",
+      "long_annual_bp": -18.25,
+      "short_annual_bp": 9.125
+    },
+    {
+      "date_utc": "2026-05-20",
+      "instrument": "EUR_USD",
+      "long_annual_bp": -18.25,
+      "short_annual_bp": 9.125
+    },
+    {
+      "date_utc": "2026-05-21",
+      "instrument": "EUR_USD",
+      "long_annual_bp": -18.25,
+      "short_annual_bp": 9.125
+    },
+    {
+      "date_utc": "2026-05-22",
+      "instrument": "EUR_USD",
+      "long_annual_bp": -18.25,
+      "short_annual_bp": 9.125
+    },
+    {
+      "date_utc": "2026-05-25",
+      "instrument": "EUR_USD",
+      "long_annual_bp": -18.25,
+      "short_annual_bp": 9.125
+    },
+    {
+      "date_utc": "2026-05-26",
+      "instrument": "EUR_USD",
+      "long_annual_bp": -18.25,
+      "short_annual_bp": 9.125
+    },
+    {
+      "date_utc": "2026-05-27",
+      "instrument": "EUR_USD",
+      "long_annual_bp": -18.25,
+      "short_annual_bp": 9.125
+    },
+    {
+      "date_utc": "2026-05-28",
+      "instrument": "EUR_USD",
+      "long_annual_bp": -18.25,
+      "short_annual_bp": 9.125
+    },
+    {
+      "date_utc": "2026-05-29",
+      "instrument": "EUR_USD",
+      "long_annual_bp": -18.25,
+      "short_annual_bp": 9.125
+    }
+  ]
+}
