@@ -126,13 +126,13 @@ class PositionInterval(BaseModel):
 
     @model_validator(mode="after")
     def _check_times(self) -> PositionInterval:
+        if self.open_time.tzinfo is None or self.close_time.tzinfo is None:
+            raise ValueError("open_time and close_time must be timezone-aware")
         if self.close_time <= self.open_time:
             raise ValueError(
                 f"close_time {self.close_time} must be strictly after "
                 f"open_time {self.open_time}"
             )
-        if self.open_time.tzinfo is None or self.close_time.tzinfo is None:
-            raise ValueError("open_time and close_time must be timezone-aware")
         return self
 
     @property
