@@ -1,9 +1,38 @@
 {
   "manifest_version": 2,
-  "description": "Machine-readable index of all research evidence: nine campaigns (CAMPAIGN_001-009) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze.",
+  "description": "Machine-readable index of all research evidence: nine campaigns (CAMPAIGN_001-009) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-22",
   "branch": "infra-data-parity-001",
   "no_approved_strategy": true,
+  "retired_paths": [
+    {
+      "path_id": "QUANTCONNECT_LEAN_CLI",
+      "retirement_date": "2026-05-22",
+      "retirement_branch": "infra-retire-quantconnect-lean-001",
+      "reason": "Free-tier QuantConnect account does not provide the API access required for the intended local LEAN CLI workflow; paid QuantConnect upgrade is declined.",
+      "decision_record": "docs/research/QUANTCONNECT_LEAN_RETIREMENT_DECISION.md",
+      "replacement_plan": "docs/research/FREE_LOCAL_PARITY_VERIFIER_PLAN.md",
+      "preserved_as_historical_evidence": [
+        "docs/research/CAMPAIGN_002_LEAN_MAPPING_SPEC.md",
+        "docs/research/LEAN_ALGORITHM_IMPLEMENTATION_NOTES.md",
+        "docs/research/LEAN_PARITY_COMPARISON_METHOD.md",
+        "docs/research/LEAN_PARITY_DESIGN.md",
+        "docs/research/LEAN_PARITY_EXECUTION_GUIDE.md",
+        "docs/research/LEAN_PARITY_LOCAL_STATUS.md",
+        "docs/research/LEAN_LOCAL_WORKSPACE_STATUS.md",
+        "docs/research/LEAN_PARITY_EXECUTE_BLOCKED.md",
+        "docs/research/LEAN_PARITY_CAMPAIGN_002_BLOCKED.md",
+        "research/lean_parity/algorithms/campaign_002_h4_baseline/main.py",
+        "scripts/compare_lean_campaign_002_parity.py",
+        "research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md",
+        "research/lean_parity/campaign_002_h4_bespoke_reference.json"
+      ],
+      "lean_result_exists": false,
+      "lean_comparison_exists": false,
+      "strategy_approved": false,
+      "campaign_002_verdict": "REJECT"
+    }
+  ],
   "campaigns": [
     {
       "campaign_id": "CAMPAIGN_001",

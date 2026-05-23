@@ -159,9 +159,11 @@ algorithm / mapping spec / harness artifacts are preserved as
 **historical infrastructure evidence only**; no LEAN result exists; no
 LEAN comparison exists; no strategy is approved; CAMPAIGN_002 remains
 **REJECT**; paper / demo / live remain blocked. The replacement
-direction is a free / local independent verifier. The retirement
-decision record, the verifier plan, and the sprint summary are added
-to this index by their respective phases of this branch.
+direction is a free / local independent verifier.
+
+| document | what it is |
+|---|---|
+| [`QUANTCONNECT_LEAN_RETIREMENT_DECISION.md`](QUANTCONNECT_LEAN_RETIREMENT_DECISION.md) | decision record retiring the QuantConnect/LEAN path |
 
 ## Research-freeze documents (this branch)
 
