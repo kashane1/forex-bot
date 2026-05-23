@@ -125,9 +125,20 @@ class CandleSeries(BaseModel):
 
 class InstrumentSpec(BaseModel):
     """Static instrument metadata the verifier needs for sizing / pip
-    math. The pip_size mirrors the bespoke engine's convention without
-    importing the bespoke definition: JPY pairs use 0.01, everything
-    else 0.0001."""
+    math.
+
+    Conventions mirror the bespoke ``Instrument`` model without
+    importing it:
+
+    - ``pip_size`` is the 1-pip price tick (0.0001 for USD-quote
+      majors; 0.01 for JPY-quote pairs).
+    - ``display_precision`` is the number of decimal places used by the
+      broker to display prices (5 for USD-quote majors; 3 for JPY-quote
+      pairs). This is one decimal smaller than ``pip_size`` — the
+      *fractional-pip* tick. ``round_price`` in
+      ``research/parity_verifier/rules.py`` quantizes prices to this
+      precision, matching bespoke ``instrument.round_price`` exactly.
+    """
 
     model_config = ConfigDict(extra="forbid", frozen=True)
 
@@ -135,11 +146,17 @@ class InstrumentSpec(BaseModel):
     pip_size: float
     quote_currency: str
     base_currency: str
+    display_precision: int
 
     @model_validator(mode="after")
     def _check_pip(self) -> InstrumentSpec:
         if self.pip_size <= 0:
             raise ValueError(f"{self.name}: pip_size must be > 0")
+        if self.display_precision <= 0:
+            raise ValueError(
+                f"{self.name}: display_precision must be > 0 "
+                f"(got {self.display_precision})"
+            )
         return self
 
 

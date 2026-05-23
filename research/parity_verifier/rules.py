@@ -23,8 +23,38 @@ Conventions (pinned by the spec):
 from __future__ import annotations
 
 from dataclasses import dataclass
+from decimal import Decimal
 
 from research.parity_verifier.models import Side, TradeExitReason
+
+
+def round_price(price: float, display_precision: int) -> float:
+    """Round ``price`` to the instrument's display precision.
+
+    Matches ``forex_bot.domain.instruments.Instrument.round_price``:
+    converts the float to a ``Decimal`` via ``str`` (preserving the
+    float's shortest unambiguous string representation), then
+    ``quantize``s with ``ROUND_HALF_UP`` at
+    ``10 ** (-display_precision)``. The result is cast back to float
+    so the verifier remains float-based outside this rounding step.
+
+    For EUR_USD (``display_precision=5``):
+        ``round_price(1.1403658, 5) == 1.14037``  (6th decimal is 5 → up)
+        ``round_price(1.140012,  5) == 1.14001``  (6th decimal is 2 → down)
+
+    For USD_JPY (``display_precision=3``):
+        ``round_price(150.0046, 3) == 150.005``
+        ``round_price(150.0044, 3) == 150.004``
+
+    See ``docs/research/FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_AUDIT.md``
+    §6 (mismatch M1) for the divergence this closes.
+    """
+
+    if display_precision <= 0:
+        raise ValueError("display_precision must be > 0")
+    quant = Decimal(1).scaleb(-display_precision)
+    rounded = Decimal(str(price)).quantize(quant, rounding="ROUND_HALF_UP")
+    return float(rounded)
 
 
 @dataclass(frozen=True)

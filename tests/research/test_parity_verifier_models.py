@@ -233,8 +233,10 @@ def test_instrument_metadata_complete() -> None:
         spec = get_instrument(name)
         if "JPY" in name:
             assert spec.pip_size == 0.01
+            assert spec.display_precision == 3
         else:
             assert spec.pip_size == 0.0001
+            assert spec.display_precision == 5
 
 
 def test_instrument_lookup_unknown_raises() -> None:

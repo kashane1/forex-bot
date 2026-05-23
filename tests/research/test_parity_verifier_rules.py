@@ -19,6 +19,7 @@ from research.parity_verifier.rules import (
     fill_entry_price,
     initial_stop_price,
     ratchet_trailing_stop,
+    round_price,
     size_position,
     trade_pnl,
 )
@@ -162,6 +163,73 @@ def test_initial_stop_rejects_flat() -> None:
         initial_stop_price(
             side=Side.FLAT, close_price=1.0, atr_value=0.005, atr_stop_multiple=2.0
         )
+
+
+# ---------- round_price (Sprint 004) ----------
+
+
+def test_round_price_rejects_non_positive_precision() -> None:
+    with pytest.raises(ValueError):
+        round_price(1.234, 0)
+    with pytest.raises(ValueError):
+        round_price(1.234, -1)
+
+
+def test_round_price_eur_usd_five_decimal_rounds_half_up() -> None:
+    """EUR_USD display_precision=5 → quantize to 1e-5 with ROUND_HALF_UP.
+
+    Half-up means the 6th decimal ≥ 5 rounds the 5th decimal up.
+    """
+
+    assert round_price(1.1403658, 5) == pytest.approx(1.14037)
+    assert round_price(1.140012, 5) == pytest.approx(1.14001)
+    # On-the-boundary: 6th decimal exactly 5 → up.
+    assert round_price(1.140015, 5) == pytest.approx(1.14002)
+
+
+def test_round_price_eur_usd_no_op_when_already_rounded() -> None:
+    assert round_price(1.14000, 5) == pytest.approx(1.14000)
+    assert round_price(1.14037, 5) == pytest.approx(1.14037)
+
+
+def test_round_price_usd_jpy_three_decimal_rounds_half_up() -> None:
+    """USD_JPY display_precision=3 → quantize to 1e-3."""
+
+    assert round_price(150.0046, 3) == pytest.approx(150.005)
+    assert round_price(150.0044, 3) == pytest.approx(150.004)
+    assert round_price(150.0005, 3) == pytest.approx(150.001)
+
+
+def test_round_price_handles_negative_prices_symmetrically() -> None:
+    """Defensive — the verifier never asks to round a negative price,
+    but if it ever did, ROUND_HALF_UP should be symmetric around zero
+    for half-cases."""
+
+    assert round_price(-1.140015, 5) == pytest.approx(-1.14002)
+
+
+def test_round_price_matches_bespoke_formula() -> None:
+    """The verifier's round_price must produce the SAME result as the
+    bespoke ``instrument.round_price`` for the same float input and
+    the same display_precision. Compute the bespoke result from the
+    same canonical formula (without importing forex_bot, to preserve
+    independence) and compare."""
+
+    from decimal import Decimal
+
+    for price, prec in [
+        (1.1403658, 5),
+        (1.140012, 5),
+        (1.140015, 5),  # boundary
+        (150.0046, 3),
+        (150.0044, 3),
+        (0.99999, 5),
+    ]:
+        quant = Decimal(1).scaleb(-prec)
+        bespoke_result = float(
+            Decimal(str(price)).quantize(quant, rounding="ROUND_HALF_UP")
+        )
+        assert round_price(price, prec) == pytest.approx(bespoke_result)
 
 
 def test_initial_stop_uses_close_not_post_slippage_entry() -> None:
