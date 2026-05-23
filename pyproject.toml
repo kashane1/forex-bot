@@ -48,6 +48,7 @@ packages = ["src/forex_bot"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 addopts = "-ra --strict-markers"
 markers = [
     "integration: tests that touch real services (skipped by default)",
