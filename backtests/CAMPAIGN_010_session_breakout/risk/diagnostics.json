@@ -1,0 +1,258 @@
+{
+  "campaign_id": "CAMPAIGN_010",
+  "strategy_name": "session_breakout",
+  "strategy_version": "0.1.0-c010",
+  "diagnostics_type": "portfolio-risk",
+  "verdict_impact": "diagnostic_only_does_not_gate_verdict",
+  "concurrency": {
+    "structurally_enforced_max_concurrent_per_instrument": 1,
+    "structurally_enforced_max_positions_per_instrument_config_key": 1,
+    "structurally_enforced_max_open_positions_config_key": 1,
+    "note": "BacktestEngine is single-instrument single-position-at-a-time, and the candidate's R2 rule (block-re-entry when an open position exists for the instrument) prevents pyramiding. Multi-instrument concurrency is constrained at the RiskEngine layer by the campaign config (max_open_positions=1, max_positions_per_instrument=1, max_correlated_positions=1)."
+  },
+  "per_pair_summary": {
+    "EUR_USD": {
+      "trade_count": 310,
+      "total_units": 68083.0,
+      "total_notional_quote_ccy_approx": 73731.51369,
+      "max_loss_streak": 8,
+      "max_win_streak": 4,
+      "largest_single_loss_usd": -1.27995,
+      "largest_single_win_usd": 3.08595,
+      "total_pnl_usd": -31.06814
+    },
+    "GBP_USD": {
+      "trade_count": 565,
+      "total_units": 98223.0,
+      "total_notional_quote_ccy_approx": 125161.686865,
+      "max_loss_streak": 10,
+      "max_win_streak": 8,
+      "largest_single_loss_usd": -1.281835,
+      "largest_single_win_usd": 4.20057,
+      "total_pnl_usd": -30.568595
+    },
+    "USD_JPY": {
+      "trade_count": 492,
+      "total_units": 97166.0,
+      "total_notional_quote_ccy_approx": 13913539.3845,
+      "max_loss_streak": 9,
+      "max_win_streak": 9,
+      "largest_single_loss_usd": -1.2914774207631803,
+      "largest_single_win_usd": 3.488577162433358,
+      "total_pnl_usd": -26.810300541442242
+    },
+    "AUD_USD": {
+      "trade_count": 511,
+      "total_units": 125636.0,
+      "total_notional_quote_ccy_approx": 83477.556465,
+      "max_loss_streak": 8,
+      "max_win_streak": 11,
+      "largest_single_loss_usd": -1.2874,
+      "largest_single_win_usd": 2.9623,
+      "total_pnl_usd": -48.136065
+    },
+    "USD_CAD": {
+      "trade_count": 434,
+      "total_units": 114900.0,
+      "total_notional_quote_ccy_approx": 155389.409485,
+      "max_loss_streak": 8,
+      "max_win_streak": 6,
+      "largest_single_loss_usd": -1.2839813903681407,
+      "largest_single_win_usd": 3.331139987534222,
+      "total_pnl_usd": -46.31509251273927
+    },
+    "USD_CHF": {
+      "trade_count": 432,
+      "total_units": 90675.0,
+      "total_notional_quote_ccy_approx": 81024.404125,
+      "max_loss_streak": 9,
+      "max_win_streak": 8,
+      "largest_single_loss_usd": -1.2987668434110036,
+      "largest_single_win_usd": 5.353825023384681,
+      "total_pnl_usd": 8.447284842456238
+    },
+    "NZD_USD": {
+      "trade_count": 47,
+      "total_units": 8361.0,
+      "total_notional_quote_ccy_approx": 5124.16822,
+      "max_loss_streak": 4,
+      "max_win_streak": 4,
+      "largest_single_loss_usd": -1.27296,
+      "largest_single_win_usd": 1.3493,
+      "total_pnl_usd": -8.32915
+    }
+  },
+  "session_clustering": {
+    "entry_hour_utc_counts": {
+      "6": 1030,
+      "9": 1761
+    },
+    "entry_session_bucket_counts": {
+      "london": 2791
+    }
+  },
+  "exit_reason_distribution": {
+    "eod": 23,
+    "stop": 661,
+    "time": 2107
+  },
+  "drawdown_clustering": {
+    "per_fold": [
+      {
+        "fold_index": 0,
+        "test_start": "2021-12-21",
+        "test_end": "2022-06-18",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -1.148679935290913,
+          "GBP_USD": -1.2103540484748754,
+          "USD_JPY": -0.9284579305985567,
+          "AUD_USD": -1.7979449999999813,
+          "USD_CAD": -3.8574969720323247,
+          "USD_CHF": -0.5234159297195623,
+          "NZD_USD": -0.2540894720058481
+        },
+        "median_pair_max_drawdown_pct": -1.148679935290913
+      },
+      {
+        "fold_index": 1,
+        "test_start": "2022-06-19",
+        "test_end": "2022-12-15",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -2.4538760264635986,
+          "GBP_USD": -2.0967193752686097,
+          "USD_JPY": -2.809727061633402,
+          "AUD_USD": -2.258509000000015,
+          "USD_CAD": -2.2210892117782466,
+          "USD_CHF": -3.24010620195367,
+          "NZD_USD": -1.2027480000000081
+        },
+        "median_pair_max_drawdown_pct": -2.258509000000015
+      },
+      {
+        "fold_index": 2,
+        "test_start": "2022-12-16",
+        "test_end": "2023-06-13",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -1.5337286991148713,
+          "GBP_USD": -2.9147017577692607,
+          "USD_JPY": -1.7135124515658702,
+          "AUD_USD": -2.965090999999984,
+          "USD_CAD": -2.3779867660959635,
+          "USD_CHF": -1.083495029928896,
+          "NZD_USD": -0.3007707460301947
+        },
+        "median_pair_max_drawdown_pct": -1.7135124515658702
+      },
+      {
+        "fold_index": 3,
+        "test_start": "2023-06-14",
+        "test_end": "2023-12-10",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -1.3481698448688109,
+          "GBP_USD": -2.4531174458678455,
+          "USD_JPY": -1.4841498441938301,
+          "AUD_USD": -2.104582047518221,
+          "USD_CAD": -3.856336801928279,
+          "USD_CHF": -2.114872373090592,
+          "NZD_USD": -0.19687998147443495
+        },
+        "median_pair_max_drawdown_pct": -2.104582047518221
+      },
+      {
+        "fold_index": 4,
+        "test_start": "2023-12-11",
+        "test_end": "2024-06-07",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -2.071737783260058,
+          "GBP_USD": -3.4985756053078494,
+          "USD_JPY": -2.1172376337841343,
+          "AUD_USD": -3.25802510803253,
+          "USD_CAD": -2.261857827311499,
+          "USD_CHF": -1.26536287575915,
+          "NZD_USD": 0.0
+        },
+        "median_pair_max_drawdown_pct": -2.1172376337841343
+      },
+      {
+        "fold_index": 5,
+        "test_start": "2024-06-08",
+        "test_end": "2024-12-04",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -0.4430167577111727,
+          "GBP_USD": -2.190506270372779,
+          "USD_JPY": -1.9722161271075602,
+          "AUD_USD": -2.3992350000000098,
+          "USD_CAD": -0.9217272431422152,
+          "USD_CHF": -1.852634263528822,
+          "NZD_USD": -0.25417599999999535
+        },
+        "median_pair_max_drawdown_pct": -1.852634263528822
+      },
+      {
+        "fold_index": 6,
+        "test_start": "2024-12-05",
+        "test_end": "2025-06-02",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -1.8230244645531257,
+          "GBP_USD": -1.3975103079332682,
+          "USD_JPY": -1.384642468432711,
+          "AUD_USD": -2.012373456519863,
+          "USD_CAD": -1.228466649285491,
+          "USD_CHF": -0.9328443932537067,
+          "NZD_USD": -0.7909650000000056
+        },
+        "median_pair_max_drawdown_pct": -1.384642468432711
+      },
+      {
+        "fold_index": 7,
+        "test_start": "2025-06-03",
+        "test_end": "2025-11-29",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -0.7897527251556035,
+          "GBP_USD": -1.3781551630712259,
+          "USD_JPY": -1.838870621159549,
+          "AUD_USD": -1.2661889014006433,
+          "USD_CAD": -1.1192526393382536,
+          "USD_CHF": -0.6083985226184919,
+          "NZD_USD": 0.0
+        },
+        "median_pair_max_drawdown_pct": -1.1192526393382536
+      }
+    ]
+  },
+  "risk_engine": {
+    "mode": "backtest",
+    "rejection_totals_by_code": {
+      "SPREAD_TOO_WIDE": 414,
+      "SPREAD_TO_ATR": 770
+    },
+    "rejection_by_pair": {
+      "EUR_USD": {
+        "SPREAD_TOO_WIDE": 236,
+        "SPREAD_TO_ATR": 63
+      },
+      "GBP_USD": {
+        "SPREAD_TOO_WIDE": 4,
+        "SPREAD_TO_ATR": 16
+      },
+      "USD_JPY": {
+        "SPREAD_TOO_WIDE": 28,
+        "SPREAD_TO_ATR": 5
+      },
+      "AUD_USD": {
+        "SPREAD_TO_ATR": 8
+      },
+      "USD_CAD": {
+        "SPREAD_TO_ATR": 119
+      },
+      "USD_CHF": {
+        "SPREAD_TOO_WIDE": 19,
+        "SPREAD_TO_ATR": 113
+      },
+      "NZD_USD": {
+        "SPREAD_TOO_WIDE": 127,
+        "SPREAD_TO_ATR": 446
+      }
+    }
+  }
+}
