@@ -316,6 +316,32 @@ remains.
 | [`FINANCING_BP_DAY_FIXTURE_EXPANSION_STATUS.md`](FINANCING_BP_DAY_FIXTURE_EXPANSION_STATUS.md) | headline status — 7-pair coverage, fixture files added, tests (16 cases pass), synthetic run status, MODELED unavailable, live blocker remains |
 | [`RESEARCH_FINANCING_BP_DAY_FIXTURE_EXPANSION_001_SUMMARY.md`](RESEARCH_FINANCING_BP_DAY_FIXTURE_EXPANSION_001_SUMMARY.md) | sprint summary & handoff |
 
+### New candidate strategy discovery (`research-new-candidate-strategy-discovery-001`)
+
+Docs-only design sprint. Produces the protocol, framework
+inventory, candidate shortlist, and preferred-candidate
+evaluation design for a future strategy candidate
+meaningfully distinct from CAMPAIGN_002 and the other four
+already-rejected families (trend_following, volatility_breakout,
+pullback_continuation, mean_reversion). **No code is added**;
+no strategy is implemented; no campaign is run; no approval is
+granted; paper / demo / live remain blocked. The preferred
+candidate (Asian-range / London-open session breakout) is
+designed for a *separate, future, human-authorized* sprint
+named `research-asian-london-session-breakout-001`. The
+702-test baseline is preserved.
+
+| document | what it is |
+|---|---|
+| [`NEXT_BRANCH_DECISION_AUDIT.md`](NEXT_BRANCH_DECISION_AUDIT.md) | Phase 0 repo-truth audit & branch decision (records the completed financing + walk-forward state, the 702-test baseline, the safety gates, and the PATH B selection) |
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_001_PLAN.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_001_PLAN.md) | sprint plan — scope, non-goals, phase deliverables, safety rails, success criteria |
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_PROTOCOL.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_PROTOCOL.md) | binding protocol — "meaningfully distinct from CAMPAIGN_002"; allowed / disallowed family categories; frozen-parameter / walk-forward / financing / risk-diagnostic requirements; six-item evidence ladder; §12 overfitting-pattern disqualifiers |
+| [`STRATEGY_FRAMEWORK_INVENTORY.md`](STRATEGY_FRAMEWORK_INVENTORY.md) | read-only inventory of every surface a new candidate plugs into (Strategy Protocol, existing 4 families, indicator primitives, bespoke BacktestEngine, RiskEngine gates, StrategyConfig, walk-forward harness API, financing calculator API, reporting, data sources) |
+| [`CANDIDATE_STRATEGY_FAMILY_SHORTLIST.md`](CANDIDATE_STRATEGY_FAMILY_SHORTLIST.md) | five candidates (C1 session breakout — PREFERRED; C2 carry overlay — blocked on MODELED; C3 daily-ATR regime switcher; C4 volatility-expansion straddle; C5 random-entry anchor) with 6-dimension distinctness scoring and §12 overfitting audit |
+| [`PREFERRED_CANDIDATE_EVALUATION_DESIGN.md`](PREFERRED_CANDIDATE_EVALUATION_DESIGN.md) | finalised evidence-pipeline design for C1 (frozen params, universe, timeframe, walk-forward fold design ~9 folds, per-fold + aggregate + financing + risk-diagnostic gates, no-lookahead checks, rejection criteria, required artifacts, future implementation branch name) |
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_HELPER_SCAFFOLDING_NOTE.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_HELPER_SCAFFOLDING_NOTE.md) | Phase B5 decision note — five helper-code options considered, all rejected with documented rationale; zero code added |
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_001_SUMMARY.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_001_SUMMARY.md) | sprint summary & handoff |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
