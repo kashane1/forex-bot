@@ -228,6 +228,37 @@
       "risk_engine_used": true,
       "financing_treatment": "estimated",
       "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "title": "Random-entry diagnostic anchor / null model (research-random-entry-diagnostic-anchor-walk-forward-001)",
+      "report_path": "docs/research/CAMPAIGN_011_WALK_FORWARD_RESULT.md",
+      "artifact_folder": "backtests/CAMPAIGN_011_random_entry_anchor",
+      "strategy_family": "random_entry_anchor",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "fold_count": 8,
+        "fold_pass_rate": 0.0,
+        "total_trades": 1177,
+        "aggregate_expectancy_r": -0.0024,
+        "aggregate_profit_factor": 0.9144,
+        "aggregate_return_pct": -0.53,
+        "pairs_positive": 3,
+        "single_fold_dominance_pct": 40.1,
+        "single_pair_dominance_pct": 36.5,
+        "financing_cashflow_home_stress_total_usd": -24.38,
+        "financing_missing_rate_event_count": 0,
+        "master_seed": 20260523,
+        "null_model": true,
+        "approval_path": "none (null model by design)",
+        "note": "walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4; deterministic-seed coin-flip entry; 0/8 folds pass gates; metrics statistically consistent with no-edge random expectations (expectancy near 0, profit factor near 1, return near 0, pairs_positive near uniform); USD_JPY expectancy literally +0.0000 (textbook random-walk signature); per-pair distribution near-uniform (ratio max/min 1.65 vs CAMPAIGN_010's 12); session distribution diffuse (vs CAMPAIGN_010's 100% London); 8/8 pipeline sanity checks pass; conservative-stress financing flips USD_JPY (marginally +ve pair) to net negative; verifier did not run (capability-locked to CAMPAIGN_002, not required for null-model REJECT); MODELED refused at 4 layers. The REJECT verdict is the EXPECTED outcome of the diagnostic anchor — it validates the evidence pipeline by demonstrating the gates correctly REJECT a known-zero-edge strategy. CAMPAIGN_011 cannot be approved by design (null model)."
+      },
+      "commit_hash": "0be0e97",
+      "test_window_opened": true,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
     }
   ],
   "diagnostic_artifacts": [

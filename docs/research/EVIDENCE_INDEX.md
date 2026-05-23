@@ -452,6 +452,43 @@ baseline (735 prior + 36 new) is preserved.
 | [`CAMPAIGN_011_INDEPENDENT_VERIFIER_READINESS.md`](CAMPAIGN_011_INDEPENDENT_VERIFIER_READINESS.md) | verifier capability-locked to CAMPAIGN_002; extension NOT required for the REJECT verdict (null model cannot be paper-promoted); recommended follow-up `infra-free-local-parity-verifier-random-entry-001` because deterministic seed allows EXACT (not WARN-band) corroboration |
 | [`RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_001_SUMMARY.md`](RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_001_SUMMARY.md) | sprint summary & handoff; recommended next branch is the evidence sprint |
 
+### CAMPAIGN_011 walk-forward evidence (`research-random-entry-diagnostic-anchor-walk-forward-001`)
+
+Walk-forward evidence sprint that ran the full
+`PREFERRED_CANDIDATE_EVALUATION_DESIGN` pipeline against the
+`random_entry_anchor 0.1.0-c011` null-model candidate on the
+7-pair × 6-year real OANDA practice H4 universe. Verdict:
+**REJECT (null model anchor)** — `fold_pass_rate = 0/8`,
+`aggregate_expectancy_r = -0.0024` (≈ 0; null-model
+signature), `profit_factor = 0.91` (≈ 1), `aggregate_return =
+-0.53%` over 4 years, `pairs_positive = 3/7` (≈ uniform-noise
+expectation of 3.5). USD_JPY expectancy literally **+0.0000**
+to 4 dp (textbook random-walk signature). The REJECT is the
+**expected and desired outcome** — it validates the evidence
+pipeline by demonstrating the gates correctly REJECT a
+known-zero-edge strategy with metrics consistent with random
+expectations. CAMPAIGN_011 reclassifies from `scaffold-only`
+to `rejected (null model anchor)`.
+`configs/approved_strategies.yaml` remains `approved: []`;
+CAMPAIGN_002 / CAMPAIGN_010 remain REJECT and untouched.
+Paper / demo / live remain blocked. **CAMPAIGN_011 cannot be
+approved by design** (null model). No broker call, no
+credential read, no parameter tuning, no seed optimization.
+
+| document | what it is |
+|---|---|
+| [`RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_WALK_FORWARD_001_PLAN.md`](RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_WALK_FORWARD_001_PLAN.md) | Phase 0 repo truth audit + 10-phase sprint plan; baseline 771 pytests pass; data status (existing 7-pair × 6-year H4 store reused via gitignored symlink) |
+| [`CAMPAIGN_011_DATA_PROVENANCE.md`](CAMPAIGN_011_DATA_PROVENANCE.md) | Phase 1 data provenance — per-pair counts, first/last bar timestamps, recorded raw/normalized SHA-256 prefixes; ALL HASHES MATCH CAMPAIGN_010 verbatim (same physical store; identical data; the entry-signal comparison is on byte-for-byte identical candles) |
+| [`CAMPAIGN_011_WALK_FORWARD_PLAN.md`](CAMPAIGN_011_WALK_FORWARD_PLAN.md) | Phase 2 authoritative walk-forward plan — 8 folds rolling/frozen, 540/180/180/180 days, universe 2020-01-01 → 2026-05-20, IDENTICAL to CAMPAIGN_010's plan |
+| [`CAMPAIGN_011_WALK_FORWARD_EXECUTION.md`](CAMPAIGN_011_WALK_FORWARD_EXECUTION.md) | Phase 4 per-fold execution — 56 backtests (8 folds × 7 pairs) in 5.6s, 1,177 trades, frozen-parameter + master-seed (20260523) assertion held, no implementation bug fixes required |
+| [`CAMPAIGN_011_WALK_FORWARD_RESULT.md`](CAMPAIGN_011_WALK_FORWARD_RESULT.md) | Phase 5 formal verdict — REJECT (null model anchor); 4 PnL-direction gates fail, 6 structural / dominance / financing gates pass; metrics statistically consistent with random/no-edge expectations |
+| [`CAMPAIGN_011_FINANCING_OVERLAY.md`](CAMPAIGN_011_FINANCING_OVERLAY.md) | Phase 6 financing overlay — ESTIMATED + `default_stress_rate_source()` (MODELED refused at four layers); 1,080 rollover events; cashflow_home_stress_total = -$24.38; USD_JPY flips +→- under stress; per-trade cost (-$0.023/event) consistent with CAMPAIGN_010 (-$0.022/event) |
+| [`CAMPAIGN_011_PORTFOLIO_RISK_DIAGNOSTICS.md`](CAMPAIGN_011_PORTFOLIO_RISK_DIAGNOSTICS.md) | Phase 7 risk diagnostics — per-pair ratio max/min = 1.65 (random-uniform vs CAMPAIGN_010's 12.0); session diffuse across all 4 UTC buckets (no concentration > 50%; KEY contrast vs CAMPAIGN_010's 100% London); 79% time-stop exit (matches CAMPAIGN_010); 8/8 pipeline sanity checks pass |
+| [`CAMPAIGN_011_INDEPENDENT_VERIFIER_STATUS.md`](CAMPAIGN_011_INDEPENDENT_VERIFIER_STATUS.md) | Phase 8 verifier capability assessment — verifier capability-locked to CAMPAIGN_002; did NOT run for CAMPAIGN_011; not required for null-model REJECT; recommended follow-up `infra-free-local-parity-verifier-random-entry-001` (uniquely valuable because deterministic-seed → EXACT, not WARN-band, corroboration is possible) |
+| [`CAMPAIGN_011_EVIDENCE_SUMMARY.md`](CAMPAIGN_011_EVIDENCE_SUMMARY.md) | Phase 9 one-page evidence summary — headline numbers, null-model interpretation, falsifiability floor for future candidates, six-evidence-ladder status, comparison to CAMPAIGN_010 |
+| [`CAMPAIGN_011_STATUS.md`](CAMPAIGN_011_STATUS.md) (updated) | now reclassified `scaffold-only → rejected (null model anchor)`; verdict, gates, evidence artifacts, safety state |
+| [`RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_WALK_FORWARD_001_SUMMARY.md`](RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_WALK_FORWARD_001_SUMMARY.md) | sprint summary & handoff |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
