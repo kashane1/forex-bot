@@ -167,6 +167,17 @@ direction is a free / local independent verifier.
 | [`FREE_LOCAL_PARITY_VERIFIER_PLAN.md`](FREE_LOCAL_PARITY_VERIFIER_PLAN.md) | plan for the free / local independent verifier |
 | [`INFRA_RETIRE_QUANTCONNECT_LEAN_001_SUMMARY.md`](INFRA_RETIRE_QUANTCONNECT_LEAN_001_SUMMARY.md) | retirement-sprint summary & handoff |
 
+### Free / local parity verifier implementation (`infra-free-local-parity-verifier-001`)
+
+Implementation of the free / local independent parity verifier
+designed in `FREE_LOCAL_PARITY_VERIFIER_PLAN.md`. All
+diagnostic / infrastructure outputs — none is strategy evidence; none
+approves anything; CAMPAIGN_002 remains REJECT.
+
+| document | what it is |
+|---|---|
+| [`INFRA_FREE_LOCAL_PARITY_VERIFIER_001_PLAN.md`](INFRA_FREE_LOCAL_PARITY_VERIFIER_001_PLAN.md) | the implementation-sprint plan |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
