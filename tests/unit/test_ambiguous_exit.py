@@ -519,18 +519,20 @@ def test_strategy_config_hash_input_types_are_repr_stable():
     """`strategy_config` is hashed via `repr(dict)` — non-primitive values
     (numpy scalars, Path objects, Decimal, etc.) can produce
     Python-version-dependent repr() and drift the hash. Asserts every
-    pinned campaign config contains only primitive types."""
+    pinned campaign config contains only primitive types.
+
+    Imports the PINNED list from the snapshot script (DRY) so adding a
+    config to the pinned list automatically extends this check too.
+    """
     from pathlib import Path
+
+    from scripts.snapshot_pre_sprint_hashes import PINNED
 
     from forex_bot.config import load_settings
     from forex_bot.loops import build_strategies
 
     repo_root = Path(__file__).resolve().parent.parent.parent
-    for label, rel_path in [
-        ("campaign_001_baseline", "configs/campaign_001_baseline.yaml"),
-        ("campaign_004_volatility_breakout", "configs/campaign_004_volatility_breakout.yaml"),
-        ("campaign_009_mean_reversion", "configs/campaign_009_mean_reversion.yaml"),
-    ]:
+    for label, rel_path in PINNED:
         settings = load_settings(repo_root / rel_path)
         for strat, cfg in build_strategies(settings):
             _check_primitives(cfg, f"{label}:{strat.name}")

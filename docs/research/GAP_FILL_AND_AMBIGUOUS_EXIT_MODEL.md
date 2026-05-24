@@ -69,6 +69,20 @@ When `gap_fill_policy = "gap_through"` is set on the engine (default `"none"`), 
 
 Mirrors how real stop-market and limit orders fill when price has already moved through the level. Precedence within the resolver: adverse stop > favorable tp (mirrors the existing if/elif precedence).
 
+#### Semantics: bar-open as the first event in `gap_through` mode
+
+A subtle but correct consequence of gap-through is that the **bar-open is modeled as the chronologically-first event in the bar**. When the bar opens past a favorable level (long: `bid_open > tp`), the gap-fill resolver closes the trade at the open — *before* the intra-bar range can fire anything else. So if the same bar also wicks DOWN through the stop later in the bar, the stop never fires, because the trade is already closed at the favorable open price.
+
+Concretely, for a long with `gap_fill_policy="gap_through"`:
+
+| Bar geometry | `none` mode exit | `gap_through` mode exit |
+|---|---|---|
+| `bid_open` > tp, `bid_low` ≤ stop | `stop` at `stop_price` (adverse — range precedence) | `target` at `bid_open` (favorable — open precedence) |
+| `bid_open` < stop, `bid_high` ≥ tp | `stop` at `stop_price` | `stop` at `bid_open` (still adverse, but worse) |
+| `bid_open` ≤ tp and ≥ stop | (uses regular range tests) | (uses regular range tests) |
+
+The flip in row 1 is **not a bug** — it correctly models a TP limit order that would have filled at the open (1.10700) before price ever reached the stop later in the bar. In default mode, the engine uses intra-bar range only (OHLC alone cannot prove order of touches, so the conservative stop-precedence rule applies). In `gap_through` mode, the bar-open is treated as an additional, chronologically-first reference point. Verified by `tests/unit/test_gap_fill.py::test_long_tp_gap_overrides_intra_bar_adverse_stop` and the short mirror.
+
 When a gap-fill fires:
 
 - `TradeRecord.gap_fill = True`
@@ -186,6 +200,17 @@ See "Lean parity impact" above. Anyone selecting `gap_through` and then asking "
 ---
 
 ## 5. Recommendation
+
+### When to use which policy
+
+| Goal | gap_fill_policy |
+|---|---|
+| Reproduce a CAMPAIGN_001–009 verdict byte-for-byte | `none` |
+| Measure how often gap-through fills would change a verdict | `gap_through` |
+| Compare against Lean parity (today) | `none` (baselines were captured under this mode) |
+| New D1AGG or daily research from scratch | `gap_through` (daily gaps are largest) |
+
+### Detailed guidance
 
 - **Default-mode (`none`) results** are byte-identical to pre-sprint and remain the canonical reference for every CAMPAIGN_001-009 result.
 - **`gap_through` mode** is research infrastructure: useful for measuring how often gap-through fills would change a campaign's verdict, and for moving toward Lean parity in a future sprint. Treat its results as new audit data, not as a re-run of an existing campaign verdict.

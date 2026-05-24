@@ -736,6 +736,130 @@ def test_simultaneous_ambiguous_and_gap(eur_usd):
     assert result.ambiguous_exit_count == 1
 
 
+def test_long_tp_gap_overrides_intra_bar_adverse_stop(eur_usd):
+    """In gap_through mode, a bar that opens ABOVE the TP closes the
+    trade at the bar's open BEFORE any intra-bar adverse stop can fire.
+    This models the chronological reality of a TP limit order: it fills
+    at the open (favorable) before price ever reaches the stop later in
+    the bar. Under default `none` mode, stop-precedence wins instead
+    because OHLC alone cannot prove order of touches.
+
+    See GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md § "Semantics: bar-open as
+    the first event in `gap_through` mode".
+    """
+    entry_close = Decimal("1.10000")
+    stop_price = entry_close - Decimal("0.0050")  # 1.09500
+    tp_price = entry_close + Decimal("0.0050")    # 1.10500
+
+    # Exit bar: opens at 1.10700 (above tp 1.10500), wicks down to
+    # 1.09000 (below stop 1.09500), closes at 1.09500. So:
+    #   * gap_through: favorable TP gap-fill at bid_open=1.10700, even
+    #     though bid_low=1.09000 is below the stop.
+    #   * none: stop-precedence wins; exit at stop_price=1.09500.
+    bars = [_quiet(k) for k in range(_GAP_ENTRY_BAR_INDEX + 1)]
+    bars.append(
+        _gap_candle(
+            _GAP_ENTRY_BAR_INDEX + 1,
+            bid_o=Decimal("1.10700"),
+            bid_h=Decimal("1.10800"),
+            bid_l=Decimal("1.09000"),
+            bid_c=Decimal("1.09500"),
+        )
+    )
+    frame = CandleFrame.from_candles("EUR_USD", "H4", bars)
+
+    strategy_gap = _OneShotForGap(
+        fire_at=_GAP_FIRE_AT_LEN,
+        side="long",
+        stop_price=stop_price,
+        take_profit_price=tp_price,
+    )
+    engine_gap = _build_gap_engine(
+        eur_usd=eur_usd, fill_timing="signal_bar_close",
+        gap_fill_policy="gap_through", risk_engine_kind="none",
+        paper_settings=None, strategy=strategy_gap,
+    )
+    result_gap = engine_gap.run(frame)
+    assert len(result_gap.trades) == 1
+    trade_gap = result_gap.trades[0]
+    assert trade_gap.exit_reason == "target"
+    assert trade_gap.exit_price == Decimal("1.10700")
+    assert trade_gap.gap_fill is True
+
+    strategy_none = _OneShotForGap(
+        fire_at=_GAP_FIRE_AT_LEN, side="long",
+        stop_price=stop_price, take_profit_price=tp_price,
+    )
+    engine_none = _build_gap_engine(
+        eur_usd=eur_usd, fill_timing="signal_bar_close",
+        gap_fill_policy="none", risk_engine_kind="none",
+        paper_settings=None, strategy=strategy_none,
+    )
+    result_none = engine_none.run(frame)
+    assert len(result_none.trades) == 1
+    trade_none = result_none.trades[0]
+    assert trade_none.exit_reason == "stop"
+    assert trade_none.exit_price == stop_price
+    assert trade_none.gap_fill is False
+
+
+def test_short_tp_gap_overrides_intra_bar_adverse_stop(eur_usd):
+    """Mirror of the long test for the short side."""
+    entry_close = Decimal("1.10000")
+    stop_price = entry_close + Decimal("0.0050")  # 1.10500 (short stop above)
+    tp_price = entry_close - Decimal("0.0050")    # 1.09500 (short tp below)
+    spread = Decimal("0.0002")
+
+    # Exit bar (short): ask_open = bid_open + spread. We want
+    # ask_open < tp_price (1.09500) so bid_open < 1.09300 — and
+    # ask_high > stop_price (1.10500) so bid_high > 1.10480.
+    exit_bid_open = Decimal("1.09100")  # ask_open = 1.09120 < tp 1.09500
+    bars = [_quiet(k) for k in range(_GAP_ENTRY_BAR_INDEX + 1)]
+    bars.append(
+        _gap_candle(
+            _GAP_ENTRY_BAR_INDEX + 1,
+            bid_o=exit_bid_open,
+            bid_h=Decimal("1.10800"),  # ask_high = 1.10820 > stop 1.10500
+            bid_l=Decimal("1.09000"),
+            bid_c=Decimal("1.10000"),
+            spread=spread,
+        )
+    )
+    frame = CandleFrame.from_candles("EUR_USD", "H4", bars)
+
+    strategy_gap = _OneShotForGap(
+        fire_at=_GAP_FIRE_AT_LEN, side="short",
+        stop_price=stop_price, take_profit_price=tp_price,
+    )
+    engine_gap = _build_gap_engine(
+        eur_usd=eur_usd, fill_timing="signal_bar_close",
+        gap_fill_policy="gap_through", risk_engine_kind="none",
+        paper_settings=None, strategy=strategy_gap,
+    )
+    result_gap = engine_gap.run(frame)
+    assert len(result_gap.trades) == 1
+    trade_gap = result_gap.trades[0]
+    assert trade_gap.exit_reason == "target"
+    assert trade_gap.exit_price == exit_bid_open + spread  # ask_open
+    assert trade_gap.gap_fill is True
+
+    strategy_none = _OneShotForGap(
+        fire_at=_GAP_FIRE_AT_LEN, side="short",
+        stop_price=stop_price, take_profit_price=tp_price,
+    )
+    engine_none = _build_gap_engine(
+        eur_usd=eur_usd, fill_timing="signal_bar_close",
+        gap_fill_policy="none", risk_engine_kind="none",
+        paper_settings=None, strategy=strategy_none,
+    )
+    result_none = engine_none.run(frame)
+    assert len(result_none.trades) == 1
+    trade_none = result_none.trades[0]
+    assert trade_none.exit_reason == "stop"
+    assert trade_none.exit_price == stop_price
+    assert trade_none.gap_fill is False
+
+
 def test_d1agg_synthetic_weekend_gap(eur_usd):
     """D1AGG-shaped fixture: a Friday-close → Monday-open gap that
     pierces a long stop. With `gap_through`, the fill is at Monday's

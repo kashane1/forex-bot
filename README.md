@@ -39,6 +39,13 @@ is frozen — see [`docs/research/FINAL_RESEARCH_DECISION_MEMO.md`](docs/researc
   `next_bar_open` ([`FILL_TIMING_MODEL.md`](docs/research/FILL_TIMING_MODEL.md));
   the research-only freeze is guarded by
   `scripts/check_research_freeze.py`.
+- **Exit fidelity (infra-exit-fidelity-001 sprint):** the backtester
+  records same-bar SL+TP collisions (`ambiguous_exit_count`, always-on)
+  and supports an opt-in gap-through fill policy — `none` (default,
+  reproduces prior campaigns) and `gap_through` (fills exits at the bar
+  open when the bar opened past the stop/tp level). CLI:
+  `--gap-fill-policy gap_through`. See
+  [`GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md`](docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md).
 - **Standing live-promotion blockers:** financing/swap is still only
   *estimated* (a conservative stress overlay), never modeled in engine
   PnL; native OANDA D1 remains invalid — use the aggregate source. Both
@@ -64,6 +71,11 @@ Infrastructure execution-fidelity sprint:
 [fill timing](docs/research/FILL_TIMING_MODEL.md) ·
 [Lean parity execution](docs/research/LEAN_PARITY_EXECUTION_GUIDE.md) ·
 [observed financing](docs/research/OBSERVED_FINANCING_CAPTURE.md).
+
+Infrastructure exit-fidelity sprint:
+[plan](docs/research/INFRA_EXIT_FIDELITY_001_PLAN.md) ·
+[summary](docs/research/INFRA_EXIT_FIDELITY_001_SUMMARY.md) ·
+[gap-fill + ambiguous-exit model](docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md).
 
 Infrastructure data-parity sprint:
 [plan](docs/research/INFRA_DATA_PARITY_001_PLAN.md) ·

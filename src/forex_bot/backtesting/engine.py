@@ -26,6 +26,7 @@ from forex_bot.backtesting.fills import (
     NEXT_BAR_OPEN_UNAVAILABLE,
     FillModel,
     FillTiming,
+    GapFillPolicy,
 )
 from forex_bot.backtesting.metrics import (
     BacktestMetrics,
@@ -88,7 +89,7 @@ class BacktestResult:
     # docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.
     ambiguous_exit_count: int = 0
     gap_fill_exit_count: int = 0
-    gap_fill_policy: str = "none"
+    gap_fill_policy: GapFillPolicy = "none"
 
 
 @dataclass
@@ -124,7 +125,7 @@ class BacktestEngine:
         atr_lookback: int = 14,
         risk_engine: RiskEngine | None = None,
         settings: Settings | None = None,
-        gap_fill_policy: str = "none",
+        gap_fill_policy: GapFillPolicy = "none",
     ) -> None:
         self.instrument = instrument
         self.strategy = strategy
@@ -144,7 +145,7 @@ class BacktestEngine:
         # open instead of at the level. Default "none" preserves prior
         # behavior + config_hash. See
         # docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.
-        self.gap_fill_policy = gap_fill_policy
+        self.gap_fill_policy: GapFillPolicy = gap_fill_policy
 
     def run(
         self,

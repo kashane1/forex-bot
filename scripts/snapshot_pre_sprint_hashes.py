@@ -39,13 +39,16 @@ from forex_bot.loops import build_strategies
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FIXTURE_PATH = REPO_ROOT / "tests" / "fixtures" / "pre_sprint_config_hashes.json"
 
-# Pinned configs — the 3 axes:
-#   campaign_001_baseline           — vanilla trend, trailing stop, no TP
-#   campaign_004_volatility_breakout — vol breakout, trailing stop, no TP
-#   campaign_009_mean_reversion     — mean reversion, hard stop, midline TP
+# Pinned configs — 5 unique hash-producing campaigns. campaign_002 and
+# campaign_008 are intentionally omitted (they collide by hash with 001
+# and 009 respectively under default engine inputs); campaign_007 cannot
+# build strategies under the current loops.build_strategies path
+# (pre-existing, unrelated).
 PINNED = [
     ("campaign_001_baseline", "configs/campaign_001_baseline.yaml"),
+    ("campaign_003_controlled_adx", "configs/campaign_003_controlled_adx.yaml"),
     ("campaign_004_volatility_breakout", "configs/campaign_004_volatility_breakout.yaml"),
+    ("campaign_006_daily_trend", "configs/campaign_006_daily_trend.yaml"),
     ("campaign_009_mean_reversion", "configs/campaign_009_mean_reversion.yaml"),
 ]
 
