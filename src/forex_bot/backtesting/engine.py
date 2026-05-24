@@ -224,14 +224,20 @@ class BacktestEngine:
             # ---- mark-to-market / exit checks for open trade ----
             if open_trade is not None:
                 open_trade.bars_held += 1
+                # NOTE: pandas stores Candle's `bid_*=None` as numpy NaN at
+                # DataFrame construction time. `nan is not None` is True
+                # but `Decimal(str(nan))` raises InvalidOperation — so
+                # these fallbacks use `pd.notna()` (not `is not None`) to
+                # correctly fall back to the mid OHLC when the bid/ask
+                # side is unavailable on a candle.
                 bid_low = (
                     Decimal(str(row["bid_low"]))
-                    if row["bid_low"] is not None
+                    if pd.notna(row["bid_low"])
                     else Decimal(str(row["low"]))
                 )
                 ask_high = (
                     Decimal(str(row["ask_high"]))
-                    if row["ask_high"] is not None
+                    if pd.notna(row["ask_high"])
                     else Decimal(str(row["high"]))
                 )
                 # bid_high / ask_low: the *favourable* extreme used to test a
@@ -239,24 +245,51 @@ class BacktestEngine:
                 # short buys back at ask).
                 bid_high = (
                     Decimal(str(row["bid_high"]))
-                    if row["bid_high"] is not None
+                    if pd.notna(row["bid_high"])
                     else Decimal(str(row["high"]))
                 )
                 ask_low = (
                     Decimal(str(row["ask_low"]))
-                    if row["ask_low"] is not None
+                    if pd.notna(row["ask_low"])
                     else Decimal(str(row["low"]))
                 )
                 bid_close = (
                     Decimal(str(row["bid_close"]))
-                    if row["bid_close"] is not None
+                    if pd.notna(row["bid_close"])
                     else Decimal(str(row["close"]))
                 )
                 ask_close = (
                     Decimal(str(row["ask_close"]))
-                    if row["ask_close"] is not None
+                    if pd.notna(row["ask_close"])
                     else Decimal(str(row["close"]))
                 )
+                # bid_open / ask_open: used by the gap_fill_policy logic to
+                # detect a bar that OPENED past the stop/tp level. Falls
+                # back to mid `open` when the bid/ask side is unavailable.
+                # Uses `pd.notna()` (not `is not None`) because pandas
+                # coerces stored None to numpy.float64 NaN at DataFrame
+                # construction time — `nan is not None` is True but
+                # `Decimal(str(nan))` raises InvalidOperation.
+                bid_open = (
+                    Decimal(str(row["bid_open"]))
+                    if pd.notna(row["bid_open"])
+                    else Decimal(str(row["open"]))
+                )
+                ask_open = (
+                    Decimal(str(row["ask_open"]))
+                    if pd.notna(row["ask_open"])
+                    else Decimal(str(row["open"]))
+                )
+
+                # Snapshot the stop value BEFORE the trailing update so the
+                # gap-fill comparison (against the bar's OPEN) tests
+                # against the level that was actually active at the bar's
+                # open — not against a tightened level derived from the
+                # bar's close. The regular range checks (bid_low <= stop)
+                # continue to use the post-update stop (unchanged behavior).
+                # See docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md
+                # § "Trailing-stop ordering caveat".
+                pre_trailing_stop_price: Decimal = open_trade.stop_price
 
                 if (
                     self.trailing_stop_atr_multiple is not None
@@ -279,40 +312,80 @@ class BacktestEngine:
 
                 exit_reason: str | None = None
                 exit_price: Decimal | None = None
+                did_gap_fill = False
+                gap_fill_distance_pips: Decimal | None = None
 
-                # Exit precedence within a bar: the adverse stop is checked
-                # first (conservative — assume the loss filled before any
-                # favourable target), then the take-profit target, then the
-                # time stop.
                 tp = open_trade.take_profit_price
-                if open_trade.side == "long":
-                    if bid_low <= open_trade.stop_price:
+
+                # Opt-in gap-through resolver (sprint infra-exit-fidelity-001).
+                # When the bar OPENED past the stop or tp level, fill at the
+                # bar open instead of at the level. Precedence: adverse stop
+                # > favorable tp (mirrors the existing if/elif precedence).
+                # See docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.
+                if self.gap_fill_policy == "gap_through":
+                    is_long = open_trade.side == "long"
+                    open_px = bid_open if is_long else ask_open
+                    stop_breached = (
+                        open_px < pre_trailing_stop_price
+                        if is_long
+                        else open_px > pre_trailing_stop_price
+                    )
+                    tp_breached = tp is not None and (
+                        open_px > tp if is_long else open_px < tp
+                    )
+                    if stop_breached:
                         exit_reason = (
                             "trailing_stop"
                             if open_trade.stop_price != open_trade.initial_stop_price
                             else "stop"
                         )
-                        exit_price = open_trade.stop_price
-                    elif tp is not None and bid_high >= tp:
+                        exit_price = open_px
+                        did_gap_fill = True
+                        gap_fill_distance_pips = (
+                            pre_trailing_stop_price - open_px
+                        ).copy_abs() / self.instrument.pip_size
+                    elif tp_breached and tp is not None:
                         exit_reason = "target"
-                        exit_price = tp
-                    elif open_trade.bars_held >= self.max_bars_in_trade:
-                        exit_reason = "time"
-                        exit_price = bid_close
-                else:
-                    if ask_high >= open_trade.stop_price:
-                        exit_reason = (
-                            "trailing_stop"
-                            if open_trade.stop_price != open_trade.initial_stop_price
-                            else "stop"
+                        exit_price = open_px
+                        did_gap_fill = True
+                        gap_fill_distance_pips = (
+                            (open_px - tp).copy_abs() / self.instrument.pip_size
                         )
-                        exit_price = open_trade.stop_price
-                    elif tp is not None and ask_low <= tp:
-                        exit_reason = "target"
-                        exit_price = tp
-                    elif open_trade.bars_held >= self.max_bars_in_trade:
-                        exit_reason = "time"
-                        exit_price = ask_close
+
+                # Existing range-test if/elif chain — runs ONLY when the
+                # gap-fill resolver did NOT already produce an exit. The
+                # adverse stop is checked first (conservative — assume the
+                # loss filled before any favourable target), then tp, then
+                # the time stop.
+                if not did_gap_fill:
+                    if open_trade.side == "long":
+                        if bid_low <= open_trade.stop_price:
+                            exit_reason = (
+                                "trailing_stop"
+                                if open_trade.stop_price != open_trade.initial_stop_price
+                                else "stop"
+                            )
+                            exit_price = open_trade.stop_price
+                        elif tp is not None and bid_high >= tp:
+                            exit_reason = "target"
+                            exit_price = tp
+                        elif open_trade.bars_held >= self.max_bars_in_trade:
+                            exit_reason = "time"
+                            exit_price = bid_close
+                    else:
+                        if ask_high >= open_trade.stop_price:
+                            exit_reason = (
+                                "trailing_stop"
+                                if open_trade.stop_price != open_trade.initial_stop_price
+                                else "stop"
+                            )
+                            exit_price = open_trade.stop_price
+                        elif tp is not None and ask_low <= tp:
+                            exit_reason = "target"
+                            exit_price = tp
+                        elif open_trade.bars_held >= self.max_bars_in_trade:
+                            exit_reason = "time"
+                            exit_price = ask_close
 
                 if exit_reason and exit_price is not None:
                     # Same-bar ambiguous-exit detection (always-on, added by
@@ -356,6 +429,8 @@ class BacktestEngine:
                             exit_reason=exit_reason,
                             fill_timing=self.fill_timing,
                             ambiguous_exit=tp_also_in_range,
+                            gap_fill=did_gap_fill,
+                            gap_fill_distance_pips=gap_fill_distance_pips,
                         )
                     )
                     open_trade = None
@@ -373,10 +448,10 @@ class BacktestEngine:
             )
             mid_close = Decimal(str(row["close"]))
             bid_close = (
-                Decimal(str(row["bid_close"])) if row["bid_close"] is not None else mid_close
+                Decimal(str(row["bid_close"])) if pd.notna(row["bid_close"]) else mid_close
             )
             ask_close = (
-                Decimal(str(row["ask_close"])) if row["ask_close"] is not None else mid_close
+                Decimal(str(row["ask_close"])) if pd.notna(row["ask_close"]) else mid_close
             )
             quote = Quote(
                 instrument=self.instrument.name,
@@ -445,12 +520,12 @@ class BacktestEngine:
                 next_mid_open = Decimal(str(next_row["open"]))
                 fill_bid = (
                     Decimal(str(next_row["bid_open"]))
-                    if next_row["bid_open"] is not None
+                    if pd.notna(next_row["bid_open"])
                     else next_mid_open
                 )
                 fill_ask = (
                     Decimal(str(next_row["ask_open"]))
-                    if next_row["ask_open"] is not None
+                    if pd.notna(next_row["ask_open"])
                     else next_mid_open
                 )
                 fill_quote = Quote(
@@ -571,12 +646,12 @@ class BacktestEngine:
             last_row = df.iloc[-1]
             bid_close = (
                 Decimal(str(last_row["bid_close"]))
-                if last_row["bid_close"] is not None
+                if pd.notna(last_row["bid_close"])
                 else Decimal(str(last_row["close"]))
             )
             ask_close = (
                 Decimal(str(last_row["ask_close"]))
-                if last_row["ask_close"] is not None
+                if pd.notna(last_row["ask_close"])
                 else Decimal(str(last_row["close"]))
             )
             exit_price = bid_close if open_trade.side == "long" else ask_close
