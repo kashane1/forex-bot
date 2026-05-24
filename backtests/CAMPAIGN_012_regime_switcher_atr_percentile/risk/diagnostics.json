@@ -1,0 +1,271 @@
+{
+  "campaign_id": "CAMPAIGN_012",
+  "strategy_name": "regime_switcher_atr_percentile",
+  "strategy_version": "0.1.0-c012",
+  "diagnostics_type": "portfolio-risk",
+  "verdict_impact": "diagnostic_only_does_not_gate_verdict",
+  "concurrency": {
+    "structurally_enforced_max_concurrent_per_instrument": 1,
+    "structurally_enforced_max_positions_per_instrument_config_key": 1,
+    "structurally_enforced_max_open_positions_config_key": 1,
+    "note": "BacktestEngine is single-instrument single-position-at-a-time, and the candidate's R2 rule (block-re-entry when an open position exists for the instrument) prevents pyramiding. Multi-instrument concurrency is constrained at the RiskEngine layer by the campaign config (max_open_positions=1, max_positions_per_instrument=1, max_correlated_positions=1)."
+  },
+  "per_pair_summary": {
+    "EUR_USD": {
+      "trade_count": 479,
+      "total_units": 90063.0,
+      "total_notional_quote_ccy_approx": 97382.4926,
+      "max_loss_streak": 8,
+      "max_win_streak": 6,
+      "largest_single_loss_usd": -1.29789,
+      "largest_single_win_usd": 4.983225,
+      "total_pnl_usd": -5.359899999999998
+    },
+    "GBP_USD": {
+      "trade_count": 555,
+      "total_units": 82832.0,
+      "total_notional_quote_ccy_approx": 105855.7752,
+      "max_loss_streak": 8,
+      "max_win_streak": 6,
+      "largest_single_loss_usd": -1.27942,
+      "largest_single_win_usd": 2.530575,
+      "total_pnl_usd": -40.613130000000005
+    },
+    "USD_JPY": {
+      "trade_count": 624,
+      "total_units": 103974.0,
+      "total_notional_quote_ccy_approx": 14046567.673,
+      "max_loss_streak": 9,
+      "max_win_streak": 8,
+      "largest_single_loss_usd": -1.2962820295527033,
+      "largest_single_win_usd": 4.857875236946407,
+      "total_pnl_usd": 41.70563899939495
+    },
+    "AUD_USD": {
+      "trade_count": 551,
+      "total_units": 111202.0,
+      "total_notional_quote_ccy_approx": 75147.59881,
+      "max_loss_streak": 8,
+      "max_win_streak": 7,
+      "largest_single_loss_usd": -1.284255,
+      "largest_single_win_usd": 4.19913,
+      "total_pnl_usd": -67.39398
+    },
+    "USD_CAD": {
+      "trade_count": 584,
+      "total_units": 137031.0,
+      "total_notional_quote_ccy_approx": 186189.73408,
+      "max_loss_streak": 10,
+      "max_win_streak": 9,
+      "largest_single_loss_usd": -1.2897831504937036,
+      "largest_single_win_usd": 2.6184820173281897,
+      "total_pnl_usd": -63.54897937578175
+    },
+    "USD_CHF": {
+      "trade_count": 542,
+      "total_units": 99701.0,
+      "total_notional_quote_ccy_approx": 91403.782455,
+      "max_loss_streak": 10,
+      "max_win_streak": 9,
+      "largest_single_loss_usd": -1.2945710565761113,
+      "largest_single_win_usd": 4.2133905986509275,
+      "total_pnl_usd": -28.689415269428636
+    },
+    "NZD_USD": {
+      "trade_count": 391,
+      "total_units": 87860.0,
+      "total_notional_quote_ccy_approx": 53901.659465,
+      "max_loss_streak": 9,
+      "max_win_streak": 6,
+      "largest_single_loss_usd": -1.28525,
+      "largest_single_win_usd": 2.963205,
+      "total_pnl_usd": -53.676175
+    }
+  },
+  "session_clustering": {
+    "entry_hour_utc_counts": {
+      "1": 603,
+      "2": 377,
+      "5": 480,
+      "6": 229,
+      "9": 520,
+      "10": 265,
+      "13": 604,
+      "14": 338,
+      "17": 221,
+      "18": 89
+    },
+    "entry_session_bucket_counts": {
+      "asian": 1460,
+      "london": 1014,
+      "london_ny_overlap": 942,
+      "ny": 310
+    }
+  },
+  "exit_reason_distribution": {
+    "eod": 13,
+    "stop": 760,
+    "time": 2953
+  },
+  "drawdown_clustering": {
+    "per_fold": [
+      {
+        "fold_index": 0,
+        "test_start": "2021-12-21",
+        "test_end": "2022-06-18",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -2.1711900000000126,
+          "GBP_USD": -1.803412000000003,
+          "USD_JPY": -1.5286860251024457,
+          "AUD_USD": -4.087582487442094,
+          "USD_CAD": -2.688915570060965,
+          "USD_CHF": -6.497004270381661,
+          "NZD_USD": -1.7777729999999794
+        },
+        "median_pair_max_drawdown_pct": -2.1711900000000126
+      },
+      {
+        "fold_index": 1,
+        "test_start": "2022-06-19",
+        "test_end": "2022-12-15",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -3.908989782666302,
+          "GBP_USD": -1.4711752918882546,
+          "USD_JPY": -1.4341538744504103,
+          "AUD_USD": -6.359394732097479,
+          "USD_CAD": -3.615763304779639,
+          "USD_CHF": -2.389243870415676,
+          "NZD_USD": -2.4065799999999626
+        },
+        "median_pair_max_drawdown_pct": -2.4065799999999626
+      },
+      {
+        "fold_index": 2,
+        "test_start": "2022-12-16",
+        "test_end": "2023-06-13",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -2.283478028575986,
+          "GBP_USD": -0.9839189384046827,
+          "USD_JPY": -1.2144849372962425,
+          "AUD_USD": -3.002117326634263,
+          "USD_CAD": -3.298152050391527,
+          "USD_CHF": -1.1024976564470312,
+          "NZD_USD": -1.886515928646176
+        },
+        "median_pair_max_drawdown_pct": -1.886515928646176
+      },
+      {
+        "fold_index": 3,
+        "test_start": "2023-06-14",
+        "test_end": "2023-12-10",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -0.5866088834491757,
+          "GBP_USD": -0.6692669643435825,
+          "USD_JPY": -1.0308097361484783,
+          "AUD_USD": -2.115733992642641,
+          "USD_CAD": -0.9773884779767279,
+          "USD_CHF": -1.3266581775988358,
+          "NZD_USD": -2.4336028859251098
+        },
+        "median_pair_max_drawdown_pct": -1.0308097361484783
+      },
+      {
+        "fold_index": 4,
+        "test_start": "2023-12-11",
+        "test_end": "2024-06-07",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -0.6802853187410752,
+          "GBP_USD": -0.8513376957583754,
+          "USD_JPY": -0.7983082145265271,
+          "AUD_USD": -1.9627862083372805,
+          "USD_CAD": -1.057931875837165,
+          "USD_CHF": -2.4072670213168665,
+          "NZD_USD": -2.249504101581153
+        },
+        "median_pair_max_drawdown_pct": -1.057931875837165
+      },
+      {
+        "fold_index": 5,
+        "test_start": "2024-06-08",
+        "test_end": "2024-12-04",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -1.1066267265123255,
+          "GBP_USD": -3.4753190593180374,
+          "USD_JPY": -0.5352149414201555,
+          "AUD_USD": -0.504869993005664,
+          "USD_CAD": -1.2890258297625352,
+          "USD_CHF": -0.7870890434411634,
+          "NZD_USD": -1.7829974922022498
+        },
+        "median_pair_max_drawdown_pct": -1.1066267265123255
+      },
+      {
+        "fold_index": 6,
+        "test_start": "2024-12-05",
+        "test_end": "2025-06-02",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -1.4492349863773013,
+          "GBP_USD": -4.726343822075049,
+          "USD_JPY": -1.3508557898552902,
+          "AUD_USD": -2.2612906257385603,
+          "USD_CAD": -5.61111190974381,
+          "USD_CHF": -0.7215657150841458,
+          "NZD_USD": -1.7834230000000049
+        },
+        "median_pair_max_drawdown_pct": -1.7834230000000049
+      },
+      {
+        "fold_index": 7,
+        "test_start": "2025-06-03",
+        "test_end": "2025-11-29",
+        "per_pair_max_drawdown_pct": {
+          "EUR_USD": -0.41157690013438253,
+          "GBP_USD": -1.6096697087999743,
+          "USD_JPY": -1.3469999822577599,
+          "AUD_USD": -1.353240052076108,
+          "USD_CAD": -2.3546845169065476,
+          "USD_CHF": -0.7234904920911338,
+          "NZD_USD": -0.6075187164529083
+        },
+        "median_pair_max_drawdown_pct": -1.3469999822577599
+      }
+    ]
+  },
+  "risk_engine": {
+    "mode": "backtest",
+    "rejection_totals_by_code": {
+      "SESSION_BLOCKED": 758,
+      "SPREAD_TOO_WIDE": 2013
+    },
+    "rejection_by_pair": {
+      "EUR_USD": {
+        "SESSION_BLOCKED": 186,
+        "SPREAD_TOO_WIDE": 728
+      },
+      "GBP_USD": {
+        "SESSION_BLOCKED": 63,
+        "SPREAD_TOO_WIDE": 81
+      },
+      "USD_JPY": {
+        "SESSION_BLOCKED": 102,
+        "SPREAD_TOO_WIDE": 157
+      },
+      "AUD_USD": {
+        "SESSION_BLOCKED": 65,
+        "SPREAD_TOO_WIDE": 45
+      },
+      "USD_CAD": {
+        "SESSION_BLOCKED": 71,
+        "SPREAD_TOO_WIDE": 69
+      },
+      "USD_CHF": {
+        "SESSION_BLOCKED": 86,
+        "SPREAD_TOO_WIDE": 134
+      },
+      "NZD_USD": {
+        "SESSION_BLOCKED": 185,
+        "SPREAD_TOO_WIDE": 799
+      }
+    }
+  }
+}
