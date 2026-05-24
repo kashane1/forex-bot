@@ -727,6 +727,55 @@ credential read, no parameter tuning.
 | [`CAMPAIGN_013_STATUS.md`](CAMPAIGN_013_STATUS.md) (updated) | now reclassified `scaffold-only → rejected`; verdict, gates, evidence artifacts, safety state |
 | [`CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_WALK_FORWARD_001_SUMMARY.md`](CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_WALK_FORWARD_001_SUMMARY.md) | sprint summary & handoff |
 
+### New candidate strategy discovery — Sprint 005 (`research-new-candidate-strategy-discovery-005`)
+
+Fifth candidate-discovery sprint, opened after CAMPAIGN_013
+(`cross_pair_currency_strength_rotation 0.1.0-c013`) was REJECTED.
+Codifies CAMPAIGN_013's rejection closeout (14+ off-limits parameter
+shapes + cooldown for the cross-pair-rotation family until a future
+human authorizes a materially different cross-sectional FX thesis);
+**establishes the turnover-amplification anti-pattern as a first-
+class binding guardrail** (the monotonic CAMPAIGN_011 → 012 → 013
+slope: 1,177 → 3,726 → 7,940 trades; −0.53 % → −43.52 % → −113.36 %
+return), adding 5 new disqualifying patterns (M–Q: high-frequency
+firehose, broad simultaneous multi-pair, turnover-amplifying filter
+on rejected core, pair-only survivor selection, cost-insensitive
+signal design); adds 6 further CAMPAIGN_013-specific patterns (R–W:
+cross-pair rank threshold sweep, ranking-metric lookback sweep,
+pair-filtered rotator rescue, session/regime rescue stack, high-
+turnover variant of any rejected family, per-fold artifact-driven
+family selection); re-scores the now-8 rejected baseline (5 prior +
+CAMPAIGN_011 null + CAMPAIGN_012 real + CAMPAIGN_013 real) against
+the deferred candidates (C2 / C4 / C7 / C8 / C9) + 4 infrastructure
+paths on 18 axes (added: distinctness from CAMPAIGN_013; turnover
+profile vs null; explicit cost-awareness per Pattern Q); proposes 4
+genuinely-new candidate families plus 1 sizing modifier (C7 CEWA
+reaffirmed; C10 WBH4E; C11 LHRVPS sizing; C12 MFSR) and 1
+disqualified (C13 QESCF Pattern U + K + G); selects **C7 — Calendar-
+Event Window Anomaly (CEWA)** for future **CAMPAIGN_014 /
+`calendar_event_window_anomaly 0.1.0-c014`** as the next preferred
+real candidate. **Selection is not approval.** The selected
+candidate is designed but not yet implemented; the discovery output
+is two binding future-branch specs (scaffold + evidence) plus a
+small new committed event-calendar fixture (Phase 1b of the scaffold
+sprint). No strategy code, no backtest, no broker call, no approval.
+The 875-test baseline is preserved.
+
+| document | what it is |
+|---|---|
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_005_PLAN.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_005_PLAN.md) | Phase 0 audit + 11-phase sprint plan; verifies safety state at the close of CAMPAIGN_013's REJECT; baseline 875 pytests pass |
+| [`CAMPAIGN_013_REJECTION_CLOSEOUT.md`](CAMPAIGN_013_REJECTION_CLOSEOUT.md) | Phase 1 — formal closeout for `cross_pair_currency_strength_rotation 0.1.0-c013`; codifies which cross-pair-rotation parameters / variant shapes are off-limits (14+ entries: lookback / threshold / ATR / stop / pair-filter / currency-filter / session/regime filter / ranking-metric swap / inversion / `max_open_positions` relax / universe change); 9 disqualified variant examples; binding cooldown rule against the cross-pair-rotation family ≥ 3 discovery sprints unless a future human explicitly authorizes a "materially different" cross-sectional FX thesis |
+| [`TURNOVER_AMPLIFICATION_ANTI_PATTERN_005.md`](TURNOVER_AMPLIFICATION_ANTI_PATTERN_005.md) | Phase 2 — first-class binding turnover-amplification guardrail; empirical slope (CAMPAIGN_011 / 012 / 013 trade count × aggregate return); causality analysis (shared universe + cost model; entry direction independently falsified; independent pre-commits; monotonic across multiple axes); binding turnover-budget requirement for future candidates (pre-declared expected count + derivation + comparison to CAMPAIGN_011 / 012 / 013 + rejection rule + no max-positions relaxation); 5 new disqualifying patterns (M high-frequency H4 firehose; N broad simultaneous multi-pair; O turnover-amplifying filter on rejected core; P pair-only survivor selection; Q cost-insensitive signal design); discovery-005-specific application to Phases 4 / 5 / 6 / 7 |
+| [`REJECTED_FAMILY_OVERFIT_GUARDRAILS_005_ADDENDUM.md`](REJECTED_FAMILY_OVERFIT_GUARDRAILS_005_ADDENDUM.md) | Phase 3 — additive addendum to the base guardrails doc + discovery-004 addendum; updates do-not-revive list to 8 rejected families + 1 null model (adds CAMPAIGN_013); adds Patterns R (same cross-pair rank gate, different threshold), S (same cross-pair ranking metric, different lookback), T (same cross-pair rotator, pair-filtered after rejection), U (same cross-pair rotator with session/regime rescue filter), V (high-turnover variant of any rejected family), W (per-fold artifact-driven family selection from CAMPAIGN_013); "genuinely new" criteria (11 axes; expanded from discovery-004's 7) any candidate must satisfy after the now-8 rejected baseline (including explicit turnover budget + explicit cost section + Pattern M ceiling + Pattern N portfolio-edge proof) |
+| [`NEXT_DIRECTION_REASSESSMENT_005.md`](NEXT_DIRECTION_REASSESSMENT_005.md) | Phase 4 — 18-axis scoring (15 inherited from discovery-004 + 3 new: distinctness from CAMPAIGN_013 + turnover profile vs null + explicit cost-awareness per Pattern Q) of 10 paths (C2 / C4 / C6 cooled-down / C7 / C8 / C9 / C10+ + infra-A/B/C/D); recommends a new candidate sprint with C7 as lead + C10+ shortlist exploration in Phase 5; fallback to infra-A if Phase 5 fails |
+| [`CANDIDATE_STRATEGY_FAMILY_SHORTLIST_005.md`](CANDIDATE_STRATEGY_FAMILY_SHORTLIST_005.md) | Phase 5 — shortlist of 4 active families (C7 calendar-event window anomaly reaffirmed; C10 weekly-bias H4-execution; C11 long-horizon realized-vol-parity sizing — modifier not standalone; C12 monthly fundamentals-spread rebalance) + 1 disqualified (C13 QESCF Pattern U + K + G) + 1 infra fallback (infra-A); 15 disqualified family variants documented (cross-pair-rotation retunes, regime-switcher retunes, trend / breakout / MR / session / pullback retunes, weighted-pair-vote ensemble, high-frequency M30 firehose, all-pair simultaneous entry, C13) |
+| [`NEXT_PREFERRED_DIRECTION_005.md`](NEXT_PREFERRED_DIRECTION_005.md) | Phase 6 — C7 selected as `calendar_event_window_anomaly 0.1.0-c014` (CAMPAIGN_014); future branches `research-calendar-event-window-anomaly-001` (scaffold) + `research-calendar-event-window-anomaly-walk-forward-001` (evidence); distinctness vs every rejected family 8/8; Patterns H–W explicitly cleared; C10 / C12 / C11 / C13 and all 4 infra paths deferred (not abandoned); CAMPAIGN_008/009 mean-reversion adjacency addressed (C7's trigger is event-time-conditional vs statistic-conditional; ~25–60 × lower turnover) |
+| [`NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_005.md`](NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_005.md) | Phase 7 binding design — R1–R8 signal rules (warmup, event-proximity trigger, counter-direction signal, overlap precedence FOMC > NFP > ECB > BoJ > BoE, ATR-2 stop, 6-bar time stop, 3-bar re-entry block, fail-closed); 10 frozen parameters (`event_set`, `impact_ordering`, `post_event_window_bars=6`, `atr_lookback=14`, `atr_stop_multiple=2.0`, `max_post_event_bars=6`, `re_entry_block_bars=3`, `risk_per_trade_pct=0.005`, `initial_equity_per_pair=500`, `event_warmup_bars=1`); 5 new no-lookahead invariants for calendar access; `CalendarEventWindowAnomalyStrategyConfig` schema; ≥ 30 unit tests planned; walk-forward inherits CAMPAIGN_010/011/012/013 §10 + adds null-baseline comparison gate + turnover-budget REJECT trigger (> 800 trades) + signal-density REJECT trigger (> 1,500 signals) + event-fixture coverage BLOCKED contract; cost section binding pre-commit (~1.5–4 bp per trade total, gross ≥ 7 bp hypothesized); event-class clustering + per-event-class per-pair sensitivity + pre/post direction + entry-window concentration as CAMPAIGN_014-specific risk diagnostics |
+| [`NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_005.md`](NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_005.md) | Phase 8a — future scaffold-branch prompt (`research-calendar-event-window-anomaly-001`); 9 phases (mirrors CAMPAIGN_013 scaffold + adds Phase 1b event-fixture compilation from public BLS / FOMC / ECB / BoJ / BoE URLs; deterministic; broker-free; ~10–50 KB committed JSON); strategy module + event-calendar loader + config + ≥ 30 unit tests + research config + CAMPAIGN_014 docs + smoke; baseline 875 → ≥ 905 pytests; no backtest run |
+| [`NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_005.md`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_005.md) | Phase 8b — future evidence-branch prompt (`research-calendar-event-window-anomaly-walk-forward-001`); 10 phases mirroring CAMPAIGN_013 evidence sprint; full walk-forward + financing + risk + verifier; verdict options REJECT / REJECT_INDISTINGUISHABLE_FROM_NULL / RESEARCH_PASS_UNAPPROVED / BLOCKED; binding turnover-budget + signal-density + event-fixture coverage gates; cross-campaign comparison binding (002/010/011/012/013/014) |
+| [`NEW_CANDIDATE_DISCOVERY_005_HELPER_DECISION.md`](NEW_CANDIDATE_DISCOVERY_005_HELPER_DECISION.md) | Phase 9 — ten helper-code options considered, all rejected with documented rationale; zero code added; matches all four prior discovery sprints' identical no-helper decision |
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_005_SUMMARY.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_005_SUMMARY.md) | Phase 10 — sprint summary & handoff; final validation; recommended next branch is the scaffold sprint `research-calendar-event-window-anomaly-001` |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |

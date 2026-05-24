@@ -207,7 +207,35 @@ quality. The slope is monotonic in trade count: CAMPAIGN_011 (1,177
 trades, −0.53 %) → CAMPAIGN_012 (3,726 trades, −43.52 %) →
 CAMPAIGN_013 (7,940 trades, −113.36 %). Any future discovery sprint
 should explicitly disqualify turnover-amplifying filters on top of
-rejected entry directions on this universe.
+rejected entry directions on this universe. **The discovery-005
+sprint codified this as a first-class binding anti-pattern**
+(Patterns M–Q in
+[`TURNOVER_AMPLIFICATION_ANTI_PATTERN_005.md`](TURNOVER_AMPLIFICATION_ANTI_PATTERN_005.md))
+and selected the next candidate accordingly.
+
+## Next candidate selected by discovery-005 (not yet implemented, not approved)
+
+The `research-new-candidate-strategy-discovery-005` sprint selected
+**C7 — Calendar-Event Window Anomaly (CEWA)** as the next preferred
+real candidate, to be implemented as **`calendar_event_window_anomaly
+0.1.0-c014`** (CAMPAIGN_014) by the future scaffold sprint
+`research-calendar-event-window-anomaly-001` and evaluated by the
+future evidence sprint `research-calendar-event-window-anomaly-walk-
+forward-001`. The hypothesis is post-event mean-reverting overshoot
+in the H4 bars immediately after scheduled high-impact events
+(NFP / FOMC / ECB / BoJ / BoE). Distinctness from every rejected
+family is 8 / 8. Expected trade-count budget ~150–400 over 4 years
+(well below CAMPAIGN_011's 1,177 null floor) — structurally
+disqualifies turnover-amplification patterns M and V. **Selection is
+not approval.** The strategy is designed but not yet scaffolded; the
+discovery output is two binding future-branch specs
+([`NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_005.md`](NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_005.md)
+and
+[`NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_005.md`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_005.md))
+plus binding implementation design
+([`NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_005.md`](NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_005.md)).
+**No strategy module yet. `configs/approved_strategies.yaml` remains
+`approved: []`. Paper / demo / live remain blocked.**
 
 ## Per-strategy detail
 
