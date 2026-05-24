@@ -361,6 +361,55 @@ class RegimeSwitcherAtrPercentileStrategyConfig(BaseModel):
         return self
 
 
+class CrossPairCurrencyStrengthRotationStrategyConfig(BaseModel):
+    # CAMPAIGN_013 research candidate (`cross_pair_currency_strength_rotation 0.1.0-c013`).
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_IMPLEMENTATION_SPEC.md.
+    #
+    # Frozen parameters pre-committed by the discovery-004 sprint
+    # (see docs/research/NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_004.md §5).
+    # Any deviation constitutes a NEW candidate; the validator rejects
+    # several specific deviations explicitly (e.g. trailing-stop in v1;
+    # rank_gap_threshold outside [1, 7]).
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    # Rolling-window n-bar log-return window for the currency-strength
+    # computation. 24 H4 bars ~= 4 trading days.
+    currency_strength_lookback_bars: int = 24
+    # Minimum |rank(quote) - rank(base)| to fire a signal. The 8-currency
+    # rank spectrum runs 1..8; rank_gap_threshold = 4 is the half-spectrum
+    # (top half vs bottom half). Must be in [1, 7].
+    rank_gap_threshold: int = 4
+    # H4 ATR for stop sizing (mirrors session_breakout / random_entry_anchor /
+    # regime_switcher_atr_percentile convention).
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_bars_in_trade: int = 6
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> CrossPairCurrencyStrengthRotationStrategyConfig:
+        if self.currency_strength_lookback_bars < 2:
+            raise ConfigError("currency_strength_lookback_bars must be >= 2")
+        if self.rank_gap_threshold < 1 or self.rank_gap_threshold > 7:
+            raise ConfigError("rank_gap_threshold must be in [1, 7]")
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1:
+            raise ConfigError("max_bars_in_trade must be >= 1")
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError(
+                "trailing_stop_atr_multiple must be None in v1 — "
+                "the cross-pair rotator uses time-stop only"
+            )
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -373,6 +422,9 @@ class StrategyConfig(BaseModel):
     random_entry_anchor: RandomEntryAnchorStrategyConfig | None = None
     regime_switcher_atr_percentile: (
         RegimeSwitcherAtrPercentileStrategyConfig | None
+    ) = None
+    cross_pair_currency_strength_rotation: (
+        CrossPairCurrencyStrengthRotationStrategyConfig | None
     ) = None
 
     @model_validator(mode="after")
@@ -416,6 +468,13 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.regime_switcher_atr_percentile config required when enabled"
+            )
+        if (
+            "cross_pair_currency_strength_rotation" in self.enabled
+            and self.cross_pair_currency_strength_rotation is None
+        ):
+            raise ConfigError(
+                "strategy.cross_pair_currency_strength_rotation config required when enabled"
             )
         return self
 
