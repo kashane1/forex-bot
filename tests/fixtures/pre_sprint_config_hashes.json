@@ -1,0 +1,6 @@
+{
+  "_doc": "DO NOT REGENERATE \u2014 this is the hash-compatibility baseline for sprint infra-exit-fidelity-001 (AC-9, AC-13). Re-snapshotting would silently hide a hash regression. See docs/research/INFRA_EXIT_FIDELITY_001_PLAN.md and docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md. The test tests/unit/test_gap_fill.py::test_snapshot_doc_guardrail asserts this string is preserved verbatim.",
+  "campaign_001_baseline": "d8af17169b6836e8",
+  "campaign_004_volatility_breakout": "aea8cb29230317b6",
+  "campaign_009_mean_reversion": "308d3dcb1abeb52f"
+}
