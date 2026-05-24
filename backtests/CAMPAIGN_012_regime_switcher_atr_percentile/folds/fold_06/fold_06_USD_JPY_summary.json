@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_JPY",
+  "strategy_name": "regime_switcher_atr_percentile",
+  "strategy_version": "0.1.0-c012",
+  "granularity": "H4",
+  "from_time": "2024-03-31T21:00:00+00:00",
+  "to_time": "2025-06-02T21:00:00+00:00",
+  "config_hash": "1ecd6f639a8ef316",
+  "data_request_hash": "18bb3c646610ae5c",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": 2.63608010015548,
+    "final_equity": 513.1804005007774,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.3508557898552902,
+    "max_drawdown_duration_bars": 343,
+    "sharpe": 1.6043559282107946,
+    "sortino": 1.9478295723749373,
+    "profit_factor": 1.5656033864647034,
+    "expectancy_r": 0.001003556151495827,
+    "average_r": 0.001003556151495827,
+    "median_r": 0.0011378605039934664,
+    "win_rate": 0.5571428571428572,
+    "average_win": 0.9354783714305435,
+    "average_loss": -0.7517179350004394,
+    "trade_count": 70,
+    "largest_single_loss": -1.296072759058461,
+    "average_spread_paid_pips": 1.6571428571428573,
+    "exposure_pct": 0.0
+  }
+}

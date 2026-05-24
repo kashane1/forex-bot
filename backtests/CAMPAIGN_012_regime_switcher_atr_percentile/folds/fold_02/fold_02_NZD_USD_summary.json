@@ -1,0 +1,32 @@
+{
+  "instrument": "NZD_USD",
+  "strategy_name": "regime_switcher_atr_percentile",
+  "strategy_version": "0.1.0-c012",
+  "granularity": "H4",
+  "from_time": "2022-04-10T21:00:00+00:00",
+  "to_time": "2023-06-13T21:00:00+00:00",
+  "config_hash": "1ecd6f639a8ef316",
+  "data_request_hash": "0f2d7aa458eeba8e",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -1.631912000000002,
+    "final_equity": 491.84044,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.886515928646176,
+    "max_drawdown_duration_bars": 1242,
+    "sharpe": -1.4432457462889712,
+    "sortino": -0.8173880235861016,
+    "profit_factor": 0.5199518984690582,
+    "expectancy_r": -0.18036305253728743,
+    "average_r": -0.18036305253728743,
+    "median_r": -0.16321270101823593,
+    "win_rate": 0.3888888888888889,
+    "average_win": 0.6312728571428572,
+    "average_loss": -0.7726081818181818,
+    "trade_count": 36,
+    "largest_single_loss": -1.272015,
+    "average_spread_paid_pips": 2.447222222222223,
+    "exposure_pct": 0.0
+  }
+}

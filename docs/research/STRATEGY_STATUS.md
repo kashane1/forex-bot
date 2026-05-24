@@ -35,10 +35,216 @@ strategy is approved.**
 | `pullback_continuation` | rejected | NO | NO | NO | CAMPAIGN_007 |
 | `mean_reversion 0.1.0-c008` | rejected (research-only) | NO | NO | NO | CAMPAIGN_008 |
 | `mean_reversion 0.2.0-c009` | rejected (research-only) | NO | NO | NO | CAMPAIGN_009 |
+| `session_breakout 0.1.0-c010` | rejected | NO | NO | NO | CAMPAIGN_010 |
+| `random_entry_anchor 0.1.0-c011` | rejected (null model anchor) | NO | NO | NO | CAMPAIGN_011 |
+| `regime_switcher_atr_percentile 0.1.0-c012` | rejected | NO | NO | NO | CAMPAIGN_012 |
+| `cross_pair_currency_strength_rotation 0.1.0-c013` | rejected | NO | NO | NO | CAMPAIGN_013 |
+| `calendar_event_window_anomaly 0.1.0-c014` | rejected | NO | NO | NO | CAMPAIGN_014 |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
 validly backtested by the current engine.
+
+`session_breakout 0.1.0-c010` is **rejected**: the
+`research-asian-london-session-breakout-walk-forward-001`
+evidence sprint ran the full 8-fold walk-forward (rolling, frozen,
+540/180/180/180 days, 7-pair OANDA practice H4 universe), the
+ESTIMATED + conservative-stress financing overlay, and the
+portfolio-risk diagnostics, and recorded a clean REJECT against
+the verbatim gates in
+[`CAMPAIGN_010_PRECOMMIT_CHECKLIST.md`](CAMPAIGN_010_PRECOMMIT_CHECKLIST.md)
+§10. The independent verifier did not run (it is capability-locked
+to CAMPAIGN_002); this matters only for a hypothetical PASS, not
+for a REJECT. See
+[`CAMPAIGN_010_WALK_FORWARD_RESULT.md`](CAMPAIGN_010_WALK_FORWARD_RESULT.md)
+for the gate-by-gate evidence.
+
+### `random_entry_anchor 0.1.0-c011`
+
+- **Status:** rejected (null model anchor — cannot be approved
+  by design).
+- **Evidence:** CAMPAIGN_011 walk-forward
+  (`research-random-entry-diagnostic-anchor-walk-forward-001`),
+  real OANDA practice H4, 7-pair universe, 8 folds
+  rolling/frozen, 1,177 trades total: **fold pass rate 0 / 8,
+  aggregate expectancy −0.0024 R (≈ 0; null-model signature),
+  profit factor 0.91 (≈ 1), aggregate return −0.53 % over 4
+  years (≈ 0), 3 / 7 pairs positive (≈ uniform-noise
+  expectation), USD_JPY expectancy literally +0.0000**.
+- **Paper / demo / live:** NO / NO / NO (structurally
+  impossible — null model by design).
+- **Reason:** Diagnostic anchor / null model. The REJECT
+  verdict is the *expected and desired outcome* — it validates
+  the evidence pipeline by demonstrating the gates correctly
+  REJECT a known-zero-edge strategy with metrics consistent
+  with random expectations. Per-pair distribution near-uniform
+  (ratio max/min 1.65 vs CAMPAIGN_010's 12.0); session
+  distribution diffuse across all 4 UTC buckets (vs
+  CAMPAIGN_010's 100 % London); 79 % time-stop exit (matches
+  CAMPAIGN_010's exit mechanics — confirms cost model
+  consistency); 8 / 8 pipeline sanity checks pass.
+  Conservative-stress financing strictly worsens (USD_JPY flips
+  +→−; pairs_positive → 2 / 7). `master_seed = 20260523` was
+  the only seed used; no seed optimization. The anchor
+  establishes the falsifiability floor (aggregate expectancy
+  −0.0024 R, profit factor 0.91, 3 / 7 pairs positive, 0 / 8
+  fold pass rate) that every future C2 / C3 / C4 / new-family
+  candidate must beat by a meaningful margin to count as
+  evidence of an edge.
+
+`regime_switcher_atr_percentile 0.1.0-c012` is **rejected**: the
+`research-regime-switcher-atr-percentile-walk-forward-001` evidence
+sprint ran the full 8-fold walk-forward (rolling, frozen,
+540/180/180/180 days, 7-pair OANDA practice H4 universe), the
+ESTIMATED + conservative-stress financing overlay, and the
+portfolio-risk diagnostics, and recorded a REJECT against both the
+verbatim CAMPAIGN_010 / CAMPAIGN_011 inherited gates (5 of 8
+aggregate gates fail) and the CAMPAIGN_011 null-baseline comparison
+codified in
+[`CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md`](CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md)
+(the metrics diverge from null in the **worse** direction, far
+outside the symmetric indistinguishability band on three of four
+binding axes). The independent verifier did not run (it is
+capability-locked to CAMPAIGN_002); this matters only for a
+hypothetical paper-promotion candidate, not for a REJECT. See
+[`CAMPAIGN_012_WALK_FORWARD_RESULT.md`](CAMPAIGN_012_WALK_FORWARD_RESULT.md)
+for the gate-by-gate evidence and
+[`CAMPAIGN_012_EVIDENCE_SUMMARY.md`](CAMPAIGN_012_EVIDENCE_SUMMARY.md)
+for the one-page summary.
+
+### `regime_switcher_atr_percentile 0.1.0-c012`
+
+- **Status:** rejected.
+- **Evidence:** CAMPAIGN_012 walk-forward
+  (`research-regime-switcher-atr-percentile-walk-forward-001`),
+  real OANDA practice H4, 7-pair universe, 8 folds rolling/frozen,
+  3,726 trades total: **fold pass rate 0 / 8, aggregate expectancy
+  −0.0521 R, profit factor 0.034, aggregate return −43.52 % over 4
+  years, 1 / 7 pairs positive (USD_JPY +0.0004 R — random-walk
+  floor)**.
+- **Paper / demo / live:** NO / NO / NO.
+- **Reason:** The C3 daily-ATR-percentile regime gate (HIGH-VOL iff
+  prior-day D1AGG ATR-14 ≥ P70 of trailing 60 D1AGG bars) **did not
+  rescue** trend-following on H4 majors. It amplified trade count
+  (3,726 vs CAMPAIGN_011's 1,177) without improving signal quality,
+  accumulating cost drag. CAMPAIGN_012 is **markedly worse than the
+  CAMPAIGN_011 null baseline** on every binding axis (expectancy
+  −0.0497 R lower, PF −0.876 lower, return −42.99 pp lower, pairs
+  −2 lower); classification is **REJECT** (not
+  REJECT_INDISTINGUISHABLE_FROM_NULL because the divergence is in
+  the worse direction). The hypothesis "high-vol regimes are
+  trend-friendly on H4 majors" is falsified by the evidence on this
+  universe + timeframe. USD_JPY's +0.0004 R is the same near-exact-
+  zero random-walk floor CAMPAIGN_011 surfaced. Verifier did not
+  run (capability-locked to CAMPAIGN_002; not required for REJECT;
+  the suggested follow-up
+  `infra-free-local-parity-verifier-regime-switcher-001` is
+  **deferred indefinitely**). Financing overlay (ESTIMATED +
+  conservative stress; MODELED refused at 4 layers) confirms the
+  REJECT — adds −$65.07 drag; no pair flip; the
+  `conservative_stress_run_does_not_flip_verdict` gate PASSES
+  (verdict was already REJECT pre-financing). Per-pair distribution
+  near-uniform (ratio max/min 1.60 vs CAMPAIGN_010's 12.0; close to
+  CAMPAIGN_011's 1.65); session distribution diffuse across all 4
+  UTC buckets (no concentration > 50 %; like CAMPAIGN_011, unlike
+  CAMPAIGN_010's 100 % London); 79.3 % time-stop exit (matches
+  CAMPAIGN_011's ~75 %); 8 / 8 pipeline sanity checks pass.
+
+### `cross_pair_currency_strength_rotation 0.1.0-c013`
+
+- **Status:** rejected.
+- **Evidence:** CAMPAIGN_013 walk-forward
+  (`research-cross-pair-currency-strength-rotation-walk-forward-001`),
+  real OANDA practice H4, 7-pair universe, 8 folds rolling/frozen,
+  **7,940 trades** total: **fold pass rate 0 / 8, aggregate expectancy
+  −0.0564 R, profit factor 0.000, aggregate return −113.36 % over 4
+  years, 1 / 7 pairs positive (USD_JPY +0.0000 R — random-walk
+  floor)**.
+- **Paper / demo / live:** NO / NO / NO.
+- **Reason:** The C6 cross-pair 8-currency-strength rank-gap rule
+  (long strong-base / short strong-quote pair when
+  `|rank(quote) − rank(base)| ≥ 4`) over a 6-bar holding period
+  **did not produce a directional edge** on H4 majors. It amplified
+  trade count (7,940 vs CAMPAIGN_011's 1,177 — ~6.7 × as many)
+  without improving signal quality, accumulating cost drag.
+  CAMPAIGN_013 is **catastrophically worse than the CAMPAIGN_011 null
+  baseline** on every binding axis (expectancy −0.0540 R lower, PF
+  −0.910 lower, return −112.83 pp lower, pairs −2 lower);
+  classification is **REJECT** (not REJECT_INDISTINGUISHABLE_FROM_NULL
+  because the divergence is in the worse direction). The hypothesis
+  "cross-pair currency-strength rank-gap predicts pair direction on
+  6-bar holding period" is falsified by the evidence on this universe
+  + timeframe. USD_JPY's +0.0000 R is the same near-exact-zero
+  random-walk floor CAMPAIGN_011 and CAMPAIGN_012 surfaced; NZD_USD
+  is catastrophic at −41.76 % over 4 years on 1,863 trades. The
+  cross-pair runner integration contract was **SATISFIED on all 8
+  folds** (common_index 1,825-1,848 H4 bars) — the REJECT is on
+  inherited gates alone, not BLOCKED. Verifier did not run
+  (capability-locked to CAMPAIGN_002; not required for REJECT; the
+  suggested follow-up
+  `infra-free-local-parity-verifier-cross-pair-currency-strength-rotation-001`
+  is **deferred indefinitely**). Financing overlay (ESTIMATED +
+  conservative stress; MODELED refused at 4 layers) confirms the
+  REJECT — adds −$139.99 drag (7,154 rollover events); **USD_JPY
+  flips + → −** under financing (+$2.27 → −$5.89), taking
+  `pairs_positive` from 1/7 to 0/7 post-financing; the
+  `conservative_stress_run_does_not_flip_verdict` gate PASSES (verdict
+  was already REJECT pre-financing). Architectural diagnostic:
+  `MAX_OPEN_POSITIONS_EXCEEDED = 0` (per-pair runner; engine is
+  single-instrument); simultaneous-signal frequency ~40 % of trading
+  bars (cross-pair signal often fires on 2-4 pairs at the same H4
+  timestamp; a portfolio-aware runner would cut trade count by ~40 %
+  but cannot rescue per-pair negative expectancy on 6 of 7 pairs).
+  **CAMPAIGN_013 is the worst-performing campaign to date by
+  aggregate return / profit factor / trade count** (~214 × worse than
+  CAMPAIGN_011 null floor; ~2.6 × worse than CAMPAIGN_012
+  regime-switcher).
+
+**Anti-pattern established by CAMPAIGN_012 + CAMPAIGN_013:** adding a
+turnover-amplifying filter to a negative-edge entry direction on H4
+majors makes results materially **worse**, not better — the
+incremental complexity buys trade frequency without buying signal
+quality. The slope is monotonic in trade count: CAMPAIGN_011 (1,177
+trades, −0.53 %) → CAMPAIGN_012 (3,726 trades, −43.52 %) →
+CAMPAIGN_013 (7,940 trades, −113.36 %). Any future discovery sprint
+should explicitly disqualify turnover-amplifying filters on top of
+rejected entry directions on this universe. **The discovery-005
+sprint codified this as a first-class binding anti-pattern**
+(Patterns M–Q in
+[`TURNOVER_AMPLIFICATION_ANTI_PATTERN_005.md`](TURNOVER_AMPLIFICATION_ANTI_PATTERN_005.md))
+and selected the next candidate accordingly.
+
+`calendar_event_window_anomaly 0.1.0-c014` is **rejected**: the
+`research-calendar-event-window-anomaly-walk-forward-001` evidence
+sprint ran the full 8-fold walk-forward (rolling, frozen,
+540/180/180/180 days, 7-pair OANDA practice H4 universe), the
+ESTIMATED + conservative-stress financing overlay, and the
+portfolio-risk diagnostics (including CAMPAIGN_014-specific event-
+class clustering + per-event-class per-pair heatmap + concurrent-
+firing diagnostic). The verdict is REJECT against both the verbatim
+CAMPAIGN_010 / 011 / 012 / 013 inherited gates (6 of 8 aggregate
+gates fail) and the CAMPAIGN_011 null-baseline comparison
+(materially WORSE than null on all 4 PnL-direction axes; OUTSIDE
+the symmetric ±0.005 R / ±0.10 PF / ±2 pp / ±1 pair
+indistinguishability band on the WORSE side, so classified
+REJECT — direction-of-trade falsification — not
+REJECT_INDISTINGUISHABLE_FROM_NULL). Turnover budget INTACT (720
+trades ≤ 800 hard cap; 1,240 raw signals ≤ 1,500); fixture-coverage
+gate PASS on all 8 folds. Phase 7 diagnostics surfaced two findings
+of independent research value: (1) FOMC = 0 trades — all 51 FOMC
+events SESSION_BLOCKED because the 19:00-UTC FOMC time → 22:00-UTC
+trigger bar overlaps the rollover window, so the C7 hypothesis's
+claim about FOMC is structurally untestable on this universe +
+session filter; (2) NFP = 571 trades (79 % of all) generating
+−$151.17 (98 % of total losses) — the REJECT is overwhelmingly an
+"NFP counter-trend is wrong" finding (post-event H4 bar continues
+the event-bar direction, does not revert). The independent
+verifier did not run (capability-locked to CAMPAIGN_002; not
+required for REJECT). See
+[`CAMPAIGN_014_WALK_FORWARD_RESULT.md`](CAMPAIGN_014_WALK_FORWARD_RESULT.md)
+for the gate-by-gate evidence and
+[`CAMPAIGN_014_PORTFOLIO_RISK_DIAGNOSTICS.md`](CAMPAIGN_014_PORTFOLIO_RISK_DIAGNOSTICS.md)
+for the FOMC-block + NFP-falsification analysis.
 
 ## Per-strategy detail
 
@@ -107,6 +313,23 @@ validly backtested by the current engine.
 - **Paper / demo / live:** NO / NO / NO.
 - **Reason:** Failed its pre-committed train-split gate by a wider
   margin than c008. The 2025–2026 test window was never opened.
+
+### `session_breakout 0.1.0-c010`
+
+- **Status:** rejected.
+- **Evidence:** CAMPAIGN_010 walk-forward
+  (`research-asian-london-session-breakout-walk-forward-001`),
+  real OANDA practice H4, 7-pair universe, 8 folds rolling/frozen,
+  2,791 trades total: **fold pass rate 0 / 8, aggregate
+  expectancy −0.041 R, profit factor 0.04, aggregate return
+  −36.6 %, 1 / 7 pairs positive (USD_CHF only)**.
+- **Paper / demo / live:** NO / NO / NO.
+- **Reason:** Negative expectancy on out-of-sample data on the
+  pre-committed 7-pair × 6-year universe under frozen parameters.
+  Conservative-stress financing strictly worsens the verdict; the
+  only marginally positive pair (USD_CHF) flips to net negative.
+  The breakout direction does not persist over a 6-bar H4 holding
+  window; 75.5 % of trades hit the time stop.
 
 ### D1 daily trend (CAMPAIGN_006) — blocked, not a strategy verdict
 

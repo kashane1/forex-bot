@@ -1,0 +1,32 @@
+{
+  "instrument": "AUD_USD",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2023-06-14T01:00:00+00:00",
+  "to_time": "2024-06-07T17:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "7b81e3b73a611e76",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.6531520000000124,
+    "final_equity": 496.73423999999994,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -0.6531520000000114,
+    "max_drawdown_duration_bars": 1427,
+    "sharpe": -1.3576833448384713,
+    "sortino": -0.4184544697304515,
+    "profit_factor": 0.3048845770307706,
+    "expectancy_r": -0.21602897587456474,
+    "average_r": -0.21602897587456474,
+    "median_r": -0.22994319508209476,
+    "win_rate": 0.3333333333333333,
+    "average_win": 0.35809875,
+    "average_loss": -0.587269375,
+    "trade_count": 12,
+    "largest_single_loss": -1.26148,
+    "average_spread_paid_pips": 1.2333333333333332,
+    "exposure_pct": 0.0
+  }
+}

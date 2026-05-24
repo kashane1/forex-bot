@@ -1,0 +1,32 @@
+{
+  "instrument": "GBP_USD",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2021-12-21T02:00:00+00:00",
+  "to_time": "2022-12-15T22:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "f202e2d36c25947b",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": 0.6763129999999951,
+    "final_equity": 503.38156499999997,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -0.4225470579539922,
+    "max_drawdown_duration_bars": 564,
+    "sharpe": 0.5912369599545139,
+    "sortino": 0.37699408483962976,
+    "profit_factor": 1.5362822076354716,
+    "expectancy_r": 0.13458320560765427,
+    "average_r": 0.13458320560765427,
+    "median_r": -0.03873994230484176,
+    "win_rate": 0.45,
+    "average_win": 1.0763483333333332,
+    "average_loss": -0.5732336363636363,
+    "trade_count": 20,
+    "largest_single_loss": -1.258985,
+    "average_spread_paid_pips": 1.9550000000000005,
+    "exposure_pct": 0.0
+  }
+}

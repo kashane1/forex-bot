@@ -216,6 +216,289 @@ class MeanReversionStrategyConfig(BaseModel):
         return self
 
 
+class SessionBreakoutStrategyConfig(BaseModel):
+    # CAMPAIGN_010 research candidate (`session_breakout 0.1.0-c010`).
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/ASIAN_LONDON_SESSION_BREAKOUT_IMPLEMENTATION_SPEC.md.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_bars_in_trade: int = 6
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+    asian_session_hours_utc_start: int = 22
+    asian_session_hours_utc_end: int = 6
+    london_session_hours_utc_start: int = 6
+    london_session_hours_utc_end: int = 12
+    min_asian_range_atr_fraction: float = 0.30
+
+    @model_validator(mode="after")
+    def _check(self) -> SessionBreakoutStrategyConfig:
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1:
+            raise ConfigError("max_bars_in_trade must be >= 1")
+        if self.min_asian_range_atr_fraction <= 0:
+            raise ConfigError("min_asian_range_atr_fraction must be > 0")
+        for name in (
+            "asian_session_hours_utc_start",
+            "asian_session_hours_utc_end",
+            "london_session_hours_utc_start",
+            "london_session_hours_utc_end",
+        ):
+            value = getattr(self, name)
+            if not (0 <= value <= 24):
+                raise ConfigError(f"{name} must be in [0, 24]")
+        if self.asian_session_hours_utc_start == self.asian_session_hours_utc_end:
+            raise ConfigError(
+                "asian_session_hours_utc_start must differ from asian_session_hours_utc_end"
+            )
+        if self.london_session_hours_utc_start >= self.london_session_hours_utc_end:
+            raise ConfigError(
+                "london_session_hours_utc_start must be < london_session_hours_utc_end "
+                "(London window does not wrap midnight in v1)"
+            )
+        return self
+
+
+class RandomEntryAnchorStrategyConfig(BaseModel):
+    # CAMPAIGN_011 research candidate (`random_entry_anchor 0.1.0-c011`).
+    # CANDIDATE SCAFFOLD ONLY — NULL MODEL by design; cannot be approved,
+    # cannot be deployed, cannot be used for paper/demo/live.
+    # See docs/research/RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_IMPLEMENTATION_SPEC.md.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    master_seed: int = 20260523
+    entry_probability_per_bar: float = 0.05
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_bars_in_trade: int = 6
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> RandomEntryAnchorStrategyConfig:
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1:
+            raise ConfigError("max_bars_in_trade must be >= 1")
+        if not (0.0 < self.entry_probability_per_bar < 1.0):
+            raise ConfigError(
+                "entry_probability_per_bar must be in (0, 1) (exclusive)"
+            )
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError(
+                "trailing_stop_atr_multiple must be None in v1 — "
+                "the null model uses time-stop only"
+            )
+        return self
+
+
+class RegimeSwitcherAtrPercentileStrategyConfig(BaseModel):
+    # CAMPAIGN_012 research candidate (`regime_switcher_atr_percentile 0.1.0-c012`).
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/REGIME_SWITCHER_ATR_PERCENTILE_IMPLEMENTATION_SPEC.md.
+    #
+    # Frozen parameters pre-committed by the discovery-003 sprint
+    # (see docs/research/C3_REGIME_SWITCHER_FEASIBILITY_REVIEW.md §2).
+    # Any deviation constitutes a NEW candidate; the validator rejects
+    # several specific deviations explicitly (e.g. trailing-stop in v1).
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    # H4 ATR for stop sizing (mirrors session_breakout / random_entry_anchor
+    # naming; the design doc calls this `atr_lookback_h4` for descriptive
+    # clarity but the value and intent are identical).
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_bars_in_trade: int = 6
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+    # D1AGG ATR (the regime feature input).
+    daily_atr_lookback: int = 14
+    regime_lookback_days: int = 60
+    regime_percentile_threshold: float = 0.70
+    min_close_move_atr_fraction: float = 0.25
+    trend_lookback_h4_bars: int = 4
+
+    @model_validator(mode="after")
+    def _check(self) -> RegimeSwitcherAtrPercentileStrategyConfig:
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1:
+            raise ConfigError("max_bars_in_trade must be >= 1")
+        if self.daily_atr_lookback < 2:
+            raise ConfigError("daily_atr_lookback must be >= 2")
+        if self.regime_lookback_days < 10:
+            raise ConfigError(
+                "regime_lookback_days must be >= 10 for a stable percentile"
+            )
+        if not (0.0 < self.regime_percentile_threshold < 1.0):
+            raise ConfigError(
+                "regime_percentile_threshold must be in (0, 1) (exclusive)"
+            )
+        if self.min_close_move_atr_fraction <= 0:
+            raise ConfigError("min_close_move_atr_fraction must be > 0")
+        if self.trend_lookback_h4_bars < 1:
+            raise ConfigError("trend_lookback_h4_bars must be >= 1")
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError(
+                "trailing_stop_atr_multiple must be None in v1 — "
+                "the regime switcher uses time-stop only"
+            )
+        return self
+
+
+class CrossPairCurrencyStrengthRotationStrategyConfig(BaseModel):
+    # CAMPAIGN_013 research candidate (`cross_pair_currency_strength_rotation 0.1.0-c013`).
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_IMPLEMENTATION_SPEC.md.
+    #
+    # Frozen parameters pre-committed by the discovery-004 sprint
+    # (see docs/research/NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_004.md §5).
+    # Any deviation constitutes a NEW candidate; the validator rejects
+    # several specific deviations explicitly (e.g. trailing-stop in v1;
+    # rank_gap_threshold outside [1, 7]).
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    # Rolling-window n-bar log-return window for the currency-strength
+    # computation. 24 H4 bars ~= 4 trading days.
+    currency_strength_lookback_bars: int = 24
+    # Minimum |rank(quote) - rank(base)| to fire a signal. The 8-currency
+    # rank spectrum runs 1..8; rank_gap_threshold = 4 is the half-spectrum
+    # (top half vs bottom half). Must be in [1, 7].
+    rank_gap_threshold: int = 4
+    # H4 ATR for stop sizing (mirrors session_breakout / random_entry_anchor /
+    # regime_switcher_atr_percentile convention).
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_bars_in_trade: int = 6
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> CrossPairCurrencyStrengthRotationStrategyConfig:
+        if self.currency_strength_lookback_bars < 2:
+            raise ConfigError("currency_strength_lookback_bars must be >= 2")
+        if self.rank_gap_threshold < 1 or self.rank_gap_threshold > 7:
+            raise ConfigError("rank_gap_threshold must be in [1, 7]")
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1:
+            raise ConfigError("max_bars_in_trade must be >= 1")
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError(
+                "trailing_stop_atr_multiple must be None in v1 — "
+                "the cross-pair rotator uses time-stop only"
+            )
+        return self
+
+
+class CalendarEventWindowAnomalyStrategyConfig(BaseModel):
+    # CAMPAIGN_014 research candidate (`calendar_event_window_anomaly 0.1.0-c014`).
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/CALENDAR_EVENT_WINDOW_ANOMALY_IMPLEMENTATION_SPEC.md.
+    #
+    # Frozen parameters pre-committed by the discovery-005 sprint
+    # (see docs/research/NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_005.md §7).
+    # Any deviation constitutes a NEW candidate; the validator rejects
+    # several specific deviations explicitly (e.g. trailing-stop in v1;
+    # impact_ordering must be a permutation of event_set).
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    # Path to the committed event-calendar fixture (broker-free, local).
+    event_calendar_path: str = "research/calendar/fixtures/campaign_014_events.json"
+    # Binding event-class set (mirrors implementation spec §8). Must be a
+    # subset of {NFP, FOMC, ECB, BoJ, BoE}; no expansion mid-sprint.
+    event_set: list[str] = Field(
+        default_factory=lambda: ["NFP", "FOMC", "ECB", "BoJ", "BoE"]
+    )
+    # Overlap precedence (high → low) for R4 resolution. Must be a
+    # permutation of event_set.
+    impact_ordering: list[str] = Field(
+        default_factory=lambda: ["FOMC", "NFP", "ECB", "BoJ", "BoE"]
+    )
+    # Post-event signal window length, in completed H4 bars after the
+    # event bar. = max_post_event_bars by design.
+    post_event_window_bars: int = 6
+    # H4 ATR for stop sizing (mirrors session_breakout /
+    # random_entry_anchor / regime_switcher_atr_percentile /
+    # cross_pair_currency_strength_rotation convention).
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_post_event_bars: int = 6
+    re_entry_block_bars: int = 3
+    event_warmup_bars: int = 1
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> CalendarEventWindowAnomalyStrategyConfig:
+        allowed_classes = {"NFP", "FOMC", "ECB", "BoJ", "BoE"}
+        bad_events = [c for c in self.event_set if c not in allowed_classes]
+        if bad_events:
+            raise ConfigError(
+                f"event_set contains unsupported classes {bad_events!r}; "
+                f"allowed: {sorted(allowed_classes)}"
+            )
+        if not self.event_set:
+            raise ConfigError("event_set must contain at least one event class")
+        if set(self.impact_ordering) != set(self.event_set):
+            raise ConfigError(
+                "impact_ordering must be a permutation of event_set "
+                f"(event_set={sorted(self.event_set)}, "
+                f"impact_ordering={sorted(self.impact_ordering)})"
+            )
+        if len(self.impact_ordering) != len(set(self.impact_ordering)):
+            raise ConfigError("impact_ordering must not contain duplicates")
+        if self.post_event_window_bars < 1:
+            raise ConfigError("post_event_window_bars must be >= 1")
+        if self.post_event_window_bars > 30:
+            raise ConfigError(
+                "post_event_window_bars must be <= 30 "
+                "(standing guardrails §4 time-stop range)"
+            )
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_post_event_bars < 1:
+            raise ConfigError("max_post_event_bars must be >= 1")
+        if self.max_post_event_bars > 30:
+            raise ConfigError(
+                "max_post_event_bars must be <= 30 "
+                "(standing guardrails §4 time-stop range)"
+            )
+        if self.re_entry_block_bars < 0:
+            raise ConfigError("re_entry_block_bars must be >= 0")
+        if self.event_warmup_bars < 0:
+            raise ConfigError("event_warmup_bars must be >= 0")
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError(
+                "trailing_stop_atr_multiple must be None in v1 — "
+                "the calendar-event-window anomaly uses time-stop only"
+            )
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -224,6 +507,17 @@ class StrategyConfig(BaseModel):
     volatility_breakout: VolatilityBreakoutStrategyConfig | None = None
     pullback_continuation: PullbackContinuationStrategyConfig | None = None
     mean_reversion: MeanReversionStrategyConfig | None = None
+    session_breakout: SessionBreakoutStrategyConfig | None = None
+    random_entry_anchor: RandomEntryAnchorStrategyConfig | None = None
+    regime_switcher_atr_percentile: (
+        RegimeSwitcherAtrPercentileStrategyConfig | None
+    ) = None
+    cross_pair_currency_strength_rotation: (
+        CrossPairCurrencyStrengthRotationStrategyConfig | None
+    ) = None
+    calendar_event_window_anomaly: (
+        CalendarEventWindowAnomalyStrategyConfig | None
+    ) = None
 
     @model_validator(mode="after")
     def _check_enabled(self) -> StrategyConfig:
@@ -248,6 +542,38 @@ class StrategyConfig(BaseModel):
         if "mean_reversion" in self.enabled and self.mean_reversion is None:
             raise ConfigError(
                 "strategy.mean_reversion config required when enabled"
+            )
+        if "session_breakout" in self.enabled and self.session_breakout is None:
+            raise ConfigError(
+                "strategy.session_breakout config required when enabled"
+            )
+        if (
+            "random_entry_anchor" in self.enabled
+            and self.random_entry_anchor is None
+        ):
+            raise ConfigError(
+                "strategy.random_entry_anchor config required when enabled"
+            )
+        if (
+            "regime_switcher_atr_percentile" in self.enabled
+            and self.regime_switcher_atr_percentile is None
+        ):
+            raise ConfigError(
+                "strategy.regime_switcher_atr_percentile config required when enabled"
+            )
+        if (
+            "cross_pair_currency_strength_rotation" in self.enabled
+            and self.cross_pair_currency_strength_rotation is None
+        ):
+            raise ConfigError(
+                "strategy.cross_pair_currency_strength_rotation config required when enabled"
+            )
+        if (
+            "calendar_event_window_anomaly" in self.enabled
+            and self.calendar_event_window_anomaly is None
+        ):
+            raise ConfigError(
+                "strategy.calendar_event_window_anomaly config required when enabled"
             )
         return self
 

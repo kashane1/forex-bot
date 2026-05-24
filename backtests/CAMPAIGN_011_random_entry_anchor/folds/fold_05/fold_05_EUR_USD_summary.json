@@ -1,0 +1,32 @@
+{
+  "instrument": "EUR_USD",
+  "strategy_name": "random_entry_anchor",
+  "strategy_version": "0.1.0-c011",
+  "granularity": "H4",
+  "from_time": "2024-06-09T21:00:00+00:00",
+  "to_time": "2024-12-04T22:00:00+00:00",
+  "config_hash": "d5f1238ff3ee922e",
+  "data_request_hash": "4db064e83a306897",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -1.293501000000008,
+    "final_equity": 493.532495,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.481221000000005,
+    "max_drawdown_duration_bars": 729,
+    "sharpe": -2.4013572126882354,
+    "sortino": -1.3056260052302273,
+    "profit_factor": 0.289609134295898,
+    "expectancy_r": -0.34141651990333305,
+    "average_r": -0.34141651990333305,
+    "median_r": -0.16654330125832717,
+    "win_rate": 0.3333333333333333,
+    "average_win": 0.527329,
+    "average_loss": -0.9104150000000001,
+    "trade_count": 15,
+    "largest_single_loss": -1.272705,
+    "average_spread_paid_pips": 1.4800000000000002,
+    "exposure_pct": 0.0
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "instrument": "NZD_USD",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2022-06-19T21:00:00+00:00",
+  "to_time": "2023-06-13T21:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "a46d26e8683352c2",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": 0.11878100000000114,
+    "final_equity": 500.593905,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -0.25389991311248594,
+    "max_drawdown_duration_bars": 549,
+    "sharpe": 0.3143015493412162,
+    "sortino": 0.0,
+    "profit_factor": 1.4672480665895664,
+    "expectancy_r": 0.09291727295656056,
+    "average_r": 0.09291727295656056,
+    "median_r": 0.15760869565217392,
+    "win_rate": 0.8,
+    "average_win": 0.46624375,
+    "average_loss": -1.27107,
+    "trade_count": 5,
+    "largest_single_loss": -1.27107,
+    "average_spread_paid_pips": 2.38,
+    "exposure_pct": 0.0
+  }
+}

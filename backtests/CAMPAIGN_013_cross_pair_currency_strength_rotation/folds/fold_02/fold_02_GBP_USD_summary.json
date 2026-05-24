@@ -1,0 +1,32 @@
+{
+  "instrument": "GBP_USD",
+  "strategy_name": "cross_pair_currency_strength_rotation",
+  "strategy_version": "0.1.0-c013",
+  "granularity": "H4",
+  "from_time": "2022-04-10T21:00:00+00:00",
+  "to_time": "2023-06-13T21:00:00+00:00",
+  "config_hash": "586c497c99f4219d",
+  "data_request_hash": "fd387c91839ddba4",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -4.303569999999879,
+    "final_equity": 478.4821500000006,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -6.239983999999924,
+    "max_drawdown_duration_bars": 1782,
+    "sharpe": -1.006019425106722,
+    "sortino": -1.5779123616696322,
+    "profit_factor": 0.8408689100254138,
+    "expectancy_r": -0.05295331409622104,
+    "average_r": -0.05295331409622104,
+    "median_r": -0.11689540937056318,
+    "win_rate": 0.4520123839009288,
+    "average_win": 0.7787880479452055,
+    "average_loss": -0.7639599152542372,
+    "trade_count": 323,
+    "largest_single_loss": -1.268625,
+    "average_spread_paid_pips": 1.9092879256965947,
+    "exposure_pct": 0.0
+  }
+}

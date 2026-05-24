@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_JPY",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2021-12-21T02:00:00+00:00",
+  "to_time": "2022-12-15T22:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "1156b7e579c89cb5",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.5254478776618443,
+    "final_equity": 497.37276061169075,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -0.8920631257532958,
+    "max_drawdown_duration_bars": 1222,
+    "sharpe": -0.7589062672550699,
+    "sortino": -0.3617310335994978,
+    "profit_factor": 0.5991070645236598,
+    "expectancy_r": -0.0010213096432850298,
+    "average_r": -0.0010213096432850298,
+    "median_r": -0.0012969736138598606,
+    "win_rate": 0.4666666666666667,
+    "average_win": 0.5608899314657203,
+    "average_loss": -0.8191836135711659,
+    "trade_count": 15,
+    "largest_single_loss": -1.2654904887531242,
+    "average_spread_paid_pips": 1.5800000000000003,
+    "exposure_pct": 0.0
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "instrument": "AUD_USD",
+  "strategy_name": "random_entry_anchor",
+  "strategy_version": "0.1.0-c011",
+  "granularity": "H4",
+  "from_time": "2023-12-11T02:00:00+00:00",
+  "to_time": "2024-06-07T17:00:00+00:00",
+  "config_hash": "d5f1238ff3ee922e",
+  "data_request_hash": "3a77bdd24d219988",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.692640000000011,
+    "final_equity": 496.53679999999997,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.4478547514345115,
+    "max_drawdown_duration_bars": 663,
+    "sharpe": -0.9682343031562364,
+    "sortino": -0.8948062947914553,
+    "profit_factor": 0.7041653639760341,
+    "expectancy_r": -0.10497883538883233,
+    "average_r": -0.10497883538883233,
+    "median_r": 0.03444139477134461,
+    "win_rate": 0.5384615384615384,
+    "average_win": 0.5888100000000002,
+    "average_loss": -0.9755449999999999,
+    "trade_count": 26,
+    "largest_single_loss": -1.270155,
+    "average_spread_paid_pips": 1.2423076923076921,
+    "exposure_pct": 0.0
+  }
+}

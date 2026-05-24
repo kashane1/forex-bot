@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_JPY",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2023-06-14T01:00:00+00:00",
+  "to_time": "2024-06-07T17:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "efba130b43ad7634",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.15108519716969804,
+    "final_equity": 499.2445740141515,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -0.8575279891104707,
+    "max_drawdown_duration_bars": 587,
+    "sharpe": -0.20536795742078448,
+    "sortino": -0.0923837830133117,
+    "profit_factor": 0.888150789563204,
+    "expectancy_r": -0.00014524948589258478,
+    "average_r": -0.00014524948589258478,
+    "median_r": -0.0007016226598581389,
+    "win_rate": 0.4444444444444444,
+    "average_win": 0.7498177492354599,
+    "average_loss": -0.6753967979732118,
+    "trade_count": 18,
+    "largest_single_loss": -1.2629411297685682,
+    "average_spread_paid_pips": 1.6555555555555557,
+    "exposure_pct": 0.0
+  }
+}

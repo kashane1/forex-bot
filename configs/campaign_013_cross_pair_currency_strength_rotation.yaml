@@ -1,0 +1,159 @@
+# CAMPAIGN_013 — Cross-Pair Currency Strength Rotation (real candidate scaffold)
+# RESEARCH CANDIDATE SCAFFOLD ONLY — NOT APPROVED FOR PAPER / DEMO / LIVE.
+#
+# Strategy: cross_pair_currency_strength_rotation 0.1.0-c013 — the C6
+# Cross-Pair Currency Strength Rotation candidate selected by the
+# research-new-candidate-strategy-discovery-004 sprint as the next
+# preferred real candidate. **Scaffold only — no backtest verdict
+# yet, no walk-forward evidence, no financing overlay evidence, no
+# risk diagnostics evidence, no verifier corroboration, no human
+# approval.**
+#
+# The strategy fires only when a pair's base-vs-quote currency rank
+# gap exceeds rank_gap_threshold (4 of 8 currencies — top half vs
+# bottom half). Direction comes from the rank-gap sign (long base
+# when stronger; short base when weaker). Single-leg per pair; the
+# cross-pair runner orchestrates 7 simultaneous evaluations.
+#
+# Frozen parameters pre-committed BEFORE any code by the discovery-004
+# sprint; any deviation constitutes a NEW candidate (see
+# docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_IMPLEMENTATION_SPEC.md §2).
+# The Pydantic validator on CrossPairCurrencyStrengthRotationStrategyConfig
+# rejects several specific deviations explicitly (rank_gap_threshold
+# outside [1, 7]; trailing-stop in v1; etc.).
+#
+# Exact rules + parameter rationale:
+# - docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_IMPLEMENTATION_SPEC.md
+# - docs/research/NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_004.md
+# - docs/research/CAMPAIGN_013_PRECOMMIT_CHECKLIST.md
+#
+# This config is provided so future research / smoke / walk-forward
+# sprints can load it via forex_bot.config.load_settings(...). Loading
+# this config does NOT approve the strategy. configs/approved_strategies.yaml
+# remains approved: [] and the paper-loop / demo-loop refusal still
+# blocks every order-capable loop.
+#
+# DATA REUSE: database_path points at data/campaign_002.sqlite3 — the
+# real OANDA practice H4 candles already validated by CAMPAIGN_002 /
+# CAMPAIGN_010 / CAMPAIGN_011 / CAMPAIGN_012 (provenance hashes
+# recorded). No re-fetch, no synthetic data. Same physical store as
+# the prior campaigns; the cross-pair rotation hypothesis is tested
+# on byte-for-byte identical candles, isolating the cross-pair
+# rank-gap signal effect.
+#
+# CROSS-PAIR RUNNER REQUIREMENT (binding for the future evidence
+# sprint): the runner MUST inject `cross_pair_closes` into
+# strategy_config before invoking the engine for each pair. The
+# binding integration contract is documented in
+# docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_IMPLEMENTATION_SPEC.md §4 R3.
+#
+# CAMPAIGN_002 remains REJECT and is untouched. CAMPAIGN_010 remains
+# REJECT and is untouched. CAMPAIGN_011 remains REJECT (null-model
+# anchor) and is untouched — CAMPAIGN_011 is the NULL BASELINE that
+# the future CAMPAIGN_013 evidence sprint must beat by a meaningful
+# margin; it is NOT itself a trading candidate. CAMPAIGN_012 remains
+# REJECT and is untouched.
+
+app:
+  name: oanda-forex-research-bot
+  mode: paper
+  trading_enabled: false
+  allow_order_submission: false
+  allow_live_trading: false
+  database_path: ./data/campaign_002.sqlite3
+  log_path: ./logs/campaign_013.jsonl
+  kill_switch_path: ./KILL_SWITCH
+
+broker:
+  name: oanda
+  environment: practice
+  account_id_env: OANDA_ACCOUNT_ID_PRACTICE
+  token_env: OANDA_ACCESS_TOKEN_PRACTICE
+  request_timeout_seconds: 15
+  max_retries: 3
+
+market:
+  account_currency: USD
+  instruments:
+    - EUR_USD
+    - GBP_USD
+    - USD_JPY
+    - AUD_USD
+    - USD_CAD
+    - USD_CHF
+    - NZD_USD
+  granularity: H4
+  candle_price_components: BA
+  daily_alignment: 17
+  alignment_timezone: America/New_York
+  weekly_alignment: Friday
+
+strategy:
+  enabled:
+    - cross_pair_currency_strength_rotation
+  cross_pair_currency_strength_rotation:
+    version: 0.1.0-c013
+    timeframe: H4
+    currency_strength_lookback_bars: 24
+    rank_gap_threshold: 4
+    atr_lookback: 14
+    atr_stop_multiple: 2.0
+    trailing_stop_atr_multiple: null
+    max_bars_in_trade: 6
+    min_atr_pips: {}
+
+risk:
+  starting_equity_usd: 500
+  risk_per_trade_pct: 0.25
+  max_risk_per_trade_pct: 0.50
+  max_daily_loss_pct: 1.00
+  max_weekly_loss_pct: 2.00
+  max_total_drawdown_pct: 8.00
+  max_open_positions: 1
+  max_pending_orders: 1
+  max_correlated_positions: 1
+  max_positions_per_instrument: 1
+  require_stop_loss: true
+  require_server_side_protection: true
+  allow_martingale: false
+  allow_grid: false
+  allow_averaging_down: false
+
+margin:
+  min_margin_available_pct_of_nav: 80
+  max_margin_used_pct_of_nav: 10
+  reject_if_margin_closeout_percent_above: 20
+
+spread_filter:
+  enabled: true
+  max_spread_to_atr_pct: 8.0
+  max_spread_pips:
+    EUR_USD: 1.5
+    GBP_USD: 2.5
+    USD_JPY: 2.0
+    AUD_USD: 2.0
+    USD_CAD: 2.5
+    USD_CHF: 2.0
+    NZD_USD: 2.5
+
+session_filter:
+  enabled: true
+  timezone: America/New_York
+  block_new_trades:
+    - name: rollover
+      start: "16:45"
+      end: "17:15"
+    - name: friday_close
+      day: Friday
+      start: "15:00"
+      end: "23:59"
+    - name: sunday_open
+      day: Sunday
+      start: "00:00"
+      end: "19:00"
+
+backtest:
+  fixed_slippage_pips: 0.2
+  spread_slippage_multiplier: 0.5
+  starting_equity_usd: 500
+  commission_per_unit: 0.0

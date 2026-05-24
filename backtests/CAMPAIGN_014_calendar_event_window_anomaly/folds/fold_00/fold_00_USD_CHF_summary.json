@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_CHF",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2021-06-24T01:00:00+00:00",
+  "to_time": "2022-06-17T17:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "9050acb6a9a61752",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -1.2601278555841033,
+    "final_equity": 493.69936072207946,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.2601278555841078,
+    "max_drawdown_duration_bars": 1496,
+    "sharpe": -1.5658577943116714,
+    "sortino": -0.7638212461148015,
+    "profit_factor": 0.2690104542133434,
+    "expectancy_r": -0.4418993876044109,
+    "average_r": -0.4418993876044109,
+    "median_r": -0.769198601737604,
+    "win_rate": 0.25,
+    "average_win": 0.7728965226006584,
+    "average_loss": -0.9577032050802747,
+    "trade_count": 12,
+    "largest_single_loss": -1.270874810970767,
+    "average_spread_paid_pips": 1.633333333333333,
+    "exposure_pct": 0.0
+  }
+}

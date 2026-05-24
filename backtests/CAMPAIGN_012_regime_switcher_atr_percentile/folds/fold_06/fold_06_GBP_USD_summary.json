@@ -1,0 +1,32 @@
+{
+  "instrument": "GBP_USD",
+  "strategy_name": "regime_switcher_atr_percentile",
+  "strategy_version": "0.1.0-c012",
+  "granularity": "H4",
+  "from_time": "2024-03-31T21:00:00+00:00",
+  "to_time": "2025-06-02T21:00:00+00:00",
+  "config_hash": "1ecd6f639a8ef316",
+  "data_request_hash": "00988185244514dc",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -3.1954429999999756,
+    "final_equity": 484.0227850000001,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -4.726343822075049,
+    "max_drawdown_duration_bars": 1121,
+    "sharpe": -1.4167025171024124,
+    "sortino": -1.7418005809719317,
+    "profit_factor": 0.7419339494186366,
+    "expectancy_r": -0.09860709609603453,
+    "average_r": -0.09860709609603453,
+    "median_r": -0.25096263820053377,
+    "win_rate": 0.4,
+    "average_win": 0.8833485576923079,
+    "average_loss": -0.7937351282051283,
+    "trade_count": 130,
+    "largest_single_loss": -1.27942,
+    "average_spread_paid_pips": 1.8584615384615384,
+    "exposure_pct": 0.0
+  }
+}

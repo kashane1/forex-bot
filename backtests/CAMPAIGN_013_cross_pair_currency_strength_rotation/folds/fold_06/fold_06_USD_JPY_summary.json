@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_JPY",
+  "strategy_name": "cross_pair_currency_strength_rotation",
+  "strategy_version": "0.1.0-c013",
+  "granularity": "H4",
+  "from_time": "2024-03-31T21:00:00+00:00",
+  "to_time": "2025-06-02T21:00:00+00:00",
+  "config_hash": "b0430aacfd1e7a47",
+  "data_request_hash": "18bb3c646610ae5c",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": 0.45443684833799125,
+    "final_equity": 502.27218424168996,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -3.507268958798653,
+    "max_drawdown_duration_bars": 1097,
+    "sharpe": 0.11712883172452034,
+    "sortino": 0.2000449321655297,
+    "profit_factor": 1.018588621581598,
+    "expectancy_r": 2.554847391657696e-05,
+    "average_r": 2.554847391657696e-05,
+    "median_r": -0.0007543601475105522,
+    "win_rate": 0.43548387096774194,
+    "average_win": 0.9222770657338922,
+    "average_loss": -0.6984869693279173,
+    "trade_count": 310,
+    "largest_single_loss": -1.2595934518345433,
+    "average_spread_paid_pips": 1.6564516129032258,
+    "exposure_pct": 0.0
+  }
+}

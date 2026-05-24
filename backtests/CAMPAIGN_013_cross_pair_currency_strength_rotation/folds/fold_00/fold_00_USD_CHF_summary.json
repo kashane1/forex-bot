@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_CHF",
+  "strategy_name": "cross_pair_currency_strength_rotation",
+  "strategy_version": "0.1.0-c013",
+  "granularity": "H4",
+  "from_time": "2021-04-15T01:00:00+00:00",
+  "to_time": "2022-06-17T17:00:00+00:00",
+  "config_hash": "c32083b9b4abbc1e",
+  "data_request_hash": "8195e41f6e7ea10e",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -7.4137773805989955,
+    "final_equity": 462.93111309700504,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -8.013612689371373,
+    "max_drawdown_duration_bars": 1695,
+    "sharpe": -1.9747953264877753,
+    "sortino": -2.6638794894966344,
+    "profit_factor": 0.7018384742161394,
+    "expectancy_r": -0.11485760834395417,
+    "average_r": -0.11485760834395417,
+    "median_r": -0.11783280698003441,
+    "win_rate": 0.42105263157894735,
+    "average_win": 0.727133023967803,
+    "average_loss": -0.7534839380553422,
+    "trade_count": 285,
+    "largest_single_loss": -1.2759717510982596,
+    "average_spread_paid_pips": 1.6336842105263158,
+    "exposure_pct": 0.0
+  }
+}

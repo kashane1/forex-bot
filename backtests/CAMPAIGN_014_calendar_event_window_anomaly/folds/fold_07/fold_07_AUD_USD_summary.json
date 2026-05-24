@@ -1,0 +1,32 @@
+{
+  "instrument": "AUD_USD",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2024-12-05T02:00:00+00:00",
+  "to_time": "2025-11-28T18:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "c500e57006f088f4",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -1.465194000000003,
+    "final_equity": 492.67402999999996,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.465194000000008,
+    "max_drawdown_duration_bars": 1408,
+    "sharpe": -2.266040618453524,
+    "sortino": -0.9933374587614789,
+    "profit_factor": 0.06240665302377011,
+    "expectancy_r": -0.5292679794396453,
+    "average_r": -0.5292679794396453,
+    "median_r": -0.6427038626609443,
+    "win_rate": 0.2727272727272727,
+    "average_win": 0.16254,
+    "average_loss": -0.9766987500000001,
+    "trade_count": 11,
+    "largest_single_loss": -1.267775,
+    "average_spread_paid_pips": 1.3363636363636364,
+    "exposure_pct": 0.0
+  }
+}
