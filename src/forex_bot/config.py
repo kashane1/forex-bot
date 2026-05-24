@@ -339,6 +339,12 @@ class BacktestConfig(BaseModel):
     # behaviour. next_bar_open is strictly opt-in. See
     # docs/research/FILL_TIMING_MODEL.md.
     fill_timing: Literal["signal_bar_close", "next_bar_open"] = "signal_bar_close"
+    # How exit fills handle a bar that OPENED past the stop / TP level.
+    # Defaults to "none" so prior campaign configs (which omit this key)
+    # reproduce their exact prior config_hash. "gap_through" is strictly
+    # opt-in and produces a distinct config_hash. See
+    # docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.
+    gap_fill_policy: Literal["none", "gap_through"] = "none"
 
 
 class KillSwitchConfig(BaseModel):

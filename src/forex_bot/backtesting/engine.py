@@ -124,6 +124,7 @@ class BacktestEngine:
         atr_lookback: int = 14,
         risk_engine: RiskEngine | None = None,
         settings: Settings | None = None,
+        gap_fill_policy: str = "none",
     ) -> None:
         self.instrument = instrument
         self.strategy = strategy
@@ -139,6 +140,11 @@ class BacktestEngine:
         self.atr_lookback = atr_lookback
         self.risk_engine = risk_engine
         self.settings = settings
+        # Opt-in: when a bar opens past the stop/tp level, fill at the bar
+        # open instead of at the level. Default "none" preserves prior
+        # behavior + config_hash. See
+        # docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.
+        self.gap_fill_policy = gap_fill_policy
 
     def run(
         self,
@@ -158,6 +164,7 @@ class BacktestEngine:
             fill_timing=self.fill_timing,
             data_request_hash=data_request_hash,
             risk_engine_used=self.risk_engine is not None,
+            gap_fill_policy=self.gap_fill_policy,
             config_hash=_hash({
                 "strategy_config": self.strategy_config,
                 "risk_pct": str(self.risk_per_trade_pct),
@@ -173,6 +180,15 @@ class BacktestEngine:
                 **(
                     {"fill_timing": self.fill_timing}
                     if self.fill_timing != "signal_bar_close"
+                    else {}
+                ),
+                # Same conditional pattern for gap_fill_policy: default
+                # "none" reproduces all CAMPAIGN_001–009 hashes exactly;
+                # "gap_through" gets a distinct hash so the two modes can
+                # never be silently confused.
+                **(
+                    {"gap_fill_policy": self.gap_fill_policy}
+                    if self.gap_fill_policy != "none"
                     else {}
                 ),
             }),

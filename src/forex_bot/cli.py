@@ -23,7 +23,7 @@ from forex_bot.approval import StrategyNotApprovedError, assert_loop_strategies_
 from forex_bot.backtesting.audit import audit_instrument, render_audit_markdown
 from forex_bot.backtesting.engine import BacktestEngine, compute_data_request_hash
 from forex_bot.backtesting.exporters import write_all
-from forex_bot.backtesting.fills import FILL_TIMINGS, FillModel
+from forex_bot.backtesting.fills import FILL_TIMINGS, GAP_FILL_POLICIES, FillModel
 from forex_bot.broker.oanda import OandaBroker
 from forex_bot.clock import utcnow
 from forex_bot.config import ConfigError, Settings, load_settings
@@ -400,6 +400,13 @@ def backtest(
         help="Fill timing: signal_bar_close | next_bar_open. "
         "Overrides backtest.fill_timing (default signal_bar_close).",
     ),
+    gap_fill_policy: str | None = typer.Option(
+        None,
+        "--gap-fill-policy",
+        help="Gap-fill policy for stop/TP exits: none | gap_through. "
+        "Overrides backtest.gap_fill_policy (default none). "
+        "See docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.",
+    ),
     export_dir: Path | None = typer.Option(
         None, "--export-dir", help="Write trades.csv, equity.csv, metrics.json, metrics.md per run"
     ),
@@ -437,6 +444,15 @@ def backtest(
         )
         raise typer.Exit(2)
     console.print(f"[dim]fill timing: {resolved_fill_timing}[/dim]")
+
+    resolved_gap_fill_policy = gap_fill_policy or settings.backtest.gap_fill_policy
+    if resolved_gap_fill_policy not in GAP_FILL_POLICIES:
+        console.print(
+            f"[red]invalid --gap-fill-policy '{resolved_gap_fill_policy}'; "
+            f"expected one of {sorted(GAP_FILL_POLICIES)}[/red]"
+        )
+        raise typer.Exit(2)
+    console.print(f"[dim]gap fill: {resolved_gap_fill_policy}[/dim]")
 
     from_dt = _parse_date(from_date)
     to_dt = _parse_date(to_date)
@@ -492,6 +508,7 @@ def backtest(
                 commission_per_unit=Decimal(str(settings.backtest.commission_per_unit)),
                 trailing_stop_atr_multiple=cfg.get("trailing_stop_atr_multiple"),
                 atr_lookback=int(cfg.get("atr_lookback", 14)),
+                gap_fill_policy=resolved_gap_fill_policy,
             )
             result = engine.run(frame, data_request_hash=data_hash)
             m = result.metrics
