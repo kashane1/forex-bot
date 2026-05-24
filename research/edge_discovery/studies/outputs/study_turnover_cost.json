@@ -1,0 +1,352 @@
+{
+  "label": "turnover_cost_sensitivity",
+  "setup": {
+    "instrument": "EUR_USD",
+    "entry_price": 1.1,
+    "spread_pips": 1.5,
+    "slip_pips": 0.2,
+    "pre_cost_edges": [
+      -0.0002,
+      -0.0001,
+      0.0,
+      0.0001,
+      0.00025,
+      0.0005
+    ],
+    "trade_counts": [
+      50,
+      100,
+      250,
+      500,
+      1000,
+      2500
+    ],
+    "cost_per_trade": 0.00017272727272727272
+  },
+  "cells": [
+    {
+      "pre_cost_edge_per_trade": -0.0002,
+      "n_trades": 50,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.01,
+      "cumulative_cost": 0.008636363636363636,
+      "cumulative_post_cost": -0.01863636363636364,
+      "cost_share_of_pre_cost": 0.8636363636363636
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0002,
+      "n_trades": 100,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.02,
+      "cumulative_cost": 0.017272727272727273,
+      "cumulative_post_cost": -0.03727272727272728,
+      "cost_share_of_pre_cost": 0.8636363636363636
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0002,
+      "n_trades": 250,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.05,
+      "cumulative_cost": 0.04318181818181818,
+      "cumulative_post_cost": -0.09318181818181819,
+      "cost_share_of_pre_cost": 0.8636363636363636
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0002,
+      "n_trades": 500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.1,
+      "cumulative_cost": 0.08636363636363636,
+      "cumulative_post_cost": -0.18636363636363637,
+      "cost_share_of_pre_cost": 0.8636363636363636
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0002,
+      "n_trades": 1000,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.2,
+      "cumulative_cost": 0.17272727272727273,
+      "cumulative_post_cost": -0.37272727272727274,
+      "cost_share_of_pre_cost": 0.8636363636363636
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0002,
+      "n_trades": 2500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.5,
+      "cumulative_cost": 0.4318181818181818,
+      "cumulative_post_cost": -0.9318181818181819,
+      "cost_share_of_pre_cost": 0.8636363636363636
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0001,
+      "n_trades": 50,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.005,
+      "cumulative_cost": 0.008636363636363636,
+      "cumulative_post_cost": -0.013636363636363637,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0001,
+      "n_trades": 100,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.01,
+      "cumulative_cost": 0.017272727272727273,
+      "cumulative_post_cost": -0.027272727272727275,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0001,
+      "n_trades": 250,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.025,
+      "cumulative_cost": 0.04318181818181818,
+      "cumulative_post_cost": -0.06818181818181818,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0001,
+      "n_trades": 500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.05,
+      "cumulative_cost": 0.08636363636363636,
+      "cumulative_post_cost": -0.13636363636363635,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0001,
+      "n_trades": 1000,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.1,
+      "cumulative_cost": 0.17272727272727273,
+      "cumulative_post_cost": -0.2727272727272727,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": -0.0001,
+      "n_trades": 2500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": -0.25,
+      "cumulative_cost": 0.4318181818181818,
+      "cumulative_post_cost": -0.6818181818181819,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0,
+      "n_trades": 50,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.0,
+      "cumulative_cost": 0.008636363636363636,
+      "cumulative_post_cost": -0.008636363636363636,
+      "cost_share_of_pre_cost": null
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0,
+      "n_trades": 100,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.0,
+      "cumulative_cost": 0.017272727272727273,
+      "cumulative_post_cost": -0.017272727272727273,
+      "cost_share_of_pre_cost": null
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0,
+      "n_trades": 250,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.0,
+      "cumulative_cost": 0.04318181818181818,
+      "cumulative_post_cost": -0.04318181818181818,
+      "cost_share_of_pre_cost": null
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0,
+      "n_trades": 500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.0,
+      "cumulative_cost": 0.08636363636363636,
+      "cumulative_post_cost": -0.08636363636363636,
+      "cost_share_of_pre_cost": null
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0,
+      "n_trades": 1000,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.0,
+      "cumulative_cost": 0.17272727272727273,
+      "cumulative_post_cost": -0.17272727272727273,
+      "cost_share_of_pre_cost": null
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0,
+      "n_trades": 2500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.0,
+      "cumulative_cost": 0.4318181818181818,
+      "cumulative_post_cost": -0.4318181818181818,
+      "cost_share_of_pre_cost": null
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0001,
+      "n_trades": 50,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.005,
+      "cumulative_cost": 0.008636363636363636,
+      "cumulative_post_cost": -0.0036363636363636364,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0001,
+      "n_trades": 100,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.01,
+      "cumulative_cost": 0.017272727272727273,
+      "cumulative_post_cost": -0.007272727272727273,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0001,
+      "n_trades": 250,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.025,
+      "cumulative_cost": 0.04318181818181818,
+      "cumulative_post_cost": -0.01818181818181818,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0001,
+      "n_trades": 500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.05,
+      "cumulative_cost": 0.08636363636363636,
+      "cumulative_post_cost": -0.03636363636363636,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0001,
+      "n_trades": 1000,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.1,
+      "cumulative_cost": 0.17272727272727273,
+      "cumulative_post_cost": -0.07272727272727272,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0001,
+      "n_trades": 2500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.25,
+      "cumulative_cost": 0.4318181818181818,
+      "cumulative_post_cost": -0.18181818181818182,
+      "cost_share_of_pre_cost": 1.7272727272727273
+    },
+    {
+      "pre_cost_edge_per_trade": 0.00025,
+      "n_trades": 50,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.0125,
+      "cumulative_cost": 0.008636363636363636,
+      "cumulative_post_cost": 0.0038636363636363642,
+      "cost_share_of_pre_cost": 0.6909090909090909
+    },
+    {
+      "pre_cost_edge_per_trade": 0.00025,
+      "n_trades": 100,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.025,
+      "cumulative_cost": 0.017272727272727273,
+      "cumulative_post_cost": 0.0077272727272727285,
+      "cost_share_of_pre_cost": 0.6909090909090909
+    },
+    {
+      "pre_cost_edge_per_trade": 0.00025,
+      "n_trades": 250,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.0625,
+      "cumulative_cost": 0.04318181818181818,
+      "cumulative_post_cost": 0.019318181818181818,
+      "cost_share_of_pre_cost": 0.6909090909090909
+    },
+    {
+      "pre_cost_edge_per_trade": 0.00025,
+      "n_trades": 500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.125,
+      "cumulative_cost": 0.08636363636363636,
+      "cumulative_post_cost": 0.038636363636363635,
+      "cost_share_of_pre_cost": 0.6909090909090909
+    },
+    {
+      "pre_cost_edge_per_trade": 0.00025,
+      "n_trades": 1000,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.25,
+      "cumulative_cost": 0.17272727272727273,
+      "cumulative_post_cost": 0.07727272727272727,
+      "cost_share_of_pre_cost": 0.6909090909090909
+    },
+    {
+      "pre_cost_edge_per_trade": 0.00025,
+      "n_trades": 2500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.625,
+      "cumulative_cost": 0.4318181818181818,
+      "cumulative_post_cost": 0.19318181818181818,
+      "cost_share_of_pre_cost": 0.6909090909090909
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0005,
+      "n_trades": 50,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.025,
+      "cumulative_cost": 0.008636363636363636,
+      "cumulative_post_cost": 0.016363636363636365,
+      "cost_share_of_pre_cost": 0.34545454545454546
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0005,
+      "n_trades": 100,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.05,
+      "cumulative_cost": 0.017272727272727273,
+      "cumulative_post_cost": 0.03272727272727273,
+      "cost_share_of_pre_cost": 0.34545454545454546
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0005,
+      "n_trades": 250,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.125,
+      "cumulative_cost": 0.04318181818181818,
+      "cumulative_post_cost": 0.08181818181818182,
+      "cost_share_of_pre_cost": 0.34545454545454546
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0005,
+      "n_trades": 500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.25,
+      "cumulative_cost": 0.08636363636363636,
+      "cumulative_post_cost": 0.16363636363636364,
+      "cost_share_of_pre_cost": 0.34545454545454546
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0005,
+      "n_trades": 1000,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 0.5,
+      "cumulative_cost": 0.17272727272727273,
+      "cumulative_post_cost": 0.32727272727272727,
+      "cost_share_of_pre_cost": 0.34545454545454546
+    },
+    {
+      "pre_cost_edge_per_trade": 0.0005,
+      "n_trades": 2500,
+      "cost_per_trade": 0.00017272727272727272,
+      "cumulative_pre_cost": 1.25,
+      "cumulative_cost": 0.4318181818181818,
+      "cumulative_post_cost": 0.8181818181818181,
+      "cost_share_of_pre_cost": 0.34545454545454546
+    }
+  ]
+}

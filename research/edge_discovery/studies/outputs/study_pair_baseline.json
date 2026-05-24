@@ -1,0 +1,219 @@
+{
+  "label": "pair_level_baseline",
+  "material_gap_R": 0.05,
+  "random_R_by_pair": {
+    "EUR_USD": -0.183,
+    "GBP_USD": -0.107,
+    "USD_JPY": -0.122,
+    "AUD_USD": -0.147,
+    "USD_CAD": -0.008,
+    "USD_CHF": -0.004
+  },
+  "campaign_R": {
+    "CAMPAIGN_002_H4_test": {
+      "EUR_USD": 0.257,
+      "GBP_USD": -0.028,
+      "USD_JPY": -0.002,
+      "AUD_USD": -0.037,
+      "USD_CAD": -0.159,
+      "USD_CHF": -0.459
+    },
+    "CAMPAIGN_003_test": {
+      "EUR_USD": 0.257,
+      "GBP_USD": -0.028,
+      "USD_JPY": -0.002,
+      "AUD_USD": -0.037,
+      "USD_CAD": -0.159,
+      "USD_CHF": -0.459
+    },
+    "CAMPAIGN_004_test": {
+      "EUR_USD": -0.322,
+      "GBP_USD": -0.148,
+      "USD_JPY": -0.0,
+      "AUD_USD": -0.104,
+      "USD_CAD": -0.1,
+      "USD_CHF": -0.307
+    },
+    "CAMPAIGN_007_val": {
+      "EUR_USD": -0.193,
+      "GBP_USD": -0.242,
+      "USD_JPY": 0.0,
+      "AUD_USD": -0.355,
+      "USD_CAD": -0.141,
+      "USD_CHF": -0.063
+    },
+    "CAMPAIGN_008_val": {
+      "EUR_USD": 0.31,
+      "GBP_USD": 0.117,
+      "USD_JPY": 0.001,
+      "AUD_USD": 0.088,
+      "USD_CAD": 0.105,
+      "USD_CHF": 0.409
+    },
+    "CAMPAIGN_009_val": {
+      "EUR_USD": -0.023,
+      "GBP_USD": 0.391,
+      "USD_JPY": -0.0,
+      "AUD_USD": 0.248,
+      "USD_CAD": 0.014,
+      "USD_CHF": 0.391
+    }
+  },
+  "validation_only_campaigns": [
+    "CAMPAIGN_007_val",
+    "CAMPAIGN_008_val",
+    "CAMPAIGN_009_val"
+  ],
+  "per_pair_cells": [
+    {
+      "pair": "EUR_USD",
+      "random_r": -0.183,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": 0.257,
+        "CAMPAIGN_003_test": 0.257,
+        "CAMPAIGN_004_test": -0.322,
+        "CAMPAIGN_007_val": -0.193,
+        "CAMPAIGN_008_val": 0.31,
+        "CAMPAIGN_009_val": -0.023
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": 0.44,
+        "CAMPAIGN_003_test": 0.44,
+        "CAMPAIGN_004_test": -0.139,
+        "CAMPAIGN_007_val": -0.01,
+        "CAMPAIGN_008_val": 0.493,
+        "CAMPAIGN_009_val": 0.16
+      },
+      "best_gap_r": 0.493,
+      "best_campaign": "CAMPAIGN_008_val",
+      "n_materially_above_null": 4,
+      "n_test_window_above_null": 2,
+      "n_validation_only_above_null": 2
+    },
+    {
+      "pair": "GBP_USD",
+      "random_r": -0.107,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": -0.028,
+        "CAMPAIGN_003_test": -0.028,
+        "CAMPAIGN_004_test": -0.148,
+        "CAMPAIGN_007_val": -0.242,
+        "CAMPAIGN_008_val": 0.117,
+        "CAMPAIGN_009_val": 0.391
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": 0.079,
+        "CAMPAIGN_003_test": 0.079,
+        "CAMPAIGN_004_test": -0.041,
+        "CAMPAIGN_007_val": -0.135,
+        "CAMPAIGN_008_val": 0.224,
+        "CAMPAIGN_009_val": 0.498
+      },
+      "best_gap_r": 0.498,
+      "best_campaign": "CAMPAIGN_009_val",
+      "n_materially_above_null": 4,
+      "n_test_window_above_null": 2,
+      "n_validation_only_above_null": 2
+    },
+    {
+      "pair": "USD_JPY",
+      "random_r": -0.122,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": -0.002,
+        "CAMPAIGN_003_test": -0.002,
+        "CAMPAIGN_004_test": -0.0,
+        "CAMPAIGN_007_val": 0.0,
+        "CAMPAIGN_008_val": 0.001,
+        "CAMPAIGN_009_val": -0.0
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": 0.12,
+        "CAMPAIGN_003_test": 0.12,
+        "CAMPAIGN_004_test": 0.122,
+        "CAMPAIGN_007_val": 0.122,
+        "CAMPAIGN_008_val": 0.123,
+        "CAMPAIGN_009_val": 0.122
+      },
+      "best_gap_r": 0.123,
+      "best_campaign": "CAMPAIGN_008_val",
+      "n_materially_above_null": 6,
+      "n_test_window_above_null": 3,
+      "n_validation_only_above_null": 3
+    },
+    {
+      "pair": "AUD_USD",
+      "random_r": -0.147,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": -0.037,
+        "CAMPAIGN_003_test": -0.037,
+        "CAMPAIGN_004_test": -0.104,
+        "CAMPAIGN_007_val": -0.355,
+        "CAMPAIGN_008_val": 0.088,
+        "CAMPAIGN_009_val": 0.248
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": 0.11,
+        "CAMPAIGN_003_test": 0.11,
+        "CAMPAIGN_004_test": 0.043,
+        "CAMPAIGN_007_val": -0.208,
+        "CAMPAIGN_008_val": 0.235,
+        "CAMPAIGN_009_val": 0.395
+      },
+      "best_gap_r": 0.395,
+      "best_campaign": "CAMPAIGN_009_val",
+      "n_materially_above_null": 4,
+      "n_test_window_above_null": 2,
+      "n_validation_only_above_null": 2
+    },
+    {
+      "pair": "USD_CAD",
+      "random_r": -0.008,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": -0.159,
+        "CAMPAIGN_003_test": -0.159,
+        "CAMPAIGN_004_test": -0.1,
+        "CAMPAIGN_007_val": -0.141,
+        "CAMPAIGN_008_val": 0.105,
+        "CAMPAIGN_009_val": 0.014
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": -0.151,
+        "CAMPAIGN_003_test": -0.151,
+        "CAMPAIGN_004_test": -0.092,
+        "CAMPAIGN_007_val": -0.133,
+        "CAMPAIGN_008_val": 0.113,
+        "CAMPAIGN_009_val": 0.022
+      },
+      "best_gap_r": 0.113,
+      "best_campaign": "CAMPAIGN_008_val",
+      "n_materially_above_null": 1,
+      "n_test_window_above_null": 0,
+      "n_validation_only_above_null": 1
+    },
+    {
+      "pair": "USD_CHF",
+      "random_r": -0.004,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": -0.459,
+        "CAMPAIGN_003_test": -0.459,
+        "CAMPAIGN_004_test": -0.307,
+        "CAMPAIGN_007_val": -0.063,
+        "CAMPAIGN_008_val": 0.409,
+        "CAMPAIGN_009_val": 0.391
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_002_H4_test": -0.455,
+        "CAMPAIGN_003_test": -0.455,
+        "CAMPAIGN_004_test": -0.303,
+        "CAMPAIGN_007_val": -0.059,
+        "CAMPAIGN_008_val": 0.413,
+        "CAMPAIGN_009_val": 0.395
+      },
+      "best_gap_r": 0.413,
+      "best_campaign": "CAMPAIGN_008_val",
+      "n_materially_above_null": 2,
+      "n_test_window_above_null": 0,
+      "n_validation_only_above_null": 2
+    }
+  ]
+}

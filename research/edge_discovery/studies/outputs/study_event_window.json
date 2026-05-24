@@ -1,0 +1,133 @@
+{
+  "label": "event_window_direction",
+  "instrument": "EUR_USD",
+  "granularity": "H4",
+  "window_bars": 6,
+  "n_signals": 6,
+  "dropped_trailing": 0,
+  "dropped_missing": 0,
+  "pre_cost": {
+    "n": 6,
+    "mean": 3.5534055407276825e-05,
+    "std": 0.0029463449173275248,
+    "median": 0.0002546934578390137,
+    "win_rate": 0.5,
+    "p10": -0.003077740993663764,
+    "p90": 0.0029296497020465805
+  },
+  "post_cost": {
+    "n": 6,
+    "mean": -0.00019812448846015792,
+    "std": 0.002946271996215889,
+    "median": 2.1664537417147474e-05,
+    "win_rate": 0.5,
+    "p10": -0.0033113083166005624,
+    "p90": 0.002695270313802941
+  },
+  "null_compare": {
+    "gap": -0.0001051267484152028,
+    "gap_in_null_stds": -0.09517417212268194,
+    "band": "within_null",
+    "null_mean": -9.299774004495512e-05,
+    "null_std": 0.0011045722391962783,
+    "null_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "null_n_per_seed": 6
+  },
+  "by_group": {
+    "CPI": {
+      "n": 2,
+      "mean": 0.0001859022000933971,
+      "std": 0.005653400795151992,
+      "median": 0.0001859022000933971,
+      "win_rate": 0.5,
+      "p10": -0.0030121442311205173,
+      "p90": 0.0033839486313073115,
+      "sub_pre_mean": 0.0004204036942876831,
+      "sub_post_mean": 0.0001859022000933971
+    },
+    "FOMC": {
+      "n": 2,
+      "mean": -0.0019248097893594112,
+      "std": 0.0012532067694651827,
+      "median": -0.0019248097893594112,
+      "win_rate": 0.0,
+      "p10": -0.0026337305932935848,
+      "p90": -0.0012158889854252375,
+      "sub_pre_mean": -0.001691801184713358,
+      "sub_post_mean": -0.0019248097893594112
+    },
+    "NFP": {
+      "n": 2,
+      "mean": 0.0011445341238855405,
+      "std": 8.845377568660394e-05,
+      "median": 0.0011445341238855405,
+      "win_rate": 1.0,
+      "p10": 0.0010944971121978995,
+      "p90": 0.0011945711355731815,
+      "sub_pre_mean": 0.0013779996566475054,
+      "sub_post_mean": 0.0011445341238855405
+    }
+  },
+  "notes": [
+    "Synthetic fixture run \u2014 not strategy evidence; illustrative only.",
+    "Real-fixture run: point candles_path at the SQLite-derived H4 CSV and events_path at the real NFP/FOMC fixture; no other change.",
+    "Per-class dominance share (n / total): {'CPI': 0.3333333333333333, 'FOMC': 0.3333333333333333, 'NFP': 0.3333333333333333}",
+    "Event classes in fixture with ZERO matched trades: []",
+    "Reminder: post-cost mean must clearly beat the random-entry null (see EDGE_DISCOVERY_CANDIDATE_RANKING_RULES.md); aggregate sign alone does not graduate."
+  ],
+  "inputs": {
+    "candles_path": "research/edge_discovery/sample_fixtures/synthetic_EUR_USD_H4.csv",
+    "candles_sha256": "73c94e5a40a035bba907b0563cef795fe35832a32cb7dad529f377892c612b07",
+    "events_path": "research/edge_discovery/sample_fixtures/synthetic_events.csv",
+    "events_sha256": "271641020754eecc195d2951ba0d8fa274ca280d31893ac337298c6832b91e98",
+    "side": "LONG",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "event_classes_in_fixture": [
+      "CPI",
+      "FOMC",
+      "NFP"
+    ]
+  }
+}
