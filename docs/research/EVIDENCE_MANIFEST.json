@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "description": "Machine-readable index of all research evidence: nine campaigns (CAMPAIGN_001-009) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
-  "generated": "2026-05-22",
-  "branch": "infra-data-parity-001",
+  "description": "Machine-readable index of all research evidence: fourteen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
+  "generated": "2026-05-24",
+  "branch": "research-calendar-event-window-anomaly-walk-forward-001",
   "no_approved_strategy": true,
   "retired_paths": [
     {
@@ -313,6 +313,37 @@
         "null_model": false,
         "approval_path": "none (REJECTED on Phase 5 inherited gates AND on CAMPAIGN_011 null-baseline comparison; cross-pair runner contract SATISFIED on all 8 folds; verifier deferred indefinitely)",
         "note": "walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4 (same physical store + identical hashes as CAMPAIGN_010 / 011 / 012); cross-pair signal = 8-currency log-return strength matrix (USD-base +log_return / USD-quote -log_return / USD = -mean(non-USD)) with rank-gap rule |rank(quote) - rank(base)| >= 4 inclusively; long strong-base / short strong-quote over 6-bar (24h) holding period with ATR-2.0 stop. Cross-pair runner integration contract SATISFIED on all 8 folds (common_index 1,825-1,848 H4 bars; per-pair `cross_pair_closes` injected). 5 of 8 inherited aggregate gates FAIL: fold_pass_rate (0%), expectancy_r (-0.0564 vs >=0.05), profit_factor (0.000 vs >=1.10), pairs_positive (1/7 vs >=4/7); fold_count, trade_count, single_fold_dominance, single_pair_dominance PASS. Null-baseline comparison: CAMPAIGN_013 is catastrophically WORSE than CAMPAIGN_011 on every binding axis (expectancy -0.0540 R, PF -0.910, return -112.83 pp, pairs -2) - far outside the symmetric +/-0.005 R / +/-0.10 PF / +/-2 pp / +/-1 pair indistinguishability band; classification REJECT (not REJECT_INDISTINGUISHABLE_FROM_NULL because the divergence is in the worse direction). The rank-gap rule amplified trade count (7,940 vs 1,177 - 6.7x as many) without improving signal quality, accumulating cost drag. USD_JPY at +0.0000 R is the same random-walk floor CAMPAIGN_011 and CAMPAIGN_012 surfaced. NZD_USD worst pair: -41.76% over 4 years on 1,863 trades. Financing overlay (ESTIMATED + conservative stress) adds -$139.99 drag (7,154 rollover events); USD_JPY flips + -> - under financing (+$2.27 -> -$5.89) taking pairs_positive from 1/7 to 0/7 post-financing; no pair flips - -> +; conservative_stress_run_does_not_flip_verdict PASSES (verdict already REJECT pre-financing). Risk diagnostics: MAX_OPEN_POSITIONS_EXCEEDED = 0 (per-pair runner architecture; engine is single-instrument); simultaneous-signal frequency ~40% of bars (cross-pair signal often fires on 2-4 pairs at the same H4 timestamp; portfolio-aware runner would cut trade count by ~40% but cannot rescue per-pair negative expectancy on 6 of 7 pairs); zero-trade pair-fold cells 29/56 (51.8%) - rank-gap rule's intended sparseness. CAMPAIGN_013 is the worst-performing campaign to date by aggregate return / profit factor / trade count (~214x worse than CAMPAIGN_011 null floor; ~2.6x worse than CAMPAIGN_012 regime switcher). Verifier did not run (capability-locked to CAMPAIGN_002; not required for REJECT); infra-free-local-parity-verifier-cross-pair-currency-strength-rotation-001 deferred indefinitely. MODELED financing refused at 4 layers; live-promotion blocker stands. configs/approved_strategies.yaml remains approved: []."
+      },
+      "commit_hash": "TBD-phase9",
+      "test_window_opened": true,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "title": "Calendar-event window anomaly (research-calendar-event-window-anomaly-walk-forward-001)",
+      "report_path": "docs/research/CAMPAIGN_014_WALK_FORWARD_RESULT.md",
+      "artifact_folder": "backtests/CAMPAIGN_014_calendar_event_window_anomaly",
+      "strategy_family": "calendar_event_window_anomaly",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "fold_count": 8,
+        "fold_pass_rate": 0.0,
+        "total_trades": 720,
+        "total_raw_signals": 1240,
+        "aggregate_expectancy_r": -0.14774,
+        "aggregate_profit_factor": 0.0,
+        "aggregate_return_pct": -30.8516,
+        "pairs_positive": 0,
+        "single_fold_dominance_pct": 16.24,
+        "single_pair_dominance_pct": 20.69,
+        "financing_cashflow_home_stress_total_usd": -10.64,
+        "financing_missing_rate_event_count": 0,
+        "null_model": false,
+        "approval_path": "none (REJECTED on Phase 5 inherited gates AND on CAMPAIGN_011 null-baseline comparison; turnover budget PASS at 720 trades (<=800) and 1240 signals (<=1500); fixture-coverage gate PASS on all 8 folds; verifier deferred indefinitely)",
+        "note": "Walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4 (same physical store + identical hashes as CAMPAIGN_002 / 010 / 011 / 012 / 013); strategy = counter-trend on first post-event H4 bar after scheduled macro events (NFP / FOMC / ECB / BoJ / BoE) with ATR-2 stop, 6-bar max hold; event fixture = committed 281-event JSON (NFP 77 / FOMC 51 / ECB 51 / BoJ 51 / BoE 51) covering 2020-01-01 -> 2026-05-20. Fixture date-verification audit (Phase 0): PARTIAL - PROCEED WITH EXPLICIT CAVEAT (NFP 100% verified procedurally; FOMC 100% verified against official Fed.gov calendar; BoJ 91% for 2025-2026; ECB + BoE structurally consistent but not WebFetch-verifiable; 1 BoJ drift logged at 2026-03-18 vs 2026-03-19 - post-fold-coverage; no fold within drift). Frozen parameters per CAMPAIGN_014_PRECOMMIT_CHECKLIST.md verbatim; _assert_frozen() PASS. 6/8 inherited aggregate gates FAIL: fold_pass_rate (0%), expectancy_r (-0.148 R vs >=0.05), profit_factor (0.00 vs >=1.10), pairs_positive (0/7 vs >=4/7); fold_count, trade_count, single_fold_dominance, single_pair_dominance PASS. Null-baseline comparison: CAMPAIGN_014 is materially WORSE than CAMPAIGN_011 on every binding axis (expectancy -0.145 R worse, PF -0.91 worse, return -30.32 pp worse, pairs -3) - OUTSIDE indistinguishability band on all 4 dimensions (WORSE side); classification REJECT (direction-of-trade falsification), NOT REJECT_INDISTINGUISHABLE_FROM_NULL. Turnover budget INTACT: 720 trades (<=800), 1240 raw signals (<=1500) - lowest turnover of any real candidate. Pattern Q cost-section reconciliation: per-trade cost ~2.5-4 bp within budget; per-trade gross expectancy ~-45 bp vs hypothesized ~+7 bp - HYPOTHESIS FALSIFIED on the gross-expectancy side, not costs. Risk diagnostics (Phase 7): FOMC = 0 trades (51 events all SESSION_BLOCKED by rollover-window overlap with FOMC 22:00-UTC trigger bar); NFP = 571 trades (79% of all) generating -$151.17 (98% of total losses) - the C014 REJECT is overwhelmingly an 'NFP counter-trend is wrong' finding (post-event H4 bar CONTINUES the event-bar direction, not REVERTS). ECB/BoE single-pair samples slightly positive ($+2.56/$+3.42) but too thin to be meaningful; pair-only rescue forbidden by Pattern P. BoJ -$9.07 on USD_JPY (NFP-style continuation). 100% trades at bars_since_event=1 (R3 binding verified empirically). Concurrent NFP firing histogram: median 6/7 pairs (hypothesis-justified; not a Pattern N violation). Financing overlay (ESTIMATED + conservative stress) adds -$10.64 drag (697 rollover events) - LOWEST in absolute USD of any real candidate due to short hold; verdict unchanged. 0 pair-flips under financing (every pair already negative). MAX_OPEN_POSITIONS_EXCEEDED = 0 (per-pair runner architecture). 409 SESSION_BLOCKED + 196 SPREAD_TOO_WIDE rejections (1240 raw signals total). Verifier did not run (capability-locked to CAMPAIGN_002; not required for REJECT); infra-free-local-parity-verifier-calendar-event-window-anomaly-001 deferred indefinitely. MODELED financing refused at 4 layers; live-promotion blocker stands. configs/approved_strategies.yaml remains approved: []."
       },
       "commit_hash": "TBD-phase9",
       "test_window_opened": true,

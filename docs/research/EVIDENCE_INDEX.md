@@ -830,6 +830,69 @@ exceeds `fixture.coverage_end_utc`).
 | [`CAMPAIGN_014_INDEPENDENT_VERIFIER_READINESS.md`](CAMPAIGN_014_INDEPENDENT_VERIFIER_READINESS.md) | future-evidence verifier coverage; current capability lock to CAMPAIGN_002 / `trend_following`; not required for REJECT; required only on RESEARCH_PASS_UNAPPROVED via the suggested follow-up sprint `infra-free-local-parity-verifier-calendar-event-window-anomaly-001`; six-evidence-ladder item 5 deferred for REJECT; item 6 (deliberate human approval) permanent and never automatic |
 | [`CALENDAR_EVENT_WINDOW_ANOMALY_001_SUMMARY.md`](CALENDAR_EVENT_WINDOW_ANOMALY_001_SUMMARY.md) | sprint summary & handoff; final validation; recommended next branch is the evidence sprint `research-calendar-event-window-anomaly-walk-forward-001` |
 
+### CAMPAIGN_014 evidence sprint (`research-calendar-event-window-anomaly-walk-forward-001`)
+
+Evidence-grade walk-forward sprint for **CAMPAIGN_014** /
+`calendar_event_window_anomaly 0.1.0-c014`. Adds the binding
+fixture date-verification audit (Phase 0 — NFP 100 % verified
+procedurally + FOMC 100 % verified against official Fed.gov
+calendar + BoJ 91 % for 2025-2026 + ECB/BoE structurally
+consistent but not WebFetch-verifiable + 1 BoJ post-coverage
+drift logged; classification PARTIAL — PROCEED WITH EXPLICIT
+CAVEAT); the per-fold runner `scripts/run_campaign_014.py` (with
+binding `_assert_frozen()` check + event-fixture coverage gate);
+the 56 per-pair per-fold trade summaries + trades CSVs (~448 KB
+total compact text); the 8-fold walk-forward verdict; the
+financing-overlay script + ESTIMATED + conservative-stress
+report (cashflow_home_stress_total = −$10.64, lowest of any
+real candidate); the risk-diagnostics script with CAMPAIGN_014-
+specific event-class clustering + per-event-class per-pair
+heatmap + concurrent-firing diagnostic; the independent verifier
+status (NOT REQUIRED for REJECT, matching CAMPAIGN_010 / 011 /
+012 / 013 precedent); the campaign status / evidence summary /
+sprint summary; updates to `EVIDENCE_MANIFEST.json` (13 → 14
+campaigns) + `STRATEGY_STATUS.md` (scaffold-only → REJECT). The
+verdict is **REJECT (direction-of-trade falsification)** — 6/8
+inherited aggregate gates fail; materially WORSE than CAMPAIGN_011
+null baseline on all 4 PnL-direction axes (OUTSIDE the
+indistinguishability band on the WORSE side). Turnover budget
+PASS (720 trades ≤ 800; 1,240 raw signals ≤ 1,500); fixture-
+coverage gate PASS on all 8 folds. Phase 7 surfaced two findings
+of independent research value: (1) FOMC = 0 trades (all 51 FOMC
+events SESSION_BLOCKED because the 19:00-UTC FOMC time → 22:00-UTC
+trigger bar overlaps the rollover window; the C7 hypothesis's
+claim about FOMC is structurally untestable on this universe +
+session filter); (2) NFP dominates and loses — 571/720 trades (79 %)
+NFP-triggered generating −$151.17 (98 % of total losses); near-50/50
+long/short balance → losses on BOTH sides → post-event H4 bar
+CONTINUES the NFP event-bar's direction, does not REVERT. The
+independent verifier was not run (capability-locked to CAMPAIGN_002;
+not required for REJECT; matches CAMPAIGN_010 / 011 / 012 / 013
+precedent verbatim — 5 successive REJECT-with-no-verifier-extension
+outcomes). `configs/approved_strategies.yaml` remains `approved: []`;
+CAMPAIGN_002 / 010 / 011 / 012 / 013 / 014 all REJECT; paper /
+demo / live remain blocked; no broker call this sprint; no `.env`
+read; no credential printed; no MODELED financing; no parameter
+tuning post-result; no pair carve-out (ECB / BoE positive cells
+flagged but NOT used per Pattern P binding); no fixture
+modification mid-sprint (BoJ 2026-03 drift logged for future
+fixture-revision sprint). Pytest 968/968 PASS; ruff 3 pre-existing
+in `lean_parity` unchanged.
+
+| document | what it is |
+|---|---|
+| [`CALENDAR_EVENT_WINDOW_ANOMALY_WALK_FORWARD_001_PLAN.md`](CALENDAR_EVENT_WINDOW_ANOMALY_WALK_FORWARD_001_PLAN.md) | Phase 0 sprint plan — repo truth audit, 10-phase pipeline, expected commands per phase, non-goals, safety invariants, verdict options |
+| [`CAMPAIGN_014_EVENT_FIXTURE_DATE_VERIFICATION.md`](CAMPAIGN_014_EVENT_FIXTURE_DATE_VERIFICATION.md) | Phase 0 binding fixture date-verification audit (PARTIAL — PROCEED WITH EXPLICIT CAVEAT; NFP + FOMC 100 % verified; BoJ partially via WebFetch; ECB / BoE not WebFetch-reachable; 1 post-coverage BoJ drift logged) |
+| [`CAMPAIGN_014_DATA_PROVENANCE.md`](CAMPAIGN_014_DATA_PROVENANCE.md) | Phase 1 candle + event-fixture provenance (candle store byte-identical to CAMPAIGN_010 / 011 / 012 / 013 stores; fixture sha256 + coverage; no fetch; no broker call) |
+| [`CAMPAIGN_014_WALK_FORWARD_PLAN.md`](CAMPAIGN_014_WALK_FORWARD_PLAN.md) | Phase 2 authoritative 8-fold rolling/frozen walk-forward plan (inherits CAMPAIGN_010 / 011 / 012 / 013 verbatim; per-fold event coverage table 171 events total: NFP 47 + FOMC 31 + ECB 31 + BoJ 31 + BoE 31) |
+| [`CAMPAIGN_014_WALK_FORWARD_EXECUTION.md`](CAMPAIGN_014_WALK_FORWARD_EXECUTION.md) | Phase 4 execution log — 56 backtests completed in 50.9 s; per-pair per-fold metrics; aggregate metrics; per-fold gate table; cost-section reconciliation (Pattern Q falsified on gross-expectancy side, not costs) |
+| [`CAMPAIGN_014_WALK_FORWARD_RESULT.md`](CAMPAIGN_014_WALK_FORWARD_RESULT.md) | Phase 5 walk-forward verdict — REJECT (direction-of-trade falsification); inherited gate table; turnover/cost gate table; CAMPAIGN_011 null-baseline comparison (OUTSIDE band on all 4 dimensions, WORSE side); calendar-event-window interpretation; explicit no-approval |
+| [`CAMPAIGN_014_FINANCING_OVERLAY.md`](CAMPAIGN_014_FINANCING_OVERLAY.md) | Phase 6 financing overlay (ESTIMATED + conservative stress; −$10.64 total, lowest of any real candidate; MODELED refused at 4 layers; zero pair-flips since every pair already negative; verdict unchanged) |
+| [`CAMPAIGN_014_PORTFOLIO_RISK_DIAGNOSTICS.md`](CAMPAIGN_014_PORTFOLIO_RISK_DIAGNOSTICS.md) | Phase 7 standard + CAMPAIGN_014-specific diagnostics (per-event-class PnL: NFP 571 / FOMC 0 / ECB 41 / BoJ 47 / BoE 61; per-event-class per-pair heatmap; entry-window concentration 100 % at offset 1; NFP concurrent-firing histogram median 6/7 pairs; per-fold fixture coverage PASS on all 8; 409 SESSION_BLOCKED + 196 SPREAD_TOO_WIDE rejections; FOMC = 0 trades + NFP-dominated losses surfaced) |
+| [`CAMPAIGN_014_INDEPENDENT_VERIFIER_STATUS.md`](CAMPAIGN_014_INDEPENDENT_VERIFIER_STATUS.md) | Phase 8 verifier status — NOT REQUIRED for REJECT (matches CAMPAIGN_010 / 011 / 012 / 013 precedent; 5 successive REJECT-with-no-verifier-extension outcomes); capability lock unchanged |
+| [`CAMPAIGN_014_EVIDENCE_SUMMARY.md`](CAMPAIGN_014_EVIDENCE_SUMMARY.md) | one-page evidence summary; headline numbers; null-baseline interpretation; per-pair vs CAMPAIGN_011; per-event-class breakdown; comparison across 5 real candidates + null; financing impact; risk diagnostics; verifier status; six-evidence-ladder status |
+| [`CALENDAR_EVENT_WINDOW_ANOMALY_WALK_FORWARD_001_SUMMARY.md`](CALENDAR_EVENT_WINDOW_ANOMALY_WALK_FORWARD_001_SUMMARY.md) | sprint summary & handoff; final validation; recommended next branch is the next discovery sprint (NOT a C7 retry; revival forbidden by Pattern O / P / Q) |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
