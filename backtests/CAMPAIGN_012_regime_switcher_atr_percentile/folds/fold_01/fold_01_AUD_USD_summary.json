@@ -1,0 +1,32 @@
+{
+  "instrument": "AUD_USD",
+  "strategy_name": "regime_switcher_atr_percentile",
+  "strategy_version": "0.1.0-c012",
+  "granularity": "H4",
+  "from_time": "2021-10-12T01:00:00+00:00",
+  "to_time": "2022-12-15T22:00:00+00:00",
+  "config_hash": "1ecd6f639a8ef316",
+  "data_request_hash": "647b82995c6c75cf",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -5.401498000000016,
+    "final_equity": 472.9925099999999,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -6.359394732097479,
+    "max_drawdown_duration_bars": 1323,
+    "sharpe": -2.4440015002652205,
+    "sortino": -2.6004491699979133,
+    "profit_factor": 0.5756785434036273,
+    "expectancy_r": -0.17318596044158227,
+    "average_r": -0.17318596044158227,
+    "median_r": -0.19069767441860466,
+    "win_rate": 0.4251968503937008,
+    "average_win": 0.6785400925925926,
+    "average_loss": -0.8718993835616438,
+    "trade_count": 127,
+    "largest_single_loss": -1.272845,
+    "average_spread_paid_pips": 1.4763779527559056,
+    "exposure_pct": 0.0
+  }
+}

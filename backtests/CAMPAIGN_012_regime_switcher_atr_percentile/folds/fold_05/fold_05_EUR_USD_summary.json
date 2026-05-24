@@ -1,0 +1,32 @@
+{
+  "instrument": "EUR_USD",
+  "strategy_name": "regime_switcher_atr_percentile",
+  "strategy_version": "0.1.0-c012",
+  "granularity": "H4",
+  "from_time": "2023-10-02T01:00:00+00:00",
+  "to_time": "2024-12-04T22:00:00+00:00",
+  "config_hash": "1ecd6f639a8ef316",
+  "data_request_hash": "c7ebcdc8e4e58bb3",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.46627399999997765,
+    "final_equity": 497.6686300000001,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.1066267265123255,
+    "max_drawdown_duration_bars": 708,
+    "sharpe": -0.34341496843779007,
+    "sortino": -0.2786644327796998,
+    "profit_factor": 0.8858546069402211,
+    "expectancy_r": -0.032464859375437236,
+    "average_r": -0.032464859375437236,
+    "median_r": -0.0782519980950597,
+    "win_rate": 0.4642857142857143,
+    "average_win": 0.6958921153846153,
+    "average_loss": -0.6808188333333334,
+    "trade_count": 56,
+    "largest_single_loss": -1.27917,
+    "average_spread_paid_pips": 1.4714285714285715,
+    "exposure_pct": 0.0
+  }
+}

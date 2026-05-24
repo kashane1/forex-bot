@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_CHF",
+  "strategy_name": "regime_switcher_atr_percentile",
+  "strategy_version": "0.1.0-c012",
+  "granularity": "H4",
+  "from_time": "2021-10-12T01:00:00+00:00",
+  "to_time": "2022-12-15T22:00:00+00:00",
+  "config_hash": "1ecd6f639a8ef316",
+  "data_request_hash": "240b4ccf7b4d3f00",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.6373304925467171,
+    "final_equity": 496.8133475372664,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -2.389243870415676,
+    "max_drawdown_duration_bars": 990,
+    "sharpe": -0.2540643613417688,
+    "sortino": -0.257760052751309,
+    "profit_factor": 0.9367102084004325,
+    "expectancy_r": -0.01886968236285452,
+    "average_r": -0.01886968236285452,
+    "median_r": 0.048398853011715426,
+    "win_rate": 0.5267175572519084,
+    "average_win": 0.6835293991465138,
+    "average_loss": -0.812099693610374,
+    "trade_count": 131,
+    "largest_single_loss": -1.2761485624974294,
+    "average_spread_paid_pips": 1.7580152671755727,
+    "exposure_pct": 0.0
+  }
+}

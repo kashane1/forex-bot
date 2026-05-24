@@ -1,0 +1,32 @@
+{
+  "instrument": "AUD_USD",
+  "strategy_name": "regime_switcher_atr_percentile",
+  "strategy_version": "0.1.0-c012",
+  "granularity": "H4",
+  "from_time": "2023-04-05T01:00:00+00:00",
+  "to_time": "2024-06-07T17:00:00+00:00",
+  "config_hash": "1ecd6f639a8ef316",
+  "data_request_hash": "f165ef6889b57642",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -1.2837450000000472,
+    "final_equity": 493.5812749999998,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.9627862083372805,
+    "max_drawdown_duration_bars": 1313,
+    "sharpe": -1.0485767835134678,
+    "sortino": -0.9315409610991399,
+    "profit_factor": 0.6930833936609611,
+    "expectancy_r": -0.10403291868615568,
+    "average_r": -0.10403291868615568,
+    "median_r": -0.03697617091207888,
+    "win_rate": 0.4897959183673469,
+    "average_win": 0.6039522916666668,
+    "average_loss": -0.8365431999999999,
+    "trade_count": 49,
+    "largest_single_loss": -1.2628,
+    "average_spread_paid_pips": 1.2775510204081633,
+    "exposure_pct": 0.0
+  }
+}
