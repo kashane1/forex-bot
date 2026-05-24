@@ -38,6 +38,7 @@ strategy is approved.**
 | `session_breakout 0.1.0-c010` | rejected | NO | NO | NO | CAMPAIGN_010 |
 | `random_entry_anchor 0.1.0-c011` | rejected (null model anchor) | NO | NO | NO | CAMPAIGN_011 |
 | `regime_switcher_atr_percentile 0.1.0-c012` | rejected | NO | NO | NO | CAMPAIGN_012 |
+| `cross_pair_currency_strength_rotation 0.1.0-c013` | rejected | NO | NO | NO | CAMPAIGN_013 |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
@@ -148,37 +149,65 @@ for the one-page summary.
   CAMPAIGN_010's 100 % London); 79.3 % time-stop exit (matches
   CAMPAIGN_011's ~75 %); 8 / 8 pipeline sanity checks pass.
 
-**Next real candidate scaffolded (evidence sprint not yet run):**
-the
-[`research-cross-pair-currency-strength-rotation-001`](CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_001_SUMMARY.md)
-scaffold sprint implemented **C6 — Cross-Pair Currency Strength
-Rotation** as **`CAMPAIGN_013 / cross_pair_currency_strength_rotation 0.1.0-c013`**.
-The strategy module
-(`src/forex_bot/strategies/cross_pair_currency_strength_rotation.py`),
-the `CrossPairCurrencyStrengthRotationStrategyConfig` schema, 57
-unit tests, the candidate config
-(`configs/campaign_013_cross_pair_currency_strength_rotation.yaml`),
-and the CAMPAIGN_013 pre-commit / status / readiness / smoke docs are
-all committed. **Scaffolding is not approval.** No backtest, no
-walk-forward, no financing overlay, no risk diagnostics, and no
-verifier corroboration have been produced; the candidate has not
-been added to `configs/approved_strategies.yaml` (registry remains
-`approved: []`) and is not enabled in `configs/paper.yaml` /
-`configs/practice.yaml`. The next sprint is
-[`research-cross-pair-currency-strength-rotation-walk-forward-001`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_004.md)
-(the evidence sprint). It must beat the CAMPAIGN_011 null-baseline
-margins codified in
-[`CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md`](CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md)
-(≥ +0.0524 R aggregate expectancy, ≥ +0.19 profit factor, ≥ +5.5 pp
-pairs-positive, ≥ +1 pair, 100 % fold pass rate) to qualify even as
-a `RESEARCH_PASS_UNAPPROVED` candidate; an "indistinguishable from
-null" result (within ± 0.005 R / ± 0.10 PF / ± 2 pp / ± 1 pair of
-CAMPAIGN_011) is REJECTED. The evidence sprint must also implement
-the binding cross-pair runner integration contract (align all 7
-pairs' completed H4 closes to a common index; inject as
-`cross_pair_closes` into each pair's `strategy_config`). The
-evidence sprint has not run yet; the row below will appear here once
-it records a verdict.
+### `cross_pair_currency_strength_rotation 0.1.0-c013`
+
+- **Status:** rejected.
+- **Evidence:** CAMPAIGN_013 walk-forward
+  (`research-cross-pair-currency-strength-rotation-walk-forward-001`),
+  real OANDA practice H4, 7-pair universe, 8 folds rolling/frozen,
+  **7,940 trades** total: **fold pass rate 0 / 8, aggregate expectancy
+  −0.0564 R, profit factor 0.000, aggregate return −113.36 % over 4
+  years, 1 / 7 pairs positive (USD_JPY +0.0000 R — random-walk
+  floor)**.
+- **Paper / demo / live:** NO / NO / NO.
+- **Reason:** The C6 cross-pair 8-currency-strength rank-gap rule
+  (long strong-base / short strong-quote pair when
+  `|rank(quote) − rank(base)| ≥ 4`) over a 6-bar holding period
+  **did not produce a directional edge** on H4 majors. It amplified
+  trade count (7,940 vs CAMPAIGN_011's 1,177 — ~6.7 × as many)
+  without improving signal quality, accumulating cost drag.
+  CAMPAIGN_013 is **catastrophically worse than the CAMPAIGN_011 null
+  baseline** on every binding axis (expectancy −0.0540 R lower, PF
+  −0.910 lower, return −112.83 pp lower, pairs −2 lower);
+  classification is **REJECT** (not REJECT_INDISTINGUISHABLE_FROM_NULL
+  because the divergence is in the worse direction). The hypothesis
+  "cross-pair currency-strength rank-gap predicts pair direction on
+  6-bar holding period" is falsified by the evidence on this universe
+  + timeframe. USD_JPY's +0.0000 R is the same near-exact-zero
+  random-walk floor CAMPAIGN_011 and CAMPAIGN_012 surfaced; NZD_USD
+  is catastrophic at −41.76 % over 4 years on 1,863 trades. The
+  cross-pair runner integration contract was **SATISFIED on all 8
+  folds** (common_index 1,825-1,848 H4 bars) — the REJECT is on
+  inherited gates alone, not BLOCKED. Verifier did not run
+  (capability-locked to CAMPAIGN_002; not required for REJECT; the
+  suggested follow-up
+  `infra-free-local-parity-verifier-cross-pair-currency-strength-rotation-001`
+  is **deferred indefinitely**). Financing overlay (ESTIMATED +
+  conservative stress; MODELED refused at 4 layers) confirms the
+  REJECT — adds −$139.99 drag (7,154 rollover events); **USD_JPY
+  flips + → −** under financing (+$2.27 → −$5.89), taking
+  `pairs_positive` from 1/7 to 0/7 post-financing; the
+  `conservative_stress_run_does_not_flip_verdict` gate PASSES (verdict
+  was already REJECT pre-financing). Architectural diagnostic:
+  `MAX_OPEN_POSITIONS_EXCEEDED = 0` (per-pair runner; engine is
+  single-instrument); simultaneous-signal frequency ~40 % of trading
+  bars (cross-pair signal often fires on 2-4 pairs at the same H4
+  timestamp; a portfolio-aware runner would cut trade count by ~40 %
+  but cannot rescue per-pair negative expectancy on 6 of 7 pairs).
+  **CAMPAIGN_013 is the worst-performing campaign to date by
+  aggregate return / profit factor / trade count** (~214 × worse than
+  CAMPAIGN_011 null floor; ~2.6 × worse than CAMPAIGN_012
+  regime-switcher).
+
+**Anti-pattern established by CAMPAIGN_012 + CAMPAIGN_013:** adding a
+turnover-amplifying filter to a negative-edge entry direction on H4
+majors makes results materially **worse**, not better — the
+incremental complexity buys trade frequency without buying signal
+quality. The slope is monotonic in trade count: CAMPAIGN_011 (1,177
+trades, −0.53 %) → CAMPAIGN_012 (3,726 trades, −43.52 %) →
+CAMPAIGN_013 (7,940 trades, −113.36 %). Any future discovery sprint
+should explicitly disqualify turnover-amplifying filters on top of
+rejected entry directions on this universe.
 
 ## Per-strategy detail
 

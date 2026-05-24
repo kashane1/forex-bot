@@ -674,6 +674,59 @@ inject as `cross_pair_closes` into each pair's `strategy_config`).
 | [`CAMPAIGN_013_INDEPENDENT_VERIFIER_READINESS.md`](CAMPAIGN_013_INDEPENDENT_VERIFIER_READINESS.md) | future-evidence verifier coverage; current capability lock to CAMPAIGN_002 / `trend_following`; not required for REJECT; required only on RESEARCH_PASS_UNAPPROVED via the suggested follow-up sprint `infra-free-local-parity-verifier-cross-pair-currency-strength-rotation-001` |
 | [`CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_001_SUMMARY.md`](CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_001_SUMMARY.md) | sprint summary & handoff; final validation; recommended next branch is the evidence sprint `research-cross-pair-currency-strength-rotation-walk-forward-001` |
 
+### CAMPAIGN_013 walk-forward evidence (`research-cross-pair-currency-strength-rotation-walk-forward-001`)
+
+Walk-forward evidence sprint that ran the full evaluation pipeline
+against the `cross_pair_currency_strength_rotation 0.1.0-c013` C6
+cross-pair currency-strength rotation candidate on the 7-pair ×
+6-year real OANDA practice H4 universe. Verdict: **REJECT** — 5 of
+8 inherited aggregate gates fail (`fold_pass_rate = 0/8`;
+`aggregate_expectancy_r = −0.0564 R`; `profit_factor = 0.000`;
+`pairs_positive = 1/7`); aggregate return **−113.36 %** over 4 years
+on **7,940 trades**. **Catastrophically worse than CAMPAIGN_011 null
+baseline** on every binding axis (expectancy −0.0540 R lower, PF
+−0.910 lower, return −112.83 pp lower, pairs −2 lower) — well
+outside the symmetric ±0.005 R / ±0.10 PF / ±2 pp / ±1 pair
+indistinguishability band; classification is **REJECT** (not
+`REJECT_INDISTINGUISHABLE_FROM_NULL` because the divergence is in
+the WORSE direction). The rank-gap rule amplified trade count (7,940
+vs CAMPAIGN_011's 1,177 — 6.7 × as many) without improving signal
+quality, accumulating cost drag. USD_JPY's +0.0000 R is the same
+near-exact-zero random-walk floor CAMPAIGN_011 and CAMPAIGN_012
+surfaced; NZD_USD catastrophic at −41.76 % over 4 years on 1,863
+trades. The **cross-pair runner integration contract was SATISFIED
+on all 8 folds** (common_index 1,825-1,848 H4 bars) — the REJECT is
+on inherited gates alone, not BLOCKED. Financing overlay
+(ESTIMATED + conservative stress; MODELED refused at 4 layers) adds
+−$139.99 drag (7,154 rollover events); USD_JPY flips + → − under
+financing (+$2.27 → −$5.89), taking `pairs_positive` from 1/7 to 0/7
+post-financing. Architectural diagnostic:
+`MAX_OPEN_POSITIONS_EXCEEDED = 0` (per-pair runner; engine is
+single-instrument); ~40 % simultaneous-signal rate (a portfolio-aware
+runner would cut trade count by ~40 % but cannot rescue per-pair
+negative expectancy on 6 of 7 pairs). **CAMPAIGN_013 is the
+worst-performing campaign to date by aggregate return / profit
+factor / trade count.** CAMPAIGN_013 reclassifies from
+`scaffold-only` to `rejected`. `configs/approved_strategies.yaml`
+remains `approved: []`; CAMPAIGN_002 / CAMPAIGN_010 / CAMPAIGN_011 /
+CAMPAIGN_012 remain REJECT and untouched. Paper / demo / live remain
+blocked. **CAMPAIGN_013 cannot be approved.** No broker call, no
+credential read, no parameter tuning.
+
+| document | what it is |
+|---|---|
+| [`CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_WALK_FORWARD_001_PLAN.md`](CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_WALK_FORWARD_001_PLAN.md) | Phase 0 repo truth audit + 10-phase evidence-sprint plan; baseline 875 pytests pass; data status (existing 7-pair × 6-year H4 store reused via gitignored symlink) |
+| [`CAMPAIGN_013_DATA_PROVENANCE.md`](CAMPAIGN_013_DATA_PROVENANCE.md) | Phase 1 data provenance — per-pair counts, first/last bar timestamps, recorded raw/normalized SHA-256 prefixes; ALL HASHES MATCH CAMPAIGN_010 / CAMPAIGN_011 / CAMPAIGN_012 verbatim (same physical store; identical data) |
+| [`CAMPAIGN_013_WALK_FORWARD_PLAN.md`](CAMPAIGN_013_WALK_FORWARD_PLAN.md) | Phase 2 authoritative walk-forward plan — 8 folds rolling/frozen, 540/180/180/180 days, universe 2020-01-01 → 2026-05-20, IDENTICAL to CAMPAIGN_010 / 011 / 012 plans |
+| [`CAMPAIGN_013_WALK_FORWARD_EXECUTION.md`](CAMPAIGN_013_WALK_FORWARD_EXECUTION.md) | Phase 4 per-fold execution — 56 backtests (8 folds × 7 pairs) in ~20.2 s, 7,940 trades, frozen-parameter assertion in runner, no implementation bug fixes required, **cross-pair runner contract SATISFIED on all 8 folds** |
+| [`CAMPAIGN_013_WALK_FORWARD_RESULT.md`](CAMPAIGN_013_WALK_FORWARD_RESULT.md) | Phase 5 formal verdict — REJECT; 5 of 8 inherited aggregate gates fail; CAMPAIGN_011 null-baseline comparison classifies REJECT (not REJECT_INDISTINGUISHABLE_FROM_NULL because metrics diverge from null in WORSE direction); NOT BLOCKED (contract satisfied) |
+| [`CAMPAIGN_013_FINANCING_OVERLAY.md`](CAMPAIGN_013_FINANCING_OVERLAY.md) | Phase 6 financing overlay — ESTIMATED + `default_stress_rate_source()` (MODELED refused at four layers); 7,154 rollover events; cashflow_home_stress_total = −$139.99; USD_JPY flips + → − under financing (pairs_positive 1/7 → 0/7 post-financing); `conservative_stress_run_does_not_flip_verdict` PASSES (verdict already REJECT pre-financing) |
+| [`CAMPAIGN_013_PORTFOLIO_RISK_DIAGNOSTICS.md`](CAMPAIGN_013_PORTFOLIO_RISK_DIAGNOSTICS.md) | Phase 7 risk diagnostics — standard battery (per-pair exposure, session clustering, exit reasons, rejection codes) PLUS CAMPAIGN_013-specific (cross-pair runner contract status per fold, zero-trade pair-fold cells 29/56, per-fold long/short imbalance, simultaneous-signal frequency ~40 %, per-pair firing rate ~16-18 %); architectural finding `MAX_OPEN_POSITIONS_EXCEEDED = 0` (per-pair runner); RiskEngine rejected 41 % of raw signals (SPREAD_TOO_WIDE 3024, DRAWDOWN_LIMIT 1507, SESSION_BLOCKED 992); 76.7 % time-stop exit |
+| [`CAMPAIGN_013_INDEPENDENT_VERIFIER_STATUS.md`](CAMPAIGN_013_INDEPENDENT_VERIFIER_STATUS.md) | Phase 8 verifier capability assessment — verifier capability-locked to CAMPAIGN_002 / `trend_following`; did NOT run for CAMPAIGN_013; not required for REJECT; recommended follow-up `infra-free-local-parity-verifier-cross-pair-currency-strength-rotation-001` **deferred indefinitely** (no paper-promotion candidate to corroborate; extension would be structurally larger than CAMPAIGN_012's would have been because of the cross-pair runner integration contract re-implementation requirement) |
+| [`CAMPAIGN_013_EVIDENCE_SUMMARY.md`](CAMPAIGN_013_EVIDENCE_SUMMARY.md) | Phase 9 one-page evidence summary — headline numbers, null-baseline interpretation, cross-pair rotator interpretation (hypothesis falsified), comparison to prior REJECT campaigns (CAMPAIGN_013 is worst-performing campaign to date) |
+| [`CAMPAIGN_013_STATUS.md`](CAMPAIGN_013_STATUS.md) (updated) | now reclassified `scaffold-only → rejected`; verdict, gates, evidence artifacts, safety state |
+| [`CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_WALK_FORWARD_001_SUMMARY.md`](CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_WALK_FORWARD_001_SUMMARY.md) | sprint summary & handoff |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
