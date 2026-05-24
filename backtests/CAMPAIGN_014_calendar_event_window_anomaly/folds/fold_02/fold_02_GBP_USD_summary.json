@@ -1,0 +1,32 @@
+{
+  "instrument": "GBP_USD",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2022-06-19T21:00:00+00:00",
+  "to_time": "2023-06-13T21:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "1e77082c1af417cb",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.7154180000000121,
+    "final_equity": 496.42290999999994,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -1.4636097380782906,
+    "max_drawdown_duration_bars": 935,
+    "sharpe": -0.6013019807346376,
+    "sortino": -0.4051967136503958,
+    "profit_factor": 0.6591546638512935,
+    "expectancy_r": -0.15824160677962432,
+    "average_r": -0.15824160677962432,
+    "median_r": -0.3900387978815125,
+    "win_rate": 0.2777777777777778,
+    "average_win": 1.3835340000000003,
+    "average_loss": -0.8072892307692308,
+    "trade_count": 18,
+    "largest_single_loss": -1.260405,
+    "average_spread_paid_pips": 1.877777777777778,
+    "exposure_pct": 0.0
+  }
+}

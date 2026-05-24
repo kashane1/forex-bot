@@ -1,0 +1,32 @@
+{
+  "instrument": "EUR_USD",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2023-06-14T01:00:00+00:00",
+  "to_time": "2024-06-07T17:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "9b3fd8205be205d1",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": 0.3831520000000088,
+    "final_equity": 501.91576000000003,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -0.7562363133695406,
+    "max_drawdown_duration_bars": 1034,
+    "sharpe": 0.42003692291083095,
+    "sortino": 0.2322470930446153,
+    "profit_factor": 1.3541561717502888,
+    "expectancy_r": 0.10798847181174268,
+    "average_r": 0.10798847181174268,
+    "median_r": -0.0616822839367569,
+    "win_rate": 0.5,
+    "average_win": 1.0464464285714286,
+    "average_loss": -0.7727664285714285,
+    "trade_count": 14,
+    "largest_single_loss": -1.2636,
+    "average_spread_paid_pips": 1.4285714285714284,
+    "exposure_pct": 0.0
+  }
+}

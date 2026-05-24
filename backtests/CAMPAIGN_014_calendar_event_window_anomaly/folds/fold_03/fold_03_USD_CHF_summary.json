@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_CHF",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2022-12-16T02:00:00+00:00",
+  "to_time": "2023-12-10T22:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "5fc9635a86f8fba2",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.5656489965131906,
+    "final_equity": 497.17175501743407,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -0.6559012612369997,
+    "max_drawdown_duration_bars": 1438,
+    "sharpe": -1.1110888094960838,
+    "sortino": -0.43232829125245126,
+    "profit_factor": 0.40875544805740743,
+    "expectancy_r": -0.21953600901926895,
+    "average_r": -0.21953600901926895,
+    "median_r": -0.4062106844026868,
+    "win_rate": 0.45454545454545453,
+    "average_win": 0.39106002457577776,
+    "average_loss": -0.7972575175741258,
+    "trade_count": 11,
+    "largest_single_loss": -1.268140035204381,
+    "average_spread_paid_pips": 1.681818181818182,
+    "exposure_pct": 0.0
+  }
+}

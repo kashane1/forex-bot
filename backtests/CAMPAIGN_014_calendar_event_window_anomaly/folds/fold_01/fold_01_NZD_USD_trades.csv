@@ -1,0 +1,4 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing
+NZD_USD,long,217,2022-03-04T14:00:00+00:00,2022-03-07T14:00:00+00:00,0.686305,0.68231,0.68043,-0.866915,-0.68,6,2.5,time,signal_bar_close
+NZD_USD,long,199,2022-07-01T13:00:00+00:00,2022-07-04T13:00:00+00:00,0.618875,0.62146,0.61251,0.514415,0.4061272584446190102120974077,6,2.5,time,signal_bar_close
+NZD_USD,short,204,2022-09-02T13:00:00+00:00,2022-09-05T13:00:00+00:00,0.610035,0.60955,0.61626,0.098940,0.07791164658634538152610441767,6,2.3,time,signal_bar_close

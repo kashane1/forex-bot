@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_CAD",
+  "strategy_name": "calendar_event_window_anomaly",
+  "strategy_version": "0.1.0-c014",
+  "granularity": "H4",
+  "from_time": "2021-12-21T02:00:00+00:00",
+  "to_time": "2022-12-15T22:00:00+00:00",
+  "config_hash": "1757fddc7fe903e5",
+  "data_request_hash": "052a49cc0df25a22",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.23636703836193984,
+    "final_equity": 498.8181648081903,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -0.4451031805738418,
+    "max_drawdown_duration_bars": 660,
+    "sharpe": -0.338678098270698,
+    "sortino": -0.17706364900589996,
+    "profit_factor": 0.7783398683670705,
+    "expectancy_r": -0.05536584381374828,
+    "average_r": -0.05536584381374828,
+    "median_r": -0.04977966494034908,
+    "win_rate": 0.5,
+    "average_win": 0.6916515544527825,
+    "average_loss": -0.8886240864210682,
+    "trade_count": 12,
+    "largest_single_loss": -1.2561023576502164,
+    "average_spread_paid_pips": 1.908333333333333,
+    "exposure_pct": 0.0
+  }
+}
