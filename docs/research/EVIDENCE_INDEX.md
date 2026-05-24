@@ -489,6 +489,42 @@ credential read, no parameter tuning, no seed optimization.
 | [`CAMPAIGN_011_STATUS.md`](CAMPAIGN_011_STATUS.md) (updated) | now reclassified `scaffold-only → rejected (null model anchor)`; verdict, gates, evidence artifacts, safety state |
 | [`RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_WALK_FORWARD_001_SUMMARY.md`](RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_WALK_FORWARD_001_SUMMARY.md) | sprint summary & handoff |
 
+### New candidate strategy discovery — Sprint 003 (`research-new-candidate-strategy-discovery-003`)
+
+Third candidate-discovery sprint, opened after CAMPAIGN_011
+(`random_entry_anchor 0.1.0-c011`) was REJECTED as the
+expected/desired null-model anchor. Codifies CAMPAIGN_011 as a
+**quantitative falsifiability floor** (aggregate expectancy
+−0.0024 R, profit factor 0.91, fold pass rate 0/8, pairs
+positive 3/7, return −0.53 % over 4 years; USD_JPY expectancy
+literally +0.0000) and defines an "indistinguishable from null"
+band + "meaningful improvement over null" margins that every
+future real-edge candidate must beat. Re-scores the remaining
+shortlist (C2 / C3 / C4 / new-family) against the now-6 rejected
+baseline (5 prior + CAMPAIGN_011 null anchor), confirms C3 has
+NONE HARD blockers because the H4→D1AGG aggregator already
+exists (`src/forex_bot/backtesting/d1_aggregation.py`), and
+selects **C3 — Daily-ATR-percentile regime switcher (future
+CAMPAIGN_012)** as the next preferred real candidate.
+**Selection is not approval.** The selected candidate is
+designed but not yet implemented; the discovery output is two
+binding future-branch specs (scaffold + evidence). No strategy
+code, no backtest, no broker call, no approval. The 771-test
+baseline is preserved.
+
+| document | what it is |
+|---|---|
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_003_PLAN.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_003_PLAN.md) | Phase 0 audit + 9-phase sprint plan; verifies safety state at the close of CAMPAIGN_011's REJECT; confirms D1AGG infrastructure already exists; baseline 771 pytests pass |
+| [`CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md`](CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md) | Phase 1 — codifies CAMPAIGN_011's verbatim metrics as a quantitative falsifiability floor; defines "indistinguishable from null" band (±0.005 R / ±0.10 PF / ±2 pp / ±1 pair) and "meaningful improvement over null" margins (≥+0.0524 R / ≥+0.19 PF / ≥+5.5 pp / ≥+1 pair / 100% fold pass); 7 anti-overfit rules; binds future scaffold pre-commit + evidence verdict docs to include null-baseline reference / comparison sections |
+| [`CANDIDATE_STRATEGY_FAMILY_REASSESSMENT_003.md`](CANDIDATE_STRATEGY_FAMILY_REASSESSMENT_003.md) | Phase 2 — full scoring of C2 / C3 / C4 against the now-6 rejected baseline (incl. CAMPAIGN_011 null anchor); C2 blocked (MODELED financing); C3 NONE HARD (D1AGG infra already exists); C4 blocked (engine paired-entry); recommendation = C3 |
+| [`C3_REGIME_SWITCHER_FEASIBILITY_REVIEW.md`](C3_REGIME_SWITCHER_FEASIBILITY_REVIEW.md) | Phase 3 — C3 feasibility deep dive; frozen parameters pre-committed BEFORE any code (`daily_atr_lookback=14`, `regime_lookback_days=60`, `regime_percentile_threshold=0.70`, `min_close_move_atr_fraction=0.25`, `trend_lookback_h4_bars=4`); 6 leakage risks with concrete mitigations; safe implementation pattern in pseudocode using `aggregate_h4_to_d1`; distinctness vs every rejected family ≥5/6; feasibility GREEN |
+| [`NEXT_PREFERRED_REAL_CANDIDATE_003.md`](NEXT_PREFERRED_REAL_CANDIDATE_003.md) | Phase 4 — C3 selected as `regime_switcher_atr_percentile 0.1.0-c012` (CAMPAIGN_012); future branches `research-regime-switcher-atr-percentile-001` (scaffold) + `research-regime-switcher-atr-percentile-walk-forward-001` (evidence); distinctness tables vs CAMPAIGN_002 / CAMPAIGN_010 / CAMPAIGN_011 all 5/6; compatibility checks all GREEN; C2 / C4 deferred (not abandoned) |
+| [`NEXT_PREFERRED_REAL_CANDIDATE_IMPLEMENTATION_DESIGN_003.md`](NEXT_PREFERRED_REAL_CANDIDATE_IMPLEMENTATION_DESIGN_003.md) | Phase 5 binding design — R1-R8 signal rules (warm-up 500 bars; regime via `aggregate_h4_to_d1` + Wilder ATR-14 + trailing-60 P70; H4 ATR fail-closed; close[t] vs close[t-4] trend + ATR-fraction filter; ATR-stop placement; spread delegated; emit deterministic Signal); 11 no-lookahead invariants; `RegimeSwitcherAtrPercentileStrategyConfig` Pydantic schema; ≥25 unit tests planned; walk-forward inherits CAMPAIGN_010 §10 + adds null-baseline comparison gate; `RESEARCH_PASS_UNAPPROVED` classification rule |
+| [`NEXT_REAL_CANDIDATE_SCAFFOLD_BRANCH_SPEC_003.md`](NEXT_REAL_CANDIDATE_SCAFFOLD_BRANCH_SPEC_003.md) | Phase 6a — future scaffold-branch prompt (`research-regime-switcher-atr-percentile-001`); 8 phases; strategy module + config + ≥ 25 unit tests + research config + CAMPAIGN_012 docs + smoke; baseline 771 → ≥ 796 pytests; no backtest run |
+| [`NEXT_REAL_CANDIDATE_EVIDENCE_BRANCH_SPEC_003.md`](NEXT_REAL_CANDIDATE_EVIDENCE_BRANCH_SPEC_003.md) | Phase 6b — future evidence-branch prompt (`research-regime-switcher-atr-percentile-walk-forward-001`); 9 phases mirroring CAMPAIGN_011 exactly; full walk-forward + financing + risk + verifier; verdict options REJECT / REJECT (indistinguishable from null) / RESEARCH_PASS_UNAPPROVED / BLOCKED; UNEXPECTED-PASS 5-step protocol |
+| [`NEW_CANDIDATE_DISCOVERY_003_HELPER_DECISION.md`](NEW_CANDIDATE_DISCOVERY_003_HELPER_DECISION.md) | Phase 7 — six helper-code options considered, all rejected with documented rationale; zero code added; matches both prior discovery sprints' identical no-helper decision |
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_003_SUMMARY.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_003_SUMMARY.md) | Phase 8 — sprint summary & handoff; final validation; recommended next branch is the scaffold sprint `research-regime-switcher-atr-percentile-001` |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
