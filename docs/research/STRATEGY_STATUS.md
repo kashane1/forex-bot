@@ -148,6 +148,29 @@ for the one-page summary.
   CAMPAIGN_010's 100 % London); 79.3 % time-stop exit (matches
   CAMPAIGN_011's ~75 %); 8 / 8 pipeline sanity checks pass.
 
+**Next real candidate selected (not yet scaffolded):** the
+`research-new-candidate-strategy-discovery-004` sprint selected
+**C6 — Cross-Pair Currency Strength Rotation** for future
+**`CAMPAIGN_013 / cross_pair_currency_strength_rotation 0.1.0-c013`**.
+Selection is **not** approval; no strategy code has been written,
+no backtest has been run, no walk-forward evidence exists, and
+the candidate has not been added to
+`configs/approved_strategies.yaml`. The future scaffold sprint is
+[`research-cross-pair-currency-strength-rotation-001`](NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_004.md);
+the future evidence sprint is
+[`research-cross-pair-currency-strength-rotation-walk-forward-001`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_004.md).
+Frozen parameters are pre-committed in
+[`NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_004.md`](NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_004.md)
+before any code exists. The future evidence sprint must beat the
+CAMPAIGN_011 null-baseline margins codified in
+[`CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md`](CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md)
+(≥ +0.0524 R aggregate expectancy, ≥ +0.19 profit factor, ≥ +5.5 pp
+pairs-positive, ≥ +1 pair, 100 % fold pass rate) to qualify even as
+a `RESEARCH_PASS_UNAPPROVED` candidate; an "indistinguishable from
+null" result (within ± 0.005 R / ± 0.10 PF / ± 2 pp / ± 1 pair of
+CAMPAIGN_011) is REJECTED. Neither sprint has run yet; the row below
+will appear here once the evidence sprint records a verdict.
+
 ## Per-strategy detail
 
 ### `trend_following 0.1.0` — EMA + Donchian baseline

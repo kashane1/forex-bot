@@ -598,6 +598,44 @@ read, no parameter tuning.
 | [`CAMPAIGN_012_STATUS.md`](CAMPAIGN_012_STATUS.md) (updated) | now reclassified `scaffold-only → rejected`; verdict, gates, evidence artifacts, safety state |
 | [`REGIME_SWITCHER_ATR_PERCENTILE_WALK_FORWARD_001_SUMMARY.md`](REGIME_SWITCHER_ATR_PERCENTILE_WALK_FORWARD_001_SUMMARY.md) | sprint summary & handoff |
 
+### New candidate strategy discovery — Sprint 004 (`research-new-candidate-strategy-discovery-004`)
+
+Fourth candidate-discovery sprint, opened after CAMPAIGN_012
+(`regime_switcher_atr_percentile 0.1.0-c012`) was REJECTED.
+Codifies CAMPAIGN_012's rejection closeout (off-limits parameter
+surface + indefinite cooldown for the regime-switcher family);
+adds 5 new disqualifying overfitting patterns (H–L) to the base
+rejected-family guardrails (forbidding same-regime-different-
+threshold retunes, trend-filter lookback sweeps, rank-inversion
+"different cutoff" variants, rejected-family stacks, and per-fold-
+artifact-driven family selection); re-scores the now-7 rejected
+baseline (5 prior + CAMPAIGN_011 null + CAMPAIGN_012 real) against
+4 deferred candidates (C2 / C4) + 4 infrastructure paths
+(financing-MODELED-capture, paired-entry-engine-support, verifier-
+extension, ruff-cleanup); proposes 4 genuinely-new candidate
+families (C6 / C7 / C8 / C9); selects **C6 — Cross-Pair Currency
+Strength Rotation** for future **CAMPAIGN_013 /
+`cross_pair_currency_strength_rotation 0.1.0-c013`** as the next
+preferred real candidate. **Selection is not approval.** The
+selected candidate is designed but not yet implemented; the
+discovery output is two binding future-branch specs (scaffold +
+evidence). No strategy code, no backtest, no broker call, no
+approval. The 818-test baseline is preserved.
+
+| document | what it is |
+|---|---|
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_004_PLAN.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_004_PLAN.md) | Phase 0 audit + 10-phase sprint plan; verifies safety state at the close of CAMPAIGN_012's REJECT; baseline 818 pytests pass |
+| [`CAMPAIGN_012_REJECTION_CLOSEOUT.md`](CAMPAIGN_012_REJECTION_CLOSEOUT.md) | Phase 1 — formal closeout for `regime_switcher_atr_percentile 0.1.0-c012`; codifies which regime-switcher parameters are off-limits to retune (12 frozen parameters + 5 illegitimate extension patterns); binding cooldown rule against the regime-switcher family until a future human explicitly authorizes a "materially different" thesis |
+| [`REJECTED_FAMILY_OVERFIT_GUARDRAILS_004_ADDENDUM.md`](REJECTED_FAMILY_OVERFIT_GUARDRAILS_004_ADDENDUM.md) | Phase 2 — additive addendum to the base guardrails doc; adds Patterns H (same regime gate, different threshold), I (same trend filter, different lookback), J (same percentile, different cutoff), K (rejected-family stack), L (per-fold-artifact-driven family selection); "genuinely new" criteria (7 axes) any candidate must satisfy after the now-7 rejected baseline |
+| [`NEXT_DIRECTION_REASSESSMENT_004.md`](NEXT_DIRECTION_REASSESSMENT_004.md) | Phase 3 — 15-axis scoring of 7 paths (C2 / C4 / C6+ + infra-A/B/C/D); recommends discovery-driven C6+ family selection (zero blockers; evaluable honestly today); fallback to infra-A if Phase 4 fails |
+| [`CANDIDATE_STRATEGY_FAMILY_SHORTLIST_004.md`](CANDIDATE_STRATEGY_FAMILY_SHORTLIST_004.md) | Phase 4 — shortlist of 4 genuinely-new families (C6 cross-pair currency strength rotation; C7 calendar-event window anomaly; C8 multi-window vol-compression breakout; C9 time-of-day cost-adjusted MR on spreads); 13 disqualified variants documented |
+| [`NEXT_PREFERRED_DIRECTION_004.md`](NEXT_PREFERRED_DIRECTION_004.md) | Phase 5 — C6 selected as `cross_pair_currency_strength_rotation 0.1.0-c013` (CAMPAIGN_013); future branches `research-cross-pair-currency-strength-rotation-001` (scaffold) + `research-cross-pair-currency-strength-rotation-walk-forward-001` (evidence); distinctness vs every rejected family 6/6; Patterns H–L explicitly cleared; C7/C8/C9 and all 4 infra paths deferred (not abandoned) |
+| [`NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_004.md`](NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_004.md) | Phase 6 binding design — currency-strength feature definition (8 currencies; USD-base / USD-quote sign convention; USD strength = `−mean(non-USD)`); R1-R8 signal rules; 9 frozen parameters (`currency_strength_lookback_bars=24`, `rank_gap_threshold=4`, etc.); 12 no-lookahead invariants; `CrossPairCurrencyStrengthRotationStrategyConfig` schema; ≥ 30 unit tests planned; walk-forward inherits CAMPAIGN_010 §10 + adds null-baseline comparison gate; critical multi-pair-runner integration contract for the evidence sprint; cross-pair concurrent-rejection rate as CAMPAIGN_013-specific risk diagnostic |
+| [`NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_004.md`](NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_004.md) | Phase 7a — future scaffold-branch prompt (`research-cross-pair-currency-strength-rotation-001`); 8 phases; strategy module + config + ≥ 30 unit tests + research config + CAMPAIGN_013 docs + smoke; baseline 818 → ≥ 848 pytests; no backtest run |
+| [`NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_004.md`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_004.md) | Phase 7b — future evidence-branch prompt (`research-cross-pair-currency-strength-rotation-walk-forward-001`); 10 phases mirroring CAMPAIGN_012 evidence sprint; full walk-forward + financing + risk + verifier; verdict options REJECT / REJECT_INDISTINGUISHABLE_FROM_NULL / RESEARCH_PASS_UNAPPROVED / BLOCKED; binding cross-pair-runner integration contract |
+| [`NEW_CANDIDATE_DISCOVERY_004_HELPER_DECISION.md`](NEW_CANDIDATE_DISCOVERY_004_HELPER_DECISION.md) | Phase 8 — seven helper-code options considered, all rejected with documented rationale; zero code added; matches all three prior discovery sprints' identical no-helper decision |
+| [`NEW_CANDIDATE_STRATEGY_DISCOVERY_004_SUMMARY.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_004_SUMMARY.md) | Phase 9 — sprint summary & handoff; final validation; recommended next branch is the scaffold sprint `research-cross-pair-currency-strength-rotation-001` |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
