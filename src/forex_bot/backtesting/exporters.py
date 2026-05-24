@@ -50,6 +50,12 @@ def write_trades_csv(result: BacktestResult, path: Path) -> None:
         "spread_paid_pips",
         "exit_reason",
         "fill_timing",
+        # Trailing columns added by sprint infra-exit-fidelity-001.
+        # CSV convention is append-at-end (mirrors how fill_timing was
+        # added in infra-execution-fidelity-001).
+        "ambiguous_exit",
+        "gap_fill",
+        "gap_fill_distance_pips",
     ]
     with path.open("w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames)
@@ -71,6 +77,13 @@ def write_trades_csv(result: BacktestResult, path: Path) -> None:
                     "spread_paid_pips": str(t.spread_paid_pips),
                     "exit_reason": t.exit_reason,
                     "fill_timing": t.fill_timing,
+                    "ambiguous_exit": t.ambiguous_exit,
+                    "gap_fill": t.gap_fill,
+                    "gap_fill_distance_pips": (
+                        str(t.gap_fill_distance_pips)
+                        if t.gap_fill_distance_pips is not None
+                        else ""
+                    ),
                 }
             )
 
@@ -159,8 +172,14 @@ def write_metrics_json(result: BacktestResult, path: Path) -> None:
         "to_time": result.to_time,
         "fill_model": result.fill_model_repr,
         "fill_timing": result.fill_timing,
+        # Always-present; defaults to "none". Added by sprint
+        # infra-exit-fidelity-001 so every artifact records which
+        # exit-fill behavior produced it.
+        "gap_fill_policy": result.gap_fill_policy,
         "config_hash": result.config_hash,
         "data_request_hash": result.data_request_hash,
+        # asdict() includes the new ambiguous_exit_count and
+        # gap_fill_exit_count fields automatically.
         "metrics": asdict(result.metrics),
         "notes": result.notes,
     }
@@ -178,6 +197,7 @@ def write_metrics_markdown(result: BacktestResult, path: Path) -> None:
         f"- Data request hash: `{result.data_request_hash}`",
         f"- Fill model: `{result.fill_model_repr}`",
         f"- Fill timing: `{result.fill_timing}`",
+        f"- Gap-fill policy: `{result.gap_fill_policy}`",
         "",
         "## Metrics",
         "",
@@ -194,6 +214,8 @@ def write_metrics_markdown(result: BacktestResult, path: Path) -> None:
         f"- Average win: **{m.average_win:.4f}**, Average loss: **{m.average_loss:.4f}**",
         f"- Largest single loss: **{m.largest_single_loss:.4f}**",
         f"- Average spread paid: **{m.average_spread_paid_pips:.2f} pips**",
+        f"- Ambiguous same-bar SL+TP exits: **{m.ambiguous_exit_count}**",
+        f"- Gap-filled exits: **{m.gap_fill_exit_count}**",
         "",
     ]
     path.write_text("\n".join(lines), encoding="utf-8")
@@ -212,6 +234,12 @@ def write_summary_json(result: BacktestResult, path: Path, **extras: Any) -> Non
         "data_request_hash": result.data_request_hash,
         "fill_model": result.fill_model_repr,
         "fill_timing": result.fill_timing,
+        # Always present (default "none"). Asymmetry note: committed
+        # CAMPAIGN_001-009 _index.json/summary.json files predate this
+        # sprint and DO NOT carry this key — that is expected. See
+        # docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md § "Artifact
+        # asymmetry".
+        "gap_fill_policy": result.gap_fill_policy,
         "metrics": asdict(result.metrics),
         **extras,
     }
