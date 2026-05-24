@@ -1,0 +1,156 @@
+{
+  "study_label": "real_event_window_continuation_vs_reversal",
+  "campaign_source": "CAMPAIGN_014_calendar_event_window_anomaly",
+  "null_source": "CAMPAIGN_011_random_entry_anchor",
+  "n_trades": 720,
+  "n_trades_unattributed": 0,
+  "n_trades_labeled": 720,
+  "overall_mean_r": -0.14773654076290627,
+  "null_mean_r": -0.002439857834553023,
+  "gap_r": -0.14529668292835324,
+  "band": "materially_below_null",
+  "material_gap_r_floor": 0.05,
+  "per_class_breakdown": {
+    "BoE": {
+      "n": 53,
+      "mean_r": 0.012895939729323723,
+      "median_r": -0.4015887025595763,
+      "win_rate": 0.4528301886792453,
+      "long_share": 0.5849056603773585,
+      "average_spread_paid_pips": 1.7735849056603772
+    },
+    "BoJ": {
+      "n": 47,
+      "mean_r": -0.0010108086350764235,
+      "median_r": -0.0015525348516895,
+      "win_rate": 0.40425531914893614,
+      "long_share": 0.3404255319148936,
+      "average_spread_paid_pips": 1.648936170212766
+    },
+    "ECB": {
+      "n": 49,
+      "mean_r": 0.08420125723546368,
+      "median_r": 0.0051150895140664,
+      "win_rate": 0.5306122448979592,
+      "long_share": 0.4489795918367347,
+      "average_spread_paid_pips": 1.4877551020408164
+    },
+    "NFP": {
+      "n": 571,
+      "mean_r": -0.19462722899060558,
+      "median_r": -0.1061843640606767,
+      "win_rate": 0.35901926444833626,
+      "long_share": 0.4973730297723292,
+      "average_spread_paid_pips": 1.7064798598949211
+    }
+  },
+  "dominance_share": {
+    "BoE": 0.07361111111111111,
+    "BoJ": 0.06527777777777778,
+    "ECB": 0.06805555555555555,
+    "NFP": 0.7930555555555555
+  },
+  "zero_trade_event_classes_in_fixture": [
+    "FOMC"
+  ],
+  "continuation_vs_reversal_by_class": {
+    "BoE": {
+      "n_long": 31,
+      "n_short": 22,
+      "long_mean_r": -0.2477835114088293,
+      "short_mean_r": 0.38021698451490293,
+      "long_win_rate": 0.41935483870967744,
+      "short_win_rate": 0.5
+    },
+    "BoJ": {
+      "n_long": 16,
+      "n_short": 31,
+      "long_mean_r": -0.0018799780184269063,
+      "short_mean_r": -0.0005622050823793997,
+      "long_win_rate": 0.375,
+      "short_win_rate": 0.41935483870967744
+    },
+    "ECB": {
+      "n_long": 22,
+      "n_short": 27,
+      "long_mean_r": -0.20277116101343343,
+      "short_mean_r": 0.3180306350678983,
+      "long_win_rate": 0.5454545454545454,
+      "short_win_rate": 0.5185185185185185
+    },
+    "NFP": {
+      "n_long": 284,
+      "n_short": 287,
+      "long_mean_r": -0.2218160432311252,
+      "short_mean_r": -0.16772261838326213,
+      "long_win_rate": 0.3485915492957746,
+      "short_win_rate": 0.3693379790940767
+    }
+  },
+  "provenance": {
+    "data_kind": "real",
+    "inputs": [
+      {
+        "kind": "campaign_trades",
+        "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly",
+        "sha256": "(per-fold per-pair CSV bundle; see fold_detail.json)",
+        "rows": 720,
+        "extra": {
+          "campaign_name": "CAMPAIGN_014_calendar_event_window_anomaly",
+          "tolerance_hours": 24
+        }
+      },
+      {
+        "kind": "event_fixture_json",
+        "path": "research/calendar/fixtures/campaign_014_events.json",
+        "sha256": "584a19a8182bb3385cb152b9f1444f443fb5d0e1322330029885f11246ee1963",
+        "rows": 281,
+        "extra": {
+          "classes": [
+            "BoE",
+            "BoJ",
+            "ECB",
+            "FOMC",
+            "NFP"
+          ]
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/results.json",
+        "sha256": "ac6e72942d1a016c47c401b846bfab10c27ff80ac879f380af7dcdd50ae258fa",
+        "rows": 1177,
+        "extra": {
+          "role": "null_baseline",
+          "campaign_name": "CAMPAIGN_011_random_entry_anchor"
+        }
+      }
+    ],
+    "date_coverage": {
+      "start_utc": "2021-07-02 13:00:00+00:00",
+      "end_utc": "2025-11-10 14:00:00+00:00"
+    },
+    "pair_universe": [
+      "AUD_USD",
+      "EUR_USD",
+      "GBP_USD",
+      "NZD_USD",
+      "USD_CAD",
+      "USD_CHF",
+      "USD_JPY"
+    ],
+    "limitations": [
+      "CPI events are NOT in the committed fixture \u2014 coverage is NFP / FOMC / ECB / BoJ / BoE only.",
+      "Per-trade event class is matched by nearest event within \u00b124h; trades that don't fall within any event window are bucketed as 'unattributed' rather than dropped silently.",
+      "This study aggregates over CAMPAIGN_014's published trades \u2014 it does NOT re-execute any backtest, change the CAMPAIGN_014 REJECT verdict, or claim strategy evidence.",
+      "The null baseline is the CAMPAIGN_011 published aggregate_expectancy_r (-0.0024); the lab does NOT regenerate the null here."
+    ],
+    "exploratory_only": true
+  },
+  "verdict_word_ban_acknowledged": true,
+  "notes": [
+    "Exploratory output only \u2014 does not approve any strategy.",
+    "CAMPAIGN_014 remains REJECT; this study aggregates its published trades.",
+    "Lab graduation criteria for any future event-window candidate require gap_r >= +0.05 R AND a non-dominant per-class distribution (see EDGE_DISCOVERY_CANDIDATE_RANKING_RULES.md)."
+  ]
+}

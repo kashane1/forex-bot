@@ -1,0 +1,230 @@
+{
+  "study_label": "real_turnover_cost",
+  "per_campaign": [
+    {
+      "campaign_name": "CAMPAIGN_010_session_breakout",
+      "n_trades_observed": 2791,
+      "n_trades_published": 2791,
+      "mean_r_observed": -0.040823414466736895,
+      "mean_r_published": -0.0408234144667369,
+      "median_r_observed": -0.0030586333585866,
+      "win_rate_observed": 0.4600501612325331,
+      "average_spread_pips": 1.6298459333572195,
+      "cost_share_proxy": 0.399242923368212,
+      "overall_verdict_published": "REJECT",
+      "strategy_evidence_published": false,
+      "long_short_split": {
+        "n_long": 1413,
+        "n_short": 1378
+      },
+      "trades_source_sha256_role": "(per-fold per-pair CSV bundle; aggregate already in walk_forward/results.json)",
+      "walk_forward_results_sha256": "36792d75d32b3101fb21ccddd7d8015adaf07ba43b704621bc3fe9f459852a64"
+    },
+    {
+      "campaign_name": "CAMPAIGN_011_random_entry_anchor",
+      "n_trades_observed": 1177,
+      "n_trades_published": 1177,
+      "mean_r_observed": -0.0024398578345530258,
+      "mean_r_published": -0.002439857834553023,
+      "median_r_observed": -0.000565143791736,
+      "win_rate_observed": 0.4927782497875956,
+      "average_spread_pips": 1.7316057774001699,
+      "cost_share_proxy": 7.0971585019313,
+      "overall_verdict_published": "REJECT",
+      "strategy_evidence_published": false,
+      "long_short_split": {
+        "n_long": 610,
+        "n_short": 567
+      },
+      "trades_source_sha256_role": "(per-fold per-pair CSV bundle; aggregate already in walk_forward/results.json)",
+      "walk_forward_results_sha256": "ac6e72942d1a016c47c401b846bfab10c27ff80ac879f380af7dcdd50ae258fa"
+    },
+    {
+      "campaign_name": "CAMPAIGN_012_regime_switcher_atr_percentile",
+      "n_trades_observed": 3726,
+      "n_trades_published": 3726,
+      "mean_r_observed": -0.052121591971863016,
+      "mean_r_published": -0.05212159197186301,
+      "median_r_observed": -0.003122373928789,
+      "win_rate_observed": 0.4624261943102523,
+      "average_spread_pips": 1.746886741814278,
+      "cost_share_proxy": 0.3351560602288023,
+      "overall_verdict_published": "REJECT",
+      "strategy_evidence_published": false,
+      "long_short_split": {
+        "n_long": 1918,
+        "n_short": 1808
+      },
+      "trades_source_sha256_role": "(per-fold per-pair CSV bundle; aggregate already in walk_forward/results.json)",
+      "walk_forward_results_sha256": "3bea07f2399bda313eeed0940598386de49b5a5f733f0b16accc1961246de859"
+    },
+    {
+      "campaign_name": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "n_trades_observed": 7940,
+      "n_trades_published": 7940,
+      "mean_r_observed": -0.05642580700533526,
+      "mean_r_published": -0.056425807005335255,
+      "median_r_observed": -0.0509554140127388,
+      "win_rate_observed": 0.4508816120906801,
+      "average_spread_pips": 1.73227959697733,
+      "cost_share_proxy": 0.30700129761786776,
+      "overall_verdict_published": "REJECT",
+      "strategy_evidence_published": false,
+      "long_short_split": {
+        "n_long": 3927,
+        "n_short": 4013
+      },
+      "trades_source_sha256_role": "(per-fold per-pair CSV bundle; aggregate already in walk_forward/results.json)",
+      "walk_forward_results_sha256": "ddef199dc95b0f385590afc955757c794f4590494e5db54bc376be84fd2bb627"
+    },
+    {
+      "campaign_name": "CAMPAIGN_014_calendar_event_window_anomaly",
+      "n_trades_observed": 720,
+      "n_trades_published": 720,
+      "mean_r_observed": -0.14773654076290627,
+      "mean_r_published": -0.14773654076290627,
+      "median_r_observed": -0.0210363448589913,
+      "win_rate_observed": 0.38055555555555554,
+      "average_spread_pips": 1.692777777777778,
+      "cost_share_proxy": 0.1145808456754391,
+      "overall_verdict_published": "REJECT",
+      "strategy_evidence_published": false,
+      "long_short_split": {
+        "n_long": 353,
+        "n_short": 367
+      },
+      "trades_source_sha256_role": "(per-fold per-pair CSV bundle; aggregate already in walk_forward/results.json)",
+      "walk_forward_results_sha256": "fbf8a0762c3de288d7e9dec964213b9fc8c2fb9a85bda24e22cf15551643514f"
+    }
+  ],
+  "cross_campaign_rollup": {
+    "total_trades_across_campaigns": 16354,
+    "rejected_campaigns_with_positive_per_trade_edge_pre_cost": [],
+    "rejected_campaigns_with_above_null_post_cost_edge": []
+  },
+  "provenance": {
+    "data_kind": "real",
+    "inputs": [
+      {
+        "kind": "campaign_trades",
+        "path": "backtests/CAMPAIGN_010_session_breakout",
+        "sha256": "(per-fold per-pair CSV bundle)",
+        "rows": 2791,
+        "extra": {
+          "campaign_name": "CAMPAIGN_010_session_breakout"
+        }
+      },
+      {
+        "kind": "campaign_trades",
+        "path": "backtests/CAMPAIGN_011_random_entry_anchor",
+        "sha256": "(per-fold per-pair CSV bundle)",
+        "rows": 1177,
+        "extra": {
+          "campaign_name": "CAMPAIGN_011_random_entry_anchor"
+        }
+      },
+      {
+        "kind": "campaign_trades",
+        "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile",
+        "sha256": "(per-fold per-pair CSV bundle)",
+        "rows": 3726,
+        "extra": {
+          "campaign_name": "CAMPAIGN_012_regime_switcher_atr_percentile"
+        }
+      },
+      {
+        "kind": "campaign_trades",
+        "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation",
+        "sha256": "(per-fold per-pair CSV bundle)",
+        "rows": 7940,
+        "extra": {
+          "campaign_name": "CAMPAIGN_013_cross_pair_currency_strength_rotation"
+        }
+      },
+      {
+        "kind": "campaign_trades",
+        "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly",
+        "sha256": "(per-fold per-pair CSV bundle)",
+        "rows": 720,
+        "extra": {
+          "campaign_name": "CAMPAIGN_014_calendar_event_window_anomaly"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "backtests/CAMPAIGN_010_session_breakout/walk_forward/results.json",
+        "sha256": "36792d75d32b3101fb21ccddd7d8015adaf07ba43b704621bc3fe9f459852a64",
+        "rows": 2791,
+        "extra": {
+          "campaign_name": "CAMPAIGN_010_session_breakout",
+          "role": "cross-check"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/results.json",
+        "sha256": "ac6e72942d1a016c47c401b846bfab10c27ff80ac879f380af7dcdd50ae258fa",
+        "rows": 1177,
+        "extra": {
+          "campaign_name": "CAMPAIGN_011_random_entry_anchor",
+          "role": "cross-check"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/results.json",
+        "sha256": "3bea07f2399bda313eeed0940598386de49b5a5f733f0b16accc1961246de859",
+        "rows": 3726,
+        "extra": {
+          "campaign_name": "CAMPAIGN_012_regime_switcher_atr_percentile",
+          "role": "cross-check"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/results.json",
+        "sha256": "ddef199dc95b0f385590afc955757c794f4590494e5db54bc376be84fd2bb627",
+        "rows": 7940,
+        "extra": {
+          "campaign_name": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+          "role": "cross-check"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/results.json",
+        "sha256": "fbf8a0762c3de288d7e9dec964213b9fc8c2fb9a85bda24e22cf15551643514f",
+        "rows": 720,
+        "extra": {
+          "campaign_name": "CAMPAIGN_014_calendar_event_window_anomaly",
+          "role": "cross-check"
+        }
+      }
+    ],
+    "date_coverage": {
+      "start_utc": "2020-01-01T00:00:00+00:00",
+      "end_utc": "2026-05-19T21:00:00+00:00"
+    },
+    "pair_universe": [
+      "EUR_USD",
+      "GBP_USD",
+      "USD_JPY",
+      "AUD_USD",
+      "USD_CAD",
+      "USD_CHF",
+      "NZD_USD"
+    ],
+    "limitations": [
+      "The 'cost_share_proxy' is a coarse ratio of avg_spread (pips) to |mean_r| \u00d7 100 \u2014 it is NOT the lab's full cost-fraction (see research/edge_discovery/costs.py). Use it for relative comparison across campaigns, not as an absolute cost number.",
+      "We do not re-execute any backtest. The 'observed' columns are computed from the committed per-fold per-pair trade CSVs; the 'published' columns are read from the committed walk_forward/results.json aggregates.",
+      "No campaign verdict is changed by this study. CAMPAIGN_010-014 remain REJECT."
+    ],
+    "exploratory_only": true
+  },
+  "verdict_word_ban_acknowledged": true,
+  "notes": [
+    "Lesson 2 from FAILED_CAMPAIGN_META_ANALYSIS_001 \u2014 cost/turnover is the most common cause of failure in the archive \u2014 is corroborated by the real data: every one of CAMPAIGN_010-014 is rejected and every one has either a near-zero or negative per-trade R after costs.",
+    "CAMPAIGN_011's near-zero mean R (random-entry null) validates the null-model assumption: random entries with a fixed forward hold land at ~0 R per trade, post-cost.",
+    "CAMPAIGN_014 has the largest negative per-trade R (-0.148 R) despite the lowest trade count (720). The high per-trade loss \u00d7 low turnover is the signature of an expensive entry condition without an edge \u2014 turnover amplification would only make it worse, not better."
+  ]
+}

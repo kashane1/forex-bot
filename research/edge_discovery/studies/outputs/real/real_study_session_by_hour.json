@@ -1,0 +1,148 @@
+{
+  "study_label": "real_session_by_hour",
+  "instrument": "EUR_USD",
+  "granularity": "H4",
+  "window_bars": 4,
+  "side": "LONG",
+  "n_signals": 9927,
+  "dropped_trailing": 4,
+  "overall_mean_post_cost": -0.00019659842227837246,
+  "null_mean": -0.00019084096401668376,
+  "null_std": 4.1279164865657824e-05,
+  "material_band_threshold_stds": 1.5,
+  "overall_band": "within_null",
+  "per_hour": {
+    "UTC_01": {
+      "n": 1072,
+      "mean_post_cost": -0.0003044754416394698,
+      "std_post_cost": 0.004550833153869554,
+      "median_post_cost": -0.0002620853267181637,
+      "win_rate": 0.46828358208955223
+    },
+    "UTC_02": {
+      "n": 583,
+      "mean_post_cost": -6.461648098149341e-05,
+      "std_post_cost": 0.004158870273198117,
+      "median_post_cost": -0.00046840083186954065,
+      "win_rate": 0.4614065180102916
+    },
+    "UTC_05": {
+      "n": 1072,
+      "mean_post_cost": -0.00029544007855893047,
+      "std_post_cost": 0.004117058353827883,
+      "median_post_cost": -0.0003335858613632937,
+      "win_rate": 0.45242537313432835
+    },
+    "UTC_06": {
+      "n": 583,
+      "mean_post_cost": -7.381572281865539e-05,
+      "std_post_cost": 0.003759420234406928,
+      "median_post_cost": -0.0002986009388361672,
+      "win_rate": 0.4716981132075472
+    },
+    "UTC_09": {
+      "n": 1071,
+      "mean_post_cost": -0.00014156198337665545,
+      "std_post_cost": 0.0033956336977881097,
+      "median_post_cost": -0.0002633046726979208,
+      "win_rate": 0.4668534080298786
+    },
+    "UTC_10": {
+      "n": 583,
+      "mean_post_cost": -0.0001679435778336273,
+      "std_post_cost": 0.003270086770505977,
+      "median_post_cost": -0.00026174592193338475,
+      "win_rate": 0.4631217838765009
+    },
+    "UTC_13": {
+      "n": 1071,
+      "mean_post_cost": -3.275570731417642e-05,
+      "std_post_cost": 0.003125181261684163,
+      "median_post_cost": -2.170129422265438e-05,
+      "win_rate": 0.49673202614379086
+    },
+    "UTC_14": {
+      "n": 583,
+      "mean_post_cost": -0.0001316675116782172,
+      "std_post_cost": 0.0031977661040684525,
+      "median_post_cost": -0.00025835724087015994,
+      "win_rate": 0.4699828473413379
+    },
+    "UTC_17": {
+      "n": 1071,
+      "mean_post_cost": -0.00025706538567706814,
+      "std_post_cost": 0.003660903433993652,
+      "median_post_cost": -0.00031789618410792906,
+      "win_rate": 0.4733893557422969
+    },
+    "UTC_18": {
+      "n": 583,
+      "mean_post_cost": -0.00014605353293056181,
+      "std_post_cost": 0.003658142717957373,
+      "median_post_cost": -0.00023255254631365503,
+      "win_rate": 0.4751286449399657
+    },
+    "UTC_21": {
+      "n": 1072,
+      "mean_post_cost": -0.0003737388327652321,
+      "std_post_cost": 0.004473030438532249,
+      "median_post_cost": -0.0002814252913389169,
+      "win_rate": 0.47201492537313433
+    },
+    "UTC_22": {
+      "n": 583,
+      "mean_post_cost": -0.000180678125370427,
+      "std_post_cost": 0.004071240237410864,
+      "median_post_cost": -0.00037766356297514147,
+      "win_rate": 0.4614065180102916
+    }
+  },
+  "per_hour_bands": {
+    "UTC_01": "materially_below_null",
+    "UTC_02": "materially_above_null",
+    "UTC_05": "materially_below_null",
+    "UTC_06": "materially_above_null",
+    "UTC_09": "within_null",
+    "UTC_10": "within_null",
+    "UTC_13": "materially_above_null",
+    "UTC_14": "within_null",
+    "UTC_17": "materially_below_null",
+    "UTC_18": "within_null",
+    "UTC_21": "materially_below_null",
+    "UTC_22": "within_null"
+  },
+  "provenance": {
+    "data_kind": "real",
+    "inputs": [
+      {
+        "kind": "h4_sqlite_store",
+        "path": "/Users/kashane/dev/forex-bot/data/campaign_002.sqlite3",
+        "sha256": "8567fa8aeb516fa3c663a88af894fb197430d9535ffeb4653341731710e21490",
+        "rows": 9931,
+        "extra": {
+          "instrument": "EUR_USD",
+          "granularity": "H4"
+        }
+      }
+    ],
+    "date_coverage": {
+      "start_utc": "2020-01-01 22:00:00+00:00",
+      "end_utc": "2026-05-19 21:00:00+00:00"
+    },
+    "pair_universe": [
+      "EUR_USD"
+    ],
+    "limitations": [
+      "Each H4 bar contributes one signal; per-hour samples are large (>1,000 per hour over the full 2020-2026 universe) but each is heavily auto-correlated with its neighbors.",
+      "This study uses LONG-side forward returns only. A complement run with SHORT side (or two-sided) would be a follow-up.",
+      "Post-cost = mid-close return minus the lab's EUR_USD-shaped spread + slip overlay; this is not the exact cost model the formal campaigns use for evidence \u2014 see research/edge_discovery/costs.py.",
+      "Lab output only. Does not approve any strategy or change any campaign verdict."
+    ],
+    "exploratory_only": true
+  },
+  "verdict_word_ban_acknowledged": true,
+  "notes": [
+    "If a session bin lands `materially_above_null` for many years on a real H4 store, that is worth a deeper look \u2014 but never a strategy approval directly from this output.",
+    "A follow-up study should sweep PAIR over the seven majors and emit one row per (pair, hour) so the cross-pair signal is visible."
+  ]
+}

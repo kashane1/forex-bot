@@ -1,0 +1,599 @@
+{
+  "study_label": "real_pair_baseline",
+  "null_campaign": "CAMPAIGN_011_random_entry_anchor",
+  "candidate_campaigns": [
+    "CAMPAIGN_010_session_breakout",
+    "CAMPAIGN_012_regime_switcher_atr_percentile",
+    "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+    "CAMPAIGN_014_calendar_event_window_anomaly"
+  ],
+  "null_per_pair": [
+    {
+      "instrument": "AUD_USD",
+      "n_folds": 8,
+      "mean_expectancy_r": -0.04145147366759003,
+      "median_expectancy_r": -0.0735980844434666,
+      "std_expectancy_r": 0.1528201634574968,
+      "total_trades": 190,
+      "avg_spread_pips": 1.3454015855320203,
+      "n_folds_positive_expectancy": 2
+    },
+    {
+      "instrument": "EUR_USD",
+      "n_folds": 8,
+      "mean_expectancy_r": -0.06499487353185181,
+      "median_expectancy_r": -0.07795429706883963,
+      "std_expectancy_r": 0.202894619674362,
+      "total_trades": 119,
+      "avg_spread_pips": 1.4503777237876503,
+      "n_folds_positive_expectancy": 3
+    },
+    {
+      "instrument": "GBP_USD",
+      "n_folds": 8,
+      "mean_expectancy_r": 0.07559693443568705,
+      "median_expectancy_r": 0.11693756499851275,
+      "std_expectancy_r": 0.18471991713567615,
+      "total_trades": 196,
+      "avg_spread_pips": 1.8648043882835257,
+      "n_folds_positive_expectancy": 5
+    },
+    {
+      "instrument": "NZD_USD",
+      "n_folds": 8,
+      "mean_expectancy_r": -0.09862939449077757,
+      "median_expectancy_r": -0.04542039230836965,
+      "std_expectancy_r": 0.21374000861711037,
+      "total_trades": 139,
+      "avg_spread_pips": 2.358722439518685,
+      "n_folds_positive_expectancy": 3
+    },
+    {
+      "instrument": "USD_CAD",
+      "n_folds": 8,
+      "mean_expectancy_r": -0.006900089919392775,
+      "median_expectancy_r": 0.045443783404088695,
+      "std_expectancy_r": 0.1563749575841554,
+      "total_trades": 182,
+      "avg_spread_pips": 1.8962567287784677,
+      "n_folds_positive_expectancy": 5
+    },
+    {
+      "instrument": "USD_CHF",
+      "n_folds": 8,
+      "mean_expectancy_r": 0.026861459737312795,
+      "median_expectancy_r": 0.055536921064896855,
+      "std_expectancy_r": 0.14369530319697105,
+      "total_trades": 177,
+      "avg_spread_pips": 1.6446899350649349,
+      "n_folds_positive_expectancy": 5
+    },
+    {
+      "instrument": "USD_JPY",
+      "n_folds": 8,
+      "mean_expectancy_r": 2.123319152616505e-05,
+      "median_expectancy_r": -0.0005090531202781932,
+      "std_expectancy_r": 0.0016152537442337411,
+      "total_trades": 174,
+      "avg_spread_pips": 1.639254087985769,
+      "n_folds_positive_expectancy": 3
+    }
+  ],
+  "candidate_per_pair_by_campaign": {
+    "CAMPAIGN_010_session_breakout": [
+      {
+        "instrument": "AUD_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.0736888332032239,
+        "median_expectancy_r": -0.06988928562017077,
+        "std_expectancy_r": 0.07778759479970539,
+        "total_trades": 511,
+        "avg_spread_pips": 1.2896839805870637,
+        "n_folds_positive_expectancy": 2
+      },
+      {
+        "instrument": "EUR_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.0685488686759895,
+        "median_expectancy_r": -0.05603610620236846,
+        "std_expectancy_r": 0.08592869468401801,
+        "total_trades": 310,
+        "avg_spread_pips": 1.4386592923786337,
+        "n_folds_positive_expectancy": 2
+      },
+      {
+        "instrument": "GBP_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.04165082736908499,
+        "median_expectancy_r": -0.038786237377395096,
+        "std_expectancy_r": 0.08030663245401859,
+        "total_trades": 565,
+        "avg_spread_pips": 1.8171460472090013,
+        "n_folds_positive_expectancy": 2
+      },
+      {
+        "instrument": "NZD_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.0936698198664731,
+        "median_expectancy_r": 0.0,
+        "std_expectancy_r": 0.2594227722021627,
+        "total_trades": 47,
+        "avg_spread_pips": 1.7432738095238094,
+        "n_folds_positive_expectancy": 3
+      },
+      {
+        "instrument": "USD_CAD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.061711103723114745,
+        "median_expectancy_r": -0.07460061792760436,
+        "std_expectancy_r": 0.07967590360472997,
+        "total_trades": 434,
+        "avg_spread_pips": 1.806684824285865,
+        "n_folds_positive_expectancy": 2
+      },
+      {
+        "instrument": "USD_CHF",
+        "n_folds": 8,
+        "mean_expectancy_r": 0.019821524005972733,
+        "median_expectancy_r": 0.05338415279448492,
+        "std_expectancy_r": 0.11346434323497497,
+        "total_trades": 432,
+        "avg_spread_pips": 1.6219058155948,
+        "n_folds_positive_expectancy": 6
+      },
+      {
+        "instrument": "USD_JPY",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.0002924745488050011,
+        "median_expectancy_r": -0.0001787420645534089,
+        "std_expectancy_r": 0.000394995924365179,
+        "total_trades": 492,
+        "avg_spread_pips": 1.6622610580455888,
+        "n_folds_positive_expectancy": 2
+      }
+    ],
+    "CAMPAIGN_012_regime_switcher_atr_percentile": [
+      {
+        "instrument": "AUD_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.0928441550197172,
+        "median_expectancy_r": -0.13272395190547598,
+        "std_expectancy_r": 0.1060995709557368,
+        "total_trades": 551,
+        "avg_spread_pips": 1.3852298641920022,
+        "n_folds_positive_expectancy": 1
+      },
+      {
+        "instrument": "EUR_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": 0.030017501271991435,
+        "median_expectancy_r": -0.018942789912358694,
+        "std_expectancy_r": 0.1210494990011561,
+        "total_trades": 479,
+        "avg_spread_pips": 1.4457620464495466,
+        "n_folds_positive_expectancy": 3
+      },
+      {
+        "instrument": "GBP_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.04872566932129167,
+        "median_expectancy_r": -0.04041611793136722,
+        "std_expectancy_r": 0.03744189991226865,
+        "total_trades": 555,
+        "avg_spread_pips": 1.9001398235467584,
+        "n_folds_positive_expectancy": 0
+      },
+      {
+        "instrument": "NZD_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.10968393098278345,
+        "median_expectancy_r": -0.1255298005682279,
+        "std_expectancy_r": 0.07693254885351677,
+        "total_trades": 391,
+        "avg_spread_pips": 2.3785161801528076,
+        "n_folds_positive_expectancy": 1
+      },
+      {
+        "instrument": "USD_CAD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.06328958101053439,
+        "median_expectancy_r": -0.04300678305843728,
+        "std_expectancy_r": 0.06451828178033608,
+        "total_trades": 584,
+        "avg_spread_pips": 1.891824054221948,
+        "n_folds_positive_expectancy": 1
+      },
+      {
+        "instrument": "USD_CHF",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.05001553053921213,
+        "median_expectancy_r": -0.0010512816319189107,
+        "std_expectancy_r": 0.1491462852506127,
+        "total_trades": 542,
+        "avg_spread_pips": 1.6814604235454496,
+        "n_folds_positive_expectancy": 4
+      },
+      {
+        "instrument": "USD_JPY",
+        "n_folds": 8,
+        "mean_expectancy_r": 0.00039538200930152814,
+        "median_expectancy_r": 0.000356144612626194,
+        "std_expectancy_r": 0.0005373304221668767,
+        "total_trades": 624,
+        "avg_spread_pips": 1.6743121376907806,
+        "n_folds_positive_expectancy": 6
+      }
+    ],
+    "CAMPAIGN_013_cross_pair_currency_strength_rotation": [
+      {
+        "instrument": "AUD_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.030946044739185385,
+        "median_expectancy_r": -0.0384991282170148,
+        "std_expectancy_r": 0.026458355578798907,
+        "total_trades": 1942,
+        "avg_spread_pips": 0.9888605696338193,
+        "n_folds_positive_expectancy": 0
+      },
+      {
+        "instrument": "EUR_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.028967043174514536,
+        "median_expectancy_r": -0.005650358114069126,
+        "std_expectancy_r": 0.03820409742928409,
+        "total_trades": 1412,
+        "avg_spread_pips": 0.8930346022981284,
+        "n_folds_positive_expectancy": 0
+      },
+      {
+        "instrument": "GBP_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.01508437228680114,
+        "median_expectancy_r": 0.0,
+        "std_expectancy_r": 0.02820833457698699,
+        "total_trades": 648,
+        "avg_spread_pips": 0.47093022148130514,
+        "n_folds_positive_expectancy": 0
+      },
+      {
+        "instrument": "NZD_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.08031957583182982,
+        "median_expectancy_r": -0.07993517607326033,
+        "std_expectancy_r": 0.04137349762903841,
+        "total_trades": 1863,
+        "avg_spread_pips": 2.0644614296556845,
+        "n_folds_positive_expectancy": 0
+      },
+      {
+        "instrument": "USD_CAD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.011676637728346762,
+        "median_expectancy_r": 0.0,
+        "std_expectancy_r": 0.020984989668749617,
+        "total_trades": 958,
+        "avg_spread_pips": 0.6796980515082912,
+        "n_folds_positive_expectancy": 0
+      },
+      {
+        "instrument": "USD_CHF",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.03404879268127518,
+        "median_expectancy_r": 0.0,
+        "std_expectancy_r": 0.06649727688481416,
+        "total_trades": 807,
+        "avg_spread_pips": 0.6167847154117176,
+        "n_folds_positive_expectancy": 1
+      },
+      {
+        "instrument": "USD_JPY",
+        "n_folds": 8,
+        "mean_expectancy_r": 3.19355923957212e-06,
+        "median_expectancy_r": 0.0,
+        "std_expectancy_r": 9.032749577689602e-06,
+        "total_trades": 310,
+        "avg_spread_pips": 0.20705645161290323,
+        "n_folds_positive_expectancy": 1
+      }
+    ],
+    "CAMPAIGN_014_calendar_event_window_anomaly": [
+      {
+        "instrument": "AUD_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.2781360727230304,
+        "median_expectancy_r": -0.23273229537744916,
+        "std_expectancy_r": 0.15088932153347098,
+        "total_trades": 91,
+        "avg_spread_pips": 1.3448863636363635,
+        "n_folds_positive_expectancy": 0
+      },
+      {
+        "instrument": "EUR_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.21476719480942313,
+        "median_expectancy_r": -0.30812593777873726,
+        "std_expectancy_r": 0.22812784472172798,
+        "total_trades": 100,
+        "avg_spread_pips": 1.423831168831169,
+        "n_folds_positive_expectancy": 3
+      },
+      {
+        "instrument": "GBP_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.08839598828864118,
+        "median_expectancy_r": -0.08126407644215591,
+        "std_expectancy_r": 0.17009319641230822,
+        "total_trades": 152,
+        "avg_spread_pips": 1.810873538011696,
+        "n_folds_positive_expectancy": 2
+      },
+      {
+        "instrument": "NZD_USD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.1353411498566882,
+        "median_expectancy_r": -0.09264196261427998,
+        "std_expectancy_r": 0.15354484856486655,
+        "total_trades": 63,
+        "avg_spread_pips": 2.3702967171717173,
+        "n_folds_positive_expectancy": 1
+      },
+      {
+        "instrument": "USD_CAD",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.1170633409238287,
+        "median_expectancy_r": -0.08234052934864033,
+        "std_expectancy_r": 0.09001019345755604,
+        "total_trades": 91,
+        "avg_spread_pips": 1.8075757575757576,
+        "n_folds_positive_expectancy": 0
+      },
+      {
+        "instrument": "USD_CHF",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.3073377601616011,
+        "median_expectancy_r": -0.26208522340755225,
+        "std_expectancy_r": 0.12067917911809249,
+        "total_trades": 89,
+        "avg_spread_pips": 1.65625,
+        "n_folds_positive_expectancy": 0
+      },
+      {
+        "instrument": "USD_JPY",
+        "n_folds": 8,
+        "mean_expectancy_r": -0.0007949824129443236,
+        "median_expectancy_r": -0.0007748799549339943,
+        "std_expectancy_r": 0.0006533048602150734,
+        "total_trades": 134,
+        "avg_spread_pips": 1.6370693997909556,
+        "n_folds_positive_expectancy": 1
+      }
+    ]
+  },
+  "gap_table": [
+    {
+      "pair": "EUR_USD",
+      "null_r": -0.06499487353185181,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.0685488686759895,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": 0.030017501271991435,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": -0.028967043174514536,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.21476719480942313
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.0036,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": 0.095,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": 0.036,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.1498
+      },
+      "best_campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+      "best_gap_r": 0.095,
+      "n_materially_above_null": 1
+    },
+    {
+      "pair": "GBP_USD",
+      "null_r": 0.07559693443568705,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.04165082736908499,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": -0.04872566932129167,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": -0.01508437228680114,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.08839598828864118
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.1172,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": -0.1243,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": -0.0907,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.164
+      },
+      "best_campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "best_gap_r": -0.0907,
+      "n_materially_above_null": 0
+    },
+    {
+      "pair": "USD_JPY",
+      "null_r": 2.123319152616505e-05,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.0002924745488050011,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": 0.00039538200930152814,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": 3.19355923957212e-06,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.0007949824129443236
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.0003,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": 0.0004,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": -0.0,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.0008
+      },
+      "best_campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+      "best_gap_r": 0.0004,
+      "n_materially_above_null": 0
+    },
+    {
+      "pair": "AUD_USD",
+      "null_r": -0.04145147366759003,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.0736888332032239,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": -0.0928441550197172,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": -0.030946044739185385,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.2781360727230304
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.0322,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": -0.0514,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": 0.0105,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.2367
+      },
+      "best_campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "best_gap_r": 0.0105,
+      "n_materially_above_null": 0
+    },
+    {
+      "pair": "USD_CAD",
+      "null_r": -0.006900089919392775,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.061711103723114745,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": -0.06328958101053439,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": -0.011676637728346762,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.1170633409238287
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.0548,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": -0.0564,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": -0.0048,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.1102
+      },
+      "best_campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "best_gap_r": -0.0048,
+      "n_materially_above_null": 0
+    },
+    {
+      "pair": "USD_CHF",
+      "null_r": 0.026861459737312795,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": 0.019821524005972733,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": -0.05001553053921213,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": -0.03404879268127518,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.3073377601616011
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.007,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": -0.0769,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": -0.0609,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.3342
+      },
+      "best_campaign": "CAMPAIGN_010_session_breakout",
+      "best_gap_r": -0.007,
+      "n_materially_above_null": 0
+    },
+    {
+      "pair": "NZD_USD",
+      "null_r": -0.09862939449077757,
+      "campaign_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": -0.0936698198664731,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": -0.10968393098278345,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": -0.08031957583182982,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.1353411498566882
+      },
+      "gap_r_by_campaign": {
+        "CAMPAIGN_010_session_breakout": 0.005,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": -0.0111,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": 0.0183,
+        "CAMPAIGN_014_calendar_event_window_anomaly": -0.0367
+      },
+      "best_campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "best_gap_r": 0.0183,
+      "n_materially_above_null": 0
+    }
+  ],
+  "rollup": {
+    "pairs_materially_above_null_in_any_candidate": [
+      "EUR_USD"
+    ],
+    "pairs_with_any_positive_gap": [
+      "EUR_USD",
+      "USD_JPY",
+      "AUD_USD",
+      "NZD_USD"
+    ],
+    "material_gap_floor_r": 0.05
+  },
+  "provenance": {
+    "data_kind": "real",
+    "inputs": [
+      {
+        "kind": "campaign_fold_summaries",
+        "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds",
+        "sha256": "(56 per-fold per-pair JSON bundle)",
+        "rows": 56,
+        "extra": {
+          "campaign_name": "CAMPAIGN_011_random_entry_anchor",
+          "role": "null"
+        }
+      },
+      {
+        "kind": "campaign_fold_summaries",
+        "path": "backtests/CAMPAIGN_010_session_breakout/folds",
+        "sha256": "(56 per-fold per-pair JSON bundle)",
+        "rows": 56,
+        "extra": {
+          "campaign_name": "CAMPAIGN_010_session_breakout",
+          "role": "candidate"
+        }
+      },
+      {
+        "kind": "campaign_fold_summaries",
+        "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/folds",
+        "sha256": "(56 per-fold per-pair JSON bundle)",
+        "rows": 56,
+        "extra": {
+          "campaign_name": "CAMPAIGN_012_regime_switcher_atr_percentile",
+          "role": "candidate"
+        }
+      },
+      {
+        "kind": "campaign_fold_summaries",
+        "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/folds",
+        "sha256": "(56 per-fold per-pair JSON bundle)",
+        "rows": 56,
+        "extra": {
+          "campaign_name": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+          "role": "candidate"
+        }
+      },
+      {
+        "kind": "campaign_fold_summaries",
+        "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/folds",
+        "sha256": "(56 per-fold per-pair JSON bundle)",
+        "rows": 56,
+        "extra": {
+          "campaign_name": "CAMPAIGN_014_calendar_event_window_anomaly",
+          "role": "candidate"
+        }
+      }
+    ],
+    "date_coverage": {
+      "start_utc": "2020-01-01T00:00:00+00:00",
+      "end_utc": "2026-05-19T21:00:00+00:00"
+    },
+    "pair_universe": [
+      "EUR_USD",
+      "GBP_USD",
+      "USD_JPY",
+      "AUD_USD",
+      "USD_CAD",
+      "USD_CHF",
+      "NZD_USD"
+    ],
+    "limitations": [
+      "Material-gap floor is +0.05 R per-pair; this is the lab's universe-wide material threshold per the candidate ranking rules, NOT a significance test.",
+      "Per-pair mean expectancy R is computed across the 8 walk-forward folds. Folds use rolling test windows, so this is an across-time aggregation per pair.",
+      "CAMPAIGN_011 supplies the null floor per pair, not a global scalar \u2014 same universe, same fold layout, random entries.",
+      "No campaign verdict is changed by this study. CAMPAIGN_010, 012, 013, 014 remain REJECT and CAMPAIGN_011 remains the null model."
+    ],
+    "exploratory_only": true
+  },
+  "verdict_word_ban_acknowledged": true,
+  "notes": [
+    "If a future real candidate's per-pair mean R clears this table's pairs by the material gap, the candidate has a defensible starting point for a formal pre-commit on those pairs only \u2014 broadcast claims (\"works on all pairs\") remain forbidden by the lab's pair-concentration ranking rule.",
+    "The current real-data answer to 'is there a pair where any of CAMPAIGN_010-014 cleanly beat the random-entry null?' is captured by `pairs_materially_above_null_in_any_candidate`."
+  ]
+}
