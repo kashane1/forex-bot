@@ -303,6 +303,64 @@ class RandomEntryAnchorStrategyConfig(BaseModel):
         return self
 
 
+class RegimeSwitcherAtrPercentileStrategyConfig(BaseModel):
+    # CAMPAIGN_012 research candidate (`regime_switcher_atr_percentile 0.1.0-c012`).
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/REGIME_SWITCHER_ATR_PERCENTILE_IMPLEMENTATION_SPEC.md.
+    #
+    # Frozen parameters pre-committed by the discovery-003 sprint
+    # (see docs/research/C3_REGIME_SWITCHER_FEASIBILITY_REVIEW.md §2).
+    # Any deviation constitutes a NEW candidate; the validator rejects
+    # several specific deviations explicitly (e.g. trailing-stop in v1).
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    # H4 ATR for stop sizing (mirrors session_breakout / random_entry_anchor
+    # naming; the design doc calls this `atr_lookback_h4` for descriptive
+    # clarity but the value and intent are identical).
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_bars_in_trade: int = 6
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+    # D1AGG ATR (the regime feature input).
+    daily_atr_lookback: int = 14
+    regime_lookback_days: int = 60
+    regime_percentile_threshold: float = 0.70
+    min_close_move_atr_fraction: float = 0.25
+    trend_lookback_h4_bars: int = 4
+
+    @model_validator(mode="after")
+    def _check(self) -> RegimeSwitcherAtrPercentileStrategyConfig:
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1:
+            raise ConfigError("max_bars_in_trade must be >= 1")
+        if self.daily_atr_lookback < 2:
+            raise ConfigError("daily_atr_lookback must be >= 2")
+        if self.regime_lookback_days < 10:
+            raise ConfigError(
+                "regime_lookback_days must be >= 10 for a stable percentile"
+            )
+        if not (0.0 < self.regime_percentile_threshold < 1.0):
+            raise ConfigError(
+                "regime_percentile_threshold must be in (0, 1) (exclusive)"
+            )
+        if self.min_close_move_atr_fraction <= 0:
+            raise ConfigError("min_close_move_atr_fraction must be > 0")
+        if self.trend_lookback_h4_bars < 1:
+            raise ConfigError("trend_lookback_h4_bars must be >= 1")
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError(
+                "trailing_stop_atr_multiple must be None in v1 — "
+                "the regime switcher uses time-stop only"
+            )
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -313,6 +371,9 @@ class StrategyConfig(BaseModel):
     mean_reversion: MeanReversionStrategyConfig | None = None
     session_breakout: SessionBreakoutStrategyConfig | None = None
     random_entry_anchor: RandomEntryAnchorStrategyConfig | None = None
+    regime_switcher_atr_percentile: (
+        RegimeSwitcherAtrPercentileStrategyConfig | None
+    ) = None
 
     @model_validator(mode="after")
     def _check_enabled(self) -> StrategyConfig:
@@ -348,6 +409,13 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.random_entry_anchor config required when enabled"
+            )
+        if (
+            "regime_switcher_atr_percentile" in self.enabled
+            and self.regime_switcher_atr_percentile is None
+        ):
+            raise ConfigError(
+                "strategy.regime_switcher_atr_percentile config required when enabled"
             )
         return self
 
