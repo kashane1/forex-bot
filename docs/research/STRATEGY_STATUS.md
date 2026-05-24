@@ -89,30 +89,34 @@ for the gate-by-gate evidence.
   candidate must beat by a meaningful margin to count as
   evidence of an edge.
 
-**Next real candidate selected (not yet scaffolded):** the
-`research-new-candidate-strategy-discovery-003` sprint selected
-**C3 — Daily-ATR-percentile regime switcher** for future
-**`CAMPAIGN_012 / regime_switcher_atr_percentile 0.1.0-c012`**.
-Selection is **not** approval; no strategy code has been
-written, no backtest has been run, no walk-forward evidence
-exists, and the candidate has not been added to
-`configs/approved_strategies.yaml`. The future scaffold sprint
-is
-[`research-regime-switcher-atr-percentile-001`](NEXT_REAL_CANDIDATE_SCAFFOLD_BRANCH_SPEC_003.md);
-the future evidence sprint is
-[`research-regime-switcher-atr-percentile-walk-forward-001`](NEXT_REAL_CANDIDATE_EVIDENCE_BRANCH_SPEC_003.md).
-Frozen parameters are pre-committed in
-[`C3_REGIME_SWITCHER_FEASIBILITY_REVIEW.md`](C3_REGIME_SWITCHER_FEASIBILITY_REVIEW.md)
-before any code exists. The future evidence sprint must beat
-the CAMPAIGN_011 null-baseline margins codified in
+**Next real candidate scaffolded (evidence sprint not yet run):**
+the
+[`research-regime-switcher-atr-percentile-001`](REGIME_SWITCHER_ATR_PERCENTILE_001_SUMMARY.md)
+scaffold sprint implemented **C3 — Daily-ATR-percentile regime
+switcher** as **`CAMPAIGN_012 / regime_switcher_atr_percentile 0.1.0-c012`**.
+The strategy module
+(`src/forex_bot/strategies/regime_switcher_atr_percentile.py`),
+the `RegimeSwitcherAtrPercentileStrategyConfig` schema, 47 unit
+tests, the candidate config
+(`configs/campaign_012_regime_switcher_atr_percentile.yaml`), and
+the CAMPAIGN_012 pre-commit / status / readiness / smoke docs are
+all committed. **Scaffolding is not approval.** No backtest, no
+walk-forward, no financing overlay, no risk diagnostics, and no
+verifier corroboration have been produced; the candidate has not
+been added to `configs/approved_strategies.yaml` (registry remains
+`approved: []`) and is not enabled in `configs/paper.yaml` /
+`configs/practice.yaml`. The next sprint is
+[`research-regime-switcher-atr-percentile-walk-forward-001`](NEXT_REAL_CANDIDATE_EVIDENCE_BRANCH_SPEC_003.md)
+(the evidence sprint). It must beat the CAMPAIGN_011 null-baseline
+margins codified in
 [`CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md`](CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md)
 (≥ +0.0524 R aggregate expectancy, ≥ +0.19 profit factor,
 ≥ +5.5 pp pairs-positive, ≥ +1 pair, 100 % fold pass rate) to
 qualify even as a `RESEARCH_PASS_UNAPPROVED` candidate; an
 "indistinguishable from null" result (within ± 0.005 R /
-± 0.10 PF / ± 2 pp / ± 1 pair of CAMPAIGN_011) is REJECTED.
-Neither sprint has run yet; the row below will appear here
-once the evidence sprint records a verdict.
+± 0.10 PF / ± 2 pp / ± 1 pair of CAMPAIGN_011) is REJECTED. The
+evidence sprint has not run yet; the row below will appear here
+once it records a verdict.
 
 ## Per-strategy detail
 

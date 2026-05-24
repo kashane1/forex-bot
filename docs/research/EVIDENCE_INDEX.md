@@ -525,6 +525,40 @@ baseline is preserved.
 | [`NEW_CANDIDATE_DISCOVERY_003_HELPER_DECISION.md`](NEW_CANDIDATE_DISCOVERY_003_HELPER_DECISION.md) | Phase 7 — six helper-code options considered, all rejected with documented rationale; zero code added; matches both prior discovery sprints' identical no-helper decision |
 | [`NEW_CANDIDATE_STRATEGY_DISCOVERY_003_SUMMARY.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_003_SUMMARY.md) | Phase 8 — sprint summary & handoff; final validation; recommended next branch is the scaffold sprint `research-regime-switcher-atr-percentile-001` |
 
+### CAMPAIGN_012 candidate scaffold (`research-regime-switcher-atr-percentile-001`)
+
+Scaffold sprint for **CAMPAIGN_012** /
+`regime_switcher_atr_percentile 0.1.0-c012` — the C3 daily-ATR-percentile
+regime switcher selected by the
+`research-new-candidate-strategy-discovery-003` sprint. Adds the strategy
+module (R1-R8 per binding spec), the
+`StrategyConfig.regime_switcher_atr_percentile` schema slot, 47 unit +
+structural-audit tests, the candidate config YAML, and the CAMPAIGN_012
+pre-commit / status / readiness / smoke docs. **CANDIDATE SCAFFOLD
+ONLY — NOT APPROVED.** `configs/approved_strategies.yaml` remains
+`approved: []`; CAMPAIGN_002 / CAMPAIGN_010 / CAMPAIGN_011 all remain
+REJECT; the candidate is structurally ready for the future evidence
+sprint to generate `WalkForwardResults`. The 818-test baseline
+(771 prior + 47 new) is preserved. The future evidence sprint must
+beat the CAMPAIGN_011 null-baseline floor (≥ +0.0524 R aggregate
+expectancy, ≥ +0.19 PF, ≥ +5.5 pp pairs-positive, ≥ +1 pair, 100 %
+fold pass rate) to count as evidence of an edge; "indistinguishable
+from null" (within ± 0.005 R / ± 0.10 PF / ± 2 pp / ± 1 pair) is
+REJECTED.
+
+| document | what it is |
+|---|---|
+| [`REGIME_SWITCHER_ATR_PERCENTILE_001_PLAN.md`](REGIME_SWITCHER_ATR_PERCENTILE_001_PLAN.md) | Phase 0 sprint plan + repo truth audit (verified 771 baseline + base commit `384314a` + D1AGG infra present + clean slate for CAMPAIGN_012) |
+| [`REGIME_SWITCHER_ATR_PERCENTILE_IMPLEMENTATION_SPEC.md`](REGIME_SWITCHER_ATR_PERCENTILE_IMPLEMENTATION_SPEC.md) | Phase 1 binding spec — R1-R8 rule table; 12 frozen parameters (`atr_lookback=14`, `atr_stop_multiple=2.0`, `max_bars_in_trade=6`, `trailing_stop_atr_multiple=None`, `daily_atr_lookback=14`, `regime_lookback_days=60`, `regime_percentile_threshold=0.70`, `min_close_move_atr_fraction=0.25`, `trend_lookback_h4_bars=4`); 15 no-lookahead invariants; 11 fail-closed conditions; 40 expected tests |
+| [`CAMPAIGN_012_PRECOMMIT_CHECKLIST.md`](CAMPAIGN_012_PRECOMMIT_CHECKLIST.md) | candidate pre-commit; hypothesis verbatim; implementation files + frozen parameters + no-lookahead checklist; D1AGG completed-day rule; rolling percentile rule; binding null-baseline comparison gate vs CAMPAIGN_011; required walk-forward / financing / risk artifacts; verbatim gate vector inherited from CAMPAIGN_010 §10 + CAMPAIGN_011 §11; unexpected-PASS 5-step escalation protocol |
+| [`CAMPAIGN_012_STATUS.md`](CAMPAIGN_012_STATUS.md) | candidate-scaffold-only status; no backtest verdict yet; no evidence campaign run; no strategy approval (cannot be approved by any research sprint); CAMPAIGN_002 / 010 / 011 all REJECT relationship; why this is a real candidate (deterministic, directional, distinct) but not approved |
+| [`REGIME_SWITCHER_ATR_PERCENTILE_READINESS.md`](REGIME_SWITCHER_ATR_PERCENTILE_READINESS.md) | scaffold readiness GREEN across all 21 dimensions; future evidence branch identity `research-regime-switcher-atr-percentile-walk-forward-001`; data expectations; known limitations (verifier lock; MODELED financing); D1AGG usage; null-baseline comparison; why this is a real candidate but not approved |
+| [`CAMPAIGN_012_SMOKE_RESULT.md`](CAMPAIGN_012_SMOKE_RESULT.md) | Phase 5 NON-EVIDENCE smokes: config-load PASS; unit-test suite PASS (47 cases); walk-forward dry-run plan PASS (8 folds; matches CAMPAIGN_010 / 011 verbatim); full repo regression 818 passes. Explicit "this is not evidence" framing; dry-run output written to /tmp and NOT committed |
+| [`CAMPAIGN_012_WALK_FORWARD_READINESS.md`](CAMPAIGN_012_WALK_FORWARD_READINESS.md) | future-evidence walk-forward plan (inherited verbatim from CAMPAIGN_010 / 011: rolling, frozen, 540/180/180/180 days, 2020-01-01 → 2026-05-20, expected 8 folds); per-fold + aggregate gate vector; binding null-baseline comparison gate; expected artifact paths |
+| [`CAMPAIGN_012_FINANCING_RISK_READINESS.md`](CAMPAIGN_012_FINANCING_RISK_READINESS.md) | future-evidence financing overlay (ESTIMATED + conservative stress; MODELED refused at 4 layers; not lifted) + portfolio-risk diagnostics (regime-period clustering as the signature; expected session-of-day diffuse across 4 UTC buckets like CAMPAIGN_011); per-instrument concurrency = 1 |
+| [`CAMPAIGN_012_INDEPENDENT_VERIFIER_READINESS.md`](CAMPAIGN_012_INDEPENDENT_VERIFIER_READINESS.md) | future-evidence verifier coverage; current capability lock to CAMPAIGN_002 / `trend_following`; not required for REJECT; required only on RESEARCH_PASS_UNAPPROVED via the suggested follow-up sprint `infra-free-local-parity-verifier-regime-switcher-001` |
+| [`REGIME_SWITCHER_ATR_PERCENTILE_001_SUMMARY.md`](REGIME_SWITCHER_ATR_PERCENTILE_001_SUMMARY.md) | sprint summary & handoff; final validation; recommended next branch is the evidence sprint `research-regime-switcher-atr-percentile-walk-forward-001` |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
