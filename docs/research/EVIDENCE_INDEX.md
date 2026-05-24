@@ -559,6 +559,45 @@ REJECTED.
 | [`CAMPAIGN_012_INDEPENDENT_VERIFIER_READINESS.md`](CAMPAIGN_012_INDEPENDENT_VERIFIER_READINESS.md) | future-evidence verifier coverage; current capability lock to CAMPAIGN_002 / `trend_following`; not required for REJECT; required only on RESEARCH_PASS_UNAPPROVED via the suggested follow-up sprint `infra-free-local-parity-verifier-regime-switcher-001` |
 | [`REGIME_SWITCHER_ATR_PERCENTILE_001_SUMMARY.md`](REGIME_SWITCHER_ATR_PERCENTILE_001_SUMMARY.md) | sprint summary & handoff; final validation; recommended next branch is the evidence sprint `research-regime-switcher-atr-percentile-walk-forward-001` |
 
+### CAMPAIGN_012 walk-forward evidence (`research-regime-switcher-atr-percentile-walk-forward-001`)
+
+Walk-forward evidence sprint that ran the full
+`PREFERRED_CANDIDATE_EVALUATION_DESIGN` pipeline against the
+`regime_switcher_atr_percentile 0.1.0-c012` C3 daily-ATR-percentile
+regime-switcher candidate on the 7-pair × 6-year real OANDA practice
+H4 universe. Verdict: **REJECT** — 5 of 8 inherited aggregate gates
+fail (`fold_pass_rate = 0/8`; `aggregate_expectancy_r = −0.0521 R`;
+`profit_factor = 0.034`; `pairs_positive = 1/7`); aggregate return
+`−43.52 %` over 4 years. **Markedly worse than CAMPAIGN_011 null
+baseline** on every binding axis (expectancy −0.0497 R lower, PF
+−0.876 lower, return −42.99 pp lower, pairs −2 lower) — well outside
+the symmetric ±0.005 R / ±0.10 PF / ±2 pp / ±1 pair
+indistinguishability band; classification is **REJECT** (not
+`REJECT_INDISTINGUISHABLE_FROM_NULL`, because the divergence is in
+the WORSE direction). The regime gate amplified trade count (3,726 vs
+1,177) without improving signal quality, accumulating cost drag.
+USD_JPY's +0.0004 R is the same near-exact-zero random-walk floor
+CAMPAIGN_011 surfaced. CAMPAIGN_012 reclassifies from `scaffold-only`
+to `rejected`. `configs/approved_strategies.yaml` remains
+`approved: []`; CAMPAIGN_002 / CAMPAIGN_010 / CAMPAIGN_011 remain
+REJECT and untouched. Paper / demo / live remain blocked.
+**CAMPAIGN_012 cannot be approved.** No broker call, no credential
+read, no parameter tuning.
+
+| document | what it is |
+|---|---|
+| [`REGIME_SWITCHER_ATR_PERCENTILE_WALK_FORWARD_001_PLAN.md`](REGIME_SWITCHER_ATR_PERCENTILE_WALK_FORWARD_001_PLAN.md) | Phase 0 repo truth audit + 10-phase evidence-sprint plan; baseline 818 pytests pass; data status (existing 7-pair × 6-year H4 store reused via gitignored symlink) |
+| [`CAMPAIGN_012_DATA_PROVENANCE.md`](CAMPAIGN_012_DATA_PROVENANCE.md) | Phase 1 data provenance — per-pair counts, first/last bar timestamps, recorded raw/normalized SHA-256 prefixes; ALL HASHES MATCH CAMPAIGN_010 / CAMPAIGN_011 verbatim (same physical store; identical data; the entry-signal comparison is on byte-for-byte identical candles) |
+| [`CAMPAIGN_012_WALK_FORWARD_PLAN.md`](CAMPAIGN_012_WALK_FORWARD_PLAN.md) | Phase 2 authoritative walk-forward plan — 8 folds rolling/frozen, 540/180/180/180 days, universe 2020-01-01 → 2026-05-20, IDENTICAL to CAMPAIGN_010 / 011 plans |
+| [`CAMPAIGN_012_WALK_FORWARD_EXECUTION.md`](CAMPAIGN_012_WALK_FORWARD_EXECUTION.md) | Phase 4 per-fold execution — 56 backtests (8 folds × 7 pairs) in ~2,022 s, 3,726 trades, frozen-parameter assertion in runner, no implementation bug fixes required |
+| [`CAMPAIGN_012_WALK_FORWARD_RESULT.md`](CAMPAIGN_012_WALK_FORWARD_RESULT.md) | Phase 5 formal verdict — REJECT; 5 of 8 inherited aggregate gates fail; CAMPAIGN_011 null-baseline comparison classifies REJECT (not REJECT_INDISTINGUISHABLE_FROM_NULL because metrics diverge from null in WORSE direction) |
+| [`CAMPAIGN_012_FINANCING_OVERLAY.md`](CAMPAIGN_012_FINANCING_OVERLAY.md) | Phase 6 financing overlay — ESTIMATED + `default_stress_rate_source()` (MODELED refused at four layers); 3,404 rollover events; cashflow_home_stress_total = −$65.07; no pair flip; `conservative_stress_run_does_not_flip_verdict` PASSES (verdict already REJECT pre-financing) |
+| [`CAMPAIGN_012_PORTFOLIO_RISK_DIAGNOSTICS.md`](CAMPAIGN_012_PORTFOLIO_RISK_DIAGNOSTICS.md) | Phase 7 risk diagnostics — per-pair ratio max/min = 1.60 (uniform; close to CAMPAIGN_011's 1.65 vs CAMPAIGN_010's 12.0); session distribution diffuse across all 4 UTC buckets (no concentration > 50 %; like CAMPAIGN_011); 79.3 % time-stop exit; 8 / 8 pipeline sanity checks PASS; RiskEngine rejected 42.7 % of raw signals (SPREAD_TOO_WIDE 2013, SESSION_BLOCKED 758) |
+| [`CAMPAIGN_012_INDEPENDENT_VERIFIER_STATUS.md`](CAMPAIGN_012_INDEPENDENT_VERIFIER_STATUS.md) | Phase 8 verifier capability assessment — verifier capability-locked to CAMPAIGN_002 / `trend_following`; did NOT run for CAMPAIGN_012; not required for REJECT; recommended follow-up `infra-free-local-parity-verifier-regime-switcher-001` **deferred indefinitely** (no paper-promotion candidate to corroborate) |
+| [`CAMPAIGN_012_EVIDENCE_SUMMARY.md`](CAMPAIGN_012_EVIDENCE_SUMMARY.md) | Phase 9 one-page evidence summary — headline numbers, null-baseline interpretation, regime-switcher interpretation (hypothesis falsified), comparison to prior REJECT campaigns (CAMPAIGN_012 has the worst aggregate return of any campaign to date) |
+| [`CAMPAIGN_012_STATUS.md`](CAMPAIGN_012_STATUS.md) (updated) | now reclassified `scaffold-only → rejected`; verdict, gates, evidence artifacts, safety state |
+| [`REGIME_SWITCHER_ATR_PERCENTILE_WALK_FORWARD_001_SUMMARY.md`](REGIME_SWITCHER_ATR_PERCENTILE_WALK_FORWARD_001_SUMMARY.md) | sprint summary & handoff |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |

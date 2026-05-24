@@ -259,6 +259,36 @@
       "risk_engine_used": true,
       "financing_treatment": "estimated",
       "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "title": "Daily-ATR-percentile regime switcher (research-regime-switcher-atr-percentile-walk-forward-001)",
+      "report_path": "docs/research/CAMPAIGN_012_WALK_FORWARD_RESULT.md",
+      "artifact_folder": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile",
+      "strategy_family": "regime_switcher_atr_percentile",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "fold_count": 8,
+        "fold_pass_rate": 0.0,
+        "total_trades": 3726,
+        "aggregate_expectancy_r": -0.0521,
+        "aggregate_profit_factor": 0.0338,
+        "aggregate_return_pct": -43.52,
+        "pairs_positive": 1,
+        "single_fold_dominance_pct": 28.54,
+        "single_pair_dominance_pct": 22.39,
+        "financing_cashflow_home_stress_total_usd": -65.07,
+        "financing_missing_rate_event_count": 0,
+        "null_model": false,
+        "approval_path": "none (REJECTED on Phase 5 inherited gates AND on CAMPAIGN_011 null-baseline comparison; verifier deferred indefinitely)",
+        "note": "walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4 (same physical store + identical hashes as CAMPAIGN_010 / 011); regime gate = HIGH-VOL iff prior-day D1AGG ATR-14 >= P70 of trailing 60 completed D1AGG bars; trend filter = close[t] vs close[t-4] with min ATR-fraction 0.25 floor; ATR-2.0 stop, 6-bar time stop. 5 of 8 inherited aggregate gates FAIL: fold_pass_rate (0%), expectancy_r (-0.0521 vs >=0.05), profit_factor (0.034 vs >=1.10), pairs_positive (1/7 vs >=4/7); fold_count, trade_count, single_fold_dominance, single_pair_dominance PASS. Null-baseline comparison: CAMPAIGN_012 is markedly WORSE than CAMPAIGN_011 on every binding axis (expectancy -0.0497 R, PF -0.876, return -42.99 pp, pairs -2) — far outside the symmetric +/-0.005 R / +/-0.10 PF / +/-2 pp / +/-1 pair indistinguishability band; classification REJECT (not REJECT_INDISTINGUISHABLE_FROM_NULL because the divergence is in the worse direction). The regime gate amplified trade count (3,726 vs 1,177) without improving signal quality, accumulating cost drag. USD_JPY at +0.0004 R is the same random-walk floor CAMPAIGN_011 surfaced. Financing overlay (ESTIMATED + conservative stress) adds -$65.07 drag; no pair flip; conservative_stress_run_does_not_flip_verdict PASSES (verdict already REJECT pre-financing). Risk diagnostics: 8/8 sanity checks PASS; diagnostic shape (uniform per-pair distribution, diffuse session distribution, ~79% time-stop) resembles CAMPAIGN_011 null model more than CAMPAIGN_010. Verifier did not run (capability-locked to CAMPAIGN_002; not required for REJECT); infra-free-local-parity-verifier-regime-switcher-001 deferred indefinitely. MODELED financing refused at 4 layers; live-promotion blocker stands. configs/approved_strategies.yaml remains approved: []."
+      },
+      "commit_hash": "c26616d",
+      "test_window_opened": true,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
     }
   ],
   "diagnostic_artifacts": [

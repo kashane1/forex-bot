@@ -37,6 +37,7 @@ strategy is approved.**
 | `mean_reversion 0.2.0-c009` | rejected (research-only) | NO | NO | NO | CAMPAIGN_009 |
 | `session_breakout 0.1.0-c010` | rejected | NO | NO | NO | CAMPAIGN_010 |
 | `random_entry_anchor 0.1.0-c011` | rejected (null model anchor) | NO | NO | NO | CAMPAIGN_011 |
+| `regime_switcher_atr_percentile 0.1.0-c012` | rejected | NO | NO | NO | CAMPAIGN_012 |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
@@ -89,34 +90,63 @@ for the gate-by-gate evidence.
   candidate must beat by a meaningful margin to count as
   evidence of an edge.
 
-**Next real candidate scaffolded (evidence sprint not yet run):**
-the
-[`research-regime-switcher-atr-percentile-001`](REGIME_SWITCHER_ATR_PERCENTILE_001_SUMMARY.md)
-scaffold sprint implemented **C3 — Daily-ATR-percentile regime
-switcher** as **`CAMPAIGN_012 / regime_switcher_atr_percentile 0.1.0-c012`**.
-The strategy module
-(`src/forex_bot/strategies/regime_switcher_atr_percentile.py`),
-the `RegimeSwitcherAtrPercentileStrategyConfig` schema, 47 unit
-tests, the candidate config
-(`configs/campaign_012_regime_switcher_atr_percentile.yaml`), and
-the CAMPAIGN_012 pre-commit / status / readiness / smoke docs are
-all committed. **Scaffolding is not approval.** No backtest, no
-walk-forward, no financing overlay, no risk diagnostics, and no
-verifier corroboration have been produced; the candidate has not
-been added to `configs/approved_strategies.yaml` (registry remains
-`approved: []`) and is not enabled in `configs/paper.yaml` /
-`configs/practice.yaml`. The next sprint is
-[`research-regime-switcher-atr-percentile-walk-forward-001`](NEXT_REAL_CANDIDATE_EVIDENCE_BRANCH_SPEC_003.md)
-(the evidence sprint). It must beat the CAMPAIGN_011 null-baseline
-margins codified in
+`regime_switcher_atr_percentile 0.1.0-c012` is **rejected**: the
+`research-regime-switcher-atr-percentile-walk-forward-001` evidence
+sprint ran the full 8-fold walk-forward (rolling, frozen,
+540/180/180/180 days, 7-pair OANDA practice H4 universe), the
+ESTIMATED + conservative-stress financing overlay, and the
+portfolio-risk diagnostics, and recorded a REJECT against both the
+verbatim CAMPAIGN_010 / CAMPAIGN_011 inherited gates (5 of 8
+aggregate gates fail) and the CAMPAIGN_011 null-baseline comparison
+codified in
 [`CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md`](CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md)
-(≥ +0.0524 R aggregate expectancy, ≥ +0.19 profit factor,
-≥ +5.5 pp pairs-positive, ≥ +1 pair, 100 % fold pass rate) to
-qualify even as a `RESEARCH_PASS_UNAPPROVED` candidate; an
-"indistinguishable from null" result (within ± 0.005 R /
-± 0.10 PF / ± 2 pp / ± 1 pair of CAMPAIGN_011) is REJECTED. The
-evidence sprint has not run yet; the row below will appear here
-once it records a verdict.
+(the metrics diverge from null in the **worse** direction, far
+outside the symmetric indistinguishability band on three of four
+binding axes). The independent verifier did not run (it is
+capability-locked to CAMPAIGN_002); this matters only for a
+hypothetical paper-promotion candidate, not for a REJECT. See
+[`CAMPAIGN_012_WALK_FORWARD_RESULT.md`](CAMPAIGN_012_WALK_FORWARD_RESULT.md)
+for the gate-by-gate evidence and
+[`CAMPAIGN_012_EVIDENCE_SUMMARY.md`](CAMPAIGN_012_EVIDENCE_SUMMARY.md)
+for the one-page summary.
+
+### `regime_switcher_atr_percentile 0.1.0-c012`
+
+- **Status:** rejected.
+- **Evidence:** CAMPAIGN_012 walk-forward
+  (`research-regime-switcher-atr-percentile-walk-forward-001`),
+  real OANDA practice H4, 7-pair universe, 8 folds rolling/frozen,
+  3,726 trades total: **fold pass rate 0 / 8, aggregate expectancy
+  −0.0521 R, profit factor 0.034, aggregate return −43.52 % over 4
+  years, 1 / 7 pairs positive (USD_JPY +0.0004 R — random-walk
+  floor)**.
+- **Paper / demo / live:** NO / NO / NO.
+- **Reason:** The C3 daily-ATR-percentile regime gate (HIGH-VOL iff
+  prior-day D1AGG ATR-14 ≥ P70 of trailing 60 D1AGG bars) **did not
+  rescue** trend-following on H4 majors. It amplified trade count
+  (3,726 vs CAMPAIGN_011's 1,177) without improving signal quality,
+  accumulating cost drag. CAMPAIGN_012 is **markedly worse than the
+  CAMPAIGN_011 null baseline** on every binding axis (expectancy
+  −0.0497 R lower, PF −0.876 lower, return −42.99 pp lower, pairs
+  −2 lower); classification is **REJECT** (not
+  REJECT_INDISTINGUISHABLE_FROM_NULL because the divergence is in
+  the worse direction). The hypothesis "high-vol regimes are
+  trend-friendly on H4 majors" is falsified by the evidence on this
+  universe + timeframe. USD_JPY's +0.0004 R is the same near-exact-
+  zero random-walk floor CAMPAIGN_011 surfaced. Verifier did not
+  run (capability-locked to CAMPAIGN_002; not required for REJECT;
+  the suggested follow-up
+  `infra-free-local-parity-verifier-regime-switcher-001` is
+  **deferred indefinitely**). Financing overlay (ESTIMATED +
+  conservative stress; MODELED refused at 4 layers) confirms the
+  REJECT — adds −$65.07 drag; no pair flip; the
+  `conservative_stress_run_does_not_flip_verdict` gate PASSES
+  (verdict was already REJECT pre-financing). Per-pair distribution
+  near-uniform (ratio max/min 1.60 vs CAMPAIGN_010's 12.0; close to
+  CAMPAIGN_011's 1.65); session distribution diffuse across all 4
+  UTC buckets (no concentration > 50 %; like CAMPAIGN_011, unlike
+  CAMPAIGN_010's 100 % London); 79.3 % time-stop exit (matches
+  CAMPAIGN_011's ~75 %); 8 / 8 pipeline sanity checks pass.
 
 ## Per-strategy detail
 
