@@ -148,28 +148,37 @@ for the one-page summary.
   CAMPAIGN_010's 100 % London); 79.3 % time-stop exit (matches
   CAMPAIGN_011's ~75 %); 8 / 8 pipeline sanity checks pass.
 
-**Next real candidate selected (not yet scaffolded):** the
-`research-new-candidate-strategy-discovery-004` sprint selected
-**C6 — Cross-Pair Currency Strength Rotation** for future
-**`CAMPAIGN_013 / cross_pair_currency_strength_rotation 0.1.0-c013`**.
-Selection is **not** approval; no strategy code has been written,
-no backtest has been run, no walk-forward evidence exists, and
-the candidate has not been added to
-`configs/approved_strategies.yaml`. The future scaffold sprint is
-[`research-cross-pair-currency-strength-rotation-001`](NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_004.md);
-the future evidence sprint is
-[`research-cross-pair-currency-strength-rotation-walk-forward-001`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_004.md).
-Frozen parameters are pre-committed in
-[`NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_004.md`](NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_004.md)
-before any code exists. The future evidence sprint must beat the
-CAMPAIGN_011 null-baseline margins codified in
+**Next real candidate scaffolded (evidence sprint not yet run):**
+the
+[`research-cross-pair-currency-strength-rotation-001`](CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_001_SUMMARY.md)
+scaffold sprint implemented **C6 — Cross-Pair Currency Strength
+Rotation** as **`CAMPAIGN_013 / cross_pair_currency_strength_rotation 0.1.0-c013`**.
+The strategy module
+(`src/forex_bot/strategies/cross_pair_currency_strength_rotation.py`),
+the `CrossPairCurrencyStrengthRotationStrategyConfig` schema, 57
+unit tests, the candidate config
+(`configs/campaign_013_cross_pair_currency_strength_rotation.yaml`),
+and the CAMPAIGN_013 pre-commit / status / readiness / smoke docs are
+all committed. **Scaffolding is not approval.** No backtest, no
+walk-forward, no financing overlay, no risk diagnostics, and no
+verifier corroboration have been produced; the candidate has not
+been added to `configs/approved_strategies.yaml` (registry remains
+`approved: []`) and is not enabled in `configs/paper.yaml` /
+`configs/practice.yaml`. The next sprint is
+[`research-cross-pair-currency-strength-rotation-walk-forward-001`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_004.md)
+(the evidence sprint). It must beat the CAMPAIGN_011 null-baseline
+margins codified in
 [`CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md`](CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md)
 (≥ +0.0524 R aggregate expectancy, ≥ +0.19 profit factor, ≥ +5.5 pp
 pairs-positive, ≥ +1 pair, 100 % fold pass rate) to qualify even as
 a `RESEARCH_PASS_UNAPPROVED` candidate; an "indistinguishable from
 null" result (within ± 0.005 R / ± 0.10 PF / ± 2 pp / ± 1 pair of
-CAMPAIGN_011) is REJECTED. Neither sprint has run yet; the row below
-will appear here once the evidence sprint records a verdict.
+CAMPAIGN_011) is REJECTED. The evidence sprint must also implement
+the binding cross-pair runner integration contract (align all 7
+pairs' completed H4 closes to a common index; inject as
+`cross_pair_closes` into each pair's `strategy_config`). The
+evidence sprint has not run yet; the row below will appear here once
+it records a verdict.
 
 ## Per-strategy detail
 

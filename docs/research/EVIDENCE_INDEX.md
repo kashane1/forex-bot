@@ -636,6 +636,44 @@ approval. The 818-test baseline is preserved.
 | [`NEW_CANDIDATE_DISCOVERY_004_HELPER_DECISION.md`](NEW_CANDIDATE_DISCOVERY_004_HELPER_DECISION.md) | Phase 8 — seven helper-code options considered, all rejected with documented rationale; zero code added; matches all three prior discovery sprints' identical no-helper decision |
 | [`NEW_CANDIDATE_STRATEGY_DISCOVERY_004_SUMMARY.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_004_SUMMARY.md) | Phase 9 — sprint summary & handoff; final validation; recommended next branch is the scaffold sprint `research-cross-pair-currency-strength-rotation-001` |
 
+### CAMPAIGN_013 candidate scaffold (`research-cross-pair-currency-strength-rotation-001`)
+
+Scaffold sprint for **CAMPAIGN_013** /
+`cross_pair_currency_strength_rotation 0.1.0-c013` — the C6
+cross-pair currency-strength rotation candidate selected by the
+`research-new-candidate-strategy-discovery-004` sprint. Adds the
+strategy module (R1-R8 per binding spec), the
+`StrategyConfig.cross_pair_currency_strength_rotation` schema slot,
+57 unit + structural-audit tests, the candidate config YAML, and
+the CAMPAIGN_013 pre-commit / status / readiness / smoke docs.
+**CANDIDATE SCAFFOLD ONLY — NOT APPROVED.**
+`configs/approved_strategies.yaml` remains `approved: []`;
+CAMPAIGN_002 / CAMPAIGN_010 / CAMPAIGN_011 / CAMPAIGN_012 all remain
+REJECT; the candidate is structurally ready for the future evidence
+sprint to generate `WalkForwardResults`. The 875-test baseline
+(818 prior + 57 new) is preserved. The future evidence sprint must
+beat the CAMPAIGN_011 null-baseline floor (≥ +0.0524 R aggregate
+expectancy, ≥ +0.19 PF, ≥ +5.5 pp pairs-positive, ≥ +1 pair, 100 %
+fold pass rate) to count as evidence of an edge; "indistinguishable
+from null" (within ± 0.005 R / ± 0.10 PF / ± 2 pp / ± 1 pair) is
+REJECTED. **Critical CAMPAIGN_013-specific evidence-runner
+requirement:** must implement the cross-pair runner integration
+contract (align all 7 pairs' completed H4 closes to a common index;
+inject as `cross_pair_closes` into each pair's `strategy_config`).
+
+| document | what it is |
+|---|---|
+| [`CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_001_PLAN.md`](CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_001_PLAN.md) | Phase 0 sprint plan + repo truth audit (verified 818 baseline + base commit `ff34e96` + clean slate for CAMPAIGN_013) |
+| [`CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_IMPLEMENTATION_SPEC.md`](CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_IMPLEMENTATION_SPEC.md) | Phase 1 binding spec — R1-R8 rule table; 9 frozen parameters (`currency_strength_lookback_bars=24`, `rank_gap_threshold=4`, `atr_lookback=14`, `atr_stop_multiple=2.0`, `max_bars_in_trade=6`, `trailing_stop_atr_multiple=None`); 7-pair universe + 8-currency sign convention (USD-base = +log_return; USD-quote = −log_return; USD = −mean(non-USD)); 14 no-lookahead invariants; 10 fail-closed conditions; 51 expected tests |
+| [`CAMPAIGN_013_PRECOMMIT_CHECKLIST.md`](CAMPAIGN_013_PRECOMMIT_CHECKLIST.md) | candidate pre-commit; hypothesis verbatim; implementation files + frozen parameters + no-lookahead checklist; cross-pair-closes contract; currency-strength sign convention; rank-gap rule (inclusive at threshold); binding null-baseline comparison gate vs CAMPAIGN_011; required walk-forward / financing / risk artifacts; verbatim gate vector inherited from CAMPAIGN_010 / 011 / 012; unexpected-PASS 5-step escalation protocol |
+| [`CAMPAIGN_013_STATUS.md`](CAMPAIGN_013_STATUS.md) | candidate-scaffold-only status; no backtest verdict yet; no evidence campaign run; no strategy approval (cannot be approved by any research sprint); CAMPAIGN_002 / 010 / 011 / 012 all REJECT relationship; why this is a real candidate (deterministic, directional, cross-pair structure never tested before) but not approved |
+| [`CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_READINESS.md`](CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_READINESS.md) | scaffold readiness GREEN across 18 dimensions; future evidence branch identity `research-cross-pair-currency-strength-rotation-walk-forward-001`; data expectations; known limitations (verifier lock; MODELED financing; MAX_OPEN_POSITIONS_EXCEEDED rejection from cross-pair concurrent signals — KNOWN behavior, NOT a bug); binding cross-pair runner integration requirement; null-baseline comparison; why this is a real candidate but not approved |
+| [`CAMPAIGN_013_SMOKE_RESULT.md`](CAMPAIGN_013_SMOKE_RESULT.md) | Phase 5 NON-EVIDENCE smokes: config-load PASS; unit-test suite PASS (57 cases); walk-forward dry-run plan PASS (8 folds; matches CAMPAIGN_010 / 011 / 012 verbatim); full repo regression 875 passes. Explicit "this is not evidence" framing; dry-run output written to `/tmp` and NOT committed |
+| [`CAMPAIGN_013_WALK_FORWARD_READINESS.md`](CAMPAIGN_013_WALK_FORWARD_READINESS.md) | future-evidence walk-forward plan (inherited verbatim from CAMPAIGN_010 / 011 / 012: rolling, frozen, 540/180/180/180 days, 2020-01-01 → 2026-05-20, expected 8 folds); per-fold + aggregate gate vector; binding null-baseline comparison gate; **binding cross-pair runner integration contract**; expected artifact paths |
+| [`CAMPAIGN_013_FINANCING_RISK_READINESS.md`](CAMPAIGN_013_FINANCING_RISK_READINESS.md) | future-evidence financing overlay (ESTIMATED + conservative stress; MODELED refused at 4 layers; not lifted) + portfolio-risk diagnostics (standard battery PLUS CAMPAIGN_013-specific: rank-gap distribution, simultaneous-signal frequency, MAX_OPEN_POSITIONS_EXCEEDED rejection rate, currency-rank flip rate, pair-direction conflict rate); per-instrument concurrency = 1 |
+| [`CAMPAIGN_013_INDEPENDENT_VERIFIER_READINESS.md`](CAMPAIGN_013_INDEPENDENT_VERIFIER_READINESS.md) | future-evidence verifier coverage; current capability lock to CAMPAIGN_002 / `trend_following`; not required for REJECT; required only on RESEARCH_PASS_UNAPPROVED via the suggested follow-up sprint `infra-free-local-parity-verifier-cross-pair-currency-strength-rotation-001` |
+| [`CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_001_SUMMARY.md`](CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_001_SUMMARY.md) | sprint summary & handoff; final validation; recommended next branch is the evidence sprint `research-cross-pair-currency-strength-rotation-walk-forward-001` |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
