@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_JPY",
+  "strategy_name": "cross_pair_currency_strength_rotation",
+  "strategy_version": "0.1.0-c013",
+  "granularity": "H4",
+  "from_time": "2021-10-12T01:00:00+00:00",
+  "to_time": "2022-12-15T22:00:00+00:00",
+  "config_hash": "f9ea722d1e42085a",
+  "data_request_hash": "19ba0b0c7089708e",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": 0.0,
+    "final_equity": 500.0,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": 0.0,
+    "max_drawdown_duration_bars": 0,
+    "sharpe": 0.0,
+    "sortino": 0.0,
+    "profit_factor": 0.0,
+    "expectancy_r": 0.0,
+    "average_r": 0.0,
+    "median_r": 0.0,
+    "win_rate": 0.0,
+    "average_win": 0.0,
+    "average_loss": 0.0,
+    "trade_count": 0,
+    "largest_single_loss": 0.0,
+    "average_spread_paid_pips": 0.0,
+    "exposure_pct": 0.0
+  }
+}

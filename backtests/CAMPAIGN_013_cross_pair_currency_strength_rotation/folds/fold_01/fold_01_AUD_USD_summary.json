@@ -1,0 +1,32 @@
+{
+  "instrument": "AUD_USD",
+  "strategy_name": "cross_pair_currency_strength_rotation",
+  "strategy_version": "0.1.0-c013",
+  "granularity": "H4",
+  "from_time": "2021-10-12T01:00:00+00:00",
+  "to_time": "2022-12-15T22:00:00+00:00",
+  "config_hash": "f9ea722d1e42085a",
+  "data_request_hash": "647b82995c6c75cf",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -0.284080999999925,
+    "final_equity": 498.5795950000004,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -3.9040067646807506,
+    "max_drawdown_duration_bars": 1609,
+    "sharpe": -0.04983557722534578,
+    "sortino": -0.07727267159727226,
+    "profit_factor": 0.989473469293379,
+    "expectancy_r": -0.0027377166953789066,
+    "average_r": -0.0027377166953789066,
+    "median_r": -0.037821482602118005,
+    "win_rate": 0.48286604361370716,
+    "average_win": 0.861389129032258,
+    "average_loss": -0.8128657831325301,
+    "trade_count": 321,
+    "largest_single_loss": -1.29156,
+    "average_spread_paid_pips": 1.4052959501557634,
+    "exposure_pct": 0.0
+  }
+}

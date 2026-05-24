@@ -1,0 +1,32 @@
+{
+  "instrument": "USD_CAD",
+  "strategy_name": "cross_pair_currency_strength_rotation",
+  "strategy_version": "0.1.0-c013",
+  "granularity": "H4",
+  "from_time": "2023-10-02T01:00:00+00:00",
+  "to_time": "2024-12-04T22:00:00+00:00",
+  "config_hash": "f077079ee95360dd",
+  "data_request_hash": "ee9bf24008c43e76",
+  "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+  "fill_timing": "signal_bar_close",
+  "metrics": {
+    "total_return_pct": -2.0958362574165057,
+    "final_equity": 489.52081871291745,
+    "starting_equity": 500.0,
+    "max_drawdown_pct": -5.740548130515566,
+    "max_drawdown_duration_bars": 1702,
+    "sharpe": -0.5093096995142355,
+    "sortino": -0.782370994667865,
+    "profit_factor": 0.9187854999507568,
+    "expectancy_r": -0.018143248357369093,
+    "average_r": -0.018143248357369093,
+    "median_r": -0.047520521737312256,
+    "win_rate": 0.45482866043613707,
+    "average_win": 0.8119981790221887,
+    "average_loss": -0.7373195167104118,
+    "trade_count": 321,
+    "largest_single_loss": -1.2823245322305445,
+    "average_spread_paid_pips": 1.8021806853582554,
+    "exposure_pct": 0.0
+  }
+}
