@@ -39,6 +39,7 @@ strategy is approved.**
 | `random_entry_anchor 0.1.0-c011` | rejected (null model anchor) | NO | NO | NO | CAMPAIGN_011 |
 | `regime_switcher_atr_percentile 0.1.0-c012` | rejected | NO | NO | NO | CAMPAIGN_012 |
 | `cross_pair_currency_strength_rotation 0.1.0-c013` | rejected | NO | NO | NO | CAMPAIGN_013 |
+| `calendar_event_window_anomaly 0.1.0-c014` | research-only (scaffold) | NO | NO | NO | CAMPAIGN_014 (scaffold; no evidence verdict yet) |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
@@ -213,29 +214,52 @@ sprint codified this as a first-class binding anti-pattern**
 [`TURNOVER_AMPLIFICATION_ANTI_PATTERN_005.md`](TURNOVER_AMPLIFICATION_ANTI_PATTERN_005.md))
 and selected the next candidate accordingly.
 
-## Next candidate selected by discovery-005 (not yet implemented, not approved)
+## `calendar_event_window_anomaly 0.1.0-c014` (CAMPAIGN_014) — scaffold only
 
-The `research-new-candidate-strategy-discovery-005` sprint selected
-**C7 — Calendar-Event Window Anomaly (CEWA)** as the next preferred
-real candidate, to be implemented as **`calendar_event_window_anomaly
-0.1.0-c014`** (CAMPAIGN_014) by the future scaffold sprint
-`research-calendar-event-window-anomaly-001` and evaluated by the
-future evidence sprint `research-calendar-event-window-anomaly-walk-
-forward-001`. The hypothesis is post-event mean-reverting overshoot
-in the H4 bars immediately after scheduled high-impact events
-(NFP / FOMC / ECB / BoJ / BoE). Distinctness from every rejected
-family is 8 / 8. Expected trade-count budget ~150–400 over 4 years
-(well below CAMPAIGN_011's 1,177 null floor) — structurally
-disqualifies turnover-amplification patterns M and V. **Selection is
-not approval.** The strategy is designed but not yet scaffolded; the
-discovery output is two binding future-branch specs
-([`NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_005.md`](NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_005.md)
-and
-[`NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_005.md`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_005.md))
-plus binding implementation design
-([`NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_005.md`](NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_005.md)).
-**No strategy module yet. `configs/approved_strategies.yaml` remains
-`approved: []`. Paper / demo / live remain blocked.**
+The C7 Calendar-Event Window Anomaly candidate selected by the
+`research-new-candidate-strategy-discovery-005` sprint has been
+**implemented as a scaffold** by the
+`research-calendar-event-window-anomaly-001` sprint. Adds:
+
+- `src/forex_bot/strategies/calendar_event_window_anomaly.py` —
+  strategy module implementing R1-R8 (event-fixture availability,
+  post-event-window proximity, FOMC > NFP > ECB > BoJ > BoE
+  overlap precedence, counter-direction signal, H4 ATR-14 fail-
+  closed, ATR×2 stop, time stop, deterministic Signal).
+- `src/forex_bot/calendar_events.py` — event-fixture loader with
+  binding deny-list at load time (rejects any `actual` / `forecast` /
+  `consensus` / `surprise` / `revision` / `revised_value` /
+  `market_reaction` / `post_event_move` / `commentary` field).
+- `research/calendar/fixtures/campaign_014_events.json` — committed
+  281-event fixture (NFP 77 / FOMC 51 / ECB 51 / BoJ 51 / BoE 51;
+  coverage 2020-01-01 → 2026-05-20; compiled offline from public
+  official URLs with no network fetch, no `.env` read, no
+  credentials, no broker SDK).
+- `CalendarEventWindowAnomalyStrategyConfig` in `src/forex_bot/config.py`
+  + `StrategyConfig.calendar_event_window_anomaly` slot + enabled-
+  list check.
+- `tests/unit/test_calendar_event_window_anomaly.py` — 93 deterministic
+  unit tests (config validation, fixture loader incl. all 10 forbidden
+  field substrings, R1-R8 logic, signal direction, determinism,
+  anti-contamination source-grep against CAMPAIGN_002 / 010 / 011 /
+  012 / 013 keys + PRNG + broker / execution / loops imports).
+- `configs/campaign_014_calendar_event_window_anomaly.yaml` — research-
+  only YAML (`trading_enabled: false`).
+- 7 binding docs (plan, spec, fixture provenance, pre-commit
+  checklist, status, readiness summaries, smoke result).
+
+**Status:** scaffold-only — no historical backtest, no walk-forward
+evidence, no financing overlay evidence, no portfolio-risk evidence,
+no independent-verifier evidence, no broker call, no `.env` read.
+**Paper / demo / live remain blocked.** `configs/approved_strategies.yaml`
+remains `approved: []`. The 968-test baseline (875 prior + 93 new)
+is preserved.
+
+**Recommended next sprint:** `research-calendar-event-window-anomaly-
+walk-forward-001` (the 10-phase evidence sprint, full prompt in
+[`NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_005.md`](NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_005.md)).
+That sprint must run a one-time date-verification audit against the
+5 source URLs in its Phase 0 before walk-forward Phase 2 launches.
 
 ## Per-strategy detail
 

@@ -776,6 +776,60 @@ The 875-test baseline is preserved.
 | [`NEW_CANDIDATE_DISCOVERY_005_HELPER_DECISION.md`](NEW_CANDIDATE_DISCOVERY_005_HELPER_DECISION.md) | Phase 9 — ten helper-code options considered, all rejected with documented rationale; zero code added; matches all four prior discovery sprints' identical no-helper decision |
 | [`NEW_CANDIDATE_STRATEGY_DISCOVERY_005_SUMMARY.md`](NEW_CANDIDATE_STRATEGY_DISCOVERY_005_SUMMARY.md) | Phase 10 — sprint summary & handoff; final validation; recommended next branch is the scaffold sprint `research-calendar-event-window-anomaly-001` |
 
+### CAMPAIGN_014 candidate scaffold (`research-calendar-event-window-anomaly-001`)
+
+Scaffold sprint for **CAMPAIGN_014** /
+`calendar_event_window_anomaly 0.1.0-c014` — the C7 Calendar-Event
+Window Anomaly candidate selected by the
+`research-new-candidate-strategy-discovery-005` sprint. Adds the
+strategy module (R1-R8 per binding spec); a new event-calendar
+fixture loader (`src/forex_bot/calendar_events.py`) with binding
+deny-list at load time (rejects any `actual` / `forecast` /
+`consensus` / `surprise` / `revision` / `revised_value` /
+`market_reaction` / `post_event_move` / `commentary` field); the
+`StrategyConfig.calendar_event_window_anomaly` schema slot; 93 unit +
+structural-audit tests; the candidate config YAML; the **first
+committed event-calendar fixture in the repo**
+(`research/calendar/fixtures/campaign_014_events.json`; 281
+scheduled events; NFP 77 / FOMC 51 / ECB 51 / BoJ 51 / BoE 51;
+coverage 2020-01-01 → 2026-05-20; compiled offline from public
+official URLs — BLS / FOMC.gov / ECB.europa.eu / BoJ.or.jp /
+BoE.co.uk — with no network fetch, no `.env` read, no credentials,
+no broker SDK); the CAMPAIGN_014 pre-commit / status / readiness /
+smoke / future-evidence-readiness docs; and a deterministic
+fixture-compilation script. **CANDIDATE SCAFFOLD ONLY — NOT
+APPROVED.** `configs/approved_strategies.yaml` remains
+`approved: []`; CAMPAIGN_002 / CAMPAIGN_010 / CAMPAIGN_011 /
+CAMPAIGN_012 / CAMPAIGN_013 all remain REJECT; the candidate is
+structurally ready for the future evidence sprint to generate
+`WalkForwardResults` after a **date-verification audit** against
+the 5 source URLs. The 968-test baseline (875 prior + 93 new) is
+preserved. The future evidence sprint must beat the CAMPAIGN_011
+null-baseline floor (≥ +0.0524 R aggregate expectancy, ≥ +0.19 PF,
+≥ +5 pp pairs-positive, ≥ +1 pair, 100 % fold pass rate) to count
+as evidence of an edge; "indistinguishable from null" (within
+± 0.005 R / ± 0.10 PF / ± 2 pp / ± 1 pair) is REJECTED. **Critical
+CAMPAIGN_014-specific evidence-sprint requirements:** (a) binding
+turnover-budget gate (REJECT > 800 trades over 4y per the
+turnover-amplification anti-pattern); (b) binding signal-density
+gate (REJECT > 1,500 signals over 8 folds); (c) binding event-
+fixture coverage contract (BLOCKED if any fold's test-window-end
+exceeds `fixture.coverage_end_utc`).
+
+| document | what it is |
+|---|---|
+| [`CALENDAR_EVENT_WINDOW_ANOMALY_001_PLAN.md`](CALENDAR_EVENT_WINDOW_ANOMALY_001_PLAN.md) | Phase 0 sprint plan + repo truth audit (verified 875 baseline + base commit `ed20604` + clean slate for CAMPAIGN_014; confirmed no existing event-calendar infrastructure) |
+| [`CALENDAR_EVENT_WINDOW_ANOMALY_IMPLEMENTATION_SPEC.md`](CALENDAR_EVENT_WINDOW_ANOMALY_IMPLEMENTATION_SPEC.md) | Phase 1 binding spec — R1-R8 rule table (event-fixture availability, post-event proximity trigger, FOMC > NFP > ECB > BoJ > BoE overlap precedence, counter-direction signal, H4 ATR-14 fail-closed, ATR×2 stop, time stop, deterministic Signal); 14 frozen parameters (`event_set=[NFP,FOMC,ECB,BoJ,BoE]`, `impact_ordering=[FOMC,NFP,ECB,BoJ,BoE]`, `post_event_window_bars=6`, `atr_lookback=14`, `atr_stop_multiple=2.0`, `max_post_event_bars=6`, `re_entry_block_bars=3`, `event_warmup_bars=1`, `trailing_stop_atr_multiple=null`, `min_atr_pips={}`); 7-pair universe + per-event-class impacted-pairs mapping (NFP/FOMC = all 7; ECB = EUR_USD; BoJ = USD_JPY; BoE = GBP_USD); 8 no-lookahead invariants; 14 fail-closed conditions; event-fixture JSON schema (`schema_version=campaign_014.event_fixture.v1`); per-event allowed-fields allow-list (`event_id`, `event_class`, `event_time_utc`) + binding deny-list of 10 post-event-result substrings |
+| [`CAMPAIGN_014_EVENT_FIXTURE_PROVENANCE.md`](CAMPAIGN_014_EVENT_FIXTURE_PROVENANCE.md) | Phase 1B fixture provenance — fixture path; per-class event counts (NFP 77 · FOMC 51 · ECB 51 · BoJ 51 · BoE 51 = 281 total); first/last event timestamp; coverage range matches walk-forward universe verbatim; 5 source URLs (BLS / FOMC.gov / ECB.europa.eu / BoJ.or.jp / BoE.co.uk); **no credentials used; no broker / account endpoint touched; no `.env` read; no network fetch at compile time**; per-event allowed/excluded fields; schema version v1; limitations (scaffold-grade date accuracy; future evidence sprint must run date-verification audit before walk-forward Phase 2 launches); reviewability via deterministic compilation script |
+| [`CAMPAIGN_014_PRECOMMIT_CHECKLIST.md`](CAMPAIGN_014_PRECOMMIT_CHECKLIST.md) | candidate pre-commit; hypothesis verbatim; implementation files + fixture files + config files + 14 frozen parameters + 8 no-lookahead invariants; turnover budget (~320-520 expected trades over 4y; REJECT if > 800; signal-density REJECT if > 1,500; fixture-coverage BLOCKED if fold-end > fixture-end); cost section (~1.5-4 bp/trade total; gross ≥ 7 bp hypothesized; net ≥ 5 bp expected); binding null-baseline comparison gate vs CAMPAIGN_011; required walk-forward / financing / risk artifacts; **unexpected-PASS 5-step escalation protocol**; verbatim gate vector inherited from CAMPAIGN_010 / 011 / 012 / 013 + 3 new gates (turnover budget + signal density + event-fixture coverage) |
+| [`CAMPAIGN_014_STATUS.md`](CAMPAIGN_014_STATUS.md) | candidate-scaffold-only status; no backtest verdict yet; no evidence campaign run; no strategy approval (cannot be approved by any research sprint); CAMPAIGN_002 / 010 / 011 / 012 / 013 all REJECT relationship; why this is a real candidate (new gating modality: scheduled-event-timestamp matching; distinctness 8/8 vs every rejected family; structurally low-turnover by event-set finiteness) but not approved |
+| [`CALENDAR_EVENT_WINDOW_ANOMALY_READINESS.md`](CALENDAR_EVENT_WINDOW_ANOMALY_READINESS.md) | scaffold readiness GREEN across 17 dimensions; future evidence branch identity `research-calendar-event-window-anomaly-walk-forward-001`; event-fixture readiness (deterministic; broker-free; scaffold-grade dates pending audit); data expectations; known limitations (date-verification audit; first-published-only timestamps; approximate announcement times; implicit re-entry block; no surprise data; verifier capability lock; MODELED refused); turnover budget + REJECT triggers; null-baseline comparison binding; why real-candidate-not-approved |
+| [`CAMPAIGN_014_SMOKE_RESULT.md`](CAMPAIGN_014_SMOKE_RESULT.md) | Phase 6 NON-EVIDENCE smokes: config-load PASS; fixture-load PASS (281 events); import smoke PASS (warmup=32); unit-test suite 93/93 PASS; full repo regression 968/968 PASS; validate_research_archive ALL PASS; check_research_freeze ALL PASS; scan_artifacts_for_secrets PASSED; paper-loop/demo-loop REFUSED; live-loop does not exist; ruff 3 pre-existing in lean_parity. Explicit "this is not evidence" framing; explicit "what was NOT run" enumeration |
+| [`CAMPAIGN_014_WALK_FORWARD_READINESS.md`](CAMPAIGN_014_WALK_FORWARD_READINESS.md) | future-evidence walk-forward plan (inherited verbatim from CAMPAIGN_010 / 011 / 012 / 013: rolling, frozen, 540/180/180/180 days, 2020-01-01 → 2026-05-20, expected 8 folds); per-fold + aggregate gate vector; **binding event-fixture coverage contract**; **binding date-verification audit prerequisite**; **binding turnover-budget gate (REJECT > 800)**; **binding signal-density gate (REJECT > 1,500)**; **binding null-baseline comparison** (CAMPAIGN_011 margins); expected artifact paths |
+| [`CAMPAIGN_014_FINANCING_RISK_READINESS.md`](CAMPAIGN_014_FINANCING_RISK_READINESS.md) | future-evidence financing overlay (ESTIMATED + conservative stress; MODELED refused at 4 layers; not lifted; expected aggregate drag ~$5-15 USD given short hold + low turnover) + portfolio-risk diagnostics (standard battery PLUS CAMPAIGN_014-specific: event-class clustering, per-event-class per-pair sensitivity heatmap, pre/post direction balance, entry-window concentration, event-fixture coverage per fold, concurrent-rejection diagnostic for NFP/FOMC); simultaneous-pair NFP/FOMC entries explicitly justified by hypothesis (event-driven mechanism per pair = portfolio-level edge proof against Pattern N); per-instrument concurrency = 1 |
+| [`CAMPAIGN_014_INDEPENDENT_VERIFIER_READINESS.md`](CAMPAIGN_014_INDEPENDENT_VERIFIER_READINESS.md) | future-evidence verifier coverage; current capability lock to CAMPAIGN_002 / `trend_following`; not required for REJECT; required only on RESEARCH_PASS_UNAPPROVED via the suggested follow-up sprint `infra-free-local-parity-verifier-calendar-event-window-anomaly-001`; six-evidence-ladder item 5 deferred for REJECT; item 6 (deliberate human approval) permanent and never automatic |
+| [`CALENDAR_EVENT_WINDOW_ANOMALY_001_SUMMARY.md`](CALENDAR_EVENT_WINDOW_ANOMALY_001_SUMMARY.md) | sprint summary & handoff; final validation; recommended next branch is the evidence sprint `research-calendar-event-window-anomaly-walk-forward-001` |
+
 ## Research-freeze documents (this branch)
 
 | document | what it is |
