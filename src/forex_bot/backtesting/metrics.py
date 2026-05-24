@@ -28,11 +28,49 @@ class TradeRecord:
     exit_reason: str
     # Which bar the entry filled against — see forex_bot.backtesting.fills.
     fill_timing: str = "signal_bar_close"
+    # Trailing default-with-safety fields — must remain last. Added by
+    # sprint infra-exit-fidelity-001; see
+    # docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.
+    # ambiguous_exit: this trade exited via an adverse stop on a bar where
+    # the take-profit was ALSO in range. The engine's stop-precedence
+    # tie-break (CAMPAIGN_009_PRECOMMIT.md §59) won; the flag merely
+    # records that ambiguity for audit.
+    ambiguous_exit: bool = False
+    # gap_fill: this trade's exit was filled at the bar's open instead of
+    # at the stop/tp level — only possible when gap_fill_policy ==
+    # "gap_through" and the bar opened past the level.
+    gap_fill: bool = False
+    # gap_fill_distance_pips: absolute distance from the stop/tp level to
+    # the filled bar-open, in pips. Always None when gap_fill is False.
+    gap_fill_distance_pips: Decimal | None = None
 
-    def to_dict(self) -> dict[str, str | int]:
-        d = {k: str(v) for k, v in asdict(self).items() if not isinstance(v, int)}
-        d["bars_held"] = self.bars_held
-        return d
+    def to_dict(self) -> dict[str, str | int | bool | None]:
+        # Explicit per-field serialization. Bools and Optional[Decimal] do
+        # not survive the prior `isinstance(v, int)` filter (Python: True
+        # is an int) — list every field by hand so additions are visible.
+        return {
+            "instrument": self.instrument,
+            "side": self.side,
+            "units": str(self.units),
+            "entry_time": self.entry_time.isoformat(),
+            "exit_time": self.exit_time.isoformat(),
+            "entry_price": str(self.entry_price),
+            "exit_price": str(self.exit_price),
+            "stop_price": str(self.stop_price),
+            "pnl": str(self.pnl),
+            "r_multiple": str(self.r_multiple),
+            "bars_held": self.bars_held,
+            "spread_paid_pips": str(self.spread_paid_pips),
+            "exit_reason": self.exit_reason,
+            "fill_timing": self.fill_timing,
+            "ambiguous_exit": self.ambiguous_exit,
+            "gap_fill": self.gap_fill,
+            "gap_fill_distance_pips": (
+                str(self.gap_fill_distance_pips)
+                if self.gap_fill_distance_pips is not None
+                else None
+            ),
+        }
 
 
 @dataclass
@@ -55,6 +93,14 @@ class BacktestMetrics:
     largest_single_loss: float
     average_spread_paid_pips: float
     exposure_pct: float = 0.0
+    # Trailing default-with-safety fields — must remain last. Added by
+    # sprint infra-exit-fidelity-001. ambiguous_exit_count counts trades
+    # where stop-precedence hid a TP that was provably in range on the
+    # same bar; gap_fill_exit_count counts trades whose exit filled at
+    # bar-open under gap_fill_policy="gap_through". Both default to 0
+    # so prior consumers (and trades-empty backtests) keep working.
+    ambiguous_exit_count: int = 0
+    gap_fill_exit_count: int = 0
 
     def to_dict(self) -> dict[str, float | int]:
         return asdict(self)
@@ -90,6 +136,10 @@ def compute_metrics(
             trade_count=0,
             largest_single_loss=0.0,
             average_spread_paid_pips=0.0,
+            # Trailing default fields stay at their defaults explicitly so
+            # the empty-trades branch matches the populated branch's shape.
+            ambiguous_exit_count=0,
+            gap_fill_exit_count=0,
         )
 
     pnls = np.array([float(t.pnl) for t in trades])
@@ -154,6 +204,8 @@ def compute_metrics(
         trade_count=len(trades),
         largest_single_loss=float(losses.min()) if len(losses) else 0.0,
         average_spread_paid_pips=float(spreads.mean()) if len(spreads) else 0.0,
+        ambiguous_exit_count=sum(1 for t in trades if t.ambiguous_exit),
+        gap_fill_exit_count=sum(1 for t in trades if t.gap_fill),
     )
 
 

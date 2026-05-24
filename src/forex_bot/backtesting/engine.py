@@ -81,6 +81,14 @@ class BacktestResult:
     fill_timing: str = "signal_bar_close"
     risk_engine_used: bool = False
     notes: str = ""
+    # Trailing default-with-safety fields — must remain last. Added by
+    # sprint infra-exit-fidelity-001; mirror the trade-record counts and
+    # propagate the resolved gap_fill_policy so artifacts state which
+    # behavior produced them. See
+    # docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.
+    ambiguous_exit_count: int = 0
+    gap_fill_exit_count: int = 0
+    gap_fill_policy: str = "none"
 
 
 @dataclass
@@ -291,6 +299,22 @@ class BacktestEngine:
                         exit_price = ask_close
 
                 if exit_reason and exit_price is not None:
+                    # Same-bar ambiguous-exit detection (always-on, added by
+                    # sprint infra-exit-fidelity-001). Records bars where
+                    # the adverse stop won but the take-profit was ALSO in
+                    # range on the same bar. Pure observation — does not
+                    # change the tie-break (CAMPAIGN_009_PRECOMMIT.md §59).
+                    tp_also_in_range = False
+                    if (
+                        exit_reason in {"stop", "trailing_stop"}
+                        and tp is not None
+                    ):
+                        tp_also_in_range = (
+                            bid_high >= tp
+                            if open_trade.side == "long"
+                            else ask_low <= tp
+                        )
+
                     pnl = self._pnl(open_trade, exit_price)
                     equity += float(pnl)
                     realized_pnls.append((ts.to_pydatetime(), pnl))
@@ -315,6 +339,7 @@ class BacktestEngine:
                             spread_paid_pips=open_trade.spread_pips_at_entry,
                             exit_reason=exit_reason,
                             fill_timing=self.fill_timing,
+                            ambiguous_exit=tp_also_in_range,
                         )
                     )
                     open_trade = None
@@ -578,6 +603,8 @@ class BacktestEngine:
             equity_curve=equity_bars,
             rejected_signals=rejected_signals,
             rejection_counts=rejection_counts,
+            ambiguous_exit_count=metrics.ambiguous_exit_count,
+            gap_fill_exit_count=metrics.gap_fill_exit_count,
             **meta,
         )
 
