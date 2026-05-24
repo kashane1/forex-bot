@@ -82,9 +82,10 @@ def run() -> Path:
     cand_per_fold = _per_fold_for_pair(CAMPAIGN_DIR, PAIR)
     null_per_fold = _per_fold_for_pair(NULL_DIR, PAIR)
 
-    # Load the per-trade ledger for both campaigns, EUR_USD only.
+    # Load the per-trade ledger for the candidate, EUR_USD only.
+    # The null campaign's trade ledger is summarized via its per-fold
+    # summary JSONs and isn't needed at trade-level granularity here.
     cand_trades = load_campaign_trades(CAMPAIGN_DIR, instruments=[PAIR])
-    null_trades = load_campaign_trades(NULL_DIR, instruments=[PAIR])
 
     cand_wf = load_campaign_walk_forward_result(CAMPAIGN_DIR)
     null_wf = load_campaign_walk_forward_result(NULL_DIR)
@@ -117,7 +118,7 @@ def run() -> Path:
 
     # SE of the mean gap: treat per-fold expectancy R values as 8
     # independent observations.
-    n_folds = int(len(cand_per_fold))
+    n_folds = len(cand_per_fold)
     cand_std = float(cand_per_fold["metric_expectancy_r"].std(ddof=1))
     null_std = float(null_per_fold["metric_expectancy_r"].std(ddof=1))
     # Conservative SE assuming independent across folds (paired-diff SE).
@@ -209,7 +210,7 @@ def run() -> Path:
                 kind="campaign_trades",
                 path=str(CAMPAIGN_DIR.relative_to(REPO_ROOT)),
                 sha256="(per-fold EUR_USD trade CSV bundle)",
-                rows=int(len(cand_trades)),
+                rows=len(cand_trades),
                 extra={"campaign_name": CAMPAIGN_DIR.name, "pair": PAIR},
             ),
             StudyInput(

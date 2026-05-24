@@ -1,0 +1,289 @@
+{
+  "study_label": "probe_robustness_eur_usd_c012",
+  "pair": "EUR_USD",
+  "candidate_campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+  "null_campaign": "CAMPAIGN_011_random_entry_anchor",
+  "material_gap_floor_r": 0.05,
+  "loo": {
+    "per_loo": [
+      {
+        "dropped_fold": 0,
+        "mean_gap_r": 0.09767788540030568
+      },
+      {
+        "dropped_fold": 1,
+        "mean_gap_r": 0.13252566328447207
+      },
+      {
+        "dropped_fold": 2,
+        "mean_gap_r": 0.1267033590401716
+      },
+      {
+        "dropped_fold": 3,
+        "mean_gap_r": 0.11176910261757958
+      },
+      {
+        "dropped_fold": 4,
+        "mean_gap_r": 0.09185410386263028
+      },
+      {
+        "dropped_fold": 5,
+        "mean_gap_r": 0.06444961970040716
+      },
+      {
+        "dropped_fold": 6,
+        "mean_gap_r": 0.0868871525717095
+      },
+      {
+        "dropped_fold": 7,
+        "mean_gap_r": 0.04823211195347008
+      }
+    ],
+    "min_loo_mean_gap": 0.04823211195347008,
+    "max_loo_mean_gap": 0.13252566328447207,
+    "n_loo_above_material_floor": 7,
+    "n_loo_below_zero": 0,
+    "all_loo_above_floor": false
+  },
+  "cost_stress_2x": {
+    "assumed_stop_pips": 50.0,
+    "per_trade_extra_cost_r_avg": 0.0288267223382046,
+    "candidate_stress_mean_r": 0.0011022603430004795,
+    "stress_mean_gap_r": 0.06609713387485228,
+    "stress_median_gap_r": 0.06811902901746306,
+    "stress_n_folds_positive_gap": 5
+  },
+  "neighboring_pairs": [
+    {
+      "pair": "EUR_USD",
+      "candidate_mean_r": 0.030017501271991435,
+      "candidate_median_r": -0.018942789912358694,
+      "null_mean_r": -0.06499487353185181,
+      "mean_gap_r": 0.09501237480384324,
+      "above_material_floor": true,
+      "candidate_n_folds_positive": 3,
+      "candidate_total_trades": 479
+    },
+    {
+      "pair": "GBP_USD",
+      "candidate_mean_r": -0.04872566932129167,
+      "candidate_median_r": -0.04041611793136722,
+      "null_mean_r": 0.07559693443568705,
+      "mean_gap_r": -0.12432260375697872,
+      "above_material_floor": false,
+      "candidate_n_folds_positive": 0,
+      "candidate_total_trades": 555
+    },
+    {
+      "pair": "USD_JPY",
+      "candidate_mean_r": 0.00039538200930152814,
+      "candidate_median_r": 0.000356144612626194,
+      "null_mean_r": 2.123319152616505e-05,
+      "mean_gap_r": 0.0003741488177753631,
+      "above_material_floor": false,
+      "candidate_n_folds_positive": 6,
+      "candidate_total_trades": 624
+    },
+    {
+      "pair": "AUD_USD",
+      "candidate_mean_r": -0.0928441550197172,
+      "candidate_median_r": -0.13272395190547598,
+      "null_mean_r": -0.04145147366759003,
+      "mean_gap_r": -0.05139268135212717,
+      "above_material_floor": false,
+      "candidate_n_folds_positive": 1,
+      "candidate_total_trades": 551
+    },
+    {
+      "pair": "USD_CAD",
+      "candidate_mean_r": -0.06328958101053439,
+      "candidate_median_r": -0.04300678305843728,
+      "null_mean_r": -0.006900089919392775,
+      "mean_gap_r": -0.056389491091141615,
+      "above_material_floor": false,
+      "candidate_n_folds_positive": 1,
+      "candidate_total_trades": 584
+    },
+    {
+      "pair": "USD_CHF",
+      "candidate_mean_r": -0.05001553053921213,
+      "candidate_median_r": -0.0010512816319189107,
+      "null_mean_r": 0.026861459737312795,
+      "mean_gap_r": -0.07687699027652492,
+      "above_material_floor": false,
+      "candidate_n_folds_positive": 4,
+      "candidate_total_trades": 542
+    },
+    {
+      "pair": "NZD_USD",
+      "candidate_mean_r": -0.10968393098278345,
+      "candidate_median_r": -0.1255298005682279,
+      "null_mean_r": -0.09862939449077757,
+      "mean_gap_r": -0.011054536492005884,
+      "above_material_floor": false,
+      "candidate_n_folds_positive": 1,
+      "candidate_total_trades": 391
+    }
+  ],
+  "neighboring_candidates": [
+    {
+      "candidate": "CAMPAIGN_012_regime_switcher_atr_percentile",
+      "candidate_mean_r": 0.030017501271991435,
+      "candidate_median_r": -0.018942789912358694,
+      "null_mean_r": -0.06499487353185181,
+      "mean_gap_r": 0.09501237480384324,
+      "above_material_floor": true,
+      "candidate_n_folds_positive": 3,
+      "candidate_total_trades": 479
+    },
+    {
+      "candidate": "CAMPAIGN_010_session_breakout",
+      "candidate_mean_r": -0.0685488686759895,
+      "candidate_median_r": -0.05603610620236846,
+      "null_mean_r": -0.06499487353185181,
+      "mean_gap_r": -0.003553995144137692,
+      "above_material_floor": false,
+      "candidate_n_folds_positive": 2,
+      "candidate_total_trades": 310
+    },
+    {
+      "candidate": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "candidate_mean_r": -0.028967043174514536,
+      "candidate_median_r": -0.005650358114069126,
+      "null_mean_r": -0.06499487353185181,
+      "mean_gap_r": 0.03602783035733727,
+      "above_material_floor": false,
+      "candidate_n_folds_positive": 0,
+      "candidate_total_trades": 1412
+    },
+    {
+      "candidate": "CAMPAIGN_014_calendar_event_window_anomaly",
+      "candidate_mean_r": -0.21476719480942313,
+      "candidate_median_r": -0.30812593777873726,
+      "null_mean_r": -0.06499487353185181,
+      "mean_gap_r": -0.14977232127757134,
+      "above_material_floor": false,
+      "candidate_n_folds_positive": 3,
+      "candidate_total_trades": 100
+    }
+  ],
+  "classification_block": {
+    "classification": "SELECTED_CELL_ARTIFACT",
+    "failures": [
+      "LOO_drops_below_floor",
+      "at_most_4_of_8_folds_positive",
+      "median_per_fold_expectancy_negative"
+    ],
+    "robust_criteria_met": [
+      "at_least_5_folds_positive_gap",
+      "2x_cost_stress_above_floor",
+      "top_fold_share_at_or_below_40pct"
+    ],
+    "summary": {
+      "n_folds_positive": 3,
+      "median_per_fold_expectancy_r": -0.018942789912358694,
+      "mean_gap_r": 0.09501237480384324,
+      "se_mean_gap": 0.07183791608761274,
+      "t_stat_approx": 1.3225936939480147,
+      "loo_min_gap_r": 0.04823211195347008,
+      "loo_max_gap_r": 0.13252566328447207,
+      "loo_n_below_zero": 0,
+      "top_fold_share_of_abs_sum": 0.34199381157393316,
+      "top_fold_signed_share_of_total": 2.1115163505701626,
+      "stress_mean_gap_r": 0.06609713387485228,
+      "stress_n_folds_positive_gap": 5,
+      "n_neighbor_pairs_above_floor": 1,
+      "n_neighbor_candidates_above_floor_on_eur_usd": 1
+    }
+  },
+  "provenance": {
+    "data_kind": "real",
+    "inputs": [
+      {
+        "kind": "probe_phase1_extraction",
+        "path": "research/edge_discovery/studies/outputs/real/probe_single_pair_eur_usd_c012.json",
+        "sha256": "(consumed verbatim; see Phase 1 inputs for upstream sha256s)",
+        "rows": 479,
+        "extra": {
+          "pair": "EUR_USD"
+        }
+      },
+      {
+        "kind": "campaign_fold_summaries",
+        "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/folds",
+        "sha256": "(56 per-fold per-pair JSON bundle)",
+        "rows": 56,
+        "extra": {
+          "campaign_name": "CAMPAIGN_012_regime_switcher_atr_percentile",
+          "role": "candidate"
+        }
+      },
+      {
+        "kind": "campaign_fold_summaries",
+        "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds",
+        "sha256": "(56 per-fold per-pair JSON bundle)",
+        "rows": 56,
+        "extra": {
+          "campaign_name": "CAMPAIGN_011_random_entry_anchor",
+          "role": "null"
+        }
+      },
+      {
+        "kind": "campaign_fold_summaries",
+        "path": "backtests/CAMPAIGN_010_session_breakout/folds",
+        "sha256": "(56 per-fold per-pair JSON bundle)",
+        "rows": 56,
+        "extra": {
+          "campaign_name": "CAMPAIGN_010_session_breakout",
+          "role": "neighbor_candidate"
+        }
+      },
+      {
+        "kind": "campaign_fold_summaries",
+        "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/folds",
+        "sha256": "(56 per-fold per-pair JSON bundle)",
+        "rows": 56,
+        "extra": {
+          "campaign_name": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+          "role": "neighbor_candidate"
+        }
+      },
+      {
+        "kind": "campaign_fold_summaries",
+        "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/folds",
+        "sha256": "(56 per-fold per-pair JSON bundle)",
+        "rows": 56,
+        "extra": {
+          "campaign_name": "CAMPAIGN_014_calendar_event_window_anomaly",
+          "role": "neighbor_candidate"
+        }
+      }
+    ],
+    "date_coverage": {
+      "start_utc": "2021-10-29 01:00:00+00:00",
+      "end_utc": "2025-05-14 05:00:00+00:00"
+    },
+    "pair_universe": [
+      "EUR_USD",
+      "GBP_USD",
+      "USD_JPY",
+      "AUD_USD",
+      "USD_CAD",
+      "USD_CHF",
+      "NZD_USD"
+    ],
+    "limitations": [
+      "2\u00d7 cost stress assumes a notional EUR_USD stop distance of 50.0 pips and doubles the observed spread; this is a coarse stress, not the full lab cost overlay.",
+      "Leave-one-fold-out gives 8 paired-difference resamples; with only 8 folds the LOO distribution is itself noisy.",
+      "Classification rules are deterministic per the plan's \u00a74; they do not weight individual checks by confidence.",
+      "No campaign verdict is changed by this study. CAMPAIGN_012 remains REJECT."
+    ],
+    "exploratory_only": true
+  },
+  "verdict_word_ban_acknowledged": true,
+  "notes": [
+    "Classification is per SINGLE_PAIR_PROBE_001_PLAN.md \u00a74.",
+    "A classification of SELECTED_CELL_ARTIFACT means the cell does not survive the lab's anti-overfit screens and should NOT be promoted to further study.",
+    "Lab output. Does not approve any strategy or change any campaign verdict."
+  ]
+}
