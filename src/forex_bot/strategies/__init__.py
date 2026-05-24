@@ -1,6 +1,9 @@
 """Strategies. Each strategy returns Signal objects only — never an order."""
 
 from forex_bot.strategies.base import Strategy, StrategyContext
+from forex_bot.strategies.calendar_event_window_anomaly import (
+    CalendarEventWindowAnomalyStrategy,
+)
 from forex_bot.strategies.cross_pair_currency_strength_rotation import (
     CrossPairCurrencyStrengthRotationStrategy,
 )
@@ -15,6 +18,7 @@ from forex_bot.strategies.trend_following import TrendFollowingStrategy
 from forex_bot.strategies.volatility_breakout import VolatilityBreakoutStrategy
 
 __all__ = [
+    "CalendarEventWindowAnomalyStrategy",
     "CrossPairCurrencyStrengthRotationStrategy",
     "MeanReversionStrategy",
     "PullbackContinuationStrategy",
