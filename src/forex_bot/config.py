@@ -410,6 +410,95 @@ class CrossPairCurrencyStrengthRotationStrategyConfig(BaseModel):
         return self
 
 
+class CalendarEventWindowAnomalyStrategyConfig(BaseModel):
+    # CAMPAIGN_014 research candidate (`calendar_event_window_anomaly 0.1.0-c014`).
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/CALENDAR_EVENT_WINDOW_ANOMALY_IMPLEMENTATION_SPEC.md.
+    #
+    # Frozen parameters pre-committed by the discovery-005 sprint
+    # (see docs/research/NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_005.md §7).
+    # Any deviation constitutes a NEW candidate; the validator rejects
+    # several specific deviations explicitly (e.g. trailing-stop in v1;
+    # impact_ordering must be a permutation of event_set).
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    # Path to the committed event-calendar fixture (broker-free, local).
+    event_calendar_path: str = "research/calendar/fixtures/campaign_014_events.json"
+    # Binding event-class set (mirrors implementation spec §8). Must be a
+    # subset of {NFP, FOMC, ECB, BoJ, BoE}; no expansion mid-sprint.
+    event_set: list[str] = Field(
+        default_factory=lambda: ["NFP", "FOMC", "ECB", "BoJ", "BoE"]
+    )
+    # Overlap precedence (high → low) for R4 resolution. Must be a
+    # permutation of event_set.
+    impact_ordering: list[str] = Field(
+        default_factory=lambda: ["FOMC", "NFP", "ECB", "BoJ", "BoE"]
+    )
+    # Post-event signal window length, in completed H4 bars after the
+    # event bar. = max_post_event_bars by design.
+    post_event_window_bars: int = 6
+    # H4 ATR for stop sizing (mirrors session_breakout /
+    # random_entry_anchor / regime_switcher_atr_percentile /
+    # cross_pair_currency_strength_rotation convention).
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_post_event_bars: int = 6
+    re_entry_block_bars: int = 3
+    event_warmup_bars: int = 1
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> CalendarEventWindowAnomalyStrategyConfig:
+        allowed_classes = {"NFP", "FOMC", "ECB", "BoJ", "BoE"}
+        bad_events = [c for c in self.event_set if c not in allowed_classes]
+        if bad_events:
+            raise ConfigError(
+                f"event_set contains unsupported classes {bad_events!r}; "
+                f"allowed: {sorted(allowed_classes)}"
+            )
+        if not self.event_set:
+            raise ConfigError("event_set must contain at least one event class")
+        if set(self.impact_ordering) != set(self.event_set):
+            raise ConfigError(
+                "impact_ordering must be a permutation of event_set "
+                f"(event_set={sorted(self.event_set)}, "
+                f"impact_ordering={sorted(self.impact_ordering)})"
+            )
+        if len(self.impact_ordering) != len(set(self.impact_ordering)):
+            raise ConfigError("impact_ordering must not contain duplicates")
+        if self.post_event_window_bars < 1:
+            raise ConfigError("post_event_window_bars must be >= 1")
+        if self.post_event_window_bars > 30:
+            raise ConfigError(
+                "post_event_window_bars must be <= 30 "
+                "(standing guardrails §4 time-stop range)"
+            )
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_post_event_bars < 1:
+            raise ConfigError("max_post_event_bars must be >= 1")
+        if self.max_post_event_bars > 30:
+            raise ConfigError(
+                "max_post_event_bars must be <= 30 "
+                "(standing guardrails §4 time-stop range)"
+            )
+        if self.re_entry_block_bars < 0:
+            raise ConfigError("re_entry_block_bars must be >= 0")
+        if self.event_warmup_bars < 0:
+            raise ConfigError("event_warmup_bars must be >= 0")
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError(
+                "trailing_stop_atr_multiple must be None in v1 — "
+                "the calendar-event-window anomaly uses time-stop only"
+            )
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -425,6 +514,9 @@ class StrategyConfig(BaseModel):
     ) = None
     cross_pair_currency_strength_rotation: (
         CrossPairCurrencyStrengthRotationStrategyConfig | None
+    ) = None
+    calendar_event_window_anomaly: (
+        CalendarEventWindowAnomalyStrategyConfig | None
     ) = None
 
     @model_validator(mode="after")
@@ -475,6 +567,13 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.cross_pair_currency_strength_rotation config required when enabled"
+            )
+        if (
+            "calendar_event_window_anomaly" in self.enabled
+            and self.calendar_event_window_anomaly is None
+        ):
+            raise ConfigError(
+                "strategy.calendar_event_window_anomaly config required when enabled"
             )
         return self
 
