@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: fourteen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
-  "generated": "2026-05-24",
-  "branch": "research-calendar-event-window-anomaly-walk-forward-001",
+  "generated": "2026-05-25",
+  "branch": "infra-bespoke-campaign-011-norisk-reference-001",
   "no_approved_strategy": true,
   "retired_paths": [
     {
@@ -582,6 +582,55 @@
       "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_003_SUMMARY.md",
       "kind": "backtrader_secondary_lane",
       "description": "Sprint summary & handoff for infra-backtrader-secondary-lane-003-real-data-run. CAMPAIGN_002 PASS overall (1 647 trades, all per-pair metrics within tight tolerance post-fix). One Backtrader-lane fidelity bug fixed (USD-base R-formula divisor). No bespoke-engine bug found. 77 backtrader_lane tests PASS (75 prior + 2 new); full repo 1181 tests PASS; freeze gate, archive validator, secret scanner all PASS; configs/approved_strategies.yaml still approved: []. Recommended next branch: infra-bespoke-campaign-011-norisk-reference-001 to produce the missing no-RiskEngine CAMPAIGN_011 reference. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_011_NORISK_REFERENCE_001_PLAN",
+      "path": "docs/research/CAMPAIGN_011_NORISK_REFERENCE_001_PLAN.md",
+      "kind": "parity_reproduction",
+      "description": "Phase 0 plan for the no-RiskEngine bespoke reference sprint (infra-bespoke-campaign-011-norisk-reference-001). Documents purpose, non-goals, existing CAMPAIGN_011 artefact inventory, frozen rule/parameter source, data source (data/campaign_002.sqlite3), no-RiskEngine interpretation, expected outputs, safety invariants, and why this cannot approve CAMPAIGN_011. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_011_NORISK_REFERENCE_CONTRACT",
+      "path": "docs/research/CAMPAIGN_011_NORISK_REFERENCE_CONTRACT.md",
+      "kind": "parity_reproduction",
+      "description": "Phase 1 schema contract for the CAMPAIGN_011 no-RiskEngine bespoke reference. Pins the full-window-primary + per-fold-secondary structure, deterministic-seed rules (master_seed=20260523, SHA-256 only), output paths, comparison fields, expected approximation flags, and tolerance bands inherited from CAMPAIGN_002 sprint 003. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_011_NORISK_REFERENCE_RUNNER",
+      "path": "docs/research/CAMPAIGN_011_NORISK_REFERENCE_RUNNER.md",
+      "kind": "parity_reproduction",
+      "description": "Phase 2 runner doc for scripts/export_campaign_011_norisk_reference.py. Documents exact command, inputs, outputs (full-window JSON + per-fold rollup JSON + diagnostics MD), fail-loud failure modes (missing SQLite, frozen-parameter drift, seed tuning, universe mismatch), gitignore behaviour for optional trade dumps, and safety notes (no approved_strategies.yaml access, no broker imports, no random / numpy.random, no OANDA API). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_011_NORISK_REFERENCE_RESULT",
+      "path": "docs/research/CAMPAIGN_011_NORISK_REFERENCE_RESULT.md",
+      "kind": "parity_reproduction",
+      "description": "Phase 3 result doc. Full-window no-RiskEngine bespoke reference for CAMPAIGN_011 generated against data/campaign_002.sqlite3 (no OANDA call). 2 800 full-window trades across 7 pairs over 2020-01-01 to 2026-05-20 with risk_engine_used=false. Per-fold rollup: 1 661 trades across 8 folds (~41% more than the published with-RiskEngine walk-forward, confirming spread/session/loss-limit gates are silenced as intended). Determinism check: two consecutive --full-window-only runs produced bit-identical JSON output (sha256 fba55057499756a4f588909645d1b10a4d98c881240efdd5b8d69b90670d1b78). CAMPAIGN_011 remains REJECT / null diagnostic anchor by design. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CUSTOM_CAMPAIGN_011_H4_PARITY_NORISK",
+      "path": "backtests/diagnostics/custom_campaign_011_h4_parity_norisk.md",
+      "kind": "parity_reproduction",
+      "description": "Human-readable parity-style summary table for the CAMPAIGN_011 no-RiskEngine bespoke reference (companion to research/lean_parity/campaign_011_h4_bespoke_reference.json). 7 pairs, 2 800 full-window trades, risk_engine_used=false, master_seed=20260523, fill_timing=signal_bar_close. Diagnostic only — CAMPAIGN_011 remains REJECT / null diagnostic anchor by design. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_CAMPAIGN_011_HANDOFF_FROM_NORISK_REFERENCE",
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_HANDOFF_FROM_NORISK_REFERENCE.md",
+      "kind": "parity_reproduction",
+      "description": "Phase 4 handoff doc for the next Backtrader sprint. Documents the new reference artefact paths, expected BT-adapter inputs, frozen CAMPAIGN_011 rules (R1-R8 verbatim), SHA-256 seed-derivation requirement, full-window/per-fold mapping, tolerance bands, expected approximation flags (CAMPAIGN_011_DETERMINISTIC_SEED, CAMPAIGN_011_TIME_STOP_ONLY, CAMPAIGN_011_NO_RISK_ENGINE_PARITY, R_FORMULA_MATCHES_BESPOKE), and Sprint 003 R-formula warning. Recommends infra-backtrader-secondary-lane-004-campaign-011 as the next branch. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "INFRA_BESPOKE_CAMPAIGN_011_NORISK_REFERENCE_001_SUMMARY",
+      "path": "docs/research/INFRA_BESPOKE_CAMPAIGN_011_NORISK_REFERENCE_001_SUMMARY.md",
+      "kind": "parity_reproduction",
+      "description": "Sprint summary & validation for infra-bespoke-campaign-011-norisk-reference-001. Produces the canonical no-RiskEngine bespoke reference for CAMPAIGN_011 / random_entry_anchor 0.1.0-c011 so the Backtrader secondary lane has a clean comparison target. 2 800 full-window trades, 1 661 per-fold trades, sha256 fba55057...; determinism verified. CAMPAIGN_011 remains REJECT / null diagnostic anchor by design. 1204 tests PASS (1 181 prior + 23 new exporter tests); freeze gate, archive validator, secret scanner all PASS; configs/approved_strategies.yaml still approved: []. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]

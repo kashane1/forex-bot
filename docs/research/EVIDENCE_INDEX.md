@@ -266,6 +266,28 @@ no-RiskEngine reference at sub-pip precision. CAMPAIGN_002 remains
 | [`BACKTRADER_CAMPAIGN_011_BLOCKED_003.md`](BACKTRADER_CAMPAIGN_011_BLOCKED_003.md) | Phase 5 — CAMPAIGN_011 BLOCKED-by-design (no no-RiskEngine reference; per-fold artefacts vs full-window BT runner); scoped follow-up named |
 | [`INFRA_BACKTRADER_SECONDARY_LANE_003_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_003_SUMMARY.md) | sprint summary & handoff; recommends `infra-bespoke-campaign-011-norisk-reference-001` as the next branch |
 
+### Bespoke-engine CAMPAIGN_011 no-RiskEngine reference, sprint 001 (`infra-bespoke-campaign-011-norisk-reference-001`)
+
+Produces the canonical no-RiskEngine bespoke-engine reference for
+CAMPAIGN_011 / `random_entry_anchor 0.1.0-c011` so the Backtrader
+secondary lane has a clean apples-to-apples comparison target. Runs
+the bespoke `BacktestEngine` with `risk_engine=None` on the
+already-frozen strategy + config (no rule change, no parameter tuning,
+no seed sweep). Full-window + per-fold rollup, both deterministic.
+2 800 full-window trades across 7 pairs over 2020-01-01 → 2026-05-20;
+1 661 per-fold trades across the 8-fold rolling plan. CAMPAIGN_011
+remains **REJECT / null diagnostic anchor by design**; the reference
+is hand-off infrastructure for the next Backtrader sprint.
+
+| document | what it is |
+|---|---|
+| [`CAMPAIGN_011_NORISK_REFERENCE_001_PLAN.md`](CAMPAIGN_011_NORISK_REFERENCE_001_PLAN.md) | Phase 0 plan + artefact inventory + non-goals + why this cannot approve CAMPAIGN_011 |
+| [`CAMPAIGN_011_NORISK_REFERENCE_CONTRACT.md`](CAMPAIGN_011_NORISK_REFERENCE_CONTRACT.md) | Phase 1 schema contract + deterministic-seed rules + full-window/per-fold scope + tolerance bands inherited from sprint 003 |
+| [`CAMPAIGN_011_NORISK_REFERENCE_RUNNER.md`](CAMPAIGN_011_NORISK_REFERENCE_RUNNER.md) | Phase 2 runner doc — exact command, inputs, outputs, fail-loud modes, gitignore behaviour, safety notes |
+| [`CAMPAIGN_011_NORISK_REFERENCE_RESULT.md`](CAMPAIGN_011_NORISK_REFERENCE_RESULT.md) | Phase 3 result doc — full-window per-pair metrics + per-fold rollup vs published with-RiskEngine + determinism check (`sha256 fba55057…` matched on two runs) |
+| [`BACKTRADER_CAMPAIGN_011_HANDOFF_FROM_NORISK_REFERENCE.md`](BACKTRADER_CAMPAIGN_011_HANDOFF_FROM_NORISK_REFERENCE.md) | Phase 4 hand-off doc for the next Backtrader sprint (frozen rules, seed derivation requirements, tolerance bands, approximation flags, R-formula note from sprint 003); recommends `infra-backtrader-secondary-lane-004-campaign-011` as the next branch |
+| [`INFRA_BESPOKE_CAMPAIGN_011_NORISK_REFERENCE_001_SUMMARY.md`](INFRA_BESPOKE_CAMPAIGN_011_NORISK_REFERENCE_001_SUMMARY.md) | sprint summary & validation |
+
 ### Walk-forward research harness (`research-walk-forward-harness-001`)
 
 Reusable fold-generation library that future strategy campaigns
