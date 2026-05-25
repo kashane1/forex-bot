@@ -15,6 +15,7 @@ from __future__ import annotations
 from research.backtrader_lane.strategies import (
     campaign_002_trend_following,  # noqa: F401
     campaign_011_random_entry_anchor,  # noqa: F401
+    campaign_015_failed_breakout_reversal,  # noqa: F401
 )
 
 __all__: list[str] = []
