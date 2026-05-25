@@ -288,6 +288,31 @@ is hand-off infrastructure for the next Backtrader sprint.
 | [`BACKTRADER_CAMPAIGN_011_HANDOFF_FROM_NORISK_REFERENCE.md`](BACKTRADER_CAMPAIGN_011_HANDOFF_FROM_NORISK_REFERENCE.md) | Phase 4 hand-off doc for the next Backtrader sprint (frozen rules, seed derivation requirements, tolerance bands, approximation flags, R-formula note from sprint 003); recommends `infra-backtrader-secondary-lane-004-campaign-011` as the next branch |
 | [`INFRA_BESPOKE_CAMPAIGN_011_NORISK_REFERENCE_001_SUMMARY.md`](INFRA_BESPOKE_CAMPAIGN_011_NORISK_REFERENCE_001_SUMMARY.md) | sprint summary & validation |
 
+### Backtrader secondary lane — CAMPAIGN_011 port, sprint 004 (`infra-backtrader-secondary-lane-004-campaign-011`)
+
+Ports CAMPAIGN_011 / `random_entry_anchor 0.1.0-c011` into the
+Backtrader secondary lane and compares against the new no-RiskEngine
+bespoke reference. The full-window comparison reaches **trade-for-trade
+PASS** after two BT-lane fidelity fixes: (a) warmup off-by-N (the BT
+adapter now respects `strategy.warmup_bars_required() = 32`, not just
+the in-strategy R1 check) and (b) a same-bar EOD re-entry artefact on
+the final bar (the BT adapter now closes any open trade only via
+`stop()`, matching the bespoke engine's post-loop EOD close). 2 800 /
+2 800 trades match by `(instrument, entry_time, side)` on all 7 pairs;
+deterministic; harness verdict PASS under tight CAMPAIGN_011
+tolerances. CAMPAIGN_011 remains **REJECT / null diagnostic anchor by
+design** — the BT lane corroborates the REJECT verdict at sub-pip
+precision; no bespoke-engine bug found.
+
+| document | what it is |
+|---|---|
+| [`BACKTRADER_CAMPAIGN_011_004_PLAN.md`](BACKTRADER_CAMPAIGN_011_004_PLAN.md) | Phase 0 plan + non-goals + reference artefacts + frozen rule source + seed reproducibility requirements + safety invariants |
+| [`BACKTRADER_CAMPAIGN_011_FULL_WINDOW_RUN_004.md`](BACKTRADER_CAMPAIGN_011_FULL_WINDOW_RUN_004.md) | Phase 3 — initial (pre-fix) run; 2 808 trades vs bespoke 2 800 (+8); preserved as the load-bearing finding; deterministic |
+| [`BACKTRADER_CAMPAIGN_011_FULL_WINDOW_COMPARISON_004.md`](BACKTRADER_CAMPAIGN_011_FULL_WINDOW_COMPARISON_004.md) | Phase 4 — pre-fix comparison; harness verdict TOLERABLE_DRIFT, sprint-plan binding label SIGNAL_RULE_MISMATCH; per-pair Δ + ruled-out alternatives + load-bearing warmup-window root cause |
+| [`BACKTRADER_CAMPAIGN_011_FIDELITY_FIX_004.md`](BACKTRADER_CAMPAIGN_011_FIDELITY_FIX_004.md) | Phase 5 — two BT-lane bugs fixed: warmup_bars_required threshold (-7 trades) + in-loop EOD close (-1 trade); post-fix 2 800 / 2 800 trade-for-trade PASS; new regression test pins the warmup constant equal to the bespoke `warmup_bars_required()` |
+| [`BACKTRADER_CAMPAIGN_011_PER_FOLD_DEFERRED_004.md`](BACKTRADER_CAMPAIGN_011_PER_FOLD_DEFERRED_004.md) | Phase 6 — per-fold comparison deferred; why post-hoc slicing of the full-window BT JSONL cannot replicate the bespoke per-fold rollup; recommended `infra-backtrader-secondary-lane-005-fold-plan-support` next branch if needed |
+| [`INFRA_BACKTRADER_SECONDARY_LANE_004_CAMPAIGN_011_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_004_CAMPAIGN_011_SUMMARY.md) | sprint summary & handoff |
+
 ### Walk-forward research harness (`research-walk-forward-harness-001`)
 
 Reusable fold-generation library that future strategy campaigns

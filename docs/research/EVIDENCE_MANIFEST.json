@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: fourteen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-25",
-  "branch": "infra-bespoke-campaign-011-norisk-reference-001",
+  "branch": "infra-backtrader-secondary-lane-004-campaign-011",
   "no_approved_strategy": true,
   "retired_paths": [
     {
@@ -631,6 +631,48 @@
       "path": "docs/research/INFRA_BESPOKE_CAMPAIGN_011_NORISK_REFERENCE_001_SUMMARY.md",
       "kind": "parity_reproduction",
       "description": "Sprint summary & validation for infra-bespoke-campaign-011-norisk-reference-001. Produces the canonical no-RiskEngine bespoke reference for CAMPAIGN_011 / random_entry_anchor 0.1.0-c011 so the Backtrader secondary lane has a clean comparison target. 2 800 full-window trades, 1 661 per-fold trades, sha256 fba55057...; determinism verified. CAMPAIGN_011 remains REJECT / null diagnostic anchor by design. 1204 tests PASS (1 181 prior + 23 new exporter tests); freeze gate, archive validator, secret scanner all PASS; configs/approved_strategies.yaml still approved: []. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_CAMPAIGN_011_004_PLAN",
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_004_PLAN.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 0 plan for the CAMPAIGN_011 Backtrader port sprint (infra-backtrader-secondary-lane-004-campaign-011). Pins purpose, non-goals, reference artefacts (research/lean_parity/campaign_011_h4_bespoke_reference.json sha256 fba55057...), frozen rule source, SHA-256 seed reproducibility requirements, full-window primary + per-fold optional comparison targets, safety invariants, validation commands. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_CAMPAIGN_011_FULL_WINDOW_RUN_004",
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_FULL_WINDOW_RUN_004.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 3 — initial (pre-fix) Backtrader-lane CAMPAIGN_011 full-window run. 2 808 trades vs bespoke 2 800 (+8 Δ); per-pair Δ ranges 0 to +2. Deterministic (two consecutive runs produced bit-identical artefacts; sha256 59b71907...). Preserved as the load-bearing finding for Phase 4 comparison; fix lands in Phase 5. No OANDA call. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_CAMPAIGN_011_FULL_WINDOW_COMPARISON_004",
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_FULL_WINDOW_COMPARISON_004.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 4 — pre-fix comparison vs the no-RiskEngine bespoke reference using the CAMPAIGN_011 tight tolerance bands. Harness verdict: TOLERABLE_DRIFT (per-pair Δ ≤ 0.51% inside wider 10% band). Sprint-plan binding classification: SIGNAL_RULE_MISMATCH — the rule defining when the strategy is first eligible to fire differs between BT and bespoke. Root cause: BT adapter honors only R1's len(df) >= atr_lookback+2=16 check; bespoke engine respects strategy.warmup_bars_required()=32. Rejects alternative causes (seed, R formula, pair ordering, exit ordering). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_CAMPAIGN_011_FIDELITY_FIX_004",
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_FIDELITY_FIX_004.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 5 — two BT-lane fidelity bugs fixed for CAMPAIGN_011 (no bespoke-engine change): (A) warmup off-by-N via new WARMUP_BARS_REQUIRED=32 + WARMUP_BAR_COUNT_THRESHOLD=33 constants matching the bespoke engine's `for i in range(warmup, len(df))` with warmup=max(strategy.warmup_bars_required(), 5); (B) same-bar EOD re-entry on last bar removed from _try_exit() (stop() handles EOD post-loop, matching bespoke engine.py:646-683). Post-fix: 2 800 / 2 800 trade-for-trade match on (entry_time, side) for all 7 pairs; harness verdict PASS under tight CAMPAIGN_011 tolerances; deterministic (sha256 26d078da...). Same dormant bug exists in CAMPAIGN_002 adapter; documented as follow-up, not touched. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_CAMPAIGN_011_PER_FOLD_DEFERRED_004",
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_PER_FOLD_DEFERRED_004.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 6 — per-fold comparison deferred. Post-hoc slicing of the full-window BT trade JSONL cannot replicate the bespoke per-fold rollup (which was generated by 56 separate per-(fold,pair) runs with independent warmup and _in_position=False state). Real per-fold support needs ~150-250 lines of BT-lane runner/data-adapter extension; out of scope for this sprint. Full-window PASS is the canonical target; per-fold is informational. Recommends infra-backtrader-secondary-lane-005-fold-plan-support as the next branch if per-fold is later needed. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "INFRA_BACKTRADER_SECONDARY_LANE_004_CAMPAIGN_011_SUMMARY",
+      "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_004_CAMPAIGN_011_SUMMARY.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Sprint summary & handoff for infra-backtrader-secondary-lane-004-campaign-011. Ports CAMPAIGN_011 / random_entry_anchor 0.1.0-c011 into the Backtrader secondary lane (32-test adapter, 9 comparison-harness fixture tests). Full-window comparison PASS at trade-for-trade precision after two BT-lane fidelity fixes (warmup off-by-N + same-bar EOD re-entry). 2 800/2 800 trades match on (instrument, entry_time, side) for all 7 pairs. Bespoke engine + reference JSONs untouched. No strategy approved. CAMPAIGN_011 remains REJECT / null diagnostic anchor by design. configs/approved_strategies.yaml still approved: []. Recommended next branch: infra-backtrader-secondary-lane-005-fold-plan-support (only if per-fold comparison wanted). strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]
