@@ -244,6 +244,28 @@ verdict changed.
 | [`BACKTRADER_CAMPAIGN_011_BLOCKED_002.md`](BACKTRADER_CAMPAIGN_011_BLOCKED_002.md) | Phase 5 cascade-BLOCKED decision + carry-forward CAMPAIGN_011 implementation prompt (frozen parameters, R1–R8, approximation flags, test plan, reference paths) |
 | [`INFRA_BACKTRADER_SECONDARY_LANE_002_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_002_SUMMARY.md) | sprint summary & handoff |
 
+### Backtrader secondary lane — real-data run, sprint 003 (`infra-backtrader-secondary-lane-003-real-data-run`)
+
+Successor sprint that **unblocked** Sprint 002 by locating the source
+SQLite (`data/campaign_002.sqlite3`) in the main repo working
+directory, regenerated the seven CAMPAIGN_002 H4 CSVs from it
+(sha256-validated against committed provenance sidecars), ran the
+Backtrader lane end-to-end on real data (1 647 trades — exact match
+to bespoke), found and fixed one fidelity bug (R formula divided
+denominator by `exit_price` for USD-base pairs — bespoke doesn't),
+and produced an overall **PASS** comparison versus the bespoke
+no-RiskEngine reference at sub-pip precision. CAMPAIGN_002 remains
+**REJECT** — the lane corroborates that REJECT.
+
+| document | what it is |
+|---|---|
+| [`BACKTRADER_REAL_DATA_RUN_003_PLAN.md`](BACKTRADER_REAL_DATA_RUN_003_PLAN.md) | Phase 0 plan; data found in main repo; Path B (regenerate from local SQLite) selected |
+| [`BACKTRADER_REAL_DATA_PREFLIGHT_003.md`](BACKTRADER_REAL_DATA_PREFLIGHT_003.md) | Phase 1 — seven CSVs regenerated; sha256 matches committed provenance bit-for-bit; 69 522 H4 bars total; no OANDA call |
+| [`BACKTRADER_CAMPAIGN_002_REAL_RUN_003.md`](BACKTRADER_CAMPAIGN_002_REAL_RUN_003.md) | Phase 2 — real CAMPAIGN_002 run (1 647 trades, ~10 s, no warnings, no env-var leak) |
+| [`BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003.md`](BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003.md) | Phase 3 + 4 — pre-fix `SIZING_OR_PNL_MISMATCH` on USD-base pairs; root cause + Backtrader-lane R-formula fix; **post-fix overall classification: PASS** (all 7 pairs Δ expR ≤ 0.0014) |
+| [`BACKTRADER_CAMPAIGN_011_BLOCKED_003.md`](BACKTRADER_CAMPAIGN_011_BLOCKED_003.md) | Phase 5 — CAMPAIGN_011 BLOCKED-by-design (no no-RiskEngine reference; per-fold artefacts vs full-window BT runner); scoped follow-up named |
+| [`INFRA_BACKTRADER_SECONDARY_LANE_003_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_003_SUMMARY.md) | sprint summary & handoff; recommends `infra-bespoke-campaign-011-norisk-reference-001` as the next branch |
+
 ### Walk-forward research harness (`research-walk-forward-harness-001`)
 
 Reusable fold-generation library that future strategy campaigns

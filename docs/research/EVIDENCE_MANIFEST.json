@@ -541,6 +541,48 @@
       "kind": "backtrader_secondary_lane",
       "description": "Sprint summary & handoff for infra-backtrader-secondary-lane-002-real-data-run. Outcome BLOCKED at Phase 1 on a single load-bearing artefact (data/oanda_h4_research.sqlite3). The Backtrader-lane code from sprint 001 is unchanged and remains tested + ready; 75 backtrader_lane tests still PASS; 1179 total repo tests PASS; freeze gate, archive validator, secret scanner all PASS; configs/approved_strategies.yaml still approved: []. Recommended next branch infra-backtrader-secondary-lane-003-real-data-run. strategy_evidence: false.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_REAL_DATA_RUN_003_PLAN",
+      "path": "docs/research/BACKTRADER_REAL_DATA_RUN_003_PLAN.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 0 plan for infra-backtrader-secondary-lane-003-real-data-run. The H4 source SQLite that sprints 001/002 documented as the load-bearing blocker was located in the main repo working directory at /Users/kashane/dev/forex-bot/data/campaign_002.sqlite3 (115 MB, 7 pairs, 69 522 H4 candles, oanda-practice). Path B chosen \u2014 regenerate from existing local SQLite, no OANDA call. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_REAL_DATA_PREFLIGHT_003",
+      "path": "docs/research/BACKTRADER_REAL_DATA_PREFLIGHT_003.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 1 of sprint 003: UNBLOCKED. Seven CAMPAIGN_002 H4 CSVs regenerated from /Users/kashane/dev/forex-bot/data/campaign_002.sqlite3 via scripts/export_lean_parity_data.py. Every CSV sha256 matches its committed *.provenance.json sidecar bit-for-bit (EUR_USD 866d75446030, GBP_USD 354a2da02ce3, USD_JPY 868b90906652, AUD_USD fb9e619a93fb, USD_CAD 77f9bf8839b2, USD_CHF 64ab6151e649, NZD_USD 3ba489b194c6). 69 522 H4 bars total. The exporter rewrote the provenance JSON exported_at timestamps; reverted via `git checkout --` so no committed provenance JSON was modified. CSVs gitignored. No OANDA call, no credential read. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_CAMPAIGN_002_REAL_RUN_003",
+      "path": "docs/research/BACKTRADER_CAMPAIGN_002_REAL_RUN_003.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 2 of sprint 003: real CAMPAIGN_002 Backtrader run completed. 1 647 trades \u2014 exact match to bespoke no-RiskEngine reference. Per-pair trade counts match exactly (7/7); per-pair win-rate parity (6/7 exact, NZD_USD off by a single trade \u2014 textbook sub-pip rounding signature). ~10 s wall clock, no warnings, no errors, no blocked instruments, no OANDA env-var leak. All five compact comparable artefacts produced in the gitignored research/backtrader_lane/results/campaign_002_real_data_003/ tree. strategy_evidence: false. CAMPAIGN_002 remains REJECT.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003",
+      "path": "docs/research/BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 3 + 4 of sprint 003: the LOAD-BEARING result. Initial harness PASS on trade counts; manual richer comparison from trade JSONL exposed USD-base R-formula divergence (USD_CAD \u0394 expR -0.0605, USD_JPY \u0394 expR -0.0180). Root cause: BT adapter divided risk_home by exit_price for USD-base pairs; bespoke (src/forex_bot/backtesting/engine.py:411-415) does NOT convert the R denominator. Backtrader-lane R formula fixed; new approximation flag R_FORMULA_MATCHES_BESPOKE; 2 new regression tests. POST-FIX OVERALL CLASSIFICATION: PASS \u2014 every pair \u0394 expR \u2264 0.0014 (two orders of magnitude tighter than the \u00b10.03 tight tolerance), \u0394 ret % \u2264 0.061 pp, \u0394 PF \u2264 0.002. CAMPAIGN_002 remains REJECT \u2014 the lane corroborates the REJECT verdict at sub-pip precision. No bespoke-engine bug found. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_CAMPAIGN_011_BLOCKED_003",
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_BLOCKED_003.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 5 of sprint 003: CAMPAIGN_011 BLOCKED-by-design. Phase 5 precondition met (CAMPAIGN_002 PASS), but CAMPAIGN_011 has no published no-RiskEngine bespoke reference and its artefacts are per-fold (8 folds x 7 pairs) while the BT runner is full-window \u2014 comparison would be apples-to-oranges. Scoped follow-up: produce a no-RiskEngine CAMPAIGN_011 bespoke reference first, then port + run + compare. CAMPAIGN_011 stays REJECT (null model anchor by design). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_SECONDARY_LANE_003_SUMMARY",
+      "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_003_SUMMARY.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Sprint summary & handoff for infra-backtrader-secondary-lane-003-real-data-run. CAMPAIGN_002 PASS overall (1 647 trades, all per-pair metrics within tight tolerance post-fix). One Backtrader-lane fidelity bug fixed (USD-base R-formula divisor). No bespoke-engine bug found. 77 backtrader_lane tests PASS (75 prior + 2 new); full repo 1181 tests PASS; freeze gate, archive validator, secret scanner all PASS; configs/approved_strategies.yaml still approved: []. Recommended next branch: infra-bespoke-campaign-011-norisk-reference-001 to produce the missing no-RiskEngine CAMPAIGN_011 reference. strategy_evidence: false.",
+      "strategy_evidence": false
     }
   ]
 }
