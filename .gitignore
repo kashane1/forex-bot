@@ -128,5 +128,17 @@ backtests/campaign_009_mean_reversion/runs/**/*_metrics.md
 # if they choose, but the trade list is always gitignored.
 research/parity_verifier/results/**/trades.csv
 
+# Backtrader secondary-lane outputs — raw trade/metrics dumps are
+# regenerable bulk data and never committed. Only the small summary
+# docs under docs/research/ are committed by the user.
+research/backtrader_lane/results/
+research/backtrader_lane/exports/**/*.csv
+
+# CAMPAIGN_011 no-RiskEngine bespoke reference — optional raw trade
+# dumps (full-window JSONL + per-fold JSONL). Bulk regenerable data;
+# the small reference JSONs under research/lean_parity/ and the
+# diagnostics MD under backtests/diagnostics/ are committed.
+backtests/diagnostics/campaign_011_norisk/
+
 # Founders pack stays in repo but ignore any temp copies
 *.tmp

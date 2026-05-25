@@ -204,6 +204,115 @@ approves anything; CAMPAIGN_002 remains REJECT.
 | [`NEXT_RESEARCH_DIRECTION_AFTER_CAMPAIGN_002_REJECT.md`](NEXT_RESEARCH_DIRECTION_AFTER_CAMPAIGN_002_REJECT.md) | post-verifier next-research-direction plan; recommended next branch + success criteria for any future candidate |
 | [`RESEARCH_CLOSE_FREE_LOCAL_VERIFIER_AND_NEXT_DIRECTION_001_SUMMARY.md`](RESEARCH_CLOSE_FREE_LOCAL_VERIFIER_AND_NEXT_DIRECTION_001_SUMMARY.md) | closeout-sprint summary & handoff |
 
+### Backtrader secondary lane (`infra-backtrader-secondary-lane-001`)
+
+A second independent local verification lane built on top of the
+canonical `backtrader 1.9.78.123` Python package. Adds a third-party
+event-driven engine to the comparison set so the bespoke engine has
+two independent re-implementations voting on its mechanics
+(`research/parity_verifier/` is the first; this is the second). All
+diagnostic / verification infrastructure — none is strategy evidence,
+none approves anything; CAMPAIGN_002, CAMPAIGN_010, CAMPAIGN_011,
+CAMPAIGN_012, CAMPAIGN_013 remain rejected/null/research-only and
+CAMPAIGN_014 remains scaffold-only. Paper / demo / live remain
+blocked.
+
+| document | what it is |
+|---|---|
+| [`INFRA_BACKTRADER_SECONDARY_LANE_001_PLAN.md`](INFRA_BACKTRADER_SECONDARY_LANE_001_PLAN.md) | the secondary-lane sprint plan |
+| [`BACKTRADER_INSTALL_AND_SMOKE_RESULT.md`](BACKTRADER_INSTALL_AND_SMOKE_RESULT.md) | Phase 1 install + smoke test (`backtrader 1.9.78.123`; 7 smoke tests PASS; no broker/LEAN/credential touched) |
+| [`BACKTRADER_DATA_ADAPTER_SPEC.md`](BACKTRADER_DATA_ADAPTER_SPEC.md) | Phase 2 data-adapter spec over the existing Lean parity export CSVs (sha-validated, mid OHLC derived, bid/ask + half-spread carried; 15 tests PASS) |
+| [`BACKTRADER_RUNNER_CONTRACT.md`](BACKTRADER_RUNNER_CONTRACT.md) | Phase 3 campaign-agnostic runner contract + `scripts/run_backtrader_parity.py` (17 tests PASS; refuses to leak OANDA env vars) |
+| [`BACKTRADER_FIRST_CAMPAIGN_ADAPTER.md`](BACKTRADER_FIRST_CAMPAIGN_ADAPTER.md) | Phase 4 CAMPAIGN_002 H4 `trend_following 0.1.0-baseline-frozen` Backtrader adapter (20 tests PASS; selection rationale vs CAMPAIGN_011) |
+| [`BACKTRADER_PARITY_COMPARISON_SPEC.md`](BACKTRADER_PARITY_COMPARISON_SPEC.md) | Phase 5 comparison harness spec + `scripts/compare_backtrader_parity.py` (16 tests PASS; emits one of the 12 documented divergence labels) |
+| [`BACKTRADER_PARITY_FIRST_RESULT.md`](BACKTRADER_PARITY_FIRST_RESULT.md) | Phase 6 first end-to-end CAMPAIGN_002 attempt — overall `BLOCKED` (no local CSVs / no local rehydrated SQLite store; no bug found in either engine; no verdict change) |
+| [`BACKTRADER_SECOND_CAMPAIGN_BLOCKED.md`](BACKTRADER_SECOND_CAMPAIGN_BLOCKED.md) | Phase 7 second-campaign decision — `BLOCKED`, same root cause; recommends CAMPAIGN_011 (deterministic null model, ATR-only) for a future unblock sprint with the scoped 6-step next-sprint prompt |
+| [`INFRA_BACKTRADER_SECONDARY_LANE_001_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_001_SUMMARY.md) | sprint summary & handoff |
+
+### Backtrader secondary lane — real-data run (`infra-backtrader-secondary-lane-002-real-data-run`)
+
+Follow-up sprint that attempted the real local-data CAMPAIGN_002
+comparison the previous sprint scaffolded. Outcome: BLOCKED at Phase 1
+on the same single artefact (`data/oanda_h4_research.sqlite3`) — the
+lane itself was not changed and remains tested + ready. No campaign
+verdict changed.
+
+| document | what it is |
+|---|---|
+| [`BACKTRADER_REAL_DATA_RUN_002_PLAN.md`](BACKTRADER_REAL_DATA_RUN_002_PLAN.md) | Phase 0 plan + verified data-availability snapshot + the four BLOCKED criteria |
+| [`BACKTRADER_REAL_DATA_PREFLIGHT_002.md`](BACKTRADER_REAL_DATA_PREFLIGHT_002.md) | Phase 1 BLOCKED preflight + the single load-bearing restore recipe (Path A — backup copy; Path B — read-only OANDA practice rehydration) |
+| [`BACKTRADER_CAMPAIGN_011_BLOCKED_002.md`](BACKTRADER_CAMPAIGN_011_BLOCKED_002.md) | Phase 5 cascade-BLOCKED decision + carry-forward CAMPAIGN_011 implementation prompt (frozen parameters, R1–R8, approximation flags, test plan, reference paths) |
+| [`INFRA_BACKTRADER_SECONDARY_LANE_002_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_002_SUMMARY.md) | sprint summary & handoff |
+
+### Backtrader secondary lane — real-data run, sprint 003 (`infra-backtrader-secondary-lane-003-real-data-run`)
+
+Successor sprint that **unblocked** Sprint 002 by locating the source
+SQLite (`data/campaign_002.sqlite3`) in the main repo working
+directory, regenerated the seven CAMPAIGN_002 H4 CSVs from it
+(sha256-validated against committed provenance sidecars), ran the
+Backtrader lane end-to-end on real data (1 647 trades — exact match
+to bespoke), found and fixed one fidelity bug (R formula divided
+denominator by `exit_price` for USD-base pairs — bespoke doesn't),
+and produced an overall **PASS** comparison versus the bespoke
+no-RiskEngine reference at sub-pip precision. CAMPAIGN_002 remains
+**REJECT** — the lane corroborates that REJECT.
+
+| document | what it is |
+|---|---|
+| [`BACKTRADER_REAL_DATA_RUN_003_PLAN.md`](BACKTRADER_REAL_DATA_RUN_003_PLAN.md) | Phase 0 plan; data found in main repo; Path B (regenerate from local SQLite) selected |
+| [`BACKTRADER_REAL_DATA_PREFLIGHT_003.md`](BACKTRADER_REAL_DATA_PREFLIGHT_003.md) | Phase 1 — seven CSVs regenerated; sha256 matches committed provenance bit-for-bit; 69 522 H4 bars total; no OANDA call |
+| [`BACKTRADER_CAMPAIGN_002_REAL_RUN_003.md`](BACKTRADER_CAMPAIGN_002_REAL_RUN_003.md) | Phase 2 — real CAMPAIGN_002 run (1 647 trades, ~10 s, no warnings, no env-var leak) |
+| [`BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003.md`](BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003.md) | Phase 3 + 4 — pre-fix `SIZING_OR_PNL_MISMATCH` on USD-base pairs; root cause + Backtrader-lane R-formula fix; **post-fix overall classification: PASS** (all 7 pairs Δ expR ≤ 0.0014) |
+| [`BACKTRADER_CAMPAIGN_011_BLOCKED_003.md`](BACKTRADER_CAMPAIGN_011_BLOCKED_003.md) | Phase 5 — CAMPAIGN_011 BLOCKED-by-design (no no-RiskEngine reference; per-fold artefacts vs full-window BT runner); scoped follow-up named |
+| [`INFRA_BACKTRADER_SECONDARY_LANE_003_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_003_SUMMARY.md) | sprint summary & handoff; recommends `infra-bespoke-campaign-011-norisk-reference-001` as the next branch |
+
+### Bespoke-engine CAMPAIGN_011 no-RiskEngine reference, sprint 001 (`infra-bespoke-campaign-011-norisk-reference-001`)
+
+Produces the canonical no-RiskEngine bespoke-engine reference for
+CAMPAIGN_011 / `random_entry_anchor 0.1.0-c011` so the Backtrader
+secondary lane has a clean apples-to-apples comparison target. Runs
+the bespoke `BacktestEngine` with `risk_engine=None` on the
+already-frozen strategy + config (no rule change, no parameter tuning,
+no seed sweep). Full-window + per-fold rollup, both deterministic.
+2 800 full-window trades across 7 pairs over 2020-01-01 → 2026-05-20;
+1 661 per-fold trades across the 8-fold rolling plan. CAMPAIGN_011
+remains **REJECT / null diagnostic anchor by design**; the reference
+is hand-off infrastructure for the next Backtrader sprint.
+
+| document | what it is |
+|---|---|
+| [`CAMPAIGN_011_NORISK_REFERENCE_001_PLAN.md`](CAMPAIGN_011_NORISK_REFERENCE_001_PLAN.md) | Phase 0 plan + artefact inventory + non-goals + why this cannot approve CAMPAIGN_011 |
+| [`CAMPAIGN_011_NORISK_REFERENCE_CONTRACT.md`](CAMPAIGN_011_NORISK_REFERENCE_CONTRACT.md) | Phase 1 schema contract + deterministic-seed rules + full-window/per-fold scope + tolerance bands inherited from sprint 003 |
+| [`CAMPAIGN_011_NORISK_REFERENCE_RUNNER.md`](CAMPAIGN_011_NORISK_REFERENCE_RUNNER.md) | Phase 2 runner doc — exact command, inputs, outputs, fail-loud modes, gitignore behaviour, safety notes |
+| [`CAMPAIGN_011_NORISK_REFERENCE_RESULT.md`](CAMPAIGN_011_NORISK_REFERENCE_RESULT.md) | Phase 3 result doc — full-window per-pair metrics + per-fold rollup vs published with-RiskEngine + determinism check (`sha256 fba55057…` matched on two runs) |
+| [`BACKTRADER_CAMPAIGN_011_HANDOFF_FROM_NORISK_REFERENCE.md`](BACKTRADER_CAMPAIGN_011_HANDOFF_FROM_NORISK_REFERENCE.md) | Phase 4 hand-off doc for the next Backtrader sprint (frozen rules, seed derivation requirements, tolerance bands, approximation flags, R-formula note from sprint 003); recommends `infra-backtrader-secondary-lane-004-campaign-011` as the next branch |
+| [`INFRA_BESPOKE_CAMPAIGN_011_NORISK_REFERENCE_001_SUMMARY.md`](INFRA_BESPOKE_CAMPAIGN_011_NORISK_REFERENCE_001_SUMMARY.md) | sprint summary & validation |
+
+### Backtrader secondary lane — CAMPAIGN_011 port, sprint 004 (`infra-backtrader-secondary-lane-004-campaign-011`)
+
+Ports CAMPAIGN_011 / `random_entry_anchor 0.1.0-c011` into the
+Backtrader secondary lane and compares against the new no-RiskEngine
+bespoke reference. The full-window comparison reaches **trade-for-trade
+PASS** after two BT-lane fidelity fixes: (a) warmup off-by-N (the BT
+adapter now respects `strategy.warmup_bars_required() = 32`, not just
+the in-strategy R1 check) and (b) a same-bar EOD re-entry artefact on
+the final bar (the BT adapter now closes any open trade only via
+`stop()`, matching the bespoke engine's post-loop EOD close). 2 800 /
+2 800 trades match by `(instrument, entry_time, side)` on all 7 pairs;
+deterministic; harness verdict PASS under tight CAMPAIGN_011
+tolerances. CAMPAIGN_011 remains **REJECT / null diagnostic anchor by
+design** — the BT lane corroborates the REJECT verdict at sub-pip
+precision; no bespoke-engine bug found.
+
+| document | what it is |
+|---|---|
+| [`BACKTRADER_CAMPAIGN_011_004_PLAN.md`](BACKTRADER_CAMPAIGN_011_004_PLAN.md) | Phase 0 plan + non-goals + reference artefacts + frozen rule source + seed reproducibility requirements + safety invariants |
+| [`BACKTRADER_CAMPAIGN_011_FULL_WINDOW_RUN_004.md`](BACKTRADER_CAMPAIGN_011_FULL_WINDOW_RUN_004.md) | Phase 3 — initial (pre-fix) run; 2 808 trades vs bespoke 2 800 (+8); preserved as the load-bearing finding; deterministic |
+| [`BACKTRADER_CAMPAIGN_011_FULL_WINDOW_COMPARISON_004.md`](BACKTRADER_CAMPAIGN_011_FULL_WINDOW_COMPARISON_004.md) | Phase 4 — pre-fix comparison; harness verdict TOLERABLE_DRIFT, sprint-plan binding label SIGNAL_RULE_MISMATCH; per-pair Δ + ruled-out alternatives + load-bearing warmup-window root cause |
+| [`BACKTRADER_CAMPAIGN_011_FIDELITY_FIX_004.md`](BACKTRADER_CAMPAIGN_011_FIDELITY_FIX_004.md) | Phase 5 — two BT-lane bugs fixed: warmup_bars_required threshold (-7 trades) + in-loop EOD close (-1 trade); post-fix 2 800 / 2 800 trade-for-trade PASS; new regression test pins the warmup constant equal to the bespoke `warmup_bars_required()` |
+| [`BACKTRADER_CAMPAIGN_011_PER_FOLD_DEFERRED_004.md`](BACKTRADER_CAMPAIGN_011_PER_FOLD_DEFERRED_004.md) | Phase 6 — per-fold comparison deferred; why post-hoc slicing of the full-window BT JSONL cannot replicate the bespoke per-fold rollup; recommended `infra-backtrader-secondary-lane-005-fold-plan-support` next branch if needed |
+| [`INFRA_BACKTRADER_SECONDARY_LANE_004_CAMPAIGN_011_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_004_CAMPAIGN_011_SUMMARY.md) | sprint summary & handoff |
+
 ### Walk-forward research harness (`research-walk-forward-harness-001`)
 
 Reusable fold-generation library that future strategy campaigns
