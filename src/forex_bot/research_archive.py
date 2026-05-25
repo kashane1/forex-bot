@@ -32,6 +32,12 @@ ALLOWED_VERDICTS = frozenset({
     "SYNTHETIC_NOT_EVIDENCE",
     "DIAGNOSTIC",
     "NO-GO",
+    # BLOCKED: a research campaign whose bespoke engine could not be
+    # validly run for reasons recorded in the report (e.g. canonical
+    # local data store absent in this worktree). BLOCKED is explicitly
+    # non-approval; it is not a verdict on the underlying hypothesis.
+    # See CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md §13.
+    "BLOCKED",
 })
 
 _REQUIRED_CAMPAIGN_KEYS = frozenset({

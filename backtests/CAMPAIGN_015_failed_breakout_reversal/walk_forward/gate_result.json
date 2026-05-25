@@ -1,0 +1,19 @@
+{
+  "campaign_id": "CAMPAIGN_015",
+  "strategy_name": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015",
+  "verdict": "BLOCKED",
+  "verdict_ceiling": "PASS_RESEARCH_SCREEN",
+  "approval_status": "NOT_APPROVED",
+  "approved_strategies_yaml_state": "approved: []",
+  "config_path": "configs/campaign_015_failed_breakout_reversal.yaml",
+  "config_hash": "17ddfd7eb87d93c502f148642c8ee883c66cb72bfa8ca72f981624a0dcfdd93c",
+  "fold_count": 8,
+  "blocked": true,
+  "blocked_reasons": [
+    "database_path does not exist: data/campaign_002.sqlite3"
+  ],
+  "preflight_details": {},
+  "by_cost": {},
+  "generated_at": "2026-05-25T19:47:40.201420+00:00"
+}

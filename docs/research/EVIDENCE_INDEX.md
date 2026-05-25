@@ -22,6 +22,7 @@ map; the linked documents are the authoritative evidence.
 | 007 | [`backtests/CAMPAIGN_007_H4_PULLBACK_REPORT.md`](../../backtests/CAMPAIGN_007_H4_PULLBACK_REPORT.md) | **REJECT** | H4 pullback-continuation: screening fail, train −0.164 R, validation −0.166 R |
 | 008 | [`backtests/CAMPAIGN_008_RANGE_MEAN_REVERSION_REPORT.md`](../../backtests/CAMPAIGN_008_RANGE_MEAN_REVERSION_REPORT.md) | **REJECT** (narrow) | range mean-reversion: train −0.017 R (failing gate); validation +0.172 R, PF 1.29, 6/6 pairs positive |
 | 009 | [`backtests/CAMPAIGN_009_MEAN_REVERSION_REPORT.md`](../../backtests/CAMPAIGN_009_MEAN_REVERSION_REPORT.md) | **REJECT** | mean-reversion + midline-target exit: train −0.062 R (failing gate); validation +0.170 R, PF 1.37 |
+| 015 | [`docs/research/CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_RESULT.md`](CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_RESULT.md) | **BLOCKED** | failed_breakout_reversal 0.1.0-c015: bespoke engine did not execute — local `data/campaign_002.sqlite3` absent in this worktree; scaffold + runner + 32 tests landed; pre-commit § hypothesis / gates / anti-overfit / null-plan all binding; no approval; configs/approved_strategies.yaml remains approved: [] |
 
 ## Research Marathon 001
 
@@ -46,6 +47,7 @@ Each campaign's pass/fail gates, fixed and committed *before* the run.
 | 007 | [`docs/research/CAMPAIGN_007_H4_PULLBACK_PRECOMMIT.md`](CAMPAIGN_007_H4_PULLBACK_PRECOMMIT.md) |
 | 008 | [`docs/research/CAMPAIGN_008_RANGE_MEAN_REVERSION_PRECOMMIT.md`](CAMPAIGN_008_RANGE_MEAN_REVERSION_PRECOMMIT.md) |
 | 009 | [`docs/research/CAMPAIGN_009_PRECOMMIT.md`](CAMPAIGN_009_PRECOMMIT.md) |
+| 015 | [`docs/research/CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md`](CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md) |
 
 ## Post-mortems, proposals & diagnostics
 

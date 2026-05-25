@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "description": "Machine-readable index of all research evidence: fourteen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
+  "description": "Machine-readable index of all research evidence: fifteen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal [BLOCKED — local OANDA practice H4 store absent in this worktree]) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-25",
   "branch": "infra-backtrader-secondary-lane-004-campaign-011",
   "no_approved_strategy": true,
@@ -348,6 +348,32 @@
       "commit_hash": "TBD-phase9",
       "test_window_opened": true,
       "risk_engine_used": true,
+      "financing_treatment": "estimated",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "title": "Failed-breakout reversal (research-failed-breakout-reversal-campaign-015)",
+      "report_path": "docs/research/CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_RESULT.md",
+      "artifact_folder": "backtests/CAMPAIGN_015_failed_breakout_reversal",
+      "strategy_family": "failed_breakout_reversal",
+      "data_source": "oanda-practice",
+      "verdict": "BLOCKED",
+      "key_metrics": {
+        "fold_count": 8,
+        "fold_pass_rate": null,
+        "total_trades": null,
+        "aggregate_expectancy_r": null,
+        "aggregate_profit_factor": null,
+        "aggregate_return_pct": null,
+        "pairs_positive": null,
+        "null_model": false,
+        "approval_path": "none (BLOCKED on local-data preflight — data/campaign_002.sqlite3 absent in this worktree; bespoke engine did not execute; no fold metrics; no null comparison; no Backtrader corroboration). configs/approved_strategies.yaml remains approved: []. Verdict ceiling for this candidate is PASS_RESEARCH_SCREEN (candidate for human review), NOT approval, per CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md §16.",
+        "note": "Scaffold sprint for the failed-breakout reversal hypothesis: at H4 majors, when the current bar pokes above the prior 20-bar Donchian high by >= sweep_buffer_atr (0.10) * ATR(14) and closes back inside the range, emit a short signal (symmetric for downside); ADX(14) <= 20 quiet-range gate; range_width / ATR in [1.25, 5.00]; stop placed beyond the sweep extreme by 0.10 * ATR; stop_distance_atr in [0.80, 2.20]; hard stop OR 12-bar time stop; no take-profit, no trailing, no midline target; primary fill timing next_bar_open. Walk-forward plan: 8 folds rolling/frozen, 540/180/180/180 days, 7-pair H4 OANDA practice universe (EUR_USD, GBP_USD, USD_JPY, AUD_USD, USD_CAD, USD_CHF, NZD_USD). Pre-commit (Phase 0) + strategy module + 19 unit tests (Phase 1) + walk-forward runner + 13 runner-contract tests (Phase 2) all committed and green. Phase 3 walk-forward: BLOCKED — the canonical real-OANDA-practice H4 store at ./data/campaign_002.sqlite3 (the shared store consumed by CAMPAIGN_002 / 010 / 011 / 012 / 013 / 014) is not present in this worktree, so the runner emitted a BLOCKED gate_result.json without invoking the bespoke engine. No backtest fired; no broker call; no network call; no LEAN call; no Backtrader live integration; configs/approved_strategies.yaml byte-stable at approved: []; CAMPAIGN_001-014 manifest entries untouched. Phase 4 null comparison + anti-overfit diagnostics, Phase 5 Backtrader adapter tests, and Phase 6 Backtrader-vs-bespoke comparison were scaffolded but inherit BLOCKED because there is no bespoke walk-forward result to compare against. A future sprint that obtains data/campaign_002.sqlite3 can re-run scripts/run_campaign_015.py unchanged; the frozen parameters guarantee comparability."
+      },
+      "commit_hash": "TBD-phase7",
+      "test_window_opened": false,
+      "risk_engine_used": false,
       "financing_treatment": "estimated",
       "strategy_approved": false
     }

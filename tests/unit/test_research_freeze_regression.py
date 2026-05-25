@@ -206,6 +206,12 @@ def test_archive_validator_catches_an_approval_verdict():
     assert check_verdicts_non_approval(
         [{"campaign_id": "X", "verdict": "NO-GO"}]
     ).ok is True
+    # BLOCKED is a legitimate non-approval verdict for campaigns whose
+    # bespoke engine could not be validly run (e.g. canonical local
+    # data absent). See CAMPAIGN_015 for the first such use.
+    assert check_verdicts_non_approval(
+        [{"campaign_id": "X", "verdict": "BLOCKED"}]
+    ).ok is True
 
 
 # --------------------------------------------------------------------------

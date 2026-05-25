@@ -1,0 +1,7 @@
+{
+  "blocked": true,
+  "reasons": [
+    "database_path does not exist: data/campaign_002.sqlite3"
+  ],
+  "details": {}
+}
