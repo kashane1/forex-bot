@@ -229,6 +229,21 @@ blocked.
 | [`BACKTRADER_SECOND_CAMPAIGN_BLOCKED.md`](BACKTRADER_SECOND_CAMPAIGN_BLOCKED.md) | Phase 7 second-campaign decision — `BLOCKED`, same root cause; recommends CAMPAIGN_011 (deterministic null model, ATR-only) for a future unblock sprint with the scoped 6-step next-sprint prompt |
 | [`INFRA_BACKTRADER_SECONDARY_LANE_001_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_001_SUMMARY.md) | sprint summary & handoff |
 
+### Backtrader secondary lane — real-data run (`infra-backtrader-secondary-lane-002-real-data-run`)
+
+Follow-up sprint that attempted the real local-data CAMPAIGN_002
+comparison the previous sprint scaffolded. Outcome: BLOCKED at Phase 1
+on the same single artefact (`data/oanda_h4_research.sqlite3`) — the
+lane itself was not changed and remains tested + ready. No campaign
+verdict changed.
+
+| document | what it is |
+|---|---|
+| [`BACKTRADER_REAL_DATA_RUN_002_PLAN.md`](BACKTRADER_REAL_DATA_RUN_002_PLAN.md) | Phase 0 plan + verified data-availability snapshot + the four BLOCKED criteria |
+| [`BACKTRADER_REAL_DATA_PREFLIGHT_002.md`](BACKTRADER_REAL_DATA_PREFLIGHT_002.md) | Phase 1 BLOCKED preflight + the single load-bearing restore recipe (Path A — backup copy; Path B — read-only OANDA practice rehydration) |
+| [`BACKTRADER_CAMPAIGN_011_BLOCKED_002.md`](BACKTRADER_CAMPAIGN_011_BLOCKED_002.md) | Phase 5 cascade-BLOCKED decision + carry-forward CAMPAIGN_011 implementation prompt (frozen parameters, R1–R8, approximation flags, test plan, reference paths) |
+| [`INFRA_BACKTRADER_SECONDARY_LANE_002_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_002_SUMMARY.md) | sprint summary & handoff |
+
 ### Walk-forward research harness (`research-walk-forward-harness-001`)
 
 Reusable fold-generation library that future strategy campaigns

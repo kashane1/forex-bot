@@ -513,6 +513,34 @@
       "kind": "backtrader_secondary_lane",
       "description": "Sprint summary & handoff for the Backtrader secondary verification lane. Lane scaffolded + tested (75 backtrader_lane tests PASS; full repo 1179 tests PASS); first real comparison BLOCKED on local data availability; recommended next branch infra-backtrader-secondary-lane-002-real-data-run. No campaign verdict changed; approved_strategies.yaml still empty. strategy_evidence: false.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_REAL_DATA_RUN_002_PLAN",
+      "path": "docs/research/BACKTRADER_REAL_DATA_RUN_002_PLAN.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 0 plan for the follow-up sprint infra-backtrader-secondary-lane-002-real-data-run. Verifies data availability snapshot at branch creation (CSVs absent, H4 SQLite absent, no OANDA env / .env). Defines the four BLOCKED criteria and the exact Phase 2 / Phase 3 commands that will run once data is restored. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_REAL_DATA_PREFLIGHT_002",
+      "path": "docs/research/BACKTRADER_REAL_DATA_PREFLIGHT_002.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 1 BLOCKED preflight for the secondary-lane real-data sprint. All four data-availability conditions hold at re-check; the runner correctly reported every CAMPAIGN_002 instrument as BLOCKED and emitted no fake trade. The doc names the single load-bearing artefact whose restore unblocks the whole sprint (data/oanda_h4_research.sqlite3) and gives two restore paths: Path A (backup copy, no broker call) and Path B (read-only OANDA practice rehydration, only with credentials). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_CAMPAIGN_011_BLOCKED_002",
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_BLOCKED_002.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Phase 5 cascade-BLOCKED decision: CAMPAIGN_011 Phase-5 precondition unmet because Phase 1 was BLOCKED on data unavailability. Carry-forward scoped CAMPAIGN_011 implementation prompt for the future unblock sprint: frozen parameters (master_seed=20260523, entry_probability=0.05, ATR(14), atr_stop_multiple=2.0, max_bars=6), R1-R8 rules verbatim, three approximation flags to surface, bespoke reference target paths, and a test plan that reuses the CAMPAIGN_002 helpers. CAMPAIGN_011 stays REJECT (null model anchor by design). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_SECONDARY_LANE_002_SUMMARY",
+      "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_002_SUMMARY.md",
+      "kind": "backtrader_secondary_lane",
+      "description": "Sprint summary & handoff for infra-backtrader-secondary-lane-002-real-data-run. Outcome BLOCKED at Phase 1 on a single load-bearing artefact (data/oanda_h4_research.sqlite3). The Backtrader-lane code from sprint 001 is unchanged and remains tested + ready; 75 backtrader_lane tests still PASS; 1179 total repo tests PASS; freeze gate, archive validator, secret scanner all PASS; configs/approved_strategies.yaml still approved: []. Recommended next branch infra-backtrader-secondary-lane-003-real-data-run. strategy_evidence: false.",
+      "strategy_evidence": false
     }
   ]
 }
