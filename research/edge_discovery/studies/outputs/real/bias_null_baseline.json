@@ -1,0 +1,933 @@
+{
+  "study_id": "bias_null_baseline",
+  "sprint": "research-bias-of-fixtures-audit-001",
+  "phase": 2,
+  "headline": {
+    "n_campaigns": 5,
+    "n_trades_total": 16354,
+    "null_campaign": "CAMPAIGN_011_random_entry_anchor",
+    "null_trade_count": 1177,
+    "null_coverage_complete": true,
+    "null_outlier_vs_others_any_metric": true
+  },
+  "coverage": [
+    {
+      "campaign": "CAMPAIGN_010_session_breakout",
+      "n_folds_with_trades": 8,
+      "n_pairs_with_trades": 7,
+      "folds_present": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pairs_present": [
+        "AUD_USD",
+        "EUR_USD",
+        "GBP_USD",
+        "NZD_USD",
+        "USD_CAD",
+        "USD_CHF",
+        "USD_JPY"
+      ],
+      "expected_grid_size": 56,
+      "n_empty_cells": 2,
+      "empty_cells": [
+        [
+          4,
+          "NZD_USD"
+        ],
+        [
+          7,
+          "NZD_USD"
+        ]
+      ]
+    },
+    {
+      "campaign": "CAMPAIGN_011_random_entry_anchor",
+      "n_folds_with_trades": 8,
+      "n_pairs_with_trades": 7,
+      "folds_present": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pairs_present": [
+        "AUD_USD",
+        "EUR_USD",
+        "GBP_USD",
+        "NZD_USD",
+        "USD_CAD",
+        "USD_CHF",
+        "USD_JPY"
+      ],
+      "expected_grid_size": 56,
+      "n_empty_cells": 0,
+      "empty_cells": []
+    },
+    {
+      "campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+      "n_folds_with_trades": 8,
+      "n_pairs_with_trades": 7,
+      "folds_present": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pairs_present": [
+        "AUD_USD",
+        "EUR_USD",
+        "GBP_USD",
+        "NZD_USD",
+        "USD_CAD",
+        "USD_CHF",
+        "USD_JPY"
+      ],
+      "expected_grid_size": 56,
+      "n_empty_cells": 0,
+      "empty_cells": []
+    },
+    {
+      "campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "n_folds_with_trades": 8,
+      "n_pairs_with_trades": 7,
+      "folds_present": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pairs_present": [
+        "AUD_USD",
+        "EUR_USD",
+        "GBP_USD",
+        "NZD_USD",
+        "USD_CAD",
+        "USD_CHF",
+        "USD_JPY"
+      ],
+      "expected_grid_size": 56,
+      "n_empty_cells": 29,
+      "empty_cells": [
+        [
+          0,
+          "GBP_USD"
+        ],
+        [
+          0,
+          "USD_JPY"
+        ],
+        [
+          0,
+          "AUD_USD"
+        ],
+        [
+          0,
+          "USD_CAD"
+        ],
+        [
+          1,
+          "EUR_USD"
+        ],
+        [
+          1,
+          "GBP_USD"
+        ],
+        [
+          1,
+          "USD_JPY"
+        ],
+        [
+          1,
+          "USD_CAD"
+        ],
+        [
+          1,
+          "USD_CHF"
+        ],
+        [
+          1,
+          "NZD_USD"
+        ],
+        [
+          2,
+          "USD_JPY"
+        ],
+        [
+          2,
+          "USD_CAD"
+        ],
+        [
+          2,
+          "USD_CHF"
+        ],
+        [
+          3,
+          "EUR_USD"
+        ],
+        [
+          3,
+          "GBP_USD"
+        ],
+        [
+          3,
+          "USD_JPY"
+        ],
+        [
+          3,
+          "USD_CAD"
+        ],
+        [
+          4,
+          "GBP_USD"
+        ],
+        [
+          4,
+          "USD_JPY"
+        ],
+        [
+          4,
+          "USD_CHF"
+        ],
+        [
+          5,
+          "GBP_USD"
+        ],
+        [
+          5,
+          "USD_JPY"
+        ],
+        [
+          5,
+          "USD_CHF"
+        ],
+        [
+          6,
+          "GBP_USD"
+        ],
+        [
+          6,
+          "AUD_USD"
+        ],
+        [
+          6,
+          "USD_CAD"
+        ],
+        [
+          7,
+          "EUR_USD"
+        ],
+        [
+          7,
+          "USD_JPY"
+        ],
+        [
+          7,
+          "USD_CHF"
+        ]
+      ]
+    },
+    {
+      "campaign": "CAMPAIGN_014_calendar_event_window_anomaly",
+      "n_folds_with_trades": 8,
+      "n_pairs_with_trades": 7,
+      "folds_present": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pairs_present": [
+        "AUD_USD",
+        "EUR_USD",
+        "GBP_USD",
+        "NZD_USD",
+        "USD_CAD",
+        "USD_CHF",
+        "USD_JPY"
+      ],
+      "expected_grid_size": 56,
+      "n_empty_cells": 0,
+      "empty_cells": []
+    }
+  ],
+  "dispersion": [
+    {
+      "campaign": "CAMPAIGN_010_session_breakout",
+      "n_trades": 2791,
+      "trades_by_pair": {
+        "AUD_USD": 511,
+        "EUR_USD": 310,
+        "GBP_USD": 565,
+        "NZD_USD": 47,
+        "USD_CAD": 434,
+        "USD_CHF": 432,
+        "USD_JPY": 492
+      },
+      "trades_by_pair_share": {
+        "AUD_USD": 0.1830884987459692,
+        "EUR_USD": 0.11107130060910068,
+        "GBP_USD": 0.20243640272303834,
+        "NZD_USD": 0.01683984235041204,
+        "USD_CAD": 0.15549982085274094,
+        "USD_CHF": 0.1547832318165532,
+        "USD_JPY": 0.1762809029021856
+      },
+      "trades_by_fold": {
+        "0": 367,
+        "1": 390,
+        "2": 409,
+        "3": 374,
+        "4": 347,
+        "5": 265,
+        "6": 347,
+        "7": 292
+      },
+      "trades_by_fold_share": {
+        "0": 0.13149408814045144,
+        "1": 0.13973486205661054,
+        "2": 0.14654245790039414,
+        "3": 0.13400214976710856,
+        "4": 0.12432819777857398,
+        "5": 0.0949480472948764,
+        "6": 0.12432819777857398,
+        "7": 0.10462199928341097
+      },
+      "max_pair_share": 0.20243640272303834,
+      "max_pair": "GBP_USD",
+      "max_pair_class": "minor_deviation",
+      "max_fold_share": 0.14654245790039414,
+      "max_fold": 2,
+      "max_fold_class": "within_expected_range"
+    },
+    {
+      "campaign": "CAMPAIGN_011_random_entry_anchor",
+      "n_trades": 1177,
+      "trades_by_pair": {
+        "AUD_USD": 190,
+        "EUR_USD": 119,
+        "GBP_USD": 196,
+        "NZD_USD": 139,
+        "USD_CAD": 182,
+        "USD_CHF": 177,
+        "USD_JPY": 174
+      },
+      "trades_by_pair_share": {
+        "AUD_USD": 0.16142735768903993,
+        "EUR_USD": 0.10110450297366186,
+        "GBP_USD": 0.16652506372132542,
+        "NZD_USD": 0.11809685641461343,
+        "USD_CAD": 0.1546304163126593,
+        "USD_CHF": 0.1503823279524214,
+        "USD_JPY": 0.14783347493627869
+      },
+      "trades_by_fold": {
+        "0": 143,
+        "1": 150,
+        "2": 153,
+        "3": 150,
+        "4": 162,
+        "5": 153,
+        "6": 128,
+        "7": 138
+      },
+      "trades_by_fold_share": {
+        "0": 0.12149532710280374,
+        "1": 0.1274426508071368,
+        "2": 0.12999150382327954,
+        "3": 0.1274426508071368,
+        "4": 0.13763806287170774,
+        "5": 0.12999150382327954,
+        "6": 0.10875106202209006,
+        "7": 0.11724723874256585
+      },
+      "max_pair_share": 0.16652506372132542,
+      "max_pair": "GBP_USD",
+      "max_pair_class": "within_expected_range",
+      "max_fold_share": 0.13763806287170774,
+      "max_fold": 4,
+      "max_fold_class": "within_expected_range"
+    },
+    {
+      "campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+      "n_trades": 3726,
+      "trades_by_pair": {
+        "AUD_USD": 551,
+        "EUR_USD": 479,
+        "GBP_USD": 555,
+        "NZD_USD": 391,
+        "USD_CAD": 584,
+        "USD_CHF": 542,
+        "USD_JPY": 624
+      },
+      "trades_by_pair_share": {
+        "AUD_USD": 0.1478797638217928,
+        "EUR_USD": 0.12855609232420825,
+        "GBP_USD": 0.14895330112721417,
+        "NZD_USD": 0.10493827160493827,
+        "USD_CAD": 0.15673644659151906,
+        "USD_CHF": 0.14546430488459475,
+        "USD_JPY": 0.16747181964573268
+      },
+      "trades_by_fold": {
+        "0": 678,
+        "1": 811,
+        "2": 320,
+        "3": 254,
+        "4": 358,
+        "5": 407,
+        "6": 638,
+        "7": 260
+      },
+      "trades_by_fold_share": {
+        "0": 0.1819645732689211,
+        "1": 0.21765968867418142,
+        "2": 0.08588298443370908,
+        "3": 0.06816961889425657,
+        "4": 0.09608158883521202,
+        "5": 0.10923242082662372,
+        "6": 0.17122920021470747,
+        "7": 0.06977992485238863
+      },
+      "max_pair_share": 0.16747181964573268,
+      "max_pair": "USD_JPY",
+      "max_pair_class": "within_expected_range",
+      "max_fold_share": 0.21765968867418142,
+      "max_fold": 1,
+      "max_fold_class": "minor_deviation"
+    },
+    {
+      "campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "n_trades": 7940,
+      "trades_by_pair": {
+        "AUD_USD": 1942,
+        "EUR_USD": 1412,
+        "GBP_USD": 648,
+        "NZD_USD": 1863,
+        "USD_CAD": 958,
+        "USD_CHF": 807,
+        "USD_JPY": 310
+      },
+      "trades_by_pair_share": {
+        "AUD_USD": 0.24458438287153653,
+        "EUR_USD": 0.1778337531486146,
+        "GBP_USD": 0.08161209068010075,
+        "NZD_USD": 0.23463476070528969,
+        "USD_CAD": 0.12065491183879093,
+        "USD_CHF": 0.10163727959697733,
+        "USD_JPY": 0.03904282115869018
+      },
+      "trades_by_fold": {
+        "0": 794,
+        "1": 321,
+        "2": 1166,
+        "3": 810,
+        "4": 1255,
+        "5": 1252,
+        "6": 1149,
+        "7": 1193
+      },
+      "trades_by_fold_share": {
+        "0": 0.1,
+        "1": 0.04042821158690176,
+        "2": 0.14685138539042822,
+        "3": 0.10201511335012595,
+        "4": 0.1580604534005038,
+        "5": 0.15768261964735517,
+        "6": 0.14471032745591939,
+        "7": 0.15025188916876575
+      },
+      "max_pair_share": 0.24458438287153653,
+      "max_pair": "AUD_USD",
+      "max_pair_class": "minor_deviation",
+      "max_fold_share": 0.1580604534005038,
+      "max_fold": 4,
+      "max_fold_class": "within_expected_range"
+    },
+    {
+      "campaign": "CAMPAIGN_014_calendar_event_window_anomaly",
+      "n_trades": 720,
+      "trades_by_pair": {
+        "AUD_USD": 91,
+        "EUR_USD": 100,
+        "GBP_USD": 152,
+        "NZD_USD": 63,
+        "USD_CAD": 91,
+        "USD_CHF": 89,
+        "USD_JPY": 134
+      },
+      "trades_by_pair_share": {
+        "AUD_USD": 0.12638888888888888,
+        "EUR_USD": 0.1388888888888889,
+        "GBP_USD": 0.2111111111111111,
+        "NZD_USD": 0.0875,
+        "USD_CAD": 0.12638888888888888,
+        "USD_CHF": 0.12361111111111112,
+        "USD_JPY": 0.18611111111111112
+      },
+      "trades_by_fold": {
+        "0": 93,
+        "1": 84,
+        "2": 82,
+        "3": 90,
+        "4": 100,
+        "5": 92,
+        "6": 89,
+        "7": 90
+      },
+      "trades_by_fold_share": {
+        "0": 0.12916666666666668,
+        "1": 0.11666666666666667,
+        "2": 0.11388888888888889,
+        "3": 0.125,
+        "4": 0.1388888888888889,
+        "5": 0.12777777777777777,
+        "6": 0.12361111111111112,
+        "7": 0.125
+      },
+      "max_pair_share": 0.2111111111111111,
+      "max_pair": "GBP_USD",
+      "max_pair_class": "minor_deviation",
+      "max_fold_share": 0.1388888888888889,
+      "max_fold": 4,
+      "max_fold_class": "within_expected_range"
+    }
+  ],
+  "direction_balance": [
+    {
+      "campaign": "CAMPAIGN_010_session_breakout",
+      "n_trades": 2791,
+      "n_long": 1413,
+      "n_short": 1378,
+      "long_share": 0.5062701540666428,
+      "short_share": 0.4937298459333572,
+      "deviation_from_balanced": 0.006270154066642775,
+      "classification": "within_expected_range"
+    },
+    {
+      "campaign": "CAMPAIGN_011_random_entry_anchor",
+      "n_trades": 1177,
+      "n_long": 610,
+      "n_short": 567,
+      "long_share": 0.5182667799490229,
+      "short_share": 0.4817332200509771,
+      "deviation_from_balanced": 0.018266779949022927,
+      "classification": "within_expected_range"
+    },
+    {
+      "campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+      "n_trades": 3726,
+      "n_long": 1918,
+      "n_short": 1808,
+      "long_share": 0.5147611379495437,
+      "short_share": 0.48523886205045624,
+      "deviation_from_balanced": 0.014761137949543701,
+      "classification": "within_expected_range"
+    },
+    {
+      "campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "n_trades": 7940,
+      "n_long": 3927,
+      "n_short": 4013,
+      "long_share": 0.4945843828715365,
+      "short_share": 0.5054156171284635,
+      "deviation_from_balanced": 0.005415617128463501,
+      "classification": "within_expected_range"
+    },
+    {
+      "campaign": "CAMPAIGN_014_calendar_event_window_anomaly",
+      "n_trades": 720,
+      "n_long": 353,
+      "n_short": 367,
+      "long_share": 0.49027777777777776,
+      "short_share": 0.5097222222222222,
+      "deviation_from_balanced": 0.009722222222222243,
+      "classification": "within_expected_range"
+    }
+  ],
+  "hour_clustering": [
+    {
+      "campaign": "CAMPAIGN_010_session_breakout",
+      "n_trades": 2791,
+      "hour_counts_utc": {
+        "6": 1030,
+        "9": 1761
+      },
+      "hour_shares_utc": {
+        "6": 0.3690433536366894,
+        "9": 0.6309566463633106
+      },
+      "max_hour_share": 0.6309566463633106,
+      "max_hour_utc": 9,
+      "classification": "material_deviation"
+    },
+    {
+      "campaign": "CAMPAIGN_011_random_entry_anchor",
+      "n_trades": 1177,
+      "hour_counts_utc": {
+        "1": 173,
+        "2": 88,
+        "5": 182,
+        "6": 80,
+        "9": 195,
+        "10": 77,
+        "13": 169,
+        "14": 91,
+        "17": 84,
+        "18": 38
+      },
+      "hour_shares_utc": {
+        "1": 0.1469838572642311,
+        "2": 0.07476635514018691,
+        "5": 0.1546304163126593,
+        "6": 0.06796941376380629,
+        "9": 0.16567544604927784,
+        "10": 0.06542056074766354,
+        "13": 0.14358538657604078,
+        "14": 0.07731520815632965,
+        "17": 0.0713678844519966,
+        "18": 0.03228547153780799
+      },
+      "max_hour_share": 0.16567544604927784,
+      "max_hour_utc": 9,
+      "classification": "minor_deviation"
+    },
+    {
+      "campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+      "n_trades": 3726,
+      "hour_counts_utc": {
+        "1": 603,
+        "2": 377,
+        "5": 480,
+        "6": 229,
+        "9": 520,
+        "10": 265,
+        "13": 604,
+        "14": 338,
+        "17": 221,
+        "18": 89
+      },
+      "hour_shares_utc": {
+        "1": 0.16183574879227053,
+        "2": 0.1011808910359635,
+        "5": 0.1288244766505636,
+        "6": 0.06146001073537306,
+        "9": 0.13955984970477725,
+        "10": 0.07112184648416532,
+        "13": 0.16210413311862587,
+        "14": 0.09071390230810521,
+        "17": 0.05931293612453033,
+        "18": 0.023886205045625334
+      },
+      "max_hour_share": 0.16210413311862587,
+      "max_hour_utc": 13,
+      "classification": "minor_deviation"
+    },
+    {
+      "campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "n_trades": 7940,
+      "hour_counts_utc": {
+        "1": 1150,
+        "2": 796,
+        "5": 832,
+        "6": 427,
+        "9": 1563,
+        "10": 612,
+        "13": 1591,
+        "14": 752,
+        "17": 168,
+        "18": 49
+      },
+      "hour_shares_utc": {
+        "1": 0.14483627204030228,
+        "2": 0.10025188916876575,
+        "5": 0.10478589420654912,
+        "6": 0.05377833753148615,
+        "9": 0.1968513853904282,
+        "10": 0.07707808564231738,
+        "13": 0.2003778337531486,
+        "14": 0.0947103274559194,
+        "17": 0.02115869017632242,
+        "18": 0.006171284634760705
+      },
+      "max_hour_share": 0.2003778337531486,
+      "max_hour_utc": 13,
+      "classification": "minor_deviation"
+    },
+    {
+      "campaign": "CAMPAIGN_014_calendar_event_window_anomaly",
+      "n_trades": 720,
+      "hour_counts_utc": {
+        "5": 34,
+        "6": 13,
+        "13": 444,
+        "14": 229
+      },
+      "hour_shares_utc": {
+        "5": 0.04722222222222222,
+        "6": 0.018055555555555554,
+        "13": 0.6166666666666667,
+        "14": 0.31805555555555554
+      },
+      "max_hour_share": 0.6166666666666667,
+      "max_hour_utc": 13,
+      "classification": "material_deviation"
+    }
+  ],
+  "exit_reason": [
+    {
+      "campaign": "CAMPAIGN_010_session_breakout",
+      "n_trades": 2791,
+      "by_exit_reason": {
+        "time": 2107,
+        "stop": 661,
+        "eod": 23
+      },
+      "share_by_exit_reason": {
+        "time": 0.7549265496237908,
+        "stop": 0.23683267646005016,
+        "eod": 0.008240773916159082
+      }
+    },
+    {
+      "campaign": "CAMPAIGN_011_random_entry_anchor",
+      "n_trades": 1177,
+      "by_exit_reason": {
+        "time": 929,
+        "stop": 241,
+        "eod": 7
+      },
+      "share_by_exit_reason": {
+        "time": 0.7892948173322005,
+        "stop": 0.20475785896346643,
+        "eod": 0.00594732370433305
+      }
+    },
+    {
+      "campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+      "n_trades": 3726,
+      "by_exit_reason": {
+        "time": 2953,
+        "stop": 760,
+        "eod": 13
+      },
+      "share_by_exit_reason": {
+        "time": 0.7925389157273215,
+        "stop": 0.20397208803005903,
+        "eod": 0.003488996242619431
+      }
+    },
+    {
+      "campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+      "n_trades": 7940,
+      "by_exit_reason": {
+        "time": 6087,
+        "stop": 1830,
+        "eod": 23
+      },
+      "share_by_exit_reason": {
+        "time": 0.7666246851385391,
+        "stop": 0.2304785894206549,
+        "eod": 0.0028967254408060455
+      }
+    },
+    {
+      "campaign": "CAMPAIGN_014_calendar_event_window_anomaly",
+      "n_trades": 720,
+      "by_exit_reason": {
+        "time": 537,
+        "stop": 174,
+        "eod": 9
+      },
+      "share_by_exit_reason": {
+        "time": 0.7458333333333333,
+        "stop": 0.24166666666666667,
+        "eod": 0.0125
+      }
+    }
+  ],
+  "null_vs_others": {
+    "rows": [
+      {
+        "campaign": "CAMPAIGN_010_session_breakout",
+        "n": 2791,
+        "stop_rate": 0.23683267646005016,
+        "time_rate": 0.7549265496237908,
+        "mean_r_given_stop": -0.7917224482468497,
+        "mean_r_given_time": 0.19255659869969471,
+        "mean_r_overall": -0.040823414466736895
+      },
+      {
+        "campaign": "CAMPAIGN_011_random_entry_anchor",
+        "n": 1177,
+        "stop_rate": 0.20475785896346643,
+        "time_rate": 0.7892948173322005,
+        "mean_r_given_stop": -0.8312044128979689,
+        "mean_r_given_time": 0.2093411832904567,
+        "mean_r_overall": -0.0024398578345530258
+      },
+      {
+        "campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+        "n": 3726,
+        "stop_rate": 0.20397208803005903,
+        "time_rate": 0.7925389157273215,
+        "mean_r_given_stop": -0.8178192224262378,
+        "mean_r_given_time": 0.145030357784562,
+        "mean_r_overall": -0.052121591971863016
+      },
+      {
+        "campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+        "n": 7940,
+        "stop_rate": 0.2304785894206549,
+        "time_rate": 0.7666246851385391,
+        "mean_r_given_stop": -0.9482600621365784,
+        "mean_r_given_time": 0.21046050758292628,
+        "mean_r_overall": -0.05642580700533526
+      },
+      {
+        "campaign": "CAMPAIGN_014_calendar_event_window_anomaly",
+        "n": 720,
+        "stop_rate": 0.24166666666666667,
+        "time_rate": 0.7458333333333333,
+        "mean_r_given_stop": -0.8080570059230298,
+        "mean_r_given_time": 0.06669663744692667,
+        "mean_r_overall": -0.14773654076290627
+      }
+    ],
+    "null_compare": {
+      "stop_rate": {
+        "null_value": 0.20475785896346643,
+        "others_min": 0.20397208803005903,
+        "others_max": 0.24166666666666667,
+        "null_is_outside_others_range": false
+      },
+      "time_rate": {
+        "null_value": 0.7892948173322005,
+        "others_min": 0.7458333333333333,
+        "others_max": 0.7925389157273215,
+        "null_is_outside_others_range": false
+      },
+      "mean_r_given_stop": {
+        "null_value": -0.8312044128979689,
+        "others_min": -0.9482600621365784,
+        "others_max": -0.7917224482468497,
+        "null_is_outside_others_range": false
+      },
+      "mean_r_given_time": {
+        "null_value": 0.2093411832904567,
+        "others_min": 0.06669663744692667,
+        "others_max": 0.21046050758292628,
+        "null_is_outside_others_range": false
+      },
+      "mean_r_overall": {
+        "null_value": -0.0024398578345530258,
+        "others_min": -0.14773654076290627,
+        "others_max": -0.040823414466736895,
+        "null_is_outside_others_range": true
+      }
+    },
+    "null_outlier": true
+  },
+  "provenance": {
+    "data_kind": "real",
+    "inputs": [
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "/Users/kashane/dev/forex-bot/.claude/worktrees/vibrant-heisenberg-1d2de2/backtests/CAMPAIGN_010_session_breakout/walk_forward/results.json",
+        "sha256": "36792d75d32b3101fb21ccddd7d8015adaf07ba43b704621bc3fe9f459852a64",
+        "rows": 8,
+        "extra": {
+          "overall_verdict": "REJECT"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "/Users/kashane/dev/forex-bot/.claude/worktrees/vibrant-heisenberg-1d2de2/backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/results.json",
+        "sha256": "ac6e72942d1a016c47c401b846bfab10c27ff80ac879f380af7dcdd50ae258fa",
+        "rows": 8,
+        "extra": {
+          "overall_verdict": "REJECT"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "/Users/kashane/dev/forex-bot/.claude/worktrees/vibrant-heisenberg-1d2de2/backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/results.json",
+        "sha256": "3bea07f2399bda313eeed0940598386de49b5a5f733f0b16accc1961246de859",
+        "rows": 8,
+        "extra": {
+          "overall_verdict": "REJECT"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "/Users/kashane/dev/forex-bot/.claude/worktrees/vibrant-heisenberg-1d2de2/backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/results.json",
+        "sha256": "ddef199dc95b0f385590afc955757c794f4590494e5db54bc376be84fd2bb627",
+        "rows": 8,
+        "extra": {
+          "overall_verdict": "REJECT"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "/Users/kashane/dev/forex-bot/.claude/worktrees/vibrant-heisenberg-1d2de2/backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/results.json",
+        "sha256": "fbf8a0762c3de288d7e9dec964213b9fc8c2fb9a85bda24e22cf15551643514f",
+        "rows": 8,
+        "extra": {
+          "overall_verdict": "REJECT"
+        }
+      }
+    ],
+    "date_coverage": {
+      "start_utc": "2020-01-01 00:00:00+00:00",
+      "end_utc": "2026-05-20 00:00:00+00:00"
+    },
+    "pair_universe": [
+      "EUR_USD",
+      "GBP_USD",
+      "USD_JPY",
+      "AUD_USD",
+      "USD_CAD",
+      "USD_CHF",
+      "NZD_USD"
+    ],
+    "limitations": [
+      "This is an audit of the CAMPAIGN_011 null baseline as a",
+      "fixture. It does not approve, reverse, or revive any",
+      "strategy verdict. It does not perform a new backtest.",
+      "It does not propose parameter changes (e.g. a different",
+      "random-entry interval or different stop multiple).",
+      "It does not need the gitignored H4 SQLite candle store."
+    ],
+    "exploratory_only": true
+  },
+  "verdict_word_ban_acknowledged": true,
+  "refusals": {
+    "approves_strategy": false,
+    "changes_campaign_verdict": false,
+    "proposes_parameter_tune": false,
+    "writes_to_approved_strategies_yaml": false
+  },
+  "interpretation": "The null sits **outside** the cross-campaign range on at least one shape metric: `mean_r_overall`. This does not automatically disqualify the null \u2014 by construction the random-entry baseline can legitimately have a different shape than rule-based candidates. The audit's purpose is to surface this, not to silently bury it. Phase 5 decides whether the deviation requires a documentation note or a rule update."
+}
