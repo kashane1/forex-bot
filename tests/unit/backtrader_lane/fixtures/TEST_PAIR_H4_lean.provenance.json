@@ -1,0 +1,16 @@
+{
+  "instrument": "TEST_PAIR",
+  "granularity": "H4",
+  "source": "oanda-test-fixture",
+  "requested_from": "2024-01-01T22:00:00+00:00",
+  "requested_to": "2024-01-03T18:00:00+00:00",
+  "candle_count": 12,
+  "first_ts": "2024-01-01T22:00:00+00:00",
+  "last_ts": "2024-01-03T18:00:00+00:00",
+  "data_sha256": "42ab7d308147c8615d03e37058610cbca2400f7391a1d31ccfd524852546f1d3",
+  "campaign_002_data_request_hash": "deadbeefcafef00d",
+  "lean_csv": "TEST_PAIR_H4_lean.csv",
+  "exported_by": "tests/unit/backtrader_lane/fixtures/build_tiny_csv.py",
+  "exported_at": "2026-05-24T00:00:00+00:00",
+  "note": "Synthetic deterministic H4 fixture for the Backtrader-lane data-adapter tests. NOT real OANDA data. NOT campaign evidence. strategy_evidence: false."
+}
