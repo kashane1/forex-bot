@@ -40,10 +40,26 @@ strategy is approved.**
 | `regime_switcher_atr_percentile 0.1.0-c012` | rejected | NO | NO | NO | CAMPAIGN_012 |
 | `cross_pair_currency_strength_rotation 0.1.0-c013` | rejected | NO | NO | NO | CAMPAIGN_013 |
 | `calendar_event_window_anomaly 0.1.0-c014` | rejected | NO | NO | NO | CAMPAIGN_014 |
+| `failed_breakout_reversal 0.1.0-c015` | blocked (data absent) | NO | NO | NO | CAMPAIGN_015 |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
 validly backtested by the current engine.
+
+`failed_breakout_reversal 0.1.0-c015` is **blocked**, not rejected:
+the canonical real-OANDA-practice H4 candle store at
+`data/campaign_002.sqlite3` (the shared store consumed by CAMPAIGN_002
+/ 010 / 011 / 012 / 013 / 014) is absent in the worktree where the
+sprint ran, so the bespoke walk-forward engine did not execute. The
+strategy module, Pydantic config, walk-forward runner, anti-overfit
+classifier, and Backtrader secondary-lane adapter are all committed
+(see [`CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_SUMMARY.md`](CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_SUMMARY.md)).
+The maximum verdict ceiling for this candidate is `PASS_RESEARCH_SCREEN`
+("candidate for human review"), not approval, per
+[`CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md`](CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md)
+§16. A future sprint that obtains the canonical data may re-run
+`scripts/run_campaign_015.py` unchanged; the frozen parameters
+guarantee comparability.
 
 `session_breakout 0.1.0-c010` is **rejected**: the
 `research-asian-london-session-breakout-walk-forward-001`
