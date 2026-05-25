@@ -7,6 +7,9 @@ from forex_bot.strategies.calendar_event_window_anomaly import (
 from forex_bot.strategies.cross_pair_currency_strength_rotation import (
     CrossPairCurrencyStrengthRotationStrategy,
 )
+from forex_bot.strategies.failed_breakout_reversal import (
+    FailedBreakoutReversalStrategy,
+)
 from forex_bot.strategies.mean_reversion import MeanReversionStrategy
 from forex_bot.strategies.pullback_continuation import PullbackContinuationStrategy
 from forex_bot.strategies.random_entry_anchor import RandomEntryAnchorStrategy
@@ -20,6 +23,7 @@ from forex_bot.strategies.volatility_breakout import VolatilityBreakoutStrategy
 __all__ = [
     "CalendarEventWindowAnomalyStrategy",
     "CrossPairCurrencyStrengthRotationStrategy",
+    "FailedBreakoutReversalStrategy",
     "MeanReversionStrategy",
     "PullbackContinuationStrategy",
     "RandomEntryAnchorStrategy",

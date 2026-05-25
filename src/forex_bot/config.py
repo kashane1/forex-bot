@@ -499,6 +499,87 @@ class CalendarEventWindowAnomalyStrategyConfig(BaseModel):
         return self
 
 
+class FailedBreakoutReversalStrategyConfig(BaseModel):
+    # CAMPAIGN_015 research candidate (`failed_breakout_reversal 0.1.0-c015`).
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md.
+    #
+    # Frozen parameters pre-committed by the campaign-015 sprint (Phase 0
+    # pre-commit doc, §5). Any deviation constitutes a NEW candidate; the
+    # validator rejects several deviations explicitly (e.g. trailing-stop
+    # or take-profit in v1; min_stop_atr_multiple >= max_stop_atr_multiple).
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    range_lookback: int = 20
+    atr_lookback: int = 14
+    adx_lookback: int = 14
+    adx_max: float = 20.0
+    sweep_buffer_atr: float = 0.10
+    min_range_atr_multiple: float = 1.25
+    max_range_atr_multiple: float = 5.00
+    stop_buffer_atr: float = 0.10
+    min_stop_atr_multiple: float = 0.80
+    max_stop_atr_multiple: float = 2.20
+    max_bars_in_trade: int = 12
+    take_profit_r: float | None = None
+    trailing_stop_atr_multiple: float | None = None
+    entry_timing: Literal["next_bar_open", "signal_bar_close"] = "next_bar_open"
+    same_bar_adverse_stop_wins: bool = True
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> FailedBreakoutReversalStrategyConfig:
+        if self.range_lookback < 5:
+            raise ConfigError("range_lookback must be >= 5")
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.adx_lookback < 2:
+            raise ConfigError("adx_lookback must be >= 2")
+        if not (0 < self.adx_max < 100):
+            raise ConfigError("adx_max must be between 0 and 100")
+        if self.sweep_buffer_atr < 0:
+            raise ConfigError("sweep_buffer_atr must be >= 0")
+        if self.min_range_atr_multiple <= 0:
+            raise ConfigError("min_range_atr_multiple must be > 0")
+        if self.max_range_atr_multiple <= self.min_range_atr_multiple:
+            raise ConfigError(
+                "max_range_atr_multiple must be > min_range_atr_multiple"
+            )
+        if self.stop_buffer_atr < 0:
+            raise ConfigError("stop_buffer_atr must be >= 0")
+        if self.min_stop_atr_multiple <= 0:
+            raise ConfigError("min_stop_atr_multiple must be > 0")
+        if self.max_stop_atr_multiple <= self.min_stop_atr_multiple:
+            raise ConfigError(
+                "max_stop_atr_multiple must be > min_stop_atr_multiple"
+            )
+        if self.max_bars_in_trade < 1:
+            raise ConfigError("max_bars_in_trade must be >= 1")
+        if self.max_bars_in_trade > 60:
+            raise ConfigError(
+                "max_bars_in_trade must be <= 60 "
+                "(standing guardrails on time-stop range)"
+            )
+        if self.take_profit_r is not None:
+            raise ConfigError(
+                "take_profit_r must be None in v1 — the failed-breakout "
+                "reversal uses time-stop + hard-stop only"
+            )
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError(
+                "trailing_stop_atr_multiple must be None in v1 — the "
+                "failed-breakout reversal uses time-stop + hard-stop only"
+            )
+        if not self.same_bar_adverse_stop_wins:
+            raise ConfigError(
+                "same_bar_adverse_stop_wins must be True in v1 — binding "
+                "ambiguity rule from the pre-commit doc"
+            )
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -517,6 +598,9 @@ class StrategyConfig(BaseModel):
     ) = None
     calendar_event_window_anomaly: (
         CalendarEventWindowAnomalyStrategyConfig | None
+    ) = None
+    failed_breakout_reversal: (
+        FailedBreakoutReversalStrategyConfig | None
     ) = None
 
     @model_validator(mode="after")
@@ -574,6 +658,13 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.calendar_event_window_anomaly config required when enabled"
+            )
+        if (
+            "failed_breakout_reversal" in self.enabled
+            and self.failed_breakout_reversal is None
+        ):
+            raise ConfigError(
+                "strategy.failed_breakout_reversal config required when enabled"
             )
         return self
 
