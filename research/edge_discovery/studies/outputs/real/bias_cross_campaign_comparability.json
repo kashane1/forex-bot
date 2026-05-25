@@ -1,0 +1,583 @@
+{
+  "study_id": "bias_cross_campaign_comparability",
+  "sprint": "research-bias-of-fixtures-audit-001",
+  "phase": 3,
+  "headline": {
+    "n_campaigns": 5,
+    "n_invariant_axes_total": 5,
+    "n_invariant_axes_pass": 5,
+    "trade_window_asymmetry_present": true,
+    "exit_asymmetry_headline_survives_test_only_restriction": true,
+    "max_classification_severity": "weakens_comparison"
+  },
+  "invariants": {
+    "fold_layout": {
+      "all_campaigns_share_fold_layout": true,
+      "n_folds": 8,
+      "fold_layout_reference_campaign": "CAMPAIGN_010_session_breakout",
+      "fold_layout_reference": [
+        {
+          "fold_index": 0,
+          "train_start": "2020-01-01",
+          "train_end": "2021-06-23",
+          "validation_start": "2021-06-24",
+          "validation_end": "2021-12-20",
+          "test_start": "2021-12-21",
+          "test_end": "2022-06-18"
+        },
+        {
+          "fold_index": 1,
+          "train_start": "2020-06-29",
+          "train_end": "2021-12-20",
+          "validation_start": "2021-12-21",
+          "validation_end": "2022-06-18",
+          "test_start": "2022-06-19",
+          "test_end": "2022-12-15"
+        },
+        {
+          "fold_index": 2,
+          "train_start": "2020-12-26",
+          "train_end": "2022-06-18",
+          "validation_start": "2022-06-19",
+          "validation_end": "2022-12-15",
+          "test_start": "2022-12-16",
+          "test_end": "2023-06-13"
+        },
+        {
+          "fold_index": 3,
+          "train_start": "2021-06-24",
+          "train_end": "2022-12-15",
+          "validation_start": "2022-12-16",
+          "validation_end": "2023-06-13",
+          "test_start": "2023-06-14",
+          "test_end": "2023-12-10"
+        },
+        {
+          "fold_index": 4,
+          "train_start": "2021-12-21",
+          "train_end": "2023-06-13",
+          "validation_start": "2023-06-14",
+          "validation_end": "2023-12-10",
+          "test_start": "2023-12-11",
+          "test_end": "2024-06-07"
+        },
+        {
+          "fold_index": 5,
+          "train_start": "2022-06-19",
+          "train_end": "2023-12-10",
+          "validation_start": "2023-12-11",
+          "validation_end": "2024-06-07",
+          "test_start": "2024-06-08",
+          "test_end": "2024-12-04"
+        },
+        {
+          "fold_index": 6,
+          "train_start": "2022-12-16",
+          "train_end": "2024-06-07",
+          "validation_start": "2024-06-08",
+          "validation_end": "2024-12-04",
+          "test_start": "2024-12-05",
+          "test_end": "2025-06-02"
+        },
+        {
+          "fold_index": 7,
+          "train_start": "2023-06-14",
+          "train_end": "2024-12-04",
+          "validation_start": "2024-12-05",
+          "validation_end": "2025-06-02",
+          "test_start": "2025-06-03",
+          "test_end": "2025-11-29"
+        }
+      ],
+      "deviating_campaigns": []
+    },
+    "pair_universe": {
+      "all_campaigns_share_pair_universe": true,
+      "pair_universe_reference_campaign": "CAMPAIGN_010_session_breakout",
+      "pair_universe_reference": [
+        "AUD_USD",
+        "EUR_USD",
+        "GBP_USD",
+        "NZD_USD",
+        "USD_CAD",
+        "USD_CHF",
+        "USD_JPY"
+      ],
+      "deviating_campaigns": {}
+    },
+    "cost_assumptions": {
+      "all_share_cost_assumptions": true,
+      "reference_campaign": "CAMPAIGN_010_session_breakout",
+      "reference_values": {
+        "granularity": "H4",
+        "fill_model": "FillModel(fixed_slippage_pips=Decimal('0.2'), spread_slippage_multiplier=Decimal('0.5'))",
+        "fill_timing": "signal_bar_close"
+      },
+      "deviating_campaigns": {}
+    },
+    "schema": {
+      "single_column_set_across_all_campaigns": true,
+      "column_count": 14,
+      "columns": [
+        "instrument",
+        "side",
+        "units",
+        "entry_time",
+        "exit_time",
+        "entry_price",
+        "exit_price",
+        "stop_price",
+        "pnl",
+        "r_multiple",
+        "bars_held",
+        "spread_paid_pips",
+        "exit_reason",
+        "fill_timing"
+      ],
+      "per_campaign_distinct_headers": {
+        "CAMPAIGN_010_session_breakout": 1,
+        "CAMPAIGN_011_random_entry_anchor": 1,
+        "CAMPAIGN_012_regime_switcher_atr_percentile": 1,
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": 1,
+        "CAMPAIGN_014_calendar_event_window_anomaly": 1
+      }
+    },
+    "exit_reason_vocab": {
+      "all_share_exit_vocab": true,
+      "reference_vocab": [
+        "eod",
+        "stop",
+        "time"
+      ],
+      "per_campaign_vocab": {
+        "CAMPAIGN_010_session_breakout": [
+          "eod",
+          "stop",
+          "time"
+        ],
+        "CAMPAIGN_011_random_entry_anchor": [
+          "eod",
+          "stop",
+          "time"
+        ],
+        "CAMPAIGN_012_regime_switcher_atr_percentile": [
+          "eod",
+          "stop",
+          "time"
+        ],
+        "CAMPAIGN_013_cross_pair_currency_strength_rotation": [
+          "eod",
+          "stop",
+          "time"
+        ],
+        "CAMPAIGN_014_calendar_event_window_anomaly": [
+          "eod",
+          "stop",
+          "time"
+        ]
+      }
+    }
+  },
+  "trade_window_populations": {
+    "per_campaign": [
+      {
+        "campaign": "CAMPAIGN_010_session_breakout",
+        "n_total_trades": 2791,
+        "n_in_test_window": 2791,
+        "n_in_validation_window": 0,
+        "n_in_train_window": 0,
+        "share_in_test_window": 1.0,
+        "share_in_validation_window": 0.0,
+        "share_in_train_window": 0.0,
+        "test_only_coverage": "complete"
+      },
+      {
+        "campaign": "CAMPAIGN_011_random_entry_anchor",
+        "n_total_trades": 1177,
+        "n_in_test_window": 1177,
+        "n_in_validation_window": 0,
+        "n_in_train_window": 0,
+        "share_in_test_window": 1.0,
+        "share_in_validation_window": 0.0,
+        "share_in_train_window": 0.0,
+        "test_only_coverage": "complete"
+      },
+      {
+        "campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+        "n_total_trades": 3726,
+        "n_in_test_window": 2009,
+        "n_in_validation_window": 1717,
+        "n_in_train_window": 0,
+        "share_in_test_window": 0.5391841116478797,
+        "share_in_validation_window": 0.46081588835212023,
+        "share_in_train_window": 0.0,
+        "test_only_coverage": "partial"
+      },
+      {
+        "campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+        "n_total_trades": 7940,
+        "n_in_test_window": 3237,
+        "n_in_validation_window": 3530,
+        "n_in_train_window": 1173,
+        "share_in_test_window": 0.40768261964735514,
+        "share_in_validation_window": 0.4445843828715365,
+        "share_in_train_window": 0.14773299748110832,
+        "test_only_coverage": "partial"
+      },
+      {
+        "campaign": "CAMPAIGN_014_calendar_event_window_anomaly",
+        "n_total_trades": 720,
+        "n_in_test_window": 365,
+        "n_in_validation_window": 355,
+        "n_in_train_window": 0,
+        "share_in_test_window": 0.5069444444444444,
+        "share_in_validation_window": 0.4930555555555556,
+        "share_in_train_window": 0.0,
+        "test_only_coverage": "partial"
+      }
+    ]
+  },
+  "headline_survival": {
+    "per_campaign": [
+      {
+        "campaign": "CAMPAIGN_010_session_breakout",
+        "n_full": 2791,
+        "n_test_only": 2791,
+        "mean_r_given_time_full": 0.19255659869969471,
+        "mean_r_given_time_test_only": 0.19255659869969471,
+        "delta_mean_r_given_time": 0.0,
+        "mean_r_overall_full": -0.040823414466736895,
+        "mean_r_overall_test_only": -0.040823414466736895,
+        "delta_mean_r_overall": 0.0
+      },
+      {
+        "campaign": "CAMPAIGN_011_random_entry_anchor",
+        "n_full": 1177,
+        "n_test_only": 1177,
+        "mean_r_given_time_full": 0.2093411832904567,
+        "mean_r_given_time_test_only": 0.2093411832904567,
+        "delta_mean_r_given_time": 0.0,
+        "mean_r_overall_full": -0.0024398578345530258,
+        "mean_r_overall_test_only": -0.0024398578345530258,
+        "delta_mean_r_overall": 0.0
+      },
+      {
+        "campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+        "n_full": 3726,
+        "n_test_only": 2009,
+        "mean_r_given_time_full": 0.145030357784562,
+        "mean_r_given_time_test_only": 0.1435985848915664,
+        "delta_mean_r_given_time": -0.001431772892995592,
+        "mean_r_overall_full": -0.052121591971863016,
+        "mean_r_overall_test_only": -0.04841671177518614,
+        "delta_mean_r_overall": 0.003704880196676877
+      },
+      {
+        "campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+        "n_full": 7940,
+        "n_test_only": 3237,
+        "mean_r_given_time_full": 0.21046050758292628,
+        "mean_r_given_time_test_only": 0.2107098755724892,
+        "delta_mean_r_given_time": 0.00024936798956293194,
+        "mean_r_overall_full": -0.05642580700533526,
+        "mean_r_overall_test_only": -0.041510694307947495,
+        "delta_mean_r_overall": 0.014915112697387767
+      },
+      {
+        "campaign": "CAMPAIGN_014_calendar_event_window_anomaly",
+        "n_full": 720,
+        "n_test_only": 365,
+        "mean_r_given_time_full": 0.06669663744692667,
+        "mean_r_given_time_test_only": 0.06400417397758594,
+        "delta_mean_r_given_time": -0.002692463469340725,
+        "mean_r_overall_full": -0.14773654076290627,
+        "mean_r_overall_test_only": -0.1666979418393577,
+        "delta_mean_r_overall": -0.018961401076451445
+      }
+    ],
+    "all_campaigns_positive_mean_r_given_time_test_only": true,
+    "all_campaigns_negative_mean_r_overall_test_only": true,
+    "null_still_highest_mean_r_given_time_test_only": false,
+    "exit_asymmetry_headline_survives_test_only_restriction": true
+  },
+  "coverage_anomalies": {
+    "per_campaign": [
+      {
+        "campaign": "CAMPAIGN_010_session_breakout",
+        "n_empty_fold_pair_cells_out_of_56": 2,
+        "empty_cells": [
+          [
+            4,
+            "NZD_USD"
+          ],
+          [
+            7,
+            "NZD_USD"
+          ]
+        ]
+      },
+      {
+        "campaign": "CAMPAIGN_011_random_entry_anchor",
+        "n_empty_fold_pair_cells_out_of_56": 0,
+        "empty_cells": []
+      },
+      {
+        "campaign": "CAMPAIGN_012_regime_switcher_atr_percentile",
+        "n_empty_fold_pair_cells_out_of_56": 0,
+        "empty_cells": []
+      },
+      {
+        "campaign": "CAMPAIGN_013_cross_pair_currency_strength_rotation",
+        "n_empty_fold_pair_cells_out_of_56": 29,
+        "empty_cells": [
+          [
+            0,
+            "GBP_USD"
+          ],
+          [
+            0,
+            "USD_JPY"
+          ],
+          [
+            0,
+            "AUD_USD"
+          ],
+          [
+            0,
+            "USD_CAD"
+          ],
+          [
+            1,
+            "EUR_USD"
+          ],
+          [
+            1,
+            "GBP_USD"
+          ],
+          [
+            1,
+            "USD_JPY"
+          ],
+          [
+            1,
+            "USD_CAD"
+          ],
+          [
+            1,
+            "USD_CHF"
+          ],
+          [
+            1,
+            "NZD_USD"
+          ],
+          [
+            2,
+            "USD_JPY"
+          ],
+          [
+            2,
+            "USD_CAD"
+          ],
+          [
+            2,
+            "USD_CHF"
+          ],
+          [
+            3,
+            "EUR_USD"
+          ],
+          [
+            3,
+            "GBP_USD"
+          ],
+          [
+            3,
+            "USD_JPY"
+          ],
+          [
+            3,
+            "USD_CAD"
+          ],
+          [
+            4,
+            "GBP_USD"
+          ],
+          [
+            4,
+            "USD_JPY"
+          ],
+          [
+            4,
+            "USD_CHF"
+          ],
+          [
+            5,
+            "GBP_USD"
+          ],
+          [
+            5,
+            "USD_JPY"
+          ],
+          [
+            5,
+            "USD_CHF"
+          ],
+          [
+            6,
+            "GBP_USD"
+          ],
+          [
+            6,
+            "AUD_USD"
+          ],
+          [
+            6,
+            "USD_CAD"
+          ],
+          [
+            7,
+            "EUR_USD"
+          ],
+          [
+            7,
+            "USD_JPY"
+          ],
+          [
+            7,
+            "USD_CHF"
+          ]
+        ]
+      },
+      {
+        "campaign": "CAMPAIGN_014_calendar_event_window_anomaly",
+        "n_empty_fold_pair_cells_out_of_56": 0,
+        "empty_cells": []
+      }
+    ]
+  },
+  "provenance": {
+    "data_kind": "real",
+    "inputs": [
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "/Users/kashane/dev/forex-bot/.claude/worktrees/vibrant-heisenberg-1d2de2/backtests/CAMPAIGN_010_session_breakout/walk_forward/results.json",
+        "sha256": "36792d75d32b3101fb21ccddd7d8015adaf07ba43b704621bc3fe9f459852a64",
+        "rows": 8,
+        "extra": {
+          "overall_verdict": "REJECT"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "/Users/kashane/dev/forex-bot/.claude/worktrees/vibrant-heisenberg-1d2de2/backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/results.json",
+        "sha256": "ac6e72942d1a016c47c401b846bfab10c27ff80ac879f380af7dcdd50ae258fa",
+        "rows": 8,
+        "extra": {
+          "overall_verdict": "REJECT"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "/Users/kashane/dev/forex-bot/.claude/worktrees/vibrant-heisenberg-1d2de2/backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/results.json",
+        "sha256": "3bea07f2399bda313eeed0940598386de49b5a5f733f0b16accc1961246de859",
+        "rows": 8,
+        "extra": {
+          "overall_verdict": "REJECT"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "/Users/kashane/dev/forex-bot/.claude/worktrees/vibrant-heisenberg-1d2de2/backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/results.json",
+        "sha256": "ddef199dc95b0f385590afc955757c794f4590494e5db54bc376be84fd2bb627",
+        "rows": 8,
+        "extra": {
+          "overall_verdict": "REJECT"
+        }
+      },
+      {
+        "kind": "campaign_walk_forward_results",
+        "path": "/Users/kashane/dev/forex-bot/.claude/worktrees/vibrant-heisenberg-1d2de2/backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/results.json",
+        "sha256": "fbf8a0762c3de288d7e9dec964213b9fc8c2fb9a85bda24e22cf15551643514f",
+        "rows": 8,
+        "extra": {
+          "overall_verdict": "REJECT"
+        }
+      }
+    ],
+    "date_coverage": {
+      "start_utc": "2020-01-01 00:00:00+00:00",
+      "end_utc": "2026-05-20 00:00:00+00:00"
+    },
+    "pair_universe": [
+      "EUR_USD",
+      "GBP_USD",
+      "USD_JPY",
+      "AUD_USD",
+      "USD_CAD",
+      "USD_CHF",
+      "NZD_USD"
+    ],
+    "limitations": [
+      "This is an audit of cross-campaign artifact comparability.",
+      "It does not re-execute any backtest, does not approve any",
+      "strategy, does not change any campaign verdict, and does",
+      "not propose parameter changes.",
+      "The trade-window comparability finding (F0-2) is structural;",
+      "fixing it would require re-running CAMPAIGN_012-014 with a",
+      "test-window-only trade ledger, which is out of scope for",
+      "this audit."
+    ],
+    "exploratory_only": true
+  },
+  "verdict_word_ban_acknowledged": true,
+  "refusals": {
+    "approves_strategy": false,
+    "changes_campaign_verdict": false,
+    "proposes_parameter_tune": false,
+    "writes_to_approved_strategies_yaml": false
+  },
+  "classification": [
+    {
+      "axis": "fold_layout",
+      "observed": "identical 8-fold layout across all 5 campaigns",
+      "classification": "harmless",
+      "rationale": "no comparability cost; comparison preserved"
+    },
+    {
+      "axis": "pair_universe",
+      "observed": "identical 7-major universe across all 5 campaigns",
+      "classification": "harmless",
+      "rationale": "no comparability cost"
+    },
+    {
+      "axis": "fill_model_fill_timing_granularity",
+      "observed": "identical across all 5 campaigns",
+      "classification": "harmless",
+      "rationale": "engine-level assumptions match; no comparability cost"
+    },
+    {
+      "axis": "trade_csv_schema",
+      "observed": "single 14-column schema across all 280 trade CSVs",
+      "classification": "harmless",
+      "rationale": "no comparability cost"
+    },
+    {
+      "axis": "exit_reason_vocabulary",
+      "observed": "vocabulary ['eod', 'stop', 'time'] identical across 5",
+      "classification": "harmless",
+      "rationale": "no comparability cost"
+    },
+    {
+      "axis": "trade_window_population",
+      "observed": "test-only complete: ['CAMPAIGN_010_session_breakout', 'CAMPAIGN_011_random_entry_anchor']; partial (mixed train/validation/test): ['CAMPAIGN_012_regime_switcher_atr_percentile', 'CAMPAIGN_013_cross_pair_currency_strength_rotation', 'CAMPAIGN_014_calendar_event_window_anomaly']",
+      "classification": "needs_documentation",
+      "rationale": "trade-window asymmetry exists but the cross-campaign exit-asymmetry headline survives the test-only restriction; the screens themselves remain correct because they are cell-level (per fold per pair) and the test-only restriction tightens rather than loosens them"
+    },
+    {
+      "axis": "coverage_anomalies",
+      "observed": "empty cells: {'CAMPAIGN_010_session_breakout': 2, 'CAMPAIGN_013_cross_pair_currency_strength_rotation': 29}",
+      "classification": "weakens_comparison",
+      "rationale": "empty cells are a strategy property (no signal), not a fixture defect, but they reduce per-pair sample size in cross-campaign aggregates and should be documented"
+    }
+  ]
+}
