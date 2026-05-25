@@ -204,6 +204,31 @@ approves anything; CAMPAIGN_002 remains REJECT.
 | [`NEXT_RESEARCH_DIRECTION_AFTER_CAMPAIGN_002_REJECT.md`](NEXT_RESEARCH_DIRECTION_AFTER_CAMPAIGN_002_REJECT.md) | post-verifier next-research-direction plan; recommended next branch + success criteria for any future candidate |
 | [`RESEARCH_CLOSE_FREE_LOCAL_VERIFIER_AND_NEXT_DIRECTION_001_SUMMARY.md`](RESEARCH_CLOSE_FREE_LOCAL_VERIFIER_AND_NEXT_DIRECTION_001_SUMMARY.md) | closeout-sprint summary & handoff |
 
+### Backtrader secondary lane (`infra-backtrader-secondary-lane-001`)
+
+A second independent local verification lane built on top of the
+canonical `backtrader 1.9.78.123` Python package. Adds a third-party
+event-driven engine to the comparison set so the bespoke engine has
+two independent re-implementations voting on its mechanics
+(`research/parity_verifier/` is the first; this is the second). All
+diagnostic / verification infrastructure — none is strategy evidence,
+none approves anything; CAMPAIGN_002, CAMPAIGN_010, CAMPAIGN_011,
+CAMPAIGN_012, CAMPAIGN_013 remain rejected/null/research-only and
+CAMPAIGN_014 remains scaffold-only. Paper / demo / live remain
+blocked.
+
+| document | what it is |
+|---|---|
+| [`INFRA_BACKTRADER_SECONDARY_LANE_001_PLAN.md`](INFRA_BACKTRADER_SECONDARY_LANE_001_PLAN.md) | the secondary-lane sprint plan |
+| [`BACKTRADER_INSTALL_AND_SMOKE_RESULT.md`](BACKTRADER_INSTALL_AND_SMOKE_RESULT.md) | Phase 1 install + smoke test (`backtrader 1.9.78.123`; 7 smoke tests PASS; no broker/LEAN/credential touched) |
+| [`BACKTRADER_DATA_ADAPTER_SPEC.md`](BACKTRADER_DATA_ADAPTER_SPEC.md) | Phase 2 data-adapter spec over the existing Lean parity export CSVs (sha-validated, mid OHLC derived, bid/ask + half-spread carried; 15 tests PASS) |
+| [`BACKTRADER_RUNNER_CONTRACT.md`](BACKTRADER_RUNNER_CONTRACT.md) | Phase 3 campaign-agnostic runner contract + `scripts/run_backtrader_parity.py` (17 tests PASS; refuses to leak OANDA env vars) |
+| [`BACKTRADER_FIRST_CAMPAIGN_ADAPTER.md`](BACKTRADER_FIRST_CAMPAIGN_ADAPTER.md) | Phase 4 CAMPAIGN_002 H4 `trend_following 0.1.0-baseline-frozen` Backtrader adapter (20 tests PASS; selection rationale vs CAMPAIGN_011) |
+| [`BACKTRADER_PARITY_COMPARISON_SPEC.md`](BACKTRADER_PARITY_COMPARISON_SPEC.md) | Phase 5 comparison harness spec + `scripts/compare_backtrader_parity.py` (16 tests PASS; emits one of the 12 documented divergence labels) |
+| [`BACKTRADER_PARITY_FIRST_RESULT.md`](BACKTRADER_PARITY_FIRST_RESULT.md) | Phase 6 first end-to-end CAMPAIGN_002 attempt — overall `BLOCKED` (no local CSVs / no local rehydrated SQLite store; no bug found in either engine; no verdict change) |
+| [`BACKTRADER_SECOND_CAMPAIGN_BLOCKED.md`](BACKTRADER_SECOND_CAMPAIGN_BLOCKED.md) | Phase 7 second-campaign decision — `BLOCKED`, same root cause; recommends CAMPAIGN_011 (deterministic null model, ATR-only) for a future unblock sprint with the scoped 6-step next-sprint prompt |
+| [`INFRA_BACKTRADER_SECONDARY_LANE_001_SUMMARY.md`](INFRA_BACKTRADER_SECONDARY_LANE_001_SUMMARY.md) | sprint summary & handoff |
+
 ### Walk-forward research harness (`research-walk-forward-harness-001`)
 
 Reusable fold-generation library that future strategy campaigns
