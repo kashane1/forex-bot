@@ -337,12 +337,20 @@ def run_campaign_002_pair(
                 if self._side == "long"
                 else (self._entry_price - exit_price) * self._units
             )
+            # R formula matches bespoke engine.py:411-415 exactly:
+            #     risk_distance = abs(entry - stop) * units      (quote ccy * units)
+            #     r = pnl_home / risk_distance                  (no quote→home conversion)
+            # The bespoke convention deliberately leaves the denominator in quote
+            # currency × units, even for USD-base pairs; CAMPAIGN_002's published
+            # `expectancy_r` values follow this convention. Earlier versions of
+            # this adapter (and the existing research/parity_verifier/) divided
+            # `risk_home` by `exit_price` for USD-base pairs, which inflated R
+            # magnitudes by ~`exit_price`. See
+            # docs/research/BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003.md §3.1.
             r_mult: float | None = None
             if self._initial_stop_distance > 0 and self._units > 0:
-                risk_home = self._initial_stop_distance * self._units
-                if base_ccy == "USD":
-                    risk_home = risk_home / exit_price
-                r_mult = pnl_account / risk_home if risk_home > 0 else 0.0
+                risk_distance = self._initial_stop_distance * self._units
+                r_mult = pnl_account / risk_distance if risk_distance > 0 else 0.0
             return_pct = (pnl_account / nav["value"]) * 100.0 if nav["value"] > 0 else None
             recorded.append(
                 BacktraderTrade(
@@ -548,6 +556,12 @@ CAMPAIGN_002_APPROXIMATION_FLAGS: tuple[str, ...] = (
     "(matches the no-RiskEngine bespoke reference at 1,647 trades).",
     "NO_FINANCING: financing/swap not modeled in either engine; comparison "
     "is pre-financing.",
+    "R_FORMULA_MATCHES_BESPOKE: r = pnl_home / ((entry - stop) × units), with "
+    "NO conversion of the denominator to home currency — matches the bespoke "
+    "engine.py:411-415 convention exactly. Previous versions of this adapter "
+    "divided risk_home by exit_price for USD-base pairs, which inflated R "
+    "magnitudes by ~exit_price; that drift is fixed. See "
+    "docs/research/BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003.md §3.",
 )
 
 
