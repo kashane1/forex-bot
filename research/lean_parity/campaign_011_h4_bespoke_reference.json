@@ -1,0 +1,95 @@
+{
+  "approval_path": "none (null model by design)",
+  "config_hash": "69ab4e6f08dca374",
+  "data_request_hashes": {
+    "AUD_USD": "c36cbd0228ebffc4",
+    "EUR_USD": "ed353315b8ffd5a9",
+    "GBP_USD": "ca2a95816825492e",
+    "NZD_USD": "b62683f67f9fc916",
+    "USD_CAD": "40d80a3a240626a4",
+    "USD_CHF": "d907a301cc57e010",
+    "USD_JPY": "e1a6a5025f0cdc19"
+  },
+  "fill_timing": "signal_bar_close",
+  "master_seed": 20260523,
+  "pairs": [
+    {
+      "candle_count": 9931,
+      "expectancy_r": -0.0496,
+      "instrument": "EUR_USD",
+      "max_drawdown_pct": -6.0902,
+      "profit_factor": 0.8487,
+      "return_pct": -4.8294,
+      "trades": 394,
+      "win_rate": 0.4721
+    },
+    {
+      "candle_count": 9931,
+      "expectancy_r": -0.0073,
+      "instrument": "GBP_USD",
+      "max_drawdown_pct": -3.9794,
+      "profit_factor": 0.9751,
+      "return_pct": -0.7954,
+      "trades": 400,
+      "win_rate": 0.475
+    },
+    {
+      "candle_count": 9932,
+      "expectancy_r": 0.0004,
+      "instrument": "USD_JPY",
+      "max_drawdown_pct": -3.8222,
+      "profit_factor": 1.1823,
+      "return_pct": 5.8967,
+      "trades": 418,
+      "win_rate": 0.4952
+    },
+    {
+      "candle_count": 9931,
+      "expectancy_r": -0.0646,
+      "instrument": "AUD_USD",
+      "max_drawdown_pct": -6.5214,
+      "profit_factor": 0.8,
+      "return_pct": -6.0785,
+      "trades": 385,
+      "win_rate": 0.4753
+    },
+    {
+      "candle_count": 9931,
+      "expectancy_r": -0.0161,
+      "instrument": "USD_CAD",
+      "max_drawdown_pct": -4.7721,
+      "profit_factor": 0.931,
+      "return_pct": -2.0214,
+      "trades": 394,
+      "win_rate": 0.4721
+    },
+    {
+      "candle_count": 9931,
+      "expectancy_r": 0.0503,
+      "instrument": "USD_CHF",
+      "max_drawdown_pct": -1.8966,
+      "profit_factor": 1.1538,
+      "return_pct": 4.7687,
+      "trades": 409,
+      "win_rate": 0.5061
+    },
+    {
+      "candle_count": 9935,
+      "expectancy_r": -0.0265,
+      "instrument": "NZD_USD",
+      "max_drawdown_pct": -5.94,
+      "profit_factor": 0.9162,
+      "return_pct": -2.6721,
+      "trades": 400,
+      "win_rate": 0.475
+    }
+  ],
+  "parity_target": "CAMPAIGN_011 H4 random_entry_anchor null-model baseline",
+  "risk_engine_used": false,
+  "strategy_evidence": false,
+  "total_trades": 2800,
+  "window": [
+    "2020-01-01",
+    "2026-05-20"
+  ]
+}

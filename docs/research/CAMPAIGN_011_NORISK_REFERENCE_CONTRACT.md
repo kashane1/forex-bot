@@ -114,7 +114,7 @@ evidence).
 | artefact | path | committed | size budget |
 |---|---|---|---|
 | Full-window reference JSON | `research/lean_parity/campaign_011_h4_bespoke_reference.json` | yes | ≤ 4 KB |
-| Per-fold rollup JSON | `research/lean_parity/campaign_011_h4_bespoke_reference_per_fold.json` | yes | ≤ 12 KB |
+| Per-fold rollup JSON | `research/lean_parity/campaign_011_h4_bespoke_reference_per_fold.json` | yes | ≤ 16 KB |
 | Run report (Phase 3) | `docs/research/CAMPAIGN_011_NORISK_REFERENCE_RESULT.md` | yes | ≤ 30 KB |
 | Compact parity-style diagnostics | `backtests/diagnostics/custom_campaign_011_h4_parity_norisk.md` | yes | ≤ 8 KB |
 | Optional raw trade dumps (full-window) | `backtests/diagnostics/campaign_011_norisk/full_window_trades.jsonl` | **gitignored** | unbounded |

@@ -1,0 +1,549 @@
+{
+  "approval_path": "none (null model by design)",
+  "config_hash": "69ab4e6f08dca374",
+  "fill_timing": "signal_bar_close",
+  "fold_count": 8,
+  "folds": [
+    {
+      "expectancy_r": -0.0398,
+      "fold_index": 0,
+      "pairs": [
+        {
+          "expectancy_r": -0.1921,
+          "instrument": "EUR_USD",
+          "profit_factor": 0.494,
+          "return_pct": -1.3831,
+          "trades": 29,
+          "win_rate": 0.4138
+        },
+        {
+          "expectancy_r": 0.2198,
+          "instrument": "GBP_USD",
+          "profit_factor": 2.1163,
+          "return_pct": 1.9268,
+          "trades": 35,
+          "win_rate": 0.5714
+        },
+        {
+          "expectancy_r": 0.0003,
+          "instrument": "USD_JPY",
+          "profit_factor": 1.1697,
+          "return_pct": 0.3581,
+          "trades": 30,
+          "win_rate": 0.5
+        },
+        {
+          "expectancy_r": -0.2011,
+          "instrument": "AUD_USD",
+          "profit_factor": 0.5398,
+          "return_pct": -1.2523,
+          "trades": 25,
+          "win_rate": 0.4
+        },
+        {
+          "expectancy_r": -0.0645,
+          "instrument": "USD_CAD",
+          "profit_factor": 0.7763,
+          "return_pct": -0.4927,
+          "trades": 24,
+          "win_rate": 0.5
+        },
+        {
+          "expectancy_r": 0.0306,
+          "instrument": "USD_CHF",
+          "profit_factor": 1.0773,
+          "return_pct": 0.215,
+          "trades": 37,
+          "win_rate": 0.4865
+        },
+        {
+          "expectancy_r": -0.1531,
+          "instrument": "NZD_USD",
+          "profit_factor": 0.6324,
+          "return_pct": -1.2975,
+          "trades": 34,
+          "win_rate": 0.4412
+        }
+      ],
+      "profit_factor": 0.5648,
+      "return_pct": -1.9258,
+      "test_end": "2022-06-18",
+      "test_start": "2021-12-21",
+      "total_trades": 214
+    },
+    {
+      "expectancy_r": -0.0037,
+      "fold_index": 1,
+      "pairs": [
+        {
+          "expectancy_r": 0.0541,
+          "instrument": "EUR_USD",
+          "profit_factor": 1.1937,
+          "return_pct": 0.5595,
+          "trades": 42,
+          "win_rate": 0.4762
+        },
+        {
+          "expectancy_r": 0.0845,
+          "instrument": "GBP_USD",
+          "profit_factor": 1.3227,
+          "return_pct": 0.6989,
+          "trades": 33,
+          "win_rate": 0.5758
+        },
+        {
+          "expectancy_r": 0.0018,
+          "instrument": "USD_JPY",
+          "profit_factor": 2.1878,
+          "return_pct": 2.0596,
+          "trades": 31,
+          "win_rate": 0.6452
+        },
+        {
+          "expectancy_r": -0.2182,
+          "instrument": "AUD_USD",
+          "profit_factor": 0.4576,
+          "return_pct": -1.5674,
+          "trades": 29,
+          "win_rate": 0.4138
+        },
+        {
+          "expectancy_r": -0.1791,
+          "instrument": "USD_CAD",
+          "profit_factor": 0.4378,
+          "return_pct": -1.6871,
+          "trades": 28,
+          "win_rate": 0.3214
+        },
+        {
+          "expectancy_r": 0.1521,
+          "instrument": "USD_CHF",
+          "profit_factor": 1.556,
+          "return_pct": 1.2595,
+          "trades": 34,
+          "win_rate": 0.5588
+        },
+        {
+          "expectancy_r": 0.0059,
+          "instrument": "NZD_USD",
+          "profit_factor": 1.0131,
+          "return_pct": 0.0369,
+          "trades": 33,
+          "win_rate": 0.3636
+        }
+      ],
+      "profit_factor": 1.4178,
+      "return_pct": 1.3598,
+      "test_end": "2022-12-15",
+      "test_start": "2022-06-19",
+      "total_trades": 230
+    },
+    {
+      "expectancy_r": -0.0072,
+      "fold_index": 2,
+      "pairs": [
+        {
+          "expectancy_r": 0.0379,
+          "instrument": "EUR_USD",
+          "profit_factor": 1.1153,
+          "return_pct": 0.2626,
+          "trades": 28,
+          "win_rate": 0.5
+        },
+        {
+          "expectancy_r": -0.2205,
+          "instrument": "GBP_USD",
+          "profit_factor": 0.5091,
+          "return_pct": -1.317,
+          "trades": 24,
+          "win_rate": 0.4167
+        },
+        {
+          "expectancy_r": 0.0022,
+          "instrument": "USD_JPY",
+          "profit_factor": 2.8478,
+          "return_pct": 2.105,
+          "trades": 29,
+          "win_rate": 0.5862
+        },
+        {
+          "expectancy_r": 0.1098,
+          "instrument": "AUD_USD",
+          "profit_factor": 1.4568,
+          "return_pct": 0.8184,
+          "trades": 30,
+          "win_rate": 0.4667
+        },
+        {
+          "expectancy_r": 0.0479,
+          "instrument": "USD_CAD",
+          "profit_factor": 1.3011,
+          "return_pct": 0.4998,
+          "trades": 30,
+          "win_rate": 0.5
+        },
+        {
+          "expectancy_r": 0.0253,
+          "instrument": "USD_CHF",
+          "profit_factor": 1.0722,
+          "return_pct": 0.1917,
+          "trades": 32,
+          "win_rate": 0.4375
+        },
+        {
+          "expectancy_r": -0.0868,
+          "instrument": "NZD_USD",
+          "profit_factor": 0.725,
+          "return_pct": -0.717,
+          "trades": 33,
+          "win_rate": 0.4545
+        }
+      ],
+      "profit_factor": 1.9064,
+      "return_pct": 1.8435,
+      "test_end": "2023-06-13",
+      "test_start": "2022-12-16",
+      "total_trades": 206
+    },
+    {
+      "expectancy_r": 0.001,
+      "fold_index": 3,
+      "pairs": [
+        {
+          "expectancy_r": 0.2913,
+          "instrument": "EUR_USD",
+          "profit_factor": 2.2608,
+          "return_pct": 1.681,
+          "trades": 23,
+          "win_rate": 0.6957
+        },
+        {
+          "expectancy_r": -0.0809,
+          "instrument": "GBP_USD",
+          "profit_factor": 0.7731,
+          "return_pct": -0.5688,
+          "trades": 28,
+          "win_rate": 0.4643
+        },
+        {
+          "expectancy_r": -0.0002,
+          "instrument": "USD_JPY",
+          "profit_factor": 0.9336,
+          "return_pct": -0.1348,
+          "trades": 23,
+          "win_rate": 0.4783
+        },
+        {
+          "expectancy_r": -0.0443,
+          "instrument": "AUD_USD",
+          "profit_factor": 0.8279,
+          "return_pct": -0.3234,
+          "trades": 29,
+          "win_rate": 0.4828
+        },
+        {
+          "expectancy_r": -0.0593,
+          "instrument": "USD_CAD",
+          "profit_factor": 0.7905,
+          "return_pct": -0.6785,
+          "trades": 33,
+          "win_rate": 0.3636
+        },
+        {
+          "expectancy_r": 0.0641,
+          "instrument": "USD_CHF",
+          "profit_factor": 1.1982,
+          "return_pct": 0.4479,
+          "trades": 32,
+          "win_rate": 0.5938
+        },
+        {
+          "expectancy_r": -0.1268,
+          "instrument": "NZD_USD",
+          "profit_factor": 0.6259,
+          "return_pct": -0.7592,
+          "trades": 24,
+          "win_rate": 0.375
+        }
+      ],
+      "profit_factor": 0.8637,
+      "return_pct": -0.3359,
+      "test_end": "2023-12-10",
+      "test_start": "2023-06-14",
+      "total_trades": 192
+    },
+    {
+      "expectancy_r": -0.0153,
+      "fold_index": 4,
+      "pairs": [
+        {
+          "expectancy_r": -0.146,
+          "instrument": "EUR_USD",
+          "profit_factor": 0.5845,
+          "return_pct": -0.8736,
+          "trades": 24,
+          "win_rate": 0.4583
+        },
+        {
+          "expectancy_r": 0.0359,
+          "instrument": "GBP_USD",
+          "profit_factor": 1.1282,
+          "return_pct": 0.2658,
+          "trades": 30,
+          "win_rate": 0.5333
+        },
+        {
+          "expectancy_r": -0.0002,
+          "instrument": "USD_JPY",
+          "profit_factor": 0.9154,
+          "return_pct": -0.2444,
+          "trades": 34,
+          "win_rate": 0.4118
+        },
+        {
+          "expectancy_r": -0.0346,
+          "instrument": "AUD_USD",
+          "profit_factor": 0.8854,
+          "return_pct": -0.2806,
+          "trades": 32,
+          "win_rate": 0.5938
+        },
+        {
+          "expectancy_r": 0.1144,
+          "instrument": "USD_CAD",
+          "profit_factor": 1.5442,
+          "return_pct": 1.0091,
+          "trades": 26,
+          "win_rate": 0.5
+        },
+        {
+          "expectancy_r": -0.0883,
+          "instrument": "USD_CHF",
+          "profit_factor": 0.7828,
+          "return_pct": -0.6605,
+          "trades": 34,
+          "win_rate": 0.4706
+        },
+        {
+          "expectancy_r": 0.0076,
+          "instrument": "NZD_USD",
+          "profit_factor": 1.0266,
+          "return_pct": 0.0635,
+          "trades": 36,
+          "win_rate": 0.5556
+        }
+      ],
+      "profit_factor": 0.65,
+      "return_pct": -0.7207,
+      "test_end": "2024-06-07",
+      "test_start": "2023-12-11",
+      "total_trades": 216
+    },
+    {
+      "expectancy_r": 0.0219,
+      "fold_index": 5,
+      "pairs": [
+        {
+          "expectancy_r": -0.1532,
+          "instrument": "EUR_USD",
+          "profit_factor": 0.5109,
+          "return_pct": -1.1037,
+          "trades": 29,
+          "win_rate": 0.4483
+        },
+        {
+          "expectancy_r": 0.193,
+          "instrument": "GBP_USD",
+          "profit_factor": 1.6809,
+          "return_pct": 1.6436,
+          "trades": 34,
+          "win_rate": 0.6176
+        },
+        {
+          "expectancy_r": -0.0002,
+          "instrument": "USD_JPY",
+          "profit_factor": 0.9523,
+          "return_pct": -0.1366,
+          "trades": 35,
+          "win_rate": 0.4286
+        },
+        {
+          "expectancy_r": -0.0153,
+          "instrument": "AUD_USD",
+          "profit_factor": 0.9325,
+          "return_pct": -0.1287,
+          "trades": 33,
+          "win_rate": 0.6061
+        },
+        {
+          "expectancy_r": 0.0571,
+          "instrument": "USD_CAD",
+          "profit_factor": 1.3678,
+          "return_pct": 0.6002,
+          "trades": 30,
+          "win_rate": 0.5
+        },
+        {
+          "expectancy_r": 0.259,
+          "instrument": "USD_CHF",
+          "profit_factor": 1.8559,
+          "return_pct": 1.2365,
+          "trades": 22,
+          "win_rate": 0.5455
+        },
+        {
+          "expectancy_r": -0.1567,
+          "instrument": "NZD_USD",
+          "profit_factor": 0.5975,
+          "return_pct": -1.0926,
+          "trades": 28,
+          "win_rate": 0.5
+        }
+      ],
+      "profit_factor": 1.4139,
+      "return_pct": 1.0187,
+      "test_end": "2024-12-04",
+      "test_start": "2024-06-08",
+      "total_trades": 211
+    },
+    {
+      "expectancy_r": 0.0389,
+      "fold_index": 6,
+      "pairs": [
+        {
+          "expectancy_r": -0.1514,
+          "instrument": "EUR_USD",
+          "profit_factor": 0.587,
+          "return_pct": -1.0186,
+          "trades": 27,
+          "win_rate": 0.4074
+        },
+        {
+          "expectancy_r": 0.2441,
+          "instrument": "GBP_USD",
+          "profit_factor": 1.9362,
+          "return_pct": 1.5852,
+          "trades": 26,
+          "win_rate": 0.6538
+        },
+        {
+          "expectancy_r": -0.0015,
+          "instrument": "USD_JPY",
+          "profit_factor": 0.386,
+          "return_pct": -1.4206,
+          "trades": 25,
+          "win_rate": 0.36
+        },
+        {
+          "expectancy_r": 0.2978,
+          "instrument": "AUD_USD",
+          "profit_factor": 2.8027,
+          "return_pct": 2.0937,
+          "trades": 28,
+          "win_rate": 0.6429
+        },
+        {
+          "expectancy_r": 0.0634,
+          "instrument": "USD_CAD",
+          "profit_factor": 1.4513,
+          "return_pct": 0.5264,
+          "trades": 23,
+          "win_rate": 0.5652
+        },
+        {
+          "expectancy_r": -0.2445,
+          "instrument": "USD_CHF",
+          "profit_factor": 0.3729,
+          "return_pct": -1.5665,
+          "trades": 29,
+          "win_rate": 0.3448
+        },
+        {
+          "expectancy_r": 0.0798,
+          "instrument": "NZD_USD",
+          "profit_factor": 1.2829,
+          "return_pct": 0.5907,
+          "trades": 30,
+          "win_rate": 0.5
+        }
+      ],
+      "profit_factor": 1.1973,
+      "return_pct": 0.7904,
+      "test_end": "2025-06-02",
+      "test_start": "2024-12-05",
+      "total_trades": 188
+    },
+    {
+      "expectancy_r": 0.0066,
+      "fold_index": 7,
+      "pairs": [
+        {
+          "expectancy_r": -0.1618,
+          "instrument": "EUR_USD",
+          "profit_factor": 0.5258,
+          "return_pct": -1.2462,
+          "trades": 31,
+          "win_rate": 0.3548
+        },
+        {
+          "expectancy_r": -0.1323,
+          "instrument": "GBP_USD",
+          "profit_factor": 0.6141,
+          "return_pct": -0.9862,
+          "trades": 30,
+          "win_rate": 0.4333
+        },
+        {
+          "expectancy_r": 0.0002,
+          "instrument": "USD_JPY",
+          "profit_factor": 1.0662,
+          "return_pct": 0.2062,
+          "trades": 36,
+          "win_rate": 0.5
+        },
+        {
+          "expectancy_r": -0.1162,
+          "instrument": "AUD_USD",
+          "profit_factor": 0.6766,
+          "return_pct": -0.6698,
+          "trades": 23,
+          "win_rate": 0.4348
+        },
+        {
+          "expectancy_r": 0.0722,
+          "instrument": "USD_CAD",
+          "profit_factor": 1.4722,
+          "return_pct": 0.7908,
+          "trades": 32,
+          "win_rate": 0.5938
+        },
+        {
+          "expectancy_r": 0.3274,
+          "instrument": "USD_CHF",
+          "profit_factor": 2.3362,
+          "return_pct": 1.7952,
+          "trades": 27,
+          "win_rate": 0.5926
+        },
+        {
+          "expectancy_r": 0.0736,
+          "instrument": "NZD_USD",
+          "profit_factor": 1.2927,
+          "return_pct": 0.4567,
+          "trades": 25,
+          "win_rate": 0.56
+        }
+      ],
+      "profit_factor": 1.1195,
+      "return_pct": 0.3468,
+      "test_end": "2025-11-29",
+      "test_start": "2025-06-03",
+      "total_trades": 204
+    }
+  ],
+  "master_seed": 20260523,
+  "parity_target": "CAMPAIGN_011 H4 random_entry_anchor null-model baseline (per-fold)",
+  "plan_source": "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/plan.json",
+  "risk_engine_used": false,
+  "strategy_evidence": false
+}
