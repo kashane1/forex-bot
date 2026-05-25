@@ -165,7 +165,7 @@ Field types and ranges:
 | `window` | array of two ISO date strings | `["2020-01-01", "2026-05-20"]` |
 | `master_seed` | int | `20260523` |
 | `config_hash` | string | sha256 hex of the source YAML config |
-| `data_request_hashes` | object | per-pair short hashes (12 hex), key = instrument |
+| `data_request_hashes` | object | per-pair short hashes (16 hex; output of `compute_data_request_hash`), key = instrument |
 | `strategy_evidence` | bool | **must be `false`** |
 | `approval_path` | string | `"none (null model by design)"` |
 | `total_trades` | int | ≥ 0 |

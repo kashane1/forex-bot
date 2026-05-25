@@ -134,5 +134,11 @@ research/parity_verifier/results/**/trades.csv
 research/backtrader_lane/results/
 research/backtrader_lane/exports/**/*.csv
 
+# CAMPAIGN_011 no-RiskEngine bespoke reference — optional raw trade
+# dumps (full-window JSONL + per-fold JSONL). Bulk regenerable data;
+# the small reference JSONs under research/lean_parity/ and the
+# diagnostics MD under backtests/diagnostics/ are committed.
+backtests/diagnostics/campaign_011_norisk/
+
 # Founders pack stays in repo but ignore any temp copies
 *.tmp
