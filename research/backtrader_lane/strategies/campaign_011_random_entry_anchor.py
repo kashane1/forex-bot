@@ -98,6 +98,20 @@ EXPECTED_RISK_PER_TRADE_PCT = 0.25
 EXPECTED_STARTING_EQUITY = 500.0
 EXPECTED_COMMISSION_PER_UNIT = 0.0
 
+# Bespoke-engine warmup: the engine runs
+# `for i in range(warmup, len(df))` with
+# `warmup = max(strategy.warmup_bars_required(), 5)` (see
+# src/forex_bot/backtesting/engine.py:204,220). The CAMPAIGN_011
+# strategy declares `warmup_bars_required() = 32` (see
+# src/forex_bot/strategies/random_entry_anchor.py:99-101 with the
+# comment "ATR(14) needs ≥15 bars; +1 for accessing index -2; small
+# buffer"). The strategy is therefore first called when the engine has
+# processed 33 candles (bar index 32). Backtrader's `len(self)` is
+# 1-based, so the equivalent BT-side eligibility threshold is
+# `_bar_count(self) >= 33`, i.e. `_bar_count(self) < 33` skips.
+WARMUP_BARS_REQUIRED = 32
+WARMUP_BAR_COUNT_THRESHOLD = WARMUP_BARS_REQUIRED + 1  # 1-based BT len(self)
+
 
 # ---------------------------------------------------------------------------
 # Deterministic seed derivation (mirrors
@@ -293,7 +307,6 @@ def run_campaign_011_pair(
         ask_close=candles.ask_ohlc_df["close"],
     )
     df.index = df.index.tz_convert("UTC").tz_localize(None)
-    n_bars = len(df)
 
     recorded: list[BacktraderTrade] = []
     nav = {"value": float(starting_equity_usd)}
@@ -390,12 +403,20 @@ def run_campaign_011_pair(
         def _try_entry(self) -> None:
             """Evaluate entry on the current bar. Mirrors R1-R8 verbatim."""
 
-            # R1: sufficient warm-up. The bespoke spec checks
-            # `len(df) >= atr_lookback + 2` where `df` is the slice up
-            # to (and including) bar t. Backtrader's `_bar_count(self)`
-            # returns the 1-based count of bars processed so far,
-            # equivalent to `len(df)` at the bespoke side.
-            if _bar_count(self) < atr_lookback + 2:
+            # Warmup: match the bespoke engine's
+            # `for i in range(warmup, len(df))` with
+            # `warmup = max(strategy.warmup_bars_required(), 5) = 32`
+            # at src/forex_bot/backtesting/engine.py:204,220. The
+            # strategy is first called when the engine has processed
+            # 33 candles; in BT, `_bar_count(self)` is 1-based, so the
+            # equivalent threshold is `_bar_count(self) >= 33`. The
+            # in-strategy R1 check (`len(df) >= atr_lookback + 2 = 16`)
+            # is a strictly weaker guard that the bespoke engine's
+            # warmup already subsumes; mirror the engine's threshold
+            # here to keep BT vs bespoke parity on which bars are
+            # eligible for entry. (Pre-fix mistake — see sprint-004
+            # Phase 4 comparison doc.)
+            if _bar_count(self) < WARMUP_BAR_COUNT_THRESHOLD:
                 return
 
             # R2: block re-entry while in position. Same-bar re-entry
@@ -491,7 +512,15 @@ def run_campaign_011_pair(
             CAMPAIGN_011 has no trailing stop. Order of precedence:
               1. Adverse stop (initial ATR stop is the only stop level)
               2. Time stop (max_bars_in_trade = 6)
-              3. End-of-data
+
+            **No in-loop EOD close.** The bespoke engine closes any
+            still-open trade AFTER its per-bar loop terminates (see
+            src/forex_bot/backtesting/engine.py:646-683); the in-loop
+            mark-to-market only fires on stop/time-stop. If the BT
+            adapter closed open trades inside the per-bar loop with an
+            EOD reason, `next()` would then try a same-bar re-entry on
+            the very last bar — an extra trade the bespoke side never
+            sees. The `stop()` method below handles EOD instead.
             """
 
             self._bars_held += 1
@@ -511,11 +540,6 @@ def run_campaign_011_pair(
             if self._bars_held >= max_bars_in_trade:
                 exit_price = bid_close if self._side == "long" else ask_close
                 self._close_trade(exit_price=exit_price, exit_reason="time")
-                return True
-            # End-of-data (priority 3).
-            if _bar_count(self) >= n_bars:
-                exit_price = bid_close if self._side == "long" else ask_close
-                self._close_trade(exit_price=exit_price, exit_reason="eod")
                 return True
             return False
 

@@ -1,0 +1,149 @@
+{
+  "backtrader_summary_path": "research/backtrader_lane/results/campaign_011_full_window_004_postfix/backtrader_summary.json",
+  "bespoke_reference_path": "research/lean_parity/campaign_011_h4_bespoke_reference.json",
+  "bespoke_total_trades": 2800,
+  "blocked_instruments": [],
+  "bt_total_trades": 2800,
+  "campaign_id": "CAMPAIGN_011",
+  "generated_at": "2026-05-25T16:46:10+00:00",
+  "notes": [],
+  "overall_classification": "PASS",
+  "pairs": [
+    {
+      "bespoke_expectancy_r": -0.0646,
+      "bespoke_return_pct": -6.0785,
+      "bespoke_trades": 385,
+      "bespoke_win_rate": 0.4753,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 385,
+      "bt_win_rate": 0.4753246753246753,
+      "classification": "PASS",
+      "expectancy_r_delta": null,
+      "instrument": "AUD_USD",
+      "notes": [
+        "all tight tolerance bands hold"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 0.0,
+      "win_rate_delta": 2.467532467531619e-05
+    },
+    {
+      "bespoke_expectancy_r": -0.0496,
+      "bespoke_return_pct": -4.8294,
+      "bespoke_trades": 394,
+      "bespoke_win_rate": 0.4721,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 394,
+      "bt_win_rate": 0.4720812182741117,
+      "classification": "PASS",
+      "expectancy_r_delta": null,
+      "instrument": "EUR_USD",
+      "notes": [
+        "all tight tolerance bands hold"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 0.0,
+      "win_rate_delta": -1.878172588831717e-05
+    },
+    {
+      "bespoke_expectancy_r": -0.0073,
+      "bespoke_return_pct": -0.7954,
+      "bespoke_trades": 400,
+      "bespoke_win_rate": 0.475,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 400,
+      "bt_win_rate": 0.475,
+      "classification": "PASS",
+      "expectancy_r_delta": null,
+      "instrument": "GBP_USD",
+      "notes": [
+        "all tight tolerance bands hold"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 0.0,
+      "win_rate_delta": 0.0
+    },
+    {
+      "bespoke_expectancy_r": -0.0265,
+      "bespoke_return_pct": -2.6721,
+      "bespoke_trades": 400,
+      "bespoke_win_rate": 0.475,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 400,
+      "bt_win_rate": 0.475,
+      "classification": "PASS",
+      "expectancy_r_delta": null,
+      "instrument": "NZD_USD",
+      "notes": [
+        "all tight tolerance bands hold"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 0.0,
+      "win_rate_delta": 0.0
+    },
+    {
+      "bespoke_expectancy_r": -0.0161,
+      "bespoke_return_pct": -2.0214,
+      "bespoke_trades": 394,
+      "bespoke_win_rate": 0.4721,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 394,
+      "bt_win_rate": 0.4720812182741117,
+      "classification": "PASS",
+      "expectancy_r_delta": null,
+      "instrument": "USD_CAD",
+      "notes": [
+        "all tight tolerance bands hold"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 0.0,
+      "win_rate_delta": -1.878172588831717e-05
+    },
+    {
+      "bespoke_expectancy_r": 0.0503,
+      "bespoke_return_pct": 4.7687,
+      "bespoke_trades": 409,
+      "bespoke_win_rate": 0.5061,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 409,
+      "bt_win_rate": 0.5061124694376528,
+      "classification": "PASS",
+      "expectancy_r_delta": null,
+      "instrument": "USD_CHF",
+      "notes": [
+        "all tight tolerance bands hold"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 0.0,
+      "win_rate_delta": 1.2469437652762316e-05
+    },
+    {
+      "bespoke_expectancy_r": 0.0004,
+      "bespoke_return_pct": 5.8967,
+      "bespoke_trades": 418,
+      "bespoke_win_rate": 0.4952,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 418,
+      "bt_win_rate": 0.49521531100478466,
+      "classification": "PASS",
+      "expectancy_r_delta": null,
+      "instrument": "USD_JPY",
+      "notes": [
+        "all tight tolerance bands hold"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 0.0,
+      "win_rate_delta": 1.5311004784690496e-05
+    }
+  ],
+  "strategy_evidence": false,
+  "strategy_id": "random_entry_anchor",
+  "strategy_version": "0.1.0-c011"
+}

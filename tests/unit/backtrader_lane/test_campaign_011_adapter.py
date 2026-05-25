@@ -47,6 +47,8 @@ from research.backtrader_lane.strategies.campaign_011_random_entry_anchor import
     EXPECTED_MASTER_SEED,
     EXPECTED_VERSION,
     FROZEN_PARAMETERS,
+    WARMUP_BAR_COUNT_THRESHOLD,
+    WARMUP_BARS_REQUIRED,
     _assert_frozen,
     _derive_random_pair,
     _load_campaign_011_config_strategy,
@@ -217,6 +219,32 @@ def test_campaign_011_approximation_flags_documented() -> None:
     )
     for needle in required:
         assert any(needle in f for f in flags), f"missing approximation flag: {needle}"
+
+
+def test_warmup_threshold_matches_bespoke_strategy() -> None:
+    """Regression for the sprint-004 Phase 5 fix: the BT adapter must
+    respect the bespoke strategy's `warmup_bars_required() = 32`, not
+    only the in-strategy R1 check (`len(df) >= atr_lookback + 2 = 16`).
+
+    See docs/research/BACKTRADER_CAMPAIGN_011_FULL_WINDOW_COMPARISON_004.md
+    §5-§7 — pre-fix, the BT lane fired ~+8 extra trades because bars
+    16-31 were eligible for it but skipped by the bespoke engine.
+    """
+
+    from forex_bot.strategies.random_entry_anchor import (
+        RandomEntryAnchorStrategy,
+    )
+
+    bespoke_warmup = RandomEntryAnchorStrategy().warmup_bars_required()
+    assert bespoke_warmup == 32, (
+        "the bespoke strategy spec frozen at 32; if this changes, "
+        "the BT adapter constant must change in lock-step"
+    )
+    assert bespoke_warmup == WARMUP_BARS_REQUIRED
+    # Backtrader's len(self) is 1-based, so the BT threshold is
+    # warmup + 1 (the strategy first becomes eligible when the engine
+    # has processed 33 candles).
+    assert WARMUP_BAR_COUNT_THRESHOLD == WARMUP_BARS_REQUIRED + 1
 
 
 def test_campaign_011_reference_metadata_matches_contract() -> None:
