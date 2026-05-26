@@ -1,0 +1,48 @@
+{
+  "campaign_id": "CAMPAIGN_015",
+  "strategy_name": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015",
+  "config_hash": "17ddfd7eb87d93c502f148642c8ee883c66cb72bfa8ca72f981624a0dcfdd93c",
+  "divergence_classification": "DATA_MISMATCH",
+  "secondary_label": "BLOCKED",
+  "bespoke_run": "research/campaign_015/diagnostics/walk_forward_rehydrate/",
+  "bespoke_aggregate_metrics": {
+    "base": {
+      "aggregate_expectancy_r": 0.23003944308176186,
+      "profit_factor": 107.55430220848092,
+      "total_trades": 164,
+      "folds_passing": 0,
+      "pairs_positive_count": 6
+    },
+    "2xcost": {
+      "aggregate_expectancy_r": 0.19088037333161284,
+      "profit_factor": 39.692563731812754,
+      "total_trades": 164,
+      "folds_passing": 0
+    }
+  },
+  "bt_run_attempted": true,
+  "bt_run_completed": false,
+  "blocked_reason": "Backtrader-lane CSV row-sha256 (computed by research.backtrader_lane.data_adapter.compute_csv_sha256) does not match the committed *.provenance.json `data_sha256` for any of the 7 CAMPAIGN_002 H4 instruments. The runner correctly refuses to continue because the freeze forbids bypassing data-provenance verification. Bypassing this check (e.g. with --no-strict-provenance, or rewriting provenance JSONs to match the current CSVs) would violate the research-freeze invariants and is explicitly out of scope for a post-run diagnostic sprint.",
+  "sha_drift_evidence": {
+    "AUD_USD": {"computed_row_sha_prefix": "(see runner error trace)", "provenance_sha_prefix": "fb9e619a93fb", "match": false},
+    "EUR_USD": {"computed_row_sha_prefix": "16ed0bc40d05", "provenance_sha_prefix": "866d75446030", "match": false},
+    "GBP_USD": {"computed_row_sha_prefix": "(see runner error trace)", "provenance_sha_prefix": "354a2da02ce3", "match": false},
+    "NZD_USD": {"computed_row_sha_prefix": "(see runner error trace)", "provenance_sha_prefix": "3ba489b194c6", "match": false},
+    "USD_CAD": {"computed_row_sha_prefix": "(see runner error trace)", "provenance_sha_prefix": "77f9bf8839b2", "match": false},
+    "USD_CHF": {"computed_row_sha_prefix": "(see runner error trace)", "provenance_sha_prefix": "64ab6151e649", "match": false},
+    "USD_JPY": {"computed_row_sha_prefix": "(see runner error trace)", "provenance_sha_prefix": "868b90906652", "match": false}
+  },
+  "raw_file_sha_drift_evidence": {
+    "AUD_USD": {"raw_file_sha_prefix": "62938be3ac2d", "provenance_sha_prefix": "fb9e619a93fb"},
+    "EUR_USD": {"raw_file_sha_prefix": "87cd3a130136", "provenance_sha_prefix": "866d75446030"},
+    "GBP_USD": {"raw_file_sha_prefix": "5a3c83e0a7d2", "provenance_sha_prefix": "354a2da02ce3"},
+    "NZD_USD": {"raw_file_sha_prefix": "21a07eb294a1", "provenance_sha_prefix": "3ba489b194c6"},
+    "USD_CAD": {"raw_file_sha_prefix": "04e934629351", "provenance_sha_prefix": "77f9bf8839b2"},
+    "USD_CHF": {"raw_file_sha_prefix": "a3af10b39ba2", "provenance_sha_prefix": "64ab6151e649"},
+    "USD_JPY": {"raw_file_sha_prefix": "34a9454b5bb7", "provenance_sha_prefix": "868b90906652"}
+  },
+  "approval_status": "NOT_APPROVED",
+  "approved_strategies_yaml_state": "approved: []",
+  "diagnostic_disclaimer": "BLOCKED on a secondary-lane data verification step. The bespoke lane is the canonical evidence path and ran successfully; this BLOCKED outcome means we cannot triangulate the bespoke result against the BT lane in this sprint. It does not change the runner verdict (REJECT) and does not approve anything."
+}
