@@ -11,11 +11,10 @@ import json
 from pathlib import Path
 
 import pytest
-
 from scripts.diagnose_campaign_015_gate_failures import (
     autopsy,
-    render_md,
     main,
+    render_md,
 )
 
 

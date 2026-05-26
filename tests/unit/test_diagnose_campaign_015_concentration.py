@@ -6,12 +6,11 @@ import json
 from pathlib import Path
 
 import pytest
-
 from scripts.diagnose_campaign_015_concentration import (
-    concentration,
-    render_md,
-    main,
     _percentile,
+    concentration,
+    main,
+    render_md,
 )
 
 

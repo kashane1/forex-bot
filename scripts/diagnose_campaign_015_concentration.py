@@ -314,153 +314,153 @@ def concentration(fold_detail: dict[str, Any]) -> dict[str, Any]:
 
 
 def render_md(c: dict[str, Any]) -> str:
-    L: list[str] = []
-    L.append("# CAMPAIGN_015 — Concentration & Fragility Diagnostics")
-    L.append("")
-    L.append(
+    lines: list[str] = []
+    lines.append("# CAMPAIGN_015 — Concentration & Fragility Diagnostics")
+    lines.append("")
+    lines.append(
         f"**Strategy:** `{c.get('strategy_name')} "
         f"{c.get('strategy_version', '')}`"
     )
-    L.append(f"**Config hash:** `{c.get('config_hash')}`")
-    L.append("")
-    L.append(
+    lines.append(f"**Config hash:** `{c.get('config_hash')}`")
+    lines.append("")
+    lines.append(
         "> Diagnostic only. Does NOT approve any strategy, does NOT relax "
         "any gate, does NOT revise the verdict."
     )
-    L.append("")
+    lines.append("")
     for cost, b in c["by_cost"].items():
-        L.append(f"## {cost} cost")
-        L.append("")
-        L.append(f"- total_trades = **{b['total_trades']}**")
-        L.append(f"- total_r = **{b['total_r']:+.4f}**")
-        L.append(f"- gross_positive_r = **{b['gross_positive_r']:+.4f}**")
-        L.append(f"- gross_negative_r = **{b['gross_negative_r']:+.4f}**")
-        L.append(
+        lines.append(f"## {cost} cost")
+        lines.append("")
+        lines.append(f"- total_trades = **{b['total_trades']}**")
+        lines.append(f"- total_r = **{b['total_r']:+.4f}**")
+        lines.append(f"- gross_positive_r = **{b['gross_positive_r']:+.4f}**")
+        lines.append(f"- gross_negative_r = **{b['gross_negative_r']:+.4f}**")
+        lines.append(
             f"- implied profit factor (from trade-R) = "
             f"**{b['implied_profit_factor']:.4f}**"
         )
-        L.append("")
-        L.append("### Top-trade concentration")
-        L.append("")
-        L.append("| trade rank | fold | pair | R |")
-        L.append("|---|---|---|---|")
+        lines.append("")
+        lines.append("### Top-trade concentration")
+        lines.append("")
+        lines.append("| trade rank | fold | pair | R |")
+        lines.append("|---|---|---|---|")
         for i, t in enumerate(b["top_positive_trades"], 1):
-            L.append(
+            lines.append(
                 f"| {i} | {t['fold_index']} | {t['pair']} | {t['r']:+.4f} |"
             )
-        L.append("")
-        L.append(
+        lines.append("")
+        lines.append(
             f"- Top-1 positive trade contributes "
             f"**{100*b['top_1_positive_trade_share_of_total_r']:.1f}%** of "
             f"total R (and **{100*b['top_1_positive_trade_share_of_gross_positive_r']:.1f}%** of gross positive R)."
         )
-        L.append(
+        lines.append(
             f"- Top-3 positive trades contribute "
             f"**{100*b['top_3_positive_trade_share_of_total_r']:.1f}%** of "
             f"total R."
         )
-        L.append(
+        lines.append(
             f"- Top-5 positive trades contribute "
             f"**{100*b['top_5_positive_trade_share_of_total_r']:.1f}%** of "
             f"total R."
         )
-        L.append("")
-        L.append("### Worst losers")
-        L.append("")
-        L.append("| trade rank | fold | pair | R |")
-        L.append("|---|---|---|---|")
+        lines.append("")
+        lines.append("### Worst losers")
+        lines.append("")
+        lines.append("| trade rank | fold | pair | R |")
+        lines.append("|---|---|---|---|")
         for i, t in enumerate(b["worst_negative_trades"], 1):
-            L.append(
+            lines.append(
                 f"| {i} | {t['fold_index']} | {t['pair']} | {t['r']:+.4f} |"
             )
-        L.append("")
-        L.append("### Pair / fold / cell concentration")
-        L.append("")
-        L.append("Per-pair total R:")
+        lines.append("")
+        lines.append("### Pair / fold / cell concentration")
+        lines.append("")
+        lines.append("Per-pair total R:")
         for p, r in b["per_pair_total_r"].items():
-            L.append(f"- `{p}` = {r:+.4f}")
-        L.append("")
-        L.append("Per-fold total R:")
+            lines.append(f"- `{p}` = {r:+.4f}")
+        lines.append("")
+        lines.append("Per-fold total R:")
         for fi, r in b["per_fold_total_r"].items():
-            L.append(f"- fold {fi} = {r:+.4f}")
-        L.append("")
-        L.append(
+            lines.append(f"- fold {fi} = {r:+.4f}")
+        lines.append("")
+        lines.append(
             f"Top fold: fold **{b['top_fold_index']}** with R = "
             f"**{b['top_fold_r']:+.4f}** "
             f"(**{100*b['top_fold_share_of_total_r']:.1f}%** of total R)."
         )
-        L.append(
+        lines.append(
             f"Top pair: **{b['top_pair']}** with R = "
             f"**{b['top_pair_r']:+.4f}** "
             f"(**{100*b['top_pair_share_of_total_r']:.1f}%** of total R)."
         )
-        L.append(
+        lines.append(
             f"Top pair-fold cell: **{b['top_cell']}** with R = "
             f"**{b['top_cell_r']:+.4f}** "
             f"(**{100*b['top_cell_share_of_total_r']:.1f}%** of total R)."
         )
-        L.append("")
-        L.append("### Per-fold expectancy: mean vs median")
-        L.append("")
-        L.append(
+        lines.append("")
+        lines.append("### Per-fold expectancy: mean vs median")
+        lines.append("")
+        lines.append(
             f"- mean per-fold expectancy R = "
             f"**{b['mean_per_fold_expectancy_r']:+.4f}**"
         )
-        L.append(
+        lines.append(
             f"- median per-fold expectancy R = "
             f"**{b['median_per_fold_expectancy_r']:+.4f}**"
         )
-        L.append(
+        lines.append(
             f"- mean − median gap = "
             f"**{b['mean_minus_median_per_fold_expectancy_r']:+.4f}**"
         )
-        L.append("")
-        L.append("### Trade-R distribution")
-        L.append("")
+        lines.append("")
+        lines.append("### Trade-R distribution")
+        lines.append("")
         d = b["trade_r_distribution"]
-        L.append(
+        lines.append(
             f"min={d['min']:+.4f} | p10={d['p10']:+.4f} | "
             f"p25={d['p25']:+.4f} | median={d['median']:+.4f} | "
             f"p75={d['p75']:+.4f} | p90={d['p90']:+.4f} | "
             f"max={d['max']:+.4f}"
         )
-        L.append("")
-        L.append("### Exit-reason mix")
-        L.append("")
+        lines.append("")
+        lines.append("### Exit-reason mix")
+        lines.append("")
         for k, v in sorted(b["exit_reason_counts"].items()):
-            L.append(f"- `{k}` = {v}")
-        L.append("")
-        L.append("### Leave-one-out by fold")
-        L.append("")
-        L.append(
+            lines.append(f"- `{k}` = {v}")
+        lines.append("")
+        lines.append("### Leave-one-out by fold")
+        lines.append("")
+        lines.append(
             "| dropped fold | remaining trades | remaining total R | "
             "remaining expectancy R | remaining pairs+ |"
         )
-        L.append("|---|---|---|---|---|")
+        lines.append("|---|---|---|---|---|")
         for row in b["loo_by_fold"]:
-            L.append(
+            lines.append(
                 f"| {row['dropped_fold']} | {row['remaining_trades']} | "
                 f"{row['remaining_total_r']:+.4f} | "
                 f"{row['remaining_expectancy_r']:+.4f} | "
                 f"{row['remaining_pairs_positive']} |"
             )
-        L.append("")
-        L.append("### Leave-one-out by pair")
-        L.append("")
-        L.append(
+        lines.append("")
+        lines.append("### Leave-one-out by pair")
+        lines.append("")
+        lines.append(
             "| dropped pair | remaining trades | remaining total R | "
             "remaining expectancy R | fold-pass count after drop |"
         )
-        L.append("|---|---|---|---|---|")
+        lines.append("|---|---|---|---|---|")
         for row in b["loo_by_pair"]:
-            L.append(
+            lines.append(
                 f"| {row['dropped_pair']} | {row['remaining_trades']} | "
                 f"{row['remaining_total_r']:+.4f} | "
                 f"{row['remaining_expectancy_r']:+.4f} | "
                 f"{row['fold_pass_count_after_drop']} |"
             )
-        L.append("")
-    return "\n".join(L)
+        lines.append("")
+    return "\n".join(lines)
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -34,10 +34,10 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from research.anti_overfit.campaign_015 import (  # noqa: E402
+from research.anti_overfit.campaign_015 import (
+    CAMPAIGN_015_CLASSIFIER_LABELS,
     DiagnosticInputs,
     classify_campaign_015,
-    CAMPAIGN_015_CLASSIFIER_LABELS,
 )
 
 
@@ -86,7 +86,7 @@ def _build_diagnostic_inputs(
             f"null={len(null_per_fold)}"
         )
     else:
-        for i, (cf, nf) in enumerate(zip(folds, null_folds)):
+        for i, (cf, nf) in enumerate(zip(folds, null_folds, strict=True)):
             if cf["test_start"] != nf["test_start"] or cf["test_end"] != nf["test_end"]:
                 blocked = True
                 blocked_reasons.append(
@@ -146,7 +146,7 @@ def diagnose(
     camp_folds = base["folds"]
     null_folds = null_fd["folds"]
     if len(camp_folds) == len(null_folds):
-        for cf, nf in zip(camp_folds, null_folds):
+        for cf, nf in zip(camp_folds, null_folds, strict=True):
             gap_series.append(
                 {
                     "fold_index": cf["fold_index"],
@@ -199,35 +199,35 @@ def diagnose(
 
 
 def render_md(obj: dict[str, Any]) -> str:
-    L: list[str] = []
-    L.append("# CAMPAIGN_015 — Null + Anti-Overfit Post-Run Diagnostic")
-    L.append("")
-    L.append(
+    lines: list[str] = []
+    lines.append("# CAMPAIGN_015 — Null + Anti-Overfit Post-Run Diagnostic")
+    lines.append("")
+    lines.append(
         f"**Campaign:** `{obj.get('strategy_name')} "
         f"{obj.get('strategy_version', '')}`"
     )
-    L.append(f"**Null model:** `{obj.get('null_model')}`")
-    L.append(
+    lines.append(f"**Null model:** `{obj.get('null_model')}`")
+    lines.append(
         f"**Anti-overfit label:** **`{obj['anti_overfit_label']}`**"
     )
-    L.append(
+    lines.append(
         f"**Approval status:** `{obj['approval_status']}` "
         f"— `{obj['approved_strategies_yaml_state']}`"
     )
-    L.append("")
-    L.append(
+    lines.append("")
+    lines.append(
         "> " + obj["diagnostic_disclaimer"]
     )
-    L.append("")
-    L.append("## Per-fold gap vs matched CAMPAIGN_011 null")
-    L.append("")
-    L.append(
+    lines.append("")
+    lines.append("## Per-fold gap vs matched CAMPAIGN_011 null")
+    lines.append("")
+    lines.append(
         "| fold | window | campaign exp R | null exp R | gap R | "
         "campaign trades | null trades |"
     )
-    L.append("|---|---|---|---|---|---|---|")
+    lines.append("|---|---|---|---|---|---|---|")
     for g in obj["per_fold_gap_series"]:
-        L.append(
+        lines.append(
             f"| {g['fold_index']} "
             f"| {g['test_start']}..{g['test_end']} "
             f"| {g['campaign_expectancy_r']:+.4f} "
@@ -236,37 +236,37 @@ def render_md(obj: dict[str, Any]) -> str:
             f"| {g['campaign_trades']} "
             f"| {g['null_trades']} |"
         )
-    L.append("")
-    L.append(
+    lines.append("")
+    lines.append(
         f"- mean per-fold gap R = **{obj['mean_per_fold_gap_r']:+.4f}**"
     )
-    L.append(
+    lines.append(
         f"- null per-fold std R = **{obj['null_per_fold_std_r']:.4f}**"
     )
-    L.append("")
-    L.append("## Anti-overfit gates")
-    L.append("")
+    lines.append("")
+    lines.append("## Anti-overfit gates")
+    lines.append("")
     if obj["anti_overfit_gates"]:
         for k, v in obj["anti_overfit_gates"].items():
             mark = "✓" if v else "✗"
-            L.append(f"- {mark} `{k}` = {v}")
+            lines.append(f"- {mark} `{k}` = {v}")
     else:
-        L.append("(none — classifier returned BLOCKED before gate eval)")
-    L.append("")
-    L.append("## Anti-overfit metrics")
-    L.append("")
+        lines.append("(none — classifier returned BLOCKED before gate eval)")
+    lines.append("")
+    lines.append("## Anti-overfit metrics")
+    lines.append("")
     for k, v in obj["anti_overfit_metrics"].items():
         if isinstance(v, float):
-            L.append(f"- `{k}` = {v:+.4f}")
+            lines.append(f"- `{k}` = {v:+.4f}")
         else:
-            L.append(f"- `{k}` = {v}")
-    L.append("")
-    L.append("## Reasons")
-    L.append("")
+            lines.append(f"- `{k}` = {v}")
+    lines.append("")
+    lines.append("## Reasons")
+    lines.append("")
     for r in obj["anti_overfit_reasons"]:
-        L.append(f"- {r}")
-    L.append("")
-    return "\n".join(L)
+        lines.append(f"- {r}")
+    lines.append("")
+    return "\n".join(lines)
 
 
 def main(argv: list[str] | None = None) -> int:

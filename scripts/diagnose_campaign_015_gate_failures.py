@@ -182,7 +182,7 @@ def autopsy(
         bucket_dist = {b: int(bucket_counts.get(b, 0)) for b in CELL_BUCKETS_ORDER}
 
         out["by_cost"][cost] = {
-            "verdict": agg.get("aggregate_pass") and "PASS" or "FAIL",
+            "verdict": (agg.get("aggregate_pass") and "PASS") or "FAIL",
             "aggregate_metrics": {
                 k: agg.get(k)
                 for k in (
