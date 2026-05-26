@@ -28,31 +28,40 @@ from research.confluence.states import (
 )
 from research.cost_atlas.atlas import build_cost_atlas
 from research.cost_atlas.loader import SEVEN_PAIR_UNIVERSE, load_deduped_h4_frame
+from research.cross_asset_features.alignment import align_wide_frame_to_h4, load_normalized_wide
 from research.cross_asset_features.loader import (
-    align_features_to_h4,
     build_availability_report,
     load_features_from_directory,
 )
+from research.cross_asset_features.normalizer import write_normalized_outputs
 from research.edge_discovery.real_data import resolve_h4_store_path
+
+
+def _row_value(row, *keys: str) -> float | None:
+    for key in keys:
+        if key in row.index and row[key] == row[key]:
+            return float(row[key])
+    return None
 
 
 def _cross_asset_from_row(row, side: str) -> CrossAssetState:
     missing: list[str] = []
     usd = "unknown"
     risk = "unknown"
-    if "dxy" in row and row["dxy"] == row["dxy"]:
-        dxy = float(row["dxy"])
+    dxy = _row_value(row, "dxy", "broad_usd_index")
+    if dxy is not None:
         usd = "strengthening" if dxy > 97 else "weakening" if dxy < 96 else "neutral"
     else:
         missing.append("dxy")
-    if "vix" in row and row["vix"] == row["vix"]:
-        vix = float(row["vix"])
+    vix = _row_value(row, "vix")
+    if vix is not None:
         risk = "risk_off" if vix > 25 else "risk_on" if vix < 20 else "neutral"
     else:
         missing.append("vix")
     rates = "unknown"
-    if "us10y" in row and row["us10y"] == row["us10y"]:
-        rates = "higher" if float(row["us10y"]) > 1.66 else "flat"
+    us10y = _row_value(row, "us10y", "us_10y_yield")
+    if us10y is not None:
+        rates = "higher" if us10y > 1.66 else "flat"
     else:
         missing.append("us10y")
     return CrossAssetState(
@@ -61,6 +70,30 @@ def _cross_asset_from_row(row, side: str) -> CrossAssetState:
         rates_bias=rates,  # type: ignore[arg-type]
         missing_features=tuple(missing),
     )
+
+
+def _load_cross_asset_wide(repo_root: Path) -> tuple[object | None, dict[str, object]]:
+    normalized_csv = repo_root / "research" / "cross_asset_features" / "normalized_features.csv"
+    availability = build_availability_report(repo_root)
+    if normalized_csv.is_file():
+        wide = load_normalized_wide(normalized_csv)
+        availability["status"] = availability.get("status", "REAL_DATA_NORMALIZED")
+        return wide, availability
+    feature_dir = repo_root / "data" / "external_features"
+    fixture_dir = repo_root / "tests" / "fixtures" / "cross_asset"
+    features = load_features_from_directory(feature_dir)
+    if not features:
+        features = load_features_from_directory(fixture_dir)
+    if not features:
+        return None, availability
+    import pandas as pd
+
+    frames = [fs.frame.rename(columns={fs.name: fs.name}) for fs in features.values()]
+    wide = pd.concat(frames, axis=1).sort_index()
+    for legacy, canon in (("dxy", "broad_usd_index"), ("us10y", "us_10y_yield"), ("us2y", "us_2y_yield")):
+        if canon in wide.columns and legacy not in wide.columns:
+            wide[legacy] = wide[canon]
+    return wide, availability
 
 
 def run_diagnostics(
@@ -75,12 +108,10 @@ def run_diagnostics(
         raise FileNotFoundError("H4 SQLite store not found")
 
     atlas = build_cost_atlas(repo_root, instruments=instruments, db_path=db_path)
-    feature_dir = repo_root / "data" / "external_features"
-    fixture_dir = repo_root / "tests" / "fixtures" / "cross_asset"
-    features = load_features_from_directory(feature_dir)
-    if not features:
-        features = load_features_from_directory(fixture_dir)
-    availability = build_availability_report(repo_root)
+    wide, availability = _load_cross_asset_wide(repo_root)
+    if wide is None and not (repo_root / "research" / "cross_asset_features" / "normalized_features.csv").is_file():
+        write_normalized_outputs(repo_root, repo_root / "research" / "cross_asset_features")
+        wide, availability = _load_cross_asset_wide(repo_root)
 
     grade_counts: Counter[str] = Counter()
     reason_counts: Counter[str] = Counter()
@@ -98,7 +129,7 @@ def run_diagnostics(
         w1_state = compute_timeframe_state(w1) if len(w1) >= 60 else "unknown"
         d1_state = compute_timeframe_state(d1) if len(d1) >= 60 else "unknown"
         h4_setup = compute_h4_setup(frame)
-        aligned = align_features_to_h4(frame.index, features) if features else None
+        aligned = align_wide_frame_to_h4(frame.index, wide) if wide is not None else None
 
         for i in range(80, len(frame), sample_every):
             sub = frame.iloc[: i + 1]
@@ -155,6 +186,11 @@ def run_diagnostics(
         "cost_atlas_bar_count": atlas.summary["bar_count"],
         "cost_hostile_cell_count": atlas.summary["hostile_cell_count"],
         "cross_asset_status": availability["status"],
+        "cross_asset_data_source": (
+            "normalized_features.csv"
+            if (repo_root / "research" / "cross_asset_features" / "normalized_features.csv").is_file()
+            else "local_or_fixture_csv"
+        ),
         "examples": examples,
         "explicit_disclaimer": (
             "Diagnostic infrastructure only. Not strategy evidence. "
@@ -163,18 +199,27 @@ def run_diagnostics(
     }
 
 
-def write_outputs(summary: dict[str, object], output_dir: Path, doc_path: Path) -> None:
+def write_outputs(
+    summary: dict[str, object],
+    output_dir: Path,
+    doc_path: Path | None,
+    *,
+    summary_name: str = "confluence_diagnostic_summary.json",
+    counts_name: str = "confluence_reason_code_counts.csv",
+) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
-    (output_dir / "confluence_diagnostic_summary.json").write_text(
+    (output_dir / summary_name).write_text(
         json.dumps(summary, indent=2, default=str) + "\n",
         encoding="utf-8",
     )
-    with (output_dir / "confluence_reason_code_counts.csv").open("w", encoding="utf-8", newline="") as fh:
+    with (output_dir / counts_name).open("w", encoding="utf-8", newline="") as fh:
         writer = csv.writer(fh)
         writer.writerow(["reason_code", "count"])
         for code, count in summary.get("top_reason_codes", []):
             writer.writerow([code, count])
 
+    if doc_path is None:
+        return
     doc_path.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         "# MTF Confluence and Cost Atlas Diagnostics 001",
@@ -204,13 +249,22 @@ def main() -> int:
         type=Path,
         default=ROOT / "docs" / "research" / "MTF_CONFLUENCE_AND_COST_ATLAS_DIAGNOSTICS_001.md",
     )
+    parser.add_argument("--summary-name", default="confluence_diagnostic_summary.json")
+    parser.add_argument("--counts-name", default="confluence_reason_code_counts.csv")
+    parser.add_argument("--skip-doc", action="store_true")
     args = parser.parse_args()
     try:
         summary = run_diagnostics(ROOT)
     except FileNotFoundError as exc:
         print(f"BLOCKED: {exc}", file=sys.stderr)
         return 2
-    write_outputs(summary, args.output_dir, args.doc)
+    write_outputs(
+        summary,
+        args.output_dir,
+        None if args.skip_doc else args.doc,
+        summary_name=args.summary_name,
+        counts_name=args.counts_name,
+    )
     print(f"Wrote diagnostics to {args.output_dir}")
     return 0
 

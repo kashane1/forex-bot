@@ -1,0 +1,320 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T20:21:09.291018+00:00",
+  "contexts_evaluated": 6916,
+  "instruments": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "NZD_USD"
+  ],
+  "sample_every_bars": 20,
+  "grade_distribution": {
+    "B": 4842,
+    "A": 1527,
+    "REJECT": 394,
+    "C": 153
+  },
+  "top_reason_codes": [
+    [
+      "d1_aligned",
+      6422
+    ],
+    [
+      "grade_b",
+      4842
+    ],
+    [
+      "usd_headwind",
+      2387
+    ],
+    [
+      "cross_asset_missing",
+      2142
+    ],
+    [
+      "grade_a",
+      1527
+    ],
+    [
+      "mixed_htf",
+      494
+    ],
+    [
+      "cost_hostile",
+      394
+    ],
+    [
+      "grade_c",
+      153
+    ]
+  ],
+  "missing_data_notes": [],
+  "cost_atlas_bar_count": 69648,
+  "cost_hostile_cell_count": 8,
+  "cross_asset_status": "REAL_DATA_NORMALIZED",
+  "cross_asset_data_source": "normalized_features.csv",
+  "examples": [
+    {
+      "instrument": "EUR_USD",
+      "bar_time": "2020-01-21 06:00:00+00:00",
+      "side": "long",
+      "grade": "B",
+      "alignment": "aligned",
+      "w1_state": "range",
+      "d1_state": "range",
+      "h4_setup": "pullback",
+      "h1_trigger": "unknown",
+      "cross_asset_state": {
+        "usd_regime": "unknown",
+        "risk_regime": "unknown",
+        "rates_bias": "unknown",
+        "gold_confirm": null,
+        "oil_confirm": null,
+        "missing_features": [
+          "dxy",
+          "vix",
+          "us10y"
+        ]
+      },
+      "cost_state": "marginal",
+      "spread_to_atr_pct": 10.077555186706531,
+      "divergence_flag": "none",
+      "reason_codes": [
+        "d1_aligned",
+        "cross_asset_missing",
+        "grade_b"
+      ],
+      "strategy_evidence": false
+    },
+    {
+      "instrument": "EUR_USD",
+      "bar_time": "2020-01-21 06:00:00+00:00",
+      "side": "short",
+      "grade": "B",
+      "alignment": "aligned",
+      "w1_state": "range",
+      "d1_state": "range",
+      "h4_setup": "pullback",
+      "h1_trigger": "unknown",
+      "cross_asset_state": {
+        "usd_regime": "unknown",
+        "risk_regime": "unknown",
+        "rates_bias": "unknown",
+        "gold_confirm": null,
+        "oil_confirm": null,
+        "missing_features": [
+          "dxy",
+          "vix",
+          "us10y"
+        ]
+      },
+      "cost_state": "marginal",
+      "spread_to_atr_pct": 10.077555186706531,
+      "divergence_flag": "none",
+      "reason_codes": [
+        "d1_aligned",
+        "cross_asset_missing",
+        "grade_b"
+      ],
+      "strategy_evidence": false
+    },
+    {
+      "instrument": "EUR_USD",
+      "bar_time": "2020-01-24 14:00:00+00:00",
+      "side": "long",
+      "grade": "B",
+      "alignment": "aligned",
+      "w1_state": "range",
+      "d1_state": "range",
+      "h4_setup": "pullback",
+      "h1_trigger": "unknown",
+      "cross_asset_state": {
+        "usd_regime": "unknown",
+        "risk_regime": "unknown",
+        "rates_bias": "unknown",
+        "gold_confirm": null,
+        "oil_confirm": null,
+        "missing_features": [
+          "dxy",
+          "vix",
+          "us10y"
+        ]
+      },
+      "cost_state": "acceptable",
+      "spread_to_atr_pct": 6.741974612918766,
+      "divergence_flag": "none",
+      "reason_codes": [
+        "d1_aligned",
+        "cross_asset_missing",
+        "grade_b"
+      ],
+      "strategy_evidence": false
+    },
+    {
+      "instrument": "EUR_USD",
+      "bar_time": "2020-01-24 14:00:00+00:00",
+      "side": "short",
+      "grade": "B",
+      "alignment": "aligned",
+      "w1_state": "range",
+      "d1_state": "range",
+      "h4_setup": "pullback",
+      "h1_trigger": "unknown",
+      "cross_asset_state": {
+        "usd_regime": "unknown",
+        "risk_regime": "unknown",
+        "rates_bias": "unknown",
+        "gold_confirm": null,
+        "oil_confirm": null,
+        "missing_features": [
+          "dxy",
+          "vix",
+          "us10y"
+        ]
+      },
+      "cost_state": "acceptable",
+      "spread_to_atr_pct": 6.741974612918766,
+      "divergence_flag": "none",
+      "reason_codes": [
+        "d1_aligned",
+        "cross_asset_missing",
+        "grade_b"
+      ],
+      "strategy_evidence": false
+    },
+    {
+      "instrument": "EUR_USD",
+      "bar_time": "2020-01-29 22:00:00+00:00",
+      "side": "long",
+      "grade": "B",
+      "alignment": "aligned",
+      "w1_state": "range",
+      "d1_state": "range",
+      "h4_setup": "pullback",
+      "h1_trigger": "unknown",
+      "cross_asset_state": {
+        "usd_regime": "unknown",
+        "risk_regime": "unknown",
+        "rates_bias": "unknown",
+        "gold_confirm": null,
+        "oil_confirm": null,
+        "missing_features": [
+          "dxy",
+          "vix",
+          "us10y"
+        ]
+      },
+      "cost_state": "marginal",
+      "spread_to_atr_pct": 9.440584993904084,
+      "divergence_flag": "none",
+      "reason_codes": [
+        "d1_aligned",
+        "cross_asset_missing",
+        "grade_b"
+      ],
+      "strategy_evidence": false
+    },
+    {
+      "instrument": "EUR_USD",
+      "bar_time": "2020-01-29 22:00:00+00:00",
+      "side": "short",
+      "grade": "B",
+      "alignment": "aligned",
+      "w1_state": "range",
+      "d1_state": "range",
+      "h4_setup": "pullback",
+      "h1_trigger": "unknown",
+      "cross_asset_state": {
+        "usd_regime": "unknown",
+        "risk_regime": "unknown",
+        "rates_bias": "unknown",
+        "gold_confirm": null,
+        "oil_confirm": null,
+        "missing_features": [
+          "dxy",
+          "vix",
+          "us10y"
+        ]
+      },
+      "cost_state": "marginal",
+      "spread_to_atr_pct": 9.440584993904084,
+      "divergence_flag": "none",
+      "reason_codes": [
+        "d1_aligned",
+        "cross_asset_missing",
+        "grade_b"
+      ],
+      "strategy_evidence": false
+    },
+    {
+      "instrument": "EUR_USD",
+      "bar_time": "2020-02-04 06:00:00+00:00",
+      "side": "long",
+      "grade": "B",
+      "alignment": "aligned",
+      "w1_state": "range",
+      "d1_state": "range",
+      "h4_setup": "pullback",
+      "h1_trigger": "unknown",
+      "cross_asset_state": {
+        "usd_regime": "unknown",
+        "risk_regime": "unknown",
+        "rates_bias": "unknown",
+        "gold_confirm": null,
+        "oil_confirm": null,
+        "missing_features": [
+          "dxy",
+          "vix",
+          "us10y"
+        ]
+      },
+      "cost_state": "marginal",
+      "spread_to_atr_pct": 9.230792545322743,
+      "divergence_flag": "none",
+      "reason_codes": [
+        "d1_aligned",
+        "cross_asset_missing",
+        "grade_b"
+      ],
+      "strategy_evidence": false
+    },
+    {
+      "instrument": "EUR_USD",
+      "bar_time": "2020-02-04 06:00:00+00:00",
+      "side": "short",
+      "grade": "B",
+      "alignment": "aligned",
+      "w1_state": "range",
+      "d1_state": "range",
+      "h4_setup": "pullback",
+      "h1_trigger": "unknown",
+      "cross_asset_state": {
+        "usd_regime": "unknown",
+        "risk_regime": "unknown",
+        "rates_bias": "unknown",
+        "gold_confirm": null,
+        "oil_confirm": null,
+        "missing_features": [
+          "dxy",
+          "vix",
+          "us10y"
+        ]
+      },
+      "cost_state": "marginal",
+      "spread_to_atr_pct": 9.230792545322743,
+      "divergence_flag": "none",
+      "reason_codes": [
+        "d1_aligned",
+        "cross_asset_missing",
+        "grade_b"
+      ],
+      "strategy_evidence": false
+    }
+  ],
+  "explicit_disclaimer": "Diagnostic infrastructure only. Not strategy evidence. No approval. No expectancy or win-rate claims."
+}
