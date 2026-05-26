@@ -1,0 +1,14 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T20:43:50.506445+00:00",
+  "overall_status": "BLOCKED_AUTH_OR_LOCAL_CSV_REQUIRED",
+  "fred_api_key_present": false,
+  "observation_start": "2018-01-01",
+  "observation_end": "2026-05-24",
+  "h4_research_first_bar": "2020-01-01 22:00:00+00:00",
+  "h4_research_last_bar": "2026-05-24 21:00:00+00:00",
+  "series": [],
+  "required_series_complete": false,
+  "explicit_disclaimer": "Diagnostic data-readiness only. Not strategy evidence. No win-rate or expectancy claims."
+}

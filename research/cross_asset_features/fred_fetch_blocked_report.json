@@ -3,6 +3,6 @@
   "diagnostic_only": true,
   "status": "BLOCKED_AUTH_OR_LOCAL_CSV_REQUIRED",
   "reason": "FRED_API_KEY not set in environment or .env",
-  "generated_at_utc": "2026-05-26T20:18:48.904899+00:00",
+  "generated_at_utc": "2026-05-26T20:43:50.506471+00:00",
   "remediation": "Set FRED_API_KEY in environment or .env, or place local CSVs in data/external_features/ per research/cross_asset_features/feature_schema.md"
 }

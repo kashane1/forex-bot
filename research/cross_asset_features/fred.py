@@ -16,6 +16,15 @@ from research.cross_asset_features.schema import load_source_registry
 
 FRED_OBSERVATIONS_URL = "https://api.stlouisfed.org/fred/series/observations"
 
+REQUIRED_FRED_FEATURES: tuple[str, ...] = (
+    "broad_usd_index",
+    "us_2y_yield",
+    "us_10y_yield",
+    "vix",
+    "sp500",
+    "oil_wti",
+)
+
 
 @dataclass(frozen=True)
 class FredFetchResult:
@@ -179,3 +188,98 @@ def fetch_all_fred_features(
     if any(r.status == "error" for r in results):
         return results, "PARTIAL_OR_ERROR"
     return results, "OK"
+
+
+def build_fred_fetch_status_report(
+    results: list[FredFetchResult],
+    *,
+    observation_start: str,
+    observation_end: str | None,
+    overall_status: str,
+    h4_first: str | None = None,
+    h4_last: str | None = None,
+    api_key_present: bool = False,
+) -> dict[str, object]:
+    series_rows: list[dict[str, object]] = []
+    for r in results:
+        series_rows.append(
+            {
+                "feature_id": r.feature_id,
+                "series_id": r.series_id,
+                "status": r.status,
+                "rows": r.rows,
+                "message": r.message,
+                "required": r.feature_id in REQUIRED_FRED_FEATURES,
+            }
+        )
+    required_ok = all(
+        row["status"] == "ok" and int(row["rows"]) > 0  # type: ignore[arg-type]
+        for row in series_rows
+        if row.get("required")
+    )
+    return {
+        "strategy_evidence": False,
+        "diagnostic_only": True,
+        "generated_at_utc": datetime.now(tz=UTC).isoformat(),
+        "overall_status": overall_status,
+        "fred_api_key_present": api_key_present,
+        "observation_start": observation_start,
+        "observation_end": observation_end,
+        "h4_research_first_bar": h4_first,
+        "h4_research_last_bar": h4_last,
+        "series": series_rows,
+        "required_series_complete": required_ok if results else False,
+        "explicit_disclaimer": (
+            "Diagnostic data-readiness only. Not strategy evidence. "
+            "No win-rate or expectancy claims."
+        ),
+    }
+
+
+def write_fred_fetch_status_report(path: Path, report: dict[str, object]) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    return path
+
+
+def run_fred_fetch_for_window(
+    *,
+    cache_dir: Path,
+    observation_start: str,
+    observation_end: str | None,
+    output_dir: Path,
+    h4_first: str | None = None,
+    h4_last: str | None = None,
+) -> tuple[list[FredFetchResult], dict[str, object]]:
+    api_key = get_fred_api_key()
+    if not api_key:
+        report = build_fred_fetch_status_report(
+            [],
+            observation_start=observation_start,
+            observation_end=observation_end,
+            overall_status="BLOCKED_AUTH_OR_LOCAL_CSV_REQUIRED",
+            h4_first=h4_first,
+            h4_last=h4_last,
+            api_key_present=False,
+        )
+        write_blocked_report(output_dir, reason="FRED_API_KEY not set in environment or .env")
+        write_fred_fetch_status_report(output_dir / "fred_fetch_status_real_window.json", report)
+        return [], report
+
+    results, status = fetch_all_fred_features(
+        cache_dir=cache_dir,
+        observation_start=observation_start,
+        observation_end=observation_end,
+        api_key=api_key,
+    )
+    report = build_fred_fetch_status_report(
+        results,
+        observation_start=observation_start,
+        observation_end=observation_end,
+        overall_status=status,
+        h4_first=h4_first,
+        h4_last=h4_last,
+        api_key_present=True,
+    )
+    write_fred_fetch_status_report(output_dir / "fred_fetch_status_real_window.json", report)
+    return results, report
