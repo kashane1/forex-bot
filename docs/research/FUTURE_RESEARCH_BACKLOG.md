@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-26 · **Branch:** `research-c008-mean-reversion-post-mortem-001`
+**Date:** 2026-05-26 · **Branch:** `research-stop-and-exit-diagnostics-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -14,7 +14,8 @@
 > Trade-quality infrastructure sprints **complete**:
 > [`INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md`](INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md),
 > [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md),
-> [`C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md`](C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md).
+> [`C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md`](C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md),
+> [`STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md`](STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md).
 
 Ordering is rough priority. **Item 0** is the recommended next sprint.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
@@ -23,18 +24,47 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. Stop and exit diagnostics (RECOMMENDED NEXT SPRINT)
+## 0. Deduped C008/C009 forensic rerun (RECOMMENDED NEXT SPRINT)
 
-- **Why it matters.** C008 post-mortem shows validation edge is **entirely
-  time-stop driven** (+1.83 R on 40-bar exits); train failure is **stop-out
-  dominated** (153/156 losers). C009 midline-exit rescue **falsified** on train.
-  Exit structure — not cross-asset or confluence alone — is the main explanatory
-  gap before any future mean-reversion campaign.
+- **Why it matters.** Stop/exit diagnostics show framework-wide stop/time pathology
+  (including C011 null), but C008/C009 artifacts remain **LIKELY_CONTAMINATED**.
+  Exit forensics and MAE/MFE findings cannot support pre-registration or promotion
+  until a dedup-safe forensic replay reproduces exit-reason parity on frozen entries.
+- **Sprint name.** `infra-deduped-c008-c009-rerun-forensic-only-001`
+- **Scope.** Forensic-only replay of frozen C008/C009 entries on dedup-safe engine;
+  `strategy_evidence: false`; no retuning; no new strategy campaign; no lockbox.
+- **Status.** **RECOMMENDED** — based on stop/exit diagnostics + contamination audit.
+
+---
+
+## 0-deferred. Exit hypothesis precommit (DEFERRED UNTIL CLEAN REPLAY)
+
+- **Why it matters.** Allowed exit hypotheses are classified in
+  [`FUTURE_EXIT_RESEARCH_HYPOTHESES.md`](FUTURE_EXIT_RESEARCH_HYPOTHESES.md), but
+  precommit requires dedup-safe entry ledger first.
+- **Sprint name.** `research-exit-hypothesis-precommit-001`
+- **Status.** **DEFERRED** — blocked until deduped C008/C009 forensic rerun.
+
+---
+
+## 0-deferred. Financing-modeled PnL and carry readiness (PARALLEL CANDIDATE)
+
+- **Why it matters.** C008 40-bar time exits imply multi-day holds; financing is
+  unmodeled and blocks fair exit/carry comparison.
+- **Sprint name.** `research-financing-modeled-pnl-and-carry-readiness-001`
+- **Status.** **DEFERRED** — important but secondary to evidence integrity replay.
+
+---
+
+## 0-complete. Stop and exit diagnostics (COMPLETE)
+
+- **Why it mattered.** C008 post-mortem showed validation edge entirely time-stop
+  driven; train failure stop-dominated. Needed cross-campaign context.
 - **Sprint name.** `research-stop-and-exit-diagnostics-001`
-- **Scope.** Descriptive exit-path analysis across rejected campaigns; exit
-  catalog alignment; financing interaction with hold time. **No retuning. No
-  new strategy campaign.**
-- **Status.** **RECOMMENDED** — based on C008 post-mortem findings.
+- **Delivered.** Exit artifact inventory, cross-campaign matrix, C008/C009 forensics,
+  MAE/MFE diagnostics, future exit hypotheses + gate.
+- **Summary.** [`STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md`](STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md)
+- **Status.** **COMPLETE** — diagnostic only; no strategy approved.
 
 ---
 

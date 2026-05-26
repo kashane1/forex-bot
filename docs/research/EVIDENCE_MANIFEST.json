@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-26",
-  "branch": "research-c008-mean-reversion-post-mortem-001",
+  "branch": "research-stop-and-exit-diagnostics-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -17,15 +17,15 @@
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "research-stop-and-exit-diagnostics-001",
-    "next_non_strategy_sprint_status": "RECOMMENDED_EXIT_DIAGNOSTICS",
-    "completed_non_strategy_sprint": "research-c008-mean-reversion-post-mortem-001",
-    "prior_completed_non_strategy_sprint": "infra-external-data-ingest-blocker-resolution-001",
+    "next_non_strategy_sprint": "infra-deduped-c008-c009-rerun-forensic-only-001",
+    "next_non_strategy_sprint_status": "RECOMMENDED_DEDUP_FORENSIC_REPLAY",
+    "completed_non_strategy_sprint": "research-stop-and-exit-diagnostics-001",
+    "prior_completed_non_strategy_sprint": "research-c008-mean-reversion-post-mortem-001",
     "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
     "prior_non_strategy_sprint_note": "Subsumed by completed cost-atlas work in infra-multi-timeframe-confluence-and-cost-atlas-001.",
     "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
     "trade_quality_roadmap_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md",
-    "trade_quality_infra_doc": "docs/research/C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md"
+    "trade_quality_infra_doc": "docs/research/STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md"
   },
   "pro_alpha_confluence_roadmap": {
     "sprint": "PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_001",
@@ -84,6 +84,30 @@
     "c009_failed_gate_observed_r": -0.062,
     "recommended_next_sprint": "research-stop-and-exit-diagnostics-001",
     "diagnostics_dir": "research/c008_post_mortem"
+  },
+  "stop_and_exit_diagnostics": {
+    "sprint": "STOP_AND_EXIT_DIAGNOSTICS_001",
+    "sprint_type": "diagnostic_research_only",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "campaign_018_created": false,
+    "c008_verdict_unchanged": "REJECT",
+    "c009_verdict_unchanged": "REJECT",
+    "retuning_performed": false,
+    "new_strategy_campaign_created": false,
+    "mae_mfe_computed": true,
+    "campaigns_with_usable_trades": 14,
+    "stop_time_pathology_c008_specific": false,
+    "plan_doc": "docs/research/STOP_AND_EXIT_DIAGNOSTICS_001_PLAN.md",
+    "summary_doc": "docs/research/STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md",
+    "diagnostics_dir": "research/exit_diagnostics",
+    "recommended_next_sprint": "infra-deduped-c008-c009-rerun-forensic-only-001",
+    "key_findings": [
+      "stop_time_sign_split_visible_in_c011_null",
+      "c009_midline_target_caps_winner_tail_vs_c008_time_exits",
+      "c008_stops_split_bad_entry_vs_favorable_then_stopped",
+      "c008_c009_likely_contaminated_blocks_promotion"
+    ]
   },
   "infra_external_data_blocker_resolution": {
     "sprint": "INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001",
@@ -1177,6 +1201,41 @@
       "path": "docs/research/C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md",
       "kind": "research_diagnostic",
       "description": "Close-out for research-c008-mean-reversion-post-mortem-001. C008/C009 remain REJECT. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EXIT_ARTIFACT_INVENTORY",
+      "path": "research/exit_diagnostics/exit_artifact_inventory.json",
+      "kind": "research_diagnostic",
+      "description": "Per-campaign trade artifact field inventory for exit diagnostics. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CROSS_CAMPAIGN_EXIT_MATRIX",
+      "path": "research/exit_diagnostics/cross_campaign_exit_matrix.json",
+      "kind": "research_diagnostic",
+      "description": "Cross-campaign exit reason breakdowns. Contaminated campaigns labeled. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "C008_C009_EXIT_FORENSICS",
+      "path": "research/exit_diagnostics/c008_c009_exit_forensics.json",
+      "kind": "research_diagnostic",
+      "description": "C008/C009 train vs validation exit forensics. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "STOP_DISTANCE_ADVERSE_EXCURSION",
+      "path": "research/exit_diagnostics/stop_distance_adverse_excursion.json",
+      "kind": "research_diagnostic",
+      "description": "Descriptive MAE/MFE for C008/C009 from H4 candles. No stop retuning. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY",
+      "path": "docs/research/STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md",
+      "kind": "research_diagnostic",
+      "description": "Close-out for research-stop-and-exit-diagnostics-001. No strategy approved. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]

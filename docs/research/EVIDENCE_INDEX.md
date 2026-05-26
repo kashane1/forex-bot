@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-26 · **Branch:** `research-c008-mean-reversion-post-mortem-001`
+**Date:** 2026-05-26 · **Branch:** `research-stop-and-exit-diagnostics-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -12,7 +12,7 @@ map; the linked documents are the authoritative evidence.
 > confluence prototype, cross-asset scaffolding — diagnostic only).
 > Cross-asset **blocker-resolution sprint** complete (full-window FRED ingest
 > succeeded; `cross_asset_missing` eliminated). **C008 post-mortem sprint**
-> complete. See respective summaries.
+> complete. **Stop/exit diagnostics sprint** complete. See respective summaries.
 > See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
 ## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
@@ -61,7 +61,7 @@ map; the linked documents are the authoritative evidence.
 
 > **Diagnostic post-mortem only** — `strategy_evidence: false`. No strategy
 > approved. C008/C009 verdicts unchanged (**REJECT**). No CAMPAIGN_018.
-> Recommended next sprint: `research-stop-and-exit-diagnostics-001`.
+> Recommended next sprint: `infra-deduped-c008-c009-rerun-forensic-only-001`.
 
 | document | purpose |
 |---|---|
@@ -81,6 +81,27 @@ map; the linked documents are the authoritative evidence.
 | [`EXTERNAL_DATA_BLOCKER_RESOLUTION_DIAGNOSTIC_IMPACT.md`](EXTERNAL_DATA_BLOCKER_RESOLUTION_DIAGNOSTIC_IMPACT.md) | Diagnostic impact (no edge claims) |
 | [`research/cross_asset_features/fred_fetch_status_real_window.json`](../../research/cross_asset_features/fred_fetch_status_real_window.json) | FRED fetch status JSON |
 | [`research/cross_asset_features/local_csv_fallback_status.json`](../../research/cross_asset_features/local_csv_fallback_status.json) | Local CSV scan status |
+
+## Stop and exit diagnostics (STOP_AND_EXIT_DIAGNOSTICS_001)
+
+> **Diagnostic only** — `strategy_evidence: false`. No strategy approved. C008/C009
+> remain **REJECT**. No CAMPAIGN_018. Stop/time pathology is **framework-wide**, not
+> C008-only. Recommended next sprint: `infra-deduped-c008-c009-rerun-forensic-only-001`.
+
+| document | purpose |
+|---|---|
+| [`STOP_AND_EXIT_DIAGNOSTICS_001_PLAN.md`](STOP_AND_EXIT_DIAGNOSTICS_001_PLAN.md) | Sprint plan |
+| [`STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md`](STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md) | Sprint close-out |
+| [`EXIT_ARTIFACT_INVENTORY.md`](EXIT_ARTIFACT_INVENTORY.md) | Trade artifact field inventory |
+| [`CROSS_CAMPAIGN_EXIT_PATHOLOGY_MATRIX.md`](CROSS_CAMPAIGN_EXIT_PATHOLOGY_MATRIX.md) | Cross-campaign exit breakdown |
+| [`C008_C009_EXIT_FORENSICS.md`](C008_C009_EXIT_FORENSICS.md) | C008/C009 train/validation forensics |
+| [`STOP_DISTANCE_AND_ADVERSE_EXCURSION_DIAGNOSTICS.md`](STOP_DISTANCE_AND_ADVERSE_EXCURSION_DIAGNOSTICS.md) | MAE/MFE and stop distance |
+| [`FUTURE_EXIT_RESEARCH_HYPOTHESES.md`](FUTURE_EXIT_RESEARCH_HYPOTHESES.md) | Pre-registerable exit hypotheses |
+| [`FUTURE_EXIT_RESEARCH_GATE.md`](FUTURE_EXIT_RESEARCH_GATE.md) | Future exit campaign gate |
+| [`research/exit_diagnostics/exit_artifact_inventory.json`](../../research/exit_diagnostics/exit_artifact_inventory.json) | Machine-readable inventory |
+| [`research/exit_diagnostics/cross_campaign_exit_matrix.json`](../../research/exit_diagnostics/cross_campaign_exit_matrix.json) | Machine-readable exit matrix |
+| [`research/exit_diagnostics/c008_c009_exit_forensics.json`](../../research/exit_diagnostics/c008_c009_exit_forensics.json) | C008/C009 forensics JSON |
+| [`research/exit_diagnostics/stop_distance_adverse_excursion.json`](../../research/exit_diagnostics/stop_distance_adverse_excursion.json) | MAE/MFE JSON |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
