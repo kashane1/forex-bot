@@ -51,7 +51,12 @@ def test_availability_alignment_no_same_day_leak() -> None:
 def test_availability_report_fixture_only() -> None:
     report = build_availability_report(REPO_ROOT, fixture_dir=FIXTURE_DIR, data_dir=REPO_ROOT / "data" / "nope")
     assert report["strategy_evidence"] is False
-    assert report["status"] in ("FIXTURE_ONLY", "BLOCKED_LOCAL_DATA_REQUIRED", "REAL_DATA_AVAILABLE")
+    assert report["status"] in (
+        "FIXTURE_ONLY",
+        "BLOCKED_LOCAL_DATA_REQUIRED",
+        "REAL_DATA_AVAILABLE",
+        "REAL_DATA_NORMALIZED",
+    )
 
 
 def test_reject_future_dated_rows(tmp_path: Path) -> None:
