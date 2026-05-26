@@ -172,7 +172,7 @@ def build_cost_atlas(
         "diagnostic_only": True,
         "generated_at_utc": datetime.now(tz=UTC).isoformat(),
         "instruments": list(instruments),
-        "bar_count": int(len(all_bars)),
+        "bar_count": len(all_bars),
         "dedupe_policy": "keep_last",
         "fold_plan": str(fold_plan_path) if fold_plan_path.is_file() else None,
         "global_spread_pips": _agg_stats(all_bars["spread_pips"]),

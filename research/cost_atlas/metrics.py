@@ -12,7 +12,6 @@ if str(_REPO_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT / "src"))
 
 from forex_bot.strategies.indicators import atr  # noqa: E402
-
 from research.cost_atlas.session import (  # noqa: E402
     is_rollover_adjacent,
     is_weekend_adjacent,

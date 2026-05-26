@@ -9,9 +9,6 @@ from pathlib import Path
 
 import pandas as pd
 import pytest
-
-from forex_bot.data.candle_dedupe import dedupe_candles
-from forex_bot.domain.candles import Candle
 from research.cost_atlas.atlas import (
     build_cost_atlas,
     classify_cost_state,
@@ -19,6 +16,9 @@ from research.cost_atlas.atlas import (
 )
 from research.cost_atlas.metrics import compute_bar_metrics, spread_pips, spread_to_atr
 from research.cost_atlas.session import session_bucket
+
+from forex_bot.data.candle_dedupe import dedupe_candles
+from forex_bot.domain.candles import Candle
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 

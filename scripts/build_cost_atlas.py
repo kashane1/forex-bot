@@ -13,8 +13,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from research.cost_atlas.atlas import build_cost_atlas, write_cost_atlas_outputs  # noqa: E402
-from research.edge_discovery.real_data import resolve_h4_store_path  # noqa: E402
+from research.cost_atlas.atlas import build_cost_atlas, write_cost_atlas_outputs
+from research.edge_discovery.real_data import resolve_h4_store_path
 
 
 def main() -> int:
