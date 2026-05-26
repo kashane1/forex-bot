@@ -1,0 +1,60 @@
+{
+  "per_pair": [
+    {
+      "analyzer": {
+        "closed_trades": 82
+      },
+      "final_cash": 487.9857950000003,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 97
+      },
+      "final_cash": 509.970925,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 64
+      },
+      "final_cash": 506.27269956083467,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 99
+      },
+      "final_cash": 481.9079150000004,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 85
+      },
+      "final_cash": 484.4662318039489,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 79
+      },
+      "final_cash": 483.19970488701586,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 69
+      },
+      "final_cash": 494.7682049999996,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    }
+  ]
+}

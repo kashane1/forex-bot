@@ -1,0 +1,94 @@
+{
+  "campaign_id": "CAMPAIGN_015",
+  "strategy_name": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015",
+  "config_hash": "17ddfd7eb87d93c502f148642c8ee883c66cb72bfa8ca72f981624a0dcfdd93c",
+  "cost_label": "base",
+  "fill_timing": "next_bar_open",
+  "data_request_hashes": {
+    "EUR_USD": "17674d161df0c605",
+    "GBP_USD": "0f45f4b74aa24a6a",
+    "USD_JPY": "805a38838d7df0c6",
+    "AUD_USD": "a005c0546964b622",
+    "USD_CAD": "092b1223399f26e6",
+    "USD_CHF": "25b038e436e04899",
+    "NZD_USD": "c80a674f6dc74825"
+  },
+  "total_trades": 164,
+  "approval_path": "none (post-run diagnostic only)",
+  "approved_strategies_yaml_state": "approved: []",
+  "diagnostic_disclaimer": "Aggregated from the rehydrate walk-forward across 8 fold test windows; does NOT cover the full 2020-2026 universe the BT lane iterates. A trade-count delta between BT and this reference is expected on window-coverage grounds alone and is documented by the comparison harness as the appropriate divergence class.",
+  "pairs": [
+    {
+      "instrument": "AUD_USD",
+      "candle_count": null,
+      "trades": 24,
+      "expectancy_r": 0.077,
+      "return_pct": 0.4799,
+      "win_rate": 0.375,
+      "profit_factor": 1.1472,
+      "max_drawdown_pct": null
+    },
+    {
+      "instrument": "EUR_USD",
+      "candle_count": null,
+      "trades": 27,
+      "expectancy_r": 0.0191,
+      "return_pct": 0.1563,
+      "win_rate": 0.3333,
+      "profit_factor": 1.0291,
+      "max_drawdown_pct": null
+    },
+    {
+      "instrument": "GBP_USD",
+      "candle_count": null,
+      "trades": 41,
+      "expectancy_r": 0.1643,
+      "return_pct": 1.6516,
+      "win_rate": 0.4146,
+      "profit_factor": 1.3029,
+      "max_drawdown_pct": null
+    },
+    {
+      "instrument": "NZD_USD",
+      "candle_count": null,
+      "trades": 5,
+      "expectancy_r": -0.5206,
+      "return_pct": -0.67,
+      "win_rate": 0.2,
+      "profit_factor": 0.1004,
+      "max_drawdown_pct": null
+    },
+    {
+      "instrument": "USD_CAD",
+      "candle_count": null,
+      "trades": 23,
+      "expectancy_r": 0.4549,
+      "return_pct": 3.9699,
+      "win_rate": 0.3478,
+      "profit_factor": 2.2143,
+      "max_drawdown_pct": null
+    },
+    {
+      "instrument": "USD_CHF",
+      "candle_count": null,
+      "trades": 27,
+      "expectancy_r": 0.7616,
+      "return_pct": 4.5879,
+      "win_rate": 0.5185,
+      "profit_factor": 2.4091,
+      "max_drawdown_pct": null
+    },
+    {
+      "instrument": "USD_JPY",
+      "candle_count": null,
+      "trades": 17,
+      "expectancy_r": 0.0118,
+      "return_pct": 7.0843,
+      "win_rate": 0.5294,
+      "profit_factor": 5.3447,
+      "max_drawdown_pct": null
+    }
+  ],
+  "generated_at": "2026-05-26T01:55:31+00:00"
+}

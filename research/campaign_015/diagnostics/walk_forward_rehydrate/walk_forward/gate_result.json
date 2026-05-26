@@ -1,0 +1,63 @@
+{
+  "campaign_id": "CAMPAIGN_015",
+  "strategy_name": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015",
+  "verdict": "REJECT",
+  "verdict_ceiling": "PASS_RESEARCH_SCREEN",
+  "approval_status": "NOT_APPROVED",
+  "approved_strategies_yaml_state": "approved: []",
+  "config_path": "configs/campaign_015_failed_breakout_reversal.yaml",
+  "config_hash": "17ddfd7eb87d93c502f148642c8ee883c66cb72bfa8ca72f981624a0dcfdd93c",
+  "fold_count": 8,
+  "by_cost": {
+    "base": {
+      "aggregate_expectancy_r": 0.23003944308176186,
+      "aggregate_return_pct": 17.259969844532876,
+      "profit_factor": 107.55430220848092,
+      "total_trades": 164,
+      "fold_pass_rate": 0.0,
+      "folds_passing": 0,
+      "pairs_positive_count": 6,
+      "single_pair_dominance_pct": 30.212624373586838,
+      "median_per_fold_expectancy_r": 0.25877138215719675,
+      "trade_level_cumulative_r": 37.726468665408945,
+      "aggregate_gates": {
+        "fold_pass_rate_ge_5_of_8": false,
+        "fold_count_ge_8": true,
+        "expectancy_r_min": true,
+        "profit_factor_min": true,
+        "trade_count_min_200": false,
+        "trade_count_max_800": true,
+        "pairs_positive_ge_4_of_7": true,
+        "single_pair_dominance_le_70pct": true
+      },
+      "aggregate_pass": false,
+      "expectancy_min_applied": 0.03,
+      "profit_factor_min_applied": 1.05
+    },
+    "2xcost": {
+      "aggregate_expectancy_r": 0.19088037333161284,
+      "aggregate_return_pct": 15.971283019346027,
+      "profit_factor": 39.692563731812754,
+      "total_trades": 164,
+      "fold_pass_rate": 0.0,
+      "folds_passing": 0,
+      "aggregate_gates": {
+        "fold_pass_rate_ge_5_of_8": false,
+        "fold_count_ge_8": true,
+        "expectancy_r_min": true,
+        "profit_factor_min": true,
+        "trade_count_min_200": false,
+        "trade_count_max_800": true,
+        "pairs_positive_ge_4_of_7": true,
+        "single_pair_dominance_le_70pct": true
+      },
+      "aggregate_pass": false,
+      "expectancy_min_applied": 0.0,
+      "profit_factor_min_applied": 1.0
+    }
+  },
+  "blocked": false,
+  "blocked_reasons": [],
+  "generated_at": "2026-05-26T00:30:45.370087+00:00"
+}

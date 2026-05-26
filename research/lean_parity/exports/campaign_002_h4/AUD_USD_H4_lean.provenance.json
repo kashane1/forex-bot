@@ -4,13 +4,13 @@
   "source": "oanda-practice",
   "requested_from": "2020-01-01",
   "requested_to": "2026-05-20",
-  "candle_count": 9931,
+  "candle_count": 9933,
   "first_ts": "2020-01-01T22:00:00+00:00",
-  "last_ts": "2026-05-19T21:00:00+00:00",
-  "data_sha256": "fb9e619a93fb24d1ec297a0046df115e0b80decabb767646b0a926a208ed12d8",
-  "campaign_002_data_request_hash": "f80ebeddf05ab414",
+  "last_ts": "2026-05-20T05:00:00+00:00",
+  "data_sha256": "401f8634fb9001e17b4e9b9e820c14b40bf6030bf7772d5bfdeff56107911f55",
+  "campaign_002_data_request_hash": "6e9c1ecf203bc851",
   "lean_csv": "AUD_USD_H4_lean.csv",
   "exported_by": "scripts/export_lean_parity_data.py",
-  "exported_at": "2026-05-22T20:38:21+00:00",
+  "exported_at": "2026-05-26T01:51:42+00:00",
   "note": "Real OANDA H4 bid/ask candles. Before comparing a Lean run, confirm campaign_002_data_request_hash matches the value in the CAMPAIGN_002 artifacts \u2014 that proves both engines replay the same candles."
 }
