@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-26 · **Branch:** `infra-cross-asset-real-data-ingest-001`
+**Date:** 2026-05-26 · **Branch:** `infra-external-data-ingest-blocker-resolution-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -10,10 +10,9 @@ map; the linked documents are the authoritative evidence.
 > Broad seven-pair pattern strategy search is **paused** (2026-05-26).
 > Trade-quality infrastructure sprint **complete** (cost atlas, MTF
 > confluence prototype, cross-asset scaffolding — diagnostic only).
-> Cross-asset **real-data ingest pipeline** sprint **complete**
-> (FRED fetcher + normalization + H4 alignment — fixture-window until
-> `FRED_API_KEY` or local CSVs). See
-> `docs/research/INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md`.
+> Cross-asset **blocker-resolution sprint** complete (full-window pipeline
+> ready; FRED auth still blocked). See
+> `docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`.
 > See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
 ## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
@@ -46,6 +45,25 @@ map; the linked documents are the authoritative evidence.
 | [`EXIT_AND_SIZING_OVERLAY_ROADMAP.md`](EXIT_AND_SIZING_OVERLAY_ROADMAP.md) | Exit catalog, C008 post-mortem lane, Kelly deferral |
 | [`ASSET_EXPANSION_SHORTLIST.md`](ASSET_EXPANSION_SHORTLIST.md) | Phased instrument shortlist + avoid list |
 | [`PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md`](PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md) | Sprint close-out |
+
+## Infra external data blocker resolution (INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001)
+
+> **Implementation infrastructure / data only** — `strategy_evidence: false`. No
+> strategy approved. No CAMPAIGN_018. FRED fetch **still blocked** without API key;
+> `cross_asset_missing` unchanged at 2,142. Recommended next sprint:
+> `infra-external-data-credentials-or-manual-csv-setup-001`.
+
+| document | purpose |
+|---|---|
+| [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_PLAN.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_PLAN.md) | Sprint plan and truth audit |
+| [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md) | Sprint close-out |
+| [`EXTERNAL_DATA_INGEST_STILL_BLOCKED.md`](EXTERNAL_DATA_INGEST_STILL_BLOCKED.md) | Operator setup when FRED blocked |
+| [`FRED_REAL_WINDOW_FETCH_RESULT.md`](FRED_REAL_WINDOW_FETCH_RESULT.md) | Full-window fetch result |
+| [`EXTERNAL_FEATURE_LOCAL_CSV_TEMPLATE.md`](EXTERNAL_FEATURE_LOCAL_CSV_TEMPLATE.md) | Manual CSV drop template |
+| [`CROSS_ASSET_H4_ALIGNMENT_AUDIT_FULL_WINDOW.md`](CROSS_ASSET_H4_ALIGNMENT_AUDIT_FULL_WINDOW.md) | Full-window alignment audit |
+| [`EXTERNAL_DATA_BLOCKER_RESOLUTION_DIAGNOSTIC_IMPACT.md`](EXTERNAL_DATA_BLOCKER_RESOLUTION_DIAGNOSTIC_IMPACT.md) | Diagnostic impact (no edge claims) |
+| [`research/cross_asset_features/fred_fetch_status_real_window.json`](../../research/cross_asset_features/fred_fetch_status_real_window.json) | FRED fetch status JSON |
+| [`research/cross_asset_features/local_csv_fallback_status.json`](../../research/cross_asset_features/local_csv_fallback_status.json) | Local CSV scan status |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

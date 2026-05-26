@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-26",
-  "branch": "infra-cross-asset-real-data-ingest-001",
+  "branch": "infra-external-data-ingest-blocker-resolution-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -17,15 +17,15 @@
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "infra-external-data-ingest-blocker-resolution-001",
-    "next_non_strategy_sprint_status": "RECOMMENDED_BLOCKED_FRED_AUTH",
-    "completed_non_strategy_sprint": "infra-cross-asset-real-data-ingest-001",
-    "prior_completed_non_strategy_sprint": "infra-multi-timeframe-confluence-and-cost-atlas-001",
+    "next_non_strategy_sprint": "infra-external-data-credentials-or-manual-csv-setup-001",
+    "next_non_strategy_sprint_status": "RECOMMENDED_FRED_AUTH_BLOCKED",
+    "completed_non_strategy_sprint": "infra-external-data-ingest-blocker-resolution-001",
+    "prior_completed_non_strategy_sprint": "infra-cross-asset-real-data-ingest-001",
     "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
     "prior_non_strategy_sprint_note": "Subsumed by completed cost-atlas work in infra-multi-timeframe-confluence-and-cost-atlas-001.",
     "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
     "trade_quality_roadmap_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md",
-    "trade_quality_infra_doc": "docs/research/INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md"
+    "trade_quality_infra_doc": "docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md"
   },
   "pro_alpha_confluence_roadmap": {
     "sprint": "PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_001",
@@ -35,7 +35,7 @@
     "campaign_018_created": false,
     "implementation_sprint_started": true,
     "implementation_sprint_completed": "infra-multi-timeframe-confluence-and-cost-atlas-001",
-    "recommended_next_implementation_sprint": "infra-external-data-ingest-blocker-resolution-001",
+    "recommended_next_implementation_sprint": "infra-external-data-credentials-or-manual-csv-setup-001",
     "recommended_implementation_scope": [
       "cost_atlas_spread_diagnostics",
       "multi_timeframe_confluence_prototype",
@@ -64,24 +64,33 @@
     "cross_asset_module": "research/cross_asset_features",
     "diagnostics_dir": "research/confluence_diagnostics",
     "validation_protocol_doc": "docs/research/HIGH_PROBABILITY_TRADE_VALIDATION_PROTOCOL.md",
-    "recommended_next_sprint": "infra-external-data-ingest-blocker-resolution-001",
-    "cross_asset_data_status": "REAL_DATA_NORMALIZED_FIXTURE_WINDOW"
+    "recommended_next_sprint": "infra-external-data-credentials-or-manual-csv-setup-001",
+    "cross_asset_data_status": "BLOCKED_FULL_WINDOW_FRED_AUTH"
   },
-  "infra_cross_asset_real_data_ingest": {
-    "sprint": "INFRA_CROSS_ASSET_REAL_DATA_INGEST_001",
+  "infra_external_data_blocker_resolution": {
+    "sprint": "INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001",
     "sprint_type": "implementation_infrastructure_data_only",
     "strategy_evidence": false,
     "strategy_approved": false,
     "campaign_018_created": false,
     "executor_changed": false,
-    "plan_doc": "docs/research/INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_PLAN.md",
-    "summary_doc": "docs/research/INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md",
-    "source_registry": "research/cross_asset_features/source_registry.json",
+    "plan_doc": "docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_PLAN.md",
+    "summary_doc": "docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md",
+    "fred_api_key_present": false,
     "fred_fetch_status": "BLOCKED_AUTH_OR_LOCAL_CSV_REQUIRED",
-    "cot_status": "DESIGN_ONLY",
-    "cross_asset_data_status": "REAL_DATA_NORMALIZED_FIXTURE_WINDOW",
     "cross_asset_missing_decreased": false,
-    "recommended_next_sprint": "infra-external-data-ingest-blocker-resolution-001"
+    "cross_asset_missing_count": 2142,
+    "cot_status": "DESIGN_ONLY",
+    "recommended_next_sprint": "infra-external-data-credentials-or-manual-csv-setup-001"
+  },
+  "infra_cross_asset_real_data_ingest": {
+    "sprint": "INFRA_CROSS_ASSET_REAL_DATA_INGEST_001",
+    "sprint_type": "implementation_infrastructure_data_only",
+    "strategy_evidence": false,
+    "summary_doc": "docs/research/INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md",
+    "fred_fetch_status": "BLOCKED_AUTH_OR_LOCAL_CSV_REQUIRED",
+    "cross_asset_data_status": "REAL_DATA_NORMALIZED_FIXTURE_WINDOW",
+    "status": "COMPLETE"
   },
   "post_dedup_failure_meta_analysis": {
     "sprint": "POST_DEDUP_FAILURE_META_ANALYSIS_001",
@@ -1079,6 +1088,48 @@
       "path": "docs/research/CROSS_ASSET_REAL_DATA_DIAGNOSTIC_IMPACT.md",
       "kind": "research_infrastructure",
       "description": "Impact report for real cross-asset ingest on confluence diagnostics. No edge claims. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "INFRA_EXTERNAL_DATA_BLOCKER_RESOLUTION_001_PLAN",
+      "path": "docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_PLAN.md",
+      "kind": "research_infrastructure",
+      "description": "Blocker resolution sprint plan. Full-window FRED/local CSV ingest. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FRED_FETCH_STATUS_REAL_WINDOW",
+      "path": "research/cross_asset_features/fred_fetch_status_real_window.json",
+      "kind": "research_infrastructure",
+      "description": "FRED fetch status for 2018-2026 observation window. BLOCKED without API key. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EXTERNAL_DATA_INGEST_STILL_BLOCKED",
+      "path": "docs/research/EXTERNAL_DATA_INGEST_STILL_BLOCKED.md",
+      "kind": "research_infrastructure",
+      "description": "Operator setup guide when FRED auth remains blocked. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CONFLUENCE_DIAGNOSTIC_FULL_WINDOW_CROSS_ASSET",
+      "path": "research/confluence_diagnostics/confluence_diagnostic_summary_full_window_cross_asset.json",
+      "kind": "research_infrastructure",
+      "description": "Confluence diagnostics after full-window pipeline attempt. cross_asset_missing unchanged. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EXTERNAL_DATA_BLOCKER_RESOLUTION_DIAGNOSTIC_IMPACT",
+      "path": "docs/research/EXTERNAL_DATA_BLOCKER_RESOLUTION_DIAGNOSTIC_IMPACT.md",
+      "kind": "research_infrastructure",
+      "description": "Blocker resolution diagnostic impact comparison. No trade performance. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "INFRA_EXTERNAL_DATA_BLOCKER_RESOLUTION_001_SUMMARY",
+      "path": "docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md",
+      "kind": "research_infrastructure",
+      "description": "Close-out for infra-external-data-ingest-blocker-resolution-001. FRED still blocked. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]
