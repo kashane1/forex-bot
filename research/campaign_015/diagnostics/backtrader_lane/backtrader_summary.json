@@ -1,0 +1,111 @@
+{
+  "blocked_instruments": [],
+  "campaign_id": "CAMPAIGN_015",
+  "dry_run": false,
+  "pairs": [
+    {
+      "analyzer": {
+        "closed_trades": 82
+      },
+      "candle_count": 9933,
+      "final_cash": 487.9857950000003,
+      "instrument": "EUR_USD",
+      "losses": 56,
+      "pnl_account_total": -12.014204999999928,
+      "starting_cash": 500.0,
+      "trades": 82,
+      "win_rate": 0.3170731707317073,
+      "wins": 26
+    },
+    {
+      "analyzer": {
+        "closed_trades": 97
+      },
+      "candle_count": 9933,
+      "final_cash": 509.970925,
+      "instrument": "GBP_USD",
+      "losses": 64,
+      "pnl_account_total": 9.970925000000216,
+      "starting_cash": 500.0,
+      "trades": 97,
+      "win_rate": 0.3402061855670103,
+      "wins": 33
+    },
+    {
+      "analyzer": {
+        "closed_trades": 64
+      },
+      "candle_count": 9934,
+      "final_cash": 506.27269956083467,
+      "instrument": "USD_JPY",
+      "losses": 40,
+      "pnl_account_total": 6.272699560834538,
+      "starting_cash": 500.0,
+      "trades": 64,
+      "win_rate": 0.375,
+      "wins": 24
+    },
+    {
+      "analyzer": {
+        "closed_trades": 99
+      },
+      "candle_count": 9933,
+      "final_cash": 481.9079150000004,
+      "instrument": "AUD_USD",
+      "losses": 69,
+      "pnl_account_total": -18.092084999999667,
+      "starting_cash": 500.0,
+      "trades": 99,
+      "win_rate": 0.30303030303030304,
+      "wins": 30
+    },
+    {
+      "analyzer": {
+        "closed_trades": 85
+      },
+      "candle_count": 9933,
+      "final_cash": 484.4662318039489,
+      "instrument": "USD_CAD",
+      "losses": 63,
+      "pnl_account_total": -15.533768196050952,
+      "starting_cash": 500.0,
+      "trades": 85,
+      "win_rate": 0.25882352941176473,
+      "wins": 22
+    },
+    {
+      "analyzer": {
+        "closed_trades": 79
+      },
+      "candle_count": 9933,
+      "final_cash": 483.19970488701586,
+      "instrument": "USD_CHF",
+      "losses": 54,
+      "pnl_account_total": -16.800295112983964,
+      "starting_cash": 500.0,
+      "trades": 79,
+      "win_rate": 0.31645569620253167,
+      "wins": 25
+    },
+    {
+      "analyzer": {
+        "closed_trades": 69
+      },
+      "candle_count": 9937,
+      "final_cash": 494.7682049999996,
+      "instrument": "NZD_USD",
+      "losses": 47,
+      "pnl_account_total": -5.2317950000002025,
+      "starting_cash": 500.0,
+      "trades": 69,
+      "win_rate": 0.3188405797101449,
+      "wins": 22
+    }
+  ],
+  "starting_equity_usd": 500.0,
+  "strategy_evidence": false,
+  "strategy_id": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015",
+  "total_pnl_account": -51.428523748199964,
+  "total_trades": 575
+}

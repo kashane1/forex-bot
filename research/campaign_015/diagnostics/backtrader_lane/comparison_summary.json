@@ -1,0 +1,149 @@
+{
+  "backtrader_summary_path": "research/campaign_015/diagnostics/backtrader_lane/backtrader_summary.json",
+  "bespoke_reference_path": "research/campaign_015/diagnostics/campaign_015_bespoke_reference.json",
+  "bespoke_total_trades": 164,
+  "blocked_instruments": [],
+  "bt_total_trades": 575,
+  "campaign_id": "CAMPAIGN_015",
+  "generated_at": "2026-05-26T01:55:31+00:00",
+  "notes": [],
+  "overall_classification": "SIGNAL_RULE_MISMATCH",
+  "pairs": [
+    {
+      "bespoke_expectancy_r": 0.077,
+      "bespoke_return_pct": 0.4799,
+      "bespoke_trades": 24,
+      "bespoke_win_rate": 0.375,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 99,
+      "bt_win_rate": 0.30303030303030304,
+      "classification": "SIGNAL_RULE_MISMATCH",
+      "expectancy_r_delta": null,
+      "instrument": "AUD_USD",
+      "notes": [
+        "trade-count drift 312.50% exceeds wider band (\u00b110.0%) \u2014 likely SIGNAL_RULE_MISMATCH"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 312.5,
+      "win_rate_delta": -0.07196969696969696
+    },
+    {
+      "bespoke_expectancy_r": 0.0191,
+      "bespoke_return_pct": 0.1563,
+      "bespoke_trades": 27,
+      "bespoke_win_rate": 0.3333,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 82,
+      "bt_win_rate": 0.3170731707317073,
+      "classification": "SIGNAL_RULE_MISMATCH",
+      "expectancy_r_delta": null,
+      "instrument": "EUR_USD",
+      "notes": [
+        "trade-count drift 203.70% exceeds wider band (\u00b110.0%) \u2014 likely SIGNAL_RULE_MISMATCH"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 203.70370370370372,
+      "win_rate_delta": -0.016226829268292664
+    },
+    {
+      "bespoke_expectancy_r": 0.1643,
+      "bespoke_return_pct": 1.6516,
+      "bespoke_trades": 41,
+      "bespoke_win_rate": 0.4146,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 97,
+      "bt_win_rate": 0.3402061855670103,
+      "classification": "SIGNAL_RULE_MISMATCH",
+      "expectancy_r_delta": null,
+      "instrument": "GBP_USD",
+      "notes": [
+        "trade-count drift 136.59% exceeds wider band (\u00b110.0%) \u2014 likely SIGNAL_RULE_MISMATCH"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 136.58536585365854,
+      "win_rate_delta": -0.0743938144329897
+    },
+    {
+      "bespoke_expectancy_r": -0.5206,
+      "bespoke_return_pct": -0.67,
+      "bespoke_trades": 5,
+      "bespoke_win_rate": 0.2,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 69,
+      "bt_win_rate": 0.3188405797101449,
+      "classification": "SIGNAL_RULE_MISMATCH",
+      "expectancy_r_delta": null,
+      "instrument": "NZD_USD",
+      "notes": [
+        "trade-count drift 1280.00% exceeds wider band (\u00b110.0%) \u2014 likely SIGNAL_RULE_MISMATCH"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 1280.0,
+      "win_rate_delta": 0.11884057971014489
+    },
+    {
+      "bespoke_expectancy_r": 0.4549,
+      "bespoke_return_pct": 3.9699,
+      "bespoke_trades": 23,
+      "bespoke_win_rate": 0.3478,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 85,
+      "bt_win_rate": 0.25882352941176473,
+      "classification": "SIGNAL_RULE_MISMATCH",
+      "expectancy_r_delta": null,
+      "instrument": "USD_CAD",
+      "notes": [
+        "trade-count drift 269.57% exceeds wider band (\u00b110.0%) \u2014 likely SIGNAL_RULE_MISMATCH"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 269.5652173913044,
+      "win_rate_delta": -0.08897647058823527
+    },
+    {
+      "bespoke_expectancy_r": 0.7616,
+      "bespoke_return_pct": 4.5879,
+      "bespoke_trades": 27,
+      "bespoke_win_rate": 0.5185,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 79,
+      "bt_win_rate": 0.31645569620253167,
+      "classification": "SIGNAL_RULE_MISMATCH",
+      "expectancy_r_delta": null,
+      "instrument": "USD_CHF",
+      "notes": [
+        "trade-count drift 192.59% exceeds wider band (\u00b110.0%) \u2014 likely SIGNAL_RULE_MISMATCH"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 192.59259259259258,
+      "win_rate_delta": -0.2020443037974683
+    },
+    {
+      "bespoke_expectancy_r": 0.0118,
+      "bespoke_return_pct": 7.0843,
+      "bespoke_trades": 17,
+      "bespoke_win_rate": 0.5294,
+      "bt_expectancy_r": null,
+      "bt_return_pct": null,
+      "bt_trades": 64,
+      "bt_win_rate": 0.375,
+      "classification": "SIGNAL_RULE_MISMATCH",
+      "expectancy_r_delta": null,
+      "instrument": "USD_JPY",
+      "notes": [
+        "trade-count drift 276.47% exceeds wider band (\u00b110.0%) \u2014 likely SIGNAL_RULE_MISMATCH"
+      ],
+      "return_pct_delta": null,
+      "trades_delta_pct": 276.4705882352941,
+      "win_rate_delta": -0.15439999999999998
+    }
+  ],
+  "strategy_evidence": false,
+  "strategy_id": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015"
+}
