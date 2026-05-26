@@ -125,6 +125,8 @@ def build_h4_alignment_report(
     stale_flags: pd.DataFrame,
 ) -> dict[str, Any]:
     coverage: dict[str, Any] = {}
+    coverage_by_year: dict[str, dict[str, float]] = {}
+    years = sorted({ts.year for ts in h4_index})
     for col in aligned.columns:
         if col.endswith("_stale") or col in LEGACY_FEATURE_ALIASES:
             continue
@@ -134,6 +136,7 @@ def build_h4_alignment_report(
             "bars_total": len(series),
             "bars_with_value": int(non_null.sum()),
             "coverage_pct": round(100.0 * float(non_null.mean()), 2) if len(series) else 0.0,
+            "missing_rate_pct": round(100.0 * float((~non_null).mean()), 2) if len(series) else 0.0,
             "stale_rate_pct": round(
                 100.0 * float(stale_flags.get(f"{col}_stale", pd.Series(False, index=series.index)).mean()),
                 2,
@@ -141,6 +144,15 @@ def build_h4_alignment_report(
             if len(series)
             else 0.0,
         }
+        for year in years:
+            mask = h4_index.year == year
+            if not mask.any():
+                continue
+            year_series = series.loc[mask]
+            coverage_by_year.setdefault(str(year), {})[col] = round(
+                100.0 * float(year_series.notna().mean()),
+                2,
+            )
     return {
         "strategy_evidence": False,
         "diagnostic_only": True,
@@ -149,6 +161,7 @@ def build_h4_alignment_report(
         "first_bar": str(h4_index.min()) if len(h4_index) else None,
         "last_bar": str(h4_index.max()) if len(h4_index) else None,
         "feature_coverage": coverage,
+        "coverage_by_year": coverage_by_year,
     }
 
 
