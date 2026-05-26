@@ -122,6 +122,55 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help="Print the registered campaign ids and exit.",
     )
+    parser.add_argument(
+        "--run-mode",
+        choices=("full", "fold_windows"),
+        default="full",
+        help=(
+            "full = iterate entire CSV (default). fold_windows = run each "
+            "walk-forward test window independently (requires --fold-plan)."
+        ),
+    )
+    parser.add_argument(
+        "--fold-plan",
+        type=Path,
+        default=None,
+        help="Path to walk_forward/plan.json for fold_windows mode.",
+    )
+    parser.add_argument(
+        "--warmup-days",
+        type=int,
+        default=90,
+        help="Calendar-day warmup margin before each fold test_start (default 90).",
+    )
+    parser.add_argument(
+        "--strict-test-window",
+        action="store_true",
+        help=(
+            "When set with fold_windows, only count trades whose entry falls "
+            "inside the fold test window. Default (off) mirrors bespoke engine "
+            "behaviour including warmup-margin trades."
+        ),
+    )
+    parser.add_argument(
+        "--entry-bar-stop-policy",
+        choices=("backtrader_default", "bespoke_current_no_entry_bar_stop"),
+        default="backtrader_default",
+        help=(
+            "Entry-bar adverse-stop policy for CAMPAIGN_015. "
+            "backtrader_default = current BT same-bar stop on entry; "
+            "bespoke_current_no_entry_bar_stop = parity with current bespoke "
+            "BacktestEngine (skip entry-bar adverse stop)."
+        ),
+    )
+    parser.add_argument(
+        "--risk-engine-parity",
+        action="store_true",
+        help=(
+            "When set, CAMPAIGN_015 runs read-only RiskEngine rejection parity "
+            "at fill time (spread/session/drawdown gates; no broker)."
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -152,7 +201,17 @@ def main(argv: list[str] | None = None) -> int:
         starting_equity_usd=args.starting_equity_usd,
         dry_run=args.dry_run,
         strict_data=not args.no_strict_data,
+        run_mode=args.run_mode,
+        fold_plan_path=args.fold_plan,
+        warmup_days=args.warmup_days,
+        strict_test_window=args.strict_test_window,
+        entry_bar_stop_policy=args.entry_bar_stop_policy,
+        risk_engine_parity=args.risk_engine_parity,
     )
+
+    if args.run_mode == "fold_windows" and args.fold_plan is None:
+        print("error: --fold-plan is required when --run-mode fold_windows", file=sys.stderr)
+        return 2
 
     if args.dry_run:
         pf = preflight(options)

@@ -1,5 +1,8 @@
 # CAMPAIGN_015 — Null + Anti-Overfit Post-Run Diagnostic
 
+> **SUPERSEDED / STALE DUE TO DUPLICATE-CANDLE CONTAMINATION** — see
+> [`CAMPAIGN_015_DEDUPED_NULL_AND_ANTI_OVERFIT.md`](CAMPAIGN_015_DEDUPED_NULL_AND_ANTI_OVERFIT.md).
+
 **Sprint:** [CAMPAIGN_015 Post-Run Diagnostics 001](CAMPAIGN_015_POST_RUN_DIAGNOSTICS_001_PLAN.md)
 **Branch:** `research-campaign-015-post-run-diagnostics-001`
 **Date:** 2026-05-26

@@ -134,6 +134,10 @@ research/parity_verifier/results/**/trades.csv
 research/backtrader_lane/results/
 research/backtrader_lane/exports/**/*.csv
 
+# CAMPAIGN_011 deduped walk-forward — commit canonical rollup under
+# research/null_baselines/ only; never commit per-fold trade CSVs.
+backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/**/*_trades.csv
+
 # CAMPAIGN_011 no-RiskEngine bespoke reference — optional raw trade
 # dumps (full-window JSONL + per-fold JSONL). Bulk regenerable data;
 # the small reference JSONs under research/lean_parity/ and the

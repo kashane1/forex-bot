@@ -1,0 +1,668 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-26T17:26:25.629691+00:00",
+  "null_reference": {
+    "campaign_id": "CAMPAIGN_011",
+    "aggregate_expectancy_r": -0.0029154071495408797,
+    "per_fold_expectancy_r_std": 0.04789840054747161,
+    "path": "research/null_baselines/campaign_011_deduped_null_baseline.json"
+  },
+  "campaigns": [
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_name": "random_entry_anchor",
+      "strategy_version": "0.1.0-c011",
+      "role": "null_baseline",
+      "verdict": "REJECT",
+      "base_exp_r": -0.0029154071495408797,
+      "2x_exp_r": null,
+      "gap_vs_deduped_null": 0.0,
+      "trade_count": 1180,
+      "fold_pass_count": 0,
+      "fold_count": 8,
+      "pairs_positive": 3,
+      "profit_factor": 0.8937394430150798,
+      "single_pair_dominance_pct": 36.694445038813825,
+      "single_fold_dominance_pct": 39.72704968591121,
+      "null_fold_std": 0.04789840054747161,
+      "anti_overfit_label": null,
+      "backtrader_status": "n/a",
+      "dedupe_input": "OK",
+      "per_pair": [
+        {
+          "instrument": "EUR_USD",
+          "trade_count": 121,
+          "expectancy_r": -0.04067038232230089,
+          "return_pct": -1.249785999999975
+        },
+        {
+          "instrument": "GBP_USD",
+          "trade_count": 196,
+          "expectancy_r": 0.08416343662723651,
+          "return_pct": 4.18953400000005
+        },
+        {
+          "instrument": "USD_JPY",
+          "trade_count": 174,
+          "expectancy_r": 4.938196697017836e-05,
+          "return_pct": 0.35246727357759466
+        },
+        {
+          "instrument": "AUD_USD",
+          "trade_count": 191,
+          "expectancy_r": -0.03543150445140003,
+          "return_pct": -1.7150390000000293
+        },
+        {
+          "instrument": "USD_CAD",
+          "trade_count": 182,
+          "expectancy_r": -0.01022476200061388,
+          "return_pct": -0.4554248745278433
+        },
+        {
+          "instrument": "USD_CHF",
+          "trade_count": 177,
+          "expectancy_r": 0.022049564834219756,
+          "return_pct": 0.8281039758154973
+        },
+        {
+          "instrument": "NZD_USD",
+          "trade_count": 139,
+          "expectancy_r": -0.07408733207178966,
+          "return_pct": -2.626997000000053
+        }
+      ],
+      "per_fold": [
+        {
+          "fold_index": 0,
+          "test_start": "2021-12-21",
+          "test_end": "2022-06-18",
+          "trade_count": 143,
+          "expectancy_r": -0.10386838637203849,
+          "return_pct": -4.7941758714342475,
+          "profit_factor": 0.19145940346181115,
+          "passes_gates": false
+        },
+        {
+          "fold_index": 1,
+          "test_start": "2022-06-19",
+          "test_end": "2022-12-15",
+          "trade_count": 150,
+          "expectancy_r": -0.023866374208924082,
+          "return_pct": -0.5901340343832939,
+          "profit_factor": 0.8186077278855688,
+          "passes_gates": false
+        },
+        {
+          "fold_index": 2,
+          "test_start": "2022-12-16",
+          "test_end": "2023-06-13",
+          "trade_count": 155,
+          "expectancy_r": 0.0391166254842596,
+          "return_pct": 4.2691556610357395,
+          "profit_factor": 3.8680712880427444,
+          "passes_gates": false
+        },
+        {
+          "fold_index": 3,
+          "test_start": "2023-06-14",
+          "test_end": "2023-12-10",
+          "trade_count": 150,
+          "expectancy_r": -0.0059575092233007205,
+          "return_pct": -0.8457449988458543,
+          "profit_factor": 0.6030414407739574,
+          "passes_gates": false
+        },
+        {
+          "fold_index": 4,
+          "test_start": "2023-12-11",
+          "test_end": "2024-06-07",
+          "trade_count": 162,
+          "expectancy_r": 0.014737092091635368,
+          "return_pct": -0.08446098232743893,
+          "profit_factor": 0.9647208984734297,
+          "passes_gates": false
+        },
+        {
+          "fold_index": 5,
+          "test_start": "2024-06-08",
+          "test_end": "2024-12-04",
+          "trade_count": 154,
+          "expectancy_r": -0.002761880915949227,
+          "return_pct": 0.48917196701643295,
+          "profit_factor": 1.1815784447562439,
+          "passes_gates": false
+        },
+        {
+          "fold_index": 6,
+          "test_start": "2024-12-05",
+          "test_end": "2025-06-02",
+          "trade_count": 128,
+          "expectancy_r": 0.05407079566083674,
+          "return_pct": 0.9369952279737803,
+          "profit_factor": 1.3780478250267965,
+          "passes_gates": false
+        },
+        {
+          "fold_index": 7,
+          "test_start": "2025-06-03",
+          "test_end": "2025-11-29",
+          "trade_count": 138,
+          "expectancy_r": 0.006814226645948531,
+          "return_pct": -0.05794859416987652,
+          "profit_factor": 0.9626163819665696,
+          "passes_gates": false
+        }
+      ],
+      "cost_sensitivity": null
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_name": "failed_breakout_reversal",
+      "strategy_version": "0.1.0-c015",
+      "role": "candidate",
+      "verdict": "REJECT",
+      "base_exp_r": -0.010095805504590001,
+      "2x_exp_r": -0.02825942414646908,
+      "gap_vs_deduped_null": -0.007180398355049121,
+      "trade_count": 375,
+      "fold_pass_count": 2,
+      "fold_count": 8,
+      "pairs_positive": 3,
+      "profit_factor": 2.848124396137601,
+      "single_pair_dominance_pct": 37.50022618714886,
+      "median_per_fold_expectancy_r": -0.04874429707075549,
+      "trade_level_cumulative_r": -3.78592706422125,
+      "anti_overfit_label": "WITHIN_NULL",
+      "gap_vs_null_from_anti_overfit": null,
+      "backtrader_status": "TOLERABLE_DRIFT",
+      "dedupe_input": "DEDUPED_INPUT",
+      "long_trades": 205,
+      "short_trades": 170,
+      "per_pair": [
+        {
+          "instrument": "AUD_USD",
+          "trade_count": 88,
+          "expectancy_r": 0.032293351885859294,
+          "long_trades": 36,
+          "short_trades": 52,
+          "folds_positive": 6,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "EUR_USD",
+          "trade_count": 44,
+          "expectancy_r": -0.24386051266537534,
+          "long_trades": 27,
+          "short_trades": 17,
+          "folds_positive": 2,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "GBP_USD",
+          "trade_count": 82,
+          "expectancy_r": 0.3247795084178674,
+          "long_trades": 49,
+          "short_trades": 33,
+          "folds_positive": 6,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "NZD_USD",
+          "trade_count": 6,
+          "expectancy_r": -0.45144447139353766,
+          "long_trades": 4,
+          "short_trades": 2,
+          "folds_positive": 0,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "USD_CAD",
+          "trade_count": 63,
+          "expectancy_r": -0.11335910917561334,
+          "long_trades": 38,
+          "short_trades": 25,
+          "folds_positive": 4,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "USD_CHF",
+          "trade_count": 49,
+          "expectancy_r": -0.2626131107819438,
+          "long_trades": 28,
+          "short_trades": 21,
+          "folds_positive": 3,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "USD_JPY",
+          "trade_count": 43,
+          "expectancy_r": 0.004384510966852033,
+          "long_trades": 23,
+          "short_trades": 20,
+          "folds_positive": 5,
+          "folds_seen": 8
+        }
+      ],
+      "per_fold": [
+        {
+          "fold_index": 0,
+          "test_start": "2021-12-21",
+          "test_end": "2022-06-18",
+          "trade_count": 38,
+          "expectancy_r": -0.09125381864837565,
+          "profit_factor": 1.2163510207390305,
+          "passes": false
+        },
+        {
+          "fold_index": 1,
+          "test_start": "2022-06-19",
+          "test_end": "2022-12-15",
+          "trade_count": 52,
+          "expectancy_r": -0.016141217812199897,
+          "profit_factor": 1.9943792270138496,
+          "passes": false
+        },
+        {
+          "fold_index": 2,
+          "test_start": "2022-12-16",
+          "test_end": "2023-06-13",
+          "trade_count": 55,
+          "expectancy_r": 0.026260222191535596,
+          "profit_factor": 1.5654417049478453,
+          "passes": true
+        },
+        {
+          "fold_index": 3,
+          "test_start": "2023-06-14",
+          "test_end": "2023-12-10",
+          "trade_count": 50,
+          "expectancy_r": -0.12459717037506078,
+          "profit_factor": 0.7556675445538626,
+          "passes": false
+        },
+        {
+          "fold_index": 4,
+          "test_start": "2023-12-11",
+          "test_end": "2024-06-07",
+          "trade_count": 47,
+          "expectancy_r": -0.09839703499626086,
+          "profit_factor": 0.5263789836527321,
+          "passes": false
+        },
+        {
+          "fold_index": 5,
+          "test_start": "2024-06-08",
+          "test_end": "2024-12-04",
+          "trade_count": 38,
+          "expectancy_r": 0.257969179976022,
+          "profit_factor": 2.3836485189945713,
+          "passes": true
+        },
+        {
+          "fold_index": 6,
+          "test_start": "2024-12-05",
+          "test_end": "2025-06-02",
+          "trade_count": 48,
+          "expectancy_r": 0.08232846171006343,
+          "profit_factor": 0.9931355090054307,
+          "passes": false
+        },
+        {
+          "fold_index": 7,
+          "test_start": "2025-06-03",
+          "test_end": "2025-11-29",
+          "trade_count": 47,
+          "expectancy_r": -0.08134737632931108,
+          "profit_factor": 0.7100367305411687,
+          "passes": false
+        }
+      ],
+      "cost_sensitivity": {
+        "base_exp_r": -0.010095805504590001,
+        "2x_exp_r": -0.02825942414646908,
+        "delta_exp_r": -0.01816361864187908,
+        "delta_pct_of_base": -179.91252539107546
+      }
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_name": "weekly_cross_sectional_momentum_low_turnover",
+      "strategy_version": "0.1.0-c016",
+      "role": "candidate",
+      "verdict": "REJECT",
+      "base_exp_r": -0.06326844639033011,
+      "2x_exp_r": -0.07192066918635234,
+      "gap_vs_deduped_null": -0.060353039240789226,
+      "trade_count": 137,
+      "fold_pass_count": 3,
+      "fold_count": 8,
+      "pairs_positive": 4,
+      "profit_factor": 0.982285017751926,
+      "single_pair_dominance_pct": 39.167278990114646,
+      "median_per_fold_expectancy_r": -0.08633632669102546,
+      "trade_level_cumulative_r": -8.667777155475225,
+      "anti_overfit_label": "WITHIN_NULL",
+      "gap_vs_null_from_anti_overfit": -0.060353039240789226,
+      "backtrader_status": "BLOCKED, non-decision-blocking",
+      "dedupe_input": "DEDUPED_INPUT",
+      "long_trades": 69,
+      "short_trades": 68,
+      "per_pair": [
+        {
+          "instrument": "AUD_USD",
+          "trade_count": 10,
+          "expectancy_r": 0.6531781647128543,
+          "long_trades": 5,
+          "short_trades": 5,
+          "folds_positive": 6,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "EUR_USD",
+          "trade_count": 5,
+          "expectancy_r": 1.2241896192701927,
+          "long_trades": 0,
+          "short_trades": 5,
+          "folds_positive": 3,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "GBP_USD",
+          "trade_count": 15,
+          "expectancy_r": -1.0,
+          "long_trades": 15,
+          "short_trades": 0,
+          "folds_positive": 0,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "NZD_USD",
+          "trade_count": 5,
+          "expectancy_r": 2.240565945527147,
+          "long_trades": 0,
+          "short_trades": 5,
+          "folds_positive": 5,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "USD_CAD",
+          "trade_count": 37,
+          "expectancy_r": -0.2639007503143799,
+          "long_trades": 16,
+          "short_trades": 21,
+          "folds_positive": 2,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "USD_CHF",
+          "trade_count": 35,
+          "expectancy_r": -0.22334953229861212,
+          "long_trades": 5,
+          "short_trades": 30,
+          "folds_positive": 4,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "USD_JPY",
+          "trade_count": 30,
+          "expectancy_r": 0.0019408255164337584,
+          "long_trades": 28,
+          "short_trades": 2,
+          "folds_positive": 5,
+          "folds_seen": 8
+        }
+      ],
+      "per_fold": [
+        {
+          "fold_index": 0,
+          "test_start": "2021-12-21",
+          "test_end": "2022-06-18",
+          "trade_count": 22,
+          "expectancy_r": -0.1182920952123384,
+          "profit_factor": 0.4389305093376106,
+          "passes": false
+        },
+        {
+          "fold_index": 1,
+          "test_start": "2022-06-19",
+          "test_end": "2022-12-15",
+          "trade_count": 19,
+          "expectancy_r": -0.054380558169712524,
+          "profit_factor": 0.7793007070696604,
+          "passes": false
+        },
+        {
+          "fold_index": 2,
+          "test_start": "2022-12-16",
+          "test_end": "2023-06-13",
+          "trade_count": 18,
+          "expectancy_r": 0.15956836827390178,
+          "profit_factor": 3.470906157131692,
+          "passes": true
+        },
+        {
+          "fold_index": 3,
+          "test_start": "2023-06-14",
+          "test_end": "2023-12-10",
+          "trade_count": 15,
+          "expectancy_r": 0.37351845548084606,
+          "profit_factor": 10.83454694726324,
+          "passes": true
+        },
+        {
+          "fold_index": 4,
+          "test_start": "2023-12-11",
+          "test_end": "2024-06-07",
+          "trade_count": 21,
+          "expectancy_r": 0.26123978939202824,
+          "profit_factor": 4.1892222842252185,
+          "passes": true
+        },
+        {
+          "fold_index": 5,
+          "test_start": "2024-06-08",
+          "test_end": "2024-12-04",
+          "trade_count": 14,
+          "expectancy_r": -0.4050569709005417,
+          "profit_factor": 0.6020916481402961,
+          "passes": false
+        },
+        {
+          "fold_index": 6,
+          "test_start": "2024-12-05",
+          "test_end": "2025-06-02",
+          "trade_count": 14,
+          "expectancy_r": -0.4907764120960956,
+          "profit_factor": 0.37859177228783314,
+          "passes": false
+        },
+        {
+          "fold_index": 7,
+          "test_start": "2025-06-03",
+          "test_end": "2025-11-29",
+          "trade_count": 14,
+          "expectancy_r": -0.4608211522858454,
+          "profit_factor": 0.0,
+          "passes": false
+        }
+      ],
+      "cost_sensitivity": {
+        "base_exp_r": -0.06326844639033011,
+        "2x_exp_r": -0.07192066918635234,
+        "delta_exp_r": -0.008652222796022235,
+        "delta_pct_of_base": -13.675415297292068
+      }
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_name": "weekly_volatility_contraction_breakout",
+      "strategy_version": "0.1.0-c017",
+      "role": "candidate",
+      "verdict": "REJECT",
+      "base_exp_r": -0.022666354359936913,
+      "2x_exp_r": -0.028315943226064618,
+      "gap_vs_deduped_null": -0.019750947210396032,
+      "trade_count": 230,
+      "fold_pass_count": 3,
+      "fold_count": 8,
+      "pairs_positive": 4,
+      "profit_factor": 0.7702616074805886,
+      "single_pair_dominance_pct": 38.35000186625033,
+      "median_per_fold_expectancy_r": -0.016718771876060662,
+      "trade_level_cumulative_r": -5.213261502785489,
+      "anti_overfit_label": "WITHIN_NULL",
+      "gap_vs_null_from_anti_overfit": -0.019750947210396032,
+      "backtrader_status": "BLOCKED, non-decision-blocking",
+      "dedupe_input": "DEDUPED_INPUT",
+      "long_trades": 119,
+      "short_trades": 111,
+      "per_pair": [
+        {
+          "instrument": "AUD_USD",
+          "trade_count": 40,
+          "expectancy_r": -0.2745222099947087,
+          "long_trades": 18,
+          "short_trades": 22,
+          "folds_positive": 0,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "EUR_USD",
+          "trade_count": 28,
+          "expectancy_r": 0.01521999840538397,
+          "long_trades": 13,
+          "short_trades": 15,
+          "folds_positive": 4,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "GBP_USD",
+          "trade_count": 35,
+          "expectancy_r": 0.08527561658638652,
+          "long_trades": 14,
+          "short_trades": 21,
+          "folds_positive": 4,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "NZD_USD",
+          "trade_count": 31,
+          "expectancy_r": -0.15673062122710055,
+          "long_trades": 13,
+          "short_trades": 18,
+          "folds_positive": 2,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "USD_CAD",
+          "trade_count": 34,
+          "expectancy_r": -0.2135446228133117,
+          "long_trades": 22,
+          "short_trades": 12,
+          "folds_positive": 2,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "USD_CHF",
+          "trade_count": 37,
+          "expectancy_r": 0.3905483286482868,
+          "long_trades": 18,
+          "short_trades": 19,
+          "folds_positive": 6,
+          "folds_seen": 8
+        },
+        {
+          "instrument": "USD_JPY",
+          "trade_count": 25,
+          "expectancy_r": 0.0010279453933873812,
+          "long_trades": 21,
+          "short_trades": 4,
+          "folds_positive": 6,
+          "folds_seen": 8
+        }
+      ],
+      "per_fold": [
+        {
+          "fold_index": 0,
+          "test_start": "2021-12-21",
+          "test_end": "2022-06-18",
+          "trade_count": 20,
+          "expectancy_r": 0.1547593998123062,
+          "profit_factor": 3.4865605611481083,
+          "passes": true
+        },
+        {
+          "fold_index": 1,
+          "test_start": "2022-06-19",
+          "test_end": "2022-12-15",
+          "trade_count": 23,
+          "expectancy_r": -0.025558855909001043,
+          "profit_factor": 1.0296760362311883,
+          "passes": false
+        },
+        {
+          "fold_index": 2,
+          "test_start": "2022-12-16",
+          "test_end": "2023-06-13",
+          "trade_count": 38,
+          "expectancy_r": -0.1263901072421974,
+          "profit_factor": 0.13541146734689663,
+          "passes": false
+        },
+        {
+          "fold_index": 3,
+          "test_start": "2023-06-14",
+          "test_end": "2023-12-10",
+          "trade_count": 32,
+          "expectancy_r": -0.007878687843120282,
+          "profit_factor": 0.7235107633456859,
+          "passes": false
+        },
+        {
+          "fold_index": 4,
+          "test_start": "2023-12-11",
+          "test_end": "2024-06-07",
+          "trade_count": 37,
+          "expectancy_r": -0.060382201306306366,
+          "profit_factor": 0.49857966203838927,
+          "passes": false
+        },
+        {
+          "fold_index": 5,
+          "test_start": "2024-06-08",
+          "test_end": "2024-12-04",
+          "trade_count": 24,
+          "expectancy_r": 0.21893127361986275,
+          "profit_factor": 5.345782151561722,
+          "passes": true
+        },
+        {
+          "fold_index": 6,
+          "test_start": "2024-12-05",
+          "test_end": "2025-06-02",
+          "trade_count": 19,
+          "expectancy_r": 0.38754977221458303,
+          "profit_factor": 2.2250474413871264,
+          "passes": true
+        },
+        {
+          "fold_index": 7,
+          "test_start": "2025-06-03",
+          "test_end": "2025-11-29",
+          "trade_count": 37,
+          "expectancy_r": -0.35268401398815374,
+          "profit_factor": 0.0,
+          "passes": false
+        }
+      ],
+      "cost_sensitivity": {
+        "base_exp_r": -0.022666354359936913,
+        "2x_exp_r": -0.028315943226064618,
+        "delta_exp_r": -0.005649588866127705,
+        "delta_pct_of_base": -24.925000184914737
+      }
+    }
+  ],
+  "disclaimer": "Descriptive meta-analysis only. WITHIN_NULL does not imply edge. No strategy approved. approved: []"
+}

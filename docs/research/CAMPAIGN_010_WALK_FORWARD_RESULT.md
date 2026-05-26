@@ -1,7 +1,11 @@
 # CAMPAIGN_010 — Walk-Forward Result and Verdict
 
-**Date:** 2026-05-23 · **Branch:** `research-asian-london-session-breakout-walk-forward-001`
+**Date:** 2026-05-26 · **Branch:** `research-asian-london-session-breakout-walk-forward-001`
 `strategy_evidence: false`
+
+> **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE.** Walk-forward
+> metrics used pre-fix `CandleRepo.list` on `campaign_002.sqlite3`. REJECT
+> verdict unchanged; magnitude claims unverified post-dedupe.
 
 Phase 4 formal classification of the CAMPAIGN_010 walk-forward
 evidence (`session_breakout 0.1.0-c010`). Verdict evaluated

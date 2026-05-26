@@ -1,0 +1,6 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+AUD_USD,short,271,2025-07-07T05:00:00+00:00,2025-07-10T21:00:00+00:00,0.6502100,0.65957,0.65957,-2.5365600,-1,23,1.5,stop,next_bar_open,False,False,
+AUD_USD,long,232,2025-08-13T09:00:00+00:00,2025-08-20T01:00:00+00:00,0.6552500,0.64445,0.64445,-2.5056000,-1,29,1.1,stop,next_bar_open,False,False,
+AUD_USD,long,249,2025-09-01T09:00:00+00:00,2025-09-10T05:00:00+00:00,0.6559200,0.65998,0.64585,1.0109400,0.4031777557100297914597815293,42,1.5,time,next_bar_open,False,False,
+AUD_USD,short,163,2025-10-10T17:00:00+00:00,2025-10-21T13:00:00+00:00,0.6481800,0.64922,0.66350,-0.1695200,-0.06788511749347258485639686684,42,1.3,time,next_bar_open,False,False,
+AUD_USD,long,289,2025-10-27T09:00:00+00:00,2025-11-04T22:00:00+00:00,0.6555000,0.64681,0.64681,-2.5114100,-1,40,1.2,stop,next_bar_open,False,False,

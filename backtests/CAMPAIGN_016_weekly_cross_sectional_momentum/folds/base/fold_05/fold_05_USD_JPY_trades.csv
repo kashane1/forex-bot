@@ -1,0 +1,2 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+USD_JPY,long,318,2024-06-17T05:00:00+00:00,2024-06-26T01:00:00+00:00,157.39950,159.746,156.158,4.671084096002403816057992062,0.01183160990585643714632581317,42,1.5,time,next_bar_open,False,False,

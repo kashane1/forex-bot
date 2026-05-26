@@ -1,0 +1,509 @@
+{
+  "blocked": false,
+  "reasons": [],
+  "details": {
+    "per_pair": {
+      "EUR_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 1157,
+          "fold_01": 1166,
+          "fold_02": 1149,
+          "fold_03": 1154,
+          "fold_04": 1151,
+          "fold_05": 1161,
+          "fold_06": 1142,
+          "fold_07": 1157
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 2328,
+            "deduped_count": 1166,
+            "duplicates_detected": 1162,
+            "duplicates_dropped": 1162,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 2296,
+            "deduped_count": 1149,
+            "duplicates_detected": 1147,
+            "duplicates_dropped": 1147,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 2304,
+            "deduped_count": 1154,
+            "duplicates_detected": 1150,
+            "duplicates_dropped": 1150,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 2300,
+            "deduped_count": 1151,
+            "duplicates_detected": 1149,
+            "duplicates_dropped": 1149,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 2320,
+            "deduped_count": 1161,
+            "duplicates_detected": 1159,
+            "duplicates_dropped": 1159,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 2280,
+            "deduped_count": 1142,
+            "duplicates_detected": 1138,
+            "duplicates_dropped": 1138,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "GBP_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 1157,
+          "fold_01": 1166,
+          "fold_02": 1149,
+          "fold_03": 1154,
+          "fold_04": 1151,
+          "fold_05": 1161,
+          "fold_06": 1142,
+          "fold_07": 1157
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 2328,
+            "deduped_count": 1166,
+            "duplicates_detected": 1162,
+            "duplicates_dropped": 1162,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 2296,
+            "deduped_count": 1149,
+            "duplicates_detected": 1147,
+            "duplicates_dropped": 1147,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 2304,
+            "deduped_count": 1154,
+            "duplicates_detected": 1150,
+            "duplicates_dropped": 1150,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 2300,
+            "deduped_count": 1151,
+            "duplicates_detected": 1149,
+            "duplicates_dropped": 1149,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 2320,
+            "deduped_count": 1161,
+            "duplicates_detected": 1159,
+            "duplicates_dropped": 1159,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 2280,
+            "deduped_count": 1142,
+            "duplicates_detected": 1138,
+            "duplicates_dropped": 1138,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "USD_JPY": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 1157,
+          "fold_01": 1166,
+          "fold_02": 1149,
+          "fold_03": 1154,
+          "fold_04": 1151,
+          "fold_05": 1161,
+          "fold_06": 1142,
+          "fold_07": 1157
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 2328,
+            "deduped_count": 1166,
+            "duplicates_detected": 1162,
+            "duplicates_dropped": 1162,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 2296,
+            "deduped_count": 1149,
+            "duplicates_detected": 1147,
+            "duplicates_dropped": 1147,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 2304,
+            "deduped_count": 1154,
+            "duplicates_detected": 1150,
+            "duplicates_dropped": 1150,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 2300,
+            "deduped_count": 1151,
+            "duplicates_detected": 1149,
+            "duplicates_dropped": 1149,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 2320,
+            "deduped_count": 1161,
+            "duplicates_detected": 1159,
+            "duplicates_dropped": 1159,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 2280,
+            "deduped_count": 1142,
+            "duplicates_detected": 1138,
+            "duplicates_dropped": 1138,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "AUD_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 1157,
+          "fold_01": 1166,
+          "fold_02": 1149,
+          "fold_03": 1154,
+          "fold_04": 1151,
+          "fold_05": 1161,
+          "fold_06": 1142,
+          "fold_07": 1157
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 2328,
+            "deduped_count": 1166,
+            "duplicates_detected": 1162,
+            "duplicates_dropped": 1162,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 2296,
+            "deduped_count": 1149,
+            "duplicates_detected": 1147,
+            "duplicates_dropped": 1147,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 2304,
+            "deduped_count": 1154,
+            "duplicates_detected": 1150,
+            "duplicates_dropped": 1150,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 2300,
+            "deduped_count": 1151,
+            "duplicates_detected": 1149,
+            "duplicates_dropped": 1149,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 2320,
+            "deduped_count": 1161,
+            "duplicates_detected": 1159,
+            "duplicates_dropped": 1159,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 2280,
+            "deduped_count": 1142,
+            "duplicates_detected": 1138,
+            "duplicates_dropped": 1138,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "USD_CAD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 1157,
+          "fold_01": 1166,
+          "fold_02": 1149,
+          "fold_03": 1154,
+          "fold_04": 1151,
+          "fold_05": 1161,
+          "fold_06": 1142,
+          "fold_07": 1157
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 2328,
+            "deduped_count": 1166,
+            "duplicates_detected": 1162,
+            "duplicates_dropped": 1162,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 2296,
+            "deduped_count": 1149,
+            "duplicates_detected": 1147,
+            "duplicates_dropped": 1147,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 2304,
+            "deduped_count": 1154,
+            "duplicates_detected": 1150,
+            "duplicates_dropped": 1150,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 2300,
+            "deduped_count": 1151,
+            "duplicates_detected": 1149,
+            "duplicates_dropped": 1149,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 2320,
+            "deduped_count": 1161,
+            "duplicates_detected": 1159,
+            "duplicates_dropped": 1159,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 2280,
+            "deduped_count": 1142,
+            "duplicates_detected": 1138,
+            "duplicates_dropped": 1138,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "USD_CHF": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 1157,
+          "fold_01": 1166,
+          "fold_02": 1149,
+          "fold_03": 1154,
+          "fold_04": 1151,
+          "fold_05": 1161,
+          "fold_06": 1142,
+          "fold_07": 1157
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 2328,
+            "deduped_count": 1166,
+            "duplicates_detected": 1162,
+            "duplicates_dropped": 1162,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 2296,
+            "deduped_count": 1149,
+            "duplicates_detected": 1147,
+            "duplicates_dropped": 1147,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 2304,
+            "deduped_count": 1154,
+            "duplicates_detected": 1150,
+            "duplicates_dropped": 1150,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 2300,
+            "deduped_count": 1151,
+            "duplicates_detected": 1149,
+            "duplicates_dropped": 1149,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 2320,
+            "deduped_count": 1161,
+            "duplicates_detected": 1159,
+            "duplicates_dropped": 1159,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 2280,
+            "deduped_count": 1142,
+            "duplicates_detected": 1138,
+            "duplicates_dropped": 1138,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "NZD_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 1158,
+          "fold_01": 1166,
+          "fold_02": 1150,
+          "fold_03": 1154,
+          "fold_04": 1153,
+          "fold_05": 1161,
+          "fold_06": 1142,
+          "fold_07": 1157
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 2314,
+            "deduped_count": 1158,
+            "duplicates_detected": 1156,
+            "duplicates_dropped": 1156,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 2328,
+            "deduped_count": 1166,
+            "duplicates_detected": 1162,
+            "duplicates_dropped": 1162,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 2298,
+            "deduped_count": 1150,
+            "duplicates_detected": 1148,
+            "duplicates_dropped": 1148,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 2304,
+            "deduped_count": 1154,
+            "duplicates_detected": 1150,
+            "duplicates_dropped": 1150,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 2304,
+            "deduped_count": 1153,
+            "duplicates_detected": 1151,
+            "duplicates_dropped": 1151,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 2320,
+            "deduped_count": 1161,
+            "duplicates_detected": 1159,
+            "duplicates_dropped": 1159,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 2280,
+            "deduped_count": 1142,
+            "duplicates_detected": 1138,
+            "duplicates_dropped": 1138,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 2312,
+            "deduped_count": 1157,
+            "duplicates_detected": 1155,
+            "duplicates_dropped": 1155,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      }
+    },
+    "dedupe_policy": "keep_last",
+    "input_classification": "DEDUPED_INPUT",
+    "duplicate_rows_detected_total": 64509,
+    "duplicate_rows_dropped_total": 64509
+  }
+}

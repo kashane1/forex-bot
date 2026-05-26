@@ -1,0 +1,500 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-26T17:26:25.674540+00:00",
+  "campaigns_analyzed": [
+    "CAMPAIGN_015",
+    "CAMPAIGN_016",
+    "CAMPAIGN_017"
+  ],
+  "null_reference": {
+    "aggregate_expectancy_r": -0.0029154071495408797,
+    "per_fold_std": 0.04789840054747161
+  },
+  "pair_analysis": {
+    "pair_scores": [
+      {
+        "pair": "NZD_USD",
+        "mean_exp_r_across_campaigns": 0.5441302843021696,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": -0.45144447139353766,
+          "CAMPAIGN_016": 2.240565945527147,
+          "CAMPAIGN_017": -0.15673062122710055
+        },
+        "positive_campaign_count": 1,
+        "beat_null_std_count": 1,
+        "consistently_negative": false,
+        "consistently_positive": false
+      },
+      {
+        "pair": "EUR_USD",
+        "mean_exp_r_across_campaigns": 0.3318497016700671,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": -0.24386051266537534,
+          "CAMPAIGN_016": 1.2241896192701927,
+          "CAMPAIGN_017": 0.01521999840538397
+        },
+        "positive_campaign_count": 2,
+        "beat_null_std_count": 1,
+        "consistently_negative": false,
+        "consistently_positive": false
+      },
+      {
+        "pair": "AUD_USD",
+        "mean_exp_r_across_campaigns": 0.13698310220133494,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": 0.032293351885859294,
+          "CAMPAIGN_016": 0.6531781647128543,
+          "CAMPAIGN_017": -0.2745222099947087
+        },
+        "positive_campaign_count": 2,
+        "beat_null_std_count": 1,
+        "consistently_negative": false,
+        "consistently_positive": false
+      },
+      {
+        "pair": "USD_JPY",
+        "mean_exp_r_across_campaigns": 0.0024510939588910574,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": 0.004384510966852033,
+          "CAMPAIGN_016": 0.0019408255164337584,
+          "CAMPAIGN_017": 0.0010279453933873812
+        },
+        "positive_campaign_count": 3,
+        "beat_null_std_count": 0,
+        "consistently_negative": false,
+        "consistently_positive": true
+      },
+      {
+        "pair": "USD_CHF",
+        "mean_exp_r_across_campaigns": -0.03180477147742305,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": -0.2626131107819438,
+          "CAMPAIGN_016": -0.22334953229861212,
+          "CAMPAIGN_017": 0.3905483286482868
+        },
+        "positive_campaign_count": 1,
+        "beat_null_std_count": 1,
+        "consistently_negative": false,
+        "consistently_positive": false
+      },
+      {
+        "pair": "GBP_USD",
+        "mean_exp_r_across_campaigns": -0.1966482916652487,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": 0.3247795084178674,
+          "CAMPAIGN_016": -1.0,
+          "CAMPAIGN_017": 0.08527561658638652
+        },
+        "positive_campaign_count": 2,
+        "beat_null_std_count": 2,
+        "consistently_negative": false,
+        "consistently_positive": false
+      },
+      {
+        "pair": "USD_CAD",
+        "mean_exp_r_across_campaigns": -0.196934827434435,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": -0.11335910917561334,
+          "CAMPAIGN_016": -0.2639007503143799,
+          "CAMPAIGN_017": -0.2135446228133117
+        },
+        "positive_campaign_count": 0,
+        "beat_null_std_count": 0,
+        "consistently_negative": true,
+        "consistently_positive": false
+      }
+    ],
+    "least_bad_pairs": [
+      {
+        "pair": "NZD_USD",
+        "mean_exp_r_across_campaigns": 0.5441302843021696,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": -0.45144447139353766,
+          "CAMPAIGN_016": 2.240565945527147,
+          "CAMPAIGN_017": -0.15673062122710055
+        },
+        "positive_campaign_count": 1,
+        "beat_null_std_count": 1,
+        "consistently_negative": false,
+        "consistently_positive": false
+      },
+      {
+        "pair": "EUR_USD",
+        "mean_exp_r_across_campaigns": 0.3318497016700671,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": -0.24386051266537534,
+          "CAMPAIGN_016": 1.2241896192701927,
+          "CAMPAIGN_017": 0.01521999840538397
+        },
+        "positive_campaign_count": 2,
+        "beat_null_std_count": 1,
+        "consistently_negative": false,
+        "consistently_positive": false
+      },
+      {
+        "pair": "AUD_USD",
+        "mean_exp_r_across_campaigns": 0.13698310220133494,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": 0.032293351885859294,
+          "CAMPAIGN_016": 0.6531781647128543,
+          "CAMPAIGN_017": -0.2745222099947087
+        },
+        "positive_campaign_count": 2,
+        "beat_null_std_count": 1,
+        "consistently_negative": false,
+        "consistently_positive": false
+      }
+    ],
+    "most_bad_pairs": [
+      {
+        "pair": "USD_CAD",
+        "mean_exp_r_across_campaigns": -0.196934827434435,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": -0.11335910917561334,
+          "CAMPAIGN_016": -0.2639007503143799,
+          "CAMPAIGN_017": -0.2135446228133117
+        },
+        "positive_campaign_count": 0,
+        "beat_null_std_count": 0,
+        "consistently_negative": true,
+        "consistently_positive": false
+      },
+      {
+        "pair": "GBP_USD",
+        "mean_exp_r_across_campaigns": -0.1966482916652487,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": 0.3247795084178674,
+          "CAMPAIGN_016": -1.0,
+          "CAMPAIGN_017": 0.08527561658638652
+        },
+        "positive_campaign_count": 2,
+        "beat_null_std_count": 2,
+        "consistently_negative": false,
+        "consistently_positive": false
+      },
+      {
+        "pair": "USD_CHF",
+        "mean_exp_r_across_campaigns": -0.03180477147742305,
+        "campaign_exp_r": {
+          "CAMPAIGN_015": -0.2626131107819438,
+          "CAMPAIGN_016": -0.22334953229861212,
+          "CAMPAIGN_017": 0.3905483286482868
+        },
+        "positive_campaign_count": 1,
+        "beat_null_std_count": 1,
+        "consistently_negative": false,
+        "consistently_positive": false
+      }
+    ],
+    "null_centre_exp_r": -0.0029154071495408797,
+    "null_std_band": 0.04789840054747161
+  },
+  "fold_regime_analysis": {
+    "universal_fail_folds": [
+      7
+    ],
+    "folds_with_meaningful_beat_null": [
+      {
+        "fold_index": 0,
+        "best_campaign": "CAMPAIGN_017",
+        "best_exp_r": 0.1547593998123062,
+        "null_exp_r": -0.10386838637203849,
+        "gap_r": 0.2586277861843447
+      },
+      {
+        "fold_index": 2,
+        "best_campaign": "CAMPAIGN_016",
+        "best_exp_r": 0.15956836827390178,
+        "null_exp_r": 0.0391166254842596,
+        "gap_r": 0.12045174278964219
+      },
+      {
+        "fold_index": 3,
+        "best_campaign": "CAMPAIGN_016",
+        "best_exp_r": 0.37351845548084606,
+        "null_exp_r": -0.0059575092233007205,
+        "gap_r": 0.3794759647041468
+      },
+      {
+        "fold_index": 4,
+        "best_campaign": "CAMPAIGN_016",
+        "best_exp_r": 0.26123978939202824,
+        "null_exp_r": 0.014737092091635368,
+        "gap_r": 0.24650269730039287
+      },
+      {
+        "fold_index": 5,
+        "best_campaign": "CAMPAIGN_015",
+        "best_exp_r": 0.257969179976022,
+        "null_exp_r": -0.002761880915949227,
+        "gap_r": 0.2607310608919712
+      },
+      {
+        "fold_index": 6,
+        "best_campaign": "CAMPAIGN_017",
+        "best_exp_r": 0.38754977221458303,
+        "null_exp_r": 0.05407079566083674,
+        "gap_r": 0.3334789765537463
+      }
+    ],
+    "fold_campaign_matrix": {
+      "0": {
+        "CAMPAIGN_015": -0.09125381864837565,
+        "CAMPAIGN_016": -0.1182920952123384,
+        "CAMPAIGN_017": 0.1547593998123062
+      },
+      "1": {
+        "CAMPAIGN_015": -0.016141217812199897,
+        "CAMPAIGN_016": -0.054380558169712524,
+        "CAMPAIGN_017": -0.025558855909001043
+      },
+      "2": {
+        "CAMPAIGN_015": 0.026260222191535596,
+        "CAMPAIGN_016": 0.15956836827390178,
+        "CAMPAIGN_017": -0.1263901072421974
+      },
+      "3": {
+        "CAMPAIGN_015": -0.12459717037506078,
+        "CAMPAIGN_016": 0.37351845548084606,
+        "CAMPAIGN_017": -0.007878687843120282
+      },
+      "4": {
+        "CAMPAIGN_015": -0.09839703499626086,
+        "CAMPAIGN_016": 0.26123978939202824,
+        "CAMPAIGN_017": -0.060382201306306366
+      },
+      "5": {
+        "CAMPAIGN_015": 0.257969179976022,
+        "CAMPAIGN_016": -0.4050569709005417,
+        "CAMPAIGN_017": 0.21893127361986275
+      },
+      "6": {
+        "CAMPAIGN_015": 0.08232846171006343,
+        "CAMPAIGN_016": -0.4907764120960956,
+        "CAMPAIGN_017": 0.38754977221458303
+      },
+      "7": {
+        "CAMPAIGN_015": -0.08134737632931108,
+        "CAMPAIGN_016": -0.4608211522858454,
+        "CAMPAIGN_017": -0.35268401398815374
+      }
+    }
+  },
+  "side_and_exit_analysis": {
+    "trade_csv_status": {
+      "CAMPAIGN_015": "OK (56 files)",
+      "CAMPAIGN_016": "OK (56 files)",
+      "CAMPAIGN_017": "OK (56 files)"
+    },
+    "by_campaign": {
+      "CAMPAIGN_015": {
+        "status": "OK",
+        "long_trades": 205,
+        "short_trades": 170,
+        "long_exp_r": 0.05410622048653828,
+        "short_exp_r": -0.08751589567036233,
+        "exit_reason_counts": {
+          "stop": 222,
+          "time": 152,
+          "eod": 1
+        }
+      },
+      "CAMPAIGN_016": {
+        "status": "OK",
+        "long_trades": 69,
+        "short_trades": 68,
+        "long_exp_r": -0.31432288041144524,
+        "short_exp_r": 0.19147796460168376,
+        "exit_reason_counts": {
+          "time": 48,
+          "stop": 87,
+          "eod": 2
+        }
+      },
+      "CAMPAIGN_017": {
+        "status": "OK",
+        "long_trades": 119,
+        "short_trades": 111,
+        "long_exp_r": -0.11835604183784007,
+        "short_exp_r": 0.07991988717042775,
+        "exit_reason_counts": {
+          "stop": 65,
+          "time": 155,
+          "eod": 10
+        }
+      }
+    },
+    "aggregate_long_exp_r": -0.06280120235967517,
+    "aggregate_short_exp_r": 0.020097154168683035,
+    "less_bad_side": "short",
+    "exit_reason_mix": {
+      "stop": {
+        "count": 374,
+        "pct": 50.40431266846361
+      },
+      "time": {
+        "count": 355,
+        "pct": 47.84366576819407
+      },
+      "eod": {
+        "count": 13,
+        "pct": 1.7520215633423182
+      }
+    },
+    "dominant_loss_driver": "stops_dominate"
+  },
+  "weekly_cost_drag": {
+    "campaigns": [
+      {
+        "campaign_id": "CAMPAIGN_015",
+        "strategy_name": "failed_breakout_reversal",
+        "is_weekly": false,
+        "base_exp_r": -0.010095805504590001,
+        "2x_exp_r": -0.02825942414646908,
+        "cost_delta_exp_r": -0.01816361864187908,
+        "trade_count": 375
+      },
+      {
+        "campaign_id": "CAMPAIGN_016",
+        "strategy_name": "weekly_cross_sectional_momentum_low_turnover",
+        "is_weekly": true,
+        "base_exp_r": -0.06326844639033011,
+        "2x_exp_r": -0.07192066918635234,
+        "cost_delta_exp_r": -0.008652222796022235,
+        "trade_count": 137
+      },
+      {
+        "campaign_id": "CAMPAIGN_017",
+        "strategy_name": "weekly_volatility_contraction_breakout",
+        "is_weekly": true,
+        "base_exp_r": -0.022666354359936913,
+        "2x_exp_r": -0.028315943226064618,
+        "cost_delta_exp_r": -0.005649588866127705,
+        "trade_count": 230
+      }
+    ],
+    "note": "Weekly strategies (C016, C017) show lower trade counts but still negative base exp_r; 2x cost worsens all candidates."
+  },
+  "cell_beat_null": {
+    "meaningful_beat_null_threshold_gap_r": 0.05,
+    "null_std_band": 0.04789840054747161,
+    "cells": [
+      {
+        "campaign_id": "CAMPAIGN_015",
+        "cell_type": "fold",
+        "fold_index": 5,
+        "expectancy_r": 0.257969179976022,
+        "null_expectancy_r": -0.002761880915949227,
+        "gap_r": 0.2607310608919712
+      },
+      {
+        "campaign_id": "CAMPAIGN_015",
+        "cell_type": "pair",
+        "pair": "GBP_USD",
+        "trade_count": 82,
+        "expectancy_r": 0.3247795084178674,
+        "gap_r": 0.32769491556740826
+      },
+      {
+        "campaign_id": "CAMPAIGN_016",
+        "cell_type": "fold",
+        "fold_index": 2,
+        "expectancy_r": 0.15956836827390178,
+        "null_expectancy_r": 0.0391166254842596,
+        "gap_r": 0.12045174278964219
+      },
+      {
+        "campaign_id": "CAMPAIGN_016",
+        "cell_type": "fold",
+        "fold_index": 3,
+        "expectancy_r": 0.37351845548084606,
+        "null_expectancy_r": -0.0059575092233007205,
+        "gap_r": 0.3794759647041468
+      },
+      {
+        "campaign_id": "CAMPAIGN_016",
+        "cell_type": "fold",
+        "fold_index": 4,
+        "expectancy_r": 0.26123978939202824,
+        "null_expectancy_r": 0.014737092091635368,
+        "gap_r": 0.24650269730039287
+      },
+      {
+        "campaign_id": "CAMPAIGN_017",
+        "cell_type": "fold",
+        "fold_index": 0,
+        "expectancy_r": 0.1547593998123062,
+        "null_expectancy_r": -0.10386838637203849,
+        "gap_r": 0.2586277861843447
+      },
+      {
+        "campaign_id": "CAMPAIGN_017",
+        "cell_type": "fold",
+        "fold_index": 5,
+        "expectancy_r": 0.21893127361986275,
+        "null_expectancy_r": -0.002761880915949227,
+        "gap_r": 0.22169315453581198
+      },
+      {
+        "campaign_id": "CAMPAIGN_017",
+        "cell_type": "fold",
+        "fold_index": 6,
+        "expectancy_r": 0.38754977221458303,
+        "null_expectancy_r": 0.05407079566083674,
+        "gap_r": 0.3334789765537463
+      },
+      {
+        "campaign_id": "CAMPAIGN_017",
+        "cell_type": "pair",
+        "pair": "GBP_USD",
+        "trade_count": 35,
+        "expectancy_r": 0.08527561658638652,
+        "gap_r": 0.0881910237359274
+      },
+      {
+        "campaign_id": "CAMPAIGN_017",
+        "cell_type": "pair",
+        "pair": "USD_CHF",
+        "trade_count": 37,
+        "expectancy_r": 0.3905483286482868,
+        "gap_r": 0.3934637357978277
+      }
+    ],
+    "cell_count": 10
+  },
+  "concentration": {
+    "by_campaign": [
+      {
+        "campaign_id": "CAMPAIGN_015",
+        "best_pair": "GBP_USD",
+        "best_pair_exp_r": 0.3247795084178674,
+        "best_pair_trade_share_pct": 21.866666666666667,
+        "single_pair_dominance_pct": 37.50022618714886
+      },
+      {
+        "campaign_id": "CAMPAIGN_016",
+        "best_pair": "NZD_USD",
+        "best_pair_exp_r": 2.240565945527147,
+        "best_pair_trade_share_pct": 3.64963503649635,
+        "single_pair_dominance_pct": 39.167278990114646
+      },
+      {
+        "campaign_id": "CAMPAIGN_017",
+        "best_pair": "USD_CHF",
+        "best_pair_exp_r": 0.3905483286482868,
+        "best_pair_trade_share_pct": 16.08695652173913,
+        "single_pair_dominance_pct": 38.35000186625033
+      }
+    ]
+  },
+  "classification": {
+    "primary_classification": "PAIR_SPECIFIC_SIGNAL_WORTH_LAB",
+    "all_labels": [
+      "COST_MODEL_DOMINATES",
+      "PAIR_SPECIFIC_SIGNAL_WORTH_LAB",
+      "REGIME_SPECIFIC_SIGNAL_WORTH_LAB",
+      "SIDE_SPECIFIC_SIGNAL_WORTH_LAB"
+    ],
+    "exploratory_disclaimer": "Exploratory labels do NOT approve strategies or justify retuning. Pair/fold cells that beat null may be noise given WITHIN_NULL aggregate labels."
+  }
+}

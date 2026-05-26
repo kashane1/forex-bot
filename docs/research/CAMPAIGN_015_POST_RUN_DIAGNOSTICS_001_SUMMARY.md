@@ -1,5 +1,8 @@
 # CAMPAIGN_015 — Post-Run Diagnostics 001 — Sprint Summary
 
+> **SUPERSEDED / STALE DUE TO DUPLICATE-CANDLE CONTAMINATION** — see
+> [`CAMPAIGN_015_DEDUPED_RERUN_001_SUMMARY.md`](CAMPAIGN_015_DEDUPED_RERUN_001_SUMMARY.md).
+
 **Branch:** `research-campaign-015-post-run-diagnostics-001`
 **Date:** 2026-05-25 / 2026-05-26
 **Sprint type:** post-run diagnostic — **NOT** strategy, tuning, or

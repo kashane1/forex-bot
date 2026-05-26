@@ -1,0 +1,481 @@
+{
+  "schema_version": 1,
+  "campaign_id": "CAMPAIGN_011",
+  "strategy_name": "random_entry_anchor",
+  "strategy_version": "0.1.0-c011",
+  "null_model": true,
+  "canonical": true,
+  "approval_path": "none (null model by design)",
+  "overall_verdict": "REJECT",
+  "master_seed": 20260523,
+  "seed_derivation": "Frozen master_seed on strategy config; per-bar entry uses SHA-256(master_seed, instrument, bar_index) \u2014 see CAMPAIGN_011_PRECOMMIT_CHECKLIST.md \u00a75\u2013\u00a76.",
+  "data_dedupe_policy": "keep_last",
+  "data_source": "oanda-practice",
+  "config_path": "configs/campaign_011_random_entry_anchor.yaml",
+  "config_hash": "6f2c04981a3f02f08bae65b73b09f873de6a42cb067b9462885c5ffd2c6a1206",
+  "fold_windows": [
+    {
+      "fold_index": 0,
+      "test_start": "2021-12-21",
+      "test_end": "2022-06-18"
+    },
+    {
+      "fold_index": 1,
+      "test_start": "2022-06-19",
+      "test_end": "2022-12-15"
+    },
+    {
+      "fold_index": 2,
+      "test_start": "2022-12-16",
+      "test_end": "2023-06-13"
+    },
+    {
+      "fold_index": 3,
+      "test_start": "2023-06-14",
+      "test_end": "2023-12-10"
+    },
+    {
+      "fold_index": 4,
+      "test_start": "2023-12-11",
+      "test_end": "2024-06-07"
+    },
+    {
+      "fold_index": 5,
+      "test_start": "2024-06-08",
+      "test_end": "2024-12-04"
+    },
+    {
+      "fold_index": 6,
+      "test_start": "2024-12-05",
+      "test_end": "2025-06-02"
+    },
+    {
+      "fold_index": 7,
+      "test_start": "2025-06-03",
+      "test_end": "2025-11-29"
+    }
+  ],
+  "per_fold": [
+    {
+      "fold_index": 0,
+      "test_start": "2021-12-21",
+      "test_end": "2022-06-18",
+      "trade_count": 143,
+      "expectancy_r": -0.10386838637203849,
+      "return_pct": -4.7941758714342475,
+      "profit_factor": 0.19145940346181115,
+      "passes_gates": false
+    },
+    {
+      "fold_index": 1,
+      "test_start": "2022-06-19",
+      "test_end": "2022-12-15",
+      "trade_count": 150,
+      "expectancy_r": -0.023866374208924082,
+      "return_pct": -0.5901340343832939,
+      "profit_factor": 0.8186077278855688,
+      "passes_gates": false
+    },
+    {
+      "fold_index": 2,
+      "test_start": "2022-12-16",
+      "test_end": "2023-06-13",
+      "trade_count": 155,
+      "expectancy_r": 0.0391166254842596,
+      "return_pct": 4.2691556610357395,
+      "profit_factor": 3.8680712880427444,
+      "passes_gates": false
+    },
+    {
+      "fold_index": 3,
+      "test_start": "2023-06-14",
+      "test_end": "2023-12-10",
+      "trade_count": 150,
+      "expectancy_r": -0.0059575092233007205,
+      "return_pct": -0.8457449988458543,
+      "profit_factor": 0.6030414407739574,
+      "passes_gates": false
+    },
+    {
+      "fold_index": 4,
+      "test_start": "2023-12-11",
+      "test_end": "2024-06-07",
+      "trade_count": 162,
+      "expectancy_r": 0.014737092091635368,
+      "return_pct": -0.08446098232743893,
+      "profit_factor": 0.9647208984734297,
+      "passes_gates": false
+    },
+    {
+      "fold_index": 5,
+      "test_start": "2024-06-08",
+      "test_end": "2024-12-04",
+      "trade_count": 154,
+      "expectancy_r": -0.002761880915949227,
+      "return_pct": 0.48917196701643295,
+      "profit_factor": 1.1815784447562439,
+      "passes_gates": false
+    },
+    {
+      "fold_index": 6,
+      "test_start": "2024-12-05",
+      "test_end": "2025-06-02",
+      "trade_count": 128,
+      "expectancy_r": 0.05407079566083674,
+      "return_pct": 0.9369952279737803,
+      "profit_factor": 1.3780478250267965,
+      "passes_gates": false
+    },
+    {
+      "fold_index": 7,
+      "test_start": "2025-06-03",
+      "test_end": "2025-11-29",
+      "trade_count": 138,
+      "expectancy_r": 0.006814226645948531,
+      "return_pct": -0.05794859416987652,
+      "profit_factor": 0.9626163819665696,
+      "passes_gates": false
+    }
+  ],
+  "per_pair": [
+    {
+      "instrument": "EUR_USD",
+      "trade_count": 121,
+      "expectancy_r": -0.04067038232230089,
+      "return_pct": -1.249785999999975
+    },
+    {
+      "instrument": "GBP_USD",
+      "trade_count": 196,
+      "expectancy_r": 0.08416343662723651,
+      "return_pct": 4.18953400000005
+    },
+    {
+      "instrument": "USD_JPY",
+      "trade_count": 174,
+      "expectancy_r": 4.938196697017836e-05,
+      "return_pct": 0.35246727357759466
+    },
+    {
+      "instrument": "AUD_USD",
+      "trade_count": 191,
+      "expectancy_r": -0.03543150445140003,
+      "return_pct": -1.7150390000000293
+    },
+    {
+      "instrument": "USD_CAD",
+      "trade_count": 182,
+      "expectancy_r": -0.01022476200061388,
+      "return_pct": -0.4554248745278433
+    },
+    {
+      "instrument": "USD_CHF",
+      "trade_count": 177,
+      "expectancy_r": 0.022049564834219756,
+      "return_pct": 0.8281039758154973
+    },
+    {
+      "instrument": "NZD_USD",
+      "trade_count": 139,
+      "expectancy_r": -0.07408733207178966,
+      "return_pct": -2.626997000000053
+    }
+  ],
+  "aggregate": {
+    "fold_count": 8,
+    "folds_passing": 0,
+    "fold_pass_rate": 0.0,
+    "total_trades": 1180,
+    "aggregate_expectancy_r": -0.0029154071495408797,
+    "aggregate_return_pct": -0.6771416251347584,
+    "profit_factor": 0.8937394430150798,
+    "pairs_positive_count": 3,
+    "single_fold_dominance_pct": 39.72704968591121,
+    "single_pair_dominance_pct": 36.694445038813825
+  },
+  "null_distribution": {
+    "per_fold_expectancy_r": [
+      -0.10386838637203849,
+      -0.023866374208924082,
+      0.0391166254842596,
+      -0.0059575092233007205,
+      0.014737092091635368,
+      -0.002761880915949227,
+      0.05407079566083674,
+      0.006814226645948531
+    ],
+    "per_fold_expectancy_r_mean": -0.0027144263546915355,
+    "per_fold_expectancy_r_std": 0.04789840054747161
+  },
+  "cost_stress": {
+    "note": "Financing overlay not re-run in deduped promotion sprint; pre-fix CAMPAIGN_011 financing doc remains informational. Re-run build_campaign_011_financing_overlay.py against deduped fold trade CSVs locally if stress numbers are needed.",
+    "available": false
+  },
+  "dedupe_probe": {
+    "status": "OK",
+    "dedupe_policy": "keep_last",
+    "duplicates_detected": 42710,
+    "duplicates_dropped": 42710,
+    "raw_count_total": 85574,
+    "deduped_count_total": 42864,
+    "per_pair": {
+      "EUR_USD": {
+        "raw_count": 12224,
+        "deduped_count": 6123,
+        "duplicates_dropped": 6101
+      },
+      "GBP_USD": {
+        "raw_count": 12224,
+        "deduped_count": 6123,
+        "duplicates_dropped": 6101
+      },
+      "USD_JPY": {
+        "raw_count": 12224,
+        "deduped_count": 6123,
+        "duplicates_dropped": 6101
+      },
+      "AUD_USD": {
+        "raw_count": 12224,
+        "deduped_count": 6123,
+        "duplicates_dropped": 6101
+      },
+      "USD_CAD": {
+        "raw_count": 12224,
+        "deduped_count": 6123,
+        "duplicates_dropped": 6101
+      },
+      "USD_CHF": {
+        "raw_count": 12224,
+        "deduped_count": 6123,
+        "duplicates_dropped": 6101
+      },
+      "NZD_USD": {
+        "raw_count": 12230,
+        "deduped_count": 6126,
+        "duplicates_dropped": 6104
+      }
+    }
+  },
+  "supersedes": {
+    "artifact_folder": "backtests/CAMPAIGN_011_random_entry_anchor",
+    "integrity_status": "LIKELY_CONTAMINATED",
+    "aggregate_expectancy_r": -0.0024,
+    "total_trades": 1177,
+    "aggregate_return_pct": -0.53,
+    "aggregate_profit_factor": 0.91,
+    "note": "Pre-fix bespoke SQLite loads before CandleRepo.list dedupe (commit 30b4654). Verdict REJECT unchanged; headline metrics must not be used for null-band comparisons."
+  },
+  "provenance": {
+    "input_dir": "backtests/CAMPAIGN_011_random_entry_anchor_deduped",
+    "fold_detail_sha256": "b776adbcb9576396068b890fedbcb5e850366e5fca3aa401a7476aa995416e16",
+    "results_sha256": "02dd35add739279c01ecb8c3dc06e5b729acb429e8acdc0c152b2d499f9968b0",
+    "generated_at": "2026-05-26T05:26:23.435452+00:00",
+    "dedupe_fix_commit": "30b4654"
+  },
+  "excluded_local_only": [
+    "CAMPAIGN_011_random_entry_anchor_deduped/folds/**/**_trades.csv",
+    "CAMPAIGN_011_random_entry_anchor_deduped/folds/**/**_summary.json (optional; fold_detail is canonical)"
+  ],
+  "walk_forward_results": {
+    "plan": {
+      "campaign_name": "CAMPAIGN_011",
+      "universe_start": "2020-01-01",
+      "universe_end": "2026-05-20",
+      "split_style": "rolling",
+      "parameter_mode": "frozen",
+      "folds": [
+        {
+          "fold_index": 0,
+          "train_start": "2020-01-01",
+          "train_end": "2021-06-23",
+          "validation_start": "2021-06-24",
+          "validation_end": "2021-12-20",
+          "test_start": "2021-12-21",
+          "test_end": "2022-06-18"
+        },
+        {
+          "fold_index": 1,
+          "train_start": "2020-06-29",
+          "train_end": "2021-12-20",
+          "validation_start": "2021-12-21",
+          "validation_end": "2022-06-18",
+          "test_start": "2022-06-19",
+          "test_end": "2022-12-15"
+        },
+        {
+          "fold_index": 2,
+          "train_start": "2020-12-26",
+          "train_end": "2022-06-18",
+          "validation_start": "2022-06-19",
+          "validation_end": "2022-12-15",
+          "test_start": "2022-12-16",
+          "test_end": "2023-06-13"
+        },
+        {
+          "fold_index": 3,
+          "train_start": "2021-06-24",
+          "train_end": "2022-12-15",
+          "validation_start": "2022-12-16",
+          "validation_end": "2023-06-13",
+          "test_start": "2023-06-14",
+          "test_end": "2023-12-10"
+        },
+        {
+          "fold_index": 4,
+          "train_start": "2021-12-21",
+          "train_end": "2023-06-13",
+          "validation_start": "2023-06-14",
+          "validation_end": "2023-12-10",
+          "test_start": "2023-12-11",
+          "test_end": "2024-06-07"
+        },
+        {
+          "fold_index": 5,
+          "train_start": "2022-06-19",
+          "train_end": "2023-12-10",
+          "validation_start": "2023-12-11",
+          "validation_end": "2024-06-07",
+          "test_start": "2024-06-08",
+          "test_end": "2024-12-04"
+        },
+        {
+          "fold_index": 6,
+          "train_start": "2022-12-16",
+          "train_end": "2024-06-07",
+          "validation_start": "2024-06-08",
+          "validation_end": "2024-12-04",
+          "test_start": "2024-12-05",
+          "test_end": "2025-06-02"
+        },
+        {
+          "fold_index": 7,
+          "train_start": "2023-06-14",
+          "train_end": "2024-12-04",
+          "validation_start": "2024-12-05",
+          "validation_end": "2025-06-02",
+          "test_start": "2025-06-03",
+          "test_end": "2025-11-29"
+        }
+      ],
+      "notes": [],
+      "strategy_evidence": false
+    },
+    "fold_metrics": [
+      {
+        "fold_index": 0,
+        "total_trades": 143,
+        "bars_in_test_window": 773,
+        "expectancy_r": -0.10386838637203849,
+        "return_pct": -4.7941758714342475,
+        "profit_factor": 0.19145940346181115,
+        "max_drawdown_pct": -1.335188483271247,
+        "win_rate": 0.41890666269548255,
+        "long_trades": 79,
+        "short_trades": 64,
+        "pass_pre_commit_gates": false
+      },
+      {
+        "fold_index": 1,
+        "total_trades": 150,
+        "bars_in_test_window": 777,
+        "expectancy_r": -0.023866374208924082,
+        "return_pct": -0.5901340343832939,
+        "profit_factor": 0.8186077278855688,
+        "max_drawdown_pct": -0.6867272212671616,
+        "win_rate": 0.48973627132012226,
+        "long_trades": 76,
+        "short_trades": 74,
+        "pass_pre_commit_gates": false
+      },
+      {
+        "fold_index": 2,
+        "total_trades": 155,
+        "bars_in_test_window": 764,
+        "expectancy_r": 0.0391166254842596,
+        "return_pct": 4.2691556610357395,
+        "profit_factor": 3.8680712880427444,
+        "max_drawdown_pct": -0.666690389383581,
+        "win_rate": 0.5188210936548533,
+        "long_trades": 88,
+        "short_trades": 67,
+        "pass_pre_commit_gates": false
+      },
+      {
+        "fold_index": 3,
+        "total_trades": 150,
+        "bars_in_test_window": 770,
+        "expectancy_r": -0.0059575092233007205,
+        "return_pct": -0.8457449988458543,
+        "profit_factor": 0.6030414407739574,
+        "max_drawdown_pct": -0.8461253407205067,
+        "win_rate": 0.491996336996337,
+        "long_trades": 83,
+        "short_trades": 67,
+        "pass_pre_commit_gates": false
+      },
+      {
+        "fold_index": 4,
+        "total_trades": 162,
+        "bars_in_test_window": 767,
+        "expectancy_r": 0.014737092091635368,
+        "return_pct": -0.08446098232743893,
+        "profit_factor": 0.9647208984734297,
+        "max_drawdown_pct": -0.8278797789451477,
+        "win_rate": 0.49729373354693046,
+        "long_trades": 73,
+        "short_trades": 89,
+        "pass_pre_commit_gates": false
+      },
+      {
+        "fold_index": 5,
+        "total_trades": 154,
+        "bars_in_test_window": 771,
+        "expectancy_r": -0.002761880915949227,
+        "return_pct": 0.48917196701643295,
+        "profit_factor": 1.1815784447562439,
+        "max_drawdown_pct": -0.7100560371958201,
+        "win_rate": 0.4992398334546042,
+        "long_trades": 80,
+        "short_trades": 74,
+        "pass_pre_commit_gates": false
+      },
+      {
+        "fold_index": 6,
+        "total_trades": 128,
+        "bars_in_test_window": 758,
+        "expectancy_r": 0.05407079566083674,
+        "return_pct": 0.9369952279737803,
+        "profit_factor": 1.3780478250267965,
+        "max_drawdown_pct": -0.5088189750324512,
+        "win_rate": 0.5159850501465408,
+        "long_trades": 63,
+        "short_trades": 65,
+        "pass_pre_commit_gates": false
+      },
+      {
+        "fold_index": 7,
+        "total_trades": 138,
+        "bars_in_test_window": 773,
+        "expectancy_r": 0.006814226645948531,
+        "return_pct": -0.05794859416987652,
+        "profit_factor": 0.9626163819665696,
+        "max_drawdown_pct": -0.5841441755472487,
+        "win_rate": 0.45152896240955154,
+        "long_trades": 70,
+        "short_trades": 68,
+        "pass_pre_commit_gates": false
+      }
+    ],
+    "aggregate": {
+      "fold_count": 8,
+      "folds_passing_gates": 0,
+      "fold_pass_rate": 0.0,
+      "total_trades_across_folds": 1180,
+      "aggregate_expectancy_r": -0.0029154071495408797,
+      "aggregate_return_pct": -0.6771416251347584,
+      "single_fold_max_return_share": 0.3972704968591121
+    },
+    "overall_verdict": "REJECT",
+    "strategy_evidence": false
+  }
+}

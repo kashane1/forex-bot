@@ -1,0 +1,3 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+USD_JPY,short,482,2025-08-19T01:00:00+00:00,2025-08-20T01:00:00+00:00,147.75300,147.59,148.152,0.5323260383494816722000135511,0.002767947037456097048638263455,12,1.6,time,next_bar_open,False,False,
+USD_JPY,long,385,2025-08-20T05:00:00+00:00,2025-08-20T13:00:00+00:00,147.60500,147.110,147.110,-1.295459180205288559581265720,-0.006797634423220719189721976755,4,1.6,stop,next_bar_open,False,False,

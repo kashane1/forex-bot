@@ -3,6 +3,13 @@
 **Date:** 2026-05-23 · **Branch:** `research-new-candidate-strategy-discovery-003`
 `strategy_evidence: false`
 
+> **NUMERIC FLOOR SUPERSEDED (2026-05-26).** §1 verbatim metrics are
+> **pre-fix / LIKELY_CONTAMINATED**. For null-band centres use the
+> deduped canonical rollup:
+> [`research/null_baselines/campaign_011_deduped_null_baseline.json`](../../research/null_baselines/campaign_011_deduped_null_baseline.json)
+> and [`CAMPAIGN_011_NULL_BASELINE_SUPERSESSION.md`](CAMPAIGN_011_NULL_BASELINE_SUPERSESSION.md).
+> Comparison **protocol** in §2–§9 below remains binding.
+
 Phase 1 formalization of how CAMPAIGN_011 (`random_entry_anchor
 0.1.0-c011` — the C5 null-model anchor) should be used as a
 falsifiability floor when judging future real candidates. **This
@@ -16,10 +23,16 @@ null-baseline comparison protocol.
 > `approved: []`. **CAMPAIGN_011 is a null model — it is NOT a
 > trading candidate. It is a measurement instrument.**
 
-## 1. CAMPAIGN_011 result summary (verbatim)
+## 1. CAMPAIGN_011 result summary (verbatim — **SUPERSEDED NUMBERS**)
+
+> **Canonical deduped floor (2026-05-26):** 1,180 trades,
+> aggregate expectancy **−0.0029 R**, return **−0.68 %**, PF **0.89**,
+> 3/7 pairs positive, 0/8 fold pass. See
+> [`CAMPAIGN_011_DEDUPED_NULL_BASELINE.md`](CAMPAIGN_011_DEDUPED_NULL_BASELINE.md).
 
 Cited from
 [`CAMPAIGN_011_WALK_FORWARD_RESULT.md`](CAMPAIGN_011_WALK_FORWARD_RESULT.md)
+**(pre-fix; superseded for numeric use)**
 and [`CAMPAIGN_011_FINANCING_OVERLAY.md`](CAMPAIGN_011_FINANCING_OVERLAY.md):
 
 | dimension | value | interpretation |
@@ -97,7 +110,7 @@ are *additional* to the inherited pass gates from CAMPAIGN_010 §10.
 
 | metric | "meaningful improvement" margin over CAMPAIGN_011 |
 |---|---|
-| aggregate expectancy R | ≥ +0.0524 R (i.e. reach the 0.05 R gate, beating −0.0024 by 0.0524) |
+| aggregate expectancy R | ≥ +0.0529 R (i.e. reach the 0.05 R gate, beating deduped −0.0029 by 0.0529; pre-fix centre was −0.0024) |
 | aggregate profit factor | ≥ +0.19 (reach the 1.10 gate, beating 0.91 by 0.19) |
 | aggregate return % (4 years) | ≥ +5.5 percentage points (reach ≥ +5 %, beating −0.53 % by ~5.5 pp) |
 | `pairs_positive` | ≥ +1 pair (reach 4/7, beating 3/7 by 1) |

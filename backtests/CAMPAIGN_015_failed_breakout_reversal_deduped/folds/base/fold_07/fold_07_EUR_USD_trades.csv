@@ -1,0 +1,2 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+EUR_USD,long,456,2025-11-21T14:00:00+00:00,2025-11-21T14:00:00+00:00,1.1522500,1.14944,1.14944,-1.2813600,-1,1,1.4,stop,next_bar_open,False,False,

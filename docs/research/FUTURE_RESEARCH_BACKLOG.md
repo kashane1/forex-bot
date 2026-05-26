@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-22 · **Branch:** `research-freeze-no-go`
+**Date:** 2026-05-26 · **Branch:** `research-broad-strategy-pause-and-roadmap-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -8,10 +8,31 @@
 > before any work begins. The research is currently **frozen** — see
 > `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`. No strategy is
 > approved; no campaign may be run on the strength of this list.
+>
+> **Broad seven-pair pattern strategy search is paused** (2026-05-26).
+> Re-entry gates: [`BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md`](BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md).
+> Active non-strategy sprint selection:
+> [`NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md`](NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md).
 
-Ordering is rough priority. Items 1–2 are infrastructure (no overfitting
-risk, high value); items 3–4 are validation / diagnostics; items 5–8 are
-genuinely new research and carry the usual overfitting danger.
+Ordering is rough priority. **Item 0** is the authorized next non-strategy
+sprint (observed cost / spread diagnostics). Items 1–2 are infrastructure;
+items 3–4 are validation / diagnostics; items 5–8 are genuinely new
+strategy research and carry the usual overfitting danger — **blocked until
+broad-search re-entry gates are met.**
+
+---
+
+## 0. Observed transaction-cost and spread-regime diagnostics (ACTIVE NEXT SPRINT)
+
+- **Why it matters.** C015–C017 fail at or below the deduped null; all worsen
+  under 2× cost. Before more pattern campaigns, characterize spread/ATR,
+  session, weekday, and volatility-regime cost drag on existing bid/ask H4 data.
+- **Required data / code.** Local deduped H4 bid/ask candles; diagnostics scripts;
+  compact JSON/MD outputs — **no strategy, no broker order APIs.**
+- **Risk of overfitting.** Low — descriptive infrastructure.
+- **What would count as success.** Cost-hostile windows documented; recommendations
+  for future strategy gating; sprint `infra-observed-cost-and-spread-regime-diagnostics-001`.
+- **Status.** **SELECTED** — see [`NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md`](NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md).
 
 ---
 

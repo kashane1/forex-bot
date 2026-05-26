@@ -16,6 +16,8 @@ from research.backtrader_lane.strategies import (
     campaign_002_trend_following,  # noqa: F401
     campaign_011_random_entry_anchor,  # noqa: F401
     campaign_015_failed_breakout_reversal,  # noqa: F401
+    campaign_016_weekly_cross_sectional_momentum,  # noqa: F401
+    campaign_017_weekly_volatility_contraction_breakout,  # noqa: F401
 )
 
 __all__: list[str] = []

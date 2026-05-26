@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "campaign_id": "CAMPAIGN_011",
+  "strategy_name": "random_entry_anchor",
+  "strategy_version": "0.1.0-c011",
+  "overall_verdict": "REJECT",
+  "per_fold": [
+    {"fold_index": 0, "test_start": "2021-12-21", "test_end": "2022-06-18", "trade_count": 10, "expectancy_r": -0.10, "passes_gates": false},
+    {"fold_index": 1, "test_start": "2022-06-19", "test_end": "2022-12-15", "trade_count": 10, "expectancy_r": 0.02, "passes_gates": false}
+  ],
+  "per_pair": [
+    {"instrument": "EUR_USD", "trade_count": 20, "expectancy_r": -0.04},
+    {"instrument": "GBP_USD", "trade_count": 20, "expectancy_r": 0.08}
+  ],
+  "aggregate": {
+    "fold_count": 2,
+    "folds_passing": 0,
+    "total_trades": 20,
+    "aggregate_expectancy_r": -0.003,
+    "profit_factor": 0.89,
+    "pairs_positive_count": 1,
+    "single_pair_dominance_pct": 40.0,
+    "single_fold_dominance_pct": 35.0
+  },
+  "null_distribution": {
+    "per_fold_expectancy_r_std": 0.048
+  }
+}

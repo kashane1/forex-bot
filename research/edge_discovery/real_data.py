@@ -265,6 +265,20 @@ def load_campaign_walk_forward_result(
     )
 
 
+def load_canonical_null_baseline_rollup(
+    path: Path | None = None,
+) -> dict[str, object]:
+    """Load the deduped CAMPAIGN_011 canonical null rollup.
+
+    Post-dedupe comparisons must use
+    ``research/null_baselines/campaign_011_deduped_null_baseline.json``,
+    not pre-fix ``backtests/CAMPAIGN_011_random_entry_anchor/`` metrics.
+    """
+    from research.null_baselines import load_campaign_011_deduped_null_baseline
+
+    return load_campaign_011_deduped_null_baseline(path)
+
+
 # ---------------------------------------------------------------------------
 # Per-fold per-pair summary JSONs (280 files for CAMPAIGN_010-014)
 # ---------------------------------------------------------------------------

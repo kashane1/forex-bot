@@ -1,0 +1,748 @@
+{
+  "per_pair": [
+    {
+      "analyzer": {
+        "closed_trades": 6,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 2
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 493.797505,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 508.4186050000001,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 4,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 506.49250396451646,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 488.6090400000001,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 7,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TO_ATR": 2
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 508.29443866072677,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 3,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 3
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 501.8813998881481,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TO_ATR": 2
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 495.6496849999999,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 3
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 498.18286,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 11,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 522.3385199999999,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 2,
+          "SPREAD_TO_ATR": 2
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 520.4475178338213,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 13,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 493.83821,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 10,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 492.6751356740744,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 5,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 500.6207411027427,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 3,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 496.18762499999997,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 3
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 496.09283499999987,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 514.7055099999999,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 5,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 2,
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 505.7561948751309,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 13,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 504.861515,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 7,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 495.2809684937318,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {},
+        "risk_engine_parity": true
+      },
+      "final_cash": 494.9577440599531,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 495.27024499999993,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 2
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 501.364685,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 510.22524499999986,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 3,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 500.06441844824514,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 13,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {},
+        "risk_engine_parity": true
+      },
+      "final_cash": 498.7886900000001,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {},
+        "risk_engine_parity": true
+      },
+      "final_cash": 507.2359419832488,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 12,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 492.1610595304473,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 11,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {},
+        "risk_engine_parity": true
+      },
+      "final_cash": 504.32923500000004,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 10,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 3
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 510.6293649999998,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 11,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TO_ATR": 2
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 507.36142500000005,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 5,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 497.3120322251555,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 498.4200349999999,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 507.85146602495746,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 3,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TO_ATR": 3
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 496.19289821303977,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 7,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {},
+        "risk_engine_parity": true
+      },
+      "final_cash": 512.1986200000001,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 4,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 2,
+          "SPREAD_TO_ATR": 3
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 507.073265,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 10,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TO_ATR": 2
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 506.1421050000001,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {},
+        "risk_engine_parity": true
+      },
+      "final_cash": 494.31182105237775,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 7,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 2
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 501.657705,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 5,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 8
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 501.12759491311533,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 4,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TO_ATR": 3
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 501.5116198049454,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 3,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 503.6343999999999,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 5,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 7
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 497.473575,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 16,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {},
+        "risk_engine_parity": true
+      },
+      "final_cash": 507.4515850000003,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 4,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {},
+        "risk_engine_parity": true
+      },
+      "final_cash": 494.98060621504743,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 12,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 2,
+          "SPREAD_TO_ATR": 2
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 505.16814500000015,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 491.9213018532574,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 5,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 2,
+          "SPREAD_TO_ATR": 3
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 498.2538434589728,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 2,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 498.89002000000005,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 1,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 12
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 502.69951999999995,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 499.2569700000001,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 502.4326954888457,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 12,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 2,
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 2
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 504.5080150000003,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 7,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 1,
+          "SPREAD_TO_ATR": 5
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 492.53651487627434,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 11,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TOO_WIDE": 3,
+          "SPREAD_TO_ATR": 4
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 497.17327014949547,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6,
+        "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+        "rejection_counts": {
+          "SESSION_BLOCKED": 1,
+          "SPREAD_TO_ATR": 1
+        },
+        "risk_engine_parity": true
+      },
+      "final_cash": 492.3493650000002,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    }
+  ]
+}

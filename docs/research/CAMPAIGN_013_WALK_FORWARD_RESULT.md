@@ -1,7 +1,10 @@
 # CAMPAIGN_013 Walk-Forward Result (Phase 5)
 
-**Date:** 2026-05-23 · **Branch:** `research-cross-pair-currency-strength-rotation-walk-forward-001`
+**Date:** 2026-05-26 · **Branch:** `research-cross-pair-currency-strength-rotation-walk-forward-001`
 `strategy_evidence: false`
+
+> **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE.** Metrics and
+> null-baseline comparison used pre-fix SQLite. REJECT verdict unchanged.
 
 Formal Phase 5 verdict for **CAMPAIGN_013 /
 `cross_pair_currency_strength_rotation 0.1.0-c013`**.

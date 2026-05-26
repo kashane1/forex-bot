@@ -1,0 +1,4 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+EUR_USD,short,130,2025-07-15T17:00:00+00:00,2025-07-24T13:00:00+00:00,1.1594500,1.17882,1.17882,-2.5181000,-1,42,1.4,stop,next_bar_open,False,False,
+EUR_USD,short,193,2025-10-30T13:00:00+00:00,2025-11-10T10:00:00+00:00,1.1553100,1.15688,1.16832,-0.3030100,-0.1206764027671022290545734051,42,1.4,time,next_bar_open,False,False,
+EUR_USD,short,191,2025-11-19T18:00:00+00:00,2025-11-28T14:00:00+00:00,1.1530900,1.16036,1.16619,-1.3885700,-0.5549618320610687022900763359,42,1.5,time,next_bar_open,False,False,

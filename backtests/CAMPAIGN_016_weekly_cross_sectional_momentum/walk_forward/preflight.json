@@ -1,0 +1,623 @@
+{
+  "blocked": false,
+  "reasons": [],
+  "details": {
+    "per_pair": {
+      "EUR_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2477,
+          "fold_01": 2487,
+          "fold_02": 2480,
+          "fold_03": 2480,
+          "fold_04": 2472,
+          "fold_05": 2474,
+          "fold_06": 2462,
+          "fold_07": 2477
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 4972,
+            "deduped_count": 2487,
+            "duplicates_detected": 2485,
+            "duplicates_dropped": 2485,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 4944,
+            "deduped_count": 2472,
+            "duplicates_detected": 2472,
+            "duplicates_dropped": 2472,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 4944,
+            "deduped_count": 2474,
+            "duplicates_detected": 2470,
+            "duplicates_dropped": 2470,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 4920,
+            "deduped_count": 2462,
+            "duplicates_detected": 2458,
+            "duplicates_dropped": 2458,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "GBP_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2477,
+          "fold_01": 2487,
+          "fold_02": 2480,
+          "fold_03": 2480,
+          "fold_04": 2472,
+          "fold_05": 2474,
+          "fold_06": 2462,
+          "fold_07": 2477
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 4972,
+            "deduped_count": 2487,
+            "duplicates_detected": 2485,
+            "duplicates_dropped": 2485,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 4944,
+            "deduped_count": 2472,
+            "duplicates_detected": 2472,
+            "duplicates_dropped": 2472,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 4944,
+            "deduped_count": 2474,
+            "duplicates_detected": 2470,
+            "duplicates_dropped": 2470,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 4920,
+            "deduped_count": 2462,
+            "duplicates_detected": 2458,
+            "duplicates_dropped": 2458,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "USD_JPY": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2478,
+          "fold_01": 2487,
+          "fold_02": 2480,
+          "fold_03": 2480,
+          "fold_04": 2472,
+          "fold_05": 2474,
+          "fold_06": 2462,
+          "fold_07": 2477
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 4954,
+            "deduped_count": 2478,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 4972,
+            "deduped_count": 2487,
+            "duplicates_detected": 2485,
+            "duplicates_dropped": 2485,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 4944,
+            "deduped_count": 2472,
+            "duplicates_detected": 2472,
+            "duplicates_dropped": 2472,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 4944,
+            "deduped_count": 2474,
+            "duplicates_detected": 2470,
+            "duplicates_dropped": 2470,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 4920,
+            "deduped_count": 2462,
+            "duplicates_detected": 2458,
+            "duplicates_dropped": 2458,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "AUD_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2477,
+          "fold_01": 2487,
+          "fold_02": 2480,
+          "fold_03": 2480,
+          "fold_04": 2472,
+          "fold_05": 2474,
+          "fold_06": 2462,
+          "fold_07": 2477
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 4972,
+            "deduped_count": 2487,
+            "duplicates_detected": 2485,
+            "duplicates_dropped": 2485,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 4944,
+            "deduped_count": 2472,
+            "duplicates_detected": 2472,
+            "duplicates_dropped": 2472,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 4944,
+            "deduped_count": 2474,
+            "duplicates_detected": 2470,
+            "duplicates_dropped": 2470,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 4920,
+            "deduped_count": 2462,
+            "duplicates_detected": 2458,
+            "duplicates_dropped": 2458,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "USD_CAD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2477,
+          "fold_01": 2487,
+          "fold_02": 2480,
+          "fold_03": 2480,
+          "fold_04": 2472,
+          "fold_05": 2474,
+          "fold_06": 2462,
+          "fold_07": 2477
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 4972,
+            "deduped_count": 2487,
+            "duplicates_detected": 2485,
+            "duplicates_dropped": 2485,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 4944,
+            "deduped_count": 2472,
+            "duplicates_detected": 2472,
+            "duplicates_dropped": 2472,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 4944,
+            "deduped_count": 2474,
+            "duplicates_detected": 2470,
+            "duplicates_dropped": 2470,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 4920,
+            "deduped_count": 2462,
+            "duplicates_detected": 2458,
+            "duplicates_dropped": 2458,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "USD_CHF": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2477,
+          "fold_01": 2487,
+          "fold_02": 2480,
+          "fold_03": 2480,
+          "fold_04": 2472,
+          "fold_05": 2474,
+          "fold_06": 2462,
+          "fold_07": 2477
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 4972,
+            "deduped_count": 2487,
+            "duplicates_detected": 2485,
+            "duplicates_dropped": 2485,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 4956,
+            "deduped_count": 2480,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 4944,
+            "deduped_count": 2472,
+            "duplicates_detected": 2472,
+            "duplicates_dropped": 2472,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 4944,
+            "deduped_count": 2474,
+            "duplicates_detected": 2470,
+            "duplicates_dropped": 2470,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 4920,
+            "deduped_count": 2462,
+            "duplicates_detected": 2458,
+            "duplicates_dropped": 2458,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      },
+      "NZD_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2478,
+          "fold_01": 2488,
+          "fold_02": 2482,
+          "fold_03": 2481,
+          "fold_04": 2475,
+          "fold_05": 2476,
+          "fold_06": 2464,
+          "fold_07": 2477
+        },
+        "fold_dedupe": {
+          "fold_00": {
+            "raw_count": 4954,
+            "deduped_count": 2478,
+            "duplicates_detected": 2476,
+            "duplicates_dropped": 2476,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_01": {
+            "raw_count": 4974,
+            "deduped_count": 2488,
+            "duplicates_detected": 2486,
+            "duplicates_dropped": 2486,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_02": {
+            "raw_count": 4960,
+            "deduped_count": 2482,
+            "duplicates_detected": 2478,
+            "duplicates_dropped": 2478,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_03": {
+            "raw_count": 4958,
+            "deduped_count": 2481,
+            "duplicates_detected": 2477,
+            "duplicates_dropped": 2477,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_04": {
+            "raw_count": 4950,
+            "deduped_count": 2475,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_05": {
+            "raw_count": 4948,
+            "deduped_count": 2476,
+            "duplicates_detected": 2472,
+            "duplicates_dropped": 2472,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_06": {
+            "raw_count": 4924,
+            "deduped_count": 2464,
+            "duplicates_detected": 2460,
+            "duplicates_dropped": 2460,
+            "dedupe_policy": "keep_last"
+          },
+          "fold_07": {
+            "raw_count": 4952,
+            "deduped_count": 2477,
+            "duplicates_detected": 2475,
+            "duplicates_dropped": 2475,
+            "dedupe_policy": "keep_last"
+          }
+        }
+      }
+    },
+    "dedupe_policy": "keep_last",
+    "input_classification": "DEDUPED_INPUT",
+    "duplicate_rows_detected_total": 138522,
+    "duplicate_rows_dropped_total": 138522,
+    "cross_pair_contract": {
+      "fold_00": {
+        "contract_satisfied": true,
+        "common_index_length": 2477,
+        "per_pair_raw_lengths": {
+          "EUR_USD": 2477,
+          "GBP_USD": 2477,
+          "USD_JPY": 2478,
+          "AUD_USD": 2477,
+          "USD_CAD": 2477,
+          "USD_CHF": 2477,
+          "NZD_USD": 2478
+        },
+        "blocker": null
+      },
+      "fold_01": {
+        "contract_satisfied": true,
+        "common_index_length": 2487,
+        "per_pair_raw_lengths": {
+          "EUR_USD": 2487,
+          "GBP_USD": 2487,
+          "USD_JPY": 2487,
+          "AUD_USD": 2487,
+          "USD_CAD": 2487,
+          "USD_CHF": 2487,
+          "NZD_USD": 2488
+        },
+        "blocker": null
+      },
+      "fold_02": {
+        "contract_satisfied": true,
+        "common_index_length": 2480,
+        "per_pair_raw_lengths": {
+          "EUR_USD": 2480,
+          "GBP_USD": 2480,
+          "USD_JPY": 2480,
+          "AUD_USD": 2480,
+          "USD_CAD": 2480,
+          "USD_CHF": 2480,
+          "NZD_USD": 2482
+        },
+        "blocker": null
+      },
+      "fold_03": {
+        "contract_satisfied": true,
+        "common_index_length": 2480,
+        "per_pair_raw_lengths": {
+          "EUR_USD": 2480,
+          "GBP_USD": 2480,
+          "USD_JPY": 2480,
+          "AUD_USD": 2480,
+          "USD_CAD": 2480,
+          "USD_CHF": 2480,
+          "NZD_USD": 2481
+        },
+        "blocker": null
+      },
+      "fold_04": {
+        "contract_satisfied": true,
+        "common_index_length": 2472,
+        "per_pair_raw_lengths": {
+          "EUR_USD": 2472,
+          "GBP_USD": 2472,
+          "USD_JPY": 2472,
+          "AUD_USD": 2472,
+          "USD_CAD": 2472,
+          "USD_CHF": 2472,
+          "NZD_USD": 2475
+        },
+        "blocker": null
+      },
+      "fold_05": {
+        "contract_satisfied": true,
+        "common_index_length": 2474,
+        "per_pair_raw_lengths": {
+          "EUR_USD": 2474,
+          "GBP_USD": 2474,
+          "USD_JPY": 2474,
+          "AUD_USD": 2474,
+          "USD_CAD": 2474,
+          "USD_CHF": 2474,
+          "NZD_USD": 2476
+        },
+        "blocker": null
+      },
+      "fold_06": {
+        "contract_satisfied": true,
+        "common_index_length": 2462,
+        "per_pair_raw_lengths": {
+          "EUR_USD": 2462,
+          "GBP_USD": 2462,
+          "USD_JPY": 2462,
+          "AUD_USD": 2462,
+          "USD_CAD": 2462,
+          "USD_CHF": 2462,
+          "NZD_USD": 2464
+        },
+        "blocker": null
+      },
+      "fold_07": {
+        "contract_satisfied": true,
+        "common_index_length": 2477,
+        "per_pair_raw_lengths": {
+          "EUR_USD": 2477,
+          "GBP_USD": 2477,
+          "USD_JPY": 2477,
+          "AUD_USD": 2477,
+          "USD_CAD": 2477,
+          "USD_CHF": 2477,
+          "NZD_USD": 2477
+        },
+        "blocker": null
+      }
+    }
+  }
+}

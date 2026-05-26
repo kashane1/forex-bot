@@ -1,8 +1,65 @@
 {
   "manifest_version": 2,
-  "description": "Machine-readable index of all research evidence: fifteen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal [BLOCKED — local OANDA practice H4 store absent in this worktree]) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
-  "generated": "2026-05-25",
-  "branch": "infra-backtrader-secondary-lane-004-campaign-011",
+  "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
+  "generated": "2026-05-26",
+  "branch": "research-broad-strategy-pause-and-roadmap-001",
+  "broad_strategy_search": {
+    "status": "PAUSED",
+    "pause_date": "2026-05-26",
+    "pause_sprint": "BROAD_STRATEGY_PAUSE_AND_ROADMAP_001",
+    "pause_memo": "docs/research/BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md",
+    "meta_analysis_sprint": "POST_DEDUP_FAILURE_META_ANALYSIS_001",
+    "meta_analysis_summary": "docs/research/POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY.md",
+    "classification": "NO_RELIABLE_ARCHETYPE",
+    "campaign_018_created": false,
+    "dedup_safe_reject_cluster": [
+      "CAMPAIGN_015",
+      "CAMPAIGN_016",
+      "CAMPAIGN_017"
+    ],
+    "next_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
+    "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md"
+  },
+  "post_dedup_failure_meta_analysis": {
+    "sprint": "POST_DEDUP_FAILURE_META_ANALYSIS_001",
+    "summary_doc": "docs/research/POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY.md",
+    "lane_decision_doc": "docs/research/POST_DEDUP_NEXT_RESEARCH_LANE_DECISION.md",
+    "metric_matrix_doc": "docs/research/POST_DEDUP_CAMPAIGN_METRIC_MATRIX.md",
+    "archetype_doc": "docs/research/POST_DEDUP_ARCHETYPE_ANALYSIS.md",
+    "metric_matrix_json": "research/post_dedup_meta/campaign_metric_matrix.json",
+    "archetype_json": "research/post_dedup_meta/archetype_analysis.json",
+    "selected_lane": "pause_broad_strategy_search"
+  },
+  "null_baseline_canonical": {
+    "campaign_id": "CAMPAIGN_011",
+    "json": "research/null_baselines/campaign_011_deduped_null_baseline.json",
+    "md": "research/null_baselines/campaign_011_deduped_null_baseline.md",
+    "doc": "docs/research/CAMPAIGN_011_DEDUPED_NULL_BASELINE.md",
+    "supersedes_artifact_folder": "backtests/CAMPAIGN_011_random_entry_anchor",
+    "supersedes_integrity": "LIKELY_CONTAMINATED",
+    "dedupe_fix_commit": "30b4654",
+    "promotion_sprint": "CAMPAIGN_011_DEDUPED_NULL_BASELINE_001"
+  },
+  "contamination_audit": {
+    "sprint": "CAMPAIGN_CONTAMINATION_AUDIT_001",
+    "dedupe_fix_commit": "30b4654",
+    "dedupe_policy": "keep_last",
+    "classification_doc": "docs/research/CAMPAIGN_EVIDENCE_INTEGRITY_AFTER_DEDUP_FIX.md",
+    "inventory_doc": "docs/research/CAMPAIGN_DATA_SOURCE_INVENTORY.md",
+    "rerun_backlog_doc": "docs/research/POST_DEDUP_RERUN_BACKLOG.md",
+    "summary_doc": "docs/research/CAMPAIGN_CONTAMINATION_AUDIT_001_SUMMARY.md",
+    "note": "CAMPAIGN_011 deduped null baseline promoted to research/null_baselines/campaign_011_deduped_null_baseline.json. POST_DEDUP_NULL_REFERENCE_REFRESH_001 refreshed CAMPAIGN_012-014 null-comparison docs against deduped null; verdicts unchanged REJECT; campaign walk-forward metrics remain LIKELY_CONTAMINATED pending deduped reruns."
+  },
+  "post_dedup_null_reference_refresh": {
+    "sprint": "POST_DEDUP_NULL_REFERENCE_REFRESH_001",
+    "summary_doc": "docs/research/POST_DEDUP_NULL_REFERENCE_REFRESH_001_SUMMARY.md",
+    "inventory_doc": "docs/research/POST_DEDUP_NULL_REFERENCE_INVENTORY.md",
+    "campaign_refresh_docs": {
+      "CAMPAIGN_012": "docs/research/CAMPAIGN_012_POST_DEDUP_NULL_REFERENCE.md",
+      "CAMPAIGN_013": "docs/research/CAMPAIGN_013_POST_DEDUP_NULL_REFERENCE.md",
+      "CAMPAIGN_014": "docs/research/CAMPAIGN_014_POST_DEDUP_NULL_REFERENCE.md"
+    }
+  },
   "no_approved_strategy": true,
   "retired_paths": [
     {
@@ -231,28 +288,33 @@
     },
     {
       "campaign_id": "CAMPAIGN_011",
-      "title": "Random-entry diagnostic anchor / null model (research-random-entry-diagnostic-anchor-walk-forward-001)",
-      "report_path": "docs/research/CAMPAIGN_011_WALK_FORWARD_RESULT.md",
-      "artifact_folder": "backtests/CAMPAIGN_011_random_entry_anchor",
+      "title": "Random-entry diagnostic anchor / null model (deduped canonical null baseline)",
+      "report_path": "docs/research/CAMPAIGN_011_DEDUPED_NULL_BASELINE.md",
+      "artifact_folder": "research/null_baselines",
+      "canonical_null_baseline_json": "research/null_baselines/campaign_011_deduped_null_baseline.json",
+      "superseded_artifact_folder": "backtests/CAMPAIGN_011_random_entry_anchor",
+      "superseded_report_path": "docs/research/CAMPAIGN_011_WALK_FORWARD_RESULT.md",
+      "evidence_integrity_status": "DEDUP_SAFE",
       "strategy_family": "random_entry_anchor",
       "data_source": "oanda-practice",
       "verdict": "REJECT",
       "key_metrics": {
         "fold_count": 8,
         "fold_pass_rate": 0.0,
-        "total_trades": 1177,
-        "aggregate_expectancy_r": -0.0024,
-        "aggregate_profit_factor": 0.9144,
-        "aggregate_return_pct": -0.53,
+        "total_trades": 1180,
+        "aggregate_expectancy_r": -0.0029154071495408797,
+        "aggregate_profit_factor": 0.8937394430150798,
+        "aggregate_return_pct": -0.6771416251347584,
         "pairs_positive": 3,
-        "single_fold_dominance_pct": 40.1,
-        "single_pair_dominance_pct": 36.5,
-        "financing_cashflow_home_stress_total_usd": -24.38,
-        "financing_missing_rate_event_count": 0,
+        "single_fold_dominance_pct": 39.73,
+        "single_pair_dominance_pct": 36.69,
+        "per_fold_expectancy_r_mean": -0.0027144263546915355,
+        "per_fold_expectancy_r_std": 0.04789840054747161,
         "master_seed": 20260523,
         "null_model": true,
+        "data_dedupe_policy": "keep_last",
         "approval_path": "none (null model by design)",
-        "note": "walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4; deterministic-seed coin-flip entry; 0/8 folds pass gates; metrics statistically consistent with no-edge random expectations (expectancy near 0, profit factor near 1, return near 0, pairs_positive near uniform); USD_JPY expectancy literally +0.0000 (textbook random-walk signature); per-pair distribution near-uniform (ratio max/min 1.65 vs CAMPAIGN_010's 12); session distribution diffuse (vs CAMPAIGN_010's 100% London); 8/8 pipeline sanity checks pass; conservative-stress financing flips USD_JPY (marginally +ve pair) to net negative; verifier did not run (capability-locked to CAMPAIGN_002, not required for null-model REJECT); MODELED refused at 4 layers. The REJECT verdict is the EXPECTED outcome of the diagnostic anchor \u2014 it validates the evidence pipeline by demonstrating the gates correctly REJECT a known-zero-edge strategy. CAMPAIGN_011 cannot be approved by design (null model)."
+        "note": "Canonical post-dedupe null baseline promoted from local deduped walk-forward (CandleRepo.list keep_last). Supersedes pre-fix LIKELY_CONTAMINATED metrics (1177 trades, -0.0024 R). REJECT verdict unchanged. CAMPAIGN_012-014 null comparisons pending re-eval against this floor. Not strategy evidence for approval."
       },
       "commit_hash": "0be0e97",
       "test_window_opened": true,
@@ -282,7 +344,7 @@
         "financing_missing_rate_event_count": 0,
         "null_model": false,
         "approval_path": "none (REJECTED on Phase 5 inherited gates AND on CAMPAIGN_011 null-baseline comparison; verifier deferred indefinitely)",
-        "note": "walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4 (same physical store + identical hashes as CAMPAIGN_010 / 011); regime gate = HIGH-VOL iff prior-day D1AGG ATR-14 >= P70 of trailing 60 completed D1AGG bars; trend filter = close[t] vs close[t-4] with min ATR-fraction 0.25 floor; ATR-2.0 stop, 6-bar time stop. 5 of 8 inherited aggregate gates FAIL: fold_pass_rate (0%), expectancy_r (-0.0521 vs >=0.05), profit_factor (0.034 vs >=1.10), pairs_positive (1/7 vs >=4/7); fold_count, trade_count, single_fold_dominance, single_pair_dominance PASS. Null-baseline comparison: CAMPAIGN_012 is markedly WORSE than CAMPAIGN_011 on every binding axis (expectancy -0.0497 R, PF -0.876, return -42.99 pp, pairs -2) \u2014 far outside the symmetric +/-0.005 R / +/-0.10 PF / +/-2 pp / +/-1 pair indistinguishability band; classification REJECT (not REJECT_INDISTINGUISHABLE_FROM_NULL because the divergence is in the worse direction). The regime gate amplified trade count (3,726 vs 1,177) without improving signal quality, accumulating cost drag. USD_JPY at +0.0004 R is the same random-walk floor CAMPAIGN_011 surfaced. Financing overlay (ESTIMATED + conservative stress) adds -$65.07 drag; no pair flip; conservative_stress_run_does_not_flip_verdict PASSES (verdict already REJECT pre-financing). Risk diagnostics: 8/8 sanity checks PASS; diagnostic shape (uniform per-pair distribution, diffuse session distribution, ~79% time-stop) resembles CAMPAIGN_011 null model more than CAMPAIGN_010. Verifier did not run (capability-locked to CAMPAIGN_002; not required for REJECT); infra-free-local-parity-verifier-regime-switcher-001 deferred indefinitely. MODELED financing refused at 4 layers; live-promotion blocker stands. configs/approved_strategies.yaml remains approved: []."
+        "note": "POST_DEDUP_NULL_REFERENCE_REFRESH_001: null gap recomputed vs deduped canonical null (−0.0029 R, 1180 trades); verdict REJECT unchanged; walk-forward metrics LIKELY_CONTAMINATED (pre-fix SQLite). See docs/research/CAMPAIGN_012_POST_DEDUP_NULL_REFERENCE.md. Prior null-comparison used SUPERSEDED_NULL_REFERENCE (−0.0024 R). walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4 (same physical store + identical hashes as CAMPAIGN_010 / 011); regime gate = HIGH-VOL iff prior-day D1AGG ATR-14 >= P70 of trailing 60 completed D1AGG bars; trend filter = close[t] vs close[t-4] with min ATR-fraction 0.25 floor; ATR-2.0 stop, 6-bar time stop. 5 of 8 inherited aggregate gates FAIL: fold_pass_rate (0%), expectancy_r (-0.0521 vs >=0.05), profit_factor (0.034 vs >=1.10), pairs_positive (1/7 vs >=4/7); fold_count, trade_count, single_fold_dominance, single_pair_dominance PASS. Null-baseline comparison vs deduped null: CAMPAIGN_012 markedly WORSE on every binding axis (expectancy gap −0.0492 R, PF −0.856, return −42.84 pp, pairs −2) — far outside indistinguishability band; classification REJECT. The regime gate amplified trade count (3,726 vs 1,177) without improving signal quality. USD_JPY at +0.0004 R is the same random-walk floor CAMPAIGN_011 surfaced. Financing overlay (ESTIMATED + conservative stress) adds -$65.07 drag; conservative_stress_run_does_not_flip_verdict PASSES. Risk diagnostics: 8/8 sanity checks PASS. Verifier deferred indefinitely. MODELED financing refused. configs/approved_strategies.yaml remains approved: []."
       },
       "commit_hash": "c26616d",
       "test_window_opened": true,
@@ -312,7 +374,7 @@
         "financing_missing_rate_event_count": 0,
         "null_model": false,
         "approval_path": "none (REJECTED on Phase 5 inherited gates AND on CAMPAIGN_011 null-baseline comparison; cross-pair runner contract SATISFIED on all 8 folds; verifier deferred indefinitely)",
-        "note": "walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4 (same physical store + identical hashes as CAMPAIGN_010 / 011 / 012); cross-pair signal = 8-currency log-return strength matrix (USD-base +log_return / USD-quote -log_return / USD = -mean(non-USD)) with rank-gap rule |rank(quote) - rank(base)| >= 4 inclusively; long strong-base / short strong-quote over 6-bar (24h) holding period with ATR-2.0 stop. Cross-pair runner integration contract SATISFIED on all 8 folds (common_index 1,825-1,848 H4 bars; per-pair `cross_pair_closes` injected). 5 of 8 inherited aggregate gates FAIL: fold_pass_rate (0%), expectancy_r (-0.0564 vs >=0.05), profit_factor (0.000 vs >=1.10), pairs_positive (1/7 vs >=4/7); fold_count, trade_count, single_fold_dominance, single_pair_dominance PASS. Null-baseline comparison: CAMPAIGN_013 is catastrophically WORSE than CAMPAIGN_011 on every binding axis (expectancy -0.0540 R, PF -0.910, return -112.83 pp, pairs -2) - far outside the symmetric +/-0.005 R / +/-0.10 PF / +/-2 pp / +/-1 pair indistinguishability band; classification REJECT (not REJECT_INDISTINGUISHABLE_FROM_NULL because the divergence is in the worse direction). The rank-gap rule amplified trade count (7,940 vs 1,177 - 6.7x as many) without improving signal quality, accumulating cost drag. USD_JPY at +0.0000 R is the same random-walk floor CAMPAIGN_011 and CAMPAIGN_012 surfaced. NZD_USD worst pair: -41.76% over 4 years on 1,863 trades. Financing overlay (ESTIMATED + conservative stress) adds -$139.99 drag (7,154 rollover events); USD_JPY flips + -> - under financing (+$2.27 -> -$5.89) taking pairs_positive from 1/7 to 0/7 post-financing; no pair flips - -> +; conservative_stress_run_does_not_flip_verdict PASSES (verdict already REJECT pre-financing). Risk diagnostics: MAX_OPEN_POSITIONS_EXCEEDED = 0 (per-pair runner architecture; engine is single-instrument); simultaneous-signal frequency ~40% of bars (cross-pair signal often fires on 2-4 pairs at the same H4 timestamp; portfolio-aware runner would cut trade count by ~40% but cannot rescue per-pair negative expectancy on 6 of 7 pairs); zero-trade pair-fold cells 29/56 (51.8%) - rank-gap rule's intended sparseness. CAMPAIGN_013 is the worst-performing campaign to date by aggregate return / profit factor / trade count (~214x worse than CAMPAIGN_011 null floor; ~2.6x worse than CAMPAIGN_012 regime switcher). Verifier did not run (capability-locked to CAMPAIGN_002; not required for REJECT); infra-free-local-parity-verifier-cross-pair-currency-strength-rotation-001 deferred indefinitely. MODELED financing refused at 4 layers; live-promotion blocker stands. configs/approved_strategies.yaml remains approved: []."
+        "note": "POST_DEDUP_NULL_REFERENCE_REFRESH_001: null gap recomputed vs deduped canonical null (−0.0029 R); verdict REJECT unchanged; walk-forward metrics LIKELY_CONTAMINATED. See docs/research/CAMPAIGN_013_POST_DEDUP_NULL_REFERENCE.md. Prior null-comparison used SUPERSEDED_NULL_REFERENCE (−0.0024 R). walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4 (same physical store + identical hashes as CAMPAIGN_010 / 011 / 012); cross-pair signal = 8-currency log-return strength matrix with rank-gap rule |rank(quote) - rank(base)| >= 4; long strong-base / short strong-quote over 6-bar holding period with ATR-2.0 stop. Cross-pair runner integration contract SATISFIED on all 8 folds. 5 of 8 inherited aggregate gates FAIL: fold_pass_rate (0%), expectancy_r (-0.0564 vs >=0.05), profit_factor (0.000 vs >=1.10), pairs_positive (1/7 vs >=4/7). Null-baseline comparison vs deduped null: catastrophically WORSE (expectancy gap −0.0535 R, PF −0.890, return −112.68 pp, pairs −2); classification REJECT. Rank-gap rule amplified trade count (7,940 vs 1,177). CAMPAIGN_013 worst-performing campaign by return/PF/trade count. Financing overlay adds -$139.99 drag; USD_JPY flips + -> - under financing. Verifier deferred indefinitely. configs/approved_strategies.yaml remains approved: []."
       },
       "commit_hash": "TBD-phase9",
       "test_window_opened": true,
@@ -343,7 +405,7 @@
         "financing_missing_rate_event_count": 0,
         "null_model": false,
         "approval_path": "none (REJECTED on Phase 5 inherited gates AND on CAMPAIGN_011 null-baseline comparison; turnover budget PASS at 720 trades (<=800) and 1240 signals (<=1500); fixture-coverage gate PASS on all 8 folds; verifier deferred indefinitely)",
-        "note": "Walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4 (same physical store + identical hashes as CAMPAIGN_002 / 010 / 011 / 012 / 013); strategy = counter-trend on first post-event H4 bar after scheduled macro events (NFP / FOMC / ECB / BoJ / BoE) with ATR-2 stop, 6-bar max hold; event fixture = committed 281-event JSON (NFP 77 / FOMC 51 / ECB 51 / BoJ 51 / BoE 51) covering 2020-01-01 -> 2026-05-20. Fixture date-verification audit (Phase 0): PARTIAL - PROCEED WITH EXPLICIT CAVEAT (NFP 100% verified procedurally; FOMC 100% verified against official Fed.gov calendar; BoJ 91% for 2025-2026; ECB + BoE structurally consistent but not WebFetch-verifiable; 1 BoJ drift logged at 2026-03-18 vs 2026-03-19 - post-fold-coverage; no fold within drift). Frozen parameters per CAMPAIGN_014_PRECOMMIT_CHECKLIST.md verbatim; _assert_frozen() PASS. 6/8 inherited aggregate gates FAIL: fold_pass_rate (0%), expectancy_r (-0.148 R vs >=0.05), profit_factor (0.00 vs >=1.10), pairs_positive (0/7 vs >=4/7); fold_count, trade_count, single_fold_dominance, single_pair_dominance PASS. Null-baseline comparison: CAMPAIGN_014 is materially WORSE than CAMPAIGN_011 on every binding axis (expectancy -0.145 R worse, PF -0.91 worse, return -30.32 pp worse, pairs -3) - OUTSIDE indistinguishability band on all 4 dimensions (WORSE side); classification REJECT (direction-of-trade falsification), NOT REJECT_INDISTINGUISHABLE_FROM_NULL. Turnover budget INTACT: 720 trades (<=800), 1240 raw signals (<=1500) - lowest turnover of any real candidate. Pattern Q cost-section reconciliation: per-trade cost ~2.5-4 bp within budget; per-trade gross expectancy ~-45 bp vs hypothesized ~+7 bp - HYPOTHESIS FALSIFIED on the gross-expectancy side, not costs. Risk diagnostics (Phase 7): FOMC = 0 trades (51 events all SESSION_BLOCKED by rollover-window overlap with FOMC 22:00-UTC trigger bar); NFP = 571 trades (79% of all) generating -$151.17 (98% of total losses) - the C014 REJECT is overwhelmingly an 'NFP counter-trend is wrong' finding (post-event H4 bar CONTINUES the event-bar direction, not REVERTS). ECB/BoE single-pair samples slightly positive ($+2.56/$+3.42) but too thin to be meaningful; pair-only rescue forbidden by Pattern P. BoJ -$9.07 on USD_JPY (NFP-style continuation). 100% trades at bars_since_event=1 (R3 binding verified empirically). Concurrent NFP firing histogram: median 6/7 pairs (hypothesis-justified; not a Pattern N violation). Financing overlay (ESTIMATED + conservative stress) adds -$10.64 drag (697 rollover events) - LOWEST in absolute USD of any real candidate due to short hold; verdict unchanged. 0 pair-flips under financing (every pair already negative). MAX_OPEN_POSITIONS_EXCEEDED = 0 (per-pair runner architecture). 409 SESSION_BLOCKED + 196 SPREAD_TOO_WIDE rejections (1240 raw signals total). Verifier did not run (capability-locked to CAMPAIGN_002; not required for REJECT); infra-free-local-parity-verifier-calendar-event-window-anomaly-001 deferred indefinitely. MODELED financing refused at 4 layers; live-promotion blocker stands. configs/approved_strategies.yaml remains approved: []."
+        "note": "POST_DEDUP_NULL_REFERENCE_REFRESH_001: null gap recomputed vs deduped canonical null (−0.0029 R); verdict REJECT (direction-of-trade falsification) unchanged; walk-forward metrics LIKELY_CONTAMINATED. See docs/research/CAMPAIGN_014_POST_DEDUP_NULL_REFERENCE.md. Prior null-comparison used SUPERSEDED_NULL_REFERENCE (−0.0024 R). Walk-forward 8 folds on 7-pair real OANDA practice H4; counter-trend on first post-event H4 bar after macro events (NFP/FOMC/ECB/BoJ/BoE); event fixture 281 events. 6/8 inherited aggregate gates FAIL. Null-baseline comparison vs deduped null: materially WORSE on every binding axis (expectancy −0.14774 vs −0.0029, gap −0.1448 R); classification REJECT direction-of-trade falsification. Turnover budget INTACT: 720 trades (<=800), 1240 raw signals (<=1500). NFP dominates losses (post-event bar CONTINUES direction). Financing overlay −$10.64 drag. Verifier deferred indefinitely. configs/approved_strategies.yaml remains approved: []."
       },
       "commit_hash": "TBD-phase9",
       "test_window_opened": true,
@@ -354,27 +416,86 @@
     {
       "campaign_id": "CAMPAIGN_015",
       "title": "Failed-breakout reversal (research-failed-breakout-reversal-campaign-015)",
-      "report_path": "docs/research/CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_RESULT.md",
-      "artifact_folder": "backtests/CAMPAIGN_015_failed_breakout_reversal",
+      "report_path": "docs/research/CAMPAIGN_015_DEDUPED_RERUN_RESULT.md",
+      "artifact_folder": "backtests/CAMPAIGN_015_failed_breakout_reversal_deduped",
       "strategy_family": "failed_breakout_reversal",
       "data_source": "oanda-practice",
-      "verdict": "BLOCKED",
+      "verdict": "REJECT",
       "key_metrics": {
         "fold_count": 8,
-        "fold_pass_rate": null,
-        "total_trades": null,
-        "aggregate_expectancy_r": null,
-        "aggregate_profit_factor": null,
-        "aggregate_return_pct": null,
-        "pairs_positive": null,
+        "fold_pass_rate": 0.25,
+        "total_trades": 375,
+        "aggregate_expectancy_r": -0.0101,
+        "aggregate_profit_factor": 2.85,
+        "aggregate_return_pct": 4.82,
+        "pairs_positive": 3,
         "null_model": false,
-        "approval_path": "none (BLOCKED on local-data preflight — data/campaign_002.sqlite3 absent in this worktree; bespoke engine did not execute; no fold metrics; no null comparison; no Backtrader corroboration). configs/approved_strategies.yaml remains approved: []. Verdict ceiling for this candidate is PASS_RESEARCH_SCREEN (candidate for human review), NOT approval, per CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md §16.",
-        "note": "Scaffold sprint for the failed-breakout reversal hypothesis: at H4 majors, when the current bar pokes above the prior 20-bar Donchian high by >= sweep_buffer_atr (0.10) * ATR(14) and closes back inside the range, emit a short signal (symmetric for downside); ADX(14) <= 20 quiet-range gate; range_width / ATR in [1.25, 5.00]; stop placed beyond the sweep extreme by 0.10 * ATR; stop_distance_atr in [0.80, 2.20]; hard stop OR 12-bar time stop; no take-profit, no trailing, no midline target; primary fill timing next_bar_open. Walk-forward plan: 8 folds rolling/frozen, 540/180/180/180 days, 7-pair H4 OANDA practice universe (EUR_USD, GBP_USD, USD_JPY, AUD_USD, USD_CAD, USD_CHF, NZD_USD). Pre-commit (Phase 0) + strategy module + 19 unit tests (Phase 1) + walk-forward runner + 13 runner-contract tests (Phase 2) all committed and green. Phase 3 walk-forward: BLOCKED — the canonical real-OANDA-practice H4 store at ./data/campaign_002.sqlite3 (the shared store consumed by CAMPAIGN_002 / 010 / 011 / 012 / 013 / 014) is not present in this worktree, so the runner emitted a BLOCKED gate_result.json without invoking the bespoke engine. No backtest fired; no broker call; no network call; no LEAN call; no Backtrader live integration; configs/approved_strategies.yaml byte-stable at approved: []; CAMPAIGN_001-014 manifest entries untouched. Phase 4 null comparison + anti-overfit diagnostics, Phase 5 Backtrader adapter tests, and Phase 6 Backtrader-vs-bespoke comparison were scaffolded but inherit BLOCKED because there is no bespoke walk-forward result to compare against. A future sprint that obtains data/campaign_002.sqlite3 can re-run scripts/run_campaign_015.py unchanged; the frozen parameters guarantee comparability."
+        "anti_overfit_label": "WITHIN_NULL",
+        "dedupe_policy": "keep_last",
+        "duplicate_rows_dropped": 64509,
+        "approval_path": "none (REJECT on deduped evidence — prior contaminated bespoke metrics superseded by duplicate-candle dedupe rerun). configs/approved_strategies.yaml remains approved: [].",
+        "note": "Deduped rerun sprint infra-canonical-candle-dedup-and-campaign015-rerun-001. Canonical CandleRepo.list dedupes UTC-duplicate H4 bars. Prior +0.23R / ROBUST_ABOVE_NULL evidence was contaminated."
       },
-      "commit_hash": "TBD-phase7",
-      "test_window_opened": false,
-      "risk_engine_used": false,
+      "commit_hash": "TBD-phase8",
+      "test_window_opened": true,
+      "risk_engine_used": true,
       "financing_treatment": "estimated",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "title": "Weekly cross-sectional momentum low turnover (research-weekly-cross-sectional-momentum-001)",
+      "report_path": "docs/research/CAMPAIGN_016_WEEKLY_CROSS_SECTIONAL_MOMENTUM_RESULT.md",
+      "artifact_folder": "backtests/CAMPAIGN_016_weekly_cross_sectional_momentum",
+      "strategy_family": "weekly_cross_sectional_momentum_low_turnover",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "fold_count": 8,
+        "fold_pass_rate": 0.375,
+        "total_trades": 137,
+        "aggregate_expectancy_r": -0.0633,
+        "aggregate_profit_factor": 0.98,
+        "aggregate_return_pct": -0.23,
+        "pairs_positive": 4,
+        "null_model": false,
+        "anti_overfit_label": "WITHIN_NULL",
+        "dedupe_policy": "keep_last",
+        "duplicate_rows_dropped": 138522,
+        "approval_path": "none (REJECT on deduped evidence). configs/approved_strategies.yaml remains approved: []."
+      },
+      "commit_hash": "TBD-phase8",
+      "test_window_opened": true,
+      "risk_engine_used": true,
+      "financing_treatment": "none",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "title": "Weekly volatility contraction breakout (research-weekly-volatility-contraction-breakout-001)",
+      "report_path": "docs/research/CAMPAIGN_017_WEEKLY_VOLATILITY_CONTRACTION_BREAKOUT_RESULT.md",
+      "artifact_folder": "backtests/CAMPAIGN_017_weekly_volatility_contraction_breakout",
+      "strategy_family": "weekly_volatility_contraction_breakout",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "fold_count": 8,
+        "fold_pass_rate": 0.375,
+        "total_trades": 230,
+        "aggregate_expectancy_r": -0.0227,
+        "aggregate_profit_factor": 0.77,
+        "aggregate_return_pct": -2.86,
+        "pairs_positive": 4,
+        "null_model": false,
+        "anti_overfit_label": "WITHIN_NULL",
+        "dedupe_policy": "keep_last",
+        "duplicate_rows_dropped": 71733,
+        "approval_path": "none (REJECT on deduped evidence). configs/approved_strategies.yaml remains approved: []."
+      },
+      "commit_hash": "TBD-phase8",
+      "test_window_opened": true,
+      "risk_engine_used": true,
+      "financing_treatment": "none",
       "strategy_approved": false
     }
   ],
@@ -699,6 +820,55 @@
       "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_004_CAMPAIGN_011_SUMMARY.md",
       "kind": "backtrader_secondary_lane",
       "description": "Sprint summary & handoff for infra-backtrader-secondary-lane-004-campaign-011. Ports CAMPAIGN_011 / random_entry_anchor 0.1.0-c011 into the Backtrader secondary lane (32-test adapter, 9 comparison-harness fixture tests). Full-window comparison PASS at trade-for-trade precision after two BT-lane fidelity fixes (warmup off-by-N + same-bar EOD re-entry). 2 800/2 800 trades match on (instrument, entry_time, side) for all 7 pairs. Bespoke engine + reference JSONs untouched. No strategy approved. CAMPAIGN_011 remains REJECT / null diagnostic anchor by design. configs/approved_strategies.yaml still approved: []. Recommended next branch: infra-backtrader-secondary-lane-005-fold-plan-support (only if per-fold comparison wanted). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY",
+      "path": "docs/research/POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY.md",
+      "kind": "research_meta_analysis",
+      "description": "Post-dedup failure meta-analysis close-out. C015-C017 all REJECT WITHIN_NULL vs CAMPAIGN_011 deduped null. Classification NO_RELIABLE_ARCHETYPE. Selected lane pause broad strategy search. CAMPAIGN_018 not created. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BROAD_STRATEGY_SEARCH_PAUSE_MEMO",
+      "path": "docs/research/BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md",
+      "kind": "research_pause",
+      "description": "Formal pause of broad seven-pair pattern strategy search after post-dedup meta-analysis. Re-entry gates, C015-C017 vs null table, forbids CAMPAIGN_018 and retuning. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BROAD_STRATEGY_PAUSE_AND_ROADMAP_001_PLAN",
+      "path": "docs/research/BROAD_STRATEGY_PAUSE_AND_ROADMAP_001_PLAN.md",
+      "kind": "research_pause",
+      "description": "Phase 0 plan for broad strategy pause and roadmap sprint. Truth audit and phase breakdown. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "NON_STRATEGY_WORKSTREAM_OPTIONS_AFTER_PAUSE",
+      "path": "docs/research/NON_STRATEGY_WORKSTREAM_OPTIONS_AFTER_PAUSE.md",
+      "kind": "research_roadmap",
+      "description": "Eight non-strategy workstream options compared after broad-search pause. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "NEXT_NON_STRATEGY_WORKSTREAM_DECISION",
+      "path": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
+      "kind": "research_roadmap",
+      "description": "Selected next non-strategy sprint: infra-observed-cost-and-spread-regime-diagnostics-001. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "NEXT_SPRINT_PROMPT_AFTER_BROAD_STRATEGY_PAUSE",
+      "path": "docs/research/NEXT_SPRINT_PROMPT_AFTER_BROAD_STRATEGY_PAUSE.md",
+      "kind": "research_roadmap",
+      "description": "Copy-paste agent prompt for observed cost and spread-regime diagnostics sprint. No strategy, no broker APIs. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BROAD_STRATEGY_PAUSE_AND_ROADMAP_001_SUMMARY",
+      "path": "docs/research/BROAD_STRATEGY_PAUSE_AND_ROADMAP_001_SUMMARY.md",
+      "kind": "research_pause",
+      "description": "Sprint close-out for broad strategy pause and roadmap. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]

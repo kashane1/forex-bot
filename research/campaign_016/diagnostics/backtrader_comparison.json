@@ -1,0 +1,15 @@
+{
+  "campaign_id": "CAMPAIGN_016",
+  "strategy_name": "weekly_cross_sectional_momentum_low_turnover",
+  "strategy_version": "0.1.0-c016",
+  "classification": "BLOCKED",
+  "decision_blocking": false,
+  "reason": "Cross-pair weekly portfolio Backtrader state machine not ported in v0.1.0-c016 sprint; bespoke engine is canonical. Weekly boundary helpers shared via forex_bot.features.weekly_momentum — unit parity PASS.",
+  "weekly_boundary_parity": "PASS",
+  "frozen_parameter_parity": "PASS",
+  "fold_window_trade_parity": "NOT_RUN",
+  "bespoke_verdict": "REJECT",
+  "bespoke_base_exp_r": -0.06326844639033011,
+  "bespoke_total_trades": 137,
+  "approval_status": "NOT_APPROVED"
+}

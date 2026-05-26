@@ -39,6 +39,9 @@ research = [
     "pyarrow>=15.0",
     "jinja2>=3.1",
 ]
+data-store = [
+    "psycopg[binary]>=3.2",
+]
 # Optional secondary backtesting/verification lane. Local-only.
 # See docs/research/INFRA_BACKTRADER_SECONDARY_LANE_001_PLAN.md.
 # DO NOT use Backtrader's old OANDA / live-broker integration paths.
@@ -54,7 +57,7 @@ packages = ["src/forex_bot"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["."]
+pythonpath = [".", "src"]
 addopts = "-ra --strict-markers"
 markers = [
     "integration: tests that touch real services (skipped by default)",

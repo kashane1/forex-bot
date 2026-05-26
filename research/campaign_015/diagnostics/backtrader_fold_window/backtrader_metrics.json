@@ -1,0 +1,452 @@
+{
+  "per_pair": [
+    {
+      "analyzer": {
+        "closed_trades": 8
+      },
+      "final_cash": 500.7310900000001,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 11
+      },
+      "final_cash": 499.0309650000002,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 5
+      },
+      "final_cash": 505.10141606600104,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 10
+      },
+      "final_cash": 487.65659000000005,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9
+      },
+      "final_cash": 505.5865010844849,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6
+      },
+      "final_cash": 498.1017708018217,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8
+      },
+      "final_cash": 493.3249499999998,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8
+      },
+      "final_cash": 510.5073099999999,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 13
+      },
+      "final_cash": 512.4545350000001,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8
+      },
+      "final_cash": 517.492681053094,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 14
+      },
+      "final_cash": 493.00012999999996,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 11
+      },
+      "final_cash": 491.6019640219234,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6
+      },
+      "final_cash": 499.3557927424286,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 5
+      },
+      "final_cash": 495.286055,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8
+      },
+      "final_cash": 501.9402749999999,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 10
+      },
+      "final_cash": 513.1448949999998,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9
+      },
+      "final_cash": 507.95606385593345,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 14
+      },
+      "final_cash": 503.79015500000014,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 10
+      },
+      "final_cash": 491.7982555967633,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9
+      },
+      "final_cash": 495.0882549127206,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 10
+      },
+      "final_cash": 494.86782500000004,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 10
+      },
+      "final_cash": 505.0697799999999,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9
+      },
+      "final_cash": 496.1204999999999,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 5
+      },
+      "final_cash": 502.29956308398675,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 13
+      },
+      "final_cash": 498.803415,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8
+      },
+      "final_cash": 504.59285114595514,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 13
+      },
+      "final_cash": 491.1311555759641,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 11
+      },
+      "final_cash": 504.1427200000001,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 14
+      },
+      "final_cash": 503.5199299999999,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 13
+      },
+      "final_cash": 492.16603499999997,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6
+      },
+      "final_cash": 497.76451217747103,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 10
+      },
+      "final_cash": 497.218825,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 10
+      },
+      "final_cash": 513.7882457868388,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 6
+      },
+      "final_cash": 494.7665374829927,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 7
+      },
+      "final_cash": 511.8723100000001,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8
+      },
+      "final_cash": 501.91884999999996,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 12
+      },
+      "final_cash": 503.45820499999996,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9
+      },
+      "final_cash": 494.35814158123867,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9
+      },
+      "final_cash": 500.77171999999996,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 13
+      },
+      "final_cash": 491.10769775963877,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 7
+      },
+      "final_cash": 499.94359898545184,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 3
+      },
+      "final_cash": 502.12479999999994,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 11
+      },
+      "final_cash": 491.70243999999997,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 16
+      },
+      "final_cash": 507.3414950000003,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 4
+      },
+      "final_cash": 495.04052542657035,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 15
+      },
+      "final_cash": 501.3740200000002,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 9
+      },
+      "final_cash": 490.8847975869253,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 8
+      },
+      "final_cash": 497.16253378412495,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 2
+      },
+      "final_cash": 497.50655000000006,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 12
+      },
+      "final_cash": 495.8624450000002,
+      "instrument": "EUR_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 11
+      },
+      "final_cash": 497.9436000000002,
+      "instrument": "GBP_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 7
+      },
+      "final_cash": 501.13729786229857,
+      "instrument": "USD_JPY",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 16
+      },
+      "final_cash": 501.5836150000002,
+      "instrument": "AUD_USD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 11
+      },
+      "final_cash": 496.8924368549919,
+      "instrument": "USD_CAD",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 15
+      },
+      "final_cash": 505.5740747886633,
+      "instrument": "USD_CHF",
+      "starting_cash": 500.0
+    },
+    {
+      "analyzer": {
+        "closed_trades": 7
+      },
+      "final_cash": 491.3206000000002,
+      "instrument": "NZD_USD",
+      "starting_cash": 500.0
+    }
+  ]
+}

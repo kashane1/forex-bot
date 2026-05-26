@@ -1,0 +1,112 @@
+{
+  "campaign_id": "CAMPAIGN_017",
+  "strategy_name": "weekly_volatility_contraction_breakout",
+  "strategy_version": "0.1.0-c017",
+  "anti_overfit_label": "WITHIN_NULL",
+  "valid_labels": [
+    "ROBUST_ABOVE_NULL",
+    "ABOVE_NULL_BUT_FRAGILE",
+    "SELECTED_CELL_ARTIFACT",
+    "WITHIN_NULL",
+    "WORSE_THAN_NULL",
+    "BLOCKED"
+  ],
+  "null_centre_exp_r": -0.0029154071495408797,
+  "campaign_aggregate_exp_r": -0.022666354359936913,
+  "gap_vs_null_exp_r": -0.019750947210396032,
+  "null_std_band_exp_r": 0.04789840054747161,
+  "gap_mean_per_fold_r": 0.026257748774438178,
+  "per_fold_gap_series": [
+    {
+      "fold_index": 0,
+      "test_start": "2021-12-21",
+      "test_end": "2022-06-18",
+      "campaign_expectancy_r": 0.1547593998123062,
+      "null_expectancy_r": -0.10386838637203849,
+      "gap_r": 0.2586277861843447
+    },
+    {
+      "fold_index": 1,
+      "test_start": "2022-06-19",
+      "test_end": "2022-12-15",
+      "campaign_expectancy_r": -0.025558855909001043,
+      "null_expectancy_r": -0.023866374208924082,
+      "gap_r": -0.0016924817000769608
+    },
+    {
+      "fold_index": 2,
+      "test_start": "2022-12-16",
+      "test_end": "2023-06-13",
+      "campaign_expectancy_r": -0.1263901072421974,
+      "null_expectancy_r": 0.0391166254842596,
+      "gap_r": -0.165506732726457
+    },
+    {
+      "fold_index": 3,
+      "test_start": "2023-06-14",
+      "test_end": "2023-12-10",
+      "campaign_expectancy_r": -0.007878687843120282,
+      "null_expectancy_r": -0.0059575092233007205,
+      "gap_r": -0.001921178619819562
+    },
+    {
+      "fold_index": 4,
+      "test_start": "2023-12-11",
+      "test_end": "2024-06-07",
+      "campaign_expectancy_r": -0.060382201306306366,
+      "null_expectancy_r": 0.014737092091635368,
+      "gap_r": -0.07511929339794174
+    },
+    {
+      "fold_index": 5,
+      "test_start": "2024-06-08",
+      "test_end": "2024-12-04",
+      "campaign_expectancy_r": 0.21893127361986275,
+      "null_expectancy_r": -0.002761880915949227,
+      "gap_r": 0.22169315453581198
+    },
+    {
+      "fold_index": 6,
+      "test_start": "2024-12-05",
+      "test_end": "2025-06-02",
+      "campaign_expectancy_r": 0.38754977221458303,
+      "null_expectancy_r": 0.05407079566083674,
+      "gap_r": 0.3334789765537463
+    },
+    {
+      "fold_index": 7,
+      "test_start": "2025-06-03",
+      "test_end": "2025-11-29",
+      "campaign_expectancy_r": -0.35268401398815374,
+      "null_expectancy_r": 0.006814226645948531,
+      "gap_r": -0.3594982406341023
+    }
+  ],
+  "anti_overfit_gates": {
+    "loo_min_mean_gap_ge_0p05": false,
+    "per_fold_t_stat_ge_2p0": false,
+    "median_per_fold_expectancy_ge_0": false,
+    "trade_level_cumulative_r_gt_0": false,
+    "pair_concentration_le_70pct": true,
+    "fold_concentration_le_60pct": true,
+    "cost_dominance_le_50pct": true
+  },
+  "metrics": {
+    "loo_min_mean_gap_r": -0.01763099805117727,
+    "per_fold_t_stat": 0.3170884835942936,
+    "gap_mean_r": 0.026257748774438178,
+    "median_per_fold_expectancy_r": -0.016718771876060662,
+    "trade_level_cumulative_r": -5.213261502785489,
+    "pair_concentration": 0.38350001866250333,
+    "fold_concentration": 0.21307339667329334,
+    "cost_dominance": 0.0,
+    "aggregate_floor_pass": false,
+    "within_null_pf_band_match": false,
+    "worse_than_null": false,
+    "selected_cell_artifact_geometry": false
+  },
+  "reasons": [
+    "aggregate floor not met and neither worse-than-null nor selected-cell-artifact criteria fully tripped; defaulting to WITHIN_NULL"
+  ],
+  "approval_status": "NOT_APPROVED"
+}

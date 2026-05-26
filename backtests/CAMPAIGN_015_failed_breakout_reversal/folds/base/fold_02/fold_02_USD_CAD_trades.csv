@@ -1,0 +1,3 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+USD_CAD,long,206,2022-10-20T13:00:00+00:00,2022-10-21T13:00:00+00:00,1.3729600,1.36653,1.36454,-0.9693018082296034481496930181,-0.5588299980568707470364671598,12,2.2,time,next_bar_open,False,False,
+USD_CAD,short,540,2023-04-06T13:00:00+00:00,2023-04-07T05:00:00+00:00,1.3477250,1.35093,1.35093,-1.281117452421665075170438143,-0.7402308039646761860348056526,8,1.9,stop,next_bar_open,False,False,

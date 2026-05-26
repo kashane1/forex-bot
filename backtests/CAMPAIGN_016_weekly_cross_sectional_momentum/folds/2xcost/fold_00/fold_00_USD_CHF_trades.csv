@@ -1,0 +1,2 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+USD_CHF,short,417,2022-01-03T06:00:00+00:00,2022-01-03T22:00:00+00:00,0.9144300,0.92010,0.92010,-2.569709814150635800456472123,-1.086838387131833496359091403,5,1.9,stop,next_bar_open,False,False,

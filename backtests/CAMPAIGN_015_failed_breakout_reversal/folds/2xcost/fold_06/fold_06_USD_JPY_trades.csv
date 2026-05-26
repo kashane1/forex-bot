@@ -1,0 +1,3 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+USD_JPY,short,245,2024-09-20T09:00:00+00:00,2024-09-23T09:00:00+00:00,143.78100,143.782,144.532,-0.001703968507879984977257236650,-0.000009260950068643088003789432593,12,1.8,time,next_bar_open,False,False,
+USD_JPY,long,500,2024-12-06T14:00:00+00:00,2024-12-09T14:00:00+00:00,149.68000,151.32,149.294,5.418979645783769495109701295,0.02807761474499362432699327096,12,1.2,time,next_bar_open,False,False,

@@ -65,6 +65,7 @@ from forex_bot.backtesting.engine import BacktestEngine, compute_data_request_ha
 from forex_bot.backtesting.exporters import write_summary_json, write_trades_csv
 from forex_bot.backtesting.fills import FillModel
 from forex_bot.config import load_settings
+from forex_bot.data.candle_dedupe import DEDUPE_POLICY
 from forex_bot.data.db import Database
 from forex_bot.data.repositories import CandleRepo, DataSourceRepo, InstrumentRepo
 from forex_bot.domain.candles import CandleFrame
@@ -224,6 +225,9 @@ class PairFoldRun:
     risk_engine_used: bool
     exit_reason_counts: dict[str, int]
     trade_r_series: list[float]
+    duplicates_detected: int = 0
+    duplicates_dropped: int = 0
+    dedupe_policy: str = DEDUPE_POLICY
 
     def to_dict(self) -> dict[str, Any]:
         return dataclasses.asdict(self)
@@ -253,7 +257,7 @@ def _run_pair_fold(
             f"{REQUIRED_DATA_SOURCE!r}. CAMPAIGN_015 aborts."
         )
     frm, to = _fold_dates_to_dts(fold)
-    rows = candle_repo.list(
+    rows, dedupe_stats = candle_repo.list_with_dedupe_stats(
         instrument, "H4", completed_only=True,
         from_time=frm, to_time=to,  # type: ignore[arg-type]
     )
@@ -263,6 +267,11 @@ def _run_pair_fold(
             f"test_window {fold.test_start}..{fold.test_end}"
         )
     frame = CandleFrame.from_candles(instrument, "H4", rows)  # type: ignore[arg-type]
+    if not frame.df.index.is_unique:
+        raise SystemExit(
+            f"dedupe failed for {instrument} fold={fold.fold_index}: "
+            f"non-unique CandleFrame index after canonical dedupe"
+        )
     data_hash = compute_data_request_hash(
         instrument=instrument, granularity="H4",
         from_time=frm.isoformat(), to_time=to.isoformat(),
@@ -328,6 +337,9 @@ def _run_pair_fold(
         risk_engine_used=result.risk_engine_used,
         exit_reason_counts=exit_reasons,
         trade_r_series=trade_r,
+        duplicates_detected=dedupe_stats.duplicates_detected,
+        duplicates_dropped=dedupe_stats.duplicates_dropped,
+        dedupe_policy=dedupe_stats.dedupe_policy,
     )
 
 
@@ -536,7 +548,13 @@ def _data_preflight(
     if not db_path.exists():
         reasons.append(f"database_path does not exist: {db_path}")
         return {"blocked": True, "reasons": reasons, "details": {}}
-    details: dict[str, Any] = {"per_pair": {}}
+    details: dict[str, Any] = {
+        "per_pair": {},
+        "dedupe_policy": DEDUPE_POLICY,
+        "input_classification": "DEDUPED_INPUT",
+        "duplicate_rows_detected_total": 0,
+        "duplicate_rows_dropped_total": 0,
+    }
     try:
         db = Database(db_path)
         candle_repo = CandleRepo(db)
@@ -546,7 +564,11 @@ def _data_preflight(
         return {"blocked": True, "reasons": reasons, "details": {}}
 
     for pair in pairs:
-        per_pair: dict[str, Any] = {"source": None, "fold_candle_counts": {}}
+        per_pair: dict[str, Any] = {
+            "source": None,
+            "fold_candle_counts": {},
+            "fold_dedupe": {},
+        }
         latest = ds_repo.latest_for(pair, "H4") or {}
         src = latest.get("source", "unknown")
         per_pair["source"] = src
@@ -557,18 +579,46 @@ def _data_preflight(
             )
         for fold in plan.folds:
             frm, to = _fold_dates_to_dts(fold)
-            rows = candle_repo.list(
-                pair, "H4", completed_only=True,
-                from_time=frm, to_time=to,  # type: ignore[arg-type]
-            )
+            try:
+                rows, dedupe_stats = candle_repo.list_with_dedupe_stats(
+                    pair, "H4", completed_only=True,
+                    from_time=frm, to_time=to,  # type: ignore[arg-type]
+                )
+            except Exception as exc:
+                reasons.append(
+                    f"{pair} fold {fold.fold_index} dedupe failed: {exc}"
+                )
+                details["input_classification"] = "BLOCKED"
+                continue
             count = len(rows)
-            per_pair["fold_candle_counts"][f"fold_{fold.fold_index:02d}"] = count
+            fold_key = f"fold_{fold.fold_index:02d}"
+            per_pair["fold_candle_counts"][fold_key] = count
+            per_pair["fold_dedupe"][fold_key] = {
+                "raw_count": dedupe_stats.raw_count,
+                "deduped_count": dedupe_stats.deduped_count,
+                "duplicates_detected": dedupe_stats.duplicates_detected,
+                "duplicates_dropped": dedupe_stats.duplicates_dropped,
+                "dedupe_policy": dedupe_stats.dedupe_policy,
+            }
+            details["duplicate_rows_detected_total"] += dedupe_stats.duplicates_detected
+            details["duplicate_rows_dropped_total"] += dedupe_stats.duplicates_dropped
             if count == 0:
                 reasons.append(
                     f"{pair} fold {fold.fold_index} ({fold.test_start}..{fold.test_end}) "
                     f"has zero candles"
                 )
+            frame = CandleFrame.from_candles(pair, "H4", rows)  # type: ignore[arg-type]
+            if not frame.df.index.is_unique:
+                reasons.append(
+                    f"{pair} fold {fold.fold_index} has non-unique CandleFrame "
+                    f"index after dedupe"
+                )
+                details["input_classification"] = "BLOCKED"
         details["per_pair"][pair] = per_pair
+    if details["input_classification"] != "BLOCKED" and details["duplicate_rows_detected_total"] > 0:
+        details["input_classification"] = "DEDUPED_INPUT"
+    elif details["input_classification"] != "BLOCKED":
+        details["input_classification"] = "CLEAN_INPUT"
     return {"blocked": bool(reasons), "reasons": reasons, "details": details}
 
 
@@ -659,6 +709,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     print(f"folds: {len(plan.folds)}  pairs: {len(pairs)}")
     print(f"db_path: {db_path}  exists: {db_path.exists()}")
+    dedupe_details = preflight.get("details", {})
+    print(
+        f"input_classification: {dedupe_details.get('input_classification', 'unknown')} "
+        f"dedupe_policy: {dedupe_details.get('dedupe_policy', DEDUPE_POLICY)} "
+        f"duplicates_dropped: {dedupe_details.get('duplicate_rows_dropped_total', 0)}"
+    )
     print(
         f"frozen params: range={strategy_cfg['range_lookback']} "
         f"atr={strategy_cfg['atr_lookback']} adx_max={strategy_cfg['adx_max']} "
@@ -816,6 +872,10 @@ def main(argv: list[str] | None = None) -> int:
         "cost_stress_multiplier": float(args.cost_stress),
         "fold_gates": PER_FOLD_GATES,
         "aggregate_gates": AGGREGATE_GATES,
+        "dedupe_policy": DEDUPE_POLICY,
+        "preflight_input_classification": preflight.get("details", {}).get(
+            "input_classification"
+        ),
         "by_cost": {},
         "generated_at": datetime.now(UTC).isoformat(),
     }
@@ -845,6 +905,21 @@ def main(argv: list[str] | None = None) -> int:
         json.dumps(fold_detail, indent=2, default=str), encoding="utf-8",
     )
 
+    dedupe_details = preflight.get("details", {})
+    # Aggregate dedupe stats across all pair/fold runs (base cost).
+    dedupe_totals = {
+        "duplicates_detected": sum(
+            pr.duplicates_detected for r in base_rollups for pr in r.pair_runs
+        ),
+        "duplicates_dropped": sum(
+            pr.duplicates_dropped for r in base_rollups for pr in r.pair_runs
+        ),
+        "dedupe_policy": DEDUPE_POLICY,
+        "input_classification": preflight.get("details", {}).get(
+            "input_classification", "unknown"
+        ),
+    }
+
     # Machine-readable gate_result.json (consumed by Phase 4 + Phase 7).
     gate_result = {
         "campaign_id": "CAMPAIGN_015",
@@ -857,6 +932,17 @@ def main(argv: list[str] | None = None) -> int:
         "config_path": str(config_path),
         "config_hash": settings.config_hash,
         "fold_count": base_agg["fold_count"],
+        "dedupe": dedupe_totals,
+        "preflight": {
+            "input_classification": dedupe_details.get("input_classification"),
+            "dedupe_policy": dedupe_details.get("dedupe_policy"),
+            "duplicate_rows_detected_total": dedupe_details.get(
+                "duplicate_rows_detected_total", 0
+            ),
+            "duplicate_rows_dropped_total": dedupe_details.get(
+                "duplicate_rows_dropped_total", 0
+            ),
+        },
         "by_cost": {
             "base": {
                 "aggregate_expectancy_r": base_agg["aggregate_expectancy_r"],

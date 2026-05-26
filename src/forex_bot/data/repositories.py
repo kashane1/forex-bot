@@ -8,6 +8,7 @@ from datetime import datetime
 from decimal import Decimal
 from typing import Any
 
+from forex_bot.data.candle_dedupe import CandleDedupeStats, dedupe_candles
 from forex_bot.data.db import Database
 from forex_bot.domain.account import AccountSnapshot
 from forex_bot.domain.candles import Candle, Granularity
@@ -125,6 +126,7 @@ class InstrumentRepo:
 class CandleRepo:
     def __init__(self, db: Database) -> None:
         self.db = db
+        self.last_list_dedupe_stats: CandleDedupeStats | None = None
 
     def upsert_many(
         self,
@@ -194,15 +196,46 @@ class CandleRepo:
         if to_time is not None:
             clauses.append("time<=?")
             params.append(to_time.isoformat())
-        sql = f"SELECT * FROM candles WHERE {' AND '.join(clauses)} ORDER BY time ASC"
+        sql = (
+            f"SELECT * FROM candles WHERE {' AND '.join(clauses)} "
+            "ORDER BY time ASC, rowid ASC"
+        )
         if limit is not None:
-            sql = sql.replace(" ORDER BY time ASC", " ORDER BY time DESC")
+            sql = sql.replace(
+                " ORDER BY time ASC, rowid ASC",
+                " ORDER BY time DESC, rowid DESC",
+            )
             sql += " LIMIT ?"
             params.append(limit)
         rows = self.db.fetchall(sql, tuple(params))
         if limit is not None:
             rows = list(reversed(rows))
-        return [self._row_to_candle(row) for row in rows]
+        raw = [self._row_to_candle(row) for row in rows]
+        deduped, stats = dedupe_candles(raw)
+        self.last_list_dedupe_stats = stats
+        return deduped
+
+    def list_with_dedupe_stats(
+        self,
+        instrument: str,
+        granularity: Granularity,
+        *,
+        completed_only: bool = True,
+        limit: int | None = None,
+        from_time: datetime | None = None,
+        to_time: datetime | None = None,
+    ) -> tuple[list[Candle], CandleDedupeStats]:
+        """Like ``list`` but also returns dedupe statistics for preflight."""
+        candles = self.list(
+            instrument,
+            granularity,
+            completed_only=completed_only,
+            limit=limit,
+            from_time=from_time,
+            to_time=to_time,
+        )
+        stats = self.last_list_dedupe_stats or CandleDedupeStats.empty()
+        return candles, stats
 
     @staticmethod
     def _row_to_candle(row: Any) -> Candle:

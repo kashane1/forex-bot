@@ -1,0 +1,75 @@
+{
+  "campaign_id": "CAMPAIGN_015",
+  "strategy_name": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015",
+  "verdict": "REJECT",
+  "verdict_ceiling": "PASS_RESEARCH_SCREEN",
+  "approval_status": "NOT_APPROVED",
+  "approved_strategies_yaml_state": "approved: []",
+  "config_path": "configs/campaign_015_failed_breakout_reversal.yaml",
+  "config_hash": "17ddfd7eb87d93c502f148642c8ee883c66cb72bfa8ca72f981624a0dcfdd93c",
+  "fold_count": 8,
+  "dedupe": {
+    "duplicates_detected": 64509,
+    "duplicates_dropped": 64509,
+    "dedupe_policy": "keep_last",
+    "input_classification": "DEDUPED_INPUT"
+  },
+  "preflight": {
+    "input_classification": "DEDUPED_INPUT",
+    "dedupe_policy": "keep_last",
+    "duplicate_rows_detected_total": 64509,
+    "duplicate_rows_dropped_total": 64509
+  },
+  "by_cost": {
+    "base": {
+      "aggregate_expectancy_r": -0.010095805504590001,
+      "aggregate_return_pct": 4.82210889447906,
+      "profit_factor": 2.848124396137601,
+      "total_trades": 375,
+      "fold_pass_rate": 0.25,
+      "folds_passing": 2,
+      "pairs_positive_count": 3,
+      "single_pair_dominance_pct": 37.50022618714886,
+      "median_per_fold_expectancy_r": -0.04874429707075549,
+      "trade_level_cumulative_r": -3.78592706422125,
+      "aggregate_gates": {
+        "fold_pass_rate_ge_5_of_8": false,
+        "fold_count_ge_8": true,
+        "expectancy_r_min": false,
+        "profit_factor_min": true,
+        "trade_count_min_200": true,
+        "trade_count_max_800": true,
+        "pairs_positive_ge_4_of_7": false,
+        "single_pair_dominance_le_70pct": true
+      },
+      "aggregate_pass": false,
+      "expectancy_min_applied": 0.03,
+      "profit_factor_min_applied": 1.05
+    },
+    "2xcost": {
+      "aggregate_expectancy_r": -0.02825942414646908,
+      "aggregate_return_pct": 2.7090192102872,
+      "profit_factor": 1.7192533654985964,
+      "total_trades": 375,
+      "fold_pass_rate": 0.25,
+      "folds_passing": 2,
+      "aggregate_gates": {
+        "fold_pass_rate_ge_5_of_8": false,
+        "fold_count_ge_8": true,
+        "expectancy_r_min": false,
+        "profit_factor_min": true,
+        "trade_count_min_200": true,
+        "trade_count_max_800": true,
+        "pairs_positive_ge_4_of_7": false,
+        "single_pair_dominance_le_70pct": true
+      },
+      "aggregate_pass": false,
+      "expectancy_min_applied": 0.0,
+      "profit_factor_min_applied": 1.0
+    }
+  },
+  "blocked": false,
+  "blocked_reasons": [],
+  "generated_at": "2026-05-26T05:08:40.085362+00:00"
+}

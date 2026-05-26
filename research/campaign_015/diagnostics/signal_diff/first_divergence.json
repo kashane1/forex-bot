@@ -1,0 +1,81 @@
+{
+  "strategy_evidence": false,
+  "campaign": "CAMPAIGN_015",
+  "strategy": "failed_breakout_reversal 0.1.0-c015",
+  "fold_index": 0,
+  "pair": "EUR_USD",
+  "test_start": "2021-12-21",
+  "test_end": "2022-06-18",
+  "candle_load_start": "2021-09-22T00:00:00+00:00",
+  "candle_load_end": "2022-06-18T23:59:59+00:00",
+  "candle_source": "csv",
+  "trace_bars": 1157,
+  "comparison_totals": {
+    "bt_total": 532,
+    "bespoke_total": 164,
+    "classification": "SIGNAL_RULE_MISMATCH"
+  },
+  "aggregate_stats": {
+    "trace_bars": 1157,
+    "matching_raw_signal_bars": 8,
+    "raw_mismatch_bars": 0,
+    "bespoke_risk_reject_bt_would_accept": 2,
+    "bespoke_risk_reject_reasons": {
+      "SPREAD_TOO_WIDE": 2
+    },
+    "simulated_bespoke_entries": 6,
+    "simulated_bt_entries": 5,
+    "entry_bar_mismatches": 3
+  },
+  "first_divergence": {
+    "timestamp": "2021-11-04T13:00:00+00:00",
+    "fold": 0,
+    "pair": "EUR_USD",
+    "kind": "entry_timing_mismatch",
+    "bespoke_raw": "none",
+    "bt_raw": "none",
+    "bespoke_accepted": "yes",
+    "bt_accepted": "no",
+    "bespoke_rejection": "",
+    "bt_rejection": "same_bar_adverse_stop",
+    "bespoke_position": "long",
+    "bt_position": "flat",
+    "root_cause": "FILL_TIMING_MISMATCH",
+    "notes": [
+      "kind=entry_timing_mismatch",
+      "atr: bespoke=0.00252257 bt=0.00252257 delta=-0.00000000",
+      "adx: bespoke=18.2792 bt=18.2788 delta=0.0004",
+      "classified=FILL_TIMING_MISMATCH"
+    ],
+    "trace_row": {
+      "timestamp": "2021-11-04T13:00:00+00:00",
+      "pair": "EUR_USD",
+      "fold": 0,
+      "in_test_window": false,
+      "high": 1.15732,
+      "low": 1.15282,
+      "close": 1.15439,
+      "prior_high": 1.1617600000000001,
+      "prior_low": 1.154265,
+      "bespoke_atr": 0.0025225690268439378,
+      "bespoke_adx": 18.27919226038869,
+      "bt_atr": 0.0025225698477222354,
+      "bt_adx": 18.278800951253526,
+      "range_width_atr": 2.9711773672957724,
+      "sweep_distance_atr": 0.572828725249205,
+      "stop_distance_atr": 0.7223813831426964,
+      "bespoke_raw": "none",
+      "bt_raw": "none",
+      "bespoke_accepted": "yes",
+      "bespoke_rejection": "",
+      "bt_accepted": "no",
+      "bt_rejection": "same_bar_adverse_stop",
+      "bespoke_position": "long",
+      "bt_position": "flat",
+      "bespoke_pending": "long",
+      "bt_pending": "none",
+      "bespoke_entry_bar": "yes",
+      "bt_entry_bar": "no"
+    }
+  }
+}

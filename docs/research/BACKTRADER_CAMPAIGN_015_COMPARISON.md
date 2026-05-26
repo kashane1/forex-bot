@@ -1,5 +1,8 @@
 # Backtrader vs Bespoke Comparison — CAMPAIGN_015
 
+> **SUPERSEDED / STALE DUE TO DUPLICATE-CANDLE CONTAMINATION** — see
+> [`BACKTRADER_CAMPAIGN_015_DEDUPED_COMPARISON.md`](BACKTRADER_CAMPAIGN_015_DEDUPED_COMPARISON.md).
+
 **Date:** 2026-05-25 · **Branch:** `research-failed-breakout-reversal-campaign-015`
 **Divergence classification:** `BLOCKED`
 

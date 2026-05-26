@@ -1,0 +1,506 @@
+{
+  "bespoke_by_fold": {
+    "0": 18,
+    "1": 26,
+    "2": 26,
+    "3": 28,
+    "4": 24,
+    "5": 14,
+    "6": 14,
+    "7": 14
+  },
+  "bespoke_by_pair": {
+    "AUD_USD": 24,
+    "EUR_USD": 27,
+    "GBP_USD": 41,
+    "NZD_USD": 5,
+    "USD_CAD": 23,
+    "USD_CHF": 27,
+    "USD_JPY": 17
+  },
+  "bespoke_side": {
+    "long": 85,
+    "short": 79
+  },
+  "bespoke_total_trades": 164,
+  "bt_by_fold": {
+    "0": 44,
+    "1": 54,
+    "2": 57,
+    "3": 61,
+    "4": 54,
+    "5": 42,
+    "6": 52,
+    "7": 52
+  },
+  "bt_by_pair": {
+    "AUD_USD": 88,
+    "EUR_USD": 46,
+    "GBP_USD": 83,
+    "NZD_USD": 46,
+    "USD_CAD": 59,
+    "USD_CHF": 52,
+    "USD_JPY": 42
+  },
+  "bt_side": {
+    "long": 224,
+    "short": 192
+  },
+  "bt_total_trades": 416,
+  "cells": [
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 9,
+      "delta": 7,
+      "delta_pct": 350.0,
+      "fold_index": 0,
+      "instrument": "AUD_USD"
+    },
+    {
+      "bespoke_trades": 3,
+      "bt_trades": 6,
+      "delta": 3,
+      "delta_pct": 100.0,
+      "fold_index": 0,
+      "instrument": "EUR_USD"
+    },
+    {
+      "bespoke_trades": 8,
+      "bt_trades": 9,
+      "delta": 1,
+      "delta_pct": 12.5,
+      "fold_index": 0,
+      "instrument": "GBP_USD"
+    },
+    {
+      "bespoke_trades": 1,
+      "bt_trades": 6,
+      "delta": 5,
+      "delta_pct": 500.0,
+      "fold_index": 0,
+      "instrument": "NZD_USD"
+    },
+    {
+      "bespoke_trades": 1,
+      "bt_trades": 7,
+      "delta": 6,
+      "delta_pct": 600.0,
+      "fold_index": 0,
+      "instrument": "USD_CAD"
+    },
+    {
+      "bespoke_trades": 0,
+      "bt_trades": 3,
+      "delta": 3,
+      "delta_pct": Infinity,
+      "fold_index": 0,
+      "instrument": "USD_CHF"
+    },
+    {
+      "bespoke_trades": 3,
+      "bt_trades": 4,
+      "delta": 1,
+      "delta_pct": 33.33333333333333,
+      "fold_index": 0,
+      "instrument": "USD_JPY"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 13,
+      "delta": 11,
+      "delta_pct": 550.0,
+      "fold_index": 1,
+      "instrument": "AUD_USD"
+    },
+    {
+      "bespoke_trades": 3,
+      "bt_trades": 6,
+      "delta": 3,
+      "delta_pct": 100.0,
+      "fold_index": 1,
+      "instrument": "EUR_USD"
+    },
+    {
+      "bespoke_trades": 6,
+      "bt_trades": 11,
+      "delta": 5,
+      "delta_pct": 83.33333333333334,
+      "fold_index": 1,
+      "instrument": "GBP_USD"
+    },
+    {
+      "bespoke_trades": 1,
+      "bt_trades": 3,
+      "delta": 2,
+      "delta_pct": 200.0,
+      "fold_index": 1,
+      "instrument": "NZD_USD"
+    },
+    {
+      "bespoke_trades": 5,
+      "bt_trades": 10,
+      "delta": 5,
+      "delta_pct": 100.0,
+      "fold_index": 1,
+      "instrument": "USD_CAD"
+    },
+    {
+      "bespoke_trades": 3,
+      "bt_trades": 5,
+      "delta": 2,
+      "delta_pct": 66.66666666666666,
+      "fold_index": 1,
+      "instrument": "USD_CHF"
+    },
+    {
+      "bespoke_trades": 6,
+      "bt_trades": 6,
+      "delta": 0,
+      "delta_pct": 0.0,
+      "fold_index": 1,
+      "instrument": "USD_JPY"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 13,
+      "delta": 11,
+      "delta_pct": 550.0,
+      "fold_index": 2,
+      "instrument": "AUD_USD"
+    },
+    {
+      "bespoke_trades": 9,
+      "bt_trades": 6,
+      "delta": -3,
+      "delta_pct": -33.33333333333333,
+      "fold_index": 2,
+      "instrument": "EUR_USD"
+    },
+    {
+      "bespoke_trades": 4,
+      "bt_trades": 9,
+      "delta": 5,
+      "delta_pct": 125.0,
+      "fold_index": 2,
+      "instrument": "GBP_USD"
+    },
+    {
+      "bespoke_trades": 1,
+      "bt_trades": 8,
+      "delta": 7,
+      "delta_pct": 700.0,
+      "fold_index": 2,
+      "instrument": "NZD_USD"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 7,
+      "delta": 5,
+      "delta_pct": 250.0,
+      "fold_index": 2,
+      "instrument": "USD_CAD"
+    },
+    {
+      "bespoke_trades": 5,
+      "bt_trades": 9,
+      "delta": 4,
+      "delta_pct": 80.0,
+      "fold_index": 2,
+      "instrument": "USD_CHF"
+    },
+    {
+      "bespoke_trades": 3,
+      "bt_trades": 5,
+      "delta": 2,
+      "delta_pct": 66.66666666666666,
+      "fold_index": 2,
+      "instrument": "USD_JPY"
+    },
+    {
+      "bespoke_trades": 4,
+      "bt_trades": 13,
+      "delta": 9,
+      "delta_pct": 225.0,
+      "fold_index": 3,
+      "instrument": "AUD_USD"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 8,
+      "delta": 6,
+      "delta_pct": 300.0,
+      "fold_index": 3,
+      "instrument": "EUR_USD"
+    },
+    {
+      "bespoke_trades": 6,
+      "bt_trades": 8,
+      "delta": 2,
+      "delta_pct": 33.33333333333333,
+      "fold_index": 3,
+      "instrument": "GBP_USD"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 11,
+      "delta": 9,
+      "delta_pct": 450.0,
+      "fold_index": 3,
+      "instrument": "NZD_USD"
+    },
+    {
+      "bespoke_trades": 5,
+      "bt_trades": 6,
+      "delta": 1,
+      "delta_pct": 20.0,
+      "fold_index": 3,
+      "instrument": "USD_CAD"
+    },
+    {
+      "bespoke_trades": 9,
+      "bt_trades": 12,
+      "delta": 3,
+      "delta_pct": 33.33333333333333,
+      "fold_index": 3,
+      "instrument": "USD_CHF"
+    },
+    {
+      "bespoke_trades": 0,
+      "bt_trades": 3,
+      "delta": 3,
+      "delta_pct": Infinity,
+      "fold_index": 3,
+      "instrument": "USD_JPY"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 9,
+      "delta": 7,
+      "delta_pct": 350.0,
+      "fold_index": 4,
+      "instrument": "AUD_USD"
+    },
+    {
+      "bespoke_trades": 3,
+      "bt_trades": 10,
+      "delta": 7,
+      "delta_pct": 233.33333333333334,
+      "fold_index": 4,
+      "instrument": "EUR_USD"
+    },
+    {
+      "bespoke_trades": 11,
+      "bt_trades": 11,
+      "delta": 0,
+      "delta_pct": 0.0,
+      "fold_index": 4,
+      "instrument": "GBP_USD"
+    },
+    {
+      "bespoke_trades": 0,
+      "bt_trades": 7,
+      "delta": 7,
+      "delta_pct": Infinity,
+      "fold_index": 4,
+      "instrument": "NZD_USD"
+    },
+    {
+      "bespoke_trades": 5,
+      "bt_trades": 9,
+      "delta": 4,
+      "delta_pct": 80.0,
+      "fold_index": 4,
+      "instrument": "USD_CAD"
+    },
+    {
+      "bespoke_trades": 3,
+      "bt_trades": 3,
+      "delta": 0,
+      "delta_pct": 0.0,
+      "fold_index": 4,
+      "instrument": "USD_CHF"
+    },
+    {
+      "bespoke_trades": 0,
+      "bt_trades": 5,
+      "delta": 5,
+      "delta_pct": Infinity,
+      "fold_index": 4,
+      "instrument": "USD_JPY"
+    },
+    {
+      "bespoke_trades": 3,
+      "bt_trades": 7,
+      "delta": 4,
+      "delta_pct": 133.33333333333331,
+      "fold_index": 5,
+      "instrument": "AUD_USD"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 4,
+      "delta": 2,
+      "delta_pct": 100.0,
+      "fold_index": 5,
+      "instrument": "EUR_USD"
+    },
+    {
+      "bespoke_trades": 4,
+      "bt_trades": 10,
+      "delta": 6,
+      "delta_pct": 150.0,
+      "fold_index": 5,
+      "instrument": "GBP_USD"
+    },
+    {
+      "bespoke_trades": 0,
+      "bt_trades": 3,
+      "delta": 3,
+      "delta_pct": Infinity,
+      "fold_index": 5,
+      "instrument": "NZD_USD"
+    },
+    {
+      "bespoke_trades": 4,
+      "bt_trades": 5,
+      "delta": 1,
+      "delta_pct": 25.0,
+      "fold_index": 5,
+      "instrument": "USD_CAD"
+    },
+    {
+      "bespoke_trades": 0,
+      "bt_trades": 4,
+      "delta": 4,
+      "delta_pct": Infinity,
+      "fold_index": 5,
+      "instrument": "USD_CHF"
+    },
+    {
+      "bespoke_trades": 1,
+      "bt_trades": 9,
+      "delta": 8,
+      "delta_pct": 800.0,
+      "fold_index": 5,
+      "instrument": "USD_JPY"
+    },
+    {
+      "bespoke_trades": 5,
+      "bt_trades": 12,
+      "delta": 7,
+      "delta_pct": 140.0,
+      "fold_index": 6,
+      "instrument": "AUD_USD"
+    },
+    {
+      "bespoke_trades": 3,
+      "bt_trades": 5,
+      "delta": 2,
+      "delta_pct": 66.66666666666666,
+      "fold_index": 6,
+      "instrument": "EUR_USD"
+    },
+    {
+      "bespoke_trades": 1,
+      "bt_trades": 16,
+      "delta": 15,
+      "delta_pct": 1500.0,
+      "fold_index": 6,
+      "instrument": "GBP_USD"
+    },
+    {
+      "bespoke_trades": 0,
+      "bt_trades": 2,
+      "delta": 2,
+      "delta_pct": Infinity,
+      "fold_index": 6,
+      "instrument": "NZD_USD"
+    },
+    {
+      "bespoke_trades": 1,
+      "bt_trades": 8,
+      "delta": 7,
+      "delta_pct": 700.0,
+      "fold_index": 6,
+      "instrument": "USD_CAD"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 5,
+      "delta": 3,
+      "delta_pct": 150.0,
+      "fold_index": 6,
+      "instrument": "USD_CHF"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 4,
+      "delta": 2,
+      "delta_pct": 100.0,
+      "fold_index": 6,
+      "instrument": "USD_JPY"
+    },
+    {
+      "bespoke_trades": 4,
+      "bt_trades": 12,
+      "delta": 8,
+      "delta_pct": 200.0,
+      "fold_index": 7,
+      "instrument": "AUD_USD"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 1,
+      "delta": -1,
+      "delta_pct": -50.0,
+      "fold_index": 7,
+      "instrument": "EUR_USD"
+    },
+    {
+      "bespoke_trades": 1,
+      "bt_trades": 9,
+      "delta": 8,
+      "delta_pct": 800.0,
+      "fold_index": 7,
+      "instrument": "GBP_USD"
+    },
+    {
+      "bespoke_trades": 0,
+      "bt_trades": 6,
+      "delta": 6,
+      "delta_pct": Infinity,
+      "fold_index": 7,
+      "instrument": "NZD_USD"
+    },
+    {
+      "bespoke_trades": 0,
+      "bt_trades": 7,
+      "delta": 7,
+      "delta_pct": Infinity,
+      "fold_index": 7,
+      "instrument": "USD_CAD"
+    },
+    {
+      "bespoke_trades": 5,
+      "bt_trades": 11,
+      "delta": 6,
+      "delta_pct": 120.0,
+      "fold_index": 7,
+      "instrument": "USD_CHF"
+    },
+    {
+      "bespoke_trades": 2,
+      "bt_trades": 6,
+      "delta": 4,
+      "delta_pct": 200.0,
+      "fold_index": 7,
+      "instrument": "USD_JPY"
+    }
+  ],
+  "classification": "SIGNAL_RULE_MISMATCH",
+  "generated_at": "2026-05-26T04:43:49+00:00",
+  "notes": [],
+  "prior_bt_full_window_trades": 532,
+  "prior_classification": "SIGNAL_RULE_MISMATCH",
+  "strategy_evidence": false
+}

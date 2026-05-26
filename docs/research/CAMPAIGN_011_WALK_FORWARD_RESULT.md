@@ -1,7 +1,12 @@
 # CAMPAIGN_011 — Walk-Forward Result and Verdict
 
-**Date:** 2026-05-23 · **Branch:** `research-random-entry-diagnostic-anchor-walk-forward-001`
+**Date:** 2026-05-26 · **Branch:** `research-random-entry-diagnostic-anchor-walk-forward-001`
 `strategy_evidence: false`
+
+> **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE.** Metrics in
+> this document used pre-fix bespoke SQLite loads. Verdict **REJECT**
+> (null model) is unchanged; headline numbers require deduped rerun
+> promotion before use as the canonical null baseline.
 
 Phase 5 formal classification of the CAMPAIGN_011 walk-forward
 evidence (`random_entry_anchor 0.1.0-c011` — the C5

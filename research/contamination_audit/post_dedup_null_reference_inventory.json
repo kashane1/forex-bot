@@ -1,0 +1,4430 @@
+{
+  "schema_version": 1,
+  "sprint": "POST_DEDUP_NULL_REFERENCE_REFRESH_001",
+  "canonical_null_json": "research/null_baselines/campaign_011_deduped_null_baseline.json",
+  "superseded_null_artifact": "backtests/CAMPAIGN_011_random_entry_anchor",
+  "scan_roots": [
+    "docs/research",
+    "research",
+    "backtests",
+    "EVIDENCE_INDEX.md",
+    "EVIDENCE_MANIFEST.json"
+  ],
+  "files_scanned": 8046,
+  "files_with_matches": 490,
+  "pattern_counts": {
+    "above_null_claim": 24,
+    "campaign_011": 267,
+    "campaign_012": 181,
+    "campaign_013": 138,
+    "campaign_014": 129,
+    "canonical_null_json": 24,
+    "old_null_expectancy": 116,
+    "old_null_json_path": 67,
+    "old_null_pf": 98,
+    "old_null_return": 52,
+    "old_null_trades": 84,
+    "random_entry_anchor": 261,
+    "superseded_null_reference": 10
+  },
+  "campaign_file_hits": {
+    "CAMPAIGN_012": 181,
+    "CAMPAIGN_013": 138,
+    "CAMPAIGN_014": 129
+  },
+  "files_with_old_null_metrics": 176,
+  "files_with_canonical_null_json": 24,
+  "files": [
+    {
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_004_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 51
+    },
+    {
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_BLOCKED_002.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 39
+    },
+    {
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_BLOCKED_003.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 28
+    },
+    {
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_FIDELITY_FIX_004.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 18
+    },
+    {
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_FULL_WINDOW_COMPARISON_004.md",
+      "pattern_ids": [
+        "campaign_011",
+        "old_null_expectancy",
+        "random_entry_anchor"
+      ],
+      "match_count": 26
+    },
+    {
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_FULL_WINDOW_RUN_004.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 18
+    },
+    {
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_HANDOFF_FROM_NORISK_REFERENCE.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 40
+    },
+    {
+      "path": "docs/research/BACKTRADER_CAMPAIGN_011_PER_FOLD_DEFERRED_004.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 16
+    },
+    {
+      "path": "docs/research/BACKTRADER_CAMPAIGN_015_PROVENANCE_REPAIR_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "docs/research/BACKTRADER_DATA_ADAPTER_SPEC.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/BACKTRADER_FIRST_CAMPAIGN_ADAPTER.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/BACKTRADER_INSTALL_AND_SMOKE_RESULT.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/BACKTRADER_PARITY_COMPARISON_SPEC.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/BACKTRADER_PARITY_FIRST_RESULT.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/BACKTRADER_REAL_DATA_PREFLIGHT_002.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "docs/research/BACKTRADER_REAL_DATA_RUN_002_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "docs/research/BACKTRADER_RUNNER_CONTRACT.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/BACKTRADER_SECOND_CAMPAIGN_BLOCKED.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 39
+    },
+    {
+      "path": "docs/research/BIAS_OF_FIXTURES_ARTIFACT_INVENTORY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 32
+    },
+    {
+      "path": "docs/research/BIAS_OF_FIXTURES_AUDIT_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "old_null_trades",
+        "campaign_012",
+        "random_entry_anchor",
+        "campaign_013"
+      ],
+      "match_count": 21
+    },
+    {
+      "path": "docs/research/BIAS_OF_FIXTURES_AUDIT_001_RESULT.md",
+      "pattern_ids": [
+        "campaign_011",
+        "old_null_expectancy",
+        "campaign_014",
+        "campaign_012",
+        "campaign_013"
+      ],
+      "match_count": 24
+    },
+    {
+      "path": "docs/research/BIAS_OF_FIXTURES_AUDIT_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_014",
+        "campaign_012"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/C3_REGIME_SWITCHER_FEASIBILITY_REVIEW.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "random_entry_anchor"
+      ],
+      "match_count": 21
+    },
+    {
+      "path": "docs/research/CALENDAR_EVENT_WINDOW_ANOMALY_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "random_entry_anchor",
+        "old_null_trades"
+      ],
+      "match_count": 38
+    },
+    {
+      "path": "docs/research/CALENDAR_EVENT_WINDOW_ANOMALY_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "campaign_012",
+        "campaign_013"
+      ],
+      "match_count": 33
+    },
+    {
+      "path": "docs/research/CALENDAR_EVENT_WINDOW_ANOMALY_IMPLEMENTATION_SPEC.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013"
+      ],
+      "match_count": 14
+    },
+    {
+      "path": "docs/research/CALENDAR_EVENT_WINDOW_ANOMALY_READINESS.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_013",
+        "campaign_011",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 29
+    },
+    {
+      "path": "docs/research/CALENDAR_EVENT_WINDOW_ANOMALY_WALK_FORWARD_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013"
+      ],
+      "match_count": 52
+    },
+    {
+      "path": "docs/research/CALENDAR_EVENT_WINDOW_ANOMALY_WALK_FORWARD_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf"
+      ],
+      "match_count": 37
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_DATA_PROVENANCE.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 8
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_DEDUPED_NULL_BASELINE.md",
+      "pattern_ids": [
+        "campaign_011",
+        "canonical_null_json",
+        "campaign_012",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "old_null_trades",
+        "old_null_expectancy"
+      ],
+      "match_count": 17
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_DEDUPED_NULL_BASELINE_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "random_entry_anchor",
+        "canonical_null_json",
+        "old_null_json_path"
+      ],
+      "match_count": 22
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_DEDUPED_NULL_BASELINE_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "canonical_null_json",
+        "old_null_json_path",
+        "campaign_012"
+      ],
+      "match_count": 31
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_DEDUPED_RUN_VERIFICATION.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf"
+      ],
+      "match_count": 15
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_EVIDENCE_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "old_null_json_path"
+      ],
+      "match_count": 47
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_FINANCING_OVERLAY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "old_null_trades",
+        "old_null_return",
+        "old_null_expectancy",
+        "old_null_pf"
+      ],
+      "match_count": 46
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_FINANCING_RISK_READINESS.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 42
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_INDEPENDENT_VERIFIER_READINESS.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 31
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_INDEPENDENT_VERIFIER_STATUS.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 40
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_NORISK_REFERENCE_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 62
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_NORISK_REFERENCE_CONTRACT.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 53
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_NORISK_REFERENCE_RESULT.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 35
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_NORISK_REFERENCE_RUNNER.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 40
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md",
+      "pattern_ids": [
+        "campaign_011",
+        "canonical_null_json",
+        "random_entry_anchor",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "above_null_claim"
+      ],
+      "match_count": 66
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_NULL_BASELINE_SUPERSESSION.md",
+      "pattern_ids": [
+        "campaign_011",
+        "canonical_null_json",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 20
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_PORTFOLIO_RISK_DIAGNOSTICS.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "old_null_trades"
+      ],
+      "match_count": 43
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_PRECOMMIT_CHECKLIST.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 78
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_SMOKE_RESULT.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 35
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_STATUS.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "old_null_json_path",
+        "old_null_trades"
+      ],
+      "match_count": 58
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_WALK_FORWARD_EXECUTION.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 53
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_WALK_FORWARD_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 35
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_WALK_FORWARD_READINESS.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 43
+    },
+    {
+      "path": "docs/research/CAMPAIGN_011_WALK_FORWARD_RESULT.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_trades",
+        "old_null_return"
+      ],
+      "match_count": 58
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_DATA_PROVENANCE.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011"
+      ],
+      "match_count": 21
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_EVIDENCE_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 36
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_FINANCING_OVERLAY.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011"
+      ],
+      "match_count": 24
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_FINANCING_RISK_READINESS.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011"
+      ],
+      "match_count": 21
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_INDEPENDENT_VERIFIER_READINESS.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011"
+      ],
+      "match_count": 10
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_INDEPENDENT_VERIFIER_STATUS.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 18
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_PORTFOLIO_RISK_DIAGNOSTICS.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011"
+      ],
+      "match_count": 35
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_POST_DEDUP_NULL_REFERENCE.md",
+      "pattern_ids": [
+        "campaign_012",
+        "superseded_null_reference",
+        "campaign_011",
+        "canonical_null_json",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_return",
+        "old_null_pf"
+      ],
+      "match_count": 28
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_PRECOMMIT_CHECKLIST.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 24
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_REJECTION_CLOSEOUT.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "old_null_trades"
+      ],
+      "match_count": 55
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_SMOKE_RESULT.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011"
+      ],
+      "match_count": 16
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_STATUS.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_return",
+        "old_null_pf",
+        "old_null_trades"
+      ],
+      "match_count": 38
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_WALK_FORWARD_EXECUTION.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_return",
+        "old_null_pf"
+      ],
+      "match_count": 39
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_WALK_FORWARD_PLAN.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 28
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_WALK_FORWARD_READINESS.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "above_null_claim",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 40
+    },
+    {
+      "path": "docs/research/CAMPAIGN_012_WALK_FORWARD_RESULT.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_return",
+        "old_null_pf",
+        "old_null_trades",
+        "random_entry_anchor"
+      ],
+      "match_count": 59
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_DATA_PROVENANCE.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012"
+      ],
+      "match_count": 23
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_EVIDENCE_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "campaign_012"
+      ],
+      "match_count": 42
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_FINANCING_OVERLAY.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "old_null_trades"
+      ],
+      "match_count": 34
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_FINANCING_RISK_READINESS.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012"
+      ],
+      "match_count": 20
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_INDEPENDENT_VERIFIER_READINESS.md",
+      "pattern_ids": [
+        "campaign_013",
+        "random_entry_anchor",
+        "campaign_011",
+        "campaign_012"
+      ],
+      "match_count": 15
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_INDEPENDENT_VERIFIER_STATUS.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "old_null_return"
+      ],
+      "match_count": 29
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_PORTFOLIO_RISK_DIAGNOSTICS.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_012",
+        "campaign_011"
+      ],
+      "match_count": 18
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_POST_DEDUP_NULL_REFERENCE.md",
+      "pattern_ids": [
+        "campaign_013",
+        "superseded_null_reference",
+        "campaign_011",
+        "canonical_null_json",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_return",
+        "old_null_pf"
+      ],
+      "match_count": 23
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_PRECOMMIT_CHECKLIST.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "campaign_012"
+      ],
+      "match_count": 25
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_REJECTION_CLOSEOUT.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "old_null_trades"
+      ],
+      "match_count": 80
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_SMOKE_RESULT.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011"
+      ],
+      "match_count": 13
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_STATUS.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_return"
+      ],
+      "match_count": 32
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_WALK_FORWARD_EXECUTION.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_return",
+        "old_null_pf"
+      ],
+      "match_count": 33
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_WALK_FORWARD_PLAN.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012"
+      ],
+      "match_count": 20
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_WALK_FORWARD_READINESS.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 31
+    },
+    {
+      "path": "docs/research/CAMPAIGN_013_WALK_FORWARD_RESULT.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "old_null_expectancy",
+        "old_null_return",
+        "old_null_pf",
+        "old_null_trades",
+        "random_entry_anchor"
+      ],
+      "match_count": 67
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_DATA_PROVENANCE.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "campaign_012",
+        "campaign_013"
+      ],
+      "match_count": 38
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_EVENT_FIXTURE_DATE_VERIFICATION.md",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 15
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_EVENT_FIXTURE_PROVENANCE.md",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 17
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_EVIDENCE_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "above_null_claim"
+      ],
+      "match_count": 37
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_FINANCING_OVERLAY.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013"
+      ],
+      "match_count": 21
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_FINANCING_RISK_READINESS.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "old_null_trades",
+        "campaign_013"
+      ],
+      "match_count": 20
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_INDEPENDENT_VERIFIER_READINESS.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_013"
+      ],
+      "match_count": 16
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_INDEPENDENT_VERIFIER_STATUS.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_013",
+        "campaign_011",
+        "campaign_012"
+      ],
+      "match_count": 26
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_PORTFOLIO_RISK_DIAGNOSTICS.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_013",
+        "campaign_012",
+        "campaign_011"
+      ],
+      "match_count": 23
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_POST_DEDUP_NULL_REFERENCE.md",
+      "pattern_ids": [
+        "campaign_014",
+        "superseded_null_reference",
+        "campaign_011",
+        "canonical_null_json",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_return",
+        "old_null_pf"
+      ],
+      "match_count": 23
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_PRECOMMIT_CHECKLIST.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013",
+        "old_null_return"
+      ],
+      "match_count": 30
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_SMOKE_RESULT.md",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 25
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_STATUS.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013"
+      ],
+      "match_count": 32
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_WALK_FORWARD_EXECUTION.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "campaign_012"
+      ],
+      "match_count": 42
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_WALK_FORWARD_PLAN.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "campaign_013",
+        "above_null_claim",
+        "old_null_trades",
+        "campaign_012"
+      ],
+      "match_count": 29
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_WALK_FORWARD_READINESS.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_013",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "above_null_claim"
+      ],
+      "match_count": 23
+    },
+    {
+      "path": "docs/research/CAMPAIGN_014_WALK_FORWARD_RESULT.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "campaign_012",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_trades",
+        "above_null_claim",
+        "campaign_013"
+      ],
+      "match_count": 46
+    },
+    {
+      "path": "docs/research/CAMPAIGN_015_DEDUPED_NULL_AND_ANTI_OVERFIT.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "docs/research/CAMPAIGN_015_DEDUPED_RERUN_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "docs/research/CAMPAIGN_015_DEDUPED_RERUN_INTERPRETATION.md",
+      "pattern_ids": [
+        "above_null_claim"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "docs/research/CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 13
+    },
+    {
+      "path": "docs/research/CAMPAIGN_015_NULL_AND_ANTI_OVERFIT_DIAGNOSTICS.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 17
+    },
+    {
+      "path": "docs/research/CAMPAIGN_015_NULL_AND_ANTI_OVERFIT_POST_RUN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 6
+    },
+    {
+      "path": "docs/research/CAMPAIGN_015_POST_RUN_DIAGNOSTICS_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "docs/research/CAMPAIGN_015_POST_RUN_DIAGNOSTICS_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 13
+    },
+    {
+      "path": "docs/research/CAMPAIGN_015_POST_RUN_INTERPRETATION.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "docs/research/CAMPAIGN_015_VS_DEDUPED_NULL_CHECK.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "canonical_null_json"
+      ],
+      "match_count": 7
+    },
+    {
+      "path": "docs/research/CAMPAIGN_CONTAMINATION_AUDIT_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_trades"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/CAMPAIGN_CONTAMINATION_AUDIT_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 8
+    },
+    {
+      "path": "docs/research/CAMPAIGN_DATA_SOURCE_INVENTORY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 126
+    },
+    {
+      "path": "docs/research/CAMPAIGN_EVIDENCE_INTEGRITY_AFTER_DEDUP_FIX.md",
+      "pattern_ids": [
+        "campaign_011",
+        "canonical_null_json",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "old_null_expectancy",
+        "old_null_trades"
+      ],
+      "match_count": 17
+    },
+    {
+      "path": "docs/research/CANDIDATE_STRATEGY_FAMILY_REASSESSMENT_002.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "docs/research/CANDIDATE_STRATEGY_FAMILY_REASSESSMENT_003.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012"
+      ],
+      "match_count": 21
+    },
+    {
+      "path": "docs/research/CANDIDATE_STRATEGY_FAMILY_SHORTLIST_004.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "old_null_expectancy"
+      ],
+      "match_count": 19
+    },
+    {
+      "path": "docs/research/CANDIDATE_STRATEGY_FAMILY_SHORTLIST_005.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "old_null_trades",
+        "random_entry_anchor"
+      ],
+      "match_count": 35
+    },
+    {
+      "path": "docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "random_entry_anchor"
+      ],
+      "match_count": 41
+    },
+    {
+      "path": "docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012"
+      ],
+      "match_count": 36
+    },
+    {
+      "path": "docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_IMPLEMENTATION_SPEC.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 21
+    },
+    {
+      "path": "docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_READINESS.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 22
+    },
+    {
+      "path": "docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_WALK_FORWARD_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012"
+      ],
+      "match_count": 34
+    },
+    {
+      "path": "docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_WALK_FORWARD_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 47
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_CANDIDATE_RANKING_RULES.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_EXIT_ASYMMETRY_ADDENDUM.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011"
+      ],
+      "match_count": 7
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_HYDRATE_RANKING_RULES_ADDENDUM.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_expectancy",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_014"
+      ],
+      "match_count": 22
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_LAB_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_LAB_001_RESULTS.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_012"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_LAB_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_014",
+        "campaign_011"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_LAB_HYDRATE_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 8
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_LAB_HYDRATE_001_RESULTS_ADDENDUM.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "old_null_expectancy",
+        "random_entry_anchor",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013"
+      ],
+      "match_count": 45
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_LAB_HYDRATE_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_014",
+        "campaign_012"
+      ],
+      "match_count": 22
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_REAL_ARTIFACT_INVENTORY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 23
+    },
+    {
+      "path": "docs/research/EDGE_DISCOVERY_SINGLE_PAIR_PROBE_ADDENDUM.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "old_null_expectancy",
+        "campaign_014"
+      ],
+      "match_count": 13
+    },
+    {
+      "path": "docs/research/EVIDENCE_INDEX.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor",
+        "canonical_null_json",
+        "campaign_013",
+        "campaign_014",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "old_null_trades",
+        "above_null_claim"
+      ],
+      "match_count": 225
+    },
+    {
+      "path": "docs/research/EVIDENCE_MANIFEST.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "canonical_null_json",
+        "old_null_json_path",
+        "old_null_expectancy",
+        "old_null_trades",
+        "superseded_null_reference"
+      ],
+      "match_count": 105
+    },
+    {
+      "path": "docs/research/EXIT_ASYMMETRY_CROSS_CAMPAIGN_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_013"
+      ],
+      "match_count": 20
+    },
+    {
+      "path": "docs/research/EXIT_ASYMMETRY_CROSS_CAMPAIGN_001_RESULT.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 23
+    },
+    {
+      "path": "docs/research/EXIT_ASYMMETRY_CROSS_CAMPAIGN_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "campaign_013"
+      ],
+      "match_count": 22
+    },
+    {
+      "path": "docs/research/FAILED_CAMPAIGN_META_ANALYSIS_001.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_014"
+      ],
+      "match_count": 3
+    },
+    {
+      "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_FIXES.md",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "random_entry_anchor"
+      ],
+      "match_count": 9
+    },
+    {
+      "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "random_entry_anchor"
+      ],
+      "match_count": 20
+    },
+    {
+      "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_002_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 14
+    },
+    {
+      "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_003_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 20
+    },
+    {
+      "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_004_CAMPAIGN_011_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 82
+    },
+    {
+      "path": "docs/research/INFRA_BESPOKE_CAMPAIGN_011_NORISK_REFERENCE_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 68
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_DISCOVERY_002_HELPER_DECISION.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_DISCOVERY_003_HELPER_DECISION.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_013",
+        "campaign_012"
+      ],
+      "match_count": 13
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_DISCOVERY_004_HELPER_DECISION.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013"
+      ],
+      "match_count": 12
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_DISCOVERY_005_HELPER_DECISION.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 12
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_STRATEGY_DISCOVERY_002_PLAN.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_STRATEGY_DISCOVERY_002_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 15
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_STRATEGY_DISCOVERY_003_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "above_null_claim",
+        "campaign_012"
+      ],
+      "match_count": 46
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_STRATEGY_DISCOVERY_003_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 41
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_STRATEGY_DISCOVERY_004_PLAN.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "old_null_trades"
+      ],
+      "match_count": 49
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_STRATEGY_DISCOVERY_004_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_013",
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 24
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_STRATEGY_DISCOVERY_005_PLAN.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "random_entry_anchor",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "old_null_trades"
+      ],
+      "match_count": 76
+    },
+    {
+      "path": "docs/research/NEW_CANDIDATE_STRATEGY_DISCOVERY_005_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_014",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_return",
+        "campaign_012",
+        "random_entry_anchor"
+      ],
+      "match_count": 37
+    },
+    {
+      "path": "docs/research/NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_002.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 86
+    },
+    {
+      "path": "docs/research/NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_004.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "above_null_claim"
+      ],
+      "match_count": 26
+    },
+    {
+      "path": "docs/research/NEXT_CANDIDATE_EVIDENCE_BRANCH_SPEC_005.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_012",
+        "campaign_013",
+        "campaign_011",
+        "above_null_claim"
+      ],
+      "match_count": 45
+    },
+    {
+      "path": "docs/research/NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_002.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 40
+    },
+    {
+      "path": "docs/research/NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_004.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012"
+      ],
+      "match_count": 18
+    },
+    {
+      "path": "docs/research/NEXT_CANDIDATE_SCAFFOLD_BRANCH_SPEC_005.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_012",
+        "campaign_013",
+        "campaign_011"
+      ],
+      "match_count": 22
+    },
+    {
+      "path": "docs/research/NEXT_DIRECTION_REASSESSMENT_004.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012"
+      ],
+      "match_count": 9
+    },
+    {
+      "path": "docs/research/NEXT_DIRECTION_REASSESSMENT_005.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "old_null_trades"
+      ],
+      "match_count": 36
+    },
+    {
+      "path": "docs/research/NEXT_PREFERRED_CANDIDATE_002.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 21
+    },
+    {
+      "path": "docs/research/NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_002.md",
+      "pattern_ids": [
+        "random_entry_anchor",
+        "campaign_011",
+        "old_null_json_path"
+      ],
+      "match_count": 62
+    },
+    {
+      "path": "docs/research/NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_004.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "campaign_012",
+        "random_entry_anchor",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 43
+    },
+    {
+      "path": "docs/research/NEXT_PREFERRED_CANDIDATE_IMPLEMENTATION_DESIGN_005.md",
+      "pattern_ids": [
+        "campaign_011",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "random_entry_anchor",
+        "above_null_claim"
+      ],
+      "match_count": 18
+    },
+    {
+      "path": "docs/research/NEXT_PREFERRED_DIRECTION_004.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012"
+      ],
+      "match_count": 19
+    },
+    {
+      "path": "docs/research/NEXT_PREFERRED_DIRECTION_005.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "old_null_trades"
+      ],
+      "match_count": 19
+    },
+    {
+      "path": "docs/research/NEXT_PREFERRED_REAL_CANDIDATE_003.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "random_entry_anchor",
+        "above_null_claim"
+      ],
+      "match_count": 41
+    },
+    {
+      "path": "docs/research/NEXT_PREFERRED_REAL_CANDIDATE_IMPLEMENTATION_DESIGN_003.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor",
+        "above_null_claim",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 62
+    },
+    {
+      "path": "docs/research/NEXT_REAL_CANDIDATE_EVIDENCE_BRANCH_SPEC_003.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "above_null_claim"
+      ],
+      "match_count": 68
+    },
+    {
+      "path": "docs/research/NEXT_REAL_CANDIDATE_SCAFFOLD_BRANCH_SPEC_003.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 37
+    },
+    {
+      "path": "docs/research/POST_DEDUP_NULL_REFERENCE_INVENTORY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "canonical_null_json",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "superseded_null_reference",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "above_null_claim"
+      ],
+      "match_count": 5543
+    },
+    {
+      "path": "docs/research/POST_DEDUP_NULL_REFERENCE_REFRESH_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "canonical_null_json",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "campaign_013",
+        "campaign_014",
+        "superseded_null_reference"
+      ],
+      "match_count": 22
+    },
+    {
+      "path": "docs/research/POST_DEDUP_NULL_REFERENCE_REFRESH_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "canonical_null_json",
+        "old_null_expectancy",
+        "old_null_trades",
+        "campaign_013",
+        "campaign_014",
+        "superseded_null_reference"
+      ],
+      "match_count": 29
+    },
+    {
+      "path": "docs/research/POST_DEDUP_RERUN_BACKLOG.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "canonical_null_json",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 13
+    },
+    {
+      "path": "docs/research/RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 33
+    },
+    {
+      "path": "docs/research/RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 45
+    },
+    {
+      "path": "docs/research/RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_IMPLEMENTATION_SPEC.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 20
+    },
+    {
+      "path": "docs/research/RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_READINESS.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 23
+    },
+    {
+      "path": "docs/research/RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_WALK_FORWARD_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 68
+    },
+    {
+      "path": "docs/research/RANDOM_ENTRY_DIAGNOSTIC_ANCHOR_WALK_FORWARD_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "old_null_json_path"
+      ],
+      "match_count": 45
+    },
+    {
+      "path": "docs/research/REGIME_SWITCHER_ATR_PERCENTILE_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 39
+    },
+    {
+      "path": "docs/research/REGIME_SWITCHER_ATR_PERCENTILE_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 32
+    },
+    {
+      "path": "docs/research/REGIME_SWITCHER_ATR_PERCENTILE_IMPLEMENTATION_SPEC.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 28
+    },
+    {
+      "path": "docs/research/REGIME_SWITCHER_ATR_PERCENTILE_READINESS.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 26
+    },
+    {
+      "path": "docs/research/REGIME_SWITCHER_ATR_PERCENTILE_WALK_FORWARD_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_return",
+        "old_null_pf"
+      ],
+      "match_count": 54
+    },
+    {
+      "path": "docs/research/REGIME_SWITCHER_ATR_PERCENTILE_WALK_FORWARD_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 43
+    },
+    {
+      "path": "docs/research/REJECTED_FAMILY_OVERFIT_GUARDRAILS_004_ADDENDUM.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011"
+      ],
+      "match_count": 28
+    },
+    {
+      "path": "docs/research/REJECTED_FAMILY_OVERFIT_GUARDRAILS_005_ADDENDUM.md",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_012",
+        "campaign_011"
+      ],
+      "match_count": 49
+    },
+    {
+      "path": "docs/research/SINGLE_PAIR_PROBE_001_PLAN.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 26
+    },
+    {
+      "path": "docs/research/SINGLE_PAIR_PROBE_001_RESULT.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 16
+    },
+    {
+      "path": "docs/research/SINGLE_PAIR_PROBE_001_SUMMARY.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "docs/research/STRATEGY_STATUS.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "canonical_null_json",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_pf",
+        "old_null_return"
+      ],
+      "match_count": 54
+    },
+    {
+      "path": "docs/research/TURNOVER_AMPLIFICATION_ANTI_PATTERN_005.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_return",
+        "old_null_pf"
+      ],
+      "match_count": 43
+    },
+    {
+      "path": "research/anti_overfit/campaign_015.py",
+      "pattern_ids": [
+        "campaign_011",
+        "above_null_claim"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "research/backtrader_lane/__init__.py",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "research/backtrader_lane/compare.py",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "research/backtrader_lane/runner.py",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "research/backtrader_lane/strategies/__init__.py",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "research/backtrader_lane/strategies/campaign_011_random_entry_anchor.py",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 64
+    },
+    {
+      "path": "research/calendar/fixtures/campaign_014_events.json",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "research/campaign_015/diagnostics/backtrader_fold_window/run_manifest.json",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "research/campaign_015/diagnostics/backtrader_fold_window_deduped/run_manifest.json",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "research/campaign_015/diagnostics/backtrader_fold_window_riskengine_fill_parity/run_manifest.json",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "research/campaign_015/diagnostics/backtrader_lane/comparison_summary.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "research/campaign_015/diagnostics/backtrader_lane/run_manifest.json",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "research/campaign_015/diagnostics/null_and_anti_overfit.json",
+      "pattern_ids": [
+        "random_entry_anchor",
+        "campaign_011"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "research/campaign_015/diagnostics/null_and_anti_overfit.md",
+      "pattern_ids": [
+        "random_entry_anchor",
+        "campaign_011"
+      ],
+      "match_count": 3
+    },
+    {
+      "path": "research/campaign_015/diagnostics/null_and_anti_overfit_deduped.json",
+      "pattern_ids": [
+        "random_entry_anchor",
+        "campaign_011"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "research/campaign_015/diagnostics/null_and_anti_overfit_deduped.md",
+      "pattern_ids": [
+        "random_entry_anchor",
+        "campaign_011"
+      ],
+      "match_count": 3
+    },
+    {
+      "path": "research/contamination_audit/campaign_data_source_inventory.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 672
+    },
+    {
+      "path": "research/contamination_audit/campaign_data_source_inventory.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 126
+    },
+    {
+      "path": "research/contamination_audit/campaign_integrity_classification.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "campaign_012",
+        "old_null_json_path",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 71
+    },
+    {
+      "path": "research/contamination_audit/campaign_integrity_classification.md",
+      "pattern_ids": [
+        "campaign_011",
+        "old_null_expectancy",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 10
+    },
+    {
+      "path": "research/contamination_audit/post_dedup_null_reference_inventory.json",
+      "pattern_ids": [
+        "campaign_011",
+        "canonical_null_json",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "superseded_null_reference",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_pf",
+        "above_null_claim",
+        "old_null_return"
+      ],
+      "match_count": 121046
+    },
+    {
+      "path": "research/contamination_audit/post_dedup_null_reference_inventory.md",
+      "pattern_ids": [
+        "campaign_011",
+        "canonical_null_json",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "superseded_null_reference",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "above_null_claim"
+      ],
+      "match_count": 5543
+    },
+    {
+      "path": "research/edge_discovery/real_data.py",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "canonical_null_json",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 13
+    },
+    {
+      "path": "research/edge_discovery/studies/bias_cross_campaign_comparability.py",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013"
+      ],
+      "match_count": 9
+    },
+    {
+      "path": "research/edge_discovery/studies/bias_null_baseline.py",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 18
+    },
+    {
+      "path": "research/edge_discovery/studies/exit_asymmetry_cross_campaign.py",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "campaign_013"
+      ],
+      "match_count": 22
+    },
+    {
+      "path": "research/edge_discovery/studies/exit_asymmetry_robustness.py",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 11
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/bias_cross_campaign_comparability.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_json_path"
+      ],
+      "match_count": 44
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/bias_cross_campaign_comparability.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "old_null_expectancy"
+      ],
+      "match_count": 24
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/bias_null_baseline.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "old_null_expectancy",
+        "old_null_json_path"
+      ],
+      "match_count": 47
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/bias_null_baseline.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "old_null_expectancy"
+      ],
+      "match_count": 32
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/exit_asymmetry_cross_campaign.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "old_null_trades",
+        "old_null_expectancy",
+        "old_null_json_path"
+      ],
+      "match_count": 122
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/exit_asymmetry_cross_campaign.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_expectancy",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013",
+        "old_null_json_path"
+      ],
+      "match_count": 41
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/exit_asymmetry_robustness.json",
+      "pattern_ids": [
+        "campaign_013",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_014",
+        "old_null_json_path"
+      ],
+      "match_count": 77
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/exit_asymmetry_robustness.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_013",
+        "old_null_json_path"
+      ],
+      "match_count": 21
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/probe_robustness_eur_usd_c012.json",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_013",
+        "campaign_014",
+        "old_null_json_path"
+      ],
+      "match_count": 18
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/probe_robustness_eur_usd_c012.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/probe_single_pair_eur_usd_c012.json",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "old_null_trades"
+      ],
+      "match_count": 55
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/probe_single_pair_eur_usd_c012.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 8
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/real_study_event_window.json",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_expectancy",
+        "old_null_json_path",
+        "old_null_trades"
+      ],
+      "match_count": 17
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/real_study_event_window.md",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "old_null_json_path",
+        "old_null_expectancy"
+      ],
+      "match_count": 16
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/real_study_pair_baseline.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "old_null_json_path"
+      ],
+      "match_count": 69
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/real_study_pair_baseline.md",
+      "pattern_ids": [
+        "campaign_011",
+        "above_null_claim"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/real_study_turnover_cost.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "old_null_expectancy",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "old_null_json_path"
+      ],
+      "match_count": 35
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/real/real_study_turnover_cost.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_expectancy",
+        "old_null_trades",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 9
+    },
+    {
+      "path": "research/edge_discovery/studies/outputs/study_pair_baseline.md",
+      "pattern_ids": [
+        "above_null_claim"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "research/edge_discovery/studies/probe_robustness_eur_usd_c012.py",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 10
+    },
+    {
+      "path": "research/edge_discovery/studies/probe_single_pair_eur_usd_c012.py",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 13
+    },
+    {
+      "path": "research/edge_discovery/studies/study_event_window.py",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "research/edge_discovery/studies/study_pair_baseline.py",
+      "pattern_ids": [
+        "above_null_claim"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "research/edge_discovery/studies/study_real_event_window.py",
+      "pattern_ids": [
+        "campaign_014",
+        "campaign_011",
+        "canonical_null_json"
+      ],
+      "match_count": 31
+    },
+    {
+      "path": "research/edge_discovery/studies/study_real_pair_baseline.py",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "random_entry_anchor",
+        "above_null_claim"
+      ],
+      "match_count": 14
+    },
+    {
+      "path": "research/edge_discovery/studies/study_real_turnover_cost.py",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014"
+      ],
+      "match_count": 7
+    },
+    {
+      "path": "research/edge_discovery/studies/study_turnover_cost.py",
+      "pattern_ids": [
+        "campaign_012"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "research/lean_parity/campaign_011_h4_bespoke_reference.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "research/lean_parity/campaign_011_h4_bespoke_reference_per_fold.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "research/null_baselines/__init__.py",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 7
+    },
+    {
+      "path": "research/null_baselines/campaign_011_deduped.py",
+      "pattern_ids": [
+        "campaign_011",
+        "canonical_null_json",
+        "random_entry_anchor",
+        "old_null_json_path"
+      ],
+      "match_count": 15
+    },
+    {
+      "path": "research/null_baselines/campaign_011_deduped_null_baseline.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "old_null_expectancy",
+        "old_null_trades",
+        "old_null_pf"
+      ],
+      "match_count": 19
+    },
+    {
+      "path": "research/null_baselines/campaign_011_deduped_null_baseline.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_json_path",
+        "old_null_trades",
+        "old_null_expectancy"
+      ],
+      "match_count": 11
+    },
+    {
+      "path": "backtests/CAMPAIGN_001_REPORT.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_001_REPORT.pre_pnl_fix.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/financing/financing_run.md",
+      "pattern_ids": [
+        "old_null_trades"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/financing/financing_summary.json",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_00/fold_00_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_00/fold_00_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_00/fold_00_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_00/fold_00_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_00/fold_00_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_00/fold_00_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_00/fold_00_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_01/fold_01_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_01/fold_01_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_01/fold_01_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_01/fold_01_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_01/fold_01_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_01/fold_01_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_01/fold_01_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_02/fold_02_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_02/fold_02_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_02/fold_02_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_02/fold_02_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_02/fold_02_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_02/fold_02_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_02/fold_02_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_03/fold_03_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_03/fold_03_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_03/fold_03_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_03/fold_03_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_03/fold_03_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_03/fold_03_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_03/fold_03_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_04/fold_04_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_04/fold_04_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_04/fold_04_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_04/fold_04_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_04/fold_04_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_04/fold_04_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_04/fold_04_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_05/fold_05_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_05/fold_05_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_05/fold_05_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_05/fold_05_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_05/fold_05_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_05/fold_05_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_05/fold_05_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_06/fold_06_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_06/fold_06_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_06/fold_06_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_06/fold_06_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_06/fold_06_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_06/fold_06_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_06/fold_06_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_07/fold_07_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_07/fold_07_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_07/fold_07_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_07/fold_07_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_07/fold_07_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_07/fold_07_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/folds/fold_07/fold_07_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/risk/diagnostics.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/risk/diagnostics.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/fold_detail.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "old_null_trades",
+        "old_null_expectancy"
+      ],
+      "match_count": 6
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/plan.json",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/plan.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/results.json",
+      "pattern_ids": [
+        "campaign_011",
+        "old_null_trades",
+        "old_null_expectancy"
+      ],
+      "match_count": 3
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/results.md",
+      "pattern_ids": [
+        "campaign_011",
+        "old_null_trades",
+        "old_null_expectancy"
+      ],
+      "match_count": 3
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_00/fold_00_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_00/fold_00_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_00/fold_00_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_00/fold_00_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_00/fold_00_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_00/fold_00_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_00/fold_00_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_01/fold_01_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_01/fold_01_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_01/fold_01_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_01/fold_01_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_01/fold_01_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_01/fold_01_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_01/fold_01_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_02/fold_02_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_02/fold_02_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_02/fold_02_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_02/fold_02_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_02/fold_02_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_02/fold_02_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_02/fold_02_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_03/fold_03_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_03/fold_03_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_03/fold_03_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_03/fold_03_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_03/fold_03_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_03/fold_03_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_03/fold_03_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_04/fold_04_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_04/fold_04_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_04/fold_04_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_04/fold_04_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_04/fold_04_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_04/fold_04_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_04/fold_04_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_05/fold_05_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_05/fold_05_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_05/fold_05_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_05/fold_05_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_05/fold_05_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_05/fold_05_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_05/fold_05_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_06/fold_06_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_06/fold_06_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_06/fold_06_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_06/fold_06_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_06/fold_06_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_06/fold_06_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_06/fold_06_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_07/fold_07_AUD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_07/fold_07_EUR_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_07/fold_07_GBP_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_07/fold_07_NZD_USD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_07/fold_07_USD_CAD_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_07/fold_07_USD_CHF_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_07/fold_07_USD_JPY_summary.json",
+      "pattern_ids": [
+        "random_entry_anchor"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/walk_forward/fold_detail.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/walk_forward/results.json",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_011_random_entry_anchor_deduped/walk_forward/results.md",
+      "pattern_ids": [
+        "campaign_011"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/financing/financing_summary.json",
+      "pattern_ids": [
+        "campaign_012"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/risk/diagnostics.json",
+      "pattern_ids": [
+        "campaign_012"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/risk/diagnostics.md",
+      "pattern_ids": [
+        "campaign_012"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/fold_detail.json",
+      "pattern_ids": [
+        "campaign_012"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/plan.json",
+      "pattern_ids": [
+        "campaign_012"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/plan.md",
+      "pattern_ids": [
+        "campaign_012"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/results.json",
+      "pattern_ids": [
+        "campaign_012"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/results.md",
+      "pattern_ids": [
+        "campaign_012"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/financing/financing_summary.json",
+      "pattern_ids": [
+        "campaign_013"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/risk/diagnostics.json",
+      "pattern_ids": [
+        "campaign_013"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/risk/diagnostics.md",
+      "pattern_ids": [
+        "campaign_013"
+      ],
+      "match_count": 3
+    },
+    {
+      "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/fold_detail.json",
+      "pattern_ids": [
+        "campaign_013"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/plan.json",
+      "pattern_ids": [
+        "campaign_013"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/plan.md",
+      "pattern_ids": [
+        "campaign_013"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/results.json",
+      "pattern_ids": [
+        "campaign_013"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/results.md",
+      "pattern_ids": [
+        "campaign_013"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/financing/financing_summary.json",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/risk/diagnostics.json",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 2
+    },
+    {
+      "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/risk/diagnostics.md",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/fold_detail.json",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/plan.json",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 3
+    },
+    {
+      "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/plan.md",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 3
+    },
+    {
+      "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/results.json",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 3
+    },
+    {
+      "path": "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/results.md",
+      "pattern_ids": [
+        "campaign_014"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/_index.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/baseline/H1/full/baseline_EUR_USD_H1_full_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/baseline/H1/train/baseline_AUD_USD_H1_train_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/cost_stress/base/H1/cost_base_EUR_USD_H1_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/03517110/grid_03517110_EUR_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/037204b4/grid_037204b4_NZD_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/12efd448/grid_12efd448_EUR_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/165331ed/grid_165331ed_USD_JPY_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/1d3313b1/grid_1d3313b1_USD_CHF_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/70f034aa/grid_70f034aa_AUD_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/959b274a/grid_959b274a_USD_CHF_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/9baa12b9/grid_9baa12b9_GBP_USD_H4_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/9baa12b9/grid_9baa12b9_GBP_USD_H4_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/a2b6993d/grid_a2b6993d_NZD_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs/robustness/ea6b219e/grid_ea6b219e_USD_CAD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/_index.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/baseline/H1/full/baseline_EUR_USD_H1_full_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/baseline/H1/train/baseline_AUD_USD_H1_train_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/baseline/H4/full/baseline_USD_JPY_H4_full_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/baseline/H4/train/baseline_USD_JPY_H4_train_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/cost_stress/base/H1/cost_base_EUR_USD_H1_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/cost_stress/base/H4/cost_base_USD_JPY_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/03517110/grid_03517110_EUR_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/037204b4/grid_037204b4_NZD_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/12efd448/grid_12efd448_EUR_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/362a93bb/grid_362a93bb_USD_CHF_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/70f034aa/grid_70f034aa_AUD_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/70f034aa/grid_70f034aa_USD_CHF_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/922ec954/grid_922ec954_USD_CHF_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/9baa12b9/grid_9baa12b9_GBP_USD_H4_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/9baa12b9/grid_9baa12b9_GBP_USD_H4_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/9c584299/grid_9c584299_USD_CHF_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/a2b6993d/grid_a2b6993d_NZD_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/e227b239/grid_e227b239_USD_CAD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/f5eebd09/grid_f5eebd09_USD_JPY_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_001/runs.pre_pnl_fix/robustness/ff0bdbb2/grid_ff0bdbb2_USD_JPY_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/_index.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 11
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/baseline/H1/full/baseline_USD_JPY_H1_full_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/baseline/H1/full/baseline_USD_JPY_H1_full_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/baseline/H1/test_untouched/baseline_GBP_USD_H1_test_untouched_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/cost_stress/base/H1/cost_base_USD_JPY_H1_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/cost_stress/base/H1/cost_base_USD_JPY_H1_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/cost_stress/stress_15x/H1/cost_stress_15x_USD_JPY_H1_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/cost_stress/stress_15x/H1/cost_stress_15x_USD_JPY_H1_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/03517110/grid_03517110_EUR_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/03517110/grid_03517110_GBP_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/03517110/grid_03517110_USD_JPY_H4_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/03517110/grid_03517110_USD_JPY_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/03517110/grid_03517110_USD_JPY_H4_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/0421ccd9/grid_0421ccd9_USD_CAD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/0421ccd9/grid_0421ccd9_USD_JPY_H4_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/0421ccd9/grid_0421ccd9_USD_JPY_H4_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/17b5d3b1/grid_17b5d3b1_USD_JPY_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/199a15f7/grid_199a15f7_USD_JPY_H4_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/199a15f7/grid_199a15f7_USD_JPY_H4_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/3628a3f9/grid_3628a3f9_USD_JPY_H4_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/3628a3f9/grid_3628a3f9_USD_JPY_H4_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/362a93bb/grid_362a93bb_USD_JPY_H4_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/362a93bb/grid_362a93bb_USD_JPY_H4_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/805609ad/grid_805609ad_USD_JPY_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/9c29a336/grid_9c29a336_USD_JPY_H4_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/9c29a336/grid_9c29a336_USD_JPY_H4_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/a2b6993d/grid_a2b6993d_USD_CHF_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/ac11d37c/grid_ac11d37c_USD_JPY_H4_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/ac11d37c/grid_ac11d37c_USD_JPY_H4_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/ff64082d/grid_ff64082d_USD_JPY_H4_metrics.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_002_real_oanda/runs/robustness/ff64082d/grid_ff64082d_USD_JPY_H4_summary.json",
+      "pattern_ids": [
+        "old_null_expectancy"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_003_controlled_adx/runs/baseline/validation/baseline_GBP_USD_H4_validation_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_003_controlled_adx/runs/cost_stress/stress_15x/cost_stress_15x_AUD_USD_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/campaign_009_mean_reversion/runs/train/stress_2x/train_stress_2x_USD_CHF_H4_metrics.md",
+      "pattern_ids": [
+        "old_null_pf"
+      ],
+      "match_count": 1
+    },
+    {
+      "path": "backtests/diagnostics/backtrader_campaign_011_full_window_004_postfix/comparison_summary.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 4
+    },
+    {
+      "path": "backtests/diagnostics/backtrader_campaign_011_full_window_004_postfix/comparison_summary.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "random_entry_anchor"
+      ],
+      "match_count": 8
+    },
+    {
+      "path": "backtests/diagnostics/backtrader_campaign_011_full_window_004_prefix/comparison_summary.json",
+      "pattern_ids": [
+        "campaign_011",
+        "old_null_expectancy",
+        "random_entry_anchor"
+      ],
+      "match_count": 5
+    },
+    {
+      "path": "backtests/diagnostics/backtrader_campaign_011_full_window_004_prefix/comparison_summary.md",
+      "pattern_ids": [
+        "campaign_011",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "random_entry_anchor"
+      ],
+      "match_count": 8
+    },
+    {
+      "path": "backtests/diagnostics/custom_campaign_011_h4_parity_norisk.md",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor"
+      ],
+      "match_count": 8
+    },
+    {
+      "path": "docs/research/EVIDENCE_INDEX.md",
+      "pattern_ids": [
+        "campaign_012",
+        "campaign_011",
+        "random_entry_anchor",
+        "canonical_null_json",
+        "campaign_013",
+        "campaign_014",
+        "old_null_expectancy",
+        "old_null_pf",
+        "old_null_return",
+        "old_null_trades",
+        "above_null_claim"
+      ],
+      "match_count": 225
+    },
+    {
+      "path": "docs/research/EVIDENCE_MANIFEST.json",
+      "pattern_ids": [
+        "campaign_011",
+        "random_entry_anchor",
+        "campaign_012",
+        "campaign_013",
+        "campaign_014",
+        "canonical_null_json",
+        "old_null_json_path",
+        "old_null_expectancy",
+        "old_null_trades",
+        "superseded_null_reference"
+      ],
+      "match_count": 105
+    }
+  ]
+}

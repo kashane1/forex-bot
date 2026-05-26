@@ -7,7 +7,7 @@ the committed real artifacts:
              event-window-triggered entries over 2021-06-24 → 2026-05-19)
   * events:  research/calendar/fixtures/campaign_014_events.json
              (281 events × 5 classes, official sources)
-  * null:    CAMPAIGN_011 random-entry walk-forward aggregate (the
+  * null:    CAMPAIGN_011 deduped canonical null rollup (the
              binding null baseline per CAMPAIGN_011_NULL_BASELINE_INTERPRETATION.md)
 
 Each executed trade is matched to its nearest event in the fixture
@@ -36,15 +36,18 @@ from research.edge_discovery.real_data import (
     SEVEN_MAJORS,
     StudyInput,
     StudyProvenance,
+    _sha256_of_path,
     assert_real_data_kind,
     load_campaign_trades,
-    load_campaign_walk_forward_result,
+    load_canonical_null_baseline_rollup,
     load_event_fixture_json,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 CAMPAIGN_014_DIR = REPO_ROOT / "backtests" / "CAMPAIGN_014_calendar_event_window_anomaly"
-CAMPAIGN_011_DIR = REPO_ROOT / "backtests" / "CAMPAIGN_011_random_entry_anchor"
+CANONICAL_NULL_JSON = (
+    REPO_ROOT / "research" / "null_baselines" / "campaign_011_deduped_null_baseline.json"
+)
 EVENTS_PATH = REPO_ROOT / "research" / "calendar" / "fixtures" / "campaign_014_events.json"
 OUTPUTS = REPO_ROOT / "research" / "edge_discovery" / "studies" / "outputs" / "real"
 
@@ -121,7 +124,7 @@ def run() -> Path:
     # ---- load real inputs ---------------------------------------------------
     trades = load_campaign_trades(CAMPAIGN_014_DIR)
     events = load_event_fixture_json(EVENTS_PATH)
-    null_result = load_campaign_walk_forward_result(CAMPAIGN_011_DIR)
+    null_rollup = load_canonical_null_baseline_rollup(CANONICAL_NULL_JSON)
 
     # ---- assign event class to every trade ----------------------------------
     events_index = events.frame.index
@@ -163,7 +166,7 @@ def run() -> Path:
     # Use the published CAMPAIGN_011 aggregate expectancy R as the null
     # band centre. Compute the gap between CAMPAIGN_014's overall mean R
     # and the CAMPAIGN_011 null.
-    null_mean_r = float(null_result.aggregate["aggregate_expectancy_r"])
+    null_mean_r = float(null_rollup["aggregate"]["aggregate_expectancy_r"])
     overall_r = float(trades["r_multiple"].astype(float).mean()) if len(trades) else 0.0
     gap_r = overall_r - null_mean_r
     band = (
@@ -191,11 +194,15 @@ def run() -> Path:
                 extra={"classes": list(events.classes)},
             ),
             StudyInput(
-                kind="campaign_walk_forward_results",
-                path=str(Path(null_result.source_path).relative_to(REPO_ROOT)),
-                sha256=null_result.source_sha256,
-                rows=int(null_result.aggregate.get("total_trades_across_folds", 0)),
-                extra={"role": "null_baseline", "campaign_name": null_result.campaign_name},
+                kind="canonical_null_baseline_rollup",
+                path=str(CANONICAL_NULL_JSON.relative_to(REPO_ROOT)),
+                sha256=_sha256_of_path(CANONICAL_NULL_JSON),
+                rows=int(null_rollup["aggregate"]["total_trades"]),
+                extra={
+                    "role": "null_baseline",
+                    "campaign_id": null_rollup.get("campaign_id"),
+                    "dedupe_policy": null_rollup.get("data_dedupe_policy"),
+                },
             ),
         ],
         date_coverage={
@@ -224,7 +231,7 @@ def run() -> Path:
     payload: dict[str, object] = {
         "study_label": "real_event_window_continuation_vs_reversal",
         "campaign_source": CAMPAIGN_014_DIR.name,
-        "null_source": null_result.campaign_name,
+        "null_source": str(null_rollup.get("campaign_id", "CAMPAIGN_011")),
         "n_trades": len(trades),
         "n_trades_unattributed": int(unattributed_n),
         "n_trades_labeled": len(labeled),

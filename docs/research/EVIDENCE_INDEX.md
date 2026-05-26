@@ -1,28 +1,78 @@
 # Evidence Index
 
-**Date:** 2026-05-22 · **Branch:** `research-freeze-no-go`
+**Date:** 2026-05-26 · **Branch:** `research-broad-strategy-pause-and-roadmap-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
 map; the linked documents are the authoritative evidence.
 
-> **Bottom line:** nine campaigns, five strategy families, **no approved
-> trading strategy.** See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
+> **Bottom line:** seventeen campaigns, **no approved trading strategy.**
+> Broad seven-pair pattern strategy search is **paused** (2026-05-26).
+> See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
+
+## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
+
+| document | purpose |
+|---|---|
+| [`BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md`](BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md) | Formal pause, C015–C017 vs null table, re-entry gates |
+| [`BROAD_STRATEGY_PAUSE_AND_ROADMAP_001_PLAN.md`](BROAD_STRATEGY_PAUSE_AND_ROADMAP_001_PLAN.md) | Sprint plan and truth audit |
+| [`BROAD_STRATEGY_PAUSE_AND_ROADMAP_001_SUMMARY.md`](BROAD_STRATEGY_PAUSE_AND_ROADMAP_001_SUMMARY.md) | Sprint close-out |
+| [`POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY.md`](POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY.md) | Inputs: NO_RELIABLE_ARCHETYPE |
+| [`NON_STRATEGY_WORKSTREAM_OPTIONS_AFTER_PAUSE.md`](NON_STRATEGY_WORKSTREAM_OPTIONS_AFTER_PAUSE.md) | Eight non-strategy options compared |
+| [`NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md`](NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md) | Selected next sprint |
+| [`NEXT_SPRINT_PROMPT_AFTER_BROAD_STRATEGY_PAUSE.md`](NEXT_SPRINT_PROMPT_AFTER_BROAD_STRATEGY_PAUSE.md) | Copy-paste agent prompt |
+
+## Post-dedup failure meta-analysis (POST_DEDUP_FAILURE_META_ANALYSIS_001)
+
+| document | purpose |
+|---|---|
+| [`POST_DEDUP_FAILURE_META_ANALYSIS_001_PLAN.md`](POST_DEDUP_FAILURE_META_ANALYSIS_001_PLAN.md) | Sprint plan |
+| [`POST_DEDUP_CAMPAIGN_METRIC_MATRIX.md`](POST_DEDUP_CAMPAIGN_METRIC_MATRIX.md) | Headline metric matrix |
+| [`POST_DEDUP_ARCHETYPE_ANALYSIS.md`](POST_DEDUP_ARCHETYPE_ANALYSIS.md) | Pair/fold/side/exit synthesis |
+| [`POST_DEDUP_NEXT_RESEARCH_LANE_DECISION.md`](POST_DEDUP_NEXT_RESEARCH_LANE_DECISION.md) | Lane: pause broad search |
+
+Machine-readable: [`research/post_dedup_meta/campaign_metric_matrix.json`](../../research/post_dedup_meta/campaign_metric_matrix.json), [`research/post_dedup_meta/archetype_analysis.json`](../../research/post_dedup_meta/archetype_analysis.json).
+
+## Evidence integrity after dedupe fix (CAMPAIGN_CONTAMINATION_AUDIT_001)
+
+Duplicate UTC H4 bars in `data/campaign_002.sqlite3` contaminated
+pre-fix bespoke loads via `CandleRepo.list` (fixed commit `30b4654`,
+`keep_last`). Authoritative classification:
+
+| doc | purpose |
+|---|---|
+| [`CAMPAIGN_EVIDENCE_INTEGRITY_AFTER_DEDUP_FIX.md`](CAMPAIGN_EVIDENCE_INTEGRITY_AFTER_DEDUP_FIX.md) | per-campaign integrity status CAMPAIGN_001–015 |
+| [`CAMPAIGN_DATA_SOURCE_INVENTORY.md`](CAMPAIGN_DATA_SOURCE_INVENTORY.md) | artifact/data-source scan summary |
+| [`POST_DEDUP_RERUN_BACKLOG.md`](POST_DEDUP_RERUN_BACKLOG.md) | ranked rerun priorities |
+| [`POST_DEDUP_NULL_REFERENCE_REFRESH_001_SUMMARY.md`](POST_DEDUP_NULL_REFERENCE_REFRESH_001_SUMMARY.md) | CAMPAIGN_012–014 null-reference refresh close-out |
+| [`POST_DEDUP_NULL_REFERENCE_INVENTORY.md`](POST_DEDUP_NULL_REFERENCE_INVENTORY.md) | scanned null-reference inventory |
+| [`CAMPAIGN_CONTAMINATION_AUDIT_001_SUMMARY.md`](CAMPAIGN_CONTAMINATION_AUDIT_001_SUMMARY.md) | sprint close-out |
+
+**Integrity legend:** `DEDUP-SAFE` · `SUPERSEDED BY DEDUP AUDIT` ·
+`EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE` (likely
+contaminated, verdict unchanged until rerun).
 
 ## Campaign reports
 
 | campaign | report | verdict | key metrics |
 |---|---|---|---|
 | 001 | [`backtests/CAMPAIGN_001_REPORT.md`](../../backtests/CAMPAIGN_001_REPORT.md) | not evidence | **Synthetic** candles (no OANDA creds at the time) — harness validation only; superseded by 002 |
-| 002 | [`backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md`](../../backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md) | **REJECT** | trend_following baseline, real OANDA H4/H1: −0.085 R, PF 0.75, −1.02 % |
-| 003 | [`backtests/CAMPAIGN_003_CONTROLLED_ADX_REPORT.md`](../../backtests/CAMPAIGN_003_CONTROLLED_ADX_REPORT.md) | **REJECT** | trend_following + ADX-14 > 25 gate, real OANDA H4: −0.071 R, PF 0.77, −0.63 % |
-| 004 | [`backtests/CAMPAIGN_004_VOLATILITY_BREAKOUT_REPORT.md`](../../backtests/CAMPAIGN_004_VOLATILITY_BREAKOUT_REPORT.md) | **REJECT** | volatility_breakout (ATR compression), real OANDA H4: −0.163 R, PF 0.63, −1.40 % |
-| 005 | [`backtests/CAMPAIGN_005_BENCHMARKS_REPORT.md`](../../backtests/CAMPAIGN_005_BENCHMARKS_REPORT.md) | diagnostic | benchmarks: random entry −0.095 R; efficiency ratio 0.24 (choppy H4 majors) |
-| 006 | [`backtests/CAMPAIGN_006_DAILY_TREND_REPORT.md`](../../backtests/CAMPAIGN_006_DAILY_TREND_REPORT.md) | **REJECT** — no valid result | D1 trend untestable: rollover / session / spread contamination (infrastructure blocker) |
-| 007 | [`backtests/CAMPAIGN_007_H4_PULLBACK_REPORT.md`](../../backtests/CAMPAIGN_007_H4_PULLBACK_REPORT.md) | **REJECT** | H4 pullback-continuation: screening fail, train −0.164 R, validation −0.166 R |
-| 008 | [`backtests/CAMPAIGN_008_RANGE_MEAN_REVERSION_REPORT.md`](../../backtests/CAMPAIGN_008_RANGE_MEAN_REVERSION_REPORT.md) | **REJECT** (narrow) | range mean-reversion: train −0.017 R (failing gate); validation +0.172 R, PF 1.29, 6/6 pairs positive |
-| 009 | [`backtests/CAMPAIGN_009_MEAN_REVERSION_REPORT.md`](../../backtests/CAMPAIGN_009_MEAN_REVERSION_REPORT.md) | **REJECT** | mean-reversion + midline-target exit: train −0.062 R (failing gate); validation +0.170 R, PF 1.37 |
-| 015 | [`docs/research/CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_RESULT.md`](CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_RESULT.md) | **BLOCKED** | failed_breakout_reversal 0.1.0-c015: bespoke engine did not execute — local `data/campaign_002.sqlite3` absent in this worktree; scaffold + runner + 32 tests landed; pre-commit § hypothesis / gates / anti-overfit / null-plan all binding; no approval; configs/approved_strategies.yaml remains approved: [] |
+| 002 | [`backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md`](../../backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md) | **REJECT** | trend_following baseline, real OANDA H4/H1: −0.085 R, PF 0.75, −1.02 % · **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE** (pre-fix SQLite) |
+| 003 | [`backtests/CAMPAIGN_003_CONTROLLED_ADX_REPORT.md`](../../backtests/CAMPAIGN_003_CONTROLLED_ADX_REPORT.md) | **REJECT** | trend_following + ADX-14 > 25 gate, real OANDA H4: −0.071 R, PF 0.77, −0.63 % · **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE** |
+| 004 | [`backtests/CAMPAIGN_004_VOLATILITY_BREAKOUT_REPORT.md`](../../backtests/CAMPAIGN_004_VOLATILITY_BREAKOUT_REPORT.md) | **REJECT** | volatility_breakout (ATR compression), real OANDA H4: −0.163 R, PF 0.63, −1.40 % · **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE** |
+| 005 | [`backtests/CAMPAIGN_005_BENCHMARKS_REPORT.md`](../../backtests/CAMPAIGN_005_BENCHMARKS_REPORT.md) | diagnostic | benchmarks: random entry −0.095 R; efficiency ratio 0.24 · **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE** |
+| 006 | [`backtests/CAMPAIGN_006_DAILY_TREND_REPORT.md`](../../backtests/CAMPAIGN_006_DAILY_TREND_REPORT.md) | **REJECT** — no valid result | D1 trend untestable: rollover / session / spread contamination (infrastructure blocker) · **DEDUP-SAFE** (blocked; no H4 duplicate exposure) |
+| 007 | [`backtests/CAMPAIGN_007_H4_PULLBACK_REPORT.md`](../../backtests/CAMPAIGN_007_H4_PULLBACK_REPORT.md) | **REJECT** | H4 pullback-continuation: screening fail, train −0.164 R, validation −0.166 R · **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE** |
+| 008 | [`backtests/CAMPAIGN_008_RANGE_MEAN_REVERSION_REPORT.md`](../../backtests/CAMPAIGN_008_RANGE_MEAN_REVERSION_REPORT.md) | **REJECT** (narrow) | range mean-reversion: train −0.017 R (failing gate); validation +0.172 R, PF 1.29, 6/6 pairs positive · **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE** |
+| 009 | [`backtests/CAMPAIGN_009_MEAN_REVERSION_REPORT.md`](../../backtests/CAMPAIGN_009_MEAN_REVERSION_REPORT.md) | **REJECT** | mean-reversion + midline-target exit: train −0.062 R (failing gate); validation +0.170 R, PF 1.37 · **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE** |
+| 010 | [`docs/research/CAMPAIGN_010_WALK_FORWARD_RESULT.md`](CAMPAIGN_010_WALK_FORWARD_RESULT.md) | **REJECT** | session_breakout walk-forward: exp_r −0.0408, 2791 trades · **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE** |
+| 011 | [`docs/research/CAMPAIGN_011_DEDUPED_NULL_BASELINE.md`](CAMPAIGN_011_DEDUPED_NULL_BASELINE.md) | **REJECT** (null anchor) | random_entry_anchor deduped canonical: exp_r −0.0029, 1180 trades · [`campaign_011_deduped_null_baseline.json`](../../research/null_baselines/campaign_011_deduped_null_baseline.json) · pre-fix WALK_FORWARD_RESULT **SUPERSEDED** |
+| 012 | [`docs/research/CAMPAIGN_012_POST_DEDUP_NULL_REFERENCE.md`](CAMPAIGN_012_POST_DEDUP_NULL_REFERENCE.md) | **REJECT** | regime_switcher: exp_r −0.0521 · **LIKELY_CONTAMINATED** metrics; null gap refreshed vs deduped null (−0.0029 R) — verdict unchanged |
+| 013 | [`docs/research/CAMPAIGN_013_POST_DEDUP_NULL_REFERENCE.md`](CAMPAIGN_013_POST_DEDUP_NULL_REFERENCE.md) | **REJECT** | cross_pair rotation: exp_r −0.0564 · **LIKELY_CONTAMINATED** metrics; null gap refreshed — verdict unchanged |
+| 014 | [`docs/research/CAMPAIGN_014_POST_DEDUP_NULL_REFERENCE.md`](CAMPAIGN_014_POST_DEDUP_NULL_REFERENCE.md) | **REJECT** | calendar event window: exp_r −0.148 · **LIKELY_CONTAMINATED** metrics; null gap refreshed — verdict unchanged |
+| 015 | [`docs/research/CAMPAIGN_015_DEDUPED_RERUN_RESULT.md`](CAMPAIGN_015_DEDUPED_RERUN_RESULT.md) | **REJECT** | failed_breakout_reversal deduped rerun: exp_r **−0.0101**, 375 trades, **DEDUP-SAFE**; prior bespoke **SUPERSEDED BY DEDUP AUDIT** |
+| 016 | [`docs/research/CAMPAIGN_016_WEEKLY_CROSS_SECTIONAL_MOMENTUM_RESULT.md`](CAMPAIGN_016_WEEKLY_CROSS_SECTIONAL_MOMENTUM_RESULT.md) | **REJECT** | weekly_cross_sectional_momentum deduped: exp_r **−0.0633**, 137 trades, 3/8 folds, **DEDUP-SAFE**; anti-overfit **WITHIN_NULL** |
+| 017 | [`docs/research/CAMPAIGN_017_WEEKLY_VOLATILITY_CONTRACTION_BREAKOUT_RESULT.md`](CAMPAIGN_017_WEEKLY_VOLATILITY_CONTRACTION_BREAKOUT_RESULT.md) | **REJECT** | weekly_volatility_contraction_breakout deduped: exp_r **−0.0227**, 230 trades, 3/8 folds, **DEDUP-SAFE**; anti-overfit **WITHIN_NULL** |
 
 ## Research Marathon 001
 
@@ -48,6 +98,8 @@ Each campaign's pass/fail gates, fixed and committed *before* the run.
 | 008 | [`docs/research/CAMPAIGN_008_RANGE_MEAN_REVERSION_PRECOMMIT.md`](CAMPAIGN_008_RANGE_MEAN_REVERSION_PRECOMMIT.md) |
 | 009 | [`docs/research/CAMPAIGN_009_PRECOMMIT.md`](CAMPAIGN_009_PRECOMMIT.md) |
 | 015 | [`docs/research/CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md`](CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md) |
+| 016 | [`docs/research/CAMPAIGN_016_WEEKLY_CROSS_SECTIONAL_MOMENTUM_PRECOMMIT.md`](CAMPAIGN_016_WEEKLY_CROSS_SECTIONAL_MOMENTUM_PRECOMMIT.md) |
+| 017 | [`docs/research/CAMPAIGN_017_WEEKLY_VOLATILITY_CONTRACTION_BREAKOUT_PRECOMMIT.md`](CAMPAIGN_017_WEEKLY_VOLATILITY_CONTRACTION_BREAKOUT_PRECOMMIT.md) |
 
 ## Post-mortems, proposals & diagnostics
 

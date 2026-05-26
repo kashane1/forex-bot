@@ -24,9 +24,9 @@
 #     explicitly, mirroring the bespoke engine, because Lean's native
 #     market-order fill timing does not match `signal_bar_close`.
 
-from AlgorithmImports import *  # noqa: F403 - Lean runtime namespace
-
 from datetime import datetime, timedelta
+
+from AlgorithmImports import *  # noqa: F403 - Lean runtime namespace
 
 # The seven CAMPAIGN_002 instruments and their pip size / quote currency.
 # pip_location -4 -> 0.0001; JPY -2 -> 0.01 (OANDA_INSTRUMENT_METADATA_AUDIT).
@@ -119,7 +119,7 @@ class _PairState:
         # Lean's own indicator implementations — the independent math.
         self.ema_fast = ExponentialMovingAverage(EMA_FAST)   # noqa: F405
         self.ema_slow = ExponentialMovingAverage(EMA_SLOW)   # noqa: F405
-        self.atr = AverageTrueRange(ATR_LEN, MovingAverageType.Wilders)  # noqa: F405,E501
+        self.atr = AverageTrueRange(ATR_LEN, MovingAverageType.Wilders)  # noqa: F405
         # Donchian(20) over PRIOR bars — a manual rolling window of the
         # completed-bar mid highs / lows (Lean's DonchianChannel includes
         # the forming bar and would look ahead).
@@ -147,7 +147,7 @@ class TrendFollowingC002Parity(QCAlgorithm):  # noqa: F405
         self.equity = STARTING_EQUITY
         self.states = {}
         for name, meta in PAIRS.items():
-            symbol = self.AddData(Campaign002H4, name, Resolution.Daily).Symbol  # noqa: F405,E501
+            symbol = self.AddData(Campaign002H4, name, Resolution.Daily).Symbol  # noqa: F405
             self.states[name] = _PairState(self, symbol, meta)
         # APPROX: warmup is enforced per-symbol by bar_count >= WARMUP_BARS
         # (the bespoke engine starts its loop at bar index 220), so no

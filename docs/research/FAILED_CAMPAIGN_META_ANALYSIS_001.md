@@ -1,9 +1,18 @@
 # Failed Campaign Meta-Analysis — 001
 
 **Sprint:** `research-edge-discovery-lab-001` · Phase 1
-**Date:** 2026-05-24
+**Date:** 2026-05-26
 **Status:** Descriptive synthesis of prior rejections — **does not
 alter any campaign verdict.**
+
+> **Dedupe audit addendum (2026-05-26):** CAMPAIGN_002–009 and
+> CAMPAIGN_010–014 bespoke metrics on `campaign_002.sqlite3` are
+> **LIKELY_CONTAMINATED** (pre-fix `CandleRepo.list`). Verdicts remain
+> REJECT; headline metrics carry **EVIDENCE INTEGRITY UNKNOWN — RERUN
+> REQUIRED BEFORE USE** unless rerun on deduped loads. CAMPAIGN_015
+> canonical evidence is **DEDUP-SAFE** (deduped rerun). CAMPAIGN_011
+> null baseline **must rerun** before null comparisons are integrity-safe.
+> See [`CAMPAIGN_EVIDENCE_INTEGRITY_AFTER_DEDUP_FIX.md`](CAMPAIGN_EVIDENCE_INTEGRITY_AFTER_DEDUP_FIX.md).
 
 ---
 

@@ -1,6 +1,6 @@
 # Strategy Status Registry
 
-**Date:** 2026-05-22 · **Branch:** `research-freeze-no-go`
+**Date:** 2026-05-26 · **Branch:** `research-broad-strategy-pause-and-roadmap-001`
 
 This is the human-readable status of every strategy family the project
 has built. It is the companion to the machine-enforced registry
@@ -12,6 +12,30 @@ loops.
 > Every strategy below is **paper: NO · demo: NO · live: NO.**
 > `configs/approved_strategies.yaml` is empty; every order-capable loop
 > refuses to start. See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
+
+### Broad strategy search — PAUSED (2026-05-26)
+
+Post-dedup failure meta-analysis (`POST_DEDUP_FAILURE_META_ANALYSIS_001`)
+classified the C015–C017 cluster as **NO_RELIABLE_ARCHETYPE** and selected
+**pause broad strategy search**. CAMPAIGN_015–017 remain **REJECT** on
+dedup-safe evidence; CAMPAIGN_011 remains the **canonical deduped null**
+(−0.0029 R, 1,180 trades). **CAMPAIGN_018 is not created.** No retuning of
+C015/C016/C017 is authorized.
+
+| document | purpose |
+|---|---|
+| [`BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md`](BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md) | Pause rationale, comparison table, re-entry gates |
+| [`POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY.md`](POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY.md) | Meta-analysis close-out |
+| [`NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md`](NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md) | Next sprint: observed cost / spread diagnostics |
+
+### Evidence integrity (dedupe audit 001)
+
+Pre-fix bespoke campaigns on `data/campaign_002.sqlite3` may be
+**LIKELY_CONTAMINATED** by duplicate UTC H4 bars. See
+[`CAMPAIGN_EVIDENCE_INTEGRITY_AFTER_DEDUP_FIX.md`](CAMPAIGN_EVIDENCE_INTEGRITY_AFTER_DEDUP_FIX.md).
+Verdicts are **unchanged**; metrics before dedupe-fix rerun carry
+**EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE** unless
+marked **DEDUP-SAFE**.
 
 ## Status legend
 
@@ -40,26 +64,22 @@ strategy is approved.**
 | `regime_switcher_atr_percentile 0.1.0-c012` | rejected | NO | NO | NO | CAMPAIGN_012 |
 | `cross_pair_currency_strength_rotation 0.1.0-c013` | rejected | NO | NO | NO | CAMPAIGN_013 |
 | `calendar_event_window_anomaly 0.1.0-c014` | rejected | NO | NO | NO | CAMPAIGN_014 |
-| `failed_breakout_reversal 0.1.0-c015` | blocked (data absent) | NO | NO | NO | CAMPAIGN_015 |
+| `failed_breakout_reversal 0.1.0-c015` | rejected (deduped rerun) | NO | NO | NO | CAMPAIGN_015 deduped |
+| `weekly_cross_sectional_momentum_low_turnover 0.1.0-c016` | rejected (deduped) | NO | NO | NO | CAMPAIGN_016 deduped |
+| `weekly_volatility_contraction_breakout 0.1.0-c017` | rejected (deduped) | NO | NO | NO | CAMPAIGN_017 deduped |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
 validly backtested by the current engine.
 
-`failed_breakout_reversal 0.1.0-c015` is **blocked**, not rejected:
-the canonical real-OANDA-practice H4 candle store at
-`data/campaign_002.sqlite3` (the shared store consumed by CAMPAIGN_002
-/ 010 / 011 / 012 / 013 / 014) is absent in the worktree where the
-sprint ran, so the bespoke walk-forward engine did not execute. The
-strategy module, Pydantic config, walk-forward runner, anti-overfit
-classifier, and Backtrader secondary-lane adapter are all committed
-(see [`CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_SUMMARY.md`](CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_SUMMARY.md)).
-The maximum verdict ceiling for this candidate is `PASS_RESEARCH_SCREEN`
-("candidate for human review"), not approval, per
-[`CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md`](CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md)
-§16. A future sprint that obtains the canonical data may re-run
-`scripts/run_campaign_015.py` unchanged; the frozen parameters
-guarantee comparability.
+`failed_breakout_reversal 0.1.0-c015` is **rejected** on deduped evidence
+(sprint `infra-canonical-candle-dedup-and-campaign015-rerun-001`):
+prior bespoke metrics were **evidence-contaminated** by duplicate SQLite
+H4 candles. Deduped rerun: base exp_r **-0.0101**, 375 trades, 2/8 fold
+pass, anti-overfit **`WITHIN_NULL`**. See
+[`CAMPAIGN_015_DEDUPED_RERUN_INTERPRETATION.md`](CAMPAIGN_015_DEDUPED_RERUN_INTERPRETATION.md)
+and [`CAMPAIGN_015_DUPLICATE_CANDLE_CONTAMINATION_MEMO.md`](CAMPAIGN_015_DUPLICATE_CANDLE_CONTAMINATION_MEMO.md).
+Prior post-run diagnostics marked **SUPERSEDED BY DEDUP RERUN**.
 
 `session_breakout 0.1.0-c010` is **rejected**: the
 `research-asian-london-session-breakout-walk-forward-001`
@@ -77,16 +97,29 @@ for the gate-by-gate evidence.
 
 ### `random_entry_anchor 0.1.0-c011`
 
+> **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE.** Null-model
+> metrics below were produced on pre-fix `CandleRepo.list` loads.
+> Deduped null baseline **promoted** (`research/null_baselines/campaign_011_deduped_null_baseline.json`).
+> CAMPAIGN_012–014 null-comparison sections **refreshed** against deduped null
+> ([`CAMPAIGN_012_POST_DEDUP_NULL_REFERENCE.md`](CAMPAIGN_012_POST_DEDUP_NULL_REFERENCE.md),
+> [`CAMPAIGN_013_POST_DEDUP_NULL_REFERENCE.md`](CAMPAIGN_013_POST_DEDUP_NULL_REFERENCE.md),
+> [`CAMPAIGN_014_POST_DEDUP_NULL_REFERENCE.md`](CAMPAIGN_014_POST_DEDUP_NULL_REFERENCE.md));
+> campaign metrics remain **LIKELY_CONTAMINATED** pending deduped reruns.
+> See [`POST_DEDUP_RERUN_BACKLOG.md`](POST_DEDUP_RERUN_BACKLOG.md).
+
 - **Status:** rejected (null model anchor — cannot be approved
   by design).
-- **Evidence:** CAMPAIGN_011 walk-forward
-  (`research-random-entry-diagnostic-anchor-walk-forward-001`),
+- **Evidence:** CAMPAIGN_011 deduped canonical null baseline
+  (`research-campaign-011-deduped-null-baseline-001`),
   real OANDA practice H4, 7-pair universe, 8 folds
-  rolling/frozen, 1,177 trades total: **fold pass rate 0 / 8,
-  aggregate expectancy −0.0024 R (≈ 0; null-model signature),
-  profit factor 0.91 (≈ 1), aggregate return −0.53 % over 4
+  rolling/frozen, **1,180** trades total: **fold pass rate 0 / 8,
+  aggregate expectancy −0.0029 R (≈ 0; null-model signature),
+  profit factor **0.89** (≈ 1), aggregate return **−0.68 %** over 4
   years (≈ 0), 3 / 7 pairs positive (≈ uniform-noise
-  expectation), USD_JPY expectancy literally +0.0000**.
+  expectation). Canonical rollup:
+  [`research/null_baselines/campaign_011_deduped_null_baseline.json`](../../research/null_baselines/campaign_011_deduped_null_baseline.json).
+  Pre-fix metrics (1,177 trades, −0.0024 R) are **SUPERSEDED /
+  LIKELY_CONTAMINATED**.
 - **Paper / demo / live:** NO / NO / NO (structurally
   impossible — null model by design).
 - **Reason:** Diagnostic anchor / null model. The REJECT

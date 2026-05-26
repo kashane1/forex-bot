@@ -1,0 +1,2 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+AUD_USD,short,478,2024-01-29T06:00:00+00:00,2024-02-07T02:00:00+00:00,0.6587950,0.65304,0.66408,2.7508900,1.088930936613055818353831599,42,1.1,time,next_bar_open,False,False,

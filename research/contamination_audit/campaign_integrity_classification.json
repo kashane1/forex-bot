@@ -1,0 +1,338 @@
+{
+  "generated_at": "2026-05-26T05:22:14Z",
+  "dedupe_fix_commit": "30b4654",
+  "dedupe_fix_branch": "infra-canonical-candle-dedup-and-campaign015-rerun-001",
+  "campaign_015_contaminated_metrics": {
+    "base_exp_r": 0.23,
+    "2x_exp_r": 0.1909,
+    "total_trades": 164,
+    "anti_overfit": "ROBUST_ABOVE_NULL"
+  },
+  "campaign_015_deduped_metrics": {
+    "base_exp_r": -0.0101,
+    "2x_exp_r": -0.0283,
+    "total_trades": 375,
+    "anti_overfit": "WITHIN_NULL"
+  },
+  "campaign_011_deduped_artifact": "backtests/CAMPAIGN_011_random_entry_anchor_deduped",
+  "status_counts": {
+    "DEDUP_SAFE": 2,
+    "LIKELY_CONTAMINATED": 11,
+    "BLOCKED_NO_RUN": 1,
+    "NULL_BASELINE_REQUIRES_RERUN": 1
+  },
+  "classifications": [
+    {
+      "campaign_id": "CAMPAIGN_001",
+      "strategy_name": "trend_following (synthetic)",
+      "official_verdict_before_audit": "SYNTHETIC_NOT_EVIDENCE",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "result_remains_valid": true,
+      "mark_superseded": false,
+      "rerun_required": false,
+      "why": "Synthetic harness validation on data/campaign.sqlite3; not OANDA H4 duplicate issue.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_001_REPORT.md",
+        "backtests/CAMPAIGN_001_REPORT.pre_pnl_fix.md",
+        "backtests/campaign_001/_cost.log",
+        "backtests/campaign_001/_full.log",
+        "backtests/campaign_001/_robust.log",
+        "backtests/campaign_001/audit_H1.md",
+        "backtests/campaign_001/audit_H4.md",
+        "configs/campaign_001_baseline.yaml",
+        "docs/research/EVIDENCE_MANIFEST.json#CAMPAIGN_001",
+        "docs/research/EXIT_ASYMMETRY_CROSS_CAMPAIGN_001_PLAN.md"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_name": "trend_following 0.1.0",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": false,
+      "why": "Real OANDA H4 via pre-fix CandleRepo on campaign_002.sqlite3; REJECT verdict likely directionally stable but metrics unverified post-dedupe. Parity CSV lane safe.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_002_REAL_OANDA_REPORT.md",
+        "backtests/campaign_002_real_oanda/DATA_QUALITY_CLASSIFICATION.md",
+        "backtests/campaign_002_real_oanda/RISK_REJECTION_ANALYSIS.md",
+        "backtests/campaign_002_real_oanda/TRADE_DIAGNOSTICS.md",
+        "backtests/campaign_002_real_oanda/_fetch.log",
+        "backtests/campaign_002_real_oanda/_full.log",
+        "backtests/campaign_002_real_oanda/audit_H1.md",
+        "backtests/campaign_002_real_oanda/audit_H4.md",
+        "backtests/diagnostics/custom_campaign_002_h4_parity.md",
+        "configs/campaign_002_real_oanda.yaml"
+      ],
+      "notes": [
+        "has_backtrader_diagnostic_artifacts"
+      ]
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_name": "trend_following + ADX-14",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": false,
+      "why": "Same pre-fix SQLite bespoke path as CAMPAIGN_002; REJECT; low rerun priority.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_003_CONTROLLED_ADX_REPORT.md",
+        "configs/campaign_003_controlled_adx.yaml",
+        "docs/research/CAMPAIGN_003_POSTMORTEM.md",
+        "docs/research/CAMPAIGN_003_PROPOSAL.md",
+        "docs/research/EVIDENCE_MANIFEST.json#CAMPAIGN_003"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_name": "volatility_breakout 0.1.0-c004",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": false,
+      "why": "Pre-fix SQLite bespoke; strongly negative REJECT; magnitude may shift post-dedupe.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_004_VOLATILITY_BREAKOUT_REPORT.md",
+        "configs/campaign_004_volatility_breakout.yaml",
+        "docs/research/CAMPAIGN_004_PRECOMMIT.md",
+        "docs/research/EVIDENCE_MANIFEST.json#CAMPAIGN_004"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_005",
+      "strategy_name": "benchmarks (none)",
+      "official_verdict_before_audit": "DIAGNOSTIC",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": false,
+      "why": "Diagnostic benchmarks on pre-fix SQLite; random-entry baseline may shift.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_005_BENCHMARKS_REPORT.md",
+        "docs/research/CAMPAIGN_005_BENCHMARKS_PRECOMMIT.md",
+        "docs/research/EVIDENCE_MANIFEST.json#CAMPAIGN_005"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_006",
+      "strategy_name": "daily trend (blocked)",
+      "official_verdict_before_audit": "REJECT_NO_VALID_RESULT",
+      "evidence_integrity_status": "BLOCKED_NO_RUN",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": false,
+      "why": "D1 infrastructure blocker; no valid bespoke H4 duplicate exposure for verdict.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_006_DAILY_TREND_REPORT.md",
+        "configs/campaign_006_daily_trend.yaml",
+        "docs/research/CAMPAIGN_006_DAILY_TREND_PRECOMMIT.md",
+        "docs/research/EVIDENCE_MANIFEST.json#CAMPAIGN_006"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_name": "pullback_continuation",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": false,
+      "why": "Pre-fix SQLite bespoke H4; REJECT on train/validation.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_007_H4_PULLBACK_REPORT.md",
+        "configs/campaign_007_h4_pullback.yaml",
+        "docs/research/CAMPAIGN_007_H4_PULLBACK_PRECOMMIT.md",
+        "docs/research/EVIDENCE_MANIFEST.json#CAMPAIGN_007"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_name": "mean_reversion 0.1.0-c008",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": false,
+      "why": "Pre-fix SQLite; validation-positive metrics unverified post-dedupe.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_008_RANGE_MEAN_REVERSION_REPORT.md",
+        "configs/campaign_008_range_mean_reversion.yaml",
+        "docs/research/CAMPAIGN_008_HUMAN_REVIEW.md",
+        "docs/research/CAMPAIGN_008_RANGE_MEAN_REVERSION_PRECOMMIT.md",
+        "docs/research/EVIDENCE_MANIFEST.json#CAMPAIGN_008"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_name": "mean_reversion 0.2.0-c009",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": false,
+      "why": "Pre-fix SQLite; validation-positive metrics unverified post-dedupe.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_009_MEAN_REVERSION_REPORT.md",
+        "configs/campaign_009_mean_reversion.yaml",
+        "docs/research/CAMPAIGN_009_PRECOMMIT.md",
+        "docs/research/EVIDENCE_MANIFEST.json#CAMPAIGN_009"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_name": "session_breakout 0.1.0-c010",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": false,
+      "why": "Walk-forward on pre-fix SQLite; REJECT; metrics and gate counts may shift.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_010_session_breakout/financing/financing_run.md",
+        "backtests/CAMPAIGN_010_session_breakout/financing/financing_summary.json",
+        "backtests/CAMPAIGN_010_session_breakout/risk/diagnostics.json",
+        "backtests/CAMPAIGN_010_session_breakout/risk/diagnostics.md",
+        "backtests/CAMPAIGN_010_session_breakout/walk_forward/fold_detail.json",
+        "backtests/CAMPAIGN_010_session_breakout/walk_forward/plan.json",
+        "backtests/CAMPAIGN_010_session_breakout/walk_forward/plan.md",
+        "backtests/CAMPAIGN_010_session_breakout/walk_forward/results.json",
+        "backtests/CAMPAIGN_010_session_breakout/walk_forward/results.md",
+        "configs/campaign_010_session_breakout.yaml"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_name": "random_entry_anchor 0.1.0-c011",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "result_remains_valid": false,
+      "mark_superseded": true,
+      "rerun_required": true,
+      "why": "Null-model anchor on pre-fix SQLite (\u22120.0024 R, 1177 trades). Deduped rerun artifact exists locally (\u22120.0029 R, 1180 trades) but must be promoted as canonical before null comparisons for CAMPAIGN_012\u2013015 remain valid.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_011_random_entry_anchor/financing/financing_run.md",
+        "backtests/CAMPAIGN_011_random_entry_anchor/financing/financing_summary.json",
+        "backtests/CAMPAIGN_011_random_entry_anchor/risk/diagnostics.json",
+        "backtests/CAMPAIGN_011_random_entry_anchor/risk/diagnostics.md",
+        "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/fold_detail.json",
+        "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/plan.json",
+        "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/plan.md",
+        "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/results.json",
+        "backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/results.md",
+        "backtests/CAMPAIGN_011_random_entry_anchor_deduped/walk_forward/fold_detail.json"
+      ],
+      "notes": [
+        "deduped_artifact_present",
+        "has_backtrader_diagnostic_artifacts"
+      ]
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_name": "regime_switcher_atr_percentile 0.1.0-c012",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": true,
+      "why": "Pre-fix SQLite; REJECT vs null baseline uses contaminated CAMPAIGN_011 metrics.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/financing/financing_run.md",
+        "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/financing/financing_summary.json",
+        "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/risk/diagnostics.json",
+        "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/risk/diagnostics.md",
+        "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/fold_detail.json",
+        "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/plan.json",
+        "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/plan.md",
+        "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/results.json",
+        "backtests/CAMPAIGN_012_regime_switcher_atr_percentile/walk_forward/results.md",
+        "configs/campaign_012_regime_switcher_atr_percentile.yaml"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_name": "cross_pair_currency_strength_rotation 0.1.0-c013",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": true,
+      "why": "Pre-fix SQLite; null comparison invalid until CAMPAIGN_011 deduped baseline canonical.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/financing/financing_run.md",
+        "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/financing/financing_summary.json",
+        "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/risk/diagnostics.json",
+        "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/risk/diagnostics.md",
+        "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/fold_detail.json",
+        "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/plan.json",
+        "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/plan.md",
+        "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/results.json",
+        "backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/walk_forward/results.md",
+        "configs/campaign_013_cross_pair_currency_strength_rotation.yaml"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_name": "calendar_event_window_anomaly 0.1.0-c014",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "result_remains_valid": false,
+      "mark_superseded": false,
+      "rerun_required": true,
+      "why": "Pre-fix SQLite; null comparison invalid until CAMPAIGN_011 deduped baseline canonical.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_014_calendar_event_window_anomaly/financing/financing_run.md",
+        "backtests/CAMPAIGN_014_calendar_event_window_anomaly/financing/financing_summary.json",
+        "backtests/CAMPAIGN_014_calendar_event_window_anomaly/risk/diagnostics.json",
+        "backtests/CAMPAIGN_014_calendar_event_window_anomaly/risk/diagnostics.md",
+        "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/fold_detail.json",
+        "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/plan.json",
+        "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/plan.md",
+        "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/results.json",
+        "backtests/CAMPAIGN_014_calendar_event_window_anomaly/walk_forward/results.md",
+        "configs/campaign_014_calendar_event_window_anomaly.yaml"
+      ],
+      "notes": []
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_name": "failed_breakout_reversal 0.1.0-c015",
+      "official_verdict_before_audit": "REJECT",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "result_remains_valid": true,
+      "mark_superseded": true,
+      "rerun_required": false,
+      "why": "Original bespoke SUPERSEDED BY DEDUP RERUN; canonical evidence is deduped folder (backtests/CAMPAIGN_015_failed_breakout_reversal_deduped). Deduped exp_r \u22120.0101, WITHIN_NULL, REJECT.",
+      "artifact_paths": [
+        "backtests/CAMPAIGN_015_failed_breakout_reversal/walk_forward/fold_detail.json",
+        "backtests/CAMPAIGN_015_failed_breakout_reversal/walk_forward/gate_result.json",
+        "backtests/CAMPAIGN_015_failed_breakout_reversal/walk_forward/plan.json",
+        "backtests/CAMPAIGN_015_failed_breakout_reversal/walk_forward/preflight.json",
+        "backtests/CAMPAIGN_015_failed_breakout_reversal/walk_forward/results.json",
+        "backtests/CAMPAIGN_015_failed_breakout_reversal/walk_forward/results.md",
+        "backtests/CAMPAIGN_015_failed_breakout_reversal_deduped/walk_forward/fold_detail.json",
+        "backtests/CAMPAIGN_015_failed_breakout_reversal_deduped/walk_forward/gate_result.json",
+        "backtests/CAMPAIGN_015_failed_breakout_reversal_deduped/walk_forward/plan.json",
+        "backtests/CAMPAIGN_015_failed_breakout_reversal_deduped/walk_forward/preflight.json"
+      ],
+      "notes": [
+        "deduped_artifact_present",
+        "has_backtrader_diagnostic_artifacts"
+      ]
+    }
+  ]
+}

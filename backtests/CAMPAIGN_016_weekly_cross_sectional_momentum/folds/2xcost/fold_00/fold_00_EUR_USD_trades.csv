@@ -1,0 +1,2 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+EUR_USD,short,210,2022-02-28T06:00:00+00:00,2022-03-09T02:00:00+00:00,1.1154100,1.09168,1.12743,4.9833000,1.974209650582362728785357737,42,1.5,time,next_bar_open,False,False,

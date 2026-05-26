@@ -25,6 +25,7 @@ from research.edge_discovery.real_data import (
     load_campaign_fold_pair_summaries,
     load_campaign_trades,
     load_campaign_walk_forward_result,
+    load_canonical_null_baseline_rollup,
     load_event_fixture_json,
     load_h4_candles_from_sqlite,
     resolve_h4_store_path,
@@ -41,9 +42,18 @@ EVENT_FIXTURE_PATH = REPO_ROOT / "research" / "calendar" / "fixtures" / "campaig
 # ---------------------------------------------------------------------------
 
 
-def test_load_campaign_011_walk_forward_result_is_real_null() -> None:
-    """CAMPAIGN_011 is the null model. Pin its committed result so
-    the lab can rely on it as the binding null baseline."""
+def test_load_canonical_null_baseline_rollup_is_deduped() -> None:
+    """Post-dedupe null comparisons must use the canonical rollup."""
+    rollup = load_canonical_null_baseline_rollup()
+    assert rollup["canonical"] is True
+    assert rollup["aggregate"]["total_trades"] == 1180
+    assert rollup["aggregate"]["aggregate_expectancy_r"] == pytest.approx(
+        -0.0029154071495408797
+    )
+
+
+def test_load_campaign_011_walk_forward_result_legacy_contaminated() -> None:
+    """Pre-fix walk_forward artifact remains loadable but is superseded."""
     r = load_campaign_walk_forward_result(CAMPAIGN_011_DIR)
     assert r.campaign_name == "CAMPAIGN_011_random_entry_anchor"
     assert r.overall_verdict == "REJECT"

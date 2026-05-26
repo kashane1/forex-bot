@@ -1,0 +1,26 @@
+{
+  "campaign": "CAMPAIGN_015",
+  "strategy_evidence": false,
+  "run_mode": "fold_windows",
+  "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+  "risk_engine_parity": true,
+  "fold_count": 8,
+  "pairs": 7,
+  "total_trades": 416,
+  "total_pnl_account": 79.0479,
+  "rejection_counts": {
+    "SPREAD_TOO_WIDE": 55,
+    "SPREAD_TO_ATR": 63,
+    "SESSION_BLOCKED": 27
+  },
+  "side_distribution": {
+    "long": 224,
+    "short": 192
+  },
+  "prior_bt_fold_window_trades": 532,
+  "prior_classification": "SIGNAL_RULE_MISMATCH",
+  "bespoke_rehydrate_trades": 164,
+  "classification_after_parity": "SIGNAL_RULE_MISMATCH",
+  "trade_count_gap_before": 368,
+  "trade_count_gap_after": 252
+}

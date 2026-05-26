@@ -1,7 +1,10 @@
 # CAMPAIGN_014 Walk-Forward Result — REJECT
 
-**Date:** 2026-05-24 · **Branch:** `research-calendar-event-window-anomaly-walk-forward-001`
+**Date:** 2026-05-26 · **Branch:** `research-calendar-event-window-anomaly-walk-forward-001`
 `strategy_evidence: false`
+
+> **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE.** Metrics and
+> null-baseline comparison used pre-fix SQLite. REJECT verdict unchanged.
 
 Phase 5 walk-forward verdict for CAMPAIGN_014 /
 `calendar_event_window_anomaly 0.1.0-c014`. Combines the Phase 4

@@ -1,0 +1,2 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+NZD_USD,long,490,2023-12-08T18:00:00+00:00,2023-12-11T06:00:00+00:00,0.6127700,0.61104,0.61011,-0.8477000,-0.6503759398496240601503759398,4,2.2,eod,next_bar_open,False,False,

@@ -1,5 +1,8 @@
 # Backtrader Secondary-Lane Comparison — CAMPAIGN_015 (Post-Run)
 
+> **SUPERSEDED / STALE DUE TO DUPLICATE-CANDLE CONTAMINATION** — see
+> [`BACKTRADER_CAMPAIGN_015_DEDUPED_COMPARISON.md`](BACKTRADER_CAMPAIGN_015_DEDUPED_COMPARISON.md).
+
 **Sprint:** [CAMPAIGN_015 Post-Run Diagnostics 001](CAMPAIGN_015_POST_RUN_DIAGNOSTICS_001_PLAN.md)
 **Branch:** `research-campaign-015-post-run-diagnostics-001`
 **Date:** 2026-05-26

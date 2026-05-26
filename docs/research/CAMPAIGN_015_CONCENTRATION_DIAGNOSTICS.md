@@ -1,5 +1,8 @@
 # CAMPAIGN_015 — Concentration & Fragility Diagnostics
 
+> **SUPERSEDED / STALE DUE TO DUPLICATE-CANDLE CONTAMINATION** — see
+> [`CAMPAIGN_015_DEDUPED_RERUN_RESULT.md`](CAMPAIGN_015_DEDUPED_RERUN_RESULT.md).
+
 **Sprint:** [CAMPAIGN_015 Post-Run Diagnostics 001](CAMPAIGN_015_POST_RUN_DIAGNOSTICS_001_PLAN.md)
 **Branch:** `research-campaign-015-post-run-diagnostics-001`
 **Date:** 2026-05-26

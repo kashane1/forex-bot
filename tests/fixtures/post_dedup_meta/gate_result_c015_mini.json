@@ -1,0 +1,26 @@
+{
+  "campaign_id": "CAMPAIGN_015",
+  "strategy_name": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015",
+  "verdict": "REJECT",
+  "fold_count": 2,
+  "preflight": {"input_classification": "DEDUPED_INPUT"},
+  "by_cost": {
+    "base": {
+      "aggregate_expectancy_r": -0.01,
+      "profit_factor": 0.95,
+      "total_trades": 50,
+      "folds_passing": 1,
+      "pairs_positive_count": 2,
+      "single_pair_dominance_pct": 35.0,
+      "median_per_fold_expectancy_r": -0.02,
+      "trade_level_cumulative_r": -0.5
+    },
+    "2xcost": {
+      "aggregate_expectancy_r": -0.025,
+      "profit_factor": 0.80,
+      "total_trades": 50,
+      "folds_passing": 0
+    }
+  }
+}

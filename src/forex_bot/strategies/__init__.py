@@ -19,6 +19,12 @@ from forex_bot.strategies.regime_switcher_atr_percentile import (
 from forex_bot.strategies.session_breakout import SessionBreakoutStrategy
 from forex_bot.strategies.trend_following import TrendFollowingStrategy
 from forex_bot.strategies.volatility_breakout import VolatilityBreakoutStrategy
+from forex_bot.strategies.weekly_cross_sectional_momentum_low_turnover import (
+    WeeklyCrossSectionalMomentumLowTurnoverStrategy,
+)
+from forex_bot.strategies.weekly_volatility_contraction_breakout import (
+    WeeklyVolatilityContractionBreakoutStrategy,
+)
 
 __all__ = [
     "CalendarEventWindowAnomalyStrategy",
@@ -33,4 +39,6 @@ __all__ = [
     "StrategyContext",
     "TrendFollowingStrategy",
     "VolatilityBreakoutStrategy",
+    "WeeklyCrossSectionalMomentumLowTurnoverStrategy",
+    "WeeklyVolatilityContractionBreakoutStrategy",
 ]

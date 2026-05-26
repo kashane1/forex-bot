@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "granularity": "H4",
+  "database_name": "forex_bot",
+  "schema_name": "market_data",
+  "extracted_at_utc": "2026-05-25T22:30:21.002773+00:00",
+  "common_timestamp_intersection": {
+    "count": 9949,
+    "start_utc": "2020-01-01T14:00:00-08:00",
+    "end_utc": "2026-05-24T14:00:00-07:00"
+  },
+  "files": {
+    "EUR_USD": {
+      "row_count": 9949,
+      "first_utc": "2020-01-01T14:00:00-08:00",
+      "last_utc": "2026-05-24T14:00:00-07:00",
+      "sha256": "16ed0bc40d05b578417e27ec049c6c322310edf271dc1cae47b4072bfe50cc06"
+    },
+    "GBP_USD": {
+      "row_count": 9949,
+      "first_utc": "2020-01-01T14:00:00-08:00",
+      "last_utc": "2026-05-24T14:00:00-07:00",
+      "sha256": "97feb3ea57b9704ff244961d2808bd829f3906b62b91dc9470f427ac4262974a"
+    },
+    "USD_JPY": {
+      "row_count": 9950,
+      "first_utc": "2020-01-01T14:00:00-08:00",
+      "last_utc": "2026-05-24T14:00:00-07:00",
+      "sha256": "1581cac49c4e5573aede898596910debebaa03698ddf62e0b96646e8415b04a5"
+    },
+    "AUD_USD": {
+      "row_count": 9949,
+      "first_utc": "2020-01-01T14:00:00-08:00",
+      "last_utc": "2026-05-24T14:00:00-07:00",
+      "sha256": "513f5653064e025611cfb9d4cc14bae3e56cd5daac2b2eabde7e7e436f376c63"
+    },
+    "USD_CAD": {
+      "row_count": 9949,
+      "first_utc": "2020-01-01T14:00:00-08:00",
+      "last_utc": "2026-05-24T14:00:00-07:00",
+      "sha256": "5a1bd163cfa84a1f1f7653f197feee2a6f3bf434c5b1513bb7bea3f92fc5148d"
+    },
+    "USD_CHF": {
+      "row_count": 9949,
+      "first_utc": "2020-01-01T14:00:00-08:00",
+      "last_utc": "2026-05-24T14:00:00-07:00",
+      "sha256": "897bb5cea41b5084b65144f43674aea454d06b14d9bb143a1600d73571634c77"
+    },
+    "NZD_USD": {
+      "row_count": 9953,
+      "first_utc": "2020-01-01T14:00:00-08:00",
+      "last_utc": "2026-05-24T14:00:00-07:00",
+      "sha256": "4ef9523f41880c0a98d8f28542957569c86827361c1be6c37ed9e0a98d76e705"
+    }
+  }
+}

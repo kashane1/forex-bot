@@ -34,6 +34,7 @@ Key design points:
 from __future__ import annotations
 
 import math
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -41,6 +42,14 @@ import backtrader as bt
 import pandas as pd
 
 from research.backtrader_lane.data_adapter import CandleAdapterResult
+from research.backtrader_lane.fold_windows import FoldWindowSpec, bar_date_utc
+from research.backtrader_lane.risk_parity import (
+    ENTRY_BAR_STOP_POLICIES,
+    RiskParityState,
+    build_campaign_015_risk_engine,
+    evaluate_pending_entry,
+    record_rejections,
+)
 from research.backtrader_lane.runner import (
     BacktraderTrade,
     CampaignAdapter,
@@ -162,12 +171,30 @@ def run_campaign_015_pair(
     *,
     config_path: Path = CAMPAIGN_015_CONFIG_PATH,
     strategy_cfg_override: dict[str, Any] | None = None,
+    fold_window: FoldWindowSpec | None = None,
+    strict_test_window: bool = False,
+    entry_bar_stop_policy: str = "backtrader_default",
+    risk_engine_parity: bool = False,
 ) -> PairRunResult:
     """Drive one instrument through the CAMPAIGN_015 BT adapter.
 
     `strategy_cfg_override` lets tests substitute a synthetic config
     without reading the YAML. Production runs leave it None and the
-    binding YAML + _assert_frozen() pair governs."""
+    binding YAML + _assert_frozen() pair governs.
+
+    ``entry_bar_stop_policy`` controls entry-bar adverse-stop handling:
+    - ``backtrader_default`` — current BT behaviour (same-bar stop on entry).
+    - ``bespoke_current_no_entry_bar_stop`` — parity with current bespoke
+      ``BacktestEngine`` (no entry-bar adverse stop; later-bar stops unchanged).
+
+    ``risk_engine_parity`` when True runs read-only ``RiskEngine.evaluate``
+    at fill time using local candle bid/ask only (no broker)."""
+
+    if entry_bar_stop_policy not in ENTRY_BAR_STOP_POLICIES:
+        raise ValueError(
+            f"unknown entry_bar_stop_policy {entry_bar_stop_policy!r}; "
+            f"expected one of {sorted(ENTRY_BAR_STOP_POLICIES)}"
+        )
 
     if strategy_cfg_override is None:
         strategy_cfg = _load_campaign_015_config_strategy()
@@ -204,6 +231,7 @@ def run_campaign_015_pair(
             f"known: {sorted(_PIP_SIZE.keys())}"
         )
 
+    settings = None
     if config_path.is_file():
         from forex_bot.config import load_settings
 
@@ -216,6 +244,21 @@ def run_campaign_015_pair(
         fixed_slippage_pips = EXPECTED_FIXED_SLIPPAGE_PIPS
         spread_slippage_multiplier = EXPECTED_SPREAD_SLIPPAGE_MULTIPLIER
         risk_per_trade_pct = EXPECTED_RISK_PER_TRADE_PCT
+
+    risk_engine = None
+    parity_state: RiskParityState | None = None
+    rejection_counts: dict[str, int] = {}
+    if risk_engine_parity:
+        if settings is None:
+            raise ValueError(
+                "risk_engine_parity requires campaign config YAML at "
+                f"{config_path}; cannot construct RiskEngine without settings"
+            )
+        risk_engine = build_campaign_015_risk_engine(settings)
+        parity_state = RiskParityState(
+            account_currency=settings.market.account_currency,
+            equity_peak=float(starting_equity_usd),
+        )
 
     # Build Backtrader-friendly dataframe.
     df = candles.mid_df.copy()
@@ -233,6 +276,8 @@ def run_campaign_015_pair(
 
     recorded: list[BacktraderTrade] = []
     nav = {"value": float(starting_equity_usd)}
+    test_start = fold_window.test_start if fold_window else None
+    test_end = fold_window.test_end if fold_window else None
 
     class _Campaign015Strategy(bt.Strategy):  # pragma: no cover - bt callbacks
         params = (
@@ -259,10 +304,19 @@ def run_campaign_015_pair(
             # on the *next* bar's open.
             self._pending_side: str | None = None
             self._pending_stop: float = 0.0
+            self._pending_signal_in_test: bool = False
+            self._pending_signal_time: datetime | None = None
+            self._pending_atr: float = 0.0
 
         def _bar_time(self) -> pd.Timestamp:
             from datetime import UTC
             return pd.Timestamp(bt.num2date(self.data.datetime[0])).tz_localize(UTC)
+
+        def _bar_in_test_window(self) -> bool:
+            if test_start is None or test_end is None or not strict_test_window:
+                return True
+            d = bar_date_utc(self._bar_time().to_pydatetime())
+            return test_start <= d <= test_end
 
         def _close_trade(self, *, exit_price: float, exit_reason: str) -> None:
             pnl_account = _trade_pnl(
@@ -309,6 +363,12 @@ def run_campaign_015_pair(
                 )
             )
             nav["value"] += pnl_account
+            if parity_state is not None:
+                parity_state.record_exit(
+                    exit_time=self._bar_time().to_pydatetime(),
+                    pnl=pnl_account,
+                    equity=nav["value"],
+                )
             self._in_position = False
             self._side = "flat"
             self._bars_held = 0
@@ -335,6 +395,9 @@ def run_campaign_015_pair(
             """Generate a signal on the current bar; mirrors R1-R10 of
             the bespoke strategy. The actual entry happens on the next
             bar's open (queue via `self._pending_side`)."""
+
+            if strict_test_window and not self._bar_in_test_window():
+                return
 
             # R1: warmup — need range + ATR/ADX burn-in.
             warmup = max(range_lookback, atr_lookback, adx_lookback) + 2
@@ -416,12 +479,25 @@ def run_campaign_015_pair(
             # next next() invocation.
             self._pending_side = side
             self._pending_stop = stop
+            self._pending_signal_in_test = self._bar_in_test_window()
+            self._pending_signal_time = self._bar_time().to_pydatetime()
+            self._pending_atr = last_atr
 
         def _execute_pending_entry(self) -> None:
             """If a pending entry exists from the prior bar, fill it at
             the current bar's open."""
 
             if self._pending_side is None or self._in_position:
+                return
+            if strict_test_window and not self._pending_signal_in_test:
+                self._pending_side = None
+                self._pending_stop = 0.0
+                self._pending_signal_in_test = False
+                return
+            if strict_test_window and not self._bar_in_test_window():
+                self._pending_side = None
+                self._pending_stop = 0.0
+                self._pending_signal_in_test = False
                 return
             side = self._pending_side
             stop = self._pending_stop
@@ -447,15 +523,44 @@ def run_campaign_015_pair(
                 self._pending_stop = 0.0
                 return
 
-            units = _size_position(
-                nav=nav["value"],
-                risk_per_trade_pct=risk_per_trade_pct,
-                entry_price=entry_price,
-                stop_price=_round_price(stop, display_precision),
-                pip_size=pip_size,
-                quote_currency=quote_ccy,
-                base_currency=base_ccy,
-            )
+            stop_r = _round_price(stop, display_precision)
+            units = 0
+            if risk_engine is not None and parity_state is not None:
+                assert self._pending_signal_time is not None
+                risk_result = evaluate_pending_entry(
+                    risk_engine=risk_engine,
+                    instrument_name=instrument,
+                    side=side,
+                    stop_price=stop_r,
+                    signal_time=self._pending_signal_time,
+                    fill_time=self._bar_time().to_pydatetime(),
+                    fill_bid=bid_open,
+                    fill_ask=ask_open,
+                    atr=self._pending_atr,
+                    equity=nav["value"],
+                    parity_state=parity_state,
+                    strategy_version=strategy_cfg["version"],
+                )
+                if not risk_result.approved:
+                    record_rejections(rejection_counts, risk_result.rejection_codes)
+                    self._pending_side = None
+                    self._pending_stop = 0.0
+                    self._pending_signal_time = None
+                    self._pending_atr = 0.0
+                    return
+                units = int(risk_result.units or 0)
+                if risk_result.stop_price is not None:
+                    stop_r = float(risk_result.stop_price)
+            else:
+                units = _size_position(
+                    nav=nav["value"],
+                    risk_per_trade_pct=risk_per_trade_pct,
+                    entry_price=entry_price,
+                    stop_price=stop_r,
+                    pip_size=pip_size,
+                    quote_currency=quote_ccy,
+                    base_currency=base_ccy,
+                )
             if units <= 0:
                 self._pending_side = None
                 self._pending_stop = 0.0
@@ -465,21 +570,23 @@ def run_campaign_015_pair(
             self._side = side
             self._entry_time = self._bar_time()
             self._entry_price = entry_price
-            self._stop_price = _round_price(stop, display_precision)
+            self._stop_price = stop_r
             self._bars_held = 0
             self._units = units
             self._initial_stop_distance = abs(entry_price - self._stop_price)
             self._pending_side = None
             self._pending_stop = 0.0
+            self._pending_signal_in_test = False
+            self._pending_signal_time = None
+            self._pending_atr = 0.0
 
-            # Adverse-stop-wins: check the same bar for stop hit.
-            if same_bar_adverse_stop_check(
+            # Adverse-stop-wins on entry bar (BT default only).
+            if entry_bar_stop_policy == "backtrader_default" and same_bar_adverse_stop_check(
                 side=side,
                 stop_price=self._stop_price,
                 bar_high=float(self.data.high[0]),
                 bar_low=float(self.data.low[0]),
             ):
-                # The entry bar itself touched the stop — adverse stop wins.
                 self._close_trade(
                     exit_price=self._stop_price, exit_reason="stop_same_bar"
                 )
@@ -506,6 +613,18 @@ def run_campaign_015_pair(
                 self._close_trade(exit_price=exit_price, exit_reason="time")
 
         def next(self) -> None:
+            # Force-close at fold test_end boundary when strict mode is on
+            # and the bar is the last in the slice on test_end.
+            if (
+                strict_test_window
+                and test_end is not None
+                and self._in_position
+                and bar_date_utc(self._bar_time().to_pydatetime()) >= test_end
+            ):
+                bid_close = float(self.data.bid_close[0])
+                ask_close = float(self.data.ask_close[0])
+                exit_price = bid_close if self._side == "long" else ask_close
+                self._close_trade(exit_price=exit_price, exit_reason="fold_end")
             # Order matches the bespoke event loop:
             # 1. exits on the current bar (if a position is open),
             # 2. pending entry execution at this bar's open (the bar
@@ -532,13 +651,19 @@ def run_campaign_015_pair(
     cerebro.addstrategy(_Campaign015Strategy)
     cerebro.run()
 
+    analyzer_outputs: dict[str, Any] = {"closed_trades": len(recorded)}
+    if risk_engine_parity:
+        analyzer_outputs["risk_engine_parity"] = True
+        analyzer_outputs["rejection_counts"] = dict(rejection_counts)
+    analyzer_outputs["entry_bar_stop_policy"] = entry_bar_stop_policy
+
     return PairRunResult(
         instrument=instrument,
         candle_count=candles.bar_count,
         trades=recorded,
         final_cash=float(nav["value"]),
         starting_cash=float(starting_equity_usd),
-        analyzer_outputs={"closed_trades": len(recorded)},
+        analyzer_outputs=analyzer_outputs,
     )
 
 
@@ -573,9 +698,12 @@ CAMPAIGN_015_APPROXIMATION_FLAGS: tuple[str, ...] = (
     "ADX_AND_ATR_CURRENT_BAR: ADX(14) and ATR(14) are read at the "
     "current bar (`self._adx[0]` / `self._atr[0]`), matching the "
     "bespoke `adx_series.iloc[-1]` / `atr_series.iloc[-1]`.",
-    "ADVERSE_STOP_WINS: the same-bar adverse-stop rule fires on the "
-    "entry bar when bar_low <= stop (long) or bar_high >= stop (short). "
-    "Matches `same_bar_adverse_stop_wins = True` in the pre-commit.",
+    "ENTRY_BAR_STOP_POLICY: default BT mode applies same-bar adverse stop "
+    "on the entry bar (`backtrader_default`). Parity mode "
+    "`bespoke_current_no_entry_bar_stop` skips entry-bar adverse stop to "
+    "mirror current bespoke BacktestEngine behaviour; later-bar stops unchanged.",
+    "ADVERSE_STOP_WINS_LATER_BARS: on bars after entry, adverse stop wins "
+    "when bar_low <= stop (long) or bar_high >= stop (short).",
     "NO_TRAILING_STOP: trailing_stop_atr_multiple = None on both sides; "
     "the only exits are hard stop and 12-bar time stop. No take-profit.",
     "BACKTRADER_BROKER_BYPASSED: Cerebro broker is not used for fills; "

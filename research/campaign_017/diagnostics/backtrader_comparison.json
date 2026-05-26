@@ -1,0 +1,22 @@
+{
+  "campaign_id": "CAMPAIGN_017",
+  "strategy_name": "weekly_volatility_contraction_breakout",
+  "strategy_version": "0.1.0-c017",
+  "classification": "BLOCKED",
+  "non_decision_blocking": true,
+  "reason": "Full Backtrader fold-window trade parity not implemented; bespoke engine is canonical for REJECT verdict.",
+  "weekly_boundary_parity": "PASS",
+  "compression_flag_parity": "PASS",
+  "approximation_flags": [
+    "fill_timing:next_bar_open",
+    "weekly_compression:shared_with_bespoke_weekly_volatility_module",
+    "bt_fold_runner:DEFERRED"
+  ],
+  "bespoke_reference": {
+    "aggregate_expectancy_r": -0.022666354359936913,
+    "total_trades": 230,
+    "verdict": "REJECT"
+  },
+  "approval_status": "NOT_APPROVED",
+  "generated_at": "2026-05-26T15:40:00+00:00"
+}

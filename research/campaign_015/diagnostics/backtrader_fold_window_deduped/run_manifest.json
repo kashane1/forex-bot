@@ -1,0 +1,196 @@
+{
+  "_meta": {
+    "description": "Backtrader secondary-lane run manifest. Verification only \u2014 strategy_evidence: false. CAMPAIGN_002, CAMPAIGN_010, CAMPAIGN_011, CAMPAIGN_012, CAMPAIGN_013 remain rejected/null/research-only. CAMPAIGN_014 remains scaffold-only. Paper/demo/live remain blocked.",
+    "generated_at": "2026-05-26T05:09:04+00:00"
+  },
+  "approximation_flags": [
+    "FILL_TIMING_APPROXIMATION: the bespoke engine fills at fill_timing = 'next_bar_open' (the open of the bar *following* the signal bar). The BT lane emulates this by queuing the entry on the signal bar via `_pending_side` and executing it at the next bar's open inside `_execute_pending_entry`. This is the closest faithful BT analogue; minor microstructure drift (1-bar scheduler timing) is expected and is the canonical reason this lane is classified `FILL_TIMING_APPROXIMATION` rather than `PASS`.",
+    "RANGE_PRIOR_BARS_ONLY: prior_high / prior_low read bars [-1..-N] via `self.data.high[-offset]` / `self.data.low[-offset]`, matching the bespoke strategy's `high.iloc[-(range_lookback+1):-1]` window (strictly excludes the current bar).",
+    "ADX_AND_ATR_CURRENT_BAR: ADX(14) and ATR(14) are read at the current bar (`self._adx[0]` / `self._atr[0]`), matching the bespoke `adx_series.iloc[-1]` / `atr_series.iloc[-1]`.",
+    "ENTRY_BAR_STOP_POLICY: default BT mode applies same-bar adverse stop on the entry bar (`backtrader_default`). Parity mode `bespoke_current_no_entry_bar_stop` skips entry-bar adverse stop to mirror current bespoke BacktestEngine behaviour; later-bar stops unchanged.",
+    "ADVERSE_STOP_WINS_LATER_BARS: on bars after entry, adverse stop wins when bar_low <= stop (long) or bar_high >= stop (short).",
+    "NO_TRAILING_STOP: trailing_stop_atr_multiple = None on both sides; the only exits are hard stop and 12-bar time stop. No take-profit.",
+    "BACKTRADER_BROKER_BYPASSED: Cerebro broker is not used for fills; the strategy maintains its own one-position state machine and fills at next-bar-open using bid/ask + slippage.",
+    "MANUAL_SIZING_RISK_FRACTION: 0.25% of compounding NAV; whole-units floor; pip value derived from quote/base currency at entry price.",
+    "NO_FINANCING: financing/swap not modeled in either engine; comparison is pre-financing (CAMPAIGN_015 inherits the project-standard ESTIMATED-only financing posture).",
+    "FOLD_WINDOW_BESPOKE_MIRROR: each fold \u00d7 pair is an independent run with equity reset; candle slice matches run_campaign_015.py _fold_dates_to_dts (90-day warmup margin).",
+    "STRICT_TEST_WINDOW=True: when false, trades with entry_time before test_start inside the warmup margin are counted (mirrors bespoke engine behaviour)."
+  ],
+  "campaign": {
+    "approximation_flags": [
+      "FILL_TIMING_APPROXIMATION: the bespoke engine fills at fill_timing = 'next_bar_open' (the open of the bar *following* the signal bar). The BT lane emulates this by queuing the entry on the signal bar via `_pending_side` and executing it at the next bar's open inside `_execute_pending_entry`. This is the closest faithful BT analogue; minor microstructure drift (1-bar scheduler timing) is expected and is the canonical reason this lane is classified `FILL_TIMING_APPROXIMATION` rather than `PASS`.",
+      "RANGE_PRIOR_BARS_ONLY: prior_high / prior_low read bars [-1..-N] via `self.data.high[-offset]` / `self.data.low[-offset]`, matching the bespoke strategy's `high.iloc[-(range_lookback+1):-1]` window (strictly excludes the current bar).",
+      "ADX_AND_ATR_CURRENT_BAR: ADX(14) and ATR(14) are read at the current bar (`self._adx[0]` / `self._atr[0]`), matching the bespoke `adx_series.iloc[-1]` / `atr_series.iloc[-1]`.",
+      "ENTRY_BAR_STOP_POLICY: default BT mode applies same-bar adverse stop on the entry bar (`backtrader_default`). Parity mode `bespoke_current_no_entry_bar_stop` skips entry-bar adverse stop to mirror current bespoke BacktestEngine behaviour; later-bar stops unchanged.",
+      "ADVERSE_STOP_WINS_LATER_BARS: on bars after entry, adverse stop wins when bar_low <= stop (long) or bar_high >= stop (short).",
+      "NO_TRAILING_STOP: trailing_stop_atr_multiple = None on both sides; the only exits are hard stop and 12-bar time stop. No take-profit.",
+      "BACKTRADER_BROKER_BYPASSED: Cerebro broker is not used for fills; the strategy maintains its own one-position state machine and fills at next-bar-open using bid/ask + slippage.",
+      "MANUAL_SIZING_RISK_FRACTION: 0.25% of compounding NAV; whole-units floor; pip value derived from quote/base currency at entry price.",
+      "NO_FINANCING: financing/swap not modeled in either engine; comparison is pre-financing (CAMPAIGN_015 inherits the project-standard ESTIMATED-only financing posture)."
+    ],
+    "campaign_id": "CAMPAIGN_015",
+    "description": "Backtrader port of CAMPAIGN_015 H4 failed_breakout_reversal 0.1.0-c015 \u2014 research candidate scaffold. Frozen rules from src/forex_bot/strategies/failed_breakout_reversal.py and CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md \u00a75. Cannot approve any strategy.",
+    "notes": "strategy_evidence: false; CAMPAIGN_015 candidate scaffold; Phase 0 verdict ceiling is PASS_RESEARCH_SCREEN (not approval); BT lane is secondary verification only and is classified FILL_TIMING_APPROXIMATION on the next-bar-open fill timing.",
+    "strategy_id": "failed_breakout_reversal",
+    "strategy_version": "0.1.0-c015"
+  },
+  "command": "python --campaign CAMPAIGN_015 --output research/campaign_015/diagnostics/backtrader_fold_window_deduped --run-mode fold_windows --fold-plan backtests/CAMPAIGN_015_failed_breakout_reversal_deduped/walk_forward/plan.json --strict-test-window --risk-engine-parity --entry-bar-stop-policy bespoke_current_no_entry_bar_stop",
+  "data": {
+    "per_instrument": [
+      {
+        "approximation_flags": [
+          "MID_OHLC_DERIVED: mid OHLC computed as (bid + ask) / 2 per OHLC component; the Backtrader feed sees mid only, with half-spread carried separately.",
+          "BAR_OPEN_TIMESTAMP: index is the bar OPEN time (17:00-NY aligned). The Backtrader strategy must remember that signals fire on the bar whose open is the index value.",
+          "HALF_SPREAD_CLOSE: per-bar half-spread carried at bar close only. Intra-bar spread dynamics (open/high/low spread vs close spread) are not modelled."
+        ],
+        "bar_count": 9933,
+        "csv_sha256": "bd7aa28b26efb91135c7b63cdd156e840a268e069d6f1f7d4297cb7d76b552db",
+        "first_ts": "2020-01-01T22:00:00+00:00",
+        "granularity": "H4",
+        "instrument": "EUR_USD",
+        "last_ts": "2026-05-20T05:00:00+00:00",
+        "provenance_campaign_002_data_request_hash": "c346925f79487e2a",
+        "provenance_data_sha256": "bd7aa28b26efb91135c7b63cdd156e840a268e069d6f1f7d4297cb7d76b552db",
+        "source": "oanda-practice"
+      },
+      {
+        "approximation_flags": [
+          "MID_OHLC_DERIVED: mid OHLC computed as (bid + ask) / 2 per OHLC component; the Backtrader feed sees mid only, with half-spread carried separately.",
+          "BAR_OPEN_TIMESTAMP: index is the bar OPEN time (17:00-NY aligned). The Backtrader strategy must remember that signals fire on the bar whose open is the index value.",
+          "HALF_SPREAD_CLOSE: per-bar half-spread carried at bar close only. Intra-bar spread dynamics (open/high/low spread vs close spread) are not modelled."
+        ],
+        "bar_count": 9933,
+        "csv_sha256": "214532db74e5a023bec802aed7fef4eb8b478c5d023abb1c49a814ae1240ddd7",
+        "first_ts": "2020-01-01T22:00:00+00:00",
+        "granularity": "H4",
+        "instrument": "GBP_USD",
+        "last_ts": "2026-05-20T05:00:00+00:00",
+        "provenance_campaign_002_data_request_hash": "252421895bbdec6a",
+        "provenance_data_sha256": "214532db74e5a023bec802aed7fef4eb8b478c5d023abb1c49a814ae1240ddd7",
+        "source": "oanda-practice"
+      },
+      {
+        "approximation_flags": [
+          "MID_OHLC_DERIVED: mid OHLC computed as (bid + ask) / 2 per OHLC component; the Backtrader feed sees mid only, with half-spread carried separately.",
+          "BAR_OPEN_TIMESTAMP: index is the bar OPEN time (17:00-NY aligned). The Backtrader strategy must remember that signals fire on the bar whose open is the index value.",
+          "HALF_SPREAD_CLOSE: per-bar half-spread carried at bar close only. Intra-bar spread dynamics (open/high/low spread vs close spread) are not modelled."
+        ],
+        "bar_count": 9934,
+        "csv_sha256": "fd57e2fe99f9d4a3bef63489d977a2b9ca04abb34a687192881cef1a64c6bd6d",
+        "first_ts": "2020-01-01T22:00:00+00:00",
+        "granularity": "H4",
+        "instrument": "USD_JPY",
+        "last_ts": "2026-05-20T05:00:00+00:00",
+        "provenance_campaign_002_data_request_hash": "dcd005b508d917e4",
+        "provenance_data_sha256": "fd57e2fe99f9d4a3bef63489d977a2b9ca04abb34a687192881cef1a64c6bd6d",
+        "source": "oanda-practice"
+      },
+      {
+        "approximation_flags": [
+          "MID_OHLC_DERIVED: mid OHLC computed as (bid + ask) / 2 per OHLC component; the Backtrader feed sees mid only, with half-spread carried separately.",
+          "BAR_OPEN_TIMESTAMP: index is the bar OPEN time (17:00-NY aligned). The Backtrader strategy must remember that signals fire on the bar whose open is the index value.",
+          "HALF_SPREAD_CLOSE: per-bar half-spread carried at bar close only. Intra-bar spread dynamics (open/high/low spread vs close spread) are not modelled."
+        ],
+        "bar_count": 9933,
+        "csv_sha256": "401f8634fb9001e17b4e9b9e820c14b40bf6030bf7772d5bfdeff56107911f55",
+        "first_ts": "2020-01-01T22:00:00+00:00",
+        "granularity": "H4",
+        "instrument": "AUD_USD",
+        "last_ts": "2026-05-20T05:00:00+00:00",
+        "provenance_campaign_002_data_request_hash": "6e9c1ecf203bc851",
+        "provenance_data_sha256": "401f8634fb9001e17b4e9b9e820c14b40bf6030bf7772d5bfdeff56107911f55",
+        "source": "oanda-practice"
+      },
+      {
+        "approximation_flags": [
+          "MID_OHLC_DERIVED: mid OHLC computed as (bid + ask) / 2 per OHLC component; the Backtrader feed sees mid only, with half-spread carried separately.",
+          "BAR_OPEN_TIMESTAMP: index is the bar OPEN time (17:00-NY aligned). The Backtrader strategy must remember that signals fire on the bar whose open is the index value.",
+          "HALF_SPREAD_CLOSE: per-bar half-spread carried at bar close only. Intra-bar spread dynamics (open/high/low spread vs close spread) are not modelled."
+        ],
+        "bar_count": 9933,
+        "csv_sha256": "c06ec608b257c8df24368d449174f7cba3941fcb0347876af17dd2e4a2cd774d",
+        "first_ts": "2020-01-01T22:00:00+00:00",
+        "granularity": "H4",
+        "instrument": "USD_CAD",
+        "last_ts": "2026-05-20T05:00:00+00:00",
+        "provenance_campaign_002_data_request_hash": "60f8c7d6dd45ef21",
+        "provenance_data_sha256": "c06ec608b257c8df24368d449174f7cba3941fcb0347876af17dd2e4a2cd774d",
+        "source": "oanda-practice"
+      },
+      {
+        "approximation_flags": [
+          "MID_OHLC_DERIVED: mid OHLC computed as (bid + ask) / 2 per OHLC component; the Backtrader feed sees mid only, with half-spread carried separately.",
+          "BAR_OPEN_TIMESTAMP: index is the bar OPEN time (17:00-NY aligned). The Backtrader strategy must remember that signals fire on the bar whose open is the index value.",
+          "HALF_SPREAD_CLOSE: per-bar half-spread carried at bar close only. Intra-bar spread dynamics (open/high/low spread vs close spread) are not modelled."
+        ],
+        "bar_count": 9933,
+        "csv_sha256": "8d0e7bf4fa0852c14dd857106129f83ae9623e7056473c7bbbdd50c69a4f6b20",
+        "first_ts": "2020-01-01T22:00:00+00:00",
+        "granularity": "H4",
+        "instrument": "USD_CHF",
+        "last_ts": "2026-05-20T05:00:00+00:00",
+        "provenance_campaign_002_data_request_hash": "d1f1ad6016a4c48a",
+        "provenance_data_sha256": "8d0e7bf4fa0852c14dd857106129f83ae9623e7056473c7bbbdd50c69a4f6b20",
+        "source": "oanda-practice"
+      },
+      {
+        "approximation_flags": [
+          "MID_OHLC_DERIVED: mid OHLC computed as (bid + ask) / 2 per OHLC component; the Backtrader feed sees mid only, with half-spread carried separately.",
+          "BAR_OPEN_TIMESTAMP: index is the bar OPEN time (17:00-NY aligned). The Backtrader strategy must remember that signals fire on the bar whose open is the index value.",
+          "HALF_SPREAD_CLOSE: per-bar half-spread carried at bar close only. Intra-bar spread dynamics (open/high/low spread vs close spread) are not modelled."
+        ],
+        "bar_count": 9937,
+        "csv_sha256": "0ccc07324b8a7a4ec9936cee65683591571b76ec9994bff5f7e77c2cb02b48a3",
+        "first_ts": "2020-01-01T22:00:00+00:00",
+        "granularity": "H4",
+        "instrument": "NZD_USD",
+        "last_ts": "2026-05-20T05:00:00+00:00",
+        "provenance_campaign_002_data_request_hash": "84907ef5e03ffd77",
+        "provenance_data_sha256": "0ccc07324b8a7a4ec9936cee65683591571b76ec9994bff5f7e77c2cb02b48a3",
+        "source": "oanda-practice"
+      }
+    ],
+    "strict_mode": true
+  },
+  "entry_bar_stop_policy": "bespoke_current_no_entry_bar_stop",
+  "execution": {
+    "risk_per_trade_pct": 0.25,
+    "starting_equity_usd": 500.0
+  },
+  "fold_count": 8,
+  "fold_plan_path": "backtests/CAMPAIGN_015_failed_breakout_reversal_deduped/walk_forward/plan.json",
+  "git_commit": "38ab9c4acf9efef1efef04548fec774a532bbad9",
+  "git_dirty": true,
+  "instruments": {
+    "blocked": [],
+    "requested": [
+      "AUD_USD",
+      "EUR_USD",
+      "GBP_USD",
+      "NZD_USD",
+      "USD_CAD",
+      "USD_CHF",
+      "USD_JPY"
+    ],
+    "run": [
+      "AUD_USD",
+      "EUR_USD",
+      "GBP_USD",
+      "NZD_USD",
+      "USD_CAD",
+      "USD_CHF",
+      "USD_JPY"
+    ]
+  },
+  "packages": {
+    "backtrader": "1.9.78.123",
+    "pandas": "2.3.3",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "python": "3.12.3"
+  },
+  "risk_engine_parity": true,
+  "run_mode": "fold_windows",
+  "strategy_evidence": false,
+  "strict_test_window": true,
+  "warmup_days": 90
+}

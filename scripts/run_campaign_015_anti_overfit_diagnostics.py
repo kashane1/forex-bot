@@ -15,7 +15,7 @@ this strategy's approval.
 Usage:
     python scripts/run_campaign_015_anti_overfit_diagnostics.py \
         --campaign-fold-detail research/campaign_015/diagnostics/walk_forward_rehydrate/walk_forward/fold_detail.json \
-        --null-fold-detail backtests/CAMPAIGN_011_random_entry_anchor/walk_forward/fold_detail.json \
+        --null-fold-detail backtests/CAMPAIGN_011_random_entry_anchor_deduped/walk_forward/fold_detail.json \
         --out-json research/campaign_015/diagnostics/null_and_anti_overfit.json \
         --out-md   research/campaign_015/diagnostics/null_and_anti_overfit.md
 """

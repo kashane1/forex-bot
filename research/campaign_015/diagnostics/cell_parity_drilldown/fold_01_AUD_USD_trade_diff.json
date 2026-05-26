@@ -1,0 +1,346 @@
+{
+  "strategy_evidence": false,
+  "campaign": "CAMPAIGN_015",
+  "fold_index": 1,
+  "pair": "AUD_USD",
+  "bt_count": 13,
+  "bespoke_count": 2,
+  "delta": 11,
+  "classification_counts": {
+    "BT_ONLY": 13,
+    "BESPOKE_ONLY": 2
+  },
+  "first_bt_only": {
+    "source": "bt",
+    "fold_index": 1,
+    "instrument": "AUD_USD",
+    "entry_time": "2022-05-06T17:00:00+00:00",
+    "exit_time": "2022-05-08T21:00:00+00:00",
+    "side": "long",
+    "entry_price": 0.7103999999999999,
+    "stop_price": null,
+    "exit_price": 0.70539,
+    "exit_reason": "stop",
+    "r_multiple": -1.0,
+    "pnl": -1.2675299999999896,
+    "units": 253
+  },
+  "first_bespoke_only": {
+    "source": "bespoke",
+    "fold_index": 1,
+    "instrument": "AUD_USD",
+    "entry_time": "2022-07-27T01:00:00+00:00",
+    "exit_time": "2022-07-28T01:00:00+00:00",
+    "side": "long",
+    "entry_price": 0.69505,
+    "stop_price": 0.69099,
+    "exit_price": 0.69866,
+    "exit_reason": "time",
+    "r_multiple": 0.8891625615763546,
+    "pnl": 1.12632,
+    "units": 312
+  },
+  "first_same_entry_divergent_exit": null,
+  "trades": [
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-05-06 17:00:00+00:00",
+        "exit_time": "2022-05-08 21:00:00+00:00",
+        "side": "long",
+        "entry_price": 0.7103999999999999,
+        "stop_price": null,
+        "exit_price": 0.70539,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.2675299999999896,
+        "units": 253
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-05-27 17:00:00+00:00",
+        "exit_time": "2022-05-30 01:00:00+00:00",
+        "side": "short",
+        "entry_price": 0.7141549999999999,
+        "stop_price": null,
+        "exit_price": 0.71702,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.2749250000000523,
+        "units": 445
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-06-01 17:00:00+00:00",
+        "exit_time": "2022-06-02 13:00:00+00:00",
+        "side": "short",
+        "entry_price": 0.7168699999999999,
+        "stop_price": null,
+        "exit_price": 0.72338,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.2564300000000244,
+        "units": 193
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-06-29 13:00:00+00:00",
+        "exit_time": "2022-06-30 01:00:00+00:00",
+        "side": "long",
+        "entry_price": 0.68879,
+        "stop_price": null,
+        "exit_price": 0.6859,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.274490000000026,
+        "units": 441
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-06-30 05:00:00+00:00",
+        "exit_time": "2022-07-01 01:00:00+00:00",
+        "side": "long",
+        "entry_price": 0.68959,
+        "stop_price": null,
+        "exit_price": 0.68506,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.2548100000000093,
+        "units": 277
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BESPOKE_ONLY",
+      "bt": null,
+      "bespoke": {
+        "source": "bespoke",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-07-27 01:00:00+00:00",
+        "exit_time": "2022-07-28 01:00:00+00:00",
+        "side": "long",
+        "entry_price": 0.69505,
+        "stop_price": 0.69099,
+        "exit_price": 0.69866,
+        "exit_reason": "time",
+        "r_multiple": 0.8891625615763546,
+        "pnl": 1.12632,
+        "units": 312
+      },
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-08-05 17:00:00+00:00",
+        "exit_time": "2022-08-09 17:00:00+00:00",
+        "side": "long",
+        "entry_price": 0.691495,
+        "stop_price": null,
+        "exit_price": 0.69628,
+        "exit_reason": "time",
+        "r_multiple": 0.9917098445596002,
+        "pnl": 1.2441000000000102,
+        "units": 260
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-09-22 09:00:00+00:00",
+        "exit_time": "2022-09-23 09:00:00+00:00",
+        "side": "long",
+        "entry_price": 0.6652099999999999,
+        "stop_price": null,
+        "exit_price": 0.65702,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.244879999999971,
+        "units": 152
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-10-04 09:00:00+00:00",
+        "exit_time": "2022-10-06 09:00:00+00:00",
+        "side": "short",
+        "entry_price": 0.6501699999999999,
+        "stop_price": null,
+        "exit_price": 0.64647,
+        "exit_reason": "time",
+        "r_multiple": 0.7370517928286506,
+        "pnl": 0.9212999999999815,
+        "units": 249
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BESPOKE_ONLY",
+      "bt": null,
+      "bespoke": {
+        "source": "bespoke",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-10-05 13:00:00+00:00",
+        "exit_time": "2022-10-06 13:00:00+00:00",
+        "side": "long",
+        "entry_price": 0.645615,
+        "stop_price": 0.64117,
+        "exit_price": 0.64117,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.27127,
+        "units": 286
+      },
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-10-07 09:00:00+00:00",
+        "exit_time": "2022-10-07 13:00:00+00:00",
+        "side": "long",
+        "entry_price": 0.641775,
+        "stop_price": null,
+        "exit_price": 0.63806,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.2519550000000081,
+        "units": 337
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-10-20 17:00:00+00:00",
+        "exit_time": "2022-10-21 13:00:00+00:00",
+        "side": "short",
+        "entry_price": 0.6311450000000001,
+        "stop_price": null,
+        "exit_price": 0.63605,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.245869999999984,
+        "units": 254
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-12-01 10:00:00+00:00",
+        "exit_time": "2022-12-01 14:00:00+00:00",
+        "side": "short",
+        "entry_price": 0.6804950000000001,
+        "stop_price": null,
+        "exit_price": 0.68441,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.2488849999999652,
+        "units": 319
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-12-01 18:00:00+00:00",
+        "exit_time": "2022-12-05 02:00:00+00:00",
+        "side": "short",
+        "entry_price": 0.680625,
+        "stop_price": null,
+        "exit_price": 0.68503,
+        "exit_reason": "stop",
+        "r_multiple": -1.0,
+        "pnl": -1.2466149999999978,
+        "units": 283
+      },
+      "bespoke": null,
+      "notes": []
+    },
+    {
+      "classification": "BT_ONLY",
+      "bt": {
+        "source": "bt",
+        "fold_index": 1,
+        "instrument": "AUD_USD",
+        "entry_time": "2022-12-13 18:00:00+00:00",
+        "exit_time": "2022-12-15 18:00:00+00:00",
+        "side": "short",
+        "entry_price": 0.6852900000000001,
+        "stop_price": null,
+        "exit_price": 0.67015,
+        "exit_reason": "time",
+        "r_multiple": 3.409909909910005,
+        "pnl": 4.239200000000012,
+        "units": 280
+      },
+      "bespoke": null,
+      "notes": []
+    }
+  ]
+}

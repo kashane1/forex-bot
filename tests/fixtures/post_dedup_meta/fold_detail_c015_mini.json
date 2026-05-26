@@ -1,0 +1,36 @@
+{
+  "campaign_id": "CAMPAIGN_015",
+  "strategy_name": "failed_breakout_reversal",
+  "by_cost": {
+    "base": {
+      "folds": [
+        {
+          "fold_index": 0,
+          "test_start": "2021-12-21",
+          "test_end": "2022-06-18",
+          "trade_count": 25,
+          "expectancy_r": -0.05,
+          "profit_factor": 0.9,
+          "passes": false,
+          "pair_runs": [
+            {"instrument": "EUR_USD", "trade_count": 10, "expectancy_r": -0.06, "long_trades": 6, "short_trades": 4},
+            {"instrument": "GBP_USD", "trade_count": 15, "expectancy_r": 0.04, "long_trades": 8, "short_trades": 7}
+          ]
+        },
+        {
+          "fold_index": 1,
+          "test_start": "2022-06-19",
+          "test_end": "2022-12-15",
+          "trade_count": 25,
+          "expectancy_r": 0.03,
+          "profit_factor": 1.1,
+          "passes": true,
+          "pair_runs": [
+            {"instrument": "EUR_USD", "trade_count": 12, "expectancy_r": 0.02, "long_trades": 7, "short_trades": 5},
+            {"instrument": "GBP_USD", "trade_count": 13, "expectancy_r": 0.05, "long_trades": 6, "short_trades": 7}
+          ]
+        }
+      ]
+    }
+  }
+}

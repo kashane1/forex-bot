@@ -499,6 +499,113 @@ class CalendarEventWindowAnomalyStrategyConfig(BaseModel):
         return self
 
 
+class WeeklyCrossSectionalMomentumLowTurnoverStrategyConfig(BaseModel):
+    # CAMPAIGN_016 research candidate.
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/CAMPAIGN_016_WEEKLY_CROSS_SECTIONAL_MOMENTUM_PRECOMMIT.md.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    momentum_lookback_fast_weeks: int = 4
+    momentum_lookback_slow_weeks: int = 12
+    momentum_blend_fast: float = 0.5
+    momentum_blend_slow: float = 0.5
+    volatility_lookback_weeks: int = 12
+    volatility_floor: float = 1.0e-8
+    max_same_currency_exposure: int = 1
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.5
+    max_bars_in_trade: int = 42
+    take_profit_r: float | None = None
+    trailing_stop_atr_multiple: float | None = None
+    entry_timing: Literal["next_bar_open", "signal_bar_close"] = "next_bar_open"
+    same_bar_adverse_stop_wins: bool = True
+    spread_to_atr_max: float = 0.15
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> WeeklyCrossSectionalMomentumLowTurnoverStrategyConfig:
+        if self.momentum_lookback_fast_weeks < 1:
+            raise ConfigError("momentum_lookback_fast_weeks must be >= 1")
+        if self.momentum_lookback_slow_weeks <= self.momentum_lookback_fast_weeks:
+            raise ConfigError(
+                "momentum_lookback_slow_weeks must be > momentum_lookback_fast_weeks"
+            )
+        if not (0 < self.momentum_blend_fast < 1):
+            raise ConfigError("momentum_blend_fast must be in (0, 1)")
+        if not (0 < self.momentum_blend_slow < 1):
+            raise ConfigError("momentum_blend_slow must be in (0, 1)")
+        if abs(self.momentum_blend_fast + self.momentum_blend_slow - 1.0) > 1e-9:
+            raise ConfigError("momentum_blend_fast + momentum_blend_slow must equal 1")
+        if self.volatility_lookback_weeks < 2:
+            raise ConfigError("volatility_lookback_weeks must be >= 2")
+        if self.volatility_floor <= 0:
+            raise ConfigError("volatility_floor must be > 0")
+        if self.max_same_currency_exposure < 1:
+            raise ConfigError("max_same_currency_exposure must be >= 1")
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1 or self.max_bars_in_trade > 60:
+            raise ConfigError("max_bars_in_trade must be in [1, 60]")
+        if self.take_profit_r is not None:
+            raise ConfigError("take_profit_r must be None in v1")
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError("trailing_stop_atr_multiple must be None in v1")
+        if not self.same_bar_adverse_stop_wins:
+            raise ConfigError("same_bar_adverse_stop_wins must be True in v1")
+        if self.spread_to_atr_max <= 0:
+            raise ConfigError("spread_to_atr_max must be > 0")
+        return self
+
+
+class WeeklyVolatilityContractionBreakoutStrategyConfig(BaseModel):
+    # CAMPAIGN_017 research candidate.
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/CAMPAIGN_017_WEEKLY_VOLATILITY_CONTRACTION_BREAKOUT_PRECOMMIT.md.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    compression_lookback_weeks: int = 12
+    compression_percentile_threshold: float = 25.0
+    breakout_buffer_atr_multiple: float = 0.25
+    atr_lookback_h4: int = 14
+    max_bars_in_trade: int = 42
+    take_profit_r: float | None = None
+    trailing_stop_atr_multiple: float | None = None
+    entry_timing: Literal["next_bar_open", "signal_bar_close"] = "next_bar_open"
+    same_bar_adverse_stop_wins: bool = True
+    spread_to_atr_max: float = 0.15
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> WeeklyVolatilityContractionBreakoutStrategyConfig:
+        if self.compression_lookback_weeks < 2:
+            raise ConfigError("compression_lookback_weeks must be >= 2")
+        if not (0 < self.compression_percentile_threshold < 100):
+            raise ConfigError(
+                "compression_percentile_threshold must be in (0, 100)"
+            )
+        if self.breakout_buffer_atr_multiple <= 0:
+            raise ConfigError("breakout_buffer_atr_multiple must be > 0")
+        if self.atr_lookback_h4 < 2:
+            raise ConfigError("atr_lookback_h4 must be >= 2")
+        if self.max_bars_in_trade < 1 or self.max_bars_in_trade > 60:
+            raise ConfigError("max_bars_in_trade must be in [1, 60]")
+        if self.take_profit_r is not None:
+            raise ConfigError("take_profit_r must be None in v1")
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError("trailing_stop_atr_multiple must be None in v1")
+        if not self.same_bar_adverse_stop_wins:
+            raise ConfigError("same_bar_adverse_stop_wins must be True in v1")
+        if self.spread_to_atr_max <= 0:
+            raise ConfigError("spread_to_atr_max must be > 0")
+        return self
+
+
 class FailedBreakoutReversalStrategyConfig(BaseModel):
     # CAMPAIGN_015 research candidate (`failed_breakout_reversal 0.1.0-c015`).
     # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
@@ -602,6 +709,12 @@ class StrategyConfig(BaseModel):
     failed_breakout_reversal: (
         FailedBreakoutReversalStrategyConfig | None
     ) = None
+    weekly_cross_sectional_momentum_low_turnover: (
+        WeeklyCrossSectionalMomentumLowTurnoverStrategyConfig | None
+    ) = None
+    weekly_volatility_contraction_breakout: (
+        WeeklyVolatilityContractionBreakoutStrategyConfig | None
+    ) = None
 
     @model_validator(mode="after")
     def _check_enabled(self) -> StrategyConfig:
@@ -665,6 +778,22 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.failed_breakout_reversal config required when enabled"
+            )
+        if (
+            "weekly_cross_sectional_momentum_low_turnover" in self.enabled
+            and self.weekly_cross_sectional_momentum_low_turnover is None
+        ):
+            raise ConfigError(
+                "strategy.weekly_cross_sectional_momentum_low_turnover config "
+                "required when enabled"
+            )
+        if (
+            "weekly_volatility_contraction_breakout" in self.enabled
+            and self.weekly_volatility_contraction_breakout is None
+        ):
+            raise ConfigError(
+                "strategy.weekly_volatility_contraction_breakout config "
+                "required when enabled"
             )
         return self
 

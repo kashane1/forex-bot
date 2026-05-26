@@ -1,0 +1,4 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+USD_CHF,long,186,2023-10-06T13:00:00+00:00,2023-10-06T13:00:00+00:00,0.9168500,0.91064,0.91064,-1.268404638496002811209698673,-1.098128788544320477905648774,1,1.4,stop,next_bar_open,False,False,
+USD_CHF,long,333,2023-10-18T17:00:00+00:00,2023-10-19T13:00:00+00:00,0.8986400,0.89521,0.89521,-1.275890573161604539716937925,-1.117056333150880798918689469,6,1.4,stop,next_bar_open,False,False,
+USD_CHF,short,364,2023-12-07T14:00:00+00:00,2023-12-07T14:00:00+00:00,0.8751550,0.87822,0.87822,-1.270365056591742388012115415,-1.138666848853362483204663979,1,1.5,stop,next_bar_open,False,False,

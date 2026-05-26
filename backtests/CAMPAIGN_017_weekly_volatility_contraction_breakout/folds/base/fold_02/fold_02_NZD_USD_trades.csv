@@ -1,0 +1,6 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+NZD_USD,short,174,2023-01-03T18:00:00+00:00,2023-01-09T02:00:00+00:00,0.6238750,0.63836,0.63836,-2.5203900,-1,21,2.5,stop,next_bar_open,False,False,
+NZD_USD,short,180,2023-02-27T06:00:00+00:00,2023-03-01T10:00:00+00:00,0.6130900,0.62699,0.62699,-2.5020000,-1,14,2.2,stop,next_bar_open,False,False,
+NZD_USD,long,262,2023-05-01T13:00:00+00:00,2023-05-10T09:00:00+00:00,0.6202050,0.63782,0.61066,4.6151300,1.845468831849135673127291776,42,2.5,time,next_bar_open,False,False,
+NZD_USD,short,170,2023-05-24T05:00:00+00:00,2023-06-02T01:00:00+00:00,0.6165250,0.6091,0.63129,1.2622500,0.5028784287165594310870301388,42,2.5,time,next_bar_open,False,False,
+NZD_USD,long,204,2023-06-12T09:00:00+00:00,2023-06-14T05:00:00+00:00,0.6149250,0.61671,0.60257,0.3641400,0.1444759206798866855524079320,12,2.3,eod,next_bar_open,False,False,
