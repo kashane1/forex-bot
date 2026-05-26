@@ -86,6 +86,64 @@ def build_feature_quality_report(wide: pd.DataFrame, registry: dict[str, Any] | 
     }
 
 
+def build_enhanced_manifest(
+    wide: pd.DataFrame,
+    *,
+    status: str,
+    fred_status: str,
+    api_key_present: bool,
+    observation_start: str,
+    observation_end: str | None,
+    h4_window: dict[str, object] | None = None,
+    allow_fixture_fallback: bool,
+) -> dict[str, Any]:
+    registry = load_source_registry()
+    feature_details: dict[str, Any] = {}
+    for entry in registry["features"]:
+        fid = entry["feature_id"]
+        if fid not in wide.columns:
+            continue
+        series = wide[fid]
+        non_null = int(series.notna().sum())
+        total = len(series)
+        feature_details[fid] = {
+            "source_type": entry.get("source_type"),
+            "source_series_id": entry.get("source_series_id"),
+            "rows_total": total,
+            "missing_count": total - non_null,
+            "missing_rate_pct": round(100.0 * (total - non_null) / total, 4) if total else None,
+            "depends_on": entry.get("depends_on"),
+        }
+    return {
+        "strategy_evidence": False,
+        "diagnostic_only": True,
+        "generated_at_utc": datetime.now(tz=UTC).isoformat(),
+        "status": status,
+        "fred_status": fred_status,
+        "fred_api_key_present": api_key_present,
+        "allow_fixture_fallback": allow_fixture_fallback,
+        "observation_start": observation_start,
+        "observation_end": observation_end,
+        "h4_window": h4_window,
+        "columns": list(wide.columns),
+        "row_count": len(wide),
+        "first_date": str(wide.index.min()) if len(wide) else None,
+        "last_date": str(wide.index.max()) if len(wide) else None,
+        "features": feature_details,
+        "ingestion_timestamp_utc": datetime.now(tz=UTC).isoformat(),
+    }
+
+
+def validate_manifest(manifest: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    if manifest.get("strategy_evidence") is not False:
+        errors.append("strategy_evidence must be false")
+    for key in ("status", "observation_start", "columns", "row_count"):
+        if key not in manifest:
+            errors.append(f"missing manifest key: {key}")
+    return errors
+
+
 def normalize_from_sources(
     repo_root: Path,
     *,
@@ -93,6 +151,8 @@ def normalize_from_sources(
     cache_dir: Path | None = None,
     observation_start: str = "2019-01-01",
     observation_end: str | None = None,
+    allow_fixture_fallback: bool = True,
+    h4_window: dict[str, object] | None = None,
 ) -> tuple[pd.DataFrame, dict[str, Any], str]:
     data_dir = data_dir or repo_root / "data" / "external_features"
     cache_dir = cache_dir or data_dir / ".fred_cache"
@@ -130,28 +190,33 @@ def normalize_from_sources(
         wide = local_wide if wide.empty else wide.combine_first(local_wide)
         status = "MIXED" if status == "FRED" else "LOCAL_CSV"
 
-    if wide.empty:
+    if wide.empty and allow_fixture_fallback:
         fixture_dir = repo_root / "tests" / "fixtures" / "cross_asset"
         fixtures = load_features_from_directory(fixture_dir, source="fixture")
         wide = series_dict_to_wide(fixtures)
         status = "FIXTURE_ONLY"
+    elif wide.empty:
+        status = "BLOCKED_FULL_WINDOW"
 
     wide = compute_derived_features(wide)
-    manifest = {
-        "strategy_evidence": False,
-        "diagnostic_only": True,
-        "generated_at_utc": datetime.now(tz=UTC).isoformat(),
-        "status": status,
-        "fred_status": fred_status,
-        "fred_api_key_present": api_key is not None,
-        "observation_start": observation_start,
-        "observation_end": observation_end,
-        "columns": list(wide.columns),
-        "row_count": len(wide),
-        "first_date": str(wide.index.min()) if len(wide) else None,
-        "last_date": str(wide.index.max()) if len(wide) else None,
-    }
+    manifest = build_enhanced_manifest(
+        wide,
+        status=status,
+        fred_status=fred_status,
+        api_key_present=api_key is not None,
+        observation_start=observation_start,
+        observation_end=observation_end,
+        h4_window=h4_window,
+        allow_fixture_fallback=allow_fixture_fallback,
+    )
     return wide, manifest, status
+
+
+def normalize_from_sources_legacy(
+    repo_root: Path,
+    **kwargs: Any,
+) -> tuple[pd.DataFrame, dict[str, Any], str]:
+    return normalize_from_sources(repo_root, allow_fixture_fallback=True, **kwargs)
 
 
 def write_normalized_outputs(
@@ -160,18 +225,35 @@ def write_normalized_outputs(
     *,
     observation_start: str = "2019-01-01",
     observation_end: str | None = None,
+    allow_fixture_fallback: bool = True,
+    h4_window: dict[str, object] | None = None,
 ) -> dict[str, Path]:
     output_dir.mkdir(parents=True, exist_ok=True)
     wide, manifest, _ = normalize_from_sources(
         repo_root,
         observation_start=observation_start,
         observation_end=observation_end,
+        allow_fixture_fallback=allow_fixture_fallback,
+        h4_window=h4_window,
     )
     csv_path = output_dir / "normalized_features.csv"
-    wide.to_csv(csv_path, index_label="date")
+    if len(wide) > 0:
+        wide.to_csv(csv_path, index_label="date")
+    elif csv_path.is_file():
+        manifest["normalized_csv_note"] = "existing file retained; full-window ingest blocked"
+    else:
+        wide.to_csv(csv_path, index_label="date")
     manifest_path = output_dir / "normalized_features_manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    quality = build_feature_quality_report(wide)
+    quality = build_feature_quality_report(wide) if len(wide) else {
+        "strategy_evidence": False,
+        "diagnostic_only": True,
+        "generated_at_utc": datetime.now(tz=UTC).isoformat(),
+        "feature_count": 0,
+        "features": {},
+        "stale_gap_counts": {},
+        "note": "full-window ingest blocked; no quality metrics computed",
+    }
     quality_path = output_dir / "feature_quality_report.json"
     quality_path.write_text(json.dumps(quality, indent=2) + "\n", encoding="utf-8")
     return {
