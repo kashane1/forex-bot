@@ -1,0 +1,58 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T20:43:50.507073+00:00",
+  "data_dir": "/Users/kashane/dev/forex-bot/data/external_features",
+  "directory_exists": false,
+  "files_expected": {
+    "broad_usd_index": [
+      "broad_usd_index.csv",
+      "dxy.csv"
+    ],
+    "us_2y_yield": [
+      "us_2y_yield.csv",
+      "us2y.csv"
+    ],
+    "us_10y_yield": [
+      "us_10y_yield.csv",
+      "us10y.csv"
+    ],
+    "vix": [
+      "vix.csv"
+    ],
+    "sp500": [
+      "sp500.csv"
+    ],
+    "oil_wti": [
+      "oil_wti.csv",
+      "oil.csv"
+    ],
+    "nasdaq_composite": [
+      "nasdaq_composite.csv",
+      "nasdaq.csv"
+    ],
+    "gold": [
+      "gold.csv"
+    ],
+    "cot_eur_net": [
+      "cot_eur_net.csv"
+    ]
+  },
+  "files_found": {
+    "broad_usd_index": null,
+    "us_2y_yield": null,
+    "us_10y_yield": null,
+    "vix": null,
+    "sp500": null,
+    "oil_wti": null,
+    "nasdaq_composite": null,
+    "gold": null,
+    "cot_eur_net": null
+  },
+  "loaded_summary": {},
+  "validation_errors": {},
+  "files_present_count": 0,
+  "required_features_present": false,
+  "gold_status": "MANUAL_CSV_REQUIRED",
+  "registry_version": 1
+}
