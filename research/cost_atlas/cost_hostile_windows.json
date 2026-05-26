@@ -1,0 +1,95 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "hostile_windows": [
+    {
+      "instrument": "AUD_USD",
+      "session": "ny",
+      "weekday": null,
+      "vol_regime": null,
+      "fold_index": null,
+      "spread_to_atr_pct_median": 6.368731686061142,
+      "reasons": [
+        "elevated_p90_spread_to_atr"
+      ]
+    },
+    {
+      "instrument": "GBP_USD",
+      "session": "ny",
+      "weekday": null,
+      "vol_regime": null,
+      "fold_index": null,
+      "spread_to_atr_pct_median": 6.418695288505764,
+      "reasons": [
+        "elevated_p90_spread_to_atr"
+      ]
+    },
+    {
+      "instrument": "NZD_USD",
+      "session": "asian",
+      "weekday": null,
+      "vol_regime": null,
+      "fold_index": null,
+      "spread_to_atr_pct_median": 10.190686592358041,
+      "reasons": [
+        "top_decile_spread_to_atr"
+      ]
+    },
+    {
+      "instrument": "NZD_USD",
+      "session": "london",
+      "weekday": null,
+      "vol_regime": null,
+      "fold_index": null,
+      "spread_to_atr_pct_median": 10.146550863791157,
+      "reasons": [
+        "top_decile_spread_to_atr"
+      ]
+    },
+    {
+      "instrument": "NZD_USD",
+      "session": "ny",
+      "weekday": null,
+      "vol_regime": null,
+      "fold_index": null,
+      "spread_to_atr_pct_median": 12.137547449850318,
+      "reasons": [
+        "top_decile_spread_to_atr",
+        "elevated_p90_spread_to_atr"
+      ]
+    },
+    {
+      "instrument": "USD_CAD",
+      "session": "ny",
+      "weekday": null,
+      "vol_regime": null,
+      "fold_index": null,
+      "spread_to_atr_pct_median": 7.939565345270739,
+      "reasons": [
+        "elevated_p90_spread_to_atr"
+      ]
+    },
+    {
+      "instrument": "USD_CHF",
+      "session": "ny",
+      "weekday": null,
+      "vol_regime": null,
+      "fold_index": null,
+      "spread_to_atr_pct_median": 8.743086102170063,
+      "reasons": [
+        "elevated_p90_spread_to_atr"
+      ]
+    },
+    {
+      "instrument": "USD_JPY",
+      "session": "ny",
+      "weekday": null,
+      "vol_regime": null,
+      "fold_index": null,
+      "spread_to_atr_pct_median": 5.497430457249901,
+      "reasons": [
+        "elevated_p90_spread_to_atr"
+      ]
+    }
+  ]
+}
