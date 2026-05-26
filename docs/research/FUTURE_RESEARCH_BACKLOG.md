@@ -22,38 +22,55 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. External data credentials or manual CSV setup (RECOMMENDED NEXT SPRINT)
+## 0. Gold manual CSV or COT design advance (RECOMMENDED NEXT SPRINT)
 
-- **Why it matters.** Full-window pipeline is built but **FRED_API_KEY absent**
-  and `data/external_features/` empty. `cross_asset_missing` remains **2,142**.
-  Operator must configure FRED auth or drop 2018+ CSVs.
-- **Sprint name.** `infra-external-data-credentials-or-manual-csv-setup-001`
-- **Scope.** Operator action sprint: set `FRED_API_KEY`, re-run
-  `scripts/run_external_data_full_window_pipeline.py`, verify `cross_asset_missing`
-  decreases. No broker order APIs.
-- **Status.** **RECOMMENDED — BLOCKED ON OPERATOR AUTH/DATA.**
+- **Why it matters.** FRED full-window ingest **succeeded**; `cross_asset_missing`
+  eliminated (2,142 → 0). Remaining gaps: gold (`MANUAL_CSV_REQUIRED`), COT
+  (`DESIGN_ONLY`).
+- **Sprint name.** `infra-gold-manual-csv-or-cot-design-001`
+- **Scope.** Optional gold CSV drop in `data/external_features/`, and/or COT
+  design advance. No broker order APIs. No strategy campaigns.
+- **Status.** **RECOMMENDED — FRED BLOCKER RESOLVED.**
 
 ---
 
-## 0-complete. External data ingest blocker resolution (COMPLETE)
+## 0-complete. External data credentials setup (COMPLETE)
+
+- **Sprint.** operator action — `FRED_API_KEY` configured locally
+- **Delivered.** Full-window FRED fetch (7 series, 2,148 daily rows), H4 alignment
+  100% coverage, `cross_asset_missing` eliminated.
+- **Summary.** [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md)
+- **Status.** **COMPLETE** — FRED auth resolved; data ingested.
+
+---
+
+## 0-complete-prior. External data ingest blocker resolution (COMPLETE)
 
 - **Sprint.** `infra-external-data-ingest-blocker-resolution-001`
 - **Delivered.** H4-aware observation window, full-window pipeline, fetch status
   reporting, local CSV template/validation, enhanced manifest, alignment audit,
   diagnostic re-run.
 - **Summary.** [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md)
-- **Status.** **COMPLETE** — pipeline ready; FRED auth still blocked.
+- **Status.** **COMPLETE** — FRED ingest succeeded after operator auth.
+
+---
+
+## 0-superseded. External data credentials or manual CSV setup (SUPERSEDED)
+
+- **Sprint name.** `infra-external-data-credentials-or-manual-csv-setup-001`
+- **Status.** **SUPERSEDED** — FRED auth configured; full-window ingest complete.
+
+---
 
 ---
 
 ## 0-complete-prior. Cross-asset real-data ingest (COMPLETE)
 
 - **Sprint.** `infra-cross-asset-real-data-ingest-001`
-- **Delivered.** Source registry, FRED fetcher (blocked without key), local CSV
-  loader, normalization, derived features, H4 availability alignment, COT design,
-  diagnostic re-run.
+- **Delivered.** Source registry, FRED fetcher, local CSV loader, normalization,
+  derived features, H4 availability alignment, COT design, diagnostic re-run.
 - **Summary.** [`INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md`](INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md)
-- **Status.** **COMPLETE** — pipeline ready; full-window data still blocked.
+- **Status.** **COMPLETE** — superseded by full-window FRED ingest.
 
 ---
 

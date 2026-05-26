@@ -1,7 +1,7 @@
 {
   "strategy_evidence": false,
   "diagnostic_only": true,
-  "generated_at_utc": "2026-05-26T20:46:10.626042+00:00",
+  "generated_at_utc": "2026-05-26T22:47:40.653328+00:00",
   "contexts_evaluated": 6916,
   "instruments": [
     "EUR_USD",
@@ -14,10 +14,10 @@
   ],
   "sample_every_bars": 20,
   "grade_distribution": {
-    "B": 4842,
-    "A": 1527,
-    "REJECT": 394,
-    "C": 153
+    "B": 3580,
+    "A": 2203,
+    "C": 739,
+    "REJECT": 394
   },
   "top_reason_codes": [
     [
@@ -26,19 +26,23 @@
     ],
     [
       "grade_b",
-      4842
+      3580
     ],
     [
       "usd_headwind",
-      2387
-    ],
-    [
-      "cross_asset_missing",
-      2142
+      3458
     ],
     [
       "grade_a",
-      1527
+      2203
+    ],
+    [
+      "risk_off_headwind",
+      764
+    ],
+    [
+      "grade_c",
+      739
     ],
     [
       "mixed_htf",
@@ -47,10 +51,6 @@
     [
       "cost_hostile",
       394
-    ],
-    [
-      "grade_c",
-      153
     ]
   ],
   "missing_data_notes": [],
@@ -70,23 +70,19 @@
       "h4_setup": "pullback",
       "h1_trigger": "unknown",
       "cross_asset_state": {
-        "usd_regime": "unknown",
-        "risk_regime": "unknown",
-        "rates_bias": "unknown",
+        "usd_regime": "strengthening",
+        "risk_regime": "risk_on",
+        "rates_bias": "higher",
         "gold_confirm": null,
         "oil_confirm": null,
-        "missing_features": [
-          "dxy",
-          "vix",
-          "us10y"
-        ]
+        "missing_features": []
       },
       "cost_state": "marginal",
       "spread_to_atr_pct": 10.077555186706531,
       "divergence_flag": "none",
       "reason_codes": [
         "d1_aligned",
-        "cross_asset_missing",
+        "usd_headwind",
         "grade_b"
       ],
       "strategy_evidence": false
@@ -102,23 +98,18 @@
       "h4_setup": "pullback",
       "h1_trigger": "unknown",
       "cross_asset_state": {
-        "usd_regime": "unknown",
-        "risk_regime": "unknown",
-        "rates_bias": "unknown",
+        "usd_regime": "strengthening",
+        "risk_regime": "risk_on",
+        "rates_bias": "higher",
         "gold_confirm": null,
         "oil_confirm": null,
-        "missing_features": [
-          "dxy",
-          "vix",
-          "us10y"
-        ]
+        "missing_features": []
       },
       "cost_state": "marginal",
       "spread_to_atr_pct": 10.077555186706531,
       "divergence_flag": "none",
       "reason_codes": [
         "d1_aligned",
-        "cross_asset_missing",
         "grade_b"
       ],
       "strategy_evidence": false
@@ -134,23 +125,19 @@
       "h4_setup": "pullback",
       "h1_trigger": "unknown",
       "cross_asset_state": {
-        "usd_regime": "unknown",
-        "risk_regime": "unknown",
-        "rates_bias": "unknown",
+        "usd_regime": "strengthening",
+        "risk_regime": "risk_on",
+        "rates_bias": "higher",
         "gold_confirm": null,
         "oil_confirm": null,
-        "missing_features": [
-          "dxy",
-          "vix",
-          "us10y"
-        ]
+        "missing_features": []
       },
       "cost_state": "acceptable",
       "spread_to_atr_pct": 6.741974612918766,
       "divergence_flag": "none",
       "reason_codes": [
         "d1_aligned",
-        "cross_asset_missing",
+        "usd_headwind",
         "grade_b"
       ],
       "strategy_evidence": false
@@ -159,31 +146,26 @@
       "instrument": "EUR_USD",
       "bar_time": "2020-01-24 14:00:00+00:00",
       "side": "short",
-      "grade": "B",
+      "grade": "A",
       "alignment": "aligned",
       "w1_state": "range",
       "d1_state": "range",
       "h4_setup": "pullback",
       "h1_trigger": "unknown",
       "cross_asset_state": {
-        "usd_regime": "unknown",
-        "risk_regime": "unknown",
-        "rates_bias": "unknown",
+        "usd_regime": "strengthening",
+        "risk_regime": "risk_on",
+        "rates_bias": "higher",
         "gold_confirm": null,
         "oil_confirm": null,
-        "missing_features": [
-          "dxy",
-          "vix",
-          "us10y"
-        ]
+        "missing_features": []
       },
       "cost_state": "acceptable",
       "spread_to_atr_pct": 6.741974612918766,
       "divergence_flag": "none",
       "reason_codes": [
         "d1_aligned",
-        "cross_asset_missing",
-        "grade_b"
+        "grade_a"
       ],
       "strategy_evidence": false
     },
@@ -198,23 +180,19 @@
       "h4_setup": "pullback",
       "h1_trigger": "unknown",
       "cross_asset_state": {
-        "usd_regime": "unknown",
-        "risk_regime": "unknown",
-        "rates_bias": "unknown",
+        "usd_regime": "strengthening",
+        "risk_regime": "risk_on",
+        "rates_bias": "flat",
         "gold_confirm": null,
         "oil_confirm": null,
-        "missing_features": [
-          "dxy",
-          "vix",
-          "us10y"
-        ]
+        "missing_features": []
       },
       "cost_state": "marginal",
       "spread_to_atr_pct": 9.440584993904084,
       "divergence_flag": "none",
       "reason_codes": [
         "d1_aligned",
-        "cross_asset_missing",
+        "usd_headwind",
         "grade_b"
       ],
       "strategy_evidence": false
@@ -230,23 +208,18 @@
       "h4_setup": "pullback",
       "h1_trigger": "unknown",
       "cross_asset_state": {
-        "usd_regime": "unknown",
-        "risk_regime": "unknown",
-        "rates_bias": "unknown",
+        "usd_regime": "strengthening",
+        "risk_regime": "risk_on",
+        "rates_bias": "flat",
         "gold_confirm": null,
         "oil_confirm": null,
-        "missing_features": [
-          "dxy",
-          "vix",
-          "us10y"
-        ]
+        "missing_features": []
       },
       "cost_state": "marginal",
       "spread_to_atr_pct": 9.440584993904084,
       "divergence_flag": "none",
       "reason_codes": [
         "d1_aligned",
-        "cross_asset_missing",
         "grade_b"
       ],
       "strategy_evidence": false
@@ -262,23 +235,19 @@
       "h4_setup": "pullback",
       "h1_trigger": "unknown",
       "cross_asset_state": {
-        "usd_regime": "unknown",
-        "risk_regime": "unknown",
-        "rates_bias": "unknown",
+        "usd_regime": "strengthening",
+        "risk_regime": "risk_on",
+        "rates_bias": "flat",
         "gold_confirm": null,
         "oil_confirm": null,
-        "missing_features": [
-          "dxy",
-          "vix",
-          "us10y"
-        ]
+        "missing_features": []
       },
       "cost_state": "marginal",
       "spread_to_atr_pct": 9.230792545322743,
       "divergence_flag": "none",
       "reason_codes": [
         "d1_aligned",
-        "cross_asset_missing",
+        "usd_headwind",
         "grade_b"
       ],
       "strategy_evidence": false
@@ -294,23 +263,18 @@
       "h4_setup": "pullback",
       "h1_trigger": "unknown",
       "cross_asset_state": {
-        "usd_regime": "unknown",
-        "risk_regime": "unknown",
-        "rates_bias": "unknown",
+        "usd_regime": "strengthening",
+        "risk_regime": "risk_on",
+        "rates_bias": "flat",
         "gold_confirm": null,
         "oil_confirm": null,
-        "missing_features": [
-          "dxy",
-          "vix",
-          "us10y"
-        ]
+        "missing_features": []
       },
       "cost_state": "marginal",
       "spread_to_atr_pct": 9.230792545322743,
       "divergence_flag": "none",
       "reason_codes": [
         "d1_aligned",
-        "cross_asset_missing",
         "grade_b"
       ],
       "strategy_evidence": false

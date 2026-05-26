@@ -1,9 +1,9 @@
 {
   "strategy_evidence": false,
   "diagnostic_only": true,
-  "generated_at_utc": "2026-05-26T20:43:50.507073+00:00",
+  "generated_at_utc": "2026-05-26T22:45:14.073855+00:00",
   "data_dir": "/Users/kashane/dev/forex-bot/data/external_features",
-  "directory_exists": false,
+  "directory_exists": true,
   "files_expected": {
     "broad_usd_index": [
       "broad_usd_index.csv",

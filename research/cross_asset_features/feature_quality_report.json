@@ -1,9 +1,118 @@
 {
   "strategy_evidence": false,
   "diagnostic_only": true,
-  "generated_at_utc": "2026-05-26T20:43:50.509027+00:00",
-  "feature_count": 0,
-  "features": {},
-  "stale_gap_counts": {},
-  "note": "full-window ingest blocked; no quality metrics computed"
+  "generated_at_utc": "2026-05-26T22:45:15.818123+00:00",
+  "feature_count": 12,
+  "features": {
+    "oil_wti": {
+      "rows_total": 2148,
+      "rows_non_null": 2093,
+      "first": "2018-01-02 00:00:00+00:00",
+      "last": "2026-05-18 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 0
+    },
+    "us_10y_yield": {
+      "rows_total": 2148,
+      "rows_non_null": 2098,
+      "first": "2018-01-02 00:00:00+00:00",
+      "last": "2026-05-22 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 0
+    },
+    "us_2y_yield": {
+      "rows_total": 2148,
+      "rows_non_null": 2098,
+      "first": "2018-01-02 00:00:00+00:00",
+      "last": "2026-05-22 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 0
+    },
+    "broad_usd_index": {
+      "rows_total": 2148,
+      "rows_non_null": 2094,
+      "first": "2018-01-02 00:00:00+00:00",
+      "last": "2026-05-22 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 0
+    },
+    "nasdaq_composite": {
+      "rows_total": 2148,
+      "rows_non_null": 2110,
+      "first": "2018-01-02 00:00:00+00:00",
+      "last": "2026-05-22 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 0
+    },
+    "sp500": {
+      "rows_total": 2148,
+      "rows_non_null": 2109,
+      "first": "2018-01-02 00:00:00+00:00",
+      "last": "2026-05-22 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 0
+    },
+    "vix": {
+      "rows_total": 2148,
+      "rows_non_null": 2138,
+      "first": "2018-01-02 00:00:00+00:00",
+      "last": "2026-05-22 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 0
+    },
+    "us_10y_minus_2y": {
+      "rows_total": 2148,
+      "rows_non_null": 2098,
+      "first": "2018-01-02 00:00:00+00:00",
+      "last": "2026-05-22 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 0
+    },
+    "broad_usd_index_1d_change": {
+      "rows_total": 2148,
+      "rows_non_null": 2039,
+      "first": "2018-01-03 00:00:00+00:00",
+      "last": "2026-05-22 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 2
+    },
+    "vix_1d_change": {
+      "rows_total": 2148,
+      "rows_non_null": 2127,
+      "first": "2018-01-03 00:00:00+00:00",
+      "last": "2026-05-22 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 0
+    },
+    "sp500_1d_return": {
+      "rows_total": 2148,
+      "rows_non_null": 2069,
+      "first": "2018-01-03 00:00:00+00:00",
+      "last": "2026-05-22 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 0
+    },
+    "oil_wti_1d_return": {
+      "rows_total": 2148,
+      "rows_non_null": 2041,
+      "first": "2018-01-03 00:00:00+00:00",
+      "last": "2026-05-18 00:00:00+00:00",
+      "max_staleness_days": 5,
+      "stale_gap_count": 6
+    }
+  },
+  "stale_gap_counts": {
+    "oil_wti": 0,
+    "us_10y_yield": 0,
+    "us_2y_yield": 0,
+    "broad_usd_index": 0,
+    "nasdaq_composite": 0,
+    "sp500": 0,
+    "vix": 0,
+    "us_10y_minus_2y": 0,
+    "broad_usd_index_1d_change": 2,
+    "vix_1d_change": 0,
+    "sp500_1d_return": 0,
+    "oil_wti_1d_return": 6
+  }
 }

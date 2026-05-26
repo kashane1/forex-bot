@@ -86,8 +86,18 @@ def test_derived_feature_math() -> None:
     assert float(out.loc[out.index[1], "broad_usd_index_1d_change"]) == pytest.approx(1.0)
 
 
-def test_normalize_from_fixtures_only(tmp_path: Path) -> None:
-    wide, manifest, status = normalize_from_sources(REPO_ROOT, data_dir=tmp_path / "empty")
+def test_normalize_from_fixtures_only(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(
+        "research.cross_asset_features.normalizer.get_fred_api_key",
+        lambda: None,
+    )
+    wide, manifest, status = normalize_from_sources(
+        REPO_ROOT,
+        data_dir=tmp_path / "empty",
+        cache_dir=tmp_path / "empty" / ".fred_cache",
+    )
     assert status == "FIXTURE_ONLY"
     assert "broad_usd_index" in wide.columns
     assert manifest["strategy_evidence"] is False

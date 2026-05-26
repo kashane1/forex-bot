@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from unittest.mock import patch
 
+import pytest
 from research.cross_asset_features.normalizer import (
     normalize_from_sources,
     validate_manifest,
@@ -12,6 +14,15 @@ from research.cross_asset_features.normalizer import (
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+
+
+@pytest.fixture
+def no_fred_key() -> None:
+    with patch(
+        "research.cross_asset_features.normalizer.get_fred_api_key",
+        return_value=None,
+    ):
+        yield
 
 
 def test_validate_manifest() -> None:
@@ -25,10 +36,13 @@ def test_validate_manifest() -> None:
     assert validate_manifest(manifest) == []
 
 
-def test_blocked_full_window_no_fixture_fallback(tmp_path: Path) -> None:
+def test_blocked_full_window_no_fixture_fallback(
+    tmp_path: Path, no_fred_key: None
+) -> None:
     wide, manifest, status = normalize_from_sources(
         REPO_ROOT,
         data_dir=tmp_path / "empty",
+        cache_dir=tmp_path / "empty" / ".fred_cache",
         allow_fixture_fallback=False,
         observation_start="2018-01-01",
         observation_end="2026-05-24",
@@ -38,10 +52,11 @@ def test_blocked_full_window_no_fixture_fallback(tmp_path: Path) -> None:
     assert validate_manifest(manifest) == []
 
 
-def test_derived_features_with_fixtures() -> None:
+def test_derived_features_with_fixtures(tmp_path: Path, no_fred_key: None) -> None:
     wide, manifest, status = normalize_from_sources(
         REPO_ROOT,
-        data_dir=REPO_ROOT / "data" / "nope",
+        data_dir=tmp_path / "empty",
+        cache_dir=tmp_path / "empty" / ".fred_cache",
         allow_fixture_fallback=True,
     )
     assert status == "FIXTURE_ONLY"

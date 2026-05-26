@@ -1,9 +1,9 @@
 reason_code,count
 d1_aligned,6422
-grade_b,4842
-usd_headwind,2387
-cross_asset_missing,2142
-grade_a,1527
+grade_b,3580
+usd_headwind,3458
+grade_a,2203
+risk_off_headwind,764
+grade_c,739
 mixed_htf,494
 cost_hostile,394
-grade_c,153

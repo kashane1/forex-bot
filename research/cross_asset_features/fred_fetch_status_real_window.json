@@ -1,14 +1,71 @@
 {
   "strategy_evidence": false,
   "diagnostic_only": true,
-  "generated_at_utc": "2026-05-26T20:43:50.506445+00:00",
-  "overall_status": "BLOCKED_AUTH_OR_LOCAL_CSV_REQUIRED",
-  "fred_api_key_present": false,
+  "generated_at_utc": "2026-05-26T22:45:14.072989+00:00",
+  "overall_status": "OK",
+  "fred_api_key_present": true,
   "observation_start": "2018-01-01",
   "observation_end": "2026-05-24",
   "h4_research_first_bar": "2020-01-01 22:00:00+00:00",
   "h4_research_last_bar": "2026-05-24 21:00:00+00:00",
-  "series": [],
-  "required_series_complete": false,
+  "series": [
+    {
+      "feature_id": "broad_usd_index",
+      "series_id": "DTWEXBGS",
+      "status": "ok",
+      "rows": 2094,
+      "message": "",
+      "required": true
+    },
+    {
+      "feature_id": "us_2y_yield",
+      "series_id": "DGS2",
+      "status": "ok",
+      "rows": 2098,
+      "message": "",
+      "required": true
+    },
+    {
+      "feature_id": "us_10y_yield",
+      "series_id": "DGS10",
+      "status": "ok",
+      "rows": 2098,
+      "message": "",
+      "required": true
+    },
+    {
+      "feature_id": "vix",
+      "series_id": "VIXCLS",
+      "status": "ok",
+      "rows": 2138,
+      "message": "",
+      "required": true
+    },
+    {
+      "feature_id": "sp500",
+      "series_id": "SP500",
+      "status": "ok",
+      "rows": 2109,
+      "message": "",
+      "required": true
+    },
+    {
+      "feature_id": "oil_wti",
+      "series_id": "DCOILWTICO",
+      "status": "ok",
+      "rows": 2093,
+      "message": "",
+      "required": true
+    },
+    {
+      "feature_id": "nasdaq_composite",
+      "series_id": "NASDAQCOM",
+      "status": "ok",
+      "rows": 2110,
+      "message": "",
+      "required": false
+    }
+  ],
+  "required_series_complete": true,
   "explicit_disclaimer": "Diagnostic data-readiness only. Not strategy evidence. No win-rate or expectancy claims."
 }

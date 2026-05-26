@@ -17,8 +17,8 @@
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "infra-external-data-credentials-or-manual-csv-setup-001",
-    "next_non_strategy_sprint_status": "RECOMMENDED_FRED_AUTH_BLOCKED",
+    "next_non_strategy_sprint": "infra-gold-manual-csv-or-cot-design-001",
+    "next_non_strategy_sprint_status": "RECOMMENDED_FRED_RESOLVED",
     "completed_non_strategy_sprint": "infra-external-data-ingest-blocker-resolution-001",
     "prior_completed_non_strategy_sprint": "infra-cross-asset-real-data-ingest-001",
     "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
@@ -35,7 +35,7 @@
     "campaign_018_created": false,
     "implementation_sprint_started": true,
     "implementation_sprint_completed": "infra-multi-timeframe-confluence-and-cost-atlas-001",
-    "recommended_next_implementation_sprint": "infra-external-data-credentials-or-manual-csv-setup-001",
+    "recommended_next_implementation_sprint": "infra-gold-manual-csv-or-cot-design-001",
     "recommended_implementation_scope": [
       "cost_atlas_spread_diagnostics",
       "multi_timeframe_confluence_prototype",
@@ -64,8 +64,8 @@
     "cross_asset_module": "research/cross_asset_features",
     "diagnostics_dir": "research/confluence_diagnostics",
     "validation_protocol_doc": "docs/research/HIGH_PROBABILITY_TRADE_VALIDATION_PROTOCOL.md",
-    "recommended_next_sprint": "infra-external-data-credentials-or-manual-csv-setup-001",
-    "cross_asset_data_status": "BLOCKED_FULL_WINDOW_FRED_AUTH"
+    "recommended_next_sprint": "infra-gold-manual-csv-or-cot-design-001",
+    "cross_asset_data_status": "REAL_DATA_NORMALIZED_FULL_WINDOW"
   },
   "infra_external_data_blocker_resolution": {
     "sprint": "INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001",
@@ -76,12 +76,13 @@
     "executor_changed": false,
     "plan_doc": "docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_PLAN.md",
     "summary_doc": "docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md",
-    "fred_api_key_present": false,
-    "fred_fetch_status": "BLOCKED_AUTH_OR_LOCAL_CSV_REQUIRED",
-    "cross_asset_missing_decreased": false,
-    "cross_asset_missing_count": 2142,
+    "fred_api_key_present": true,
+    "fred_fetch_status": "OK",
+    "cross_asset_missing_decreased": true,
+    "cross_asset_missing_count": 0,
+    "cross_asset_missing_prior_count": 2142,
     "cot_status": "DESIGN_ONLY",
-    "recommended_next_sprint": "infra-external-data-credentials-or-manual-csv-setup-001"
+    "recommended_next_sprint": "infra-gold-manual-csv-or-cot-design-001"
   },
   "infra_cross_asset_real_data_ingest": {
     "sprint": "INFRA_CROSS_ASSET_REAL_DATA_INGEST_001",
@@ -1101,7 +1102,7 @@
       "artifact_id": "FRED_FETCH_STATUS_REAL_WINDOW",
       "path": "research/cross_asset_features/fred_fetch_status_real_window.json",
       "kind": "research_infrastructure",
-      "description": "FRED fetch status for 2018-2026 observation window. BLOCKED without API key. strategy_evidence: false.",
+      "description": "FRED fetch status for 2018-2026 observation window. OK — all series fetched. strategy_evidence: false.",
       "strategy_evidence": false
     },
     {
@@ -1115,7 +1116,7 @@
       "artifact_id": "CONFLUENCE_DIAGNOSTIC_FULL_WINDOW_CROSS_ASSET",
       "path": "research/confluence_diagnostics/confluence_diagnostic_summary_full_window_cross_asset.json",
       "kind": "research_infrastructure",
-      "description": "Confluence diagnostics after full-window pipeline attempt. cross_asset_missing unchanged. strategy_evidence: false.",
+      "description": "Confluence diagnostics after full-window FRED ingest. cross_asset_missing eliminated (2142 to 0). strategy_evidence: false.",
       "strategy_evidence": false
     },
     {
@@ -1129,7 +1130,7 @@
       "artifact_id": "INFRA_EXTERNAL_DATA_BLOCKER_RESOLUTION_001_SUMMARY",
       "path": "docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md",
       "kind": "research_infrastructure",
-      "description": "Close-out for infra-external-data-ingest-blocker-resolution-001. FRED still blocked. strategy_evidence: false.",
+      "description": "Close-out for infra-external-data-ingest-blocker-resolution-001. FRED ingest succeeded; cross_asset_missing eliminated. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]

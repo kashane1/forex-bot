@@ -10,8 +10,8 @@ map; the linked documents are the authoritative evidence.
 > Broad seven-pair pattern strategy search is **paused** (2026-05-26).
 > Trade-quality infrastructure sprint **complete** (cost atlas, MTF
 > confluence prototype, cross-asset scaffolding — diagnostic only).
-> Cross-asset **blocker-resolution sprint** complete (full-window pipeline
-> ready; FRED auth still blocked). See
+> Cross-asset **blocker-resolution sprint** complete (full-window FRED ingest
+> succeeded; `cross_asset_missing` eliminated). See
 > `docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`.
 > See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
@@ -49,15 +49,14 @@ map; the linked documents are the authoritative evidence.
 ## Infra external data blocker resolution (INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001)
 
 > **Implementation infrastructure / data only** — `strategy_evidence: false`. No
-> strategy approved. No CAMPAIGN_018. FRED fetch **still blocked** without API key;
-> `cross_asset_missing` unchanged at 2,142. Recommended next sprint:
-> `infra-external-data-credentials-or-manual-csv-setup-001`.
+> strategy approved. No CAMPAIGN_018. FRED full-window ingest **succeeded**;
+> `cross_asset_missing` eliminated (2,142 → 0). Remaining: gold CSV, COT design.
 
 | document | purpose |
 |---|---|
 | [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_PLAN.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_PLAN.md) | Sprint plan and truth audit |
 | [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md) | Sprint close-out |
-| [`EXTERNAL_DATA_INGEST_STILL_BLOCKED.md`](EXTERNAL_DATA_INGEST_STILL_BLOCKED.md) | Operator setup when FRED blocked |
+| [`EXTERNAL_DATA_INGEST_STILL_BLOCKED.md`](EXTERNAL_DATA_INGEST_STILL_BLOCKED.md) | Operator setup guide (superseded for FRED; gold/COT still apply) |
 | [`FRED_REAL_WINDOW_FETCH_RESULT.md`](FRED_REAL_WINDOW_FETCH_RESULT.md) | Full-window fetch result |
 | [`EXTERNAL_FEATURE_LOCAL_CSV_TEMPLATE.md`](EXTERNAL_FEATURE_LOCAL_CSV_TEMPLATE.md) | Manual CSV drop template |
 | [`CROSS_ASSET_H4_ALIGNMENT_AUDIT_FULL_WINDOW.md`](CROSS_ASSET_H4_ALIGNMENT_AUDIT_FULL_WINDOW.md) | Full-window alignment audit |

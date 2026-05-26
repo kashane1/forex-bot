@@ -1,17 +1,17 @@
 {
   "strategy_evidence": false,
   "diagnostic_only": true,
-  "generated_at_utc": "2026-05-26T20:43:50.508823+00:00",
-  "status": "BLOCKED_FULL_WINDOW",
-  "fred_status": "SKIPPED_NO_KEY",
-  "fred_api_key_present": false,
+  "generated_at_utc": "2026-05-26T22:45:15.794256+00:00",
+  "status": "FRED",
+  "fred_status": "OK",
+  "fred_api_key_present": true,
   "allow_fixture_fallback": false,
   "observation_start": "2018-01-01",
   "observation_end": "2026-05-24",
   "h4_window": {
     "strategy_evidence": false,
     "diagnostic_only": true,
-    "generated_at_utc": "2026-05-26T20:43:50.504287+00:00",
+    "generated_at_utc": "2026-05-26T22:45:09.593762+00:00",
     "h4_first_bar": "2020-01-01 22:00:00+00:00",
     "h4_last_bar": "2026-05-24 21:00:00+00:00",
     "h4_bar_count_max_per_pair": 9953,
@@ -19,11 +19,131 @@
     "observation_end": "2026-05-24",
     "warmup_rationale": "Observation start 2018-01-01 provides warmup before H4 research start 2020-01-01 22:00:00+00:00 for derived 1d features."
   },
-  "columns": [],
-  "row_count": 0,
-  "first_date": null,
-  "last_date": null,
-  "features": {},
-  "ingestion_timestamp_utc": "2026-05-26T20:43:50.508828+00:00",
-  "normalized_csv_note": "existing file retained; full-window ingest blocked"
+  "columns": [
+    "oil_wti",
+    "us_10y_yield",
+    "us_2y_yield",
+    "broad_usd_index",
+    "nasdaq_composite",
+    "sp500",
+    "vix",
+    "us_10y_minus_2y",
+    "broad_usd_index_1d_change",
+    "vix_1d_change",
+    "sp500_1d_return",
+    "oil_wti_1d_return"
+  ],
+  "row_count": 2148,
+  "first_date": "2018-01-02 00:00:00+00:00",
+  "last_date": "2026-05-22 00:00:00+00:00",
+  "features": {
+    "broad_usd_index": {
+      "source_type": "fred_api",
+      "source_series_id": "DTWEXBGS",
+      "rows_total": 2148,
+      "missing_count": 54,
+      "missing_rate_pct": 2.514,
+      "depends_on": null
+    },
+    "us_2y_yield": {
+      "source_type": "fred_api",
+      "source_series_id": "DGS2",
+      "rows_total": 2148,
+      "missing_count": 50,
+      "missing_rate_pct": 2.3277,
+      "depends_on": null
+    },
+    "us_10y_yield": {
+      "source_type": "fred_api",
+      "source_series_id": "DGS10",
+      "rows_total": 2148,
+      "missing_count": 50,
+      "missing_rate_pct": 2.3277,
+      "depends_on": null
+    },
+    "us_10y_minus_2y": {
+      "source_type": "derived",
+      "source_series_id": null,
+      "rows_total": 2148,
+      "missing_count": 50,
+      "missing_rate_pct": 2.3277,
+      "depends_on": [
+        "us_10y_yield",
+        "us_2y_yield"
+      ]
+    },
+    "vix": {
+      "source_type": "fred_api",
+      "source_series_id": "VIXCLS",
+      "rows_total": 2148,
+      "missing_count": 10,
+      "missing_rate_pct": 0.4655,
+      "depends_on": null
+    },
+    "sp500": {
+      "source_type": "fred_api",
+      "source_series_id": "SP500",
+      "rows_total": 2148,
+      "missing_count": 39,
+      "missing_rate_pct": 1.8156,
+      "depends_on": null
+    },
+    "oil_wti": {
+      "source_type": "fred_api",
+      "source_series_id": "DCOILWTICO",
+      "rows_total": 2148,
+      "missing_count": 55,
+      "missing_rate_pct": 2.5605,
+      "depends_on": null
+    },
+    "nasdaq_composite": {
+      "source_type": "fred_api",
+      "source_series_id": "NASDAQCOM",
+      "rows_total": 2148,
+      "missing_count": 38,
+      "missing_rate_pct": 1.7691,
+      "depends_on": null
+    },
+    "broad_usd_index_1d_change": {
+      "source_type": "derived",
+      "source_series_id": null,
+      "rows_total": 2148,
+      "missing_count": 109,
+      "missing_rate_pct": 5.0745,
+      "depends_on": [
+        "broad_usd_index"
+      ]
+    },
+    "vix_1d_change": {
+      "source_type": "derived",
+      "source_series_id": null,
+      "rows_total": 2148,
+      "missing_count": 21,
+      "missing_rate_pct": 0.9777,
+      "depends_on": [
+        "vix"
+      ]
+    },
+    "sp500_1d_return": {
+      "source_type": "derived",
+      "source_series_id": null,
+      "rows_total": 2148,
+      "missing_count": 79,
+      "missing_rate_pct": 3.6778,
+      "depends_on": [
+        "sp500"
+      ]
+    },
+    "oil_wti_1d_return": {
+      "source_type": "derived",
+      "source_series_id": null,
+      "rows_total": 2148,
+      "missing_count": 107,
+      "missing_rate_pct": 4.9814,
+      "depends_on": [
+        "oil_wti"
+      ]
+    }
+  },
+  "ingestion_timestamp_utc": "2026-05-26T22:45:15.794322+00:00"
 }

@@ -16,8 +16,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 FIXTURE_DIR = REPO_ROOT / "tests" / "fixtures" / "cross_asset"
 
 
-def test_scan_missing_directory() -> None:
-    report = scan_local_csv_directory(REPO_ROOT / "data" / "nope")
+def test_scan_missing_directory(tmp_path: Path) -> None:
+    report = scan_local_csv_directory(tmp_path / "nonexistent")
     assert report["directory_exists"] is False
     assert report["files_present_count"] == 0
 

@@ -8,103 +8,80 @@
 
 ---
 
-## 1. Branch name
-
-`infra-external-data-ingest-blocker-resolution-001`
-
-## 2. Commit hashes by phase
+## 1. Commit hash(es) added after FRED key was configured
 
 | phase | commit | message |
 |---:|---|---|
-| 0 | `5a53130` | docs: phase 0 blocker resolution sprint truth audit and plan |
-| 1 | `be10f04` | infra: phase 1 FRED full-window fetch blocked on missing API key |
-| 2 | `52ea0ee` | infra: phase 2 local CSV fallback validation and manual drop template |
-| 3 | `81fb70b` | infra: phase 3 enhanced normalization manifest and blocked full-window status |
-| 4 | `77f47f4` | infra: phase 4 full-window H4 alignment audit with coverage by year |
-| 5 | `4d95c58` | infra: phase 5 full-window confluence diagnostics show unchanged missing rate |
-| 7 | *(next commit)* | docs: phase 7 archive and backlog updates |
-| 8 | *(this commit)* | docs: phase 8 final summary and validation close-out |
+| prior (blocked) | `5a53130` … `4d95c58` | phases 0–5 — pipeline built, FRED blocked |
+| *(this commit)* | *(pending)* | infra: FRED full-window ingest succeeded; cross_asset_missing eliminated |
 
-Phase 6: no COT code changes — status remains **DESIGN_ONLY** (no commit).
+## 2. FRED_API_KEY present?
 
-## 3. Files changed by phase
+**Yes** — verified via environment and dotenv; value never printed or committed.
 
-| phase | key paths |
-|---:|---|
-| 0 | `INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_PLAN.md` |
-| 1 | `fred.py`, `research_window.py`, fetch/pipeline scripts, fetch status JSON, blocked docs |
-| 2 | `local_csv_fallback.py`, CSV template, fallback status JSON, tests |
-| 3 | `normalizer.py` (enhanced manifest), manifest/quality JSON updates, manifest tests |
-| 4 | `alignment.py` (coverage by year), full-window alignment audit, H4 JSON/CSV |
-| 5 | full-window diagnostic JSON/CSV, diagnostic impact doc |
-| 7 | `EVIDENCE_INDEX.md`, `FUTURE_RESEARCH_BACKLOG.md`, `EVIDENCE_MANIFEST.json` |
-| 8 | this summary |
+## 3. FRED series succeeded
 
-## 4. FRED_API_KEY present?
+All 7 registry series for window 2018-01-01 → 2026-05-24:
 
-**No** — checked via environment and dotenv; value never printed.
+| feature_id | FRED ID | rows |
+|---|---|---:|
+| broad_usd_index | DTWEXBGS | 2,094 |
+| us_2y_yield | DGS2 | 2,098 |
+| us_10y_yield | DGS10 | 2,098 |
+| vix | VIXCLS | 2,138 |
+| sp500 | SP500 | 2,109 |
+| oil_wti | DCOILWTICO | 2,093 |
+| nasdaq_composite | NASDAQCOM | 2,110 |
 
-## 5. Target date range
+## 4. FRED series failed and why
 
-| parameter | value |
-|---|---|
-| Observation start | 2018-01-01 |
-| Observation end | 2026-05-24 |
-| H4 research window | 2020-01-01 22:00 UTC → 2026-05-24 21:00 UTC |
+**None** — all required and optional series fetched successfully.
 
-## 6. FRED series attempted
+## 5. Features normalized
 
-All registry `fred_api` series for window 2018-01-01 → 2026-05-24: DTWEXBGS, DGS2, DGS10, VIXCLS, SP500, DCOILWTICO, NASDAQCOM.
+12 columns in `normalized_features.csv`: 7 FRED base + 5 derived. **2,148 daily rows** (2018-01-02 → 2026-05-22). Manifest status: **FRED**.
 
-## 7. FRED series succeeded
+## 6. Derived features created
 
-**None** — live fetch did not run (auth blocked).
+`us_10y_minus_2y`, `broad_usd_index_1d_change`, `vix_1d_change`, `sp500_1d_return`, `oil_wti_1d_return`.
 
-## 8. FRED series failed/blocked and why
+## 7. Feature quality status
 
-All required series: **BLOCKED_AUTH_OR_LOCAL_CSV_REQUIRED** — `FRED_API_KEY` not configured; no `.env` file present.
+`feature_quality_report.json` updated. Base features: 0 stale gaps (except 2 on `broad_usd_index_1d_change`, 6 on `oil_wti_1d_return`). Daily missing rates 0.5–2.6% (weekends/holidays).
 
-## 9. Local CSV fallback status
+## 8. H4 alignment coverage
 
-`data/external_features/` **does not exist**. No manual CSVs. Template and validator added; `local_csv_fallback_status.json` records zero files present. Gold: **MANUAL_CSV_REQUIRED**.
+9,954 H4 bars (2020-01-01 22:00 UTC → 2026-05-24 21:00 UTC). **100% coverage** on all 12 features across all years 2020–2026.
 
-## 10. Features normalized
+## 9. Stale rate
 
-Manifest status **BLOCKED_FULL_WINDOW** with `row_count: 0` for full-window attempt. Prior 7-row fixture `normalized_features.csv` **retained** (not overwritten with empty data).
+H4 stale rates: **~0%** on all core features (oil_wti and oil_wti_1d_return at 0.01%). Prior blocked run had ~99.5% stale due to 7-row fixture.
 
-## 11. Derived features created
+## 10. cross_asset_missing decreased from 2,142?
 
-Derived columns exist in retained fixture CSV: `us_10y_minus_2y`, 1d change/return columns. Full-window derived features **not produced** without source data.
+**Yes** — decreased by **2,142** (2,142 → **0**). Reason code eliminated from confluence diagnostics.
 
-## 12. Feature quality report status
-
-Updated with note: full-window ingest blocked; quality metrics empty for blocked run. Retained fixture quality in CSV file unchanged.
-
-## 13. H4 full-window alignment status
-
-Alignment script ran on seven-pair H4 store (9,954 bars). Coverage ~68.6% with ~99.5% stale rate on core features due to fixture end date (2022-01). See `h4_aligned_feature_availability.json`.
-
-## 14. No-lookahead controls verified
-
-Daily `D` → available `D+1 00:00 UTC`; H4 uses `availability_ts <= bar_time`; regression tests pass (same-day leak, weekend, stale flags).
-
-## 15. Confluence diagnostics re-run status
-
-**Yes** — `confluence_diagnostic_summary_full_window_cross_asset.json` generated.
-
-## 16. cross_asset_missing decreased?
-
-**No** — count unchanged at **2,142** (delta **0**).
-
-## 17. Trade performance computed?
+## 11. Trade performance computed?
 
 **No** — no win-rate, expectancy, profit factor, or confluence-bucket PnL.
 
-## 18. COT status
+## 12. Strategy approved?
 
-**DESIGN_ONLY** — unchanged from prior sprint.
+**No** — `configs/approved_strategies.yaml` remains `approved: []`.
 
-## 19. Validation command results
+## 13. CAMPAIGN_018 created?
+
+**No.**
+
+## 14. Paper/demo/live blocked?
+
+**Yes** — research freeze `loops_refuse` passes.
+
+## 15. Executor/broker unchanged?
+
+**Yes** — no executor or broker code modified.
+
+## 16. Validation results
 
 | command | result |
 |---|---|
@@ -114,49 +91,27 @@ Daily `D` → available `D+1 00:00 UTC`; H4 uses `availability_ts <= bar_time`; 
 | `python scripts/validate_research_archive.py` | **PASS** |
 | `python scripts/scan_artifacts_for_secrets.py` | **PASS** |
 
-## 20. No strategy approved
+## 17. Remaining blockers
 
-Confirmed — `approved: []`.
+1. Gold: **MANUAL_CSV_REQUIRED** (not in FRED registry)
+2. COT: **DESIGN_ONLY**
+3. `FRED_API_KEY` must remain local-only (never commit `.env` or cache)
+4. Broad strategy search still **paused** — no re-entry without human gate
 
-## 21. CAMPAIGN_018 not created
+## 18. Recommended next sprint
 
-Confirmed.
+**`infra-gold-manual-csv-or-cot-design-001`** — optional gold CSV drop and/or COT design advance. Cross-asset FRED blocker is **resolved**. Do not create CAMPAIGN_018 or run strategy campaigns.
 
-## 22. Paper/demo/live remain blocked
+---
 
-Confirmed — freeze `loops_refuse` passes.
+## Files to review first
 
-## 23. Executor/broker unchanged
-
-Confirmed.
-
-## 24. No OANDA order API calls
-
-Confirmed.
-
-## 25. Archive/freeze status
-
-Updated and passing.
-
-## 26. Remaining blockers
-
-1. Configure `FRED_API_KEY` locally (never commit)
-2. Or drop full-window CSVs in `data/external_features/`
-3. Re-run `python scripts/run_external_data_full_window_pipeline.py`
-
-## 27. Recommended next sprint
-
-**`infra-external-data-credentials-or-manual-csv-setup-001`** — operator must supply FRED auth or manual CSVs; pipeline is ready but cannot resolve data blocker without credentials.
-
-## 28. Files to review first
-
-1. `docs/research/EXTERNAL_DATA_INGEST_STILL_BLOCKED.md`
-2. `research/cross_asset_features/fred_fetch_status_real_window.json`
-3. `research/cross_asset_features/normalized_features_manifest.json`
-4. `docs/research/EXTERNAL_DATA_BLOCKER_RESOLUTION_DIAGNOSTIC_IMPACT.md`
-5. `docs/research/EXTERNAL_FEATURE_LOCAL_CSV_TEMPLATE.md`
-6. `scripts/run_external_data_full_window_pipeline.py`
-7. `research/confluence_diagnostics/confluence_diagnostic_summary_full_window_cross_asset.json`
+1. `research/cross_asset_features/fred_fetch_status_real_window.json`
+2. `research/cross_asset_features/normalized_features_manifest.json`
+3. `docs/research/FRED_REAL_WINDOW_FETCH_RESULT.md`
+4. `docs/research/CROSS_ASSET_H4_ALIGNMENT_AUDIT_FULL_WINDOW.md`
+5. `docs/research/EXTERNAL_DATA_BLOCKER_RESOLUTION_DIAGNOSTIC_IMPACT.md`
+6. `research/confluence_diagnostics/confluence_diagnostic_summary_full_window_cross_asset.json`
 
 ---
 
