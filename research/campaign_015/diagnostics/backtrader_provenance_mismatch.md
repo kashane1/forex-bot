@@ -24,72 +24,72 @@
 
 **EUR_USD**
 
-- CSV raw sha256 (full file): `94ffab64ddcc9d57…`
-- CSV row-sha256 (data_adapter.compute_csv_sha256): `533cbf6571ce5f73…`
-- Provenance data_sha256: `533cbf6571ce5f73…`
-- CSV row count: 19864 vs provenance candle_count: 19864
+- CSV raw sha256 (full file): `634fbc89fae3d142…`
+- CSV row-sha256 (data_adapter.compute_csv_sha256): `bd7aa28b26efb911…`
+- Provenance data_sha256: `bd7aa28b26efb911…`
+- CSV row count: 9933 vs provenance candle_count: 9933
 - CSV first_ts: `2020-01-01T22:00:00+00:00` vs provenance: `2020-01-01T22:00:00+00:00`
 - CSV last_ts: `2026-05-20T05:00:00+00:00` vs provenance: `2026-05-20T05:00:00+00:00`
-- provenance exported_at: `2026-05-26T01:46:58+00:00`
+- provenance exported_at: `2026-05-26T01:51:40+00:00`
 
 **GBP_USD**
 
-- CSV raw sha256 (full file): `73bfa286b7c404cb…`
-- CSV row-sha256 (data_adapter.compute_csv_sha256): `68d5160c40c14872…`
-- Provenance data_sha256: `68d5160c40c14872…`
-- CSV row count: 19864 vs provenance candle_count: 19864
+- CSV raw sha256 (full file): `db7bfc0d4751f739…`
+- CSV row-sha256 (data_adapter.compute_csv_sha256): `214532db74e5a023…`
+- Provenance data_sha256: `214532db74e5a023…`
+- CSV row count: 9933 vs provenance candle_count: 9933
 - CSV first_ts: `2020-01-01T22:00:00+00:00` vs provenance: `2020-01-01T22:00:00+00:00`
 - CSV last_ts: `2026-05-20T05:00:00+00:00` vs provenance: `2026-05-20T05:00:00+00:00`
-- provenance exported_at: `2026-05-26T01:46:59+00:00`
+- provenance exported_at: `2026-05-26T01:51:41+00:00`
 
 **USD_JPY**
 
-- CSV raw sha256 (full file): `14dac4d8b324af20…`
-- CSV row-sha256 (data_adapter.compute_csv_sha256): `acc23912c5c680fe…`
-- Provenance data_sha256: `acc23912c5c680fe…`
-- CSV row count: 19866 vs provenance candle_count: 19866
+- CSV raw sha256 (full file): `df37d3e79677e71a…`
+- CSV row-sha256 (data_adapter.compute_csv_sha256): `fd57e2fe99f9d4a3…`
+- Provenance data_sha256: `fd57e2fe99f9d4a3…`
+- CSV row count: 9934 vs provenance candle_count: 9934
 - CSV first_ts: `2020-01-01T22:00:00+00:00` vs provenance: `2020-01-01T22:00:00+00:00`
 - CSV last_ts: `2026-05-20T05:00:00+00:00` vs provenance: `2026-05-20T05:00:00+00:00`
-- provenance exported_at: `2026-05-26T01:47:00+00:00`
+- provenance exported_at: `2026-05-26T01:51:41+00:00`
 
 **AUD_USD**
 
-- CSV raw sha256 (full file): `f8a476d9f76a65ab…`
-- CSV row-sha256 (data_adapter.compute_csv_sha256): `24e06add2c652cf7…`
-- Provenance data_sha256: `24e06add2c652cf7…`
-- CSV row count: 19864 vs provenance candle_count: 19864
+- CSV raw sha256 (full file): `ab339a4722ac8181…`
+- CSV row-sha256 (data_adapter.compute_csv_sha256): `401f8634fb9001e1…`
+- Provenance data_sha256: `401f8634fb9001e1…`
+- CSV row count: 9933 vs provenance candle_count: 9933
 - CSV first_ts: `2020-01-01T22:00:00+00:00` vs provenance: `2020-01-01T22:00:00+00:00`
 - CSV last_ts: `2026-05-20T05:00:00+00:00` vs provenance: `2026-05-20T05:00:00+00:00`
-- provenance exported_at: `2026-05-26T01:47:01+00:00`
+- provenance exported_at: `2026-05-26T01:51:42+00:00`
 
 **USD_CAD**
 
-- CSV raw sha256 (full file): `73c7c1b1aa26a535…`
-- CSV row-sha256 (data_adapter.compute_csv_sha256): `a6a426d157e0c677…`
-- Provenance data_sha256: `a6a426d157e0c677…`
-- CSV row count: 19864 vs provenance candle_count: 19864
+- CSV raw sha256 (full file): `c041ab03c7793d86…`
+- CSV row-sha256 (data_adapter.compute_csv_sha256): `c06ec608b257c8df…`
+- Provenance data_sha256: `c06ec608b257c8df…`
+- CSV row count: 9933 vs provenance candle_count: 9933
 - CSV first_ts: `2020-01-01T22:00:00+00:00` vs provenance: `2020-01-01T22:00:00+00:00`
 - CSV last_ts: `2026-05-20T05:00:00+00:00` vs provenance: `2026-05-20T05:00:00+00:00`
-- provenance exported_at: `2026-05-26T01:47:02+00:00`
+- provenance exported_at: `2026-05-26T01:51:43+00:00`
 
 **USD_CHF**
 
-- CSV raw sha256 (full file): `b31c82da8c3e8d28…`
-- CSV row-sha256 (data_adapter.compute_csv_sha256): `92477336c20056b1…`
-- Provenance data_sha256: `92477336c20056b1…`
-- CSV row count: 19864 vs provenance candle_count: 19864
+- CSV raw sha256 (full file): `696e66bfef902a1b…`
+- CSV row-sha256 (data_adapter.compute_csv_sha256): `8d0e7bf4fa0852c1…`
+- Provenance data_sha256: `8d0e7bf4fa0852c1…`
+- CSV row count: 9933 vs provenance candle_count: 9933
 - CSV first_ts: `2020-01-01T22:00:00+00:00` vs provenance: `2020-01-01T22:00:00+00:00`
 - CSV last_ts: `2026-05-20T05:00:00+00:00` vs provenance: `2026-05-20T05:00:00+00:00`
-- provenance exported_at: `2026-05-26T01:47:02+00:00`
+- provenance exported_at: `2026-05-26T01:51:44+00:00`
 
 **NZD_USD**
 
-- CSV raw sha256 (full file): `74481356e4d336d7…`
-- CSV row-sha256 (data_adapter.compute_csv_sha256): `2bfeae6b64cbce74…`
-- Provenance data_sha256: `2bfeae6b64cbce74…`
-- CSV row count: 19872 vs provenance candle_count: 19872
+- CSV raw sha256 (full file): `c7bf2d1e9fa99c14…`
+- CSV row-sha256 (data_adapter.compute_csv_sha256): `0ccc07324b8a7a4e…`
+- Provenance data_sha256: `0ccc07324b8a7a4e…`
+- CSV row count: 9937 vs provenance candle_count: 9937
 - CSV first_ts: `2020-01-01T22:00:00+00:00` vs provenance: `2020-01-01T22:00:00+00:00`
 - CSV last_ts: `2026-05-20T05:00:00+00:00` vs provenance: `2026-05-20T05:00:00+00:00`
-- provenance exported_at: `2026-05-26T01:47:03+00:00`
+- provenance exported_at: `2026-05-26T01:51:44+00:00`
 
 Read-only diagnostic. Does NOT modify any export, provenance, or registry artifact. Does NOT approve any strategy. configs/approved_strategies.yaml remains approved: [].

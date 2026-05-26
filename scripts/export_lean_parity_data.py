@@ -183,6 +183,36 @@ def main() -> int:
         )
         return 1
 
+    # Dedupe by UTC-normalised timestamp and re-sort monotonically.
+    # The local H4 store under data/campaign_002.sqlite3 historically
+    # contains two rows per H4 bar (one local-tz row from an earlier
+    # fetch, one UTC row from a later refresh) with identical bid/ask
+    # OHLC. The Lean parity CSV is a single canonical bars-per-row
+    # representation; deduping here keeps the BT-lane consumer
+    # happy and does not alter the underlying bar data. The bespoke
+    # engine consumes via CandleRepo directly and is unaffected by
+    # this export-side dedupe.
+    deduped: dict[datetime, Candle] = {}
+    for c in candles:
+        t_utc = (
+            c.time.astimezone(UTC) if c.time.tzinfo is not None
+            else c.time.replace(tzinfo=UTC)
+        )
+        existing = deduped.get(t_utc)
+        if existing is None or (
+            # Prefer the row that already carries mid_* (the later refresh).
+            existing.mid_close is None and c.mid_close is not None
+        ):
+            deduped[t_utc] = c
+    candles = sorted(deduped.values(), key=lambda c: (
+        c.time.astimezone(UTC) if c.time.tzinfo is not None
+        else c.time.replace(tzinfo=UTC)
+    ))
+    print(
+        f"  dedupe: kept {len(candles)} unique H4 bars "
+        f"(from {len(deduped)} unique timestamps)"
+    )
+
     sources = distinct_sources(db, args.instrument)
     if not sources_are_real_oanda(sources):
         print(
