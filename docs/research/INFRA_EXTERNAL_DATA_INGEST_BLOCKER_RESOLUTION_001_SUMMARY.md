@@ -13,7 +13,8 @@
 | phase | commit | message |
 |---:|---|---|
 | prior (blocked) | `5a53130` … `4d95c58` | phases 0–5 — pipeline built, FRED blocked |
-| *(this commit)* | `f2ee85d` | infra: FRED full-window ingest succeeded; cross_asset_missing eliminated |
+| FRED ingest (main) | `f2ee85d` | infra: FRED full-window ingest succeeded; cross_asset_missing eliminated |
+| summary hash | `5e591ea` | docs: record commit hash in blocker resolution summary |
 
 ## 2. FRED_API_KEY present?
 
