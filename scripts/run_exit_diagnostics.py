@@ -46,23 +46,23 @@ CAMPAIGN_TRADE_GLOBS: list[dict[str, Any]] = [
     {
         "campaign_id": "CAMPAIGN_011",
         "strategy_family": "random_entry_null",
-        "globs": ["backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/base/fold_*/*_trades.csv"],
+        "globs": ["backtests/CAMPAIGN_011_random_entry_anchor_deduped/folds/fold_*/*_trades.csv"],
         "notes": "deduped null baseline",
     },
     {
         "campaign_id": "CAMPAIGN_012",
         "strategy_family": "regime_switcher",
-        "globs": ["backtests/CAMPAIGN_012_regime_switcher_atr_percentile/folds/base/fold_*/*_trades.csv"],
+        "globs": ["backtests/CAMPAIGN_012_regime_switcher_atr_percentile/folds/fold_*/*_trades.csv"],
     },
     {
         "campaign_id": "CAMPAIGN_013",
         "strategy_family": "cross_pair_rotation",
-        "globs": ["backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/folds/base/fold_*/*_trades.csv"],
+        "globs": ["backtests/CAMPAIGN_013_cross_pair_currency_strength_rotation/folds/fold_*/*_trades.csv"],
     },
     {
         "campaign_id": "CAMPAIGN_014",
         "strategy_family": "calendar_event",
-        "globs": ["backtests/CAMPAIGN_014_calendar_event_window_anomaly/folds/base/fold_*/*_trades.csv"],
+        "globs": ["backtests/CAMPAIGN_014_calendar_event_window_anomaly/folds/fold_*/*_trades.csv"],
     },
     {
         "campaign_id": "CAMPAIGN_015",
