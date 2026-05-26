@@ -1,0 +1,484 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T23:47:50.115585+00:00",
+  "campaign": "CAMPAIGN_008",
+  "strategy_version": "mean_reversion 0.1.0-c008",
+  "overall": {
+    "train": {
+      "trade_count": 216,
+      "expectancy_r": -0.025,
+      "median_r": -0.7896,
+      "win_rate_pct": 27.78,
+      "profit_factor": 0.9925,
+      "avg_bars_held": 18.79,
+      "avg_spread_paid_pips": 1.551
+    },
+    "validation": {
+      "trade_count": 138,
+      "expectancy_r": 0.1612,
+      "median_r": -0.7298,
+      "win_rate_pct": 31.88,
+      "profit_factor": 1.2723,
+      "avg_bars_held": 20.88,
+      "avg_spread_paid_pips": 1.554
+    },
+    "full_screening": {
+      "trade_count": 354,
+      "expectancy_r": 0.0476,
+      "median_r": -0.7538,
+      "win_rate_pct": 29.38,
+      "profit_factor": 1.0968,
+      "avg_bars_held": 19.6,
+      "avg_spread_paid_pips": 1.552
+    }
+  },
+  "by_pair": {
+    "train": {
+      "AUD_USD": {
+        "trade_count": 44,
+        "expectancy_r": 0.0748,
+        "median_r": -1.0,
+        "win_rate_pct": 31.82,
+        "profit_factor": 1.109,
+        "avg_bars_held": 20.7,
+        "avg_spread_paid_pips": 1.386
+      },
+      "EUR_USD": {
+        "trade_count": 35,
+        "expectancy_r": 0.1548,
+        "median_r": -1.0,
+        "win_rate_pct": 31.43,
+        "profit_factor": 1.2129,
+        "avg_bars_held": 19.91,
+        "avg_spread_paid_pips": 1.354
+      },
+      "GBP_USD": {
+        "trade_count": 37,
+        "expectancy_r": 0.0274,
+        "median_r": -1.0,
+        "win_rate_pct": 29.73,
+        "profit_factor": 1.0332,
+        "avg_bars_held": 18.59,
+        "avg_spread_paid_pips": 1.735
+      },
+      "USD_CAD": {
+        "trade_count": 41,
+        "expectancy_r": -0.382,
+        "median_r": -0.7712,
+        "win_rate_pct": 17.07,
+        "profit_factor": 0.4008,
+        "avg_bars_held": 14.63,
+        "avg_spread_paid_pips": 1.866
+      },
+      "USD_CHF": {
+        "trade_count": 22,
+        "expectancy_r": 0.0207,
+        "median_r": -1.0555,
+        "win_rate_pct": 18.18,
+        "profit_factor": 1.0367,
+        "avg_bars_held": 17.36,
+        "avg_spread_paid_pips": 1.659
+      },
+      "USD_JPY": {
+        "trade_count": 37,
+        "expectancy_r": 0.0025,
+        "median_r": -0.0087,
+        "win_rate_pct": 35.14,
+        "profit_factor": 1.3563,
+        "avg_bars_held": 21.11,
+        "avg_spread_paid_pips": 1.338
+      }
+    },
+    "validation": {
+      "AUD_USD": {
+        "trade_count": 26,
+        "expectancy_r": 0.088,
+        "median_r": -1.0,
+        "win_rate_pct": 34.62,
+        "profit_factor": 1.1327,
+        "avg_bars_held": 21.04,
+        "avg_spread_paid_pips": 1.238
+      },
+      "EUR_USD": {
+        "trade_count": 20,
+        "expectancy_r": 0.3097,
+        "median_r": -1.0,
+        "win_rate_pct": 25.0,
+        "profit_factor": 1.4255,
+        "avg_bars_held": 18.2,
+        "avg_spread_paid_pips": 1.44
+      },
+      "GBP_USD": {
+        "trade_count": 28,
+        "expectancy_r": 0.1168,
+        "median_r": -1.0,
+        "win_rate_pct": 39.29,
+        "profit_factor": 1.1858,
+        "avg_bars_held": 21.82,
+        "avg_spread_paid_pips": 1.754
+      },
+      "USD_CAD": {
+        "trade_count": 18,
+        "expectancy_r": 0.105,
+        "median_r": -0.7352,
+        "win_rate_pct": 27.78,
+        "profit_factor": 1.1981,
+        "avg_bars_held": 19.78,
+        "avg_spread_paid_pips": 1.783
+      },
+      "USD_CHF": {
+        "trade_count": 21,
+        "expectancy_r": 0.4086,
+        "median_r": -1.0994,
+        "win_rate_pct": 38.1,
+        "profit_factor": 1.6288,
+        "avg_bars_held": 24.48,
+        "avg_spread_paid_pips": 1.59
+      },
+      "USD_JPY": {
+        "trade_count": 25,
+        "expectancy_r": 0.0009,
+        "median_r": -0.0065,
+        "win_rate_pct": 24.0,
+        "profit_factor": 1.1898,
+        "avg_bars_held": 19.56,
+        "avg_spread_paid_pips": 1.552
+      }
+    }
+  },
+  "by_session": {
+    "train": {
+      "asia": {
+        "trade_count": 79,
+        "expectancy_r": 0.0309,
+        "median_r": -0.7817,
+        "win_rate_pct": 30.38,
+        "profit_factor": 1.2689,
+        "avg_bars_held": 17.71,
+        "avg_spread_paid_pips": 1.58
+      },
+      "london": {
+        "trade_count": 68,
+        "expectancy_r": 0.1512,
+        "median_r": -0.7363,
+        "win_rate_pct": 30.88,
+        "profit_factor": 1.1082,
+        "avg_bars_held": 20.03,
+        "avg_spread_paid_pips": 1.501
+      },
+      "london_ny_overlap": {
+        "trade_count": 68,
+        "expectancy_r": -0.2516,
+        "median_r": -0.8212,
+        "win_rate_pct": 22.06,
+        "profit_factor": 0.6126,
+        "avg_bars_held": 18.65,
+        "avg_spread_paid_pips": 1.563
+      },
+      "ny": {
+        "trade_count": 1,
+        "expectancy_r": -1.0,
+        "median_r": -1.0,
+        "win_rate_pct": 0.0,
+        "profit_factor": 0.0,
+        "avg_bars_held": 30.0,
+        "avg_spread_paid_pips": 1.9
+      }
+    },
+    "validation": {
+      "asia": {
+        "trade_count": 26,
+        "expectancy_r": -0.0573,
+        "median_r": -0.0073,
+        "win_rate_pct": 30.77,
+        "profit_factor": 1.0052,
+        "avg_bars_held": 18.88,
+        "avg_spread_paid_pips": 1.496
+      },
+      "london": {
+        "trade_count": 44,
+        "expectancy_r": 0.6122,
+        "median_r": -0.3656,
+        "win_rate_pct": 40.91,
+        "profit_factor": 2.2147,
+        "avg_bars_held": 22.34,
+        "avg_spread_paid_pips": 1.564
+      },
+      "london_ny_overlap": {
+        "trade_count": 57,
+        "expectancy_r": -0.0881,
+        "median_r": -0.7429,
+        "win_rate_pct": 26.32,
+        "profit_factor": 0.827,
+        "avg_bars_held": 19.95,
+        "avg_spread_paid_pips": 1.546
+      },
+      "ny": {
+        "trade_count": 11,
+        "expectancy_r": 0.1655,
+        "median_r": -0.7279,
+        "win_rate_pct": 27.27,
+        "profit_factor": 1.121,
+        "avg_bars_held": 24.55,
+        "avg_spread_paid_pips": 1.691
+      }
+    }
+  },
+  "by_weekday": {
+    "train": {
+      "Friday": {
+        "trade_count": 48,
+        "expectancy_r": -0.1149,
+        "median_r": -0.7952,
+        "win_rate_pct": 31.25,
+        "profit_factor": 0.8604,
+        "avg_bars_held": 18.21,
+        "avg_spread_paid_pips": 1.556
+      },
+      "Monday": {
+        "trade_count": 31,
+        "expectancy_r": -0.3681,
+        "median_r": -0.7817,
+        "win_rate_pct": 16.13,
+        "profit_factor": 0.3091,
+        "avg_bars_held": 13.9,
+        "avg_spread_paid_pips": 1.548
+      },
+      "Thursday": {
+        "trade_count": 54,
+        "expectancy_r": 0.4487,
+        "median_r": -0.7882,
+        "win_rate_pct": 35.19,
+        "profit_factor": 1.8593,
+        "avg_bars_held": 20.81,
+        "avg_spread_paid_pips": 1.55
+      },
+      "Tuesday": {
+        "trade_count": 36,
+        "expectancy_r": -0.3752,
+        "median_r": -0.9026,
+        "win_rate_pct": 16.67,
+        "profit_factor": 0.5315,
+        "avg_bars_held": 16.64,
+        "avg_spread_paid_pips": 1.528
+      },
+      "Wednesday": {
+        "trade_count": 47,
+        "expectancy_r": 0.0173,
+        "median_r": -0.7558,
+        "win_rate_pct": 31.91,
+        "profit_factor": 1.1923,
+        "avg_bars_held": 21.94,
+        "avg_spread_paid_pips": 1.568
+      }
+    },
+    "validation": {
+      "Friday": {
+        "trade_count": 20,
+        "expectancy_r": 0.3213,
+        "median_r": -0.3722,
+        "win_rate_pct": 45.0,
+        "profit_factor": 1.8704,
+        "avg_bars_held": 22.4,
+        "avg_spread_paid_pips": 1.565
+      },
+      "Monday": {
+        "trade_count": 12,
+        "expectancy_r": 0.2686,
+        "median_r": -0.0074,
+        "win_rate_pct": 33.33,
+        "profit_factor": 0.974,
+        "avg_bars_held": 22.25,
+        "avg_spread_paid_pips": 1.625
+      },
+      "Thursday": {
+        "trade_count": 38,
+        "expectancy_r": -0.0905,
+        "median_r": -0.6256,
+        "win_rate_pct": 18.42,
+        "profit_factor": 0.6827,
+        "avg_bars_held": 21.16,
+        "avg_spread_paid_pips": 1.574
+      },
+      "Tuesday": {
+        "trade_count": 27,
+        "expectancy_r": 0.7168,
+        "median_r": -0.7317,
+        "win_rate_pct": 37.04,
+        "profit_factor": 2.0883,
+        "avg_bars_held": 20.37,
+        "avg_spread_paid_pips": 1.544
+      },
+      "Wednesday": {
+        "trade_count": 41,
+        "expectancy_r": -0.0809,
+        "median_r": -0.7468,
+        "win_rate_pct": 34.15,
+        "profit_factor": 1.2257,
+        "avg_bars_held": 19.8,
+        "avg_spread_paid_pips": 1.515
+      }
+    }
+  },
+  "by_side": {
+    "train": {
+      "long": {
+        "trade_count": 104,
+        "expectancy_r": -0.1133,
+        "median_r": -0.7952,
+        "win_rate_pct": 25.96,
+        "profit_factor": 0.8316,
+        "avg_bars_held": 18.48,
+        "avg_spread_paid_pips": 1.525
+      },
+      "short": {
+        "trade_count": 112,
+        "expectancy_r": 0.057,
+        "median_r": -0.7846,
+        "win_rate_pct": 29.46,
+        "profit_factor": 1.1535,
+        "avg_bars_held": 19.08,
+        "avg_spread_paid_pips": 1.576
+      }
+    },
+    "validation": {
+      "long": {
+        "trade_count": 51,
+        "expectancy_r": 0.129,
+        "median_r": -0.7468,
+        "win_rate_pct": 35.29,
+        "profit_factor": 1.2684,
+        "avg_bars_held": 21.67,
+        "avg_spread_paid_pips": 1.543
+      },
+      "short": {
+        "trade_count": 87,
+        "expectancy_r": 0.1801,
+        "median_r": -0.0075,
+        "win_rate_pct": 29.89,
+        "profit_factor": 1.2744,
+        "avg_bars_held": 20.41,
+        "avg_spread_paid_pips": 1.56
+      }
+    }
+  },
+  "by_exit_reason": {
+    "train": {
+      "eod": {
+        "trade_count": 1,
+        "expectancy_r": -0.037,
+        "median_r": -0.037,
+        "win_rate_pct": 0.0,
+        "profit_factor": 0.0,
+        "avg_bars_held": 1.0,
+        "avg_spread_paid_pips": 1.6
+      },
+      "stop": {
+        "trade_count": 153,
+        "expectancy_r": -0.8024,
+        "median_r": -1.0,
+        "win_rate_pct": 0.0,
+        "profit_factor": 0.0,
+        "avg_bars_held": 10.31,
+        "avg_spread_paid_pips": 1.576
+      },
+      "time": {
+        "trade_count": 62,
+        "expectancy_r": 1.8937,
+        "median_r": 1.1312,
+        "win_rate_pct": 96.77,
+        "profit_factor": 433.8956,
+        "avg_bars_held": 40.0,
+        "avg_spread_paid_pips": 1.489
+      }
+    },
+    "validation": {
+      "stop": {
+        "trade_count": 88,
+        "expectancy_r": -0.785,
+        "median_r": -1.0,
+        "win_rate_pct": 0.0,
+        "profit_factor": 0.0,
+        "avg_bars_held": 10.01,
+        "avg_spread_paid_pips": 1.545
+      },
+      "time": {
+        "trade_count": 50,
+        "expectancy_r": 1.8266,
+        "median_r": 1.4099,
+        "win_rate_pct": 88.0,
+        "profit_factor": 57.1058,
+        "avg_bars_held": 40.0,
+        "avg_spread_paid_pips": 1.568
+      }
+    }
+  },
+  "r_distribution": {
+    "train": {
+      "(-10, -1]": 95,
+      "(-1, 0]": 61,
+      "(0, 1]": 26,
+      "(1, 3]": 21,
+      "(3, 10]": 12
+    },
+    "validation": {
+      "(-10, -1]": 58,
+      "(-1, 0]": 36,
+      "(1, 3]": 17,
+      "(0, 1]": 15,
+      "(3, 10]": 12
+    }
+  },
+  "train_losers_vs_validation_winners": {
+    "train_losers": {
+      "trade_count": 156,
+      "expectancy_r": -0.7894,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "avg_bars_held": 10.63,
+      "avg_spread_paid_pips": 1.579
+    },
+    "validation_winners": {
+      "trade_count": 44,
+      "expectancy_r": 2.1056,
+      "median_r": 1.6885,
+      "win_rate_pct": 100.0,
+      "profit_factor": null,
+      "avg_bars_held": 40.0,
+      "avg_spread_paid_pips": 1.557
+    },
+    "train_loser_exit_mix": {
+      "stop": 153,
+      "time": 2,
+      "eod": 1
+    },
+    "validation_winner_exit_mix": {
+      "time": 44
+    },
+    "validation_winner_pair_mix": {
+      "GBP_USD": 11,
+      "AUD_USD": 9,
+      "USD_CHF": 8,
+      "USD_JPY": 6,
+      "EUR_USD": 5,
+      "USD_CAD": 5
+    },
+    "validation_winner_session_mix": {
+      "london": 18,
+      "london_ny_overlap": 15,
+      "asia": 8,
+      "ny": 3
+    },
+    "validation_winner_outlier_share": {
+      "top_n": 5,
+      "top_n_r_sum": 30.4792,
+      "all_winners_r_sum": 92.6448,
+      "top_n_share_of_winner_r": 0.329
+    },
+    "train_loser_spread_pips_mean": 1.579,
+    "validation_winner_spread_pips_mean": 1.557
+  },
+  "explicit_disclaimer": "Descriptive trade anatomy only. Not strategy evidence."
+}

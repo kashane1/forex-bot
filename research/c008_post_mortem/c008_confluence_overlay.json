@@ -1,0 +1,325 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T23:47:57.377735+00:00",
+  "c008": {
+    "overall": {
+      "trade_count": 354,
+      "expectancy_r": 0.0476,
+      "grade_distribution": {
+        "A": 162,
+        "C": 44,
+        "B": 148
+      },
+      "top_reason_codes": [
+        [
+          "d1_aligned",
+          317
+        ],
+        [
+          "grade_a",
+          162
+        ],
+        [
+          "usd_headwind",
+          155
+        ],
+        [
+          "grade_b",
+          148
+        ],
+        [
+          "risk_off_headwind",
+          44
+        ],
+        [
+          "grade_c",
+          44
+        ],
+        [
+          "mixed_htf",
+          37
+        ]
+      ]
+    },
+    "train": {
+      "trade_count": 216,
+      "expectancy_r": -0.025,
+      "grade_distribution": {
+        "A": 88,
+        "C": 44,
+        "B": 84
+      },
+      "top_reason_codes": [
+        [
+          "d1_aligned",
+          192
+        ],
+        [
+          "usd_headwind",
+          104
+        ],
+        [
+          "grade_a",
+          88
+        ],
+        [
+          "grade_b",
+          84
+        ],
+        [
+          "risk_off_headwind",
+          44
+        ],
+        [
+          "grade_c",
+          44
+        ],
+        [
+          "mixed_htf",
+          24
+        ]
+      ]
+    },
+    "validation": {
+      "trade_count": 138,
+      "expectancy_r": 0.1612,
+      "grade_distribution": {
+        "A": 74,
+        "B": 64
+      },
+      "top_reason_codes": [
+        [
+          "d1_aligned",
+          125
+        ],
+        [
+          "grade_a",
+          74
+        ],
+        [
+          "grade_b",
+          64
+        ],
+        [
+          "usd_headwind",
+          51
+        ],
+        [
+          "mixed_htf",
+          13
+        ]
+      ]
+    },
+    "train_losers": {
+      "trade_count": 156,
+      "expectancy_r": -0.7894,
+      "grade_distribution": {
+        "A": 60,
+        "C": 32,
+        "B": 64
+      },
+      "top_reason_codes": [
+        [
+          "d1_aligned",
+          137
+        ],
+        [
+          "usd_headwind",
+          77
+        ],
+        [
+          "grade_b",
+          64
+        ],
+        [
+          "grade_a",
+          60
+        ],
+        [
+          "risk_off_headwind",
+          32
+        ],
+        [
+          "grade_c",
+          32
+        ],
+        [
+          "mixed_htf",
+          19
+        ]
+      ]
+    },
+    "validation_winners": {
+      "trade_count": 44,
+      "expectancy_r": 2.1056,
+      "grade_distribution": {
+        "A": 22,
+        "B": 22
+      },
+      "top_reason_codes": [
+        [
+          "d1_aligned",
+          40
+        ],
+        [
+          "grade_a",
+          22
+        ],
+        [
+          "grade_b",
+          22
+        ],
+        [
+          "usd_headwind",
+          18
+        ],
+        [
+          "mixed_htf",
+          4
+        ]
+      ]
+    }
+  },
+  "c009": {
+    "overall": {
+      "trade_count": 403,
+      "expectancy_r": 0.0538,
+      "grade_distribution": {
+        "A": 175,
+        "C": 54,
+        "B": 174
+      },
+      "top_reason_codes": [
+        [
+          "d1_aligned",
+          358
+        ],
+        [
+          "usd_headwind",
+          183
+        ],
+        [
+          "grade_a",
+          175
+        ],
+        [
+          "grade_b",
+          174
+        ],
+        [
+          "risk_off_headwind",
+          54
+        ],
+        [
+          "grade_c",
+          54
+        ],
+        [
+          "mixed_htf",
+          45
+        ]
+      ]
+    },
+    "train": {
+      "trade_count": 252,
+      "expectancy_r": -0.0253,
+      "grade_distribution": {
+        "A": 97,
+        "C": 54,
+        "B": 101
+      },
+      "top_reason_codes": [
+        [
+          "d1_aligned",
+          223
+        ],
+        [
+          "usd_headwind",
+          126
+        ],
+        [
+          "grade_b",
+          101
+        ],
+        [
+          "grade_a",
+          97
+        ],
+        [
+          "risk_off_headwind",
+          54
+        ],
+        [
+          "grade_c",
+          54
+        ],
+        [
+          "mixed_htf",
+          29
+        ]
+      ]
+    },
+    "validation": {
+      "trade_count": 151,
+      "expectancy_r": 0.1859,
+      "grade_distribution": {
+        "A": 78,
+        "B": 73
+      },
+      "top_reason_codes": [
+        [
+          "d1_aligned",
+          135
+        ],
+        [
+          "grade_a",
+          78
+        ],
+        [
+          "grade_b",
+          73
+        ],
+        [
+          "usd_headwind",
+          57
+        ],
+        [
+          "mixed_htf",
+          16
+        ]
+      ]
+    }
+  },
+  "top_reason_codes_c008": [
+    [
+      "d1_aligned",
+      317
+    ],
+    [
+      "grade_a",
+      162
+    ],
+    [
+      "usd_headwind",
+      155
+    ],
+    [
+      "grade_b",
+      148
+    ],
+    [
+      "risk_off_headwind",
+      44
+    ],
+    [
+      "grade_c",
+      44
+    ],
+    [
+      "mixed_htf",
+      37
+    ]
+  ],
+  "explicit_disclaimer": "Descriptive confluence overlay. Not A-grade profitability claim. Not strategy evidence."
+}

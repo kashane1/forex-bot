@@ -1,0 +1,266 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T23:47:52.533341+00:00",
+  "campaign": "CAMPAIGN_008",
+  "trades_joined": 354,
+  "regime_mix": {
+    "train": {
+      "usd_regime": {
+        "strengthening": 216
+      },
+      "risk_regime": {
+        "risk_off": 76,
+        "neutral": 73,
+        "risk_on": 67
+      },
+      "rates_bias": {
+        "flat": 136,
+        "higher": 80
+      },
+      "yield_curve": {
+        "positive": 177,
+        "inverted": 39
+      },
+      "sp500_return_sign": {
+        "up": 131,
+        "down": 85
+      },
+      "oil_return_sign": {
+        "up": 135,
+        "down": 81
+      }
+    },
+    "validation": {
+      "usd_regime": {
+        "strengthening": 138
+      },
+      "risk_regime": {
+        "risk_on": 129,
+        "neutral": 9
+      },
+      "rates_bias": {
+        "higher": 138
+      },
+      "yield_curve": {
+        "inverted": 124,
+        "positive": 14
+      },
+      "sp500_return_sign": {
+        "up": 81,
+        "down": 57
+      },
+      "oil_return_sign": {
+        "up": 71,
+        "down": 67
+      }
+    }
+  },
+  "winners_vs_losers": {
+    "winners": {
+      "usd_regime": {
+        "strengthening": 104
+      },
+      "risk_regime": {
+        "risk_on": 57,
+        "neutral": 25,
+        "risk_off": 22
+      },
+      "rates_bias": {
+        "higher": 69,
+        "flat": 35
+      },
+      "yield_curve": {
+        "inverted": 54,
+        "positive": 50
+      },
+      "sp500_return_sign": {
+        "up": 58,
+        "down": 46
+      },
+      "oil_return_sign": {
+        "up": 62,
+        "down": 42
+      }
+    },
+    "losers": {
+      "usd_regime": {
+        "strengthening": 250
+      },
+      "risk_regime": {
+        "risk_on": 139,
+        "neutral": 57,
+        "risk_off": 54
+      },
+      "rates_bias": {
+        "higher": 149,
+        "flat": 101
+      },
+      "yield_curve": {
+        "positive": 141,
+        "inverted": 109
+      },
+      "sp500_return_sign": {
+        "up": 154,
+        "down": 96
+      },
+      "oil_return_sign": {
+        "up": 144,
+        "down": 106
+      }
+    }
+  },
+  "by_pair_validation": {
+    "EUR_USD": {
+      "usd_regime": {
+        "strengthening": 20
+      },
+      "risk_regime": {
+        "risk_on": 18,
+        "neutral": 2
+      },
+      "rates_bias": {
+        "higher": 20
+      },
+      "yield_curve": {
+        "inverted": 20
+      },
+      "sp500_return_sign": {
+        "up": 10,
+        "down": 10
+      },
+      "oil_return_sign": {
+        "up": 11,
+        "down": 9
+      }
+    },
+    "GBP_USD": {
+      "usd_regime": {
+        "strengthening": 28
+      },
+      "risk_regime": {
+        "risk_on": 25,
+        "neutral": 3
+      },
+      "rates_bias": {
+        "higher": 28
+      },
+      "yield_curve": {
+        "inverted": 25,
+        "positive": 3
+      },
+      "sp500_return_sign": {
+        "up": 19,
+        "down": 9
+      },
+      "oil_return_sign": {
+        "up": 17,
+        "down": 11
+      }
+    },
+    "USD_JPY": {
+      "usd_regime": {
+        "strengthening": 25
+      },
+      "risk_regime": {
+        "risk_on": 25
+      },
+      "rates_bias": {
+        "higher": 25
+      },
+      "yield_curve": {
+        "inverted": 21,
+        "positive": 4
+      },
+      "sp500_return_sign": {
+        "up": 13,
+        "down": 12
+      },
+      "oil_return_sign": {
+        "down": 16,
+        "up": 9
+      }
+    },
+    "AUD_USD": {
+      "usd_regime": {
+        "strengthening": 26
+      },
+      "risk_regime": {
+        "risk_on": 25,
+        "neutral": 1
+      },
+      "rates_bias": {
+        "higher": 26
+      },
+      "yield_curve": {
+        "inverted": 23,
+        "positive": 3
+      },
+      "sp500_return_sign": {
+        "up": 17,
+        "down": 9
+      },
+      "oil_return_sign": {
+        "up": 14,
+        "down": 12
+      }
+    },
+    "USD_CAD": {
+      "usd_regime": {
+        "strengthening": 18
+      },
+      "risk_regime": {
+        "risk_on": 17,
+        "neutral": 1
+      },
+      "rates_bias": {
+        "higher": 18
+      },
+      "yield_curve": {
+        "inverted": 17,
+        "positive": 1
+      },
+      "sp500_return_sign": {
+        "up": 11,
+        "down": 7
+      },
+      "oil_return_sign": {
+        "down": 10,
+        "up": 8
+      }
+    },
+    "USD_CHF": {
+      "usd_regime": {
+        "strengthening": 21
+      },
+      "risk_regime": {
+        "risk_on": 19,
+        "neutral": 2
+      },
+      "rates_bias": {
+        "higher": 21
+      },
+      "yield_curve": {
+        "inverted": 18,
+        "positive": 3
+      },
+      "sp500_return_sign": {
+        "up": 11,
+        "down": 10
+      },
+      "oil_return_sign": {
+        "up": 12,
+        "down": 9
+      }
+    }
+  },
+  "expectancy_by_usd_regime": {
+    "train": {
+      "strengthening": -0.025
+    },
+    "validation": {
+      "strengthening": 0.1612
+    }
+  },
+  "explicit_disclaimer": "Descriptive regime overlay only. No edge claims."
+}
