@@ -1,0 +1,94 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T20:19:03.784956+00:00",
+  "h4_bars": 9954,
+  "first_bar": "2020-01-01 22:00:00+00:00",
+  "last_bar": "2026-05-24 21:00:00+00:00",
+  "feature_coverage": {
+    "broad_usd_index": {
+      "bars_total": 9954,
+      "bars_with_value": 6825,
+      "coverage_pct": 68.57,
+      "stale_rate_pct": 99.52
+    },
+    "us_2y_yield": {
+      "bars_total": 9954,
+      "bars_with_value": 6825,
+      "coverage_pct": 68.57,
+      "stale_rate_pct": 99.52
+    },
+    "us_10y_yield": {
+      "bars_total": 9954,
+      "bars_with_value": 6825,
+      "coverage_pct": 68.57,
+      "stale_rate_pct": 99.52
+    },
+    "vix": {
+      "bars_total": 9954,
+      "bars_with_value": 6825,
+      "coverage_pct": 68.57,
+      "stale_rate_pct": 99.52
+    },
+    "sp500": {
+      "bars_total": 9954,
+      "bars_with_value": 6825,
+      "coverage_pct": 68.57,
+      "stale_rate_pct": 99.64
+    },
+    "oil_wti": {
+      "bars_total": 9954,
+      "bars_with_value": 6825,
+      "coverage_pct": 68.57,
+      "stale_rate_pct": 99.64
+    },
+    "nasdaq_composite": {
+      "bars_total": 9954,
+      "bars_with_value": 6825,
+      "coverage_pct": 68.57,
+      "stale_rate_pct": 99.64
+    },
+    "gold": {
+      "bars_total": 9954,
+      "bars_with_value": 6825,
+      "coverage_pct": 68.57,
+      "stale_rate_pct": 99.64
+    },
+    "cot_eur_net": {
+      "bars_total": 9954,
+      "bars_with_value": 6807,
+      "coverage_pct": 68.38,
+      "stale_rate_pct": 98.73
+    },
+    "us_10y_minus_2y": {
+      "bars_total": 9954,
+      "bars_with_value": 6825,
+      "coverage_pct": 68.57,
+      "stale_rate_pct": 99.52
+    },
+    "broad_usd_index_1d_change": {
+      "bars_total": 9954,
+      "bars_with_value": 6819,
+      "coverage_pct": 68.51,
+      "stale_rate_pct": 99.58
+    },
+    "vix_1d_change": {
+      "bars_total": 9954,
+      "bars_with_value": 6819,
+      "coverage_pct": 68.51,
+      "stale_rate_pct": 99.58
+    },
+    "sp500_1d_return": {
+      "bars_total": 9954,
+      "bars_with_value": 6819,
+      "coverage_pct": 68.51,
+      "stale_rate_pct": 99.7
+    },
+    "oil_wti_1d_return": {
+      "bars_total": 9954,
+      "bars_with_value": 6819,
+      "coverage_pct": 68.51,
+      "stale_rate_pct": 99.7
+    }
+  }
+}
