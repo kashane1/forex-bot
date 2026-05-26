@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-26 · **Branch:** `infra-external-data-ingest-blocker-resolution-001`
+**Date:** 2026-05-26 · **Branch:** `research-c008-mean-reversion-post-mortem-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -11,8 +11,8 @@ map; the linked documents are the authoritative evidence.
 > Trade-quality infrastructure sprint **complete** (cost atlas, MTF
 > confluence prototype, cross-asset scaffolding — diagnostic only).
 > Cross-asset **blocker-resolution sprint** complete (full-window FRED ingest
-> succeeded; `cross_asset_missing` eliminated). See
-> `docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`.
+> succeeded; `cross_asset_missing` eliminated). **C008 post-mortem sprint**
+> complete. See respective summaries.
 > See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
 ## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
@@ -56,6 +56,24 @@ map; the linked documents are the authoritative evidence.
 |---|---|
 | [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_PLAN.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_PLAN.md) | Sprint plan and truth audit |
 | [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md) | Sprint close-out |
+
+## C008 mean-reversion post-mortem (C008_MEAN_REVERSION_POST_MORTEM_001)
+
+> **Diagnostic post-mortem only** — `strategy_evidence: false`. No strategy
+> approved. C008/C009 verdicts unchanged (**REJECT**). No CAMPAIGN_018.
+> Recommended next sprint: `research-stop-and-exit-diagnostics-001`.
+
+| document | purpose |
+|---|---|
+| [`C008_MEAN_REVERSION_POST_MORTEM_001_PLAN.md`](C008_MEAN_REVERSION_POST_MORTEM_001_PLAN.md) | Sprint plan |
+| [`C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md`](C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md) | Sprint close-out |
+| [`C008_C009_EVIDENCE_RECONSTRUCTION.md`](C008_C009_EVIDENCE_RECONSTRUCTION.md) | Evidence table |
+| [`C008_TRADE_ANATOMY_DIAGNOSTICS.md`](C008_TRADE_ANATOMY_DIAGNOSTICS.md) | Trade shape diagnostics |
+| [`C008_CROSS_ASSET_REGIME_OVERLAY.md`](C008_CROSS_ASSET_REGIME_OVERLAY.md) | FRED regime overlay |
+| [`C008_CONFLUENCE_OVERLAY_DIAGNOSTIC.md`](C008_CONFLUENCE_OVERLAY_DIAGNOSTIC.md) | Confluence overlay |
+| [`C008_HUMAN_REVIEW_POST_MORTEM.md`](C008_HUMAN_REVIEW_POST_MORTEM.md) | Why clue, not approval |
+| [`FUTURE_MEAN_REVERSION_RESEARCH_GATE.md`](FUTURE_MEAN_REVERSION_RESEARCH_GATE.md) | Future campaign requirements |
+| [`research/c008_post_mortem/c008_trade_anatomy.json`](../../research/c008_post_mortem/c008_trade_anatomy.json) | Machine-readable anatomy |
 | [`EXTERNAL_DATA_INGEST_STILL_BLOCKED.md`](EXTERNAL_DATA_INGEST_STILL_BLOCKED.md) | Operator setup guide (superseded for FRED; gold/COT still apply) |
 | [`FRED_REAL_WINDOW_FETCH_RESULT.md`](FRED_REAL_WINDOW_FETCH_RESULT.md) | Full-window fetch result |
 | [`EXTERNAL_FEATURE_LOCAL_CSV_TEMPLATE.md`](EXTERNAL_FEATURE_LOCAL_CSV_TEMPLATE.md) | Manual CSV drop template |

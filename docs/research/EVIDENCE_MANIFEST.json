@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-26",
-  "branch": "infra-external-data-ingest-blocker-resolution-001",
+  "branch": "research-c008-mean-reversion-post-mortem-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -17,15 +17,15 @@
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "infra-gold-manual-csv-or-cot-design-001",
-    "next_non_strategy_sprint_status": "RECOMMENDED_FRED_RESOLVED",
-    "completed_non_strategy_sprint": "infra-external-data-ingest-blocker-resolution-001",
-    "prior_completed_non_strategy_sprint": "infra-cross-asset-real-data-ingest-001",
+    "next_non_strategy_sprint": "research-stop-and-exit-diagnostics-001",
+    "next_non_strategy_sprint_status": "RECOMMENDED_EXIT_DIAGNOSTICS",
+    "completed_non_strategy_sprint": "research-c008-mean-reversion-post-mortem-001",
+    "prior_completed_non_strategy_sprint": "infra-external-data-ingest-blocker-resolution-001",
     "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
     "prior_non_strategy_sprint_note": "Subsumed by completed cost-atlas work in infra-multi-timeframe-confluence-and-cost-atlas-001.",
     "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
     "trade_quality_roadmap_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md",
-    "trade_quality_infra_doc": "docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md"
+    "trade_quality_infra_doc": "docs/research/C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md"
   },
   "pro_alpha_confluence_roadmap": {
     "sprint": "PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_001",
@@ -64,8 +64,26 @@
     "cross_asset_module": "research/cross_asset_features",
     "diagnostics_dir": "research/confluence_diagnostics",
     "validation_protocol_doc": "docs/research/HIGH_PROBABILITY_TRADE_VALIDATION_PROTOCOL.md",
-    "recommended_next_sprint": "infra-gold-manual-csv-or-cot-design-001",
+    "recommended_next_sprint": "research-stop-and-exit-diagnostics-001",
     "cross_asset_data_status": "REAL_DATA_NORMALIZED_FULL_WINDOW"
+  },
+  "c008_mean_reversion_post_mortem": {
+    "sprint": "C008_MEAN_REVERSION_POST_MORTEM_001",
+    "sprint_type": "diagnostic_post_mortem_only",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "campaign_018_created": false,
+    "c008_verdict_unchanged": "REJECT",
+    "c009_verdict_unchanged": "REJECT",
+    "retuning_performed": false,
+    "plan_doc": "docs/research/C008_MEAN_REVERSION_POST_MORTEM_001_PLAN.md",
+    "summary_doc": "docs/research/C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md",
+    "c008_failed_gate": "train_expectancy_gte_zero",
+    "c008_failed_gate_observed_r": -0.017,
+    "c009_failed_gate": "train_expectancy_gte_zero",
+    "c009_failed_gate_observed_r": -0.062,
+    "recommended_next_sprint": "research-stop-and-exit-diagnostics-001",
+    "diagnostics_dir": "research/c008_post_mortem"
   },
   "infra_external_data_blocker_resolution": {
     "sprint": "INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001",
@@ -82,7 +100,7 @@
     "cross_asset_missing_count": 0,
     "cross_asset_missing_prior_count": 2142,
     "cot_status": "DESIGN_ONLY",
-    "recommended_next_sprint": "infra-gold-manual-csv-or-cot-design-001"
+    "recommended_next_sprint": "research-stop-and-exit-diagnostics-001"
   },
   "infra_cross_asset_real_data_ingest": {
     "sprint": "INFRA_CROSS_ASSET_REAL_DATA_INGEST_001",
@@ -1131,6 +1149,34 @@
       "path": "docs/research/INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md",
       "kind": "research_infrastructure",
       "description": "Close-out for infra-external-data-ingest-blocker-resolution-001. FRED ingest succeeded; cross_asset_missing eliminated. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "C008_POST_MORTEM_TRADE_ANATOMY",
+      "path": "research/c008_post_mortem/c008_trade_anatomy.json",
+      "kind": "research_diagnostic",
+      "description": "C008 trade anatomy diagnostic from existing trade CSVs. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "C008_POST_MORTEM_CROSS_ASSET_OVERLAY",
+      "path": "research/c008_post_mortem/c008_cross_asset_regime_overlay.json",
+      "kind": "research_diagnostic",
+      "description": "C008 cross-asset regime overlay at trade entry. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "C008_POST_MORTEM_CONFLUENCE_OVERLAY",
+      "path": "research/c008_post_mortem/c008_confluence_overlay.json",
+      "kind": "research_diagnostic",
+      "description": "C008 confluence overlay at trade entry. Not A-grade profitability claim. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY",
+      "path": "docs/research/C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md",
+      "kind": "research_diagnostic",
+      "description": "Close-out for research-c008-mean-reversion-post-mortem-001. C008/C009 remain REJECT. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]

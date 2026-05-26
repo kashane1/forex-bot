@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-26 · **Branch:** `infra-external-data-ingest-blocker-resolution-001`
+**Date:** 2026-05-26 · **Branch:** `research-c008-mean-reversion-post-mortem-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -13,7 +13,8 @@
 > Re-entry gates: [`BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md`](BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md).
 > Trade-quality infrastructure sprints **complete**:
 > [`INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md`](INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md),
-> [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md).
+> [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md),
+> [`C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md`](C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md).
 
 Ordering is rough priority. **Item 0** is the recommended next sprint.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
@@ -22,19 +23,43 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. Gold manual CSV or COT design advance (RECOMMENDED NEXT SPRINT)
+## 0. Stop and exit diagnostics (RECOMMENDED NEXT SPRINT)
 
-- **Why it matters.** FRED full-window ingest **succeeded**; `cross_asset_missing`
-  eliminated (2,142 → 0). Remaining gaps: gold (`MANUAL_CSV_REQUIRED`), COT
-  (`DESIGN_ONLY`).
-- **Sprint name.** `infra-gold-manual-csv-or-cot-design-001`
-- **Scope.** Optional gold CSV drop in `data/external_features/`, and/or COT
-  design advance. No broker order APIs. No strategy campaigns.
-- **Status.** **RECOMMENDED — FRED BLOCKER RESOLVED.**
+- **Why it matters.** C008 post-mortem shows validation edge is **entirely
+  time-stop driven** (+1.83 R on 40-bar exits); train failure is **stop-out
+  dominated** (153/156 losers). C009 midline-exit rescue **falsified** on train.
+  Exit structure — not cross-asset or confluence alone — is the main explanatory
+  gap before any future mean-reversion campaign.
+- **Sprint name.** `research-stop-and-exit-diagnostics-001`
+- **Scope.** Descriptive exit-path analysis across rejected campaigns; exit
+  catalog alignment; financing interaction with hold time. **No retuning. No
+  new strategy campaign.**
+- **Status.** **RECOMMENDED** — based on C008 post-mortem findings.
 
 ---
 
-## 0-complete. External data credentials setup (COMPLETE)
+## 0-deferred. Gold manual CSV or COT design advance (OPTIONAL — NOT BLOCKING)
+
+- **Why it matters.** Gold (`MANUAL_CSV_REQUIRED`) and COT (`DESIGN_ONLY`) remain
+  optional enhancements. FRED ingest complete; C008 post-mortem did not identify
+  positioning as the primary failure mode.
+- **Sprint name.** `infra-gold-manual-csv-or-cot-design-001` or
+  `infra-cot-positioning-feature-ingest-001`
+- **Status.** **DEFERRED** — not blocking mean-reversion understanding.
+
+---
+
+## 0-complete. C008 mean-reversion post-mortem (COMPLETE)
+
+- **Sprint.** `research-c008-mean-reversion-post-mortem-001`
+- **Delivered.** Evidence reconstruction, trade anatomy, cross-asset regime overlay,
+  confluence overlay, human review post-mortem, future research gate.
+- **Summary.** [`C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md`](C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md)
+- **Status.** **COMPLETE** — diagnostic only; C008/C009 remain REJECT.
+
+---
+
+## 0-complete-prior. External data credentials setup (COMPLETE)
 
 - **Sprint.** operator action — `FRED_API_KEY` configured locally
 - **Delivered.** Full-window FRED fetch (7 series, 2,148 daily rows), H4 alignment
