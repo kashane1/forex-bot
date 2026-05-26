@@ -1,0 +1,61 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T23:52:59.415535+00:00",
+  "mae_mfe_computed": true,
+  "method": "H4 deduped candles between entry_time and exit_time; R normalized by entry-stop distance",
+  "c008": {
+    "label": "CAMPAIGN_008",
+    "trades_computed": 823,
+    "stop_trades": 559,
+    "stop_median_mae_r": 1.1672,
+    "stop_median_mfe_r": 1.0981,
+    "stop_pct_reached_1r_before_stop": 58.86,
+    "stop_pct_never_1r_favorable": 41.14,
+    "time_trades_median_mfe_r": 3.3257,
+    "time_trades_median_mae_r": 0.5032,
+    "target_trades_median_mfe_r": null,
+    "median_stop_distance_pips": 45.5,
+    "by_split": {
+      "full": {
+        "stop_median_mfe_r": 1.0941,
+        "time_median_mfe_r": 3.3639
+      },
+      "train": {
+        "stop_median_mfe_r": 1.1006,
+        "time_median_mfe_r": 3.2795
+      },
+      "validation": {
+        "stop_median_mfe_r": 1.1517,
+        "time_median_mfe_r": 3.3269
+      }
+    }
+  },
+  "c009": {
+    "label": "CAMPAIGN_009",
+    "trades_computed": 403,
+    "stop_trades": 227,
+    "stop_median_mae_r": 1.1672,
+    "stop_median_mfe_r": 1.0356,
+    "stop_pct_reached_1r_before_stop": 53.3,
+    "stop_pct_never_1r_favorable": 46.7,
+    "time_trades_median_mfe_r": 1.6532,
+    "time_trades_median_mae_r": 0.6292,
+    "target_trades_median_mfe_r": 1.8265,
+    "median_stop_distance_pips": 45.25,
+    "by_split": {
+      "train": {
+        "stop_median_mfe_r": 1.039,
+        "time_median_mfe_r": 2.0508
+      },
+      "validation": {
+        "stop_median_mfe_r": 1.0065,
+        "time_median_mfe_r": 1.6405
+      }
+    }
+  },
+  "interpretation": {
+    "stops_tight_or_bad_entry": "If stop exits show low MFE (<1R) before stop, entries likely invalid or stop correctly placed. If high MFE but still stopped, stop may be tight relative to noise.",
+    "time_exit_role": "Time exits with high MFE suggest delayed reversion captured after adverse excursion."
+  }
+}
