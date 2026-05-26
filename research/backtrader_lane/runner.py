@@ -74,6 +74,7 @@ class BacktraderTrade:
     pnl_account: float
     r_multiple: float | None
     return_pct: float | None
+    fold_index: int | None = None
 
 
 @dataclass(frozen=True)
@@ -381,7 +382,7 @@ def build_manifest(
 
 
 def _trade_to_jsonl(t: BacktraderTrade) -> str:
-    payload = {
+    payload: dict[str, Any] = {
         "instrument": t.instrument,
         "side": t.side,
         "entry_time": t.entry_time.isoformat(),
@@ -396,6 +397,8 @@ def _trade_to_jsonl(t: BacktraderTrade) -> str:
         "r_multiple": t.r_multiple,
         "return_pct": t.return_pct,
     }
+    if t.fold_index is not None:
+        payload["fold_index"] = t.fold_index
     return json.dumps(payload, sort_keys=True)
 
 
@@ -517,6 +520,16 @@ class RunOptions:
     starting_equity_usd: float | None = None
     dry_run: bool = False
     strict_data: bool = True
+    # ``full`` — iterate the entire CSV (legacy behaviour).
+    # ``fold_windows`` — run each walk-forward test window independently.
+    run_mode: str = "full"
+    fold_plan_path: Path | None = None
+    warmup_days: int = 90
+    # When True, only count trades whose entry falls inside the fold
+    # test window. When False (default for CAMPAIGN_015 fold mode),
+    # mirror the bespoke engine which counts trades in the 90-day
+    # warmup margin before ``test_start``.
+    strict_test_window: bool = False
 
 
 def _resolve_instruments(
@@ -535,6 +548,35 @@ def preflight(options: RunOptions) -> dict[str, Any]:
 
     campaign = get_campaign(options.campaign_id)
     instruments = _resolve_instruments(campaign, options)
+    if options.run_mode == "fold_windows":
+        if options.fold_plan_path is None:
+            raise ValueError("fold_windows mode requires fold_plan_path")
+        from research.backtrader_lane.fold_windows import (
+            fold_specs_from_plan,
+            load_fold_plan,
+            preflight_fold_windows,
+        )
+
+        plan = load_fold_plan(options.fold_plan_path)
+        specs = fold_specs_from_plan(plan, warmup_days=options.warmup_days)
+
+        def _load(name: str) -> CandleAdapterResult:
+            return load_candles(
+                name,
+                export_dir=options.data_export_dir,
+                strict=options.strict_data,
+            )
+
+        pf = preflight_fold_windows(
+            instruments=instruments,
+            fold_specs=specs,
+            load_fn=_load,
+        )
+        pf["campaign_id"] = campaign.campaign_id
+        pf["fold_plan_path"] = str(options.fold_plan_path)
+        pf["dry_run"] = options.dry_run
+        return pf
+
     expected = expected_instruments(options.data_export_dir)
     available = available_instruments(options.data_export_dir)
     blocked: list[str] = []
@@ -546,6 +588,7 @@ def preflight(options: RunOptions) -> dict[str, Any]:
             blocked.append(name)
     return {
         "campaign_id": campaign.campaign_id,
+        "run_mode": options.run_mode,
         "instruments_requested": instruments,
         "instruments_runnable": runnable,
         "instruments_blocked": blocked,
@@ -556,6 +599,310 @@ def preflight(options: RunOptions) -> dict[str, Any]:
     }
 
 
+def _write_run_artifacts(
+    *,
+    options: RunOptions,
+    campaign: CampaignAdapter,
+    manifest: dict[str, Any],
+    summary: dict[str, Any],
+    pair_results: list[PairRunResult],
+) -> None:
+    options.output_dir.mkdir(parents=True, exist_ok=True)
+    (options.output_dir / "run_manifest.json").write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    (options.output_dir / "backtrader_summary.json").write_text(
+        json.dumps(summary, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    all_trades: list[BacktraderTrade] = []
+    for pr in pair_results:
+        all_trades.extend(pr.trades)
+    write_trades_jsonl(options.output_dir / "backtrader_trades.jsonl", all_trades)
+    metrics: dict[str, Any] = {
+        "per_pair": [
+            {
+                "instrument": pr.instrument,
+                "analyzer": pr.analyzer_outputs,
+                "final_cash": pr.final_cash,
+                "starting_cash": pr.starting_cash,
+            }
+            for pr in pair_results
+        ],
+    }
+    (options.output_dir / "backtrader_metrics.json").write_text(
+        json.dumps(metrics, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    log_md = _render_log_summary_md(summary=summary, manifest=manifest)
+    (options.output_dir / "run_log_summary.md").write_text(log_md, encoding="utf-8")
+
+    forbidden_env_keys = (
+        "OANDA_TOKEN",
+        "OANDA_API_TOKEN",
+        "OANDA_ACCOUNT_ID",
+        "OANDA_ACCOUNT",
+    )
+    manifest_text = (options.output_dir / "run_manifest.json").read_text(encoding="utf-8")
+    for key in forbidden_env_keys:
+        if key in manifest_text:
+            raise RuntimeError(
+                f"manifest accidentally references {key}; refusing to keep it."
+            )
+        value = os.environ.get(key)
+        if value and value in manifest_text:
+            raise RuntimeError(
+                "manifest contains a value that matches an OANDA env var; refusing to keep it."
+            )
+
+
+def run_fold_windows(options: RunOptions) -> dict[str, Any]:
+    """Run the campaign once per walk-forward fold test window.
+
+    Each fold × instrument is an independent run with equity reset to
+    ``starting_equity_usd``. Candle data is sliced to
+    ``[test_start - warmup_days, test_end]`` inclusive, matching the
+    bespoke ``run_campaign_015.py`` loader.
+    """
+
+    if options.fold_plan_path is None:
+        raise ValueError("fold_windows mode requires fold_plan_path")
+
+    from research.backtrader_lane.fold_windows import (
+        FoldWindowSpec,
+        entry_in_test_window,
+        fold_specs_from_plan,
+        load_fold_plan,
+        slice_candles,
+    )
+
+    campaign = get_campaign(options.campaign_id)
+    starting_equity_usd = (
+        options.starting_equity_usd
+        if options.starting_equity_usd is not None
+        else campaign.default_starting_equity_usd
+    )
+    instruments = _resolve_instruments(campaign, options)
+    plan = load_fold_plan(options.fold_plan_path)
+    fold_specs = fold_specs_from_plan(plan, warmup_days=options.warmup_days)
+
+    options.output_dir.mkdir(parents=True, exist_ok=True)
+    data_manifests: list[dict[str, Any]] = []
+    instruments_blocked: set[str] = set()
+    all_pair_results: list[PairRunResult] = []
+    fold_summaries: list[dict[str, Any]] = []
+    per_fold_pair_trades: dict[str, dict[str, int]] = {}
+
+    loaded: dict[str, CandleAdapterResult] = {}
+    for name in instruments:
+        try:
+            loaded[name] = load_candles(
+                name,
+                export_dir=options.data_export_dir,
+                strict=options.strict_data,
+            )
+            data_manifests.append(manifest_for(loaded[name]))
+        except FileNotFoundError:
+            instruments_blocked.add(name)
+
+    runner_kwargs_base: dict[str, Any] = {
+        "strict_test_window": options.strict_test_window,
+    }
+
+    for spec in fold_specs:
+        fold_dir = options.output_dir / "folds" / f"fold_{spec.fold_index:02d}"
+        fold_pair_results: list[PairRunResult] = []
+        fold_trades: list[BacktraderTrade] = []
+        fold_blocked: list[str] = []
+
+        for name in instruments:
+            if name in instruments_blocked:
+                fold_blocked.append(name)
+                continue
+            try:
+                sliced = slice_candles(
+                    loaded[name],
+                    from_time=spec.candle_load_start,
+                    to_time=spec.candle_load_end,
+                )
+            except ValueError:
+                fold_blocked.append(name)
+                continue
+            if options.dry_run:
+                continue
+            pair_result = campaign.runner_fn(
+                sliced,
+                starting_equity_usd,
+                fold_window=spec,
+                **runner_kwargs_base,
+            )
+            counted = [
+                t
+                for t in pair_result.trades
+                if entry_in_test_window(
+                    t.entry_time,
+                    test_start=spec.test_start,
+                    test_end=spec.test_end,
+                    strict=options.strict_test_window,
+                )
+            ]
+            tagged = [
+                BacktraderTrade(
+                    instrument=t.instrument,
+                    side=t.side,
+                    entry_time=t.entry_time,
+                    entry_price=t.entry_price,
+                    exit_time=t.exit_time,
+                    exit_price=t.exit_price,
+                    units=t.units,
+                    exit_reason=t.exit_reason,
+                    bars_held=t.bars_held,
+                    pnl_quote=t.pnl_quote,
+                    pnl_account=t.pnl_account,
+                    r_multiple=t.r_multiple,
+                    return_pct=t.return_pct,
+                    fold_index=spec.fold_index,
+                )
+                for t in counted
+            ]
+            fold_trades.extend(tagged)
+            fold_pair_results.append(
+                PairRunResult(
+                    instrument=pair_result.instrument,
+                    candle_count=pair_result.candle_count,
+                    trades=tagged,
+                    final_cash=pair_result.final_cash,
+                    starting_cash=pair_result.starting_cash,
+                    analyzer_outputs={"closed_trades": len(tagged)},
+                )
+            )
+            per_fold_pair_trades.setdefault(f"fold_{spec.fold_index:02d}", {})[name] = len(
+                tagged
+            )
+
+        all_pair_results.extend(fold_pair_results)
+
+        fold_total = sum(len(pr.trades) for pr in fold_pair_results)
+        fold_summary = {
+            "fold_index": spec.fold_index,
+            "test_start": str(spec.test_start),
+            "test_end": str(spec.test_end),
+            "total_trades": fold_total,
+            "blocked_instruments": sorted(fold_blocked),
+            "pairs": [
+                {
+                    "instrument": pr.instrument,
+                    "trades": len(pr.trades),
+                    "candle_count": pr.candle_count,
+                }
+                for pr in fold_pair_results
+            ],
+        }
+        fold_summaries.append(fold_summary)
+
+        if not options.dry_run:
+            fold_dir.mkdir(parents=True, exist_ok=True)
+            write_trades_jsonl(fold_dir / "backtrader_trades.jsonl", fold_trades)
+            (fold_dir / "fold_summary.json").write_text(
+                json.dumps(fold_summary, indent=2, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+
+    instruments_run = sorted({pr.instrument for pr in all_pair_results})
+    command = "python " + " ".join(shlex.quote(arg) for arg in sys.argv[1:])
+    manifest = build_manifest(
+        campaign=campaign,
+        command=command,
+        instruments_run=instruments_run,
+        instruments_blocked=sorted(instruments_blocked),
+        data_manifests=data_manifests,
+        starting_equity_usd=starting_equity_usd,
+        strict_data=options.strict_data,
+    )
+    manifest["run_mode"] = "fold_windows"
+    manifest["fold_plan_path"] = str(options.fold_plan_path)
+    manifest["warmup_days"] = options.warmup_days
+    manifest["strict_test_window"] = options.strict_test_window
+    manifest["fold_count"] = len(fold_specs)
+    manifest["approximation_flags"] = list(campaign.approximation_flags) + [
+        (
+            "FOLD_WINDOW_BESPOKE_MIRROR: each fold × pair is an independent "
+            "run with equity reset; candle slice matches "
+            "run_campaign_015.py _fold_dates_to_dts (90-day warmup margin)."
+        ),
+        (
+            "STRICT_TEST_WINDOW="
+            f"{options.strict_test_window}: when false, trades with "
+            "entry_time before test_start inside the warmup margin are "
+            "counted (mirrors bespoke engine behaviour)."
+        ),
+    ]
+
+    # Aggregate per-instrument across folds.
+    agg_by_pair: dict[str, dict[str, Any]] = {}
+    for pr in all_pair_results:
+        bucket = agg_by_pair.setdefault(
+            pr.instrument,
+            {
+                "instrument": pr.instrument,
+                "candle_count": 0,
+                "trades": 0,
+                "wins": 0,
+                "losses": 0,
+                "pnl_account_total": 0.0,
+            },
+        )
+        bucket["candle_count"] += pr.candle_count
+        bucket["trades"] += len(pr.trades)
+        bucket["wins"] += sum(1 for t in pr.trades if t.pnl_account > 0)
+        bucket["losses"] += sum(1 for t in pr.trades if t.pnl_account < 0)
+        bucket["pnl_account_total"] += sum(t.pnl_account for t in pr.trades)
+
+    pair_rows: list[dict[str, Any]] = []
+    for name in sorted(agg_by_pair):
+        b = agg_by_pair[name]
+        n = b["trades"]
+        pair_rows.append(
+            {
+                **b,
+                "win_rate": (b["wins"] / n) if n else None,
+                "final_cash": None,
+                "starting_cash": starting_equity_usd,
+                "analyzer": {"closed_trades": n},
+            }
+        )
+
+    total_trades = sum(b["trades"] for b in agg_by_pair.values())
+    total_pnl = sum(b["pnl_account_total"] for b in agg_by_pair.values())
+    summary = {
+        "campaign_id": campaign.campaign_id,
+        "strategy_id": campaign.strategy_id,
+        "strategy_version": campaign.strategy_version,
+        "starting_equity_usd": starting_equity_usd,
+        "total_trades": total_trades,
+        "total_pnl_account": total_pnl,
+        "pairs": pair_rows,
+        "blocked_instruments": sorted(instruments_blocked),
+        "strategy_evidence": False,
+        "dry_run": options.dry_run,
+        "run_mode": "fold_windows",
+        "fold_count": len(fold_specs),
+        "strict_test_window": options.strict_test_window,
+        "fold_summaries": fold_summaries,
+        "per_fold_pair_trades": per_fold_pair_trades,
+    }
+
+    _write_run_artifacts(
+        options=options,
+        campaign=campaign,
+        manifest=manifest,
+        summary=summary,
+        pair_results=all_pair_results,
+    )
+    return summary
+
+
 def run(options: RunOptions) -> dict[str, Any]:
     """Execute the configured campaign in the Backtrader lane.
 
@@ -564,6 +911,9 @@ def run(options: RunOptions) -> dict[str, Any]:
     ``run_log_summary.md`` to ``options.output_dir``. Returns the
     summary dict.
     """
+
+    if options.run_mode == "fold_windows":
+        return run_fold_windows(options)
 
     campaign = get_campaign(options.campaign_id)
     starting_equity_usd = (
@@ -614,58 +964,15 @@ def run(options: RunOptions) -> dict[str, Any]:
         starting_equity_usd=starting_equity_usd,
     )
     summary["dry_run"] = options.dry_run
+    summary["run_mode"] = "full"
+    manifest["run_mode"] = "full"
 
-    # Write artifacts.
-    (options.output_dir / "run_manifest.json").write_text(
-        json.dumps(manifest, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
+    _write_run_artifacts(
+        options=options,
+        campaign=campaign,
+        manifest=manifest,
+        summary=summary,
+        pair_results=pair_results,
     )
-    (options.output_dir / "backtrader_summary.json").write_text(
-        json.dumps(summary, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
-    all_trades: list[BacktraderTrade] = []
-    for pr in pair_results:
-        all_trades.extend(pr.trades)
-    write_trades_jsonl(options.output_dir / "backtrader_trades.jsonl", all_trades)
-    metrics: dict[str, Any] = {
-        "per_pair": [
-            {
-                "instrument": pr.instrument,
-                "analyzer": pr.analyzer_outputs,
-                "final_cash": pr.final_cash,
-                "starting_cash": pr.starting_cash,
-            }
-            for pr in pair_results
-        ],
-    }
-    (options.output_dir / "backtrader_metrics.json").write_text(
-        json.dumps(metrics, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
-    log_md = _render_log_summary_md(summary=summary, manifest=manifest)
-    (options.output_dir / "run_log_summary.md").write_text(log_md, encoding="utf-8")
-
-    # Refuse silently to leak credentials into the manifest. The manifest
-    # is JSON-serialised from a typed dict; here we add a paranoid
-    # post-hoc check to fail loud if a future change ever embeds an env
-    # variable name that looks credential-shaped.
-    forbidden_env_keys = (
-        "OANDA_TOKEN",
-        "OANDA_API_TOKEN",
-        "OANDA_ACCOUNT_ID",
-        "OANDA_ACCOUNT",
-    )
-    manifest_text = (options.output_dir / "run_manifest.json").read_text(encoding="utf-8")
-    for key in forbidden_env_keys:
-        if key in manifest_text:
-            raise RuntimeError(
-                f"manifest accidentally references {key}; refusing to keep it."
-            )
-        value = os.environ.get(key)
-        if value and value in manifest_text:
-            raise RuntimeError(
-                "manifest contains a value that matches an OANDA env var; refusing to keep it."
-            )
 
     return summary

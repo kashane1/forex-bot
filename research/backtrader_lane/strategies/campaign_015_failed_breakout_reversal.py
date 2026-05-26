@@ -41,6 +41,7 @@ import backtrader as bt
 import pandas as pd
 
 from research.backtrader_lane.data_adapter import CandleAdapterResult
+from research.backtrader_lane.fold_windows import FoldWindowSpec, bar_date_utc
 from research.backtrader_lane.runner import (
     BacktraderTrade,
     CampaignAdapter,
@@ -162,6 +163,8 @@ def run_campaign_015_pair(
     *,
     config_path: Path = CAMPAIGN_015_CONFIG_PATH,
     strategy_cfg_override: dict[str, Any] | None = None,
+    fold_window: FoldWindowSpec | None = None,
+    strict_test_window: bool = False,
 ) -> PairRunResult:
     """Drive one instrument through the CAMPAIGN_015 BT adapter.
 
@@ -233,6 +236,8 @@ def run_campaign_015_pair(
 
     recorded: list[BacktraderTrade] = []
     nav = {"value": float(starting_equity_usd)}
+    test_start = fold_window.test_start if fold_window else None
+    test_end = fold_window.test_end if fold_window else None
 
     class _Campaign015Strategy(bt.Strategy):  # pragma: no cover - bt callbacks
         params = (
@@ -259,10 +264,17 @@ def run_campaign_015_pair(
             # on the *next* bar's open.
             self._pending_side: str | None = None
             self._pending_stop: float = 0.0
+            self._pending_signal_in_test: bool = False
 
         def _bar_time(self) -> pd.Timestamp:
             from datetime import UTC
             return pd.Timestamp(bt.num2date(self.data.datetime[0])).tz_localize(UTC)
+
+        def _bar_in_test_window(self) -> bool:
+            if test_start is None or test_end is None or not strict_test_window:
+                return True
+            d = bar_date_utc(self._bar_time().to_pydatetime())
+            return test_start <= d <= test_end
 
         def _close_trade(self, *, exit_price: float, exit_reason: str) -> None:
             pnl_account = _trade_pnl(
@@ -335,6 +347,9 @@ def run_campaign_015_pair(
             """Generate a signal on the current bar; mirrors R1-R10 of
             the bespoke strategy. The actual entry happens on the next
             bar's open (queue via `self._pending_side`)."""
+
+            if strict_test_window and not self._bar_in_test_window():
+                return
 
             # R1: warmup — need range + ATR/ADX burn-in.
             warmup = max(range_lookback, atr_lookback, adx_lookback) + 2
@@ -416,12 +431,23 @@ def run_campaign_015_pair(
             # next next() invocation.
             self._pending_side = side
             self._pending_stop = stop
+            self._pending_signal_in_test = self._bar_in_test_window()
 
         def _execute_pending_entry(self) -> None:
             """If a pending entry exists from the prior bar, fill it at
             the current bar's open."""
 
             if self._pending_side is None or self._in_position:
+                return
+            if strict_test_window and not self._pending_signal_in_test:
+                self._pending_side = None
+                self._pending_stop = 0.0
+                self._pending_signal_in_test = False
+                return
+            if strict_test_window and not self._bar_in_test_window():
+                self._pending_side = None
+                self._pending_stop = 0.0
+                self._pending_signal_in_test = False
                 return
             side = self._pending_side
             stop = self._pending_stop
@@ -471,6 +497,7 @@ def run_campaign_015_pair(
             self._initial_stop_distance = abs(entry_price - self._stop_price)
             self._pending_side = None
             self._pending_stop = 0.0
+            self._pending_signal_in_test = False
 
             # Adverse-stop-wins: check the same bar for stop hit.
             if same_bar_adverse_stop_check(
@@ -506,6 +533,18 @@ def run_campaign_015_pair(
                 self._close_trade(exit_price=exit_price, exit_reason="time")
 
         def next(self) -> None:
+            # Force-close at fold test_end boundary when strict mode is on
+            # and the bar is the last in the slice on test_end.
+            if (
+                strict_test_window
+                and test_end is not None
+                and self._in_position
+                and bar_date_utc(self._bar_time().to_pydatetime()) >= test_end
+            ):
+                bid_close = float(self.data.bid_close[0])
+                ask_close = float(self.data.ask_close[0])
+                exit_price = bid_close if self._side == "long" else ask_close
+                self._close_trade(exit_price=exit_price, exit_reason="fold_end")
             # Order matches the bespoke event loop:
             # 1. exits on the current bar (if a position is open),
             # 2. pending entry execution at this bar's open (the bar
