@@ -1,0 +1,542 @@
+{
+  "blocked_instruments": [],
+  "campaign_id": "CAMPAIGN_015",
+  "dry_run": false,
+  "fold_count": 8,
+  "fold_summaries": [
+    {
+      "blocked_instruments": [],
+      "fold_index": 0,
+      "pairs": [
+        {
+          "candle_count": 1157,
+          "instrument": "EUR_USD",
+          "trades": 8
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "GBP_USD",
+          "trades": 11
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "USD_JPY",
+          "trades": 5
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "AUD_USD",
+          "trades": 10
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "USD_CAD",
+          "trades": 9
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "USD_CHF",
+          "trades": 6
+        },
+        {
+          "candle_count": 1158,
+          "instrument": "NZD_USD",
+          "trades": 8
+        }
+      ],
+      "test_end": "2022-06-18",
+      "test_start": "2021-12-21",
+      "total_trades": 57
+    },
+    {
+      "blocked_instruments": [],
+      "fold_index": 1,
+      "pairs": [
+        {
+          "candle_count": 1164,
+          "instrument": "EUR_USD",
+          "trades": 8
+        },
+        {
+          "candle_count": 1164,
+          "instrument": "GBP_USD",
+          "trades": 13
+        },
+        {
+          "candle_count": 1164,
+          "instrument": "USD_JPY",
+          "trades": 8
+        },
+        {
+          "candle_count": 1164,
+          "instrument": "AUD_USD",
+          "trades": 14
+        },
+        {
+          "candle_count": 1164,
+          "instrument": "USD_CAD",
+          "trades": 11
+        },
+        {
+          "candle_count": 1164,
+          "instrument": "USD_CHF",
+          "trades": 6
+        },
+        {
+          "candle_count": 1164,
+          "instrument": "NZD_USD",
+          "trades": 5
+        }
+      ],
+      "test_end": "2022-12-15",
+      "test_start": "2022-06-19",
+      "total_trades": 65
+    },
+    {
+      "blocked_instruments": [],
+      "fold_index": 2,
+      "pairs": [
+        {
+          "candle_count": 1147,
+          "instrument": "EUR_USD",
+          "trades": 8
+        },
+        {
+          "candle_count": 1147,
+          "instrument": "GBP_USD",
+          "trades": 10
+        },
+        {
+          "candle_count": 1147,
+          "instrument": "USD_JPY",
+          "trades": 9
+        },
+        {
+          "candle_count": 1147,
+          "instrument": "AUD_USD",
+          "trades": 14
+        },
+        {
+          "candle_count": 1147,
+          "instrument": "USD_CAD",
+          "trades": 10
+        },
+        {
+          "candle_count": 1147,
+          "instrument": "USD_CHF",
+          "trades": 9
+        },
+        {
+          "candle_count": 1148,
+          "instrument": "NZD_USD",
+          "trades": 10
+        }
+      ],
+      "test_end": "2023-06-13",
+      "test_start": "2022-12-16",
+      "total_trades": 70
+    },
+    {
+      "blocked_instruments": [],
+      "fold_index": 3,
+      "pairs": [
+        {
+          "candle_count": 1152,
+          "instrument": "EUR_USD",
+          "trades": 10
+        },
+        {
+          "candle_count": 1152,
+          "instrument": "GBP_USD",
+          "trades": 9
+        },
+        {
+          "candle_count": 1152,
+          "instrument": "USD_JPY",
+          "trades": 5
+        },
+        {
+          "candle_count": 1152,
+          "instrument": "AUD_USD",
+          "trades": 13
+        },
+        {
+          "candle_count": 1152,
+          "instrument": "USD_CAD",
+          "trades": 8
+        },
+        {
+          "candle_count": 1152,
+          "instrument": "USD_CHF",
+          "trades": 13
+        },
+        {
+          "candle_count": 1152,
+          "instrument": "NZD_USD",
+          "trades": 11
+        }
+      ],
+      "test_end": "2023-12-10",
+      "test_start": "2023-06-14",
+      "total_trades": 69
+    },
+    {
+      "blocked_instruments": [],
+      "fold_index": 4,
+      "pairs": [
+        {
+          "candle_count": 1151,
+          "instrument": "EUR_USD",
+          "trades": 14
+        },
+        {
+          "candle_count": 1151,
+          "instrument": "GBP_USD",
+          "trades": 13
+        },
+        {
+          "candle_count": 1151,
+          "instrument": "USD_JPY",
+          "trades": 6
+        },
+        {
+          "candle_count": 1151,
+          "instrument": "AUD_USD",
+          "trades": 10
+        },
+        {
+          "candle_count": 1151,
+          "instrument": "USD_CAD",
+          "trades": 10
+        },
+        {
+          "candle_count": 1151,
+          "instrument": "USD_CHF",
+          "trades": 6
+        },
+        {
+          "candle_count": 1153,
+          "instrument": "NZD_USD",
+          "trades": 7
+        }
+      ],
+      "test_end": "2024-06-07",
+      "test_start": "2023-12-11",
+      "total_trades": 66
+    },
+    {
+      "blocked_instruments": [],
+      "fold_index": 5,
+      "pairs": [
+        {
+          "candle_count": 1159,
+          "instrument": "EUR_USD",
+          "trades": 8
+        },
+        {
+          "candle_count": 1159,
+          "instrument": "GBP_USD",
+          "trades": 12
+        },
+        {
+          "candle_count": 1159,
+          "instrument": "USD_JPY",
+          "trades": 9
+        },
+        {
+          "candle_count": 1159,
+          "instrument": "AUD_USD",
+          "trades": 9
+        },
+        {
+          "candle_count": 1159,
+          "instrument": "USD_CAD",
+          "trades": 13
+        },
+        {
+          "candle_count": 1159,
+          "instrument": "USD_CHF",
+          "trades": 7
+        },
+        {
+          "candle_count": 1159,
+          "instrument": "NZD_USD",
+          "trades": 3
+        }
+      ],
+      "test_end": "2024-12-04",
+      "test_start": "2024-06-08",
+      "total_trades": 61
+    },
+    {
+      "blocked_instruments": [],
+      "fold_index": 6,
+      "pairs": [
+        {
+          "candle_count": 1140,
+          "instrument": "EUR_USD",
+          "trades": 11
+        },
+        {
+          "candle_count": 1140,
+          "instrument": "GBP_USD",
+          "trades": 16
+        },
+        {
+          "candle_count": 1140,
+          "instrument": "USD_JPY",
+          "trades": 4
+        },
+        {
+          "candle_count": 1140,
+          "instrument": "AUD_USD",
+          "trades": 15
+        },
+        {
+          "candle_count": 1140,
+          "instrument": "USD_CAD",
+          "trades": 9
+        },
+        {
+          "candle_count": 1140,
+          "instrument": "USD_CHF",
+          "trades": 8
+        },
+        {
+          "candle_count": 1140,
+          "instrument": "NZD_USD",
+          "trades": 2
+        }
+      ],
+      "test_end": "2025-06-02",
+      "test_start": "2024-12-05",
+      "total_trades": 65
+    },
+    {
+      "blocked_instruments": [],
+      "fold_index": 7,
+      "pairs": [
+        {
+          "candle_count": 1157,
+          "instrument": "EUR_USD",
+          "trades": 12
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "GBP_USD",
+          "trades": 11
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "USD_JPY",
+          "trades": 7
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "AUD_USD",
+          "trades": 16
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "USD_CAD",
+          "trades": 11
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "USD_CHF",
+          "trades": 15
+        },
+        {
+          "candle_count": 1157,
+          "instrument": "NZD_USD",
+          "trades": 7
+        }
+      ],
+      "test_end": "2025-11-29",
+      "test_start": "2025-06-03",
+      "total_trades": 79
+    }
+  ],
+  "pairs": [
+    {
+      "analyzer": {
+        "closed_trades": 101
+      },
+      "candle_count": 9227,
+      "final_cash": null,
+      "instrument": "AUD_USD",
+      "losses": 71,
+      "pnl_account_total": -15.801529999999625,
+      "starting_cash": 500.0,
+      "trades": 101,
+      "win_rate": 0.297029702970297,
+      "wins": 30
+    },
+    {
+      "analyzer": {
+        "closed_trades": 79
+      },
+      "candle_count": 9227,
+      "final_cash": null,
+      "instrument": "EUR_USD",
+      "losses": 49,
+      "pnl_account_total": 11.252119999999785,
+      "starting_cash": 500.0,
+      "trades": 79,
+      "win_rate": 0.379746835443038,
+      "wins": 30
+    },
+    {
+      "analyzer": {
+        "closed_trades": 95
+      },
+      "candle_count": 9227,
+      "final_cash": null,
+      "instrument": "GBP_USD",
+      "losses": 65,
+      "pnl_account_total": 21.660229999999967,
+      "starting_cash": 500.0,
+      "trades": 95,
+      "win_rate": 0.3157894736842105,
+      "wins": 30
+    },
+    {
+      "analyzer": {
+        "closed_trades": 53
+      },
+      "candle_count": 9231,
+      "final_cash": null,
+      "instrument": "NZD_USD",
+      "losses": 37,
+      "pnl_account_total": -9.554189999999794,
+      "starting_cash": 500.0,
+      "trades": 53,
+      "win_rate": 0.3018867924528302,
+      "wins": 16
+    },
+    {
+      "analyzer": {
+        "closed_trades": 81
+      },
+      "candle_count": 9227,
+      "final_cash": null,
+      "instrument": "USD_CAD",
+      "losses": 62,
+      "pnl_account_total": -13.747250162478414,
+      "starting_cash": 500.0,
+      "trades": 81,
+      "win_rate": 0.2345679012345679,
+      "wins": 19
+    },
+    {
+      "analyzer": {
+        "closed_trades": 70
+      },
+      "candle_count": 9227,
+      "final_cash": null,
+      "instrument": "USD_CHF",
+      "losses": 47,
+      "pnl_account_total": -18.87628092583196,
+      "starting_cash": 500.0,
+      "trades": 70,
+      "win_rate": 0.32857142857142857,
+      "wins": 23
+    },
+    {
+      "analyzer": {
+        "closed_trades": 53
+      },
+      "candle_count": 9227,
+      "final_cash": null,
+      "instrument": "USD_JPY",
+      "losses": 33,
+      "pnl_account_total": 21.15020110659398,
+      "starting_cash": 500.0,
+      "trades": 53,
+      "win_rate": 0.37735849056603776,
+      "wins": 20
+    }
+  ],
+  "per_fold_pair_trades": {
+    "fold_00": {
+      "AUD_USD": 10,
+      "EUR_USD": 8,
+      "GBP_USD": 11,
+      "NZD_USD": 8,
+      "USD_CAD": 9,
+      "USD_CHF": 6,
+      "USD_JPY": 5
+    },
+    "fold_01": {
+      "AUD_USD": 14,
+      "EUR_USD": 8,
+      "GBP_USD": 13,
+      "NZD_USD": 5,
+      "USD_CAD": 11,
+      "USD_CHF": 6,
+      "USD_JPY": 8
+    },
+    "fold_02": {
+      "AUD_USD": 14,
+      "EUR_USD": 8,
+      "GBP_USD": 10,
+      "NZD_USD": 10,
+      "USD_CAD": 10,
+      "USD_CHF": 9,
+      "USD_JPY": 9
+    },
+    "fold_03": {
+      "AUD_USD": 13,
+      "EUR_USD": 10,
+      "GBP_USD": 9,
+      "NZD_USD": 11,
+      "USD_CAD": 8,
+      "USD_CHF": 13,
+      "USD_JPY": 5
+    },
+    "fold_04": {
+      "AUD_USD": 10,
+      "EUR_USD": 14,
+      "GBP_USD": 13,
+      "NZD_USD": 7,
+      "USD_CAD": 10,
+      "USD_CHF": 6,
+      "USD_JPY": 6
+    },
+    "fold_05": {
+      "AUD_USD": 9,
+      "EUR_USD": 8,
+      "GBP_USD": 12,
+      "NZD_USD": 3,
+      "USD_CAD": 13,
+      "USD_CHF": 7,
+      "USD_JPY": 9
+    },
+    "fold_06": {
+      "AUD_USD": 15,
+      "EUR_USD": 11,
+      "GBP_USD": 16,
+      "NZD_USD": 2,
+      "USD_CAD": 9,
+      "USD_CHF": 8,
+      "USD_JPY": 4
+    },
+    "fold_07": {
+      "AUD_USD": 16,
+      "EUR_USD": 12,
+      "GBP_USD": 11,
+      "NZD_USD": 7,
+      "USD_CAD": 11,
+      "USD_CHF": 15,
+      "USD_JPY": 7
+    }
+  },
+  "run_mode": "fold_windows",
+  "starting_equity_usd": 500.0,
+  "strategy_evidence": false,
+  "strategy_id": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015",
+  "strict_test_window": false,
+  "total_pnl_account": -3.9166999817160626,
+  "total_trades": 532
+}

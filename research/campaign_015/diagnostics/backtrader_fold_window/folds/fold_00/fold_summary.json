@@ -1,0 +1,44 @@
+{
+  "blocked_instruments": [],
+  "fold_index": 0,
+  "pairs": [
+    {
+      "candle_count": 1157,
+      "instrument": "EUR_USD",
+      "trades": 8
+    },
+    {
+      "candle_count": 1157,
+      "instrument": "GBP_USD",
+      "trades": 11
+    },
+    {
+      "candle_count": 1157,
+      "instrument": "USD_JPY",
+      "trades": 5
+    },
+    {
+      "candle_count": 1157,
+      "instrument": "AUD_USD",
+      "trades": 10
+    },
+    {
+      "candle_count": 1157,
+      "instrument": "USD_CAD",
+      "trades": 9
+    },
+    {
+      "candle_count": 1157,
+      "instrument": "USD_CHF",
+      "trades": 6
+    },
+    {
+      "candle_count": 1158,
+      "instrument": "NZD_USD",
+      "trades": 8
+    }
+  ],
+  "test_end": "2022-06-18",
+  "test_start": "2021-12-21",
+  "total_trades": 57
+}
