@@ -1,0 +1,133 @@
+{
+  "campaign_id": "CAMPAIGN_015",
+  "strategy_name": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015",
+  "config_hash": "17ddfd7eb87d93c502f148642c8ee883c66cb72bfa8ca72f981624a0dcfdd93c",
+  "null_model": "random_entry_anchor",
+  "null_config_hash": "6f2c04981a3f02f08bae65b73b09f873de6a42cb067b9462885c5ffd2c6a1206",
+  "anti_overfit_label": "ROBUST_ABOVE_NULL",
+  "anti_overfit_gates": {
+    "loo_min_mean_gap_ge_0p05": true,
+    "per_fold_t_stat_ge_2p0": true,
+    "median_per_fold_expectancy_ge_0": true,
+    "trade_level_cumulative_r_gt_0": true,
+    "pair_concentration_le_70pct": true,
+    "fold_concentration_le_60pct": true,
+    "cost_dominance_le_50pct": true
+  },
+  "anti_overfit_metrics": {
+    "loo_min_mean_gap_r": 0.1839504950871235,
+    "per_fold_t_stat": 3.1902209453488948,
+    "gap_mean_r": 0.22520787583686444,
+    "median_per_fold_expectancy_r": 0.25877138215719675,
+    "trade_level_cumulative_r": 37.726468665408945,
+    "pair_concentration": 0.3021262437358684,
+    "fold_concentration": 0.2226046087090396,
+    "cost_dominance": 0.0,
+    "aggregate_floor_pass": true,
+    "within_null_pf_band_match": false,
+    "worse_than_null": false,
+    "selected_cell_artifact_geometry": false
+  },
+  "anti_overfit_reasons": [
+    "all aggregate + anti-overfit gates pass; not driven by a single cell"
+  ],
+  "per_fold_gap_series": [
+    {
+      "fold_index": 0,
+      "test_start": "2021-12-21",
+      "test_end": "2022-06-18",
+      "campaign_expectancy_r": -0.20494516493415352,
+      "null_expectancy_r": -0.10386838637203849,
+      "gap_r": -0.10107677856211503,
+      "campaign_trades": 18,
+      "null_trades": 143
+    },
+    {
+      "fold_index": 1,
+      "test_start": "2022-06-19",
+      "test_end": "2022-12-15",
+      "campaign_expectancy_r": 0.059403159671041435,
+      "null_expectancy_r": -0.02091262290287363,
+      "gap_r": 0.08031578257391506,
+      "campaign_trades": 26,
+      "null_trades": 150
+    },
+    {
+      "fold_index": 2,
+      "test_start": "2022-12-16",
+      "test_end": "2023-06-13",
+      "campaign_expectancy_r": 0.31377245909225926,
+      "null_expectancy_r": 0.03867860304218537,
+      "gap_r": 0.27509385605007386,
+      "campaign_trades": 26,
+      "null_trades": 153
+    },
+    {
+      "fold_index": 3,
+      "test_start": "2023-06-14",
+      "test_end": "2023-12-10",
+      "campaign_expectancy_r": 0.4288181358158898,
+      "null_expectancy_r": -0.005598066209507527,
+      "gap_r": 0.4344162020253973,
+      "campaign_trades": 28,
+      "null_trades": 150
+    },
+    {
+      "fold_index": 4,
+      "test_start": "2023-12-11",
+      "test_end": "2024-06-07",
+      "campaign_expectancy_r": 0.3085589616986142,
+      "null_expectancy_r": 0.014737092091635368,
+      "gap_r": 0.2938218696069788,
+      "campaign_trades": 24,
+      "null_trades": 162
+    },
+    {
+      "fold_index": 5,
+      "test_start": "2024-06-08",
+      "test_end": "2024-12-04",
+      "campaign_expectancy_r": 0.20898380261577926,
+      "null_expectancy_r": -0.0013633356812909907,
+      "gap_r": 0.21034713829707025,
+      "campaign_trades": 14,
+      "null_trades": 153
+    },
+    {
+      "fold_index": 6,
+      "test_start": "2024-12-05",
+      "test_end": "2025-06-02",
+      "campaign_expectancy_r": 0.5680803367458878,
+      "null_expectancy_r": 0.05407079566083674,
+      "gap_r": 0.514009541085051,
+      "campaign_trades": 14,
+      "null_trades": 128
+    },
+    {
+      "fold_index": 7,
+      "test_start": "2025-06-03",
+      "test_end": "2025-11-29",
+      "campaign_expectancy_r": 0.10154962226449273,
+      "null_expectancy_r": 0.006814226645948531,
+      "gap_r": 0.09473539561854419,
+      "campaign_trades": 14,
+      "null_trades": 138
+    }
+  ],
+  "null_per_fold_std_r": 0.04766617664769574,
+  "mean_per_fold_gap_r": 0.22520787583686444,
+  "campaign_total_trades": 164,
+  "null_total_trades_per_fold": [
+    143,
+    150,
+    153,
+    150,
+    162,
+    153,
+    128,
+    138
+  ],
+  "approval_status": "NOT_APPROVED",
+  "approved_strategies_yaml_state": "approved: []",
+  "diagnostic_disclaimer": "Even a ROBUST_ABOVE_NULL label here does NOT approve failed_breakout_reversal; approval requires a fresh pre-committed campaign on a clean candidate and a human registry edit. CAMPAIGN_011 evidence is read-only."
+}
