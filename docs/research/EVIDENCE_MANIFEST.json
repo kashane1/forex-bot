@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-26",
-  "branch": "research-broad-strategy-pause-and-roadmap-001",
+  "branch": "research-pro-alpha-confluence-and-asset-expansion-roadmap-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -17,8 +17,34 @@
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
-    "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md"
+    "next_non_strategy_sprint": "infra-multi-timeframe-confluence-and-cost-atlas-001",
+    "next_non_strategy_sprint_status": "RECOMMENDED_NOT_STARTED",
+    "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
+    "prior_non_strategy_sprint_note": "Still valid as cost-atlas slice; subsumed into recommended combined sprint.",
+    "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
+    "trade_quality_roadmap_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md"
+  },
+  "pro_alpha_confluence_roadmap": {
+    "sprint": "PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_001",
+    "sprint_type": "research_design_roadmap_only",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "campaign_018_created": false,
+    "implementation_sprint_started": false,
+    "recommended_next_implementation_sprint": "infra-multi-timeframe-confluence-and-cost-atlas-001",
+    "recommended_implementation_scope": [
+      "cost_atlas_spread_diagnostics",
+      "multi_timeframe_confluence_prototype",
+      "read_only_phase1_cross_asset_feature_ingest"
+    ],
+    "plan_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_PLAN.md",
+    "summary_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md",
+    "design_docs": {
+      "multi_timeframe_confluence": "docs/research/MULTI_TIMEFRAME_CONFLUENCE_DESIGN.md",
+      "cross_asset_features": "docs/research/CROSS_ASSET_FEATURE_ROADMAP.md",
+      "exit_and_sizing": "docs/research/EXIT_AND_SIZING_OVERLAY_ROADMAP.md",
+      "asset_expansion": "docs/research/ASSET_EXPANSION_SHORTLIST.md"
+    }
   },
   "post_dedup_failure_meta_analysis": {
     "sprint": "POST_DEDUP_FAILURE_META_ANALYSIS_001",
@@ -869,6 +895,48 @@
       "path": "docs/research/BROAD_STRATEGY_PAUSE_AND_ROADMAP_001_SUMMARY.md",
       "kind": "research_pause",
       "description": "Sprint close-out for broad strategy pause and roadmap. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_PLAN",
+      "path": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_PLAN.md",
+      "kind": "research_roadmap",
+      "description": "Master plan for trade-quality and asset-expansion roadmap sprint. Five-layer trade-quality model, ranked additions, architectural constraint (confluence before risk, not in executor). Roadmap/design only — no implementation. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "MULTI_TIMEFRAME_CONFLUENCE_DESIGN",
+      "path": "docs/research/MULTI_TIMEFRAME_CONFLUENCE_DESIGN.md",
+      "kind": "research_roadmap",
+      "description": "ConfluenceScore design: W1/D1/H4/H1 states, cross-asset and cost sub-scores, A/B/C/reject grades, divergence allowed/forbidden uses, conditional probability lift validation protocol. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CROSS_ASSET_FEATURE_ROADMAP",
+      "path": "docs/research/CROSS_ASSET_FEATURE_ROADMAP.md",
+      "kind": "research_roadmap",
+      "description": "Phase 1 cross-asset features (DXY, yields, VIX, equities, gold, oil, COT), observed spread/cost atlas, financing/carry roadmap. Features before tradable expansion. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EXIT_AND_SIZING_OVERLAY_ROADMAP",
+      "path": "docs/research/EXIT_AND_SIZING_OVERLAY_ROADMAP.md",
+      "kind": "research_roadmap",
+      "description": "Exit overlay catalog, C008 mean-reversion post-mortem lane (no retune), Kelly sizing deferred until calibrated probabilities. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "ASSET_EXPANSION_SHORTLIST",
+      "path": "docs/research/ASSET_EXPANSION_SHORTLIST.md",
+      "kind": "research_roadmap",
+      "description": "Phased asset expansion shortlist (features, tradable, FX crosses) and explicit avoid list. Production five-pair universe unchanged. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY",
+      "path": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md",
+      "kind": "research_roadmap",
+      "description": "Sprint close-out for pro-alpha confluence and asset-expansion roadmap. Recommends infra-multi-timeframe-confluence-and-cost-atlas-001 as next implementation sprint (not started). CAMPAIGN_018 not created. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]

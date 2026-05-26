@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-26 · **Branch:** `research-broad-strategy-pause-and-roadmap-001`
+**Date:** 2026-05-26 · **Branch:** `research-pro-alpha-confluence-and-asset-expansion-roadmap-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -8,7 +8,9 @@ map; the linked documents are the authoritative evidence.
 
 > **Bottom line:** seventeen campaigns, **no approved trading strategy.**
 > Broad seven-pair pattern strategy search is **paused** (2026-05-26).
-> See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
+> Trade-quality / asset-expansion **roadmap** documented (design only —
+> no implementation sprint started). See
+> `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
 ## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
 
@@ -21,6 +23,25 @@ map; the linked documents are the authoritative evidence.
 | [`NON_STRATEGY_WORKSTREAM_OPTIONS_AFTER_PAUSE.md`](NON_STRATEGY_WORKSTREAM_OPTIONS_AFTER_PAUSE.md) | Eight non-strategy options compared |
 | [`NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md`](NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md) | Selected next sprint |
 | [`NEXT_SPRINT_PROMPT_AFTER_BROAD_STRATEGY_PAUSE.md`](NEXT_SPRINT_PROMPT_AFTER_BROAD_STRATEGY_PAUSE.md) | Copy-paste agent prompt |
+
+## Pro-alpha confluence and asset expansion (PRO_ALPHA_CONFLUENCE_001)
+
+> **Roadmap / design only** — `strategy_evidence: false`. No strategy
+> approved. No CAMPAIGN_018. Broad strategy search **still paused**.
+> Recommended next **implementation** sprint:
+> `infra-multi-timeframe-confluence-and-cost-atlas-001` (cost atlas +
+> MTF confluence prototype + read-only Phase 1 cross-asset ingest).
+> Prior sprint `infra-observed-cost-and-spread-regime-diagnostics-001`
+> remains valid as the cost-atlas slice of that combined sprint.
+
+| document | purpose |
+|---|---|
+| [`PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_PLAN.md`](PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_PLAN.md) | Master plan, truth audit, five-layer trade-quality model |
+| [`MULTI_TIMEFRAME_CONFLUENCE_DESIGN.md`](MULTI_TIMEFRAME_CONFLUENCE_DESIGN.md) | `ConfluenceScore`, MTF states, divergence rules |
+| [`CROSS_ASSET_FEATURE_ROADMAP.md`](CROSS_ASSET_FEATURE_ROADMAP.md) | Phase 1 features, cost atlas, financing/carry, COT |
+| [`EXIT_AND_SIZING_OVERLAY_ROADMAP.md`](EXIT_AND_SIZING_OVERLAY_ROADMAP.md) | Exit catalog, C008 post-mortem lane, Kelly deferral |
+| [`ASSET_EXPANSION_SHORTLIST.md`](ASSET_EXPANSION_SHORTLIST.md) | Phased instrument shortlist + avoid list |
+| [`PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md`](PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md) | Sprint close-out |
 
 ## Post-dedup failure meta-analysis (POST_DEDUP_FAILURE_META_ANALYSIS_001)
 

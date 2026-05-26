@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-26 · **Branch:** `research-broad-strategy-pause-and-roadmap-001`
+**Date:** 2026-05-26 · **Branch:** `research-pro-alpha-confluence-and-asset-expansion-roadmap-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -11,28 +11,49 @@
 >
 > **Broad seven-pair pattern strategy search is paused** (2026-05-26).
 > Re-entry gates: [`BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md`](BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md).
-> Active non-strategy sprint selection:
-> [`NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md`](NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md).
+> Trade-quality roadmap (design only):
+> [`PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md`](PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md).
+> Prior cost-only selection:
+> [`NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md`](NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md)
+> (still valid — subsumed into item 0).
 
-Ordering is rough priority. **Item 0** is the authorized next non-strategy
-sprint (observed cost / spread diagnostics). Items 1–2 are infrastructure;
+Ordering is rough priority. **Item 0** is the recommended next
+**implementation** sprint (not yet started). Items 1–2 are infrastructure;
 items 3–4 are validation / diagnostics; items 5–8 are genuinely new
 strategy research and carry the usual overfitting danger — **blocked until
 broad-search re-entry gates are met.**
 
 ---
 
-## 0. Observed transaction-cost and spread-regime diagnostics (ACTIVE NEXT SPRINT)
+## 0. Multi-timeframe confluence + cost atlas + cross-asset ingest (RECOMMENDED NEXT IMPLEMENTATION SPRINT — NOT STARTED)
 
 - **Why it matters.** C015–C017 fail at or below the deduped null; all worsen
-  under 2× cost. Before more pattern campaigns, characterize spread/ATR,
-  session, weekday, and volatility-regime cost drag on existing bid/ask H4 data.
-- **Required data / code.** Local deduped H4 bid/ask candles; diagnostics scripts;
-  compact JSON/MD outputs — **no strategy, no broker order APIs.**
-- **Risk of overfitting.** Low — descriptive infrastructure.
-- **What would count as success.** Cost-hostile windows documented; recommendations
-  for future strategy gating; sprint `infra-observed-cost-and-spread-regime-diagnostics-001`.
-- **Status.** **SELECTED** — see [`NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md`](NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md).
+  under 2× cost. Isolated H4 entry signals are insufficient — the bot needs a
+  trade-quality layer (MTF confluence, cross-asset regime, cost filters)
+  **before** reopening strategy discovery. See
+  [`PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_PLAN.md`](PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_PLAN.md).
+- **Sprint name.** `infra-multi-timeframe-confluence-and-cost-atlas-001`
+- **Scope (three combined workstreams).**
+  1. **Cost atlas / spread diagnostics** — same intent as
+     `infra-observed-cost-and-spread-regime-diagnostics-001` (spread/ATR,
+     session, weekday, vol-regime segmentation on deduped H4 bid/ask).
+  2. **MTF confluence prototype** — scorer on H4 + synthetic D1; emits
+     `ConfluenceScore` metadata for research (see
+     [`MULTI_TIMEFRAME_CONFLUENCE_DESIGN.md`](MULTI_TIMEFRAME_CONFLUENCE_DESIGN.md)).
+  3. **Read-only Phase 1 cross-asset feature ingest** — DXY proxy, FRED
+     yields, VIX (see [`CROSS_ASSET_FEATURE_ROADMAP.md`](CROSS_ASSET_FEATURE_ROADMAP.md)).
+- **Required data / code.** Local deduped H4 bid/ask; read-only external
+  data ingest; compact JSON/MD outputs — **no strategy, no broker order APIs,
+  no executor changes.**
+- **Risk of overfitting.** Low — descriptive infrastructure and design
+  prototypes only.
+- **What would count as success.** Cost-hostile windows documented; confluence
+  scorer prototype with attribution hooks; Phase 1 feature store seeded; still
+  no strategy approved.
+- **Status.** **RECOMMENDED — NOT STARTED.** Roadmap sprint
+  `research-pro-alpha-confluence-and-asset-expansion-roadmap-001` is **design
+  only** (complete). `infra-observed-cost-and-spread-regime-diagnostics-001`
+  remains a valid narrower alternative (cost atlas slice only).
 
 ---
 
