@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-26 · **Branch:** `research-pro-alpha-confluence-and-asset-expansion-roadmap-001`
+**Date:** 2026-05-26 · **Branch:** `infra-multi-timeframe-confluence-and-cost-atlas-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -8,9 +8,9 @@ map; the linked documents are the authoritative evidence.
 
 > **Bottom line:** seventeen campaigns, **no approved trading strategy.**
 > Broad seven-pair pattern strategy search is **paused** (2026-05-26).
-> Trade-quality / asset-expansion **roadmap** documented (design only —
-> no implementation sprint started). See
-> `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
+> Trade-quality infrastructure sprint **complete** (cost atlas, MTF
+> confluence prototype, cross-asset scaffolding — diagnostic only).
+> See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
 ## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
 
@@ -42,6 +42,23 @@ map; the linked documents are the authoritative evidence.
 | [`EXIT_AND_SIZING_OVERLAY_ROADMAP.md`](EXIT_AND_SIZING_OVERLAY_ROADMAP.md) | Exit catalog, C008 post-mortem lane, Kelly deferral |
 | [`ASSET_EXPANSION_SHORTLIST.md`](ASSET_EXPANSION_SHORTLIST.md) | Phased instrument shortlist + avoid list |
 | [`PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md`](PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md) | Sprint close-out |
+
+## Infra MTF confluence and cost atlas (INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001)
+
+> **Implementation infrastructure only** — `strategy_evidence: false`. No
+> strategy approved. No CAMPAIGN_018. Executor unchanged. Recommended next
+> sprint: `infra-cross-asset-real-data-ingest-001`.
+
+| document | purpose |
+|---|---|
+| [`INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_PLAN.md`](INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_PLAN.md) | Sprint plan and truth audit |
+| [`INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md`](INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md) | Sprint close-out |
+| [`MTF_CONFLUENCE_PROTOTYPE_DESIGN_NOTES.md`](MTF_CONFLUENCE_PROTOTYPE_DESIGN_NOTES.md) | Confluence prototype design |
+| [`CROSS_ASSET_FEATURE_INGEST_001.md`](CROSS_ASSET_FEATURE_INGEST_001.md) | Cross-asset CSV scaffolding |
+| [`MTF_CONFLUENCE_AND_COST_ATLAS_DIAGNOSTICS_001.md`](MTF_CONFLUENCE_AND_COST_ATLAS_DIAGNOSTICS_001.md) | Diagnostic runner output |
+| [`HIGH_PROBABILITY_TRADE_VALIDATION_PROTOCOL.md`](HIGH_PROBABILITY_TRADE_VALIDATION_PROTOCOL.md) | Future validation pre-registration template |
+| [`research/cost_atlas/README.md`](../../research/cost_atlas/README.md) | Cost atlas outputs |
+| [`research/cross_asset_features/feature_schema.md`](../../research/cross_asset_features/feature_schema.md) | Feature CSV schema |
 
 ## Post-dedup failure meta-analysis (POST_DEDUP_FAILURE_META_ANALYSIS_001)
 

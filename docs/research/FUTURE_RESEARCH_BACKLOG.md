@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-26 · **Branch:** `research-pro-alpha-confluence-and-asset-expansion-roadmap-001`
+**Date:** 2026-05-26 · **Branch:** `infra-multi-timeframe-confluence-and-cost-atlas-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -11,49 +11,37 @@
 >
 > **Broad seven-pair pattern strategy search is paused** (2026-05-26).
 > Re-entry gates: [`BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md`](BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md).
-> Trade-quality roadmap (design only):
-> [`PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md`](PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md).
-> Prior cost-only selection:
-> [`NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md`](NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md)
-> (still valid — subsumed into item 0).
+> Trade-quality infrastructure sprint **complete**:
+> [`INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md`](INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md).
 
-Ordering is rough priority. **Item 0** is the recommended next
-**implementation** sprint (not yet started). Items 1–2 are infrastructure;
-items 3–4 are validation / diagnostics; items 5–8 are genuinely new
-strategy research and carry the usual overfitting danger — **blocked until
+Ordering is rough priority. **Item 0** is the recommended next sprint.
+Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
+items 5–8 are genuinely new strategy research — **blocked until
 broad-search re-entry gates are met.**
 
 ---
 
-## 0. Multi-timeframe confluence + cost atlas + cross-asset ingest (RECOMMENDED NEXT IMPLEMENTATION SPRINT — NOT STARTED)
+## 0. Cross-asset real-data ingest (RECOMMENDED NEXT SPRINT)
 
-- **Why it matters.** C015–C017 fail at or below the deduped null; all worsen
-  under 2× cost. Isolated H4 entry signals are insufficient — the bot needs a
-  trade-quality layer (MTF confluence, cross-asset regime, cost filters)
-  **before** reopening strategy discovery. See
-  [`PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_PLAN.md`](PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_PLAN.md).
-- **Sprint name.** `infra-multi-timeframe-confluence-and-cost-atlas-001`
-- **Scope (three combined workstreams).**
-  1. **Cost atlas / spread diagnostics** — same intent as
-     `infra-observed-cost-and-spread-regime-diagnostics-001` (spread/ATR,
-     session, weekday, vol-regime segmentation on deduped H4 bid/ask).
-  2. **MTF confluence prototype** — scorer on H4 + synthetic D1; emits
-     `ConfluenceScore` metadata for research (see
-     [`MULTI_TIMEFRAME_CONFLUENCE_DESIGN.md`](MULTI_TIMEFRAME_CONFLUENCE_DESIGN.md)).
-  3. **Read-only Phase 1 cross-asset feature ingest** — DXY proxy, FRED
-     yields, VIX (see [`CROSS_ASSET_FEATURE_ROADMAP.md`](CROSS_ASSET_FEATURE_ROADMAP.md)).
-- **Required data / code.** Local deduped H4 bid/ask; read-only external
-  data ingest; compact JSON/MD outputs — **no strategy, no broker order APIs,
-  no executor changes.**
-- **Risk of overfitting.** Low — descriptive infrastructure and design
-  prototypes only.
-- **What would count as success.** Cost-hostile windows documented; confluence
-  scorer prototype with attribution hooks; Phase 1 feature store seeded; still
-  no strategy approved.
-- **Status.** **RECOMMENDED — NOT STARTED.** Roadmap sprint
-  `research-pro-alpha-confluence-and-asset-expansion-roadmap-001` is **design
-  only** (complete). `infra-observed-cost-and-spread-regime-diagnostics-001`
-  remains a valid narrower alternative (cost atlas slice only).
+- **Why it matters.** Cost atlas and MTF confluence prototype are built on
+  local H4 data, but cross-asset features are **fixture-only**
+  (`data/external_features/` absent). Confluence grading shows
+  `cross_asset_missing` in diagnostics until real DXY/yields/VIX CSVs exist.
+- **Sprint name.** `infra-cross-asset-real-data-ingest-001`
+- **Scope.** Read-only ingest of FRED yields, VIX, DXY proxy CSVs into
+  `data/external_features/`; refresh `feature_availability_report.json`; no
+  broker order APIs.
+- **Status.** **RECOMMENDED — NOT STARTED.**
+
+---
+
+## 0-complete. Multi-timeframe confluence + cost atlas (COMPLETE)
+
+- **Sprint.** `infra-multi-timeframe-confluence-and-cost-atlas-001`
+- **Delivered.** Cost atlas (69,648 H4 bars), confluence prototype,
+  cross-asset scaffolding, diagnostic runner, validation protocol.
+- **Summary.** [`INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md`](INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md)
+- **Status.** **COMPLETE** — diagnostic only; no strategy approved.
 
 ---
 

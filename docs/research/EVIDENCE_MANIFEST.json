@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-26",
-  "branch": "research-pro-alpha-confluence-and-asset-expansion-roadmap-001",
+  "branch": "infra-multi-timeframe-confluence-and-cost-atlas-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -17,12 +17,14 @@
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "infra-multi-timeframe-confluence-and-cost-atlas-001",
+    "next_non_strategy_sprint": "infra-cross-asset-real-data-ingest-001",
     "next_non_strategy_sprint_status": "RECOMMENDED_NOT_STARTED",
+    "completed_non_strategy_sprint": "infra-multi-timeframe-confluence-and-cost-atlas-001",
     "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
-    "prior_non_strategy_sprint_note": "Still valid as cost-atlas slice; subsumed into recommended combined sprint.",
+    "prior_non_strategy_sprint_note": "Subsumed by completed cost-atlas work in infra-multi-timeframe-confluence-and-cost-atlas-001.",
     "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
-    "trade_quality_roadmap_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md"
+    "trade_quality_roadmap_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md",
+    "trade_quality_infra_doc": "docs/research/INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md"
   },
   "pro_alpha_confluence_roadmap": {
     "sprint": "PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_001",
@@ -30,8 +32,9 @@
     "strategy_evidence": false,
     "strategy_approved": false,
     "campaign_018_created": false,
-    "implementation_sprint_started": false,
-    "recommended_next_implementation_sprint": "infra-multi-timeframe-confluence-and-cost-atlas-001",
+    "implementation_sprint_started": true,
+    "implementation_sprint_completed": "infra-multi-timeframe-confluence-and-cost-atlas-001",
+    "recommended_next_implementation_sprint": "infra-cross-asset-real-data-ingest-001",
     "recommended_implementation_scope": [
       "cost_atlas_spread_diagnostics",
       "multi_timeframe_confluence_prototype",
@@ -45,6 +48,23 @@
       "exit_and_sizing": "docs/research/EXIT_AND_SIZING_OVERLAY_ROADMAP.md",
       "asset_expansion": "docs/research/ASSET_EXPANSION_SHORTLIST.md"
     }
+  },
+  "infra_mtf_confluence_and_cost_atlas": {
+    "sprint": "INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001",
+    "sprint_type": "implementation_infrastructure_only",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "campaign_018_created": false,
+    "executor_changed": false,
+    "plan_doc": "docs/research/INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_PLAN.md",
+    "summary_doc": "docs/research/INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md",
+    "cost_atlas_dir": "research/cost_atlas",
+    "confluence_module": "research/confluence",
+    "cross_asset_module": "research/cross_asset_features",
+    "diagnostics_dir": "research/confluence_diagnostics",
+    "validation_protocol_doc": "docs/research/HIGH_PROBABILITY_TRADE_VALIDATION_PROTOCOL.md",
+    "recommended_next_sprint": "infra-cross-asset-real-data-ingest-001",
+    "cross_asset_data_status": "FIXTURE_ONLY"
   },
   "post_dedup_failure_meta_analysis": {
     "sprint": "POST_DEDUP_FAILURE_META_ANALYSIS_001",
@@ -937,6 +957,62 @@
       "path": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md",
       "kind": "research_roadmap",
       "description": "Sprint close-out for pro-alpha confluence and asset-expansion roadmap. Recommends infra-multi-timeframe-confluence-and-cost-atlas-001 as next implementation sprint (not started). CAMPAIGN_018 not created. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_PLAN",
+      "path": "docs/research/INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_PLAN.md",
+      "kind": "research_infrastructure",
+      "description": "Implementation sprint plan for cost atlas, MTF confluence prototype, cross-asset scaffolding. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY",
+      "path": "docs/research/INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md",
+      "kind": "research_infrastructure",
+      "description": "Close-out for infra-multi-timeframe-confluence-and-cost-atlas-001. Diagnostic infrastructure only. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "COST_ATLAS_SUMMARY",
+      "path": "research/cost_atlas/cost_atlas_summary.json",
+      "kind": "research_infrastructure",
+      "description": "Observed H4 spread/ATR cost atlas summary for seven-pair universe. Diagnostic only. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "MTF_CONFLUENCE_PROTOTYPE_DESIGN_NOTES",
+      "path": "docs/research/MTF_CONFLUENCE_PROTOTYPE_DESIGN_NOTES.md",
+      "kind": "research_infrastructure",
+      "description": "ConfluenceScore prototype design notes. Not wired to executor. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CROSS_ASSET_FEATURE_INGEST_001",
+      "path": "docs/research/CROSS_ASSET_FEATURE_INGEST_001.md",
+      "kind": "research_infrastructure",
+      "description": "Cross-asset CSV ingest scaffolding. Fixture-only until real data ingest sprint. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "MTF_CONFLUENCE_AND_COST_ATLAS_DIAGNOSTICS_001",
+      "path": "docs/research/MTF_CONFLUENCE_AND_COST_ATLAS_DIAGNOSTICS_001.md",
+      "kind": "research_infrastructure",
+      "description": "Diagnostic runner output for confluence + cost atlas. Not strategy evidence. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "HIGH_PROBABILITY_TRADE_VALIDATION_PROTOCOL",
+      "path": "docs/research/HIGH_PROBABILITY_TRADE_VALIDATION_PROTOCOL.md",
+      "kind": "research_protocol",
+      "description": "Pre-registration template for future confluence lift validation. Not authorized until human approval. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CONFLUENCE_DIAGNOSTIC_SUMMARY",
+      "path": "research/confluence_diagnostics/confluence_diagnostic_summary.json",
+      "kind": "research_infrastructure",
+      "description": "Machine-readable confluence diagnostic summary. Grade distribution and reason codes. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]
