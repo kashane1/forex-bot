@@ -1,0 +1,5 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+GBP_USD,long,134,2022-11-30T14:00:00+00:00,2022-12-01T14:00:00+00:00,1.1988650,1.22588,1.18950,3.6200100,2.884676988788040576615056060,12,2.1,time,next_bar_open,False,False,
+GBP_USD,short,382,2023-03-07T06:00:00+00:00,2023-03-08T06:00:00+00:00,1.2034950,1.1834,1.20688,7.6762900,5.936484490398818316100443131,12,1.9,time,next_bar_open,False,False,
+GBP_USD,short,314,2023-03-29T09:00:00+00:00,2023-03-30T09:00:00+00:00,1.2323500,1.23650,1.23650,-1.3031000,-1,12,1.8,stop,next_bar_open,False,False,
+GBP_USD,long,228,2023-04-07T09:00:00+00:00,2023-04-10T09:00:00+00:00,1.2442400,1.23858,1.23858,-1.2904800,-1,12,1.8,stop,next_bar_open,False,False,

@@ -1,0 +1,204 @@
+{
+  "plan": {
+    "campaign_name": "CAMPAIGN_015_failed_breakout_reversal",
+    "universe_start": "2020-01-01",
+    "universe_end": "2026-05-20",
+    "split_style": "rolling",
+    "parameter_mode": "frozen",
+    "folds": [
+      {
+        "fold_index": 0,
+        "train_start": "2020-01-01",
+        "train_end": "2021-06-23",
+        "validation_start": "2021-06-24",
+        "validation_end": "2021-12-20",
+        "test_start": "2021-12-21",
+        "test_end": "2022-06-18"
+      },
+      {
+        "fold_index": 1,
+        "train_start": "2020-06-29",
+        "train_end": "2021-12-20",
+        "validation_start": "2021-12-21",
+        "validation_end": "2022-06-18",
+        "test_start": "2022-06-19",
+        "test_end": "2022-12-15"
+      },
+      {
+        "fold_index": 2,
+        "train_start": "2020-12-26",
+        "train_end": "2022-06-18",
+        "validation_start": "2022-06-19",
+        "validation_end": "2022-12-15",
+        "test_start": "2022-12-16",
+        "test_end": "2023-06-13"
+      },
+      {
+        "fold_index": 3,
+        "train_start": "2021-06-24",
+        "train_end": "2022-12-15",
+        "validation_start": "2022-12-16",
+        "validation_end": "2023-06-13",
+        "test_start": "2023-06-14",
+        "test_end": "2023-12-10"
+      },
+      {
+        "fold_index": 4,
+        "train_start": "2021-12-21",
+        "train_end": "2023-06-13",
+        "validation_start": "2023-06-14",
+        "validation_end": "2023-12-10",
+        "test_start": "2023-12-11",
+        "test_end": "2024-06-07"
+      },
+      {
+        "fold_index": 5,
+        "train_start": "2022-06-19",
+        "train_end": "2023-12-10",
+        "validation_start": "2023-12-11",
+        "validation_end": "2024-06-07",
+        "test_start": "2024-06-08",
+        "test_end": "2024-12-04"
+      },
+      {
+        "fold_index": 6,
+        "train_start": "2022-12-16",
+        "train_end": "2024-06-07",
+        "validation_start": "2024-06-08",
+        "validation_end": "2024-12-04",
+        "test_start": "2024-12-05",
+        "test_end": "2025-06-02"
+      },
+      {
+        "fold_index": 7,
+        "train_start": "2023-06-14",
+        "train_end": "2024-12-04",
+        "validation_start": "2024-12-05",
+        "validation_end": "2025-06-02",
+        "test_start": "2025-06-03",
+        "test_end": "2025-11-29"
+      }
+    ],
+    "notes": [
+      "CAMPAIGN_015 walk-forward plan (Phase 0 \u00a77); 8 folds rolling, 540/180/180/180 days, frozen parameters, strategy_evidence=false."
+    ],
+    "strategy_evidence": false
+  },
+  "fold_metrics": [
+    {
+      "fold_index": 0,
+      "total_trades": 18,
+      "bars_in_test_window": 2312,
+      "expectancy_r": -0.20494516493415352,
+      "return_pct": -0.12626635805331743,
+      "profit_factor": 0.9065431007810014,
+      "max_drawdown_pct": -0.2585299999999961,
+      "win_rate": 0.17261904761904762,
+      "long_trades": 10,
+      "short_trades": 8,
+      "pass_pre_commit_gates": false
+    },
+    {
+      "fold_index": 1,
+      "total_trades": 26,
+      "bars_in_test_window": 2328,
+      "expectancy_r": 0.059403159671041435,
+      "return_pct": 4.1764197087919674,
+      "profit_factor": 11.695160779570063,
+      "max_drawdown_pct": -0.5057615616586941,
+      "win_rate": 0.5285714285714286,
+      "long_trades": 13,
+      "short_trades": 13,
+      "pass_pre_commit_gates": false
+    },
+    {
+      "fold_index": 2,
+      "total_trades": 26,
+      "bars_in_test_window": 2296,
+      "expectancy_r": 0.31377245909225926,
+      "return_pct": 3.410146672932346,
+      "profit_factor": 4.221398942444107,
+      "max_drawdown_pct": -0.45008385213025126,
+      "win_rate": 0.2396825396825397,
+      "long_trades": 14,
+      "short_trades": 12,
+      "pass_pre_commit_gates": false
+    },
+    {
+      "fold_index": 3,
+      "total_trades": 28,
+      "bars_in_test_window": 2304,
+      "expectancy_r": 0.4288181358158898,
+      "return_pct": 3.496149316264907,
+      "profit_factor": 16.214606949265935,
+      "max_drawdown_pct": -0.2610300000000052,
+      "win_rate": 0.32222222222222224,
+      "long_trades": 16,
+      "short_trades": 12,
+      "pass_pre_commit_gates": false
+    },
+    {
+      "fold_index": 4,
+      "total_trades": 24,
+      "bars_in_test_window": 2300,
+      "expectancy_r": 0.3085589616986142,
+      "return_pct": 2.0827431934651752,
+      "profit_factor": 16.67775857539225,
+      "max_drawdown_pct": -0.42544600263482835,
+      "win_rate": 0.28874458874458875,
+      "long_trades": 12,
+      "short_trades": 12,
+      "pass_pre_commit_gates": false
+    },
+    {
+      "fold_index": 5,
+      "total_trades": 14,
+      "bars_in_test_window": 2320,
+      "expectancy_r": 0.20898380261577926,
+      "return_pct": 1.1473189700751618,
+      "profit_factor": 2.7541521026010947,
+      "max_drawdown_pct": -0.2543300000000045,
+      "win_rate": 0.4523809523809524,
+      "long_trades": 4,
+      "short_trades": 10,
+      "pass_pre_commit_gates": false
+    },
+    {
+      "fold_index": 6,
+      "total_trades": 14,
+      "bars_in_test_window": 2280,
+      "expectancy_r": 0.5680803367458878,
+      "return_pct": 3.109174835753481,
+      "profit_factor": 4.031726354306373,
+      "max_drawdown_pct": 0.0,
+      "win_rate": 0.4857142857142857,
+      "long_trades": 8,
+      "short_trades": 6,
+      "pass_pre_commit_gates": false
+    },
+    {
+      "fold_index": 7,
+      "total_trades": 14,
+      "bars_in_test_window": 2312,
+      "expectancy_r": 0.10154962226449273,
+      "return_pct": -0.0357164946968469,
+      "profit_factor": 0.9790981507705715,
+      "max_drawdown_pct": -0.2575169999999957,
+      "win_rate": 0.15714285714285714,
+      "long_trades": 8,
+      "short_trades": 6,
+      "pass_pre_commit_gates": false
+    }
+  ],
+  "aggregate": {
+    "fold_count": 8,
+    "folds_passing_gates": 0,
+    "fold_pass_rate": 0.0,
+    "total_trades_across_folds": 164,
+    "aggregate_expectancy_r": 0.23003944308176186,
+    "aggregate_return_pct": 17.259969844532876,
+    "single_fold_max_return_share": null
+  },
+  "overall_verdict": "REJECT",
+  "strategy_evidence": false
+}

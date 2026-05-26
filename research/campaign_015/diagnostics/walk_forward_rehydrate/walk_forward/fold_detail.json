@@ -1,0 +1,3928 @@
+{
+  "campaign_id": "CAMPAIGN_015",
+  "strategy_name": "failed_breakout_reversal",
+  "strategy_version": "0.1.0-c015",
+  "null_model": false,
+  "approval_path": "PASS_RESEARCH_SCREEN at best \u2014 see CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md \u00a716 (candidate for human review, NOT approval)",
+  "git_commit": "606964e890b47bdd8b495d1dd524b1e6361abe9c",
+  "git_dirty": true,
+  "config_path": "configs/campaign_015_failed_breakout_reversal.yaml",
+  "config_hash": "17ddfd7eb87d93c502f148642c8ee883c66cb72bfa8ca72f981624a0dcfdd93c",
+  "data_source": "oanda-practice",
+  "risk_engine_mode": "backtest",
+  "fill_timing": "next_bar_open",
+  "cost_stress_multiplier": 2.0,
+  "fold_gates": {
+    "trade_count_min": 30,
+    "expectancy_r_min": 0.0,
+    "pairs_positive_min": 3,
+    "single_pair_dominance_max_pct": 60.0
+  },
+  "aggregate_gates": {
+    "trade_count_min": 200,
+    "trade_count_max": 800,
+    "expectancy_r_min_base": 0.03,
+    "expectancy_r_min_2xcost": 0.0,
+    "profit_factor_min_base": 1.05,
+    "profit_factor_min_2xcost": 1.0,
+    "fold_pass_rate_min": 5,
+    "fold_count_min": 8,
+    "pairs_positive_min": 4,
+    "single_pair_dominance_max_pct": 70.0
+  },
+  "by_cost": {
+    "base": {
+      "folds": [
+        {
+          "fold_index": 0,
+          "test_start": "2021-12-21",
+          "test_end": "2022-06-18",
+          "trade_count": 18,
+          "aggregate_return_pct": -0.12626635805331743,
+          "expectancy_r": -0.20494516493415352,
+          "profit_factor": 0.9065431007810014,
+          "pairs_positive": 2,
+          "single_pair_dominance_pct": 32.7744712225657,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": false,
+            "pairs_positive_ge_3": false,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 0,
+              "instrument": "EUR_USD",
+              "cost_label": "base",
+              "trade_count": 3,
+              "expectancy_r": -0.8996865203761756,
+              "return_pct": -0.6844259999999935,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.6844259999999963,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 3,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 496.57787,
+              "data_request_hash": "17674d161df0c605",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                -0.6990595611285266,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 0,
+              "instrument": "GBP_USD",
+              "cost_label": "base",
+              "trade_count": 8,
+              "expectancy_r": -0.17054213726976303,
+              "return_pct": -0.37367199999999157,
+              "profit_factor": 0.7111160245596837,
+              "max_drawdown_pct": -0.9309899999999858,
+              "win_rate": 0.375,
+              "bars_in_test_window": 2312,
+              "long_trades": 5,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 498.13164000000006,
+              "data_request_hash": "0f45f4b74aa24a6a",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 5,
+                "time": 3
+              },
+              "trade_r_series": [
+                -1.0,
+                -1.0,
+                1.421994884910486,
+                -1.0,
+                -1.0,
+                -1.0,
+                0.7687861271676301,
+                1.4448818897637796
+              ]
+            },
+            {
+              "fold_index": 0,
+              "instrument": "USD_JPY",
+              "cost_label": "base",
+              "trade_count": 3,
+              "expectancy_r": 0.008034039742621573,
+              "return_pct": 0.8442257758051852,
+              "profit_factor": 3.6144207283339775,
+              "max_drawdown_pct": -0.3229112157258555,
+              "win_rate": 0.3333333333333333,
+              "bars_in_test_window": 2312,
+              "long_trades": 0,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 504.2211288790259,
+              "data_request_hash": "805a38838d7df0c6",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2,
+                "stop": 1
+              },
+              "trade_r_series": [
+                -0.0022123117907478004,
+                -0.00878912258189265,
+                0.03510355360050517
+              ]
+            },
+            {
+              "fold_index": 0,
+              "instrument": "AUD_USD",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": 0.7289002557544757,
+              "return_pct": 0.38057300000000627,
+              "profit_factor": 2.494506141811442,
+              "max_drawdown_pct": -0.25304063276215927,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2312,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 501.902865,
+              "data_request_hash": "a005c0546964b622",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 1
+              },
+              "trade_r_series": [
+                2.4578005115089514,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 0,
+              "instrument": "USD_CAD",
+              "cost_label": "base",
+              "trade_count": 1,
+              "expectancy_r": -0.10751894026494861,
+              "return_pct": -0.03443713385852254,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.03443713385852334,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 1,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 499.8278143307074,
+              "data_request_hash": "092b1223399f26e6",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1
+              },
+              "trade_r_series": [
+                -0.10751894026494861
+              ]
+            },
+            {
+              "fold_index": 0,
+              "instrument": "USD_CHF",
+              "cost_label": "base",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "25b038e436e04899",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            },
+            {
+              "fold_index": 0,
+              "instrument": "NZD_USD",
+              "cost_label": "base",
+              "trade_count": 1,
+              "expectancy_r": -1.0,
+              "return_pct": -0.25853000000000126,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.2585299999999961,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2314,
+              "long_trades": 0,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 498.70735,
+              "data_request_hash": "c80a674f6dc74825",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 4,
+                "SPREAD_TO_ATR": 4,
+                "SESSION_BLOCKED": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1
+              },
+              "trade_r_series": [
+                -1.0
+              ]
+            }
+          ]
+        },
+        {
+          "fold_index": 1,
+          "test_start": "2022-06-19",
+          "test_end": "2022-12-15",
+          "trade_count": 26,
+          "aggregate_return_pct": 4.1764197087919674,
+          "expectancy_r": 0.059403159671041435,
+          "profit_factor": 11.695160779570063,
+          "pairs_positive": 5,
+          "single_pair_dominance_pct": 77.43612637324672,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": false
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 1,
+              "instrument": "EUR_USD",
+              "cost_label": "base",
+              "trade_count": 3,
+              "expectancy_r": 0.18370947131854634,
+              "return_pct": 0.14010799999999435,
+              "profit_factor": 1.552049677693896,
+              "max_drawdown_pct": -0.2533789559749919,
+              "win_rate": 0.6666666666666666,
+              "bars_in_test_window": 2328,
+              "long_trades": 2,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 500.70054,
+              "data_request_hash": "eb57ddd6bd378bfe",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 2,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 2
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2,
+                "stop": 1
+              },
+              "trade_r_series": [
+                0.6558404558404558,
+                -1.0,
+                0.8952879581151832
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "GBP_USD",
+              "cost_label": "base",
+              "trade_count": 6,
+              "expectancy_r": 0.3493172295611809,
+              "return_pct": 0.5141960000000001,
+              "profit_factor": 1.6690103461914776,
+              "max_drawdown_pct": -0.5057615616586941,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2328,
+              "long_trades": 3,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 502.57097999999996,
+              "data_request_hash": "89d8e7bb942864b2",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 3,
+                "time": 3
+              },
+              "trade_r_series": [
+                -1.0,
+                0.7694214876033058,
+                1.4448818897637796,
+                -1.0,
+                -1.0,
+                2.8816
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "USD_JPY",
+              "cost_label": "base",
+              "trade_count": 6,
+              "expectancy_r": 0.018273544747947637,
+              "return_pct": 3.838827914961196,
+              "profit_factor": 5.900864196779261,
+              "max_drawdown_pct": -0.761513488379737,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2328,
+              "long_trades": 1,
+              "short_trades": 5,
+              "starting_equity": 500.0,
+              "final_equity": 519.194139574806,
+              "data_request_hash": "cbb20efaf5f6b26a",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 3,
+                "stop": 3
+              },
+              "trade_r_series": [
+                0.03510355360050517,
+                0.04651034163731487,
+                -0.0069460844921717625,
+                -0.006908176517726381,
+                -0.006939047407571889,
+                0.048820681667335816
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "AUD_USD",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": -0.055418719211822676,
+              "return_pct": -0.02898999999999541,
+              "profit_factor": 0.8859801615707128,
+              "max_drawdown_pct": -0.25368254455284156,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2328,
+              "long_trades": 2,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 499.85505,
+              "data_request_hash": "521adb4df1afbae7",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 1
+              },
+              "trade_r_series": [
+                0.8891625615763546,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "USD_CAD",
+              "cost_label": "base",
+              "trade_count": 5,
+              "expectancy_r": 0.009315461184197193,
+              "return_pct": -0.009251099954621367,
+              "profit_factor": 0.9881182600817414,
+              "max_drawdown_pct": -0.5837966542940307,
+              "win_rate": 0.2,
+              "bars_in_test_window": 2328,
+              "long_trades": 4,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 499.9537445002269,
+              "data_request_hash": "8144c3c79e97f883",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 3
+              },
+              "trade_r_series": [
+                -0.7730006338605198,
+                -0.1940757820146788,
+                -0.7821421308680213,
+                2.355956398335498,
+                -0.5601605456712919
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "USD_CHF",
+              "cost_label": "base",
+              "trade_count": 3,
+              "expectancy_r": -0.4794333578237003,
+              "return_pct": -0.3522551062146051,
+              "profit_factor": 0.31119832842614226,
+              "max_drawdown_pct": -0.5105902113927772,
+              "win_rate": 0.3333333333333333,
+              "bars_in_test_window": 2328,
+              "long_trades": 1,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 498.238724468927,
+              "data_request_hash": "5696231cb3b67259",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 2
+              },
+              "trade_r_series": [
+                0.6426263375402468,
+                -1.052775642982724,
+                -1.0281507680286237
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "NZD_USD",
+              "cost_label": "base",
+              "trade_count": 1,
+              "expectancy_r": 0.29036929761042723,
+              "return_pct": 0.07378399999999896,
+              "profit_factor": null,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 1.0,
+              "bars_in_test_window": 2328,
+              "long_trades": 0,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 500.36892,
+              "data_request_hash": "62fe2939f30ef2fc",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1,
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1
+              },
+              "trade_r_series": [
+                0.29036929761042723
+              ]
+            }
+          ]
+        },
+        {
+          "fold_index": 2,
+          "test_start": "2022-12-16",
+          "test_end": "2023-06-13",
+          "trade_count": 26,
+          "aggregate_return_pct": 3.410146672932346,
+          "expectancy_r": 0.31377245909225926,
+          "profit_factor": 4.221398942444107,
+          "pairs_positive": 4,
+          "single_pair_dominance_pct": 31.48977682213335,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 2,
+              "instrument": "EUR_USD",
+              "cost_label": "base",
+              "trade_count": 9,
+              "expectancy_r": 0.41275901466956993,
+              "return_pct": 0.9546259999999807,
+              "profit_factor": 1.7365168469975372,
+              "max_drawdown_pct": -0.5381881799290145,
+              "win_rate": 0.4444444444444444,
+              "bars_in_test_window": 2296,
+              "long_trades": 3,
+              "short_trades": 6,
+              "starting_equity": 500.0,
+              "final_equity": 504.7731299999999,
+              "data_request_hash": "9ea36982864c28f9",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 2,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 2
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 4,
+                "stop": 5
+              },
+              "trade_r_series": [
+                0.6558404558404558,
+                -1.0,
+                0.8984238178633975,
+                -1.0,
+                -1.0,
+                2.138157894736842,
+                -1.0,
+                -1.0,
+                5.022408963585434
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "GBP_USD",
+              "cost_label": "base",
+              "trade_count": 4,
+              "expectancy_r": 1.7052903697967148,
+              "return_pct": 1.7405440000000105,
+              "profit_factor": 4.355485467963201,
+              "max_drawdown_pct": -0.5072557732179902,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2296,
+              "long_trades": 2,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 508.70272,
+              "data_request_hash": "b9014c7aed021511",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2,
+                "stop": 2
+              },
+              "trade_r_series": [
+                2.8846769887880406,
+                5.9364844903988185,
+                -1.0,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "USD_JPY",
+              "cost_label": "base",
+              "trade_count": 3,
+              "expectancy_r": 0.013789220935690653,
+              "return_pct": 1.4512916254782127,
+              "profit_factor": 6.378584431300322,
+              "max_drawdown_pct": -0.25277423115354625,
+              "win_rate": 0.3333333333333333,
+              "bars_in_test_window": 2296,
+              "long_trades": 2,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 507.2564581273911,
+              "data_request_hash": "500b00b029056e0d",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 2
+              },
+              "trade_r_series": [
+                -0.006939047407571889,
+                0.048820681667335816,
+                -0.00051397145269197
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "AUD_USD",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": -0.6957649092480553,
+              "return_pct": -0.3530079999999991,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.35300799999999977,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2296,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 498.23496,
+              "data_request_hash": "ff659ab41c31f36a",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                -0.3915298184961106
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "USD_CAD",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": -0.6495304010107734,
+              "return_pct": -0.45008385213025637,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.45008385213025126,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2296,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 497.74958073934874,
+              "data_request_hash": "c85d28df445d27be",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 1
+              },
+              "trade_r_series": [
+                -0.5588299980568707,
+                -0.7402308039646762
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "USD_CHF",
+              "cost_label": "base",
+              "trade_count": 5,
+              "expectancy_r": 0.2542628565792677,
+              "return_pct": 0.322276899584395,
+              "profit_factor": 1.414320599780653,
+              "max_drawdown_pct": -0.5124095291971685,
+              "win_rate": 0.4,
+              "bars_in_test_window": 2296,
+              "long_trades": 4,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 501.61138449792196,
+              "data_request_hash": "90d0e05bb7defd35",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 2,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 2
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 3,
+                "time": 2
+              },
+              "trade_r_series": [
+                -1.080812338553657,
+                -1.0888027524933583,
+                2.8929583585454033,
+                -1.1213025049897962,
+                1.6692735203877471
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "NZD_USD",
+              "cost_label": "base",
+              "trade_count": 1,
+              "expectancy_r": -1.0,
+              "return_pct": -0.2554999999999974,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.255499999999995,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2298,
+              "long_trades": 1,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 498.7225,
+              "data_request_hash": "e20b0a986a846cc9",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1
+              },
+              "trade_r_series": [
+                -1.0
+              ]
+            }
+          ]
+        },
+        {
+          "fold_index": 3,
+          "test_start": "2023-06-14",
+          "test_end": "2023-12-10",
+          "trade_count": 28,
+          "aggregate_return_pct": 3.496149316264907,
+          "expectancy_r": 0.4288181358158898,
+          "profit_factor": 16.214606949265935,
+          "pairs_positive": 5,
+          "single_pair_dominance_pct": 32.46781584758626,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 3,
+              "instrument": "EUR_USD",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": 2.011204481792717,
+              "return_pct": 1.0371020000000009,
+              "profit_factor": 4.973114201432786,
+              "max_drawdown_pct": -0.2610300000000052,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2304,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 505.18550999999997,
+              "data_request_hash": "5a4bd144e10a3f76",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                5.022408963585434
+              ]
+            },
+            {
+              "fold_index": 3,
+              "instrument": "GBP_USD",
+              "cost_label": "base",
+              "trade_count": 6,
+              "expectancy_r": 0.33714165608868835,
+              "return_pct": 0.5175649999999976,
+              "profit_factor": 1.7895656180111246,
+              "max_drawdown_pct": -0.40154459070271187,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2304,
+              "long_trades": 3,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 502.58782499999995,
+              "data_request_hash": "5a2e1ea0224f110f",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 4
+              },
+              "trade_r_series": [
+                -1.0,
+                1.390032502708559,
+                -1.0,
+                -0.5751014884979703,
+                1.3994082840236686,
+                1.8085106382978724
+              ]
+            },
+            {
+              "fold_index": 3,
+              "instrument": "USD_JPY",
+              "cost_label": "base",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2304,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "0964a0d6b8b23f31",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            },
+            {
+              "fold_index": 3,
+              "instrument": "AUD_USD",
+              "cost_label": "base",
+              "trade_count": 4,
+              "expectancy_r": 0.5025542279477802,
+              "return_pct": 0.5210260000000133,
+              "profit_factor": 2.0213132138789733,
+              "max_drawdown_pct": -0.2552249999999958,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2304,
+              "long_trades": 4,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 502.60513000000003,
+              "data_request_hash": "85a8cf58817cd075",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 2
+              },
+              "trade_r_series": [
+                -1.0,
+                1.3976261127596439,
+                -1.0,
+                2.612590799031477
+              ]
+            },
+            {
+              "fold_index": 3,
+              "instrument": "USD_CAD",
+              "cost_label": "base",
+              "trade_count": 5,
+              "expectancy_r": 0.650091509592078,
+              "return_pct": 1.2843382604775577,
+              "profit_factor": 2.238043550780256,
+              "max_drawdown_pct": -0.7725804617818313,
+              "win_rate": 0.2,
+              "bars_in_test_window": 2304,
+              "long_trades": 1,
+              "short_trades": 4,
+              "starting_equity": 500.0,
+              "final_equity": 506.4216913023878,
+              "data_request_hash": "7507575cbebe111c",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 4,
+                "time": 1
+              },
+              "trade_r_series": [
+                -0.7402308039646762,
+                -0.7416802023303593,
+                -0.7405322946133681,
+                6.206743468980484,
+                -0.7338426201116909
+              ]
+            },
+            {
+              "fold_index": 3,
+              "instrument": "USD_CHF",
+              "cost_label": "base",
+              "trade_count": 9,
+              "expectancy_r": 0.17712475789775575,
+              "return_pct": 0.36590705578734006,
+              "profit_factor": 1.3510398276823024,
+              "max_drawdown_pct": -0.7603803340203863,
+              "win_rate": 0.5555555555555556,
+              "bars_in_test_window": 2304,
+              "long_trades": 6,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 501.82953527893665,
+              "data_request_hash": "26ebf9c13427fc74",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 4
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 4,
+                "time": 5
+              },
+              "trade_r_series": [
+                -1.1213150783238581,
+                1.6692735203877471,
+                0.45514234503430895,
+                0.9390969077133522,
+                2.9625571875547774,
+                -1.098104671337272,
+                -1.1146656560364718,
+                0.04084401313512343,
+                -1.1387057470479054
+              ]
+            },
+            {
+              "fold_index": 3,
+              "instrument": "NZD_USD",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": -0.44657418905198065,
+              "return_pct": -0.22978900000000246,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.22978900000000518,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2304,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 498.851055,
+              "data_request_hash": "2c7d4dd7251d5510",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 3,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 3
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2
+              },
+              "trade_r_series": [
+                -0.6909323116219668,
+                -0.20221606648199447
+              ]
+            }
+          ]
+        },
+        {
+          "fold_index": 4,
+          "test_start": "2023-12-11",
+          "test_end": "2024-06-07",
+          "trade_count": 24,
+          "aggregate_return_pct": 2.0827431934651752,
+          "expectancy_r": 0.3085589616986142,
+          "profit_factor": 16.67775857539225,
+          "pairs_positive": 4,
+          "single_pair_dominance_pct": 37.27725508033369,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 4,
+              "instrument": "EUR_USD",
+              "cost_label": "base",
+              "trade_count": 3,
+              "expectancy_r": -0.1789473684210526,
+              "return_pct": -0.1328470000000026,
+              "profit_factor": 0.7372721968970325,
+              "max_drawdown_pct": -0.505645000000004,
+              "win_rate": 0.3333333333333333,
+              "bars_in_test_window": 2300,
+              "long_trades": 1,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 499.335765,
+              "data_request_hash": "ffd6426ae833ff86",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 2,
+                "SPREAD_TO_ATR": 2
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                -1.0,
+                1.4631578947368422
+              ]
+            },
+            {
+              "fold_index": 4,
+              "instrument": "GBP_USD",
+              "cost_label": "base",
+              "trade_count": 11,
+              "expectancy_r": 0.15309677660599974,
+              "return_pct": 0.42876299999998757,
+              "profit_factor": 1.3539242926268764,
+              "max_drawdown_pct": -0.5041991747582153,
+              "win_rate": 0.45454545454545453,
+              "bars_in_test_window": 2300,
+              "long_trades": 6,
+              "short_trades": 5,
+              "starting_equity": 500.0,
+              "final_equity": 502.14381499999996,
+              "data_request_hash": "8cbe880e2e3e734e",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 3,
+              "rejection_counts": {
+                "MARGIN_BUFFER": 3
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 8,
+                "stop": 3
+              },
+              "trade_r_series": [
+                -0.5751014884979703,
+                1.403560830860534,
+                1.8085106382978724,
+                -1.0,
+                1.7581047381546135,
+                -0.1485148514851485,
+                -1.0,
+                1.02020202020202,
+                0.3628808864265928,
+                -0.9455782312925171,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 4,
+              "instrument": "USD_JPY",
+              "cost_label": "base",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2300,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "b2f5ef4d6e2080f3",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            },
+            {
+              "fold_index": 4,
+              "instrument": "AUD_USD",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": 0.8062953995157385,
+              "return_pct": 0.4140519999999981,
+              "profit_factor": 2.6241919287014372,
+              "max_drawdown_pct": -0.2549279999999953,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2300,
+              "long_trades": 2,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 502.07026,
+              "data_request_hash": "125ee5c5c365253e",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                2.612590799031477
+              ]
+            },
+            {
+              "fold_index": 4,
+              "instrument": "USD_CAD",
+              "cost_label": "base",
+              "trade_count": 5,
+              "expectancy_r": 0.4803496493903362,
+              "return_pct": 0.8754329230094449,
+              "profit_factor": 3.057682802489086,
+              "max_drawdown_pct": -0.42544600263482835,
+              "win_rate": 0.4,
+              "bars_in_test_window": 2300,
+              "long_trades": 2,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 504.3771646150472,
+              "data_request_hash": "c4299b6b871b6a7a",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 4
+              },
+              "trade_r_series": [
+                -0.7338426201116909,
+                -0.17720420457809374,
+                -0.3060750908931839,
+                3.110705288010462,
+                0.5081648745241876
+              ]
+            },
+            {
+              "fold_index": 4,
+              "instrument": "USD_CHF",
+              "cost_label": "base",
+              "trade_count": 3,
+              "expectancy_r": 0.7479511991269142,
+              "return_pct": 0.4973422704557473,
+              "profit_factor": 1.9700822879856532,
+              "max_drawdown_pct": -0.5126804979487247,
+              "win_rate": 0.3333333333333333,
+              "bars_in_test_window": 2300,
+              "long_trades": 1,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 502.4867113522787,
+              "data_request_hash": "3627fd1ba30edfdb",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 4,
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.1146656560364718,
+                -1.1387057470479054,
+                4.49722500046512
+              ]
+            },
+            {
+              "fold_index": 4,
+              "instrument": "NZD_USD",
+              "cost_label": "base",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2304,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "b6cdd13732b071f9",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 6,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 6,
+                "SPREAD_TOO_WIDE": 2,
+                "SESSION_BLOCKED": 2
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            }
+          ]
+        },
+        {
+          "fold_index": 5,
+          "test_start": "2024-06-08",
+          "test_end": "2024-12-04",
+          "trade_count": 14,
+          "aggregate_return_pct": 1.1473189700751618,
+          "expectancy_r": 0.20898380261577926,
+          "profit_factor": 2.7541521026010947,
+          "pairs_positive": 4,
+          "single_pair_dominance_pct": 55.583003640317436,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 5,
+              "instrument": "EUR_USD",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": 0.2315789473684211,
+              "return_pct": 0.1193019999999878,
+              "profit_factor": 1.469083474226399,
+              "max_drawdown_pct": -0.2543300000000045,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2320,
+              "long_trades": 0,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 500.59650999999997,
+              "data_request_hash": "12de86beb585016c",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 3,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 3
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                1.4631578947368422
+              ]
+            },
+            {
+              "fold_index": 5,
+              "instrument": "GBP_USD",
+              "cost_label": "base",
+              "trade_count": 4,
+              "expectancy_r": -0.6303763440860215,
+              "return_pct": -0.6540589999999957,
+              "profit_factor": 0.16040255964262562,
+              "max_drawdown_pct": -0.7780427888527538,
+              "win_rate": 0.25,
+              "bars_in_test_window": 2320,
+              "long_trades": 0,
+              "short_trades": 4,
+              "starting_equity": 500.0,
+              "final_equity": 496.729705,
+              "data_request_hash": "df0c667f193663fb",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 3
+              },
+              "trade_r_series": [
+                0.478494623655914,
+                -1.0,
+                -1.0,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 5,
+              "instrument": "USD_JPY",
+              "cost_label": "base",
+              "trade_count": 1,
+              "expectancy_r": 7.508743321512506e-05,
+              "return_pct": 0.002726349612602874,
+              "profit_factor": null,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 1.0,
+              "bars_in_test_window": 2320,
+              "long_trades": 0,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 500.01363174806306,
+              "data_request_hash": "4743002ee40c8452",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1
+              },
+              "trade_r_series": [
+                7.508743321512506e-05
+              ]
+            },
+            {
+              "fold_index": 5,
+              "instrument": "AUD_USD",
+              "cost_label": "base",
+              "trade_count": 3,
+              "expectancy_r": 0.4046184115149632,
+              "return_pct": 0.3145439999999944,
+              "profit_factor": 2.2264214946602565,
+              "max_drawdown_pct": -0.2564730000000054,
+              "win_rate": 0.6666666666666666,
+              "bars_in_test_window": 2320,
+              "long_trades": 2,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 501.57271999999995,
+              "data_request_hash": "cbc159f73ac1c579",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 2
+              },
+              "trade_r_series": [
+                -1.0,
+                1.1057471264367815,
+                1.1081081081081081
+              ]
+            },
+            {
+              "fold_index": 5,
+              "instrument": "USD_CAD",
+              "cost_label": "base",
+              "trade_count": 4,
+              "expectancy_r": 0.9425475990625122,
+              "return_pct": 1.3648056204625725,
+              "profit_factor": 6.200900009360854,
+              "max_drawdown_pct": -0.2582154595998829,
+              "win_rate": 0.75,
+              "bars_in_test_window": 2320,
+              "long_trades": 2,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 506.82402810231287,
+              "data_request_hash": "e0d6cbab0f1de196",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 3,
+                "stop": 1
+              },
+              "trade_r_series": [
+                3.110705288010462,
+                0.5081648745241876,
+                0.8784290310047376,
+                -0.7271087972893384
+              ]
+            },
+            {
+              "fold_index": 5,
+              "instrument": "USD_CHF",
+              "cost_label": "base",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2320,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "8b15612454149c82",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 4,
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            },
+            {
+              "fold_index": 5,
+              "instrument": "NZD_USD",
+              "cost_label": "base",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2320,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "2b6d3019e5766f1e",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 5,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 5,
+                "SPREAD_TOO_WIDE": 1,
+                "SESSION_BLOCKED": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            }
+          ]
+        },
+        {
+          "fold_index": 6,
+          "test_start": "2024-12-05",
+          "test_end": "2025-06-02",
+          "trade_count": 14,
+          "aggregate_return_pct": 3.109174835753481,
+          "expectancy_r": 0.5680803367458878,
+          "profit_factor": 4.031726354306373,
+          "pairs_positive": 4,
+          "single_pair_dominance_pct": 40.338015896836,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 6,
+              "instrument": "EUR_USD",
+              "cost_label": "base",
+              "trade_count": 3,
+              "expectancy_r": -1.0,
+              "return_pct": -0.7612859999999944,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.7612859999999955,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 2,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 496.19357,
+              "data_request_hash": "933e76b45e80d4d0",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 3
+              },
+              "trade_r_series": [
+                -1.0,
+                -1.0,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "GBP_USD",
+              "cost_label": "base",
+              "trade_count": 1,
+              "expectancy_r": -1.0,
+              "return_pct": -0.26426000000000505,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.2642600000000016,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 0,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 498.6787,
+              "data_request_hash": "3bce2126f9746909",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1
+              },
+              "trade_r_series": [
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "USD_JPY",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": 0.014350138331957328,
+              "return_pct": 1.0904873858272657,
+              "profit_factor": null,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 1.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 505.4524369291363,
+              "data_request_hash": "595d0085d3cbc3cb",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2
+              },
+              "trade_r_series": [
+                7.498623721348744e-05,
+                0.02862529042670117
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "AUD_USD",
+              "cost_label": "base",
+              "trade_count": 5,
+              "expectancy_r": 0.02695183786942995,
+              "return_pct": 0.023559999999989145,
+              "profit_factor": 1.0429397312803914,
+              "max_drawdown_pct": -0.5455541427954336,
+              "win_rate": 0.4,
+              "bars_in_test_window": 2280,
+              "long_trades": 3,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 500.1178,
+              "data_request_hash": "2d57e802083aa5b2",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1,
+                "SPREAD_TO_ATR": 1,
+                "SESSION_BLOCKED": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 3,
+                "stop": 2
+              },
+              "trade_r_series": [
+                1.1057471264367815,
+                1.1081081081081081,
+                -1.0,
+                -1.0,
+                -0.07909604519774012
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "USD_CAD",
+              "cost_label": "base",
+              "trade_count": 1,
+              "expectancy_r": 2.400808327327863,
+              "return_pct": 0.939124193400831,
+              "profit_factor": null,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 1.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 1,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 504.6956209670042,
+              "data_request_hash": "2f44f3897b0e5b54",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1
+              },
+              "trade_r_series": [
+                2.400808327327863
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "USD_CHF",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": 4.694428460551751,
+              "return_pct": 2.0815492565253946,
+              "profit_factor": null,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 1.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 510.407746282627,
+              "data_request_hash": "5789cdb78c6de103",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 3,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 3
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2
+              },
+              "trade_r_series": [
+                3.4295359755903427,
+                5.959320945513158
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "NZD_USD",
+              "cost_label": "base",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "1d9996c473c7fe34",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 5,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 5
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            }
+          ]
+        },
+        {
+          "fold_index": 7,
+          "test_start": "2025-06-03",
+          "test_end": "2025-11-29",
+          "trade_count": 14,
+          "aggregate_return_pct": -0.0357164946968469,
+          "expectancy_r": 0.10154962226449273,
+          "profit_factor": 0.9790981507705715,
+          "pairs_positive": 1,
+          "single_pair_dominance_pct": 49.47193500177618,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": false,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 7,
+              "instrument": "EUR_USD",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": -1.0,
+              "return_pct": -0.5162319999999943,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.5162319999999909,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 2,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 497.41884000000005,
+              "data_request_hash": "24533a43451566f5",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2
+              },
+              "trade_r_series": [
+                -1.0,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 7,
+              "instrument": "GBP_USD",
+              "cost_label": "base",
+              "trade_count": 1,
+              "expectancy_r": -1.0,
+              "return_pct": -0.257516999999996,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.2575169999999957,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 0,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 498.712415,
+              "data_request_hash": "1c1b6b704604668b",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1
+              },
+              "trade_r_series": [
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 7,
+              "instrument": "USD_JPY",
+              "cost_label": "base",
+              "trade_count": 2,
+              "expectancy_r": -0.0019172122470033895,
+              "return_pct": -0.1432139993004511,
+              "profit_factor": 0.43816604610551657,
+              "max_drawdown_pct": -0.2546201067814342,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2312,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 499.28393000349774,
+              "data_request_hash": "fcc1bb84b0e0b440",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1,
+                "SPREAD_TO_ATR": 1,
+                "SESSION_BLOCKED": 1,
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 1
+              },
+              "trade_r_series": [
+                0.0029632099292139402,
+                -0.006797634423220719
+              ]
+            },
+            {
+              "fold_index": 7,
+              "instrument": "AUD_USD",
+              "cost_label": "base",
+              "trade_count": 4,
+              "expectancy_r": -0.769774011299435,
+              "return_pct": -0.7918089999999989,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.7918090000000007,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 1,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 496.040955,
+              "data_request_hash": "9ad144e03617ca97",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 2,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1,
+                "SPREAD_TO_ATR": 2,
+                "SESSION_BLOCKED": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 3
+              },
+              "trade_r_series": [
+                -0.07909604519774012,
+                -1.0,
+                -1.0,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 7,
+              "instrument": "USD_CAD",
+              "cost_label": "base",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "196323fdaea5d071",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 4
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            },
+            {
+              "fold_index": 7,
+              "instrument": "USD_CHF",
+              "cost_label": "base",
+              "trade_count": 5,
+              "expectancy_r": 1.500925036278929,
+              "return_pct": 1.6730555046035933,
+              "profit_factor": 4.1304155086957905,
+              "max_drawdown_pct": -0.5235669959206117,
+              "win_rate": 0.6,
+              "bars_in_test_window": 2312,
+              "long_trades": 4,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 508.36527752301794,
+              "data_request_hash": "fa8b15ed31107958",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 6,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 6,
+                "SPREAD_TOO_WIDE": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 3,
+                "stop": 2
+              },
+              "trade_r_series": [
+                3.4295019116132734,
+                5.959320945513158,
+                -1.252740369558409,
+                -1.2428535918468804,
+                0.6113962856735036
+              ]
+            },
+            {
+              "fold_index": 7,
+              "instrument": "NZD_USD",
+              "cost_label": "base",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "bc7a842d3a04268d",
+              "config_hash": "761014131081a10c",
+              "rejection_count": 10,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 10,
+                "SPREAD_TOO_WIDE": 1,
+                "SESSION_BLOCKED": 3
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            }
+          ]
+        }
+      ],
+      "aggregate": {
+        "cost_label": "base",
+        "fold_count": 8,
+        "folds_passing": 0,
+        "fold_pass_rate": 0.0,
+        "total_trades": 164,
+        "aggregate_return_pct": 17.259969844532876,
+        "aggregate_expectancy_r": 0.23003944308176186,
+        "median_per_fold_expectancy_r": 0.25877138215719675,
+        "trade_level_cumulative_r": 37.726468665408945,
+        "profit_factor": 107.55430220848092,
+        "pairs_positive_count": 6,
+        "pair_returns_pct": {
+          "EUR_USD": 0.15634699999997892,
+          "GBP_USD": 1.6515600000000075,
+          "USD_JPY": 7.084345052384011,
+          "AUD_USD": 0.4799480000000078,
+          "USD_CAD": 3.9699289114070058,
+          "USD_CHF": 4.587875880741866,
+          "NZD_USD": -0.6700350000000022
+        },
+        "pair_trade_counts": {
+          "EUR_USD": 27,
+          "GBP_USD": 41,
+          "USD_JPY": 17,
+          "AUD_USD": 24,
+          "USD_CAD": 23,
+          "USD_CHF": 27,
+          "NZD_USD": 5
+        },
+        "pair_expectancy_r": {
+          "EUR_USD": 0.019097212515272573,
+          "GBP_USD": 0.16434480149389954,
+          "USD_JPY": 0.011767764125043855,
+          "AUD_USD": 0.07698997267108715,
+          "USD_CAD": 0.4549218296575857,
+          "USD_CHF": 0.7616471381623677,
+          "NZD_USD": -0.5205558160987068
+        },
+        "pair_gross_positive_r": {
+          "EUR_USD": 18.214684299040886,
+          "GBP_USD": 28.98243292102348,
+          "USD_JPY": 0.2460973861993406,
+          "AUD_USD": 14.397481252997684,
+          "USD_CAD": 19.07967755071788,
+          "USD_CHF": 35.15807325466726,
+          "NZD_USD": 0.29036929761042723
+        },
+        "single_pair_dominance_pct": 30.212624373586838,
+        "aggregate_gates": {
+          "fold_pass_rate_ge_5_of_8": false,
+          "fold_count_ge_8": true,
+          "expectancy_r_min": true,
+          "profit_factor_min": true,
+          "trade_count_min_200": false,
+          "trade_count_max_800": true,
+          "pairs_positive_ge_4_of_7": true,
+          "single_pair_dominance_le_70pct": true
+        },
+        "aggregate_pass": false,
+        "expectancy_min_applied": 0.03,
+        "profit_factor_min_applied": 1.05
+      }
+    },
+    "2xcost": {
+      "folds": [
+        {
+          "fold_index": 0,
+          "test_start": "2021-12-21",
+          "test_end": "2022-06-18",
+          "trade_count": 18,
+          "aggregate_return_pct": -0.2533235606895001,
+          "expectancy_r": -0.21923323953371882,
+          "profit_factor": 0.8242622795420779,
+          "pairs_positive": 2,
+          "single_pair_dominance_pct": 31.18571420792556,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": false,
+            "pairs_positive_ge_3": false,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 0,
+              "instrument": "EUR_USD",
+              "cost_label": "2xcost",
+              "trade_count": 3,
+              "expectancy_r": -0.9012345679012346,
+              "return_pct": -0.6982319999999986,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.6982319999999959,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 3,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 496.50884,
+              "data_request_hash": "17674d161df0c605",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                -0.7037037037037037,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 0,
+              "instrument": "GBP_USD",
+              "cost_label": "2xcost",
+              "trade_count": 8,
+              "expectancy_r": -0.18580260475522323,
+              "return_pct": -0.4350080000000145,
+              "profit_factor": 0.6756764816838865,
+              "max_drawdown_pct": -0.9852860000000078,
+              "win_rate": 0.375,
+              "bars_in_test_window": 2312,
+              "long_trades": 5,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 497.8249599999999,
+              "data_request_hash": "0f45f4b74aa24a6a",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 5,
+                "time": 3
+              },
+              "trade_r_series": [
+                -1.0,
+                -1.0,
+                1.3615960099750624,
+                -1.0,
+                -1.0,
+                -1.0,
+                0.7542997542997543,
+                1.3976833976833978
+              ]
+            },
+            {
+              "fold_index": 0,
+              "instrument": "USD_JPY",
+              "cost_label": "2xcost",
+              "trade_count": 3,
+              "expectancy_r": 0.0075594882486172245,
+              "return_pct": 0.8200749911413174,
+              "profit_factor": 3.4165473835865012,
+              "max_drawdown_pct": -0.33935812585815484,
+              "win_rate": 0.3333333333333333,
+              "bars_in_test_window": 2312,
+              "long_trades": 0,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 504.1003749557066,
+              "data_request_hash": "805a38838d7df0c6",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2,
+                "stop": 1
+              },
+              "trade_r_series": [
+                -0.0023971304937912556,
+                -0.00878912258189265,
+                0.03386471782153558
+              ]
+            },
+            {
+              "fold_index": 0,
+              "instrument": "AUD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": 0.6732673267326732,
+              "return_pct": 0.36808800000001085,
+              "profit_factor": 2.4237177999535855,
+              "max_drawdown_pct": -0.25693000465046384,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2312,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 501.84044,
+              "data_request_hash": "a005c0546964b622",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 1
+              },
+              "trade_r_series": [
+                2.3465346534653464,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 0,
+              "instrument": "USD_CAD",
+              "cost_label": "2xcost",
+              "trade_count": 1,
+              "expectancy_r": -0.1252868880726472,
+              "return_pct": -0.041182551830809544,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.04118255183080918,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 1,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 499.79408724084595,
+              "data_request_hash": "092b1223399f26e6",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1
+              },
+              "trade_r_series": [
+                -0.1252868880726472
+              ]
+            },
+            {
+              "fold_index": 0,
+              "instrument": "USD_CHF",
+              "cost_label": "2xcost",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "25b038e436e04899",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            },
+            {
+              "fold_index": 0,
+              "instrument": "NZD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 1,
+              "expectancy_r": -1.0,
+              "return_pct": -0.26706400000000574,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.26706400000000485,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2314,
+              "long_trades": 0,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 498.66468,
+              "data_request_hash": "c80a674f6dc74825",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 4,
+                "SPREAD_TO_ATR": 4,
+                "SESSION_BLOCKED": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1
+              },
+              "trade_r_series": [
+                -1.0
+              ]
+            }
+          ]
+        },
+        {
+          "fold_index": 1,
+          "test_start": "2022-06-19",
+          "test_end": "2022-12-15",
+          "trade_count": 26,
+          "aggregate_return_pct": 4.0293478685696655,
+          "expectancy_r": 0.04592065549478835,
+          "profit_factor": 9.881697434821076,
+          "pairs_positive": 4,
+          "single_pair_dominance_pct": 77.01565681373407,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": false
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 1,
+              "instrument": "EUR_USD",
+              "cost_label": "2xcost",
+              "trade_count": 3,
+              "expectancy_r": 0.16291556170490795,
+              "return_pct": 0.12723799999998509,
+              "profit_factor": 1.4935225121792284,
+              "max_drawdown_pct": -0.25739786232061995,
+              "win_rate": 0.6666666666666666,
+              "bars_in_test_window": 2328,
+              "long_trades": 2,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 500.63618999999994,
+              "data_request_hash": "eb57ddd6bd378bfe",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 2,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 2
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2,
+                "stop": 1
+              },
+              "trade_r_series": [
+                0.6418079096045197,
+                -1.0,
+                0.8469387755102041
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "GBP_USD",
+              "cost_label": "2xcost",
+              "trade_count": 6,
+              "expectancy_r": 0.3318681709011653,
+              "return_pct": 0.4845739999999932,
+              "profit_factor": 1.6146764086561638,
+              "max_drawdown_pct": -0.5139433213186292,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2328,
+              "long_trades": 3,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 502.42286999999993,
+              "data_request_hash": "89d8e7bb942864b2",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 3,
+                "time": 3
+              },
+              "trade_r_series": [
+                -1.0,
+                0.7549180327868853,
+                1.3976833976833978,
+                -1.0,
+                -1.0,
+                2.838607594936709
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "USD_JPY",
+              "cost_label": "2xcost",
+              "trade_count": 6,
+              "expectancy_r": 0.017609131862730946,
+              "return_pct": 3.802020539242079,
+              "profit_factor": 5.760874437458098,
+              "max_drawdown_pct": -0.7765191308919674,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2328,
+              "long_trades": 1,
+              "short_trades": 5,
+              "starting_equity": 500.0,
+              "final_equity": 519.0101026962104,
+              "data_request_hash": "cbb20efaf5f6b26a",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 3,
+                "stop": 3
+              },
+              "trade_r_series": [
+                0.03386471782153558,
+                0.04464816638121504,
+                -0.0069460844921717625,
+                -0.006908176517726381,
+                -0.006939047407571889,
+                0.047935215391105075
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "AUD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": -0.06917475728155342,
+              "return_pct": -0.037023999999996615,
+              "profit_factor": 0.8567980691874496,
+              "max_drawdown_pct": -0.2579725392310902,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2328,
+              "long_trades": 2,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 499.81488,
+              "data_request_hash": "521adb4df1afbae7",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 1
+              },
+              "trade_r_series": [
+                0.8616504854368932,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "USD_CAD",
+              "cost_label": "2xcost",
+              "trade_count": 5,
+              "expectancy_r": -0.007412273522200507,
+              "return_pct": -0.04439930675229631,
+              "profit_factor": 0.9450325753934122,
+              "max_drawdown_pct": -0.6096045703113305,
+              "win_rate": 0.2,
+              "bars_in_test_window": 2328,
+              "long_trades": 4,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 499.77800346623854,
+              "data_request_hash": "8144c3c79e97f883",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 3
+              },
+              "trade_r_series": [
+                -0.7730006338605198,
+                -0.20266234250602708,
+                -0.7821421308680213,
+                2.2831226395180835,
+                -0.5623788998945178
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "USD_CHF",
+              "cost_label": "2xcost",
+              "trade_count": 3,
+              "expectancy_r": -0.4945626322387981,
+              "return_pct": -0.37224536392009844,
+              "profit_factor": 0.2899529590897151,
+              "max_drawdown_pct": -0.523458805315385,
+              "win_rate": 0.3333333333333333,
+              "bars_in_test_window": 2328,
+              "long_trades": 1,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 498.1387731803995,
+              "data_request_hash": "5696231cb3b67259",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 2
+              },
+              "trade_r_series": [
+                0.5972385142949533,
+                -1.052775642982724,
+                -1.0281507680286237
+              ]
+            },
+            {
+              "fold_index": 1,
+              "instrument": "NZD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 1,
+              "expectancy_r": 0.267425320056899,
+              "return_pct": 0.06918399999999991,
+              "profit_factor": null,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 1.0,
+              "bars_in_test_window": 2328,
+              "long_trades": 0,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 500.34592,
+              "data_request_hash": "62fe2939f30ef2fc",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1,
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1
+              },
+              "trade_r_series": [
+                0.267425320056899
+              ]
+            }
+          ]
+        },
+        {
+          "fold_index": 2,
+          "test_start": "2022-12-16",
+          "test_end": "2023-06-13",
+          "trade_count": 26,
+          "aggregate_return_pct": 3.232931826230989,
+          "expectancy_r": 0.2787017627723638,
+          "profit_factor": 3.986092328609467,
+          "pairs_positive": 4,
+          "single_pair_dominance_pct": 31.87539431993812,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 2,
+              "instrument": "EUR_USD",
+              "cost_label": "2xcost",
+              "trade_count": 9,
+              "expectancy_r": 0.3669386746612407,
+              "return_pct": 0.8757719999999969,
+              "profit_factor": 1.6521469112506757,
+              "max_drawdown_pct": -0.5726856835607733,
+              "win_rate": 0.4444444444444444,
+              "bars_in_test_window": 2296,
+              "long_trades": 3,
+              "short_trades": 6,
+              "starting_equity": 500.0,
+              "final_equity": 504.37886,
+              "data_request_hash": "9ea36982864c28f9",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 2,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 2
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 4,
+                "stop": 5
+              },
+              "trade_r_series": [
+                0.6418079096045197,
+                -1.0,
+                0.8498293515358362,
+                -1.0,
+                -1.0,
+                2.0,
+                -1.0,
+                -1.0,
+                4.8108108108108105
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "GBP_USD",
+              "cost_label": "2xcost",
+              "trade_count": 4,
+              "expectancy_r": 1.647182876354853,
+              "return_pct": 1.7207159999999888,
+              "profit_factor": 4.256021132623866,
+              "max_drawdown_pct": -0.516847136233492,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2296,
+              "long_trades": 2,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 508.60357999999997,
+              "data_request_hash": "b9014c7aed021511",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2,
+                "stop": 2
+              },
+              "trade_r_series": [
+                2.8416050686378034,
+                5.747126436781609,
+                -1.0,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "USD_JPY",
+              "cost_label": "2xcost",
+              "trade_count": 3,
+              "expectancy_r": 0.013474779901050804,
+              "return_pct": 1.4427821762871273,
+              "profit_factor": 6.262345068418519,
+              "max_drawdown_pct": -0.2550432996558243,
+              "win_rate": 0.3333333333333333,
+              "bars_in_test_window": 2296,
+              "long_trades": 2,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 507.2139108814356,
+              "data_request_hash": "500b00b029056e0d",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 2
+              },
+              "trade_r_series": [
+                -0.006939047407571889,
+                0.047935215391105075,
+                -0.0005718282803807715
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "AUD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": -0.6996587030716723,
+              "return_pct": -0.36056799999999445,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.3605679999999893,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2296,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 498.19716000000005,
+              "data_request_hash": "ff659ab41c31f36a",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                -0.3993174061433447
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "USD_CAD",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": -0.6506455566190524,
+              "return_pct": -0.46099504938282854,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.4609950493828251,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2296,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 497.6950247530859,
+              "data_request_hash": "c85d28df445d27be",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 1
+              },
+              "trade_r_series": [
+                -0.5610603092734286,
+                -0.7402308039646762
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "USD_CHF",
+              "cost_label": "2xcost",
+              "trade_count": 5,
+              "expectancy_r": 0.20305008687783554,
+              "return_pct": 0.2763246993267021,
+              "profit_factor": 1.3434770915698777,
+              "max_drawdown_pct": -0.524256447629648,
+              "win_rate": 0.4,
+              "bars_in_test_window": 2296,
+              "long_trades": 4,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 501.3816234966335,
+              "data_request_hash": "90d0e05bb7defd35",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 2,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 2
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 3,
+                "time": 2
+              },
+              "trade_r_series": [
+                -1.080812338553657,
+                -1.0888027524933583,
+                2.695002695002695,
+                -1.1213025049897962,
+                1.6111653354232944
+              ]
+            },
+            {
+              "fold_index": 2,
+              "instrument": "NZD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 1,
+              "expectancy_r": -1.0,
+              "return_pct": -0.261100000000003,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.261099999999999,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2298,
+              "long_trades": 1,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 498.6945,
+              "data_request_hash": "e20b0a986a846cc9",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1
+              },
+              "trade_r_series": [
+                -1.0
+              ]
+            }
+          ]
+        },
+        {
+          "fold_index": 3,
+          "test_start": "2023-06-14",
+          "test_end": "2023-12-10",
+          "trade_count": 28,
+          "aggregate_return_pct": 3.2359266162286904,
+          "expectancy_r": 0.36605724380709265,
+          "profit_factor": 14.154280182069176,
+          "pairs_positive": 5,
+          "single_pair_dominance_pct": 32.63005277033984,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 3,
+              "instrument": "EUR_USD",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": 1.9054054054054053,
+              "return_pct": 1.0166160000000035,
+              "profit_factor": 4.7361303031193955,
+              "max_drawdown_pct": -0.2721040000000016,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2304,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 505.08308,
+              "data_request_hash": "5a4bd144e10a3f76",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                4.8108108108108105
+              ]
+            },
+            {
+              "fold_index": 3,
+              "instrument": "GBP_USD",
+              "cost_label": "2xcost",
+              "trade_count": 6,
+              "expectancy_r": 0.3062890359114749,
+              "return_pct": 0.4835479999999892,
+              "profit_factor": 1.720049795398095,
+              "max_drawdown_pct": -0.41357647598010244,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2304,
+              "long_trades": 3,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 502.41774,
+              "data_request_hash": "5a2e1ea0224f110f",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 4
+              },
+              "trade_r_series": [
+                -1.0,
+                1.35181236673774,
+                -1.0,
+                -0.5857519788918206,
+                1.3304597701149425,
+                1.7412140575079873
+              ]
+            },
+            {
+              "fold_index": 3,
+              "instrument": "USD_JPY",
+              "cost_label": "2xcost",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2304,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "0964a0d6b8b23f31",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            },
+            {
+              "fold_index": 3,
+              "instrument": "AUD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 4,
+              "expectancy_r": 0.45685983827493265,
+              "return_pct": 0.49354999999999816,
+              "profit_factor": 1.9476548159412612,
+              "max_drawdown_pct": -0.26061999999999447,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2304,
+              "long_trades": 4,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 502.46775,
+              "data_request_hash": "85a8cf58817cd075",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 2
+              },
+              "trade_r_series": [
+                -1.0,
+                1.3085714285714285,
+                -1.0,
+                2.518867924528302
+              ]
+            },
+            {
+              "fold_index": 3,
+              "instrument": "USD_CAD",
+              "cost_label": "2xcost",
+              "trade_count": 5,
+              "expectancy_r": 0.5193971705443534,
+              "return_pct": 1.216423116912857,
+              "profit_factor": 2.130772378192716,
+              "max_drawdown_pct": -0.7994712061676637,
+              "win_rate": 0.2,
+              "bars_in_test_window": 2304,
+              "long_trades": 1,
+              "short_trades": 4,
+              "starting_equity": 500.0,
+              "final_equity": 506.0821155845643,
+              "data_request_hash": "7507575cbebe111c",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 4,
+                "time": 1
+              },
+              "trade_r_series": [
+                -0.7402308039646762,
+                -0.7416802023303593,
+                -0.7405322946133681,
+                5.553271773741861,
+                -0.7338426201116909
+              ]
+            },
+            {
+              "fold_index": 3,
+              "instrument": "USD_CHF",
+              "cost_label": "2xcost",
+              "trade_count": 9,
+              "expectancy_r": 0.12284267707622049,
+              "return_pct": 0.27178749931584534,
+              "profit_factor": 1.2521592145862321,
+              "max_drawdown_pct": -0.789064974627271,
+              "win_rate": 0.5555555555555556,
+              "bars_in_test_window": 2304,
+              "long_trades": 6,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 501.3589374965792,
+              "data_request_hash": "26ebf9c13427fc74",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 4
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 4,
+                "time": 5
+              },
+              "trade_r_series": [
+                -1.1213150783238581,
+                1.6111653354232944,
+                0.33485084114531294,
+                0.8763790081451696,
+                2.744609056598185,
+                -1.098104671337272,
+                -1.1146656560364718,
+                0.011371005119529732,
+                -1.1387057470479054
+              ]
+            },
+            {
+              "fold_index": 3,
+              "instrument": "NZD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": -0.4644757495942746,
+              "return_pct": -0.24599800000000283,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.24599799999999733,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2304,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 498.77001,
+              "data_request_hash": "2c7d4dd7251d5510",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 3,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 3
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2
+              },
+              "trade_r_series": [
+                -0.6990049751243781,
+                -0.22994652406417113
+              ]
+            }
+          ]
+        },
+        {
+          "fold_index": 4,
+          "test_start": "2023-12-11",
+          "test_end": "2024-06-07",
+          "trade_count": 24,
+          "aggregate_return_pct": 1.896795477477553,
+          "expectancy_r": 0.26522095212915225,
+          "profit_factor": 13.954306576044122,
+          "pairs_positive": 4,
+          "single_pair_dominance_pct": 37.572725301238556,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 4,
+              "instrument": "EUR_USD",
+              "cost_label": "2xcost",
+              "trade_count": 3,
+              "expectancy_r": -0.19863013698630136,
+              "return_pct": -0.1464220000000016,
+              "profit_factor": 0.7145558540398704,
+              "max_drawdown_pct": -0.5129620000000046,
+              "win_rate": 0.3333333333333333,
+              "bars_in_test_window": 2300,
+              "long_trades": 1,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 499.26788999999997,
+              "data_request_hash": "ffd6426ae833ff86",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 2,
+                "SPREAD_TO_ATR": 2
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                -1.0,
+                1.404109589041096
+              ]
+            },
+            {
+              "fold_index": 4,
+              "instrument": "GBP_USD",
+              "cost_label": "2xcost",
+              "trade_count": 11,
+              "expectancy_r": 0.12057612716928225,
+              "return_pct": 0.3469200000000061,
+              "profit_factor": 1.2761033549120324,
+              "max_drawdown_pct": -0.5233455429185059,
+              "win_rate": 0.45454545454545453,
+              "bars_in_test_window": 2300,
+              "long_trades": 6,
+              "short_trades": 5,
+              "starting_equity": 500.0,
+              "final_equity": 501.73460000000006,
+              "data_request_hash": "8cbe880e2e3e734e",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 3,
+              "rejection_counts": {
+                "MARGIN_BUFFER": 3
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 8,
+                "stop": 3
+              },
+              "trade_r_series": [
+                -0.5857519788918206,
+                1.3342939481268012,
+                1.7412140575079873,
+                -1.0,
+                1.645933014354067,
+                -0.17079889807162535,
+                -1.0,
+                0.9753086419753086,
+                0.3333333333333333,
+                -0.9471947194719472,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 4,
+              "instrument": "USD_JPY",
+              "cost_label": "2xcost",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2300,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "b2f5ef4d6e2080f3",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            },
+            {
+              "fold_index": 4,
+              "instrument": "AUD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": 0.759433962264151,
+              "return_pct": 0.4019680000000081,
+              "profit_factor": 2.5448899274381995,
+              "max_drawdown_pct": -0.260191999999995,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2300,
+              "long_trades": 2,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 502.00984,
+              "data_request_hash": "125ee5c5c365253e",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                2.518867924528302
+              ]
+            },
+            {
+              "fold_index": 4,
+              "instrument": "USD_CAD",
+              "cost_label": "2xcost",
+              "trade_count": 5,
+              "expectancy_r": 0.4221307460310168,
+              "return_pct": 0.8227072259601176,
+              "profit_factor": 2.8355028031344403,
+              "max_drawdown_pct": -0.4482189972988294,
+              "win_rate": 0.4,
+              "bars_in_test_window": 2300,
+              "long_trades": 2,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 504.1135361298006,
+              "data_request_hash": "c4299b6b871b6a7a",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 4
+              },
+              "trade_r_series": [
+                -0.7338426201116909,
+                -0.18872208875796107,
+                -0.31662858243323855,
+                2.9040419307973746,
+                0.44580509066060015
+              ]
+            },
+            {
+              "fold_index": 4,
+              "instrument": "USD_CHF",
+              "cost_label": "2xcost",
+              "trade_count": 3,
+              "expectancy_r": 0.6684447361710225,
+              "return_pct": 0.4716222515174229,
+              "profit_factor": 1.8951331272869507,
+              "max_drawdown_pct": -0.5268738661777206,
+              "win_rate": 0.3333333333333333,
+              "bars_in_test_window": 2300,
+              "long_trades": 1,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 502.3581112575871,
+              "data_request_hash": "3627fd1ba30edfdb",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 4,
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.1146656560364718,
+                -1.1387057470479054,
+                4.258705611597445
+              ]
+            },
+            {
+              "fold_index": 4,
+              "instrument": "NZD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2304,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "b6cdd13732b071f9",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 6,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 6,
+                "SPREAD_TOO_WIDE": 2,
+                "SESSION_BLOCKED": 2
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            }
+          ]
+        },
+        {
+          "fold_index": 5,
+          "test_start": "2024-06-08",
+          "test_end": "2024-12-04",
+          "trade_count": 14,
+          "aggregate_return_pct": 1.018560310579908,
+          "expectancy_r": 0.1667429165815216,
+          "profit_factor": 2.463287269158112,
+          "pairs_positive": 3,
+          "single_pair_dominance_pct": 54.54256124634234,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 5,
+              "instrument": "EUR_USD",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": 0.20205479452054798,
+              "return_pct": 0.10867999999999434,
+              "profit_factor": 1.4201329828359361,
+              "max_drawdown_pct": -0.2586800000000039,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2320,
+              "long_trades": 0,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 500.54339999999996,
+              "data_request_hash": "12de86beb585016c",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 3,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 3
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 1
+              },
+              "trade_r_series": [
+                -1.0,
+                1.404109589041096
+              ]
+            },
+            {
+              "fold_index": 5,
+              "instrument": "GBP_USD",
+              "cost_label": "2xcost",
+              "trade_count": 4,
+              "expectancy_r": -0.6456185567010309,
+              "return_pct": -0.6957360000000024,
+              "profit_factor": 0.14049366244162775,
+              "max_drawdown_pct": -0.8085404954070048,
+              "win_rate": 0.25,
+              "bars_in_test_window": 2320,
+              "long_trades": 0,
+              "short_trades": 4,
+              "starting_equity": 500.0,
+              "final_equity": 496.52132,
+              "data_request_hash": "df0c667f193663fb",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 3
+              },
+              "trade_r_series": [
+                0.4175257731958763,
+                -1.0,
+                -1.0,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 5,
+              "instrument": "USD_JPY",
+              "cost_label": "2xcost",
+              "trade_count": 1,
+              "expectancy_r": -9.273298002067946e-06,
+              "return_pct": -0.00034079370156980815,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.000340793701570874,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2320,
+              "long_trades": 0,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 499.99829603149215,
+              "data_request_hash": "4743002ee40c8452",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1
+              },
+              "trade_r_series": [
+                -9.273298002067946e-06
+              ]
+            },
+            {
+              "fold_index": 5,
+              "instrument": "AUD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 3,
+              "expectancy_r": 0.36090446443229046,
+              "return_pct": 0.2910919999999928,
+              "profit_factor": 2.10553580652022,
+              "max_drawdown_pct": -0.2633040000000051,
+              "win_rate": 0.6666666666666666,
+              "bars_in_test_window": 2320,
+              "long_trades": 2,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 501.45545999999996,
+              "data_request_hash": "cbc159f73ac1c579",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1,
+                "time": 2
+              },
+              "trade_r_series": [
+                -1.0,
+                1.053811659192825,
+                1.0289017341040463
+              ]
+            },
+            {
+              "fold_index": 5,
+              "instrument": "USD_CAD",
+              "cost_label": "2xcost",
+              "trade_count": 4,
+              "expectancy_r": 0.8575153374763652,
+              "return_pct": 1.314865104281493,
+              "profit_factor": 5.860625541794946,
+              "max_drawdown_pct": -0.2662918232018943,
+              "win_rate": 0.75,
+              "bars_in_test_window": 2320,
+              "long_trades": 2,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 506.5743255214075,
+              "data_request_hash": "e0d6cbab0f1de196",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 3,
+                "stop": 1
+              },
+              "trade_r_series": [
+                2.9040419307973746,
+                0.44580509066060015,
+                0.8073231257368245,
+                -0.7271087972893384
+              ]
+            },
+            {
+              "fold_index": 5,
+              "instrument": "USD_CHF",
+              "cost_label": "2xcost",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2320,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "8b15612454149c82",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 4,
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            },
+            {
+              "fold_index": 5,
+              "instrument": "NZD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2320,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "2b6d3019e5766f1e",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 5,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 5,
+                "SPREAD_TOO_WIDE": 1,
+                "SESSION_BLOCKED": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            }
+          ]
+        },
+        {
+          "fold_index": 6,
+          "test_start": "2024-12-05",
+          "test_end": "2025-06-02",
+          "trade_count": 14,
+          "aggregate_return_pct": 2.970494887113595,
+          "expectancy_r": 0.5013960077775585,
+          "profit_factor": 3.7427277997141353,
+          "pairs_positive": 3,
+          "single_pair_dominance_pct": 40.04347788718559,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": true,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 6,
+              "instrument": "EUR_USD",
+              "cost_label": "2xcost",
+              "trade_count": 3,
+              "expectancy_r": -1.0,
+              "return_pct": -0.7760459999999969,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.7760459999999967,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 2,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 496.11977,
+              "data_request_hash": "933e76b45e80d4d0",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 3
+              },
+              "trade_r_series": [
+                -1.0,
+                -1.0,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "GBP_USD",
+              "cost_label": "2xcost",
+              "trade_count": 1,
+              "expectancy_r": -1.0,
+              "return_pct": -0.2788599999999919,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.2788599999999974,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 0,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 498.6057,
+              "data_request_hash": "3bce2126f9746909",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1
+              },
+              "trade_r_series": [
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "USD_JPY",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": 0.01403417689746249,
+              "return_pct": 1.0834551354551802,
+              "profit_factor": 3180.211148694212,
+              "max_drawdown_pct": -0.000340793701570874,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2280,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 505.41727567727594,
+              "data_request_hash": "595d0085d3cbc3cb",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2
+              },
+              "trade_r_series": [
+                -9.260950068643087e-06,
+                0.028077614744993623
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "AUD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 5,
+              "expectancy_r": -0.005315244837893448,
+              "return_pct": -0.028138000000010877,
+              "profit_factor": 0.9517950510179609,
+              "max_drawdown_pct": -0.5804909201556219,
+              "win_rate": 0.4,
+              "bars_in_test_window": 2280,
+              "long_trades": 3,
+              "short_trades": 2,
+              "starting_equity": 500.0,
+              "final_equity": 499.85930999999994,
+              "data_request_hash": "2d57e802083aa5b2",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1,
+                "SPREAD_TO_ATR": 1,
+                "SESSION_BLOCKED": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 3,
+                "stop": 2
+              },
+              "trade_r_series": [
+                1.053811659192825,
+                1.0289017341040463,
+                -1.0,
+                -1.0,
+                -0.1092896174863388
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "USD_CAD",
+              "cost_label": "2xcost",
+              "trade_count": 1,
+              "expectancy_r": 2.1337551207285457,
+              "return_pct": 0.9132173191001236,
+              "profit_factor": null,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 1.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 1,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 504.5660865955006,
+              "data_request_hash": "2f44f3897b0e5b54",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1
+              },
+              "trade_r_series": [
+                2.1337551207285457
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "USD_CHF",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": 4.442148429275909,
+              "return_pct": 2.056866432558291,
+              "profit_factor": null,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 1.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 510.2843321627915,
+              "data_request_hash": "5789cdb78c6de103",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 3,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 3
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 2
+              },
+              "trade_r_series": [
+                3.188512551135241,
+                5.695784307416577
+              ]
+            },
+            {
+              "fold_index": 6,
+              "instrument": "NZD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2280,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "1d9996c473c7fe34",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 5,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 5
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            }
+          ]
+        },
+        {
+          "fold_index": 7,
+          "test_start": "2025-06-03",
+          "test_end": "2025-11-29",
+          "trade_count": 14,
+          "aggregate_return_pct": -0.15945040616487383,
+          "expectancy_r": 0.06011043173715142,
+          "profit_factor": 0.9102043306028466,
+          "pairs_positive": 1,
+          "single_pair_dominance_pct": 47.64957947276733,
+          "gates": {
+            "trade_count_ge_30": false,
+            "expectancy_r_ge_0": true,
+            "pairs_positive_ge_3": false,
+            "single_pair_dominance_le_60pct": true
+          },
+          "passes": false,
+          "pair_runs": [
+            {
+              "fold_index": 7,
+              "instrument": "EUR_USD",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": -1.0,
+              "return_pct": -0.5338339999999997,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.5338340000000017,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 2,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 497.33083,
+              "data_request_hash": "24533a43451566f5",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 2
+              },
+              "trade_r_series": [
+                -1.0,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 7,
+              "instrument": "GBP_USD",
+              "cost_label": "2xcost",
+              "trade_count": 1,
+              "expectancy_r": -1.0,
+              "return_pct": -0.26517400000000135,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.2651740000000018,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 0,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 498.67413,
+              "data_request_hash": "1c1b6b704604668b",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 0,
+              "rejection_counts": {},
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "stop": 1
+              },
+              "trade_r_series": [
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 7,
+              "instrument": "USD_JPY",
+              "cost_label": "2xcost",
+              "trade_count": 2,
+              "expectancy_r": -0.002014843692882311,
+              "return_pct": -0.15262662837115526,
+              "profit_factor": 0.41091687525432113,
+              "max_drawdown_pct": -0.2588162867438915,
+              "win_rate": 0.5,
+              "bars_in_test_window": 2312,
+              "long_trades": 1,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 499.2368668581442,
+              "data_request_hash": "fcc1bb84b0e0b440",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 1,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1,
+                "SPREAD_TO_ATR": 1,
+                "SESSION_BLOCKED": 1,
+                "MARGIN_BUFFER": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 1
+              },
+              "trade_r_series": [
+                0.002767947037456097,
+                -0.006797634423220719
+              ]
+            },
+            {
+              "fold_index": 7,
+              "instrument": "AUD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 4,
+              "expectancy_r": -0.7773224043715847,
+              "return_pct": -0.8240680000000111,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": -0.8240680000000111,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 1,
+              "short_trades": 3,
+              "starting_equity": 500.0,
+              "final_equity": 495.87965999999994,
+              "data_request_hash": "9ad144e03617ca97",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 2,
+              "rejection_counts": {
+                "SPREAD_TOO_WIDE": 1,
+                "SPREAD_TO_ATR": 2,
+                "SESSION_BLOCKED": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 1,
+                "stop": 3
+              },
+              "trade_r_series": [
+                -0.1092896174863388,
+                -1.0,
+                -1.0,
+                -1.0
+              ]
+            },
+            {
+              "fold_index": 7,
+              "instrument": "USD_CAD",
+              "cost_label": "2xcost",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "196323fdaea5d071",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 4,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 4
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            },
+            {
+              "fold_index": 7,
+              "instrument": "USD_CHF",
+              "cost_label": "2xcost",
+              "trade_count": 5,
+              "expectancy_r": 1.3909730698384446,
+              "return_pct": 1.6162522222062936,
+              "profit_factor": 3.89319704916064,
+              "max_drawdown_pct": -0.5473888525415053,
+              "win_rate": 0.6,
+              "bars_in_test_window": 2312,
+              "long_trades": 4,
+              "short_trades": 1,
+              "starting_equity": 500.0,
+              "final_equity": 508.0812611110315,
+              "data_request_hash": "fa8b15ed31107958",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 6,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 6,
+                "SPREAD_TOO_WIDE": 1
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {
+                "time": 3,
+                "stop": 2
+              },
+              "trade_r_series": [
+                3.2026573873313597,
+                5.695784307416577,
+                -1.252740369558409,
+                -1.2428535918468804,
+                0.5520176158495753
+              ]
+            },
+            {
+              "fold_index": 7,
+              "instrument": "NZD_USD",
+              "cost_label": "2xcost",
+              "trade_count": 0,
+              "expectancy_r": 0.0,
+              "return_pct": 0.0,
+              "profit_factor": 0.0,
+              "max_drawdown_pct": 0.0,
+              "win_rate": 0.0,
+              "bars_in_test_window": 2312,
+              "long_trades": 0,
+              "short_trades": 0,
+              "starting_equity": 500.0,
+              "final_equity": 500.0,
+              "data_request_hash": "bc7a842d3a04268d",
+              "config_hash": "94f6de6955a8f6a2",
+              "rejection_count": 10,
+              "rejection_counts": {
+                "SPREAD_TO_ATR": 10,
+                "SPREAD_TOO_WIDE": 1,
+                "SESSION_BLOCKED": 3
+              },
+              "risk_engine_used": true,
+              "exit_reason_counts": {},
+              "trade_r_series": []
+            }
+          ]
+        }
+      ],
+      "aggregate": {
+        "cost_label": "2xcost",
+        "fold_count": 8,
+        "folds_passing": 0,
+        "fold_pass_rate": 0.0,
+        "total_trades": 164,
+        "aggregate_return_pct": 15.971283019346027,
+        "aggregate_expectancy_r": 0.19088037333161284,
+        "median_per_fold_expectancy_r": 0.2159819343553369,
+        "trade_level_cumulative_r": 31.304381226384507,
+        "profit_factor": 39.692563731812754,
+        "pairs_positive_count": 5,
+        "pair_returns_pct": {
+          "EUR_USD": -0.026228000000017015,
+          "GBP_USD": 1.3609799999999672,
+          "USD_JPY": 6.995365420052979,
+          "AUD_USD": 0.30489999999999684,
+          "USD_CAD": 3.7206358582886567,
+          "USD_CHF": 4.320607741004457,
+          "NZD_USD": -0.7049780000000117
+        },
+        "pair_trade_counts": {
+          "EUR_USD": 27,
+          "GBP_USD": 41,
+          "USD_JPY": 17,
+          "AUD_USD": 24,
+          "USD_CAD": 23,
+          "USD_CHF": 27,
+          "NZD_USD": 5
+        },
+        "pair_expectancy_r": {
+          "EUR_USD": -0.01086959102758559,
+          "GBP_USD": 0.13841748976369386,
+          "USD_JPY": 0.011340411102149886,
+          "AUD_USD": 0.04591760675033304,
+          "USD_CAD": 0.382948551503874,
+          "USD_CHF": 0.6845052980598473,
+          "NZD_USD": -0.53230523582633
+        },
+        "pair_gross_positive_r": {
+          "EUR_USD": 17.410224745958892,
+          "GBP_USD": 27.96461465563867,
+          "USD_JPY": 0.23909359458894605,
+          "AUD_USD": 13.719919203124014,
+          "USD_CAD": 17.477166702641263,
+          "USD_CHF": 33.07524357189921,
+          "NZD_USD": 0.267425320056899
+        },
+        "single_pair_dominance_pct": 30.02645143736028,
+        "aggregate_gates": {
+          "fold_pass_rate_ge_5_of_8": false,
+          "fold_count_ge_8": true,
+          "expectancy_r_min": true,
+          "profit_factor_min": true,
+          "trade_count_min_200": false,
+          "trade_count_max_800": true,
+          "pairs_positive_ge_4_of_7": true,
+          "single_pair_dominance_le_70pct": true
+        },
+        "aggregate_pass": false,
+        "expectancy_min_applied": 0.0,
+        "profit_factor_min_applied": 1.0
+      }
+    }
+  },
+  "generated_at": "2026-05-26T00:30:45.365901+00:00"
+}

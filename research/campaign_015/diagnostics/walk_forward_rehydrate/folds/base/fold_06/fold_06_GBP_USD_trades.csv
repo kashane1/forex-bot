@@ -1,0 +1,2 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+GBP_USD,short,730,2024-10-28T13:00:00+00:00,2024-10-29T13:00:00+00:00,1.298600,1.30041,1.30041,-1.321300,-1,12,2,stop,next_bar_open,False,False,

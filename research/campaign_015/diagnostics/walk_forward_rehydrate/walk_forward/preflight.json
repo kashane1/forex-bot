@@ -1,0 +1,99 @@
+{
+  "blocked": false,
+  "reasons": [],
+  "details": {
+    "per_pair": {
+      "EUR_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2312,
+          "fold_01": 2328,
+          "fold_02": 2296,
+          "fold_03": 2304,
+          "fold_04": 2300,
+          "fold_05": 2320,
+          "fold_06": 2280,
+          "fold_07": 2312
+        }
+      },
+      "GBP_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2312,
+          "fold_01": 2328,
+          "fold_02": 2296,
+          "fold_03": 2304,
+          "fold_04": 2300,
+          "fold_05": 2320,
+          "fold_06": 2280,
+          "fold_07": 2312
+        }
+      },
+      "USD_JPY": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2312,
+          "fold_01": 2328,
+          "fold_02": 2296,
+          "fold_03": 2304,
+          "fold_04": 2300,
+          "fold_05": 2320,
+          "fold_06": 2280,
+          "fold_07": 2312
+        }
+      },
+      "AUD_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2312,
+          "fold_01": 2328,
+          "fold_02": 2296,
+          "fold_03": 2304,
+          "fold_04": 2300,
+          "fold_05": 2320,
+          "fold_06": 2280,
+          "fold_07": 2312
+        }
+      },
+      "USD_CAD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2312,
+          "fold_01": 2328,
+          "fold_02": 2296,
+          "fold_03": 2304,
+          "fold_04": 2300,
+          "fold_05": 2320,
+          "fold_06": 2280,
+          "fold_07": 2312
+        }
+      },
+      "USD_CHF": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2312,
+          "fold_01": 2328,
+          "fold_02": 2296,
+          "fold_03": 2304,
+          "fold_04": 2300,
+          "fold_05": 2320,
+          "fold_06": 2280,
+          "fold_07": 2312
+        }
+      },
+      "NZD_USD": {
+        "source": "oanda-practice",
+        "fold_candle_counts": {
+          "fold_00": 2314,
+          "fold_01": 2328,
+          "fold_02": 2298,
+          "fold_03": 2304,
+          "fold_04": 2304,
+          "fold_05": 2320,
+          "fold_06": 2280,
+          "fold_07": 2312
+        }
+      }
+    }
+  }
+}

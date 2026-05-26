@@ -1,0 +1,2 @@
+instrument,side,units,entry_time,exit_time,entry_price,exit_price,stop_price,pnl,r_multiple,bars_held,spread_paid_pips,exit_reason,fill_timing,ambiguous_exit,gap_fill,gap_fill_distance_pips
+USD_CAD,long,443,2022-01-19T10:00:00+00:00,2022-01-20T10:00:00+00:00,1.2483900,1.24781,1.24468,-0.2059127591540378743558714868,-0.1252868880726472132275477094,12,1.9,time,next_bar_open,False,False,
