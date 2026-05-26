@@ -1,0 +1,72 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "data_dir": "data/external_features",
+  "fixture_dir": "tests/fixtures/cross_asset",
+  "features": {
+    "dxy": {
+      "real_path": "data/external_features/dxy.csv",
+      "real_available": false,
+      "fixture_path": "tests/fixtures/cross_asset/dxy.csv",
+      "fixture_available": true,
+      "fixture_rows": 5
+    },
+    "us2y": {
+      "real_path": "data/external_features/us2y.csv",
+      "real_available": false,
+      "fixture_path": "tests/fixtures/cross_asset/us2y.csv",
+      "fixture_available": true,
+      "fixture_rows": 5
+    },
+    "us10y": {
+      "real_path": "data/external_features/us10y.csv",
+      "real_available": false,
+      "fixture_path": "tests/fixtures/cross_asset/us10y.csv",
+      "fixture_available": true,
+      "fixture_rows": 5
+    },
+    "vix": {
+      "real_path": "data/external_features/vix.csv",
+      "real_available": false,
+      "fixture_path": "tests/fixtures/cross_asset/vix.csv",
+      "fixture_available": true,
+      "fixture_rows": 5
+    },
+    "sp500": {
+      "real_path": "data/external_features/sp500.csv",
+      "real_available": false,
+      "fixture_path": "tests/fixtures/cross_asset/sp500.csv",
+      "fixture_available": true,
+      "fixture_rows": 3
+    },
+    "nasdaq": {
+      "real_path": "data/external_features/nasdaq.csv",
+      "real_available": false,
+      "fixture_path": "tests/fixtures/cross_asset/nasdaq.csv",
+      "fixture_available": true,
+      "fixture_rows": 3
+    },
+    "gold": {
+      "real_path": "data/external_features/gold.csv",
+      "real_available": false,
+      "fixture_path": "tests/fixtures/cross_asset/gold.csv",
+      "fixture_available": true,
+      "fixture_rows": 3
+    },
+    "oil": {
+      "real_path": "data/external_features/oil.csv",
+      "real_available": false,
+      "fixture_path": "tests/fixtures/cross_asset/oil.csv",
+      "fixture_available": true,
+      "fixture_rows": 3
+    },
+    "cot_eur_net": {
+      "real_path": "data/external_features/cot_eur_net.csv",
+      "real_available": false,
+      "fixture_path": "tests/fixtures/cross_asset/cot_eur_net.csv",
+      "fixture_available": true,
+      "fixture_rows": 3
+    }
+  },
+  "status": "FIXTURE_ONLY"
+}
