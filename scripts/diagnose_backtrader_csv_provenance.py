@@ -40,7 +40,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 # Use the same row-sha algorithm the BT lane uses.
-from research.backtrader_lane.data_adapter import (  # noqa: E402
+from research.backtrader_lane.data_adapter import (
     compute_csv_sha256,
 )
 

@@ -6,15 +6,13 @@ import json
 from pathlib import Path
 
 import pytest
-
+from research.backtrader_lane.data_adapter import compute_csv_sha256
 from scripts.diagnose_backtrader_csv_provenance import (
     diagnose,
     diagnose_instrument,
     main,
     render_md,
 )
-from research.backtrader_lane.data_adapter import compute_csv_sha256
-
 
 CSV_HEADER = (
     "time,bid_open,bid_high,bid_low,bid_close,"
