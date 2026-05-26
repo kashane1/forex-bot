@@ -1,0 +1,206 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T23:52:56.034547+00:00",
+  "c008": {
+    "train_stop": {
+      "trade_count": 153,
+      "expectancy_r": -0.8024,
+      "median_r": -1.0,
+      "avg_bars_held": 10.31,
+      "avg_spread_pips": 1.576,
+      "by_pair": {
+        "USD_CAD": 34,
+        "AUD_USD": 28,
+        "GBP_USD": 25,
+        "EUR_USD": 24,
+        "USD_JPY": 24,
+        "USD_CHF": 18
+      },
+      "by_session": {
+        "asia": 54,
+        "london_ny_overlap": 51,
+        "london": 47,
+        "ny": 1
+      }
+    },
+    "train_time": {
+      "trade_count": 62,
+      "expectancy_r": 1.8937,
+      "median_r": 1.1312,
+      "avg_bars_held": 40.0,
+      "avg_spread_pips": 1.489,
+      "by_pair": {
+        "AUD_USD": 15,
+        "USD_JPY": 13,
+        "GBP_USD": 12,
+        "EUR_USD": 11,
+        "USD_CAD": 7,
+        "USD_CHF": 4
+      },
+      "by_session": {
+        "asia": 25,
+        "london": 21,
+        "london_ny_overlap": 16
+      }
+    },
+    "validation_stop": {
+      "trade_count": 88,
+      "expectancy_r": -0.785,
+      "median_r": -1.0,
+      "avg_bars_held": 10.01,
+      "avg_spread_pips": 1.545,
+      "by_pair": {
+        "GBP_USD": 17,
+        "USD_JPY": 17,
+        "AUD_USD": 16,
+        "EUR_USD": 14,
+        "USD_CAD": 13,
+        "USD_CHF": 11
+      },
+      "by_session": {
+        "london_ny_overlap": 40,
+        "london": 25,
+        "asia": 17,
+        "ny": 6
+      }
+    },
+    "validation_time": {
+      "trade_count": 50,
+      "expectancy_r": 1.8266,
+      "median_r": 1.4099,
+      "avg_bars_held": 40.0,
+      "avg_spread_pips": 1.568,
+      "by_pair": {
+        "GBP_USD": 11,
+        "AUD_USD": 10,
+        "USD_CHF": 10,
+        "USD_JPY": 8,
+        "EUR_USD": 6,
+        "USD_CAD": 5
+      },
+      "by_session": {
+        "london": 19,
+        "london_ny_overlap": 17,
+        "asia": 9,
+        "ny": 5
+      }
+    },
+    "validation_time_winners": {
+      "trade_count": 44,
+      "expectancy_r": 2.1056,
+      "median_r": 1.6885,
+      "avg_bars_held": 40.0,
+      "avg_spread_pips": 1.557,
+      "by_pair": {
+        "GBP_USD": 11,
+        "AUD_USD": 9,
+        "USD_CHF": 8,
+        "USD_JPY": 6,
+        "EUR_USD": 5,
+        "USD_CAD": 5
+      },
+      "by_session": {
+        "london": 18,
+        "london_ny_overlap": 15,
+        "asia": 8,
+        "ny": 3
+      }
+    },
+    "train_stop_losers": {
+      "trade_count": 153,
+      "expectancy_r": -0.8024,
+      "median_r": -1.0,
+      "avg_bars_held": 10.31,
+      "avg_spread_pips": 1.576,
+      "by_pair": {
+        "USD_CAD": 34,
+        "AUD_USD": 28,
+        "GBP_USD": 25,
+        "EUR_USD": 24,
+        "USD_JPY": 24,
+        "USD_CHF": 18
+      },
+      "by_session": {
+        "asia": 54,
+        "london_ny_overlap": 51,
+        "london": 47,
+        "ny": 1
+      }
+    }
+  },
+  "c009": {
+    "train_by_exit": {
+      "eod": {
+        "count": 1,
+        "share_pct": 0.4,
+        "expectancy_r": -0.037,
+        "median_r": -0.037,
+        "win_rate_pct": 0.0,
+        "avg_bars_held": 1.0
+      },
+      "stop": {
+        "count": 151,
+        "share_pct": 59.92,
+        "expectancy_r": -0.7992,
+        "median_r": -1.0,
+        "win_rate_pct": 0.0,
+        "avg_bars_held": 7.86
+      },
+      "target": {
+        "count": 97,
+        "share_pct": 38.49,
+        "expectancy_r": 1.1593,
+        "median_r": 1.3217,
+        "win_rate_pct": 100.0,
+        "avg_bars_held": 10.9
+      },
+      "time": {
+        "count": 3,
+        "share_pct": 1.19,
+        "expectancy_r": 0.6289,
+        "median_r": 0.3671,
+        "win_rate_pct": 100.0,
+        "avg_bars_held": 40.0
+      },
+      "_total_trades": 252,
+      "_overall_exp_r": -0.0253
+    },
+    "validation_by_exit": {
+      "stop": {
+        "count": 76,
+        "share_pct": 50.33,
+        "expectancy_r": -0.7679,
+        "median_r": -1.0,
+        "win_rate_pct": 0.0,
+        "avg_bars_held": 8.25
+      },
+      "target": {
+        "count": 68,
+        "share_pct": 45.03,
+        "expectancy_r": 1.2136,
+        "median_r": 1.3351,
+        "win_rate_pct": 100.0,
+        "avg_bars_held": 10.09
+      },
+      "time": {
+        "count": 7,
+        "share_pct": 4.64,
+        "expectancy_r": 0.5567,
+        "median_r": 0.7299,
+        "win_rate_pct": 71.43,
+        "avg_bars_held": 40.0
+      },
+      "_total_trades": 151,
+      "_overall_exp_r": 0.1859
+    },
+    "target_exit_count": 165,
+    "target_exit_exp_r": 1.1817
+  },
+  "c008_vs_c009_comparison": {
+    "c008_validation_time_exp_r": 1.8266,
+    "c009_validation_target_exp_r": 1.1817,
+    "c009_validation_time_count": 7,
+    "interpretation_note": "C009 added target exits; validation winners shift from C008 time-only to target+time mix. Train worsened despite higher win rate \u2014 target may cap tail winners on some pairs."
+  }
+}
