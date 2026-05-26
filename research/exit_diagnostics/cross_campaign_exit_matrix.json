@@ -1,0 +1,2861 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T23:52:56.002277+00:00",
+  "campaign_summaries": {
+    "CAMPAIGN_008": {
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "total_trades": 823,
+      "overall_exp_r": 0.0609,
+      "by_exit_reason": {
+        "eod": {
+          "count": 1,
+          "share_pct": 0.12,
+          "expectancy_r": -0.037,
+          "median_r": -0.037,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 1.0
+        },
+        "stop": {
+          "count": 559,
+          "share_pct": 67.92,
+          "expectancy_r": -0.7948,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 10.19
+        },
+        "time": {
+          "count": 263,
+          "share_pct": 31.96,
+          "expectancy_r": 1.8801,
+          "median_r": 1.3913,
+          "win_rate_pct": 92.78,
+          "avg_bars_held": 40.0
+        }
+      }
+    },
+    "CAMPAIGN_009": {
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "total_trades": 403,
+      "overall_exp_r": 0.0538,
+      "by_exit_reason": {
+        "eod": {
+          "count": 1,
+          "share_pct": 0.25,
+          "expectancy_r": -0.037,
+          "median_r": -0.037,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 1.0
+        },
+        "stop": {
+          "count": 227,
+          "share_pct": 56.33,
+          "expectancy_r": -0.7887,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 7.99
+        },
+        "target": {
+          "count": 165,
+          "share_pct": 40.94,
+          "expectancy_r": 1.1817,
+          "median_r": 1.3251,
+          "win_rate_pct": 100.0,
+          "avg_bars_held": 10.56
+        },
+        "time": {
+          "count": 10,
+          "share_pct": 2.48,
+          "expectancy_r": 0.5783,
+          "median_r": 0.5485,
+          "win_rate_pct": 80.0,
+          "avg_bars_held": 40.0
+        }
+      }
+    },
+    "CAMPAIGN_010": {
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "total_trades": 2791,
+      "overall_exp_r": -0.0408,
+      "by_exit_reason": {
+        "eod": {
+          "count": 23,
+          "share_pct": 0.82,
+          "expectancy_r": 0.1597,
+          "median_r": 0.1329,
+          "win_rate_pct": 69.57,
+          "avg_bars_held": 3.09
+        },
+        "stop": {
+          "count": 661,
+          "share_pct": 23.68,
+          "expectancy_r": -0.7917,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 3.53
+        },
+        "time": {
+          "count": 2107,
+          "share_pct": 75.49,
+          "expectancy_r": 0.1926,
+          "median_r": 0.0096,
+          "win_rate_pct": 60.18,
+          "avg_bars_held": 6.0
+        }
+      }
+    },
+    "CAMPAIGN_011": {
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "total_trades": 1180,
+      "overall_exp_r": -0.0029,
+      "by_exit_reason": {
+        "eod": {
+          "count": 7,
+          "share_pct": 0.59,
+          "expectancy_r": 0.2957,
+          "median_r": -0.0341,
+          "win_rate_pct": 28.57,
+          "avg_bars_held": 2.29
+        },
+        "stop": {
+          "count": 241,
+          "share_pct": 20.42,
+          "expectancy_r": -0.8312,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 3.81
+        },
+        "time": {
+          "count": 932,
+          "share_pct": 78.98,
+          "expectancy_r": 0.209,
+          "median_r": 0.0403,
+          "win_rate_pct": 61.91,
+          "avg_bars_held": 6.0
+        }
+      }
+    },
+    "CAMPAIGN_012": {
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "total_trades": 3726,
+      "overall_exp_r": -0.0521,
+      "by_exit_reason": {
+        "eod": {
+          "count": 13,
+          "share_pct": 0.35,
+          "expectancy_r": -0.0721,
+          "median_r": -0.0191,
+          "win_rate_pct": 30.77,
+          "avg_bars_held": 2.31
+        },
+        "stop": {
+          "count": 760,
+          "share_pct": 20.4,
+          "expectancy_r": -0.8178,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 3.91
+        },
+        "time": {
+          "count": 2953,
+          "share_pct": 79.25,
+          "expectancy_r": 0.145,
+          "median_r": 0.0069,
+          "win_rate_pct": 58.21,
+          "avg_bars_held": 6.0
+        }
+      }
+    },
+    "CAMPAIGN_013": {
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "total_trades": 7940,
+      "overall_exp_r": -0.0564,
+      "by_exit_reason": {
+        "eod": {
+          "count": 23,
+          "share_pct": 0.29,
+          "expectancy_r": 0.2705,
+          "median_r": 0.035,
+          "win_rate_pct": 60.87,
+          "avg_bars_held": 2.74
+        },
+        "stop": {
+          "count": 1830,
+          "share_pct": 23.05,
+          "expectancy_r": -0.9483,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 3.77
+        },
+        "time": {
+          "count": 6087,
+          "share_pct": 76.66,
+          "expectancy_r": 0.2105,
+          "median_r": 0.0969,
+          "win_rate_pct": 58.58,
+          "avg_bars_held": 6.0
+        }
+      }
+    },
+    "CAMPAIGN_014": {
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "total_trades": 720,
+      "overall_exp_r": -0.1477,
+      "by_exit_reason": {
+        "eod": {
+          "count": 9,
+          "share_pct": 1.25,
+          "expectancy_r": -0.1761,
+          "median_r": -0.185,
+          "win_rate_pct": 11.11,
+          "avg_bars_held": 1.22
+        },
+        "stop": {
+          "count": 174,
+          "share_pct": 24.17,
+          "expectancy_r": -0.8081,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 4.59
+        },
+        "time": {
+          "count": 537,
+          "share_pct": 74.58,
+          "expectancy_r": 0.0667,
+          "median_r": 0.001,
+          "win_rate_pct": 50.84,
+          "avg_bars_held": 6.0
+        }
+      }
+    },
+    "CAMPAIGN_015": {
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "total_trades": 375,
+      "overall_exp_r": -0.0101,
+      "by_exit_reason": {
+        "eod": {
+          "count": 1,
+          "share_pct": 0.27,
+          "expectancy_r": -0.6504,
+          "median_r": -0.6504,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 4.0
+        },
+        "stop": {
+          "count": 222,
+          "share_pct": 59.2,
+          "expectancy_r": -0.8759,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 4.76
+        },
+        "time": {
+          "count": 152,
+          "share_pct": 40.53,
+          "expectancy_r": 1.2587,
+          "median_r": 0.7804,
+          "win_rate_pct": 83.55,
+          "avg_bars_held": 12.0
+        }
+      }
+    },
+    "CAMPAIGN_016": {
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "total_trades": 137,
+      "overall_exp_r": -0.0633,
+      "by_exit_reason": {
+        "eod": {
+          "count": 2,
+          "share_pct": 1.46,
+          "expectancy_r": 0.3141,
+          "median_r": 0.3141,
+          "win_rate_pct": 100.0,
+          "avg_bars_held": 13.0
+        },
+        "stop": {
+          "count": 87,
+          "share_pct": 63.5,
+          "expectancy_r": -0.7655,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 14.37
+        },
+        "time": {
+          "count": 48,
+          "share_pct": 35.04,
+          "expectancy_r": 1.1937,
+          "median_r": 1.0779,
+          "win_rate_pct": 100.0,
+          "avg_bars_held": 42.0
+        }
+      }
+    },
+    "CAMPAIGN_017": {
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "total_trades": 230,
+      "overall_exp_r": -0.0227,
+      "by_exit_reason": {
+        "eod": {
+          "count": 10,
+          "share_pct": 4.35,
+          "expectancy_r": -0.0019,
+          "median_r": -0.08,
+          "win_rate_pct": 40.0,
+          "avg_bars_held": 17.8
+        },
+        "stop": {
+          "count": 65,
+          "share_pct": 28.26,
+          "expectancy_r": -0.8889,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 21.66
+        },
+        "time": {
+          "count": 155,
+          "share_pct": 67.39,
+          "expectancy_r": 0.3392,
+          "median_r": 0.1639,
+          "win_rate_pct": 72.26,
+          "avg_bars_held": 42.0
+        }
+      }
+    },
+    "CAMPAIGN_002": {
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "total_trades": 1032,
+      "overall_exp_r": -0.1346,
+      "by_exit_reason": {
+        "stop": {
+          "count": 200,
+          "share_pct": 19.38,
+          "expectancy_r": -0.818,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 4.47
+        },
+        "trailing_stop": {
+          "count": 832,
+          "share_pct": 80.62,
+          "expectancy_r": 0.0296,
+          "median_r": -0.0055,
+          "win_rate_pct": 40.99,
+          "avg_bars_held": 13.88
+        }
+      }
+    },
+    "CAMPAIGN_003": {
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "total_trades": 628,
+      "overall_exp_r": -0.1183,
+      "by_exit_reason": {
+        "stop": {
+          "count": 120,
+          "share_pct": 19.11,
+          "expectancy_r": -0.7509,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 4.58
+        },
+        "trailing_stop": {
+          "count": 508,
+          "share_pct": 80.89,
+          "expectancy_r": 0.0312,
+          "median_r": -0.0057,
+          "win_rate_pct": 41.54,
+          "avg_bars_held": 13.96
+        }
+      }
+    },
+    "CAMPAIGN_004": {
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "total_trades": 812,
+      "overall_exp_r": -0.1916,
+      "by_exit_reason": {
+        "eod": {
+          "count": 1,
+          "share_pct": 0.12,
+          "expectancy_r": 0.0077,
+          "median_r": 0.0077,
+          "win_rate_pct": 100.0,
+          "avg_bars_held": 20.0
+        },
+        "stop": {
+          "count": 167,
+          "share_pct": 20.57,
+          "expectancy_r": -0.7225,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 4.4
+        },
+        "trailing_stop": {
+          "count": 644,
+          "share_pct": 79.31,
+          "expectancy_r": -0.0542,
+          "median_r": -0.0055,
+          "win_rate_pct": 38.04,
+          "avg_bars_held": 13.44
+        }
+      }
+    },
+    "CAMPAIGN_007": {
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "total_trades": 1109,
+      "overall_exp_r": -0.1306,
+      "by_exit_reason": {
+        "stop": {
+          "count": 231,
+          "share_pct": 20.83,
+          "expectancy_r": -0.7237,
+          "median_r": -1.0,
+          "win_rate_pct": 0.0,
+          "avg_bars_held": 4.55
+        },
+        "trailing_stop": {
+          "count": 878,
+          "share_pct": 79.17,
+          "expectancy_r": 0.0254,
+          "median_r": -0.004,
+          "win_rate_pct": 41.69,
+          "avg_bars_held": 14.29
+        }
+      }
+    }
+  },
+  "matrix_rows": [
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod",
+      "count": 1,
+      "share_pct": 0.12,
+      "expectancy_r": -0.037,
+      "median_r": -0.037,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 1.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop",
+      "count": 559,
+      "share_pct": 67.92,
+      "expectancy_r": -0.7948,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 10.19
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time",
+      "count": 263,
+      "share_pct": 31.96,
+      "expectancy_r": 1.8801,
+      "median_r": 1.3913,
+      "win_rate_pct": 92.78,
+      "avg_bars_held": 40.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@AUD_USD",
+      "count": 105,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@AUD_USD",
+      "count": 59,
+      "expectancy_r": 2.0925,
+      "median_r": 1.6537,
+      "win_rate_pct": 93.22
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@EUR_USD",
+      "count": 84,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@EUR_USD",
+      "count": 37,
+      "expectancy_r": 3.0146,
+      "median_r": 2.6853,
+      "win_rate_pct": 94.59
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@GBP_USD",
+      "count": 101,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@GBP_USD",
+      "count": 54,
+      "expectancy_r": 2.1717,
+      "median_r": 1.8965,
+      "win_rate_pct": 96.3
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CAD",
+      "count": 101,
+      "expectancy_r": -0.7612,
+      "median_r": -0.751,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_CAD",
+      "count": 31,
+      "expectancy_r": 1.7133,
+      "median_r": 1.7711,
+      "win_rate_pct": 93.55
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CHF",
+      "count": 69,
+      "expectancy_r": -1.1105,
+      "median_r": -1.1092,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_CHF",
+      "count": 32,
+      "expectancy_r": 2.7528,
+      "median_r": 1.6341,
+      "win_rate_pct": 87.5
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_JPY",
+      "count": 99,
+      "expectancy_r": -0.0078,
+      "median_r": -0.0073,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_JPY",
+      "count": 50,
+      "expectancy_r": 0.0199,
+      "median_r": 0.0198,
+      "win_rate_pct": 90.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod",
+      "count": 1,
+      "share_pct": 0.25,
+      "expectancy_r": -0.037,
+      "median_r": -0.037,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 1.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop",
+      "count": 227,
+      "share_pct": 56.33,
+      "expectancy_r": -0.7887,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 7.99
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "target",
+      "count": 165,
+      "share_pct": 40.94,
+      "expectancy_r": 1.1817,
+      "median_r": 1.3251,
+      "win_rate_pct": 100.0,
+      "avg_bars_held": 10.56
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time",
+      "count": 10,
+      "share_pct": 2.48,
+      "expectancy_r": 0.5783,
+      "median_r": 0.5485,
+      "win_rate_pct": 80.0,
+      "avg_bars_held": 40.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@AUD_USD",
+      "count": 40,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "target@AUD_USD",
+      "count": 40,
+      "expectancy_r": 1.4974,
+      "median_r": 1.4195,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@AUD_USD",
+      "count": 3,
+      "expectancy_r": 0.7038,
+      "median_r": 1.0425,
+      "win_rate_pct": 66.67
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@EUR_USD",
+      "count": 36,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "target@EUR_USD",
+      "count": 22,
+      "expectancy_r": 1.4913,
+      "median_r": 1.4121,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@GBP_USD",
+      "count": 42,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "target@GBP_USD",
+      "count": 30,
+      "expectancy_r": 1.5879,
+      "median_r": 1.6108,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CAD",
+      "count": 41,
+      "expectancy_r": -0.7643,
+      "median_r": -0.7518,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "target@USD_CAD",
+      "count": 22,
+      "expectancy_r": 1.1536,
+      "median_r": 1.1125,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CHF",
+      "count": 27,
+      "expectancy_r": -1.0875,
+      "median_r": -1.0938,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "target@USD_CHF",
+      "count": 19,
+      "expectancy_r": 1.5199,
+      "median_r": 1.4538,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_JPY",
+      "count": 41,
+      "expectancy_r": -0.0082,
+      "median_r": -0.0087,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_009",
+      "strategy_family": "mean_reversion",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "target@USD_JPY",
+      "count": 32,
+      "expectancy_r": 0.012,
+      "median_r": 0.012,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod",
+      "count": 23,
+      "share_pct": 0.82,
+      "expectancy_r": 0.1597,
+      "median_r": 0.1329,
+      "win_rate_pct": 69.57,
+      "avg_bars_held": 3.09
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop",
+      "count": 661,
+      "share_pct": 23.68,
+      "expectancy_r": -0.7917,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 3.53
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time",
+      "count": 2107,
+      "share_pct": 75.49,
+      "expectancy_r": 0.1926,
+      "median_r": 0.0096,
+      "win_rate_pct": 60.18,
+      "avg_bars_held": 6.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@AUD_USD",
+      "count": 3,
+      "expectancy_r": 0.299,
+      "median_r": 0.6602,
+      "win_rate_pct": 66.67
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@AUD_USD",
+      "count": 127,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@AUD_USD",
+      "count": 381,
+      "expectancy_r": 0.2306,
+      "median_r": 0.1393,
+      "win_rate_pct": 61.15
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@EUR_USD",
+      "count": 3,
+      "expectancy_r": 0.1148,
+      "median_r": 0.1393,
+      "win_rate_pct": 66.67
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@EUR_USD",
+      "count": 67,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@EUR_USD",
+      "count": 240,
+      "expectancy_r": 0.1752,
+      "median_r": 0.0761,
+      "win_rate_pct": 54.17
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@GBP_USD",
+      "count": 5,
+      "expectancy_r": 0.2596,
+      "median_r": 0.1866,
+      "win_rate_pct": 80.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@GBP_USD",
+      "count": 138,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@GBP_USD",
+      "count": 422,
+      "expectancy_r": 0.2666,
+      "median_r": 0.1618,
+      "win_rate_pct": 61.14
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@NZD_USD",
+      "count": 7,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@NZD_USD",
+      "count": 39,
+      "expectancy_r": 0.0015,
+      "median_r": -0.0321,
+      "win_rate_pct": 48.72
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@USD_CAD",
+      "count": 4,
+      "expectancy_r": 0.3543,
+      "median_r": 0.3186,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CAD",
+      "count": 124,
+      "expectancy_r": -0.7469,
+      "median_r": -0.7417,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_CAD",
+      "count": 306,
+      "expectancy_r": 0.206,
+      "median_r": 0.1257,
+      "win_rate_pct": 62.09
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@USD_CHF",
+      "count": 3,
+      "expectancy_r": -0.2182,
+      "median_r": -0.2797,
+      "win_rate_pct": 33.33
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CHF",
+      "count": 82,
+      "expectancy_r": -1.1086,
+      "median_r": -1.1078,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_CHF",
+      "count": 347,
+      "expectancy_r": 0.2868,
+      "median_r": 0.2074,
+      "win_rate_pct": 61.38
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@USD_JPY",
+      "count": 4,
+      "expectancy_r": 0.0019,
+      "median_r": 0.0019,
+      "win_rate_pct": 50.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_JPY",
+      "count": 116,
+      "expectancy_r": -0.007,
+      "median_r": -0.0068,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_010",
+      "strategy_family": "session_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_JPY",
+      "count": 372,
+      "expectancy_r": 0.0018,
+      "median_r": 0.0011,
+      "win_rate_pct": 60.48
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "eod",
+      "count": 7,
+      "share_pct": 0.59,
+      "expectancy_r": 0.2957,
+      "median_r": -0.0341,
+      "win_rate_pct": 28.57,
+      "avg_bars_held": 2.29
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "stop",
+      "count": 241,
+      "share_pct": 20.42,
+      "expectancy_r": -0.8312,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 3.81
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "time",
+      "count": 932,
+      "share_pct": 78.98,
+      "expectancy_r": 0.209,
+      "median_r": 0.0403,
+      "win_rate_pct": 61.91,
+      "avg_bars_held": 6.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "stop@AUD_USD",
+      "count": 40,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "time@AUD_USD",
+      "count": 149,
+      "expectancy_r": 0.2216,
+      "median_r": 0.1283,
+      "win_rate_pct": 64.43
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "eod@EUR_USD",
+      "count": 3,
+      "expectancy_r": 0.703,
+      "median_r": -0.0341,
+      "win_rate_pct": 33.33
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "stop@EUR_USD",
+      "count": 25,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "time@EUR_USD",
+      "count": 93,
+      "expectancy_r": 0.1932,
+      "median_r": 0.0953,
+      "win_rate_pct": 62.37
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "stop@GBP_USD",
+      "count": 40,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "time@GBP_USD",
+      "count": 155,
+      "expectancy_r": 0.3654,
+      "median_r": 0.3033,
+      "win_rate_pct": 69.03
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "stop@NZD_USD",
+      "count": 30,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "time@NZD_USD",
+      "count": 109,
+      "expectancy_r": 0.1808,
+      "median_r": 0.1885,
+      "win_rate_pct": 58.72
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "stop@USD_CAD",
+      "count": 35,
+      "expectancy_r": -0.7477,
+      "median_r": -0.7405,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "time@USD_CAD",
+      "count": 146,
+      "expectancy_r": 0.1673,
+      "median_r": 0.0606,
+      "win_rate_pct": 58.22
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "stop@USD_CHF",
+      "count": 35,
+      "expectancy_r": -1.1113,
+      "median_r": -1.1042,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "time@USD_CHF",
+      "count": 142,
+      "expectancy_r": 0.3014,
+      "median_r": 0.2232,
+      "win_rate_pct": 60.56
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "stop@USD_JPY",
+      "count": 36,
+      "expectancy_r": -0.007,
+      "median_r": -0.0068,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_011",
+      "strategy_family": "random_entry_null",
+      "evidence_integrity_status": "NULL_BASELINE_REQUIRES_RERUN",
+      "exit_reason": "time@USD_JPY",
+      "count": 138,
+      "expectancy_r": 0.0019,
+      "median_r": 0.0014,
+      "win_rate_pct": 58.7
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod",
+      "count": 13,
+      "share_pct": 0.35,
+      "expectancy_r": -0.0721,
+      "median_r": -0.0191,
+      "win_rate_pct": 30.77,
+      "avg_bars_held": 2.31
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop",
+      "count": 760,
+      "share_pct": 20.4,
+      "expectancy_r": -0.8178,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 3.91
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time",
+      "count": 2953,
+      "share_pct": 79.25,
+      "expectancy_r": 0.145,
+      "median_r": 0.0069,
+      "win_rate_pct": 58.21,
+      "avg_bars_held": 6.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@AUD_USD",
+      "count": 3,
+      "expectancy_r": 0.0535,
+      "median_r": -0.0191,
+      "win_rate_pct": 33.33
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@AUD_USD",
+      "count": 130,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@AUD_USD",
+      "count": 418,
+      "expectancy_r": 0.1806,
+      "median_r": 0.1323,
+      "win_rate_pct": 60.29
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@EUR_USD",
+      "count": 91,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@EUR_USD",
+      "count": 386,
+      "expectancy_r": 0.2255,
+      "median_r": 0.1558,
+      "win_rate_pct": 60.62
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@GBP_USD",
+      "count": 111,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@GBP_USD",
+      "count": 442,
+      "expectancy_r": 0.1792,
+      "median_r": 0.065,
+      "win_rate_pct": 54.3
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@NZD_USD",
+      "count": 72,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@NZD_USD",
+      "count": 317,
+      "expectancy_r": 0.0925,
+      "median_r": -0.0169,
+      "win_rate_pct": 49.21
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CAD",
+      "count": 131,
+      "expectancy_r": -0.7335,
+      "median_r": -0.729,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_CAD",
+      "count": 452,
+      "expectancy_r": 0.1322,
+      "median_r": 0.0818,
+      "win_rate_pct": 58.63
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CHF",
+      "count": 112,
+      "expectancy_r": -1.0769,
+      "median_r": -1.079,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_CHF",
+      "count": 429,
+      "expectancy_r": 0.2247,
+      "median_r": 0.1685,
+      "win_rate_pct": 62.24
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_JPY",
+      "count": 113,
+      "expectancy_r": -0.0074,
+      "median_r": -0.0072,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_012",
+      "strategy_family": "regime_switcher",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_JPY",
+      "count": 509,
+      "expectancy_r": 0.0021,
+      "median_r": 0.0012,
+      "win_rate_pct": 59.92
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod",
+      "count": 23,
+      "share_pct": 0.29,
+      "expectancy_r": 0.2705,
+      "median_r": 0.035,
+      "win_rate_pct": 60.87,
+      "avg_bars_held": 2.74
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop",
+      "count": 1830,
+      "share_pct": 23.05,
+      "expectancy_r": -0.9483,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 3.77
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time",
+      "count": 6087,
+      "share_pct": 76.66,
+      "expectancy_r": 0.2105,
+      "median_r": 0.0969,
+      "win_rate_pct": 58.58,
+      "avg_bars_held": 6.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@AUD_USD",
+      "count": 6,
+      "expectancy_r": 0.4871,
+      "median_r": 0.2759,
+      "win_rate_pct": 66.67
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@AUD_USD",
+      "count": 453,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@AUD_USD",
+      "count": 1483,
+      "expectancy_r": 0.2494,
+      "median_r": 0.1448,
+      "win_rate_pct": 59.54
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@EUR_USD",
+      "count": 5,
+      "expectancy_r": 0.0625,
+      "median_r": 0.0214,
+      "win_rate_pct": 60.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@EUR_USD",
+      "count": 333,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@EUR_USD",
+      "count": 1074,
+      "expectancy_r": 0.247,
+      "median_r": 0.1646,
+      "win_rate_pct": 59.87
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@GBP_USD",
+      "count": 154,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@GBP_USD",
+      "count": 492,
+      "expectancy_r": 0.2341,
+      "median_r": 0.1519,
+      "win_rate_pct": 59.55
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@NZD_USD",
+      "count": 5,
+      "expectancy_r": 0.4247,
+      "median_r": 0.151,
+      "win_rate_pct": 60.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@NZD_USD",
+      "count": 437,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@NZD_USD",
+      "count": 1421,
+      "expectancy_r": 0.1885,
+      "median_r": 0.1155,
+      "win_rate_pct": 57.99
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod@USD_CAD",
+      "count": 3,
+      "expectancy_r": 0.0396,
+      "median_r": 0.035,
+      "win_rate_pct": 66.67
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CAD",
+      "count": 204,
+      "expectancy_r": -0.7303,
+      "median_r": -0.7323,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_CAD",
+      "count": 751,
+      "expectancy_r": 0.1587,
+      "median_r": 0.0892,
+      "win_rate_pct": 56.72
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CHF",
+      "count": 190,
+      "expectancy_r": -1.0997,
+      "median_r": -1.0943,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_CHF",
+      "count": 616,
+      "expectancy_r": 0.2327,
+      "median_r": 0.1263,
+      "win_rate_pct": 58.93
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_JPY",
+      "count": 59,
+      "expectancy_r": -0.0066,
+      "median_r": -0.0066,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_013",
+      "strategy_family": "cross_pair_rotation",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_JPY",
+      "count": 250,
+      "expectancy_r": 0.0016,
+      "median_r": 0.0004,
+      "win_rate_pct": 53.6
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod",
+      "count": 9,
+      "share_pct": 1.25,
+      "expectancy_r": -0.1761,
+      "median_r": -0.185,
+      "win_rate_pct": 11.11,
+      "avg_bars_held": 1.22
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop",
+      "count": 174,
+      "share_pct": 24.17,
+      "expectancy_r": -0.8081,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 4.59
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time",
+      "count": 537,
+      "share_pct": 74.58,
+      "expectancy_r": 0.0667,
+      "median_r": 0.001,
+      "win_rate_pct": 50.84,
+      "avg_bars_held": 6.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@AUD_USD",
+      "count": 25,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@AUD_USD",
+      "count": 65,
+      "expectancy_r": -0.0018,
+      "median_r": -0.0685,
+      "win_rate_pct": 47.69
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@EUR_USD",
+      "count": 32,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@EUR_USD",
+      "count": 66,
+      "expectancy_r": 0.1872,
+      "median_r": 0.0411,
+      "win_rate_pct": 53.03
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@GBP_USD",
+      "count": 32,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@GBP_USD",
+      "count": 118,
+      "expectancy_r": 0.1622,
+      "median_r": -0.0211,
+      "win_rate_pct": 49.15
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@NZD_USD",
+      "count": 9,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@NZD_USD",
+      "count": 53,
+      "expectancy_r": -0.0088,
+      "median_r": -0.0233,
+      "win_rate_pct": 47.17
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CAD",
+      "count": 17,
+      "expectancy_r": -0.7431,
+      "median_r": -0.7391,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_CAD",
+      "count": 73,
+      "expectancy_r": 0.0325,
+      "median_r": 0.0365,
+      "win_rate_pct": 53.42
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CHF",
+      "count": 27,
+      "expectancy_r": -1.1014,
+      "median_r": -1.0866,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_CHF",
+      "count": 61,
+      "expectancy_r": 0.0396,
+      "median_r": 0.0149,
+      "win_rate_pct": 50.82
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_JPY",
+      "count": 32,
+      "expectancy_r": -0.0072,
+      "median_r": -0.0069,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_014",
+      "strategy_family": "calendar_event",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "time@USD_JPY",
+      "count": 101,
+      "expectancy_r": 0.0012,
+      "median_r": 0.0008,
+      "win_rate_pct": 53.47
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "eod",
+      "count": 1,
+      "share_pct": 0.27,
+      "expectancy_r": -0.6504,
+      "median_r": -0.6504,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 4.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "stop",
+      "count": 222,
+      "share_pct": 59.2,
+      "expectancy_r": -0.8759,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 4.76
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "time",
+      "count": 152,
+      "share_pct": 40.53,
+      "expectancy_r": 1.2587,
+      "median_r": 0.7804,
+      "win_rate_pct": 83.55,
+      "avg_bars_held": 12.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "stop@AUD_USD",
+      "count": 56,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "time@AUD_USD",
+      "count": 32,
+      "expectancy_r": 1.8388,
+      "median_r": 1.0001,
+      "win_rate_pct": 93.75
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "stop@EUR_USD",
+      "count": 23,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "time@EUR_USD",
+      "count": 21,
+      "expectancy_r": 0.5843,
+      "median_r": 0.3681,
+      "win_rate_pct": 66.67
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "stop@GBP_USD",
+      "count": 47,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "time@GBP_USD",
+      "count": 35,
+      "expectancy_r": 2.1038,
+      "median_r": 1.8511,
+      "win_rate_pct": 88.57
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "stop@NZD_USD",
+      "count": 3,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "stop@USD_CAD",
+      "count": 44,
+      "expectancy_r": -0.7389,
+      "median_r": -0.7332,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "time@USD_CAD",
+      "count": 19,
+      "expectancy_r": 1.3353,
+      "median_r": 1.4454,
+      "win_rate_pct": 84.21
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "stop@USD_CHF",
+      "count": 29,
+      "expectancy_r": -1.1313,
+      "median_r": -1.1171,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "time@USD_CHF",
+      "count": 20,
+      "expectancy_r": 0.997,
+      "median_r": 0.8732,
+      "win_rate_pct": 75.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "stop@USD_JPY",
+      "count": 20,
+      "expectancy_r": -0.0069,
+      "median_r": -0.0068,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_015",
+      "strategy_family": "failed_breakout_reversal",
+      "evidence_integrity_status": "DEDUP_SAFE",
+      "exit_reason": "time@USD_JPY",
+      "count": 23,
+      "expectancy_r": 0.0142,
+      "median_r": 0.0117,
+      "win_rate_pct": 86.96
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "eod",
+      "count": 2,
+      "share_pct": 1.46,
+      "expectancy_r": 0.3141,
+      "median_r": 0.3141,
+      "win_rate_pct": 100.0,
+      "avg_bars_held": 13.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop",
+      "count": 87,
+      "share_pct": 63.5,
+      "expectancy_r": -0.7655,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 14.37
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time",
+      "count": 48,
+      "share_pct": 35.04,
+      "expectancy_r": 1.1937,
+      "median_r": 1.0779,
+      "win_rate_pct": 100.0,
+      "avg_bars_held": 42.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@AUD_USD",
+      "count": 8,
+      "expectancy_r": 1.0665,
+      "median_r": 1.0779,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@EUR_USD",
+      "count": 5,
+      "expectancy_r": 1.2242,
+      "median_r": 1.9929,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@GBP_USD",
+      "count": 15,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@NZD_USD",
+      "count": 5,
+      "expectancy_r": 2.2406,
+      "median_r": 2.6211,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@USD_CAD",
+      "count": 25,
+      "expectancy_r": -0.7578,
+      "median_r": -0.7334,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@USD_CAD",
+      "count": 11,
+      "expectancy_r": 0.7777,
+      "median_r": 0.7369,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@USD_CHF",
+      "count": 27,
+      "expectancy_r": -1.1298,
+      "median_r": -1.1167,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@USD_CHF",
+      "count": 8,
+      "expectancy_r": 2.8361,
+      "median_r": 1.6474,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@USD_JPY",
+      "count": 18,
+      "expectancy_r": -0.0081,
+      "median_r": -0.0084,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "strategy_family": "weekly_momentum",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@USD_JPY",
+      "count": 11,
+      "expectancy_r": 0.0182,
+      "median_r": 0.0157,
+      "win_rate_pct": 100.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "eod",
+      "count": 10,
+      "share_pct": 4.35,
+      "expectancy_r": -0.0019,
+      "median_r": -0.08,
+      "win_rate_pct": 40.0,
+      "avg_bars_held": 17.8
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop",
+      "count": 65,
+      "share_pct": 28.26,
+      "expectancy_r": -0.8889,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 21.66
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time",
+      "count": 155,
+      "share_pct": 67.39,
+      "expectancy_r": 0.3392,
+      "median_r": 0.1639,
+      "win_rate_pct": 72.26,
+      "avg_bars_held": 42.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@AUD_USD",
+      "count": 15,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@AUD_USD",
+      "count": 23,
+      "expectancy_r": 0.2196,
+      "median_r": 0.1719,
+      "win_rate_pct": 69.57
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@EUR_USD",
+      "count": 5,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@EUR_USD",
+      "count": 21,
+      "expectancy_r": 0.2363,
+      "median_r": 0.2568,
+      "win_rate_pct": 66.67
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@GBP_USD",
+      "count": 5,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@GBP_USD",
+      "count": 29,
+      "expectancy_r": 0.2702,
+      "median_r": 0.0925,
+      "win_rate_pct": 62.07
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@NZD_USD",
+      "count": 12,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@NZD_USD",
+      "count": 17,
+      "expectancy_r": 0.4537,
+      "median_r": 0.4788,
+      "win_rate_pct": 82.35
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@USD_CAD",
+      "count": 14,
+      "expectancy_r": -0.7454,
+      "median_r": -0.7443,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@USD_CAD",
+      "count": 19,
+      "expectancy_r": 0.1674,
+      "median_r": 0.1393,
+      "win_rate_pct": 68.42
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@USD_CHF",
+      "count": 9,
+      "expectancy_r": -1.1452,
+      "median_r": -1.1013,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@USD_CHF",
+      "count": 26,
+      "expectancy_r": 0.9146,
+      "median_r": 0.5259,
+      "win_rate_pct": 92.31
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "stop@USD_JPY",
+      "count": 5,
+      "expectancy_r": -0.0068,
+      "median_r": -0.0067,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "strategy_family": "vol_contraction_breakout",
+      "evidence_integrity_status": "UNKNOWN",
+      "exit_reason": "time@USD_JPY",
+      "count": 20,
+      "expectancy_r": 0.003,
+      "median_r": 0.0029,
+      "win_rate_pct": 65.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop",
+      "count": 200,
+      "share_pct": 19.38,
+      "expectancy_r": -0.818,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 4.47
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop",
+      "count": 832,
+      "share_pct": 80.62,
+      "expectancy_r": 0.0296,
+      "median_r": -0.0055,
+      "win_rate_pct": 40.99,
+      "avg_bars_held": 13.88
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@AUD_USD",
+      "count": 31,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@AUD_USD",
+      "count": 113,
+      "expectancy_r": -0.0034,
+      "median_r": -0.3102,
+      "win_rate_pct": 36.28
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@EUR_USD",
+      "count": 31,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@EUR_USD",
+      "count": 101,
+      "expectancy_r": 0.0223,
+      "median_r": -0.2526,
+      "win_rate_pct": 38.61
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@GBP_USD",
+      "count": 41,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@GBP_USD",
+      "count": 157,
+      "expectancy_r": 0.1494,
+      "median_r": -0.0832,
+      "win_rate_pct": 45.86
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@NZD_USD",
+      "count": 5,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@NZD_USD",
+      "count": 33,
+      "expectancy_r": -0.0824,
+      "median_r": -0.2021,
+      "win_rate_pct": 42.42
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CAD",
+      "count": 27,
+      "expectancy_r": -0.7662,
+      "median_r": -0.7764,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_CAD",
+      "count": 95,
+      "expectancy_r": -0.02,
+      "median_r": -0.2233,
+      "win_rate_pct": 37.89
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CHF",
+      "count": 31,
+      "expectancy_r": -1.1176,
+      "median_r": -1.1001,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_CHF",
+      "count": 150,
+      "expectancy_r": 0.0246,
+      "median_r": -0.2551,
+      "win_rate_pct": 37.33
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_JPY",
+      "count": 34,
+      "expectancy_r": -0.0076,
+      "median_r": -0.0073,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_002",
+      "strategy_family": "trend_following",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_JPY",
+      "count": 183,
+      "expectancy_r": 0.0014,
+      "median_r": -0.0011,
+      "win_rate_pct": 45.36
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop",
+      "count": 120,
+      "share_pct": 19.11,
+      "expectancy_r": -0.7509,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 4.58
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop",
+      "count": 508,
+      "share_pct": 80.89,
+      "expectancy_r": 0.0312,
+      "median_r": -0.0057,
+      "win_rate_pct": 41.54,
+      "avg_bars_held": 13.96
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@AUD_USD",
+      "count": 18,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@AUD_USD",
+      "count": 86,
+      "expectancy_r": -0.0374,
+      "median_r": -0.313,
+      "win_rate_pct": 39.53
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@EUR_USD",
+      "count": 15,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@EUR_USD",
+      "count": 74,
+      "expectancy_r": 0.054,
+      "median_r": -0.2396,
+      "win_rate_pct": 40.54
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@GBP_USD",
+      "count": 20,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@GBP_USD",
+      "count": 86,
+      "expectancy_r": 0.1679,
+      "median_r": -0.102,
+      "win_rate_pct": 45.35
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CAD",
+      "count": 22,
+      "expectancy_r": -0.752,
+      "median_r": -0.7469,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_CAD",
+      "count": 89,
+      "expectancy_r": -0.0719,
+      "median_r": -0.2233,
+      "win_rate_pct": 38.2
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CHF",
+      "count": 18,
+      "expectancy_r": -1.131,
+      "median_r": -1.1122,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_CHF",
+      "count": 79,
+      "expectancy_r": 0.0862,
+      "median_r": -0.1763,
+      "win_rate_pct": 40.51
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_JPY",
+      "count": 27,
+      "expectancy_r": -0.0079,
+      "median_r": -0.0075,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_003",
+      "strategy_family": "trend_adx",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_JPY",
+      "count": 94,
+      "expectancy_r": 0.0022,
+      "median_r": -0.0007,
+      "win_rate_pct": 44.68
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "eod",
+      "count": 1,
+      "share_pct": 0.12,
+      "expectancy_r": 0.0077,
+      "median_r": 0.0077,
+      "win_rate_pct": 100.0,
+      "avg_bars_held": 20.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop",
+      "count": 167,
+      "share_pct": 20.57,
+      "expectancy_r": -0.7225,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 4.4
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop",
+      "count": 644,
+      "share_pct": 79.31,
+      "expectancy_r": -0.0542,
+      "median_r": -0.0055,
+      "win_rate_pct": 38.04,
+      "avg_bars_held": 13.44
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@AUD_USD",
+      "count": 28,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@AUD_USD",
+      "count": 83,
+      "expectancy_r": -0.0526,
+      "median_r": -0.2388,
+      "win_rate_pct": 33.73
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@EUR_USD",
+      "count": 16,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@EUR_USD",
+      "count": 81,
+      "expectancy_r": -0.1615,
+      "median_r": -0.346,
+      "win_rate_pct": 24.69
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@GBP_USD",
+      "count": 22,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@GBP_USD",
+      "count": 81,
+      "expectancy_r": -0.1435,
+      "median_r": -0.3028,
+      "win_rate_pct": 39.51
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CAD",
+      "count": 38,
+      "expectancy_r": -0.7464,
+      "median_r": -0.7437,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_CAD",
+      "count": 142,
+      "expectancy_r": 0.0294,
+      "median_r": -0.131,
+      "win_rate_pct": 40.14
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CHF",
+      "count": 24,
+      "expectancy_r": -1.083,
+      "median_r": -1.084,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_CHF",
+      "count": 68,
+      "expectancy_r": -0.1504,
+      "median_r": -0.349,
+      "win_rate_pct": 30.88
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_JPY",
+      "count": 39,
+      "expectancy_r": -0.0079,
+      "median_r": -0.0073,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_004",
+      "strategy_family": "volatility_breakout",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_JPY",
+      "count": 189,
+      "expectancy_r": 0.0011,
+      "median_r": -0.001,
+      "win_rate_pct": 46.03
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop",
+      "count": 231,
+      "share_pct": 20.83,
+      "expectancy_r": -0.7237,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0,
+      "avg_bars_held": 4.55
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop",
+      "count": 878,
+      "share_pct": 79.17,
+      "expectancy_r": 0.0254,
+      "median_r": -0.004,
+      "win_rate_pct": 41.69,
+      "avg_bars_held": 14.29
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@AUD_USD",
+      "count": 39,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@AUD_USD",
+      "count": 172,
+      "expectancy_r": 0.0796,
+      "median_r": -0.1968,
+      "win_rate_pct": 40.7
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@EUR_USD",
+      "count": 32,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@EUR_USD",
+      "count": 76,
+      "expectancy_r": -0.0233,
+      "median_r": -0.2878,
+      "win_rate_pct": 39.47
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@GBP_USD",
+      "count": 50,
+      "expectancy_r": -1.0,
+      "median_r": -1.0,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@GBP_USD",
+      "count": 172,
+      "expectancy_r": 0.1344,
+      "median_r": -0.0503,
+      "win_rate_pct": 47.09
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CAD",
+      "count": 32,
+      "expectancy_r": -0.784,
+      "median_r": -0.7875,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_CAD",
+      "count": 113,
+      "expectancy_r": 0.0244,
+      "median_r": -0.19,
+      "win_rate_pct": 36.28
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_CHF",
+      "count": 19,
+      "expectancy_r": -1.0864,
+      "median_r": -1.0865,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_CHF",
+      "count": 82,
+      "expectancy_r": -0.1919,
+      "median_r": -0.4264,
+      "win_rate_pct": 32.93
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "stop@USD_JPY",
+      "count": 59,
+      "expectancy_r": -0.0077,
+      "median_r": -0.0073,
+      "win_rate_pct": 0.0
+    },
+    {
+      "campaign_id": "CAMPAIGN_007",
+      "strategy_family": "pullback",
+      "evidence_integrity_status": "LIKELY_CONTAMINATED",
+      "exit_reason": "trailing_stop@USD_JPY",
+      "count": 263,
+      "expectancy_r": 0.001,
+      "median_r": -0.0011,
+      "win_rate_pct": 44.49
+    }
+  ]
+}
