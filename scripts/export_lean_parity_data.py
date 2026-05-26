@@ -57,9 +57,16 @@ LEAN_CSV_HEADER = [
 
 def candle_to_lean_row(c: Candle) -> list[str]:
     """One Lean custom-data CSV row from an H4 candle. Exact Decimal
-    strings — no float round-trip — so the export is reproducible."""
+    strings — no float round-trip — so the export is reproducible.
+
+    Timestamps are normalised to UTC before serialisation so the
+    output (and therefore ``data_sha256``) is independent of the
+    exporting machine's local timezone — the bug that caused the
+    2026-05-22 vs 2026-05-25 row-sha drift in
+    ``research/lean_parity/exports/campaign_002_h4/``."""
+    t_utc = c.time.astimezone(UTC) if c.time.tzinfo is not None else c.time.replace(tzinfo=UTC)
     return [
-        c.time.isoformat(),
+        t_utc.isoformat(),
         str(c.bid_o), str(c.bid_h), str(c.bid_l), str(c.bid_c),
         str(c.ask_o), str(c.ask_h), str(c.ask_l), str(c.ask_c),
         str(c.volume),
@@ -89,8 +96,16 @@ def build_provenance(
     to_arg: str,
     csv_name: str,
 ) -> dict:
-    first = candles[0].time.isoformat()
-    last = candles[-1].time.isoformat()
+    # Same UTC normalisation as candle_to_lean_row so the provenance
+    # first/last_ts strings are reproducible across timezones.
+    first = (
+        candles[0].time.astimezone(UTC) if candles[0].time.tzinfo is not None
+        else candles[0].time.replace(tzinfo=UTC)
+    ).isoformat()
+    last = (
+        candles[-1].time.astimezone(UTC) if candles[-1].time.tzinfo is not None
+        else candles[-1].time.replace(tzinfo=UTC)
+    ).isoformat()
     return {
         "instrument": instrument,
         "granularity": "H4",

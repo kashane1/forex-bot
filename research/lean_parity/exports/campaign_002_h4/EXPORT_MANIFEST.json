@@ -1,0 +1,102 @@
+{
+  "campaign_id": "CAMPAIGN_002_H4_LEAN_PARITY",
+  "manifest_generated_at": "2026-05-26T01:49:06+00:00",
+  "source_db": "data/campaign_002.sqlite3",
+  "instruments": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "NZD_USD"
+  ],
+  "per_instrument": [
+    {
+      "instrument": "EUR_USD",
+      "csv": "EUR_USD_H4_lean.csv",
+      "provenance": "EUR_USD_H4_lean.provenance.json",
+      "candle_count": 19864,
+      "first_ts": "2020-01-01T22:00:00+00:00",
+      "last_ts": "2026-05-20T05:00:00+00:00",
+      "data_sha256": "533cbf6571ce5f733e67d97328944d433ea10156f3c2f26a333b6eba18291caf",
+      "campaign_002_data_request_hash": "96f88da016c28b14",
+      "source": "oanda-practice",
+      "exported_at": "2026-05-26T01:46:58+00:00"
+    },
+    {
+      "instrument": "GBP_USD",
+      "csv": "GBP_USD_H4_lean.csv",
+      "provenance": "GBP_USD_H4_lean.provenance.json",
+      "candle_count": 19864,
+      "first_ts": "2020-01-01T22:00:00+00:00",
+      "last_ts": "2026-05-20T05:00:00+00:00",
+      "data_sha256": "68d5160c40c148720a17626a7ca088e8cfcedab703adf0a8460ae0cb2c911070",
+      "campaign_002_data_request_hash": "365c174ffa20e16b",
+      "source": "oanda-practice",
+      "exported_at": "2026-05-26T01:46:59+00:00"
+    },
+    {
+      "instrument": "USD_JPY",
+      "csv": "USD_JPY_H4_lean.csv",
+      "provenance": "USD_JPY_H4_lean.provenance.json",
+      "candle_count": 19866,
+      "first_ts": "2020-01-01T22:00:00+00:00",
+      "last_ts": "2026-05-20T05:00:00+00:00",
+      "data_sha256": "acc23912c5c680fe2c14b884d517d735eaeb68d747a34cf2e55b6723594efd61",
+      "campaign_002_data_request_hash": "ded5b81b379fd957",
+      "source": "oanda-practice",
+      "exported_at": "2026-05-26T01:47:00+00:00"
+    },
+    {
+      "instrument": "AUD_USD",
+      "csv": "AUD_USD_H4_lean.csv",
+      "provenance": "AUD_USD_H4_lean.provenance.json",
+      "candle_count": 19864,
+      "first_ts": "2020-01-01T22:00:00+00:00",
+      "last_ts": "2026-05-20T05:00:00+00:00",
+      "data_sha256": "24e06add2c652cf7000681b6d0ad61a1d09b48bb276796331f28fb73dc3b8028",
+      "campaign_002_data_request_hash": "c8ba723572a035e0",
+      "source": "oanda-practice",
+      "exported_at": "2026-05-26T01:47:01+00:00"
+    },
+    {
+      "instrument": "USD_CAD",
+      "csv": "USD_CAD_H4_lean.csv",
+      "provenance": "USD_CAD_H4_lean.provenance.json",
+      "candle_count": 19864,
+      "first_ts": "2020-01-01T22:00:00+00:00",
+      "last_ts": "2026-05-20T05:00:00+00:00",
+      "data_sha256": "a6a426d157e0c6773f91d16e989447e94f23bb87b40d7534e778c096551e4f8c",
+      "campaign_002_data_request_hash": "75ec9f294a6e990f",
+      "source": "oanda-practice",
+      "exported_at": "2026-05-26T01:47:02+00:00"
+    },
+    {
+      "instrument": "USD_CHF",
+      "csv": "USD_CHF_H4_lean.csv",
+      "provenance": "USD_CHF_H4_lean.provenance.json",
+      "candle_count": 19864,
+      "first_ts": "2020-01-01T22:00:00+00:00",
+      "last_ts": "2026-05-20T05:00:00+00:00",
+      "data_sha256": "92477336c20056b1d952b4e89461179a4023864561e690503afb686afb01b1c4",
+      "campaign_002_data_request_hash": "2f83c3f537a9cdab",
+      "source": "oanda-practice",
+      "exported_at": "2026-05-26T01:47:02+00:00"
+    },
+    {
+      "instrument": "NZD_USD",
+      "csv": "NZD_USD_H4_lean.csv",
+      "provenance": "NZD_USD_H4_lean.provenance.json",
+      "candle_count": 19872,
+      "first_ts": "2020-01-01T22:00:00+00:00",
+      "last_ts": "2026-05-20T05:00:00+00:00",
+      "data_sha256": "2bfeae6b64cbce74c2bd2002f9424cab88d3b95f296402dd89aa66adfe8d6d03",
+      "campaign_002_data_request_hash": "125f6423727dbe50",
+      "source": "oanda-practice",
+      "exported_at": "2026-05-26T01:47:03+00:00"
+    }
+  ],
+  "approved_strategies_yaml_state": "approved: []",
+  "diagnostic_disclaimer": "Manifest is a reproduction aid, not an approval. configs/approved_strategies.yaml remains approved: []."
+}
