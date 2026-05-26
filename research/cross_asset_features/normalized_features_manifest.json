@@ -1,0 +1,29 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-26T20:18:50.883904+00:00",
+  "status": "FIXTURE_ONLY",
+  "fred_status": "SKIPPED_NO_KEY",
+  "fred_api_key_present": false,
+  "observation_start": "2019-01-01",
+  "observation_end": null,
+  "columns": [
+    "broad_usd_index",
+    "us_2y_yield",
+    "us_10y_yield",
+    "vix",
+    "sp500",
+    "oil_wti",
+    "nasdaq_composite",
+    "gold",
+    "cot_eur_net",
+    "us_10y_minus_2y",
+    "broad_usd_index_1d_change",
+    "vix_1d_change",
+    "sp500_1d_return",
+    "oil_wti_1d_return"
+  ],
+  "row_count": 7,
+  "first_date": "2022-01-03 00:00:00+00:00",
+  "last_date": "2022-01-18 00:00:00+00:00"
+}
