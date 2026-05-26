@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-26 · **Branch:** `infra-multi-timeframe-confluence-and-cost-atlas-001`
+**Date:** 2026-05-26 · **Branch:** `infra-cross-asset-real-data-ingest-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -10,6 +10,10 @@ map; the linked documents are the authoritative evidence.
 > Broad seven-pair pattern strategy search is **paused** (2026-05-26).
 > Trade-quality infrastructure sprint **complete** (cost atlas, MTF
 > confluence prototype, cross-asset scaffolding — diagnostic only).
+> Cross-asset **real-data ingest pipeline** sprint **complete**
+> (FRED fetcher + normalization + H4 alignment — fixture-window until
+> `FRED_API_KEY` or local CSVs). See
+> `docs/research/INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md`.
 > See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
 ## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
@@ -43,11 +47,31 @@ map; the linked documents are the authoritative evidence.
 | [`ASSET_EXPANSION_SHORTLIST.md`](ASSET_EXPANSION_SHORTLIST.md) | Phased instrument shortlist + avoid list |
 | [`PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md`](PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md) | Sprint close-out |
 
+## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
+
+> **Implementation infrastructure / data only** — `strategy_evidence: false`. No
+> strategy approved. No CAMPAIGN_018. FRED fetch blocked without API key;
+> normalized pipeline operational on fixture window. Recommended next sprint:
+> `infra-external-data-ingest-blocker-resolution-001`.
+
+| document | purpose |
+|---|---|
+| [`INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_PLAN.md`](INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_PLAN.md) | Sprint plan and truth audit |
+| [`INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md`](INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md) | Sprint close-out |
+| [`CROSS_ASSET_REAL_DATA_SOURCE_REGISTRY.md`](CROSS_ASSET_REAL_DATA_SOURCE_REGISTRY.md) | Human-readable source registry |
+| [`CROSS_ASSET_FRED_INGEST_RUNBOOK.md`](CROSS_ASSET_FRED_INGEST_RUNBOOK.md) | FRED fetch + local CSV runbook |
+| [`CROSS_ASSET_H4_ALIGNMENT_AUDIT.md`](CROSS_ASSET_H4_ALIGNMENT_AUDIT.md) | No-lookahead alignment audit |
+| [`COT_FEATURE_INGEST_DESIGN.md`](COT_FEATURE_INGEST_DESIGN.md) | COT design (DESIGN_ONLY) |
+| [`CROSS_ASSET_REAL_DATA_DIAGNOSTIC_IMPACT.md`](CROSS_ASSET_REAL_DATA_DIAGNOSTIC_IMPACT.md) | Diagnostic impact (no edge claims) |
+| [`research/cross_asset_features/source_registry.json`](../../research/cross_asset_features/source_registry.json) | Machine-readable registry |
+| [`research/cross_asset_features/normalized_features_manifest.json`](../../research/cross_asset_features/normalized_features_manifest.json) | Normalized feature manifest |
+| [`research/cross_asset_features/fred_fetch_blocked_report.json`](../../research/cross_asset_features/fred_fetch_blocked_report.json) | FRED auth blocked report |
+
 ## Infra MTF confluence and cost atlas (INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001)
 
 > **Implementation infrastructure only** — `strategy_evidence: false`. No
-> strategy approved. No CAMPAIGN_018. Executor unchanged. Recommended next
-> sprint: `infra-cross-asset-real-data-ingest-001`.
+> strategy approved. No CAMPAIGN_018. Executor unchanged. Superseded for
+> cross-asset data by `infra-cross-asset-real-data-ingest-001`.
 
 | document | purpose |
 |---|---|

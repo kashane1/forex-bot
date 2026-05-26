@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-26",
-  "branch": "infra-multi-timeframe-confluence-and-cost-atlas-001",
+  "branch": "infra-cross-asset-real-data-ingest-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -17,14 +17,15 @@
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "infra-cross-asset-real-data-ingest-001",
-    "next_non_strategy_sprint_status": "RECOMMENDED_NOT_STARTED",
-    "completed_non_strategy_sprint": "infra-multi-timeframe-confluence-and-cost-atlas-001",
+    "next_non_strategy_sprint": "infra-external-data-ingest-blocker-resolution-001",
+    "next_non_strategy_sprint_status": "RECOMMENDED_BLOCKED_FRED_AUTH",
+    "completed_non_strategy_sprint": "infra-cross-asset-real-data-ingest-001",
+    "prior_completed_non_strategy_sprint": "infra-multi-timeframe-confluence-and-cost-atlas-001",
     "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
     "prior_non_strategy_sprint_note": "Subsumed by completed cost-atlas work in infra-multi-timeframe-confluence-and-cost-atlas-001.",
     "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
     "trade_quality_roadmap_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md",
-    "trade_quality_infra_doc": "docs/research/INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md"
+    "trade_quality_infra_doc": "docs/research/INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md"
   },
   "pro_alpha_confluence_roadmap": {
     "sprint": "PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_001",
@@ -34,7 +35,7 @@
     "campaign_018_created": false,
     "implementation_sprint_started": true,
     "implementation_sprint_completed": "infra-multi-timeframe-confluence-and-cost-atlas-001",
-    "recommended_next_implementation_sprint": "infra-cross-asset-real-data-ingest-001",
+    "recommended_next_implementation_sprint": "infra-external-data-ingest-blocker-resolution-001",
     "recommended_implementation_scope": [
       "cost_atlas_spread_diagnostics",
       "multi_timeframe_confluence_prototype",
@@ -63,8 +64,24 @@
     "cross_asset_module": "research/cross_asset_features",
     "diagnostics_dir": "research/confluence_diagnostics",
     "validation_protocol_doc": "docs/research/HIGH_PROBABILITY_TRADE_VALIDATION_PROTOCOL.md",
-    "recommended_next_sprint": "infra-cross-asset-real-data-ingest-001",
-    "cross_asset_data_status": "FIXTURE_ONLY"
+    "recommended_next_sprint": "infra-external-data-ingest-blocker-resolution-001",
+    "cross_asset_data_status": "REAL_DATA_NORMALIZED_FIXTURE_WINDOW"
+  },
+  "infra_cross_asset_real_data_ingest": {
+    "sprint": "INFRA_CROSS_ASSET_REAL_DATA_INGEST_001",
+    "sprint_type": "implementation_infrastructure_data_only",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "campaign_018_created": false,
+    "executor_changed": false,
+    "plan_doc": "docs/research/INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_PLAN.md",
+    "summary_doc": "docs/research/INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md",
+    "source_registry": "research/cross_asset_features/source_registry.json",
+    "fred_fetch_status": "BLOCKED_AUTH_OR_LOCAL_CSV_REQUIRED",
+    "cot_status": "DESIGN_ONLY",
+    "cross_asset_data_status": "REAL_DATA_NORMALIZED_FIXTURE_WINDOW",
+    "cross_asset_missing_decreased": false,
+    "recommended_next_sprint": "infra-external-data-ingest-blocker-resolution-001"
   },
   "post_dedup_failure_meta_analysis": {
     "sprint": "POST_DEDUP_FAILURE_META_ANALYSIS_001",
@@ -1013,6 +1030,48 @@
       "path": "research/confluence_diagnostics/confluence_diagnostic_summary.json",
       "kind": "research_infrastructure",
       "description": "Machine-readable confluence diagnostic summary. Grade distribution and reason codes. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_PLAN",
+      "path": "docs/research/INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_PLAN.md",
+      "kind": "research_infrastructure",
+      "description": "Cross-asset real-data ingest sprint plan. FRED/local CSV, no-lookahead alignment. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CROSS_ASSET_SOURCE_REGISTRY",
+      "path": "research/cross_asset_features/source_registry.json",
+      "kind": "research_infrastructure",
+      "description": "Machine-readable external feature source registry. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CROSS_ASSET_NORMALIZED_FEATURES_MANIFEST",
+      "path": "research/cross_asset_features/normalized_features_manifest.json",
+      "kind": "research_infrastructure",
+      "description": "Normalized cross-asset feature manifest. Fixture-window when FRED blocked. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FRED_FETCH_BLOCKED_REPORT",
+      "path": "research/cross_asset_features/fred_fetch_blocked_report.json",
+      "kind": "research_infrastructure",
+      "description": "FRED fetch blocked report — FRED_API_KEY absent. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CONFLUENCE_DIAGNOSTIC_AFTER_REAL_CROSS_ASSET",
+      "path": "research/confluence_diagnostics/confluence_diagnostic_summary_after_real_cross_asset.json",
+      "kind": "research_infrastructure",
+      "description": "Confluence diagnostics after normalized cross-asset pipeline. cross_asset_missing unchanged due to fixture date window. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CROSS_ASSET_REAL_DATA_DIAGNOSTIC_IMPACT",
+      "path": "docs/research/CROSS_ASSET_REAL_DATA_DIAGNOSTIC_IMPACT.md",
+      "kind": "research_infrastructure",
+      "description": "Impact report for real cross-asset ingest on confluence diagnostics. No edge claims. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]

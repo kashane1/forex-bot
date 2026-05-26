@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-26 · **Branch:** `infra-multi-timeframe-confluence-and-cost-atlas-001`
+**Date:** 2026-05-26 · **Branch:** `infra-cross-asset-real-data-ingest-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -11,8 +11,9 @@
 >
 > **Broad seven-pair pattern strategy search is paused** (2026-05-26).
 > Re-entry gates: [`BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md`](BROAD_STRATEGY_SEARCH_PAUSE_MEMO.md).
-> Trade-quality infrastructure sprint **complete**:
-> [`INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md`](INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md).
+> Trade-quality infrastructure sprints **complete**:
+> [`INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md`](INFRA_MTF_CONFLUENCE_AND_COST_ATLAS_001_SUMMARY.md),
+> [`INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md`](INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md).
 
 Ordering is rough priority. **Item 0** is the recommended next sprint.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
@@ -21,21 +22,38 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. Cross-asset real-data ingest (RECOMMENDED NEXT SPRINT)
+## 0. External data ingest blocker resolution (RECOMMENDED NEXT SPRINT)
 
-- **Why it matters.** Cost atlas and MTF confluence prototype are built on
-  local H4 data, but cross-asset features are **fixture-only**
-  (`data/external_features/` absent). Confluence grading shows
-  `cross_asset_missing` in diagnostics until real DXY/yields/VIX CSVs exist.
-- **Sprint name.** `infra-cross-asset-real-data-ingest-001`
-- **Scope.** Read-only ingest of FRED yields, VIX, DXY proxy CSVs into
-  `data/external_features/`; refresh `feature_availability_report.json`; no
-  broker order APIs.
-- **Status.** **RECOMMENDED — NOT STARTED.**
+- **Why it matters.** Cross-asset real-data **pipeline** is built (FRED fetcher,
+  normalization, H4 alignment), but `FRED_API_KEY` was absent and
+  `data/external_features/` empty — normalized data uses **fixture window only**
+  (2022-01). `cross_asset_missing` remains 2,142 until full-window FRED or local CSVs.
+- **Sprint name.** `infra-external-data-ingest-blocker-resolution-001`
+- **Scope.** Operator supplies `FRED_API_KEY` or drops 2019+ CSVs; refresh
+  `normalized_features.csv`; re-run diagnostics. No broker order APIs.
+- **Status.** **RECOMMENDED — BLOCKED ON AUTH/DATA.**
 
 ---
 
-## 0-complete. Multi-timeframe confluence + cost atlas (COMPLETE)
+## 0-complete. Cross-asset real-data ingest (COMPLETE)
+
+- **Sprint.** `infra-cross-asset-real-data-ingest-001`
+- **Delivered.** Source registry, FRED fetcher (blocked without key), local CSV
+  loader, normalization, derived features, H4 availability alignment, COT design,
+  diagnostic re-run.
+- **Summary.** [`INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md`](INFRA_CROSS_ASSET_REAL_DATA_INGEST_001_SUMMARY.md)
+- **Status.** **COMPLETE** — pipeline ready; full-window data still blocked.
+
+---
+
+## 0-complete-prior. Cross-asset real-data ingest planning (SUPERSEDED)
+
+- **Sprint name.** `infra-cross-asset-real-data-ingest-001` (planning entry — now complete)
+- **Status.** **COMPLETE** — see above.
+
+---
+
+## 0-complete-mtf. Multi-timeframe confluence + cost atlas (COMPLETE)
 
 - **Sprint.** `infra-multi-timeframe-confluence-and-cost-atlas-001`
 - **Delivered.** Cost atlas (69,648 H4 bars), confluence prototype,
