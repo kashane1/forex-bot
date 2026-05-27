@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from collections.abc import Callable, Iterable, Sequence
 from contextlib import contextmanager
 from dataclasses import dataclass
@@ -44,6 +45,8 @@ class CandleRecord:
     mid_h: float | None = None
     mid_l: float | None = None
     mid_c: float | None = None
+    fetch_batch_id: str | None = None
+    data_hash: str | None = None
 
 
 def schema_sql(schema: str = DEFAULT_RESEARCH_SCHEMA) -> str:
@@ -84,9 +87,17 @@ CREATE TABLE IF NOT EXISTS {schema}.candles (
   spread_low DOUBLE PRECISION,
   spread_close DOUBLE PRECISION,
   source TEXT NOT NULL,
+  fetch_batch_id TEXT,
+  data_hash TEXT,
+  created_at_utc TIMESTAMPTZ NOT NULL DEFAULT now(),
   fetched_at_utc TIMESTAMPTZ NOT NULL,
   PRIMARY KEY (instrument, granularity, time_utc)
 );
+
+ALTER TABLE {schema}.candles
+  ADD COLUMN IF NOT EXISTS fetch_batch_id TEXT,
+  ADD COLUMN IF NOT EXISTS data_hash TEXT,
+  ADD COLUMN IF NOT EXISTS created_at_utc TIMESTAMPTZ NOT NULL DEFAULT now();
 
 CREATE TABLE IF NOT EXISTS {schema}.ingestion_runs (
   run_id TEXT PRIMARY KEY,
@@ -153,6 +164,30 @@ def compute_spread_fields(candle: CandleRecord) -> dict[str, float | None]:
         "spread_low": _spread(candle.ask_l, candle.bid_l),
         "spread_close": _spread(candle.ask_c, candle.bid_c),
     }
+
+
+def compute_candle_data_hash(candle: CandleRecord) -> str:
+    """Return a deterministic provenance hash over the normalized candle row."""
+    parts = (
+        candle.instrument,
+        candle.granularity,
+        candle.time_utc.astimezone(UTC).isoformat(),
+        candle.complete,
+        candle.volume,
+        candle.bid_o,
+        candle.bid_h,
+        candle.bid_l,
+        candle.bid_c,
+        candle.ask_o,
+        candle.ask_h,
+        candle.ask_l,
+        candle.ask_c,
+        candle.mid_o,
+        candle.mid_h,
+        candle.mid_l,
+        candle.mid_c,
+    )
+    return hashlib.sha256("|".join(str(part) for part in parts).encode("utf-8")).hexdigest()
 
 
 def common_timestamp_intersection(rows_by_instrument: dict[str, Sequence[dict[str, Any]]]) -> dict[str, Any]:
@@ -227,14 +262,14 @@ INSERT INTO {self.config.schema}.candles (
   ask_o, ask_h, ask_l, ask_c,
   mid_o, mid_h, mid_l, mid_c,
   spread_open, spread_high, spread_low, spread_close,
-  source, fetched_at_utc
+  source, fetch_batch_id, data_hash, fetched_at_utc
 ) VALUES (
   %s, %s, %s, %s, %s,
   %s, %s, %s, %s,
   %s, %s, %s, %s,
   %s, %s, %s, %s,
   %s, %s, %s, %s,
-  %s, %s
+  %s, %s, %s, %s
 )
 ON CONFLICT (instrument, granularity, time_utc) DO UPDATE SET
   complete = EXCLUDED.complete,
@@ -256,6 +291,8 @@ ON CONFLICT (instrument, granularity, time_utc) DO UPDATE SET
   spread_low = EXCLUDED.spread_low,
   spread_close = EXCLUDED.spread_close,
   source = EXCLUDED.source,
+  fetch_batch_id = EXCLUDED.fetch_batch_id,
+  data_hash = EXCLUDED.data_hash,
   fetched_at_utc = EXCLUDED.fetched_at_utc
 """
         rows = []
@@ -286,6 +323,8 @@ ON CONFLICT (instrument, granularity, time_utc) DO UPDATE SET
                     spreads["spread_low"],
                     spreads["spread_close"],
                     source,
+                    candle.fetch_batch_id,
+                    candle.data_hash or compute_candle_data_hash(candle),
                     fetched_at,
                 )
             )
@@ -319,7 +358,8 @@ ON CONFLICT (instrument, granularity, time_utc) DO UPDATE SET
         sql = (
             "SELECT instrument, granularity, time_utc, complete, volume, "
             "bid_o, bid_h, bid_l, bid_c, ask_o, ask_h, ask_l, ask_c, "
-            "mid_o, mid_h, mid_l, mid_c, spread_open, spread_high, spread_low, spread_close, source "
+            "mid_o, mid_h, mid_l, mid_c, spread_open, spread_high, spread_low, spread_close, "
+            "source, fetch_batch_id, data_hash, created_at_utc, fetched_at_utc "
             f"FROM {self.config.schema}.candles "
             f"WHERE {' AND '.join(clauses)} ORDER BY time_utc ASC"
         )

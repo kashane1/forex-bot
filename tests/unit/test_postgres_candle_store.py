@@ -8,6 +8,7 @@ from forex_bot.data.postgres_candle_store import (
     CandleRecord,
     PostgresCandleStore,
     common_timestamp_intersection,
+    compute_candle_data_hash,
     compute_spread_fields,
     schema_sql,
     validate_candle_record,
@@ -75,12 +76,21 @@ def test_schema_sql_is_deterministic():
     b = schema_sql()
     assert a == b
     assert "market_data.candles" in a
+    assert "fetch_batch_id TEXT" in a
+    assert "data_hash TEXT" in a
+    assert "created_at_utc TIMESTAMPTZ" in a
 
 
 def test_compute_spread_fields():
     spreads = compute_spread_fields(_candle())
     assert spreads["spread_open"] == pytest.approx(0.0002)
     assert spreads["spread_close"] == pytest.approx(0.0002)
+
+
+def test_compute_candle_data_hash_is_stable():
+    assert compute_candle_data_hash(_candle()) == compute_candle_data_hash(_candle())
+    changed = CandleRecord(**{**_candle().__dict__, "volume": 11})
+    assert compute_candle_data_hash(changed) != compute_candle_data_hash(_candle())
 
 
 def test_rejects_invalid_ohlc_before_db_write():
@@ -110,4 +120,6 @@ def test_idempotent_upsert_uses_conflict_update():
     assert written == 1
     sql = conn.cursor_obj.executed[0][0]
     assert "ON CONFLICT (instrument, granularity, time_utc) DO UPDATE" in sql
+    assert "fetch_batch_id" in sql
+    assert "data_hash" in sql
     assert conn.commits == 1
