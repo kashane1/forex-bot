@@ -15,6 +15,8 @@
     "campaign_018_precommit_staged": true,
     "campaign_018_executed": true,
     "campaign_018_verdict": "REJECT",
+    "campaign_019_executed": true,
+    "campaign_019_verdict": "REJECT",
     "dedup_safe_reject_cluster": [
       "CAMPAIGN_015",
       "CAMPAIGN_016",
@@ -223,6 +225,40 @@
     "interpretation_doc": "docs/research/CAMPAIGN_018_FINAL_INTERPRETATION.md",
     "artifacts_dir": "research/campaign_018",
     "recommended_next_sprint": "research-financing-modeled-pnl-and-carry-readiness-001"
+  },
+  "campaign_019_thesis_invalidation": {
+    "sprint": "CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001",
+    "campaign_id": "CAMPAIGN_019",
+    "strategy_name": "mean_reversion_thesis_invalidation",
+    "strategy_version": "0.1.0-c019",
+    "hypothesis": "thesis_invalidation_zscore_continuation_exit",
+    "strategy_evidence": true,
+    "not_approved": true,
+    "strategy_approved": false,
+    "test_window_opened": false,
+    "verdict": "REJECT",
+    "train_expectancy_r": -0.072,
+    "validation_expectancy_r": 0.0962,
+    "validation_stress_2x_expectancy_r": 0.0499,
+    "train_trade_count": 219,
+    "validation_trade_count": 138,
+    "thesis_invalidation_exit_rate_pct": 12.6,
+    "target_exit_count": 0,
+    "screening_pass": false,
+    "failed_gates": [
+      "train_expectancy_gte_zero",
+      "train_expectancy_gte_c008_deduped",
+      "full_stress_15x_expectancy_gte_zero"
+    ],
+    "backtrader_parity": "CLOSE_MATCH",
+    "plan_doc": "docs/research/CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_PLAN.md",
+    "summary_doc": "docs/research/CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_SUMMARY.md",
+    "result_doc": "docs/research/CAMPAIGN_019_TRAIN_VALIDATION_RESULT.md",
+    "gate_decision_doc": "docs/research/CAMPAIGN_019_GATE_DECISION.md",
+    "interpretation_doc": "docs/research/CAMPAIGN_019_FINAL_INTERPRETATION.md",
+    "parity_doc": "docs/research/CAMPAIGN_019_BACKTRADER_PARITY_RESULT.md",
+    "artifacts_dir": "research/campaign_019",
+    "recommended_next_sprint": "research-exit-hypothesis-precommit-003"
   },
   "infra_external_data_blocker_resolution": {
     "sprint": "INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001",
@@ -726,6 +762,30 @@
       "test_window_opened": true,
       "risk_engine_used": true,
       "financing_treatment": "none",
+      "strategy_approved": false
+    },
+    {
+      "campaign_id": "CAMPAIGN_019",
+      "title": "Mean reversion thesis-invalidation exit (research-campaign-019-thesis-invalidation-execution-001)",
+      "report_path": "docs/research/CAMPAIGN_019_FINAL_INTERPRETATION.md",
+      "artifact_folder": "research/campaign_019",
+      "strategy_family": "mean_reversion_thesis_invalidation",
+      "data_source": "oanda-practice",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "train_expectancy_r": -0.072,
+        "validation_expectancy_r": 0.0962,
+        "validation_profit_factor": 1.1423,
+        "train_trade_count": 219,
+        "validation_trade_count": 138,
+        "thesis_invalidation_exit_rate_pct": 12.6,
+        "dedupe_policy": "keep_last",
+        "approval_path": "none (REJECT — train gate fail; test lockbox closed). configs/approved_strategies.yaml remains approved: []."
+      },
+      "commit_hash": "TBD-phase8",
+      "test_window_opened": false,
+      "risk_engine_used": true,
+      "financing_treatment": "estimated",
       "strategy_approved": false
     }
   ],
@@ -1631,6 +1691,27 @@
       "path": "docs/research/EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY.md",
       "kind": "precommit_design",
       "description": "Close-out for research-exit-hypothesis-precommit-002. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_SUMMARY",
+      "path": "docs/research/CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_SUMMARY.md",
+      "kind": "campaign_evidence",
+      "description": "CAMPAIGN_019 execution close-out. REJECT on train gate. strategy_evidence: true; not_approved: true.",
+      "strategy_evidence": true
+    },
+    {
+      "artifact_id": "CAMPAIGN_019_GATE_RESULT",
+      "path": "research/campaign_019/gate_result.json",
+      "kind": "campaign_evidence",
+      "description": "CAMPAIGN_019 screening gate machine-readable result. strategy_evidence: true.",
+      "strategy_evidence": true
+    },
+    {
+      "artifact_id": "CAMPAIGN_019_BT_PARITY_SUMMARY",
+      "path": "research/backtrader_exit_parity/c019_parity_summary.json",
+      "kind": "parity_diagnostic",
+      "description": "Backtrader exit parity for CAMPAIGN_019. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]

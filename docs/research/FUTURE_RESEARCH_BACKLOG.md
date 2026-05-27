@@ -34,12 +34,22 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. CAMPAIGN_019 thesis-invalidation execution (RECOMMENDED NEXT SPRINT)
+## 0. CAMPAIGN_019 thesis-invalidation execution (COMPLETE — REJECT)
 
 - **Sprint name.** `research-campaign-019-thesis-invalidation-execution-001`
-- **Why it matters.** Precommit 002 registered `thesis_invalidation_zscore_continuation_exit` after C018 +1R break-even failed train; targets 41–47% never-+1R stop bucket ([`EXIT_HYPOTHESIS_PRECOMMIT_002_SELECTION_MEMO.md`](EXIT_HYPOTHESIS_PRECOMMIT_002_SELECTION_MEMO.md)).
-- **Action.** Implement and run CAMPAIGN_019 under frozen scope; Backtrader parity ±1 trade; no approval.
-- **Status.** **RECOMMENDED** — precommit complete; execution not started.
+- **Result.** CAMPAIGN_019 executed under frozen precommit; train **−0.072 R**, validation **+0.0962 R**; screening **FAIL**; test lockbox closed; Backtrader parity **PASS**.
+- **Summary.** [`CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_SUMMARY.md`](CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_SUMMARY.md)
+- **Status.** **COMPLETE — REJECT**
+
+---
+
+## 0-recommended. Exit hypothesis precommit 003 OR financing overlay (NEXT)
+
+- **Why it matters.** C018 (+1R protective) and C019 (z±3 thesis invalidation) both show validation uplift with **train failure** — exit-only tweaks on C008 entries are not rescuing in-sample edge.
+- **Options.**
+  1. `research-exit-hypothesis-precommit-003` — pre-register a **different** falsifiable exit mechanism (no C019 retuning).
+  2. `research-financing-manual-rate-source-expansion-001` — financing overlay before further REVISE interpretation.
+- **Status.** **RECOMMENDED** — human choice; no execution authorized from this backlog alone.
 
 ---
 

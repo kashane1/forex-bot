@@ -1,21 +1,22 @@
 # Evidence Index
 
-**Date:** 2026-05-27 · **Branch:** `research-exit-hypothesis-precommit-002`
+**Date:** 2026-05-27 · **Branch:** `research-campaign-019-thesis-invalidation-execution-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
 map; the linked documents are the authoritative evidence.
 
-> **Bottom line:** seventeen campaigns, **no approved trading strategy.**
+> **Bottom line:** eighteen campaigns (CAMPAIGN_001–017 plus **CAMPAIGN_018** and
+> **CAMPAIGN_019** exit-hypothesis executions), **no approved trading strategy.**
 > Broad seven-pair pattern strategy search is **paused** (2026-05-26).
 > Trade-quality infrastructure sprint **complete** (cost atlas, MTF
 > confluence prototype, cross-asset scaffolding — diagnostic only).
 > Cross-asset **blocker-resolution sprint** complete (full-window FRED ingest
 > succeeded; `cross_asset_missing` eliminated). **C008 post-mortem sprint**
 > complete. **Stop/exit diagnostics sprint** complete. **Deduped C008/C009 forensic
-> replay** complete. **Exit hypothesis precommit** complete — CAMPAIGN_018
-> pre-registered but **not executed**. **CAMPAIGN_018 executed** — **REJECT**
-> (train gate fail). See respective summaries.
+> replay** complete. **CAMPAIGN_018 executed** — **REJECT** (protective stop;
+> train gate fail). **CAMPAIGN_019 executed** — **REJECT** (thesis invalidation;
+> train gate fail). See respective summaries.
 > See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
 ## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
@@ -263,19 +264,36 @@ map; the linked documents are the authoritative evidence.
 ## Exit hypothesis precommit 002 (EXIT_HYPOTHESIS_PRECOMMIT_002)
 
 > **Precommit / design only** — `strategy_evidence: false`. CAMPAIGN_019 thesis-invalidation
-> exit pre-registered; **not executed**. C018 +1R break-even falsified on train. Recommended
-> next execution: `research-campaign-019-thesis-invalidation-execution-001`.
+> exit pre-registered; **executed** on branch `research-campaign-019-thesis-invalidation-execution-001`
+> — **REJECT** (train gate fail). See CAMPAIGN_019 execution section below.
 
 | document | purpose |
 |---|---|
 | [`EXIT_HYPOTHESIS_PRECOMMIT_002_PLAN.md`](EXIT_HYPOTHESIS_PRECOMMIT_002_PLAN.md) | Sprint plan and truth audit |
 | [`CAMPAIGN_018_FAILURE_ANALYSIS_FOR_NEXT_EXIT_HYPOTHESIS.md`](CAMPAIGN_018_FAILURE_ANALYSIS_FOR_NEXT_EXIT_HYPOTHESIS.md) | C018 failure → next hypothesis |
 | [`EXIT_HYPOTHESIS_PRECOMMIT_002_SELECTION_MEMO.md`](EXIT_HYPOTHESIS_PRECOMMIT_002_SELECTION_MEMO.md) | Hypothesis selection |
-| [`CAMPAIGN_019_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE.md`](CAMPAIGN_019_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE.md) | CAMPAIGN_019 frozen scope (**PRECOMMITTED_NOT_RUN**) |
+| [`CAMPAIGN_019_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE.md`](CAMPAIGN_019_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE.md) | CAMPAIGN_019 frozen scope |
 | [`CAMPAIGN_019_EXIT_HYPOTHESIS_GATE_DESIGN.md`](CAMPAIGN_019_EXIT_HYPOTHESIS_GATE_DESIGN.md) | Gate design and falsification |
-| [`CAMPAIGN_019_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md`](CAMPAIGN_019_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md) | Future implementation design |
+| [`CAMPAIGN_019_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md`](CAMPAIGN_019_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md) | Implementation design |
 | [`NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT_002.md`](NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT_002.md) | Execution sprint prompt |
 | [`EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY.md) | Sprint close-out |
+
+## CAMPAIGN_019 thesis invalidation execution (CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001)
+
+> **CAMPAIGN_019 executed** — `strategy_evidence: true`, `not_approved: true`.
+> Verdict **REJECT** — train exp_r **−0.072 R**; validation **+0.0962 R**; test lockbox **closed**.
+
+| document | purpose |
+|---|---|
+| [`CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_PLAN.md`](CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_PLAN.md) | Execution sprint plan |
+| [`CAMPAIGN_019_TRAIN_VALIDATION_RESULT.md`](CAMPAIGN_019_TRAIN_VALIDATION_RESULT.md) | Train/validation results |
+| [`CAMPAIGN_019_BACKTRADER_PARITY_RESULT.md`](CAMPAIGN_019_BACKTRADER_PARITY_RESULT.md) | Backtrader parity |
+| [`CAMPAIGN_019_GATE_DECISION.md`](CAMPAIGN_019_GATE_DECISION.md) | Gate decision |
+| [`CAMPAIGN_019_TEST_LOCKBOX_NOT_OPENED.md`](CAMPAIGN_019_TEST_LOCKBOX_NOT_OPENED.md) | Lockbox closed |
+| [`CAMPAIGN_019_FINAL_INTERPRETATION.md`](CAMPAIGN_019_FINAL_INTERPRETATION.md) | Final interpretation |
+| [`CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_SUMMARY.md`](CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_SUMMARY.md) | Sprint close-out |
+| [`research/campaign_019/gate_result.json`](../../research/campaign_019/gate_result.json) | Machine-readable gates |
+| [`research/backtrader_exit_parity/c019_parity_summary.json`](../../research/backtrader_exit_parity/c019_parity_summary.json) | BT parity summary |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
