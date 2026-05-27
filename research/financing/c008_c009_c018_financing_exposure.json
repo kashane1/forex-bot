@@ -1,0 +1,555 @@
+{
+  "campaigns": {
+    "C008": {
+      "train": {
+        "aggregate": {
+          "avg_bars_held": 18.791666666666668,
+          "avg_rollovers_per_trade": 3.1296296296296298,
+          "financing_drag_r": -0.08015994659749494,
+          "gross_expectancy_r": -0.02495588229083048,
+          "missing_rate_event_count": 0,
+          "net_expectancy_r": -0.1051158288883254,
+          "total_financing_usd": -22.040560835449998,
+          "total_rollovers": 676
+        },
+        "by_pair": {
+          "AUD_USD": {
+            "financing_usd": -2.8341691084,
+            "gross_pnl_usd": 3.8880200000000027,
+            "gross_r": 3.293245093881681,
+            "hold_bars": 911,
+            "net_r": 1.034082014960152,
+            "rollovers": 150,
+            "trades": 44
+          },
+          "EUR_USD": {
+            "financing_usd": -3.2898393222,
+            "gross_pnl_usd": 6.495119999999999,
+            "gross_r": 5.416491762687294,
+            "hold_bars": 697,
+            "net_r": 2.817598363692539,
+            "rollovers": 121,
+            "trades": 35
+          },
+          "GBP_USD": {
+            "financing_usd": -2.9708724048499997,
+            "gross_pnl_usd": 1.0539450000000004,
+            "gross_r": 1.0121130565647416,
+            "hold_bars": 688,
+            "net_r": -1.3396989102719559,
+            "rollovers": 115,
+            "trades": 37
+          },
+          "USD_CAD": {
+            "financing_usd": -1.8674000000000004,
+            "gross_pnl_usd": -24.89808486565652,
+            "gross_r": -15.66131010849368,
+            "hold_bars": 600,
+            "net_r": -17.207326774600983,
+            "rollovers": 99,
+            "trades": 41
+          },
+          "USD_CHF": {
+            "financing_usd": -2.0941199999999998,
+            "gross_pnl_usd": 0.8373400732722212,
+            "gross_r": 0.4555527201217826,
+            "hold_bars": 382,
+            "net_r": -1.1964570773463066,
+            "rollovers": 63,
+            "trades": 22
+          },
+          "USD_JPY": {
+            "financing_usd": -8.984159999999996,
+            "gross_pnl_usd": 11.17005668896556,
+            "gross_r": 0.0934369004187925,
+            "hold_bars": 781,
+            "net_r": -6.813216656311737,
+            "rollovers": 128,
+            "trades": 37
+          }
+        },
+        "by_side": {
+          "long": {
+            "financing_usd": -10.371300560299998,
+            "gross_r": -11.778880477617749,
+            "net_r": -19.908637278124523,
+            "trades": 104
+          },
+          "short": {
+            "financing_usd": -11.669260275150004,
+            "gross_r": 6.388409902798362,
+            "net_r": -2.796381761753762,
+            "trades": 112
+          }
+        },
+        "diagnostic_label": "SYNTHETIC_FINANCING_DIAGNOSTIC",
+        "financing_source_type": "synthetic_fixture",
+        "financing_treatment": "estimated",
+        "missing_rates": [],
+        "not_approved": true,
+        "rate_source_name": "conservative_stress",
+        "strategy_evidence": false,
+        "trade_count": 216
+      },
+      "validation": {
+        "aggregate": {
+          "avg_bars_held": 20.8768115942029,
+          "avg_rollovers_per_trade": 3.5942028985507246,
+          "financing_drag_r": -0.09224522918911647,
+          "gross_expectancy_r": 0.16120972701571915,
+          "missing_rate_event_count": 0,
+          "net_expectancy_r": 0.06896449782660266,
+          "total_financing_usd": -16.21809433555,
+          "total_rollovers": 496
+        },
+        "by_pair": {
+          "AUD_USD": {
+            "financing_usd": -2.3360047798499997,
+            "gross_pnl_usd": 2.809779999999999,
+            "gross_r": 2.2889943927867176,
+            "hold_bars": 547,
+            "net_r": 0.4642930461239305,
+            "rollovers": 93,
+            "trades": 26
+          },
+          "EUR_USD": {
+            "financing_usd": -1.9414213499999997,
+            "gross_pnl_usd": 7.848305,
+            "gross_r": 6.194533937693624,
+            "hold_bars": 364,
+            "net_r": 4.669077280462494,
+            "rollovers": 64,
+            "trades": 20
+          },
+          "GBP_USD": {
+            "financing_usd": -3.2683582057,
+            "gross_pnl_usd": 4.066015,
+            "gross_r": 3.270686319629972,
+            "hold_bars": 611,
+            "net_r": 0.7241102216413131,
+            "rollovers": 107,
+            "trades": 28
+          },
+          "USD_CAD": {
+            "financing_usd": -1.7431499999999998,
+            "gross_pnl_usd": 3.2956226174362646,
+            "gross_r": 1.8893938117921047,
+            "hold_bars": 356,
+            "net_r": 0.5234622574228708,
+            "rollovers": 62,
+            "trades": 18
+          },
+          "USD_CHF": {
+            "financing_usd": -2.73384,
+            "gross_pnl_usd": 9.02413174041767,
+            "gross_r": 8.579696798471097,
+            "hold_bars": 514,
+            "net_r": 6.4233410944899845,
+            "rollovers": 89,
+            "trades": 21
+          },
+          "USD_JPY": {
+            "financing_usd": -4.195319999999999,
+            "gross_pnl_usd": 4.271137424672824,
+            "gross_r": 0.02363706779572931,
+            "hold_bars": 489,
+            "net_r": -3.2871832000694283,
+            "rollovers": 81,
+            "trades": 25
+          }
+        },
+        "by_side": {
+          "long": {
+            "financing_usd": -5.500139793950001,
+            "gross_r": 6.5792669133872295,
+            "net_r": 2.263053824116236,
+            "trades": 51
+          },
+          "short": {
+            "financing_usd": -10.717954541600003,
+            "gross_r": 15.667675414782014,
+            "net_r": 7.254046875954933,
+            "trades": 87
+          }
+        },
+        "diagnostic_label": "SYNTHETIC_FINANCING_DIAGNOSTIC",
+        "financing_source_type": "synthetic_fixture",
+        "financing_treatment": "estimated",
+        "missing_rates": [],
+        "not_approved": true,
+        "rate_source_name": "conservative_stress",
+        "strategy_evidence": false,
+        "trade_count": 138
+      }
+    },
+    "C009": {
+      "train": {
+        "aggregate": {
+          "avg_bars_held": 9.384920634920634,
+          "avg_rollovers_per_trade": 1.507936507936508,
+          "financing_drag_r": -0.034199652653002934,
+          "gross_expectancy_r": -0.02528901273454232,
+          "missing_rate_event_count": 0,
+          "net_expectancy_r": -0.059488665387545214,
+          "total_financing_usd": -10.9408994867,
+          "total_rollovers": 380
+        },
+        "by_pair": {
+          "AUD_USD": {
+            "financing_usd": -1.6075461307500003,
+            "gross_pnl_usd": 18.868959999999994,
+            "gross_r": 14.770206488172002,
+            "hold_bars": 553,
+            "net_r": 13.503580293779901,
+            "rollovers": 89,
+            "trades": 55
+          },
+          "EUR_USD": {
+            "financing_usd": -1.6928217455999992,
+            "gross_pnl_usd": -2.8398899999999996,
+            "gross_r": -2.170055329508869,
+            "hold_bars": 384,
+            "net_r": -3.5012328361357,
+            "rollovers": 65,
+            "trades": 38
+          },
+          "GBP_USD": {
+            "financing_usd": -1.7045016103500004,
+            "gross_pnl_usd": -5.1984549999999965,
+            "gross_r": -3.976736192921085,
+            "hold_bars": 430,
+            "net_r": -5.317409226197919,
+            "rollovers": 70,
+            "trades": 43
+          },
+          "USD_CAD": {
+            "financing_usd": -1.0998499999999998,
+            "gross_pnl_usd": -9.713767263221403,
+            "gross_r": -6.099337433183068,
+            "hold_bars": 385,
+            "net_r": -6.989228117981459,
+            "rollovers": 60,
+            "trades": 45
+          },
+          "USD_CHF": {
+            "financing_usd": -1.2364200000000003,
+            "gross_pnl_usd": -10.496388542398787,
+            "gross_r": -8.947910716081463,
+            "hold_bars": 250,
+            "net_r": -9.923218456046834,
+            "rollovers": 40,
+            "trades": 25
+          },
+          "USD_JPY": {
+            "financing_usd": -3.5997600000000003,
+            "gross_pnl_usd": 6.931996908195817,
+            "gross_r": 0.05100197441782227,
+            "hold_bars": 363,
+            "net_r": -2.7636353350793956,
+            "rollovers": 56,
+            "trades": 46
+          }
+        },
+        "by_side": {
+          "long": {
+            "financing_usd": -5.5204883443499995,
+            "gross_r": -14.523446737552245,
+            "net_r": -18.872021969556947,
+            "trades": 126
+          },
+          "short": {
+            "financing_usd": -5.420411142350001,
+            "gross_r": 8.150615528447576,
+            "net_r": 3.880878291895548,
+            "trades": 126
+          }
+        },
+        "diagnostic_label": "SYNTHETIC_FINANCING_DIAGNOSTIC",
+        "financing_source_type": "synthetic_fixture",
+        "financing_treatment": "estimated",
+        "missing_rates": [],
+        "not_approved": true,
+        "rate_source_name": "conservative_stress",
+        "strategy_evidence": false,
+        "trade_count": 252
+      },
+      "validation": {
+        "aggregate": {
+          "avg_bars_held": 10.549668874172186,
+          "avg_rollovers_per_trade": 1.814569536423841,
+          "financing_drag_r": -0.045998299041718815,
+          "gross_expectancy_r": 0.18585834303370458,
+          "missing_rate_event_count": 0,
+          "net_expectancy_r": 0.13986004399198565,
+          "total_financing_usd": -8.895230871399999,
+          "total_rollovers": 274
+        },
+        "by_pair": {
+          "AUD_USD": {
+            "financing_usd": -1.5474161962,
+            "gross_pnl_usd": 9.137794999999999,
+            "gross_r": 7.198601804965001,
+            "hold_bars": 340,
+            "net_r": 6.001277605901954,
+            "rollovers": 58,
+            "trades": 29
+          },
+          "EUR_USD": {
+            "financing_usd": -1.2423651153,
+            "gross_pnl_usd": -0.7047300000000005,
+            "gross_r": -0.5059441362318018,
+            "hold_bars": 221,
+            "net_r": -1.4776175666858948,
+            "rollovers": 40,
+            "trades": 22
+          },
+          "GBP_USD": {
+            "financing_usd": -1.7728995599,
+            "gross_pnl_usd": 15.495709999999997,
+            "gross_r": 12.118107542664879,
+            "hold_bars": 329,
+            "net_r": 10.754654082514746,
+            "rollovers": 56,
+            "trades": 31
+          },
+          "USD_CAD": {
+            "financing_usd": -0.9343000000000001,
+            "gross_pnl_usd": 0.5189024768279067,
+            "gross_r": 0.2698400023563562,
+            "hold_bars": 188,
+            "net_r": -0.4680381028032198,
+            "rollovers": 32,
+            "trades": 19
+          },
+          "USD_CHF": {
+            "financing_usd": -1.54701,
+            "gross_pnl_usd": 10.074253530588544,
+            "gross_r": 8.987154865548579,
+            "hold_bars": 282,
+            "net_r": 7.777336845548518,
+            "rollovers": 48,
+            "trades": 23
+          },
+          "USD_JPY": {
+            "financing_usd": -1.8512399999999998,
+            "gross_pnl_usd": -0.28773717348518457,
+            "gross_r": -0.0031502812136323423,
+            "hold_bars": 233,
+            "net_r": -1.4687462216862641,
+            "rollovers": 40,
+            "trades": 27
+          }
+        },
+        "by_side": {
+          "long": {
+            "financing_usd": -3.0835051233500006,
+            "gross_r": 12.20416859499295,
+            "net_r": 9.800757792697203,
+            "trades": 57
+          },
+          "short": {
+            "financing_usd": -5.8117257480500015,
+            "gross_r": 15.860441203096425,
+            "net_r": 11.318108850092639,
+            "trades": 94
+          }
+        },
+        "diagnostic_label": "SYNTHETIC_FINANCING_DIAGNOSTIC",
+        "financing_source_type": "synthetic_fixture",
+        "financing_treatment": "estimated",
+        "missing_rates": [],
+        "not_approved": true,
+        "rate_source_name": "conservative_stress",
+        "strategy_evidence": false,
+        "trade_count": 151
+      }
+    },
+    "C018": {
+      "train": {
+        "aggregate": {
+          "avg_bars_held": 12.792372881355933,
+          "avg_rollovers_per_trade": 2.1016949152542375,
+          "financing_drag_r": -0.053545254236473404,
+          "gross_expectancy_r": -0.11875902863687327,
+          "missing_rate_event_count": 0,
+          "net_expectancy_r": -0.17230428287334673,
+          "total_financing_usd": -16.10717018745,
+          "total_rollovers": 496
+        },
+        "by_pair": {
+          "AUD_USD": {
+            "financing_usd": -2.1465068359,
+            "gross_pnl_usd": 5.257500000000002,
+            "gross_r": 4.293457357617009,
+            "hold_bars": 726,
+            "net_r": 2.5721147588259727,
+            "rollovers": 120,
+            "trades": 48
+          },
+          "EUR_USD": {
+            "financing_usd": -2.2887862814999997,
+            "gross_pnl_usd": -1.5407350000000013,
+            "gross_r": -1.1067635866001084,
+            "hold_bars": 485,
+            "net_r": -2.9093207005061457,
+            "rollovers": 81,
+            "trades": 38
+          },
+          "GBP_USD": {
+            "financing_usd": -1.8957670700500002,
+            "gross_pnl_usd": -14.322869999999998,
+            "gross_r": -11.347671852378973,
+            "hold_bars": 471,
+            "net_r": -12.860503570229316,
+            "rollovers": 77,
+            "trades": 41
+          },
+          "USD_CAD": {
+            "financing_usd": -1.4138500000000003,
+            "gross_pnl_usd": -20.97205533994202,
+            "gross_r": -13.145507439328709,
+            "hold_bars": 469,
+            "net_r": -14.306180152055608,
+            "rollovers": 76,
+            "trades": 44
+          },
+          "USD_CHF": {
+            "financing_usd": -1.4113799999999999,
+            "gross_pnl_usd": -8.411673359951592,
+            "gross_r": -6.859852608425663,
+            "hold_bars": 259,
+            "net_r": -7.971171676884137,
+            "rollovers": 43,
+            "trades": 25
+          },
+          "USD_JPY": {
+            "financing_usd": -6.950879999999999,
+            "gross_pnl_usd": 18.43525963881612,
+            "gross_r": 0.1392073708143596,
+            "hold_bars": 609,
+            "net_r": -5.188749417260581,
+            "rollovers": 99,
+            "trades": 40
+          }
+        },
+        "by_side": {
+          "long": {
+            "financing_usd": -7.74555068125,
+            "gross_r": -16.662532835228546,
+            "net_r": -22.749598285127885,
+            "trades": 118
+          },
+          "short": {
+            "financing_usd": -8.361619506199997,
+            "gross_r": -11.364597923073541,
+            "net_r": -17.914212472981927,
+            "trades": 118
+          }
+        },
+        "diagnostic_label": "SYNTHETIC_FINANCING_DIAGNOSTIC",
+        "financing_source_type": "synthetic_fixture",
+        "financing_treatment": "estimated",
+        "missing_rates": [],
+        "not_approved": true,
+        "rate_source_name": "conservative_stress",
+        "strategy_evidence": false,
+        "trade_count": 236
+      },
+      "validation": {
+        "aggregate": {
+          "avg_bars_held": 14.669014084507042,
+          "avg_rollovers_per_trade": 2.5140845070422535,
+          "financing_drag_r": -0.06497171952466994,
+          "gross_expectancy_r": 0.1940371894440041,
+          "missing_rate_event_count": 0,
+          "net_expectancy_r": 0.1290654699193341,
+          "total_financing_usd": -11.7728443449,
+          "total_rollovers": 357
+        },
+        "by_pair": {
+          "AUD_USD": {
+            "financing_usd": -1.6497258823499998,
+            "gross_pnl_usd": 1.857760000000001,
+            "gross_r": 1.5351224757738393,
+            "hold_bars": 377,
+            "net_r": 0.24950246470711024,
+            "rollovers": 64,
+            "trades": 27
+          },
+          "EUR_USD": {
+            "financing_usd": -1.5522117425999997,
+            "gross_pnl_usd": 8.633055,
+            "gross_r": 6.813817355783627,
+            "hold_bars": 280,
+            "net_r": 5.598798531521213,
+            "rollovers": 49,
+            "trades": 20
+          },
+          "GBP_USD": {
+            "financing_usd": -2.3336467199499995,
+            "gross_pnl_usd": 6.404605000000001,
+            "gross_r": 5.0905163923844,
+            "hold_bars": 445,
+            "net_r": 3.2779470444950456,
+            "rollovers": 77,
+            "trades": 28
+          },
+          "USD_CAD": {
+            "financing_usd": -1.01795,
+            "gross_pnl_usd": 6.080537020092481,
+            "gross_r": 3.4769169302499763,
+            "hold_bars": 217,
+            "net_r": 2.6807448372218414,
+            "rollovers": 38,
+            "trades": 18
+          },
+          "USD_CHF": {
+            "financing_usd": -1.91331,
+            "gross_pnl_usd": 11.54981896597559,
+            "gross_r": 10.619218660941021,
+            "hold_bars": 354,
+            "net_r": 9.117738978091655,
+            "rollovers": 61,
+            "trades": 22
+          },
+          "USD_JPY": {
+            "financing_usd": -3.306,
+            "gross_pnl_usd": 3.117893940968309,
+            "gross_r": 0.01768908591571806,
+            "hold_bars": 410,
+            "net_r": -2.5974351274914182,
+            "rollovers": 68,
+            "trades": 27
+          }
+        },
+        "by_side": {
+          "long": {
+            "financing_usd": -3.9458372907999997,
+            "gross_r": 7.071329864011482,
+            "net_r": 3.9877011482787994,
+            "trades": 53
+          },
+          "short": {
+            "financing_usd": -7.827007054100001,
+            "gross_r": 20.4819510370371,
+            "net_r": 14.339595580266657,
+            "trades": 89
+          }
+        },
+        "diagnostic_label": "SYNTHETIC_FINANCING_DIAGNOSTIC",
+        "financing_source_type": "synthetic_fixture",
+        "financing_treatment": "estimated",
+        "missing_rates": [],
+        "not_approved": true,
+        "rate_source_name": "conservative_stress",
+        "strategy_evidence": false,
+        "trade_count": 142
+      }
+    }
+  },
+  "diagnostic_label": "SYNTHETIC_FINANCING_DIAGNOSTIC",
+  "not_approved": true,
+  "observed_financing_used": false,
+  "rate_source": "conservative_stress (default_stress_rate_source)",
+  "strategy_evidence": false
+}
