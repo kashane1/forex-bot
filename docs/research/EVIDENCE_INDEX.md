@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-27 · **Branch:** `infra-backtrader-entry-parity-hardening-001`
+**Date:** 2026-05-27 · **Branch:** `research-exit-hypothesis-precommit-002`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -259,6 +259,23 @@ map; the linked documents are the authoritative evidence.
 | [`BACKTRADER_ENTRY_PARITY_HARDENING_001_SUMMARY.md`](BACKTRADER_ENTRY_PARITY_HARDENING_001_SUMMARY.md) | Sprint close-out |
 | [`research/backtrader_exit_parity/parity_run_manifest.json`](../../research/backtrader_exit_parity/parity_run_manifest.json) | Run metadata (BT version, PnL mode) |
 | [`research/backtrader_exit_parity/pnl.py`](../../research/backtrader_exit_parity/pnl.py) | Home-currency PnL conversion module |
+
+## Exit hypothesis precommit 002 (EXIT_HYPOTHESIS_PRECOMMIT_002)
+
+> **Precommit / design only** — `strategy_evidence: false`. CAMPAIGN_019 thesis-invalidation
+> exit pre-registered; **not executed**. C018 +1R break-even falsified on train. Recommended
+> next execution: `research-campaign-019-thesis-invalidation-execution-001`.
+
+| document | purpose |
+|---|---|
+| [`EXIT_HYPOTHESIS_PRECOMMIT_002_PLAN.md`](EXIT_HYPOTHESIS_PRECOMMIT_002_PLAN.md) | Sprint plan and truth audit |
+| [`CAMPAIGN_018_FAILURE_ANALYSIS_FOR_NEXT_EXIT_HYPOTHESIS.md`](CAMPAIGN_018_FAILURE_ANALYSIS_FOR_NEXT_EXIT_HYPOTHESIS.md) | C018 failure → next hypothesis |
+| [`EXIT_HYPOTHESIS_PRECOMMIT_002_SELECTION_MEMO.md`](EXIT_HYPOTHESIS_PRECOMMIT_002_SELECTION_MEMO.md) | Hypothesis selection |
+| [`CAMPAIGN_019_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE.md`](CAMPAIGN_019_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE.md) | CAMPAIGN_019 frozen scope (**PRECOMMITTED_NOT_RUN**) |
+| [`CAMPAIGN_019_EXIT_HYPOTHESIS_GATE_DESIGN.md`](CAMPAIGN_019_EXIT_HYPOTHESIS_GATE_DESIGN.md) | Gate design and falsification |
+| [`CAMPAIGN_019_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md`](CAMPAIGN_019_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md) | Future implementation design |
+| [`NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT_002.md`](NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT_002.md) | Execution sprint prompt |
+| [`EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY.md) | Sprint close-out |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

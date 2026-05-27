@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-27 · **Branch:** `infra-backtrader-entry-parity-hardening-001`
+**Date:** 2026-05-27 · **Branch:** `research-exit-hypothesis-precommit-002`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -24,7 +24,8 @@
 > [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md),
 > [`BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md`](BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md),
 > [`ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md`](ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md),
-> [`BACKTRADER_ENTRY_PARITY_HARDENING_001_SUMMARY.md`](BACKTRADER_ENTRY_PARITY_HARDENING_001_SUMMARY.md).
+> [`BACKTRADER_ENTRY_PARITY_HARDENING_001_SUMMARY.md`](BACKTRADER_ENTRY_PARITY_HARDENING_001_SUMMARY.md),
+> [`EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY.md).
 
 Ordering is rough priority. **Item 0** is the recommended next action.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
@@ -33,16 +34,25 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. Exit hypothesis precommit follow-up (RECOMMENDED NEXT SPRINT)
+## 0. CAMPAIGN_019 thesis-invalidation execution (RECOMMENDED NEXT SPRINT)
 
-- **Sprint name.** `research-exit-hypothesis-precommit-002`
-- **Why it matters.** Parity lane hardened (±1 trade C008/C009/C018); exit pathology corroborated; entry gap resolved ([`BACKTRADER_PARITY_HARDENED_STATUS.md`](BACKTRADER_PARITY_HARDENED_STATUS.md)).
-- **Action.** Pre-commit exit hypothesis variants on hardened parity baseline.
-- **Status.** **RECOMMENDED** — parity hardening complete.
+- **Sprint name.** `research-campaign-019-thesis-invalidation-execution-001`
+- **Why it matters.** Precommit 002 registered `thesis_invalidation_zscore_continuation_exit` after C018 +1R break-even failed train; targets 41–47% never-+1R stop bucket ([`EXIT_HYPOTHESIS_PRECOMMIT_002_SELECTION_MEMO.md`](EXIT_HYPOTHESIS_PRECOMMIT_002_SELECTION_MEMO.md)).
+- **Action.** Implement and run CAMPAIGN_019 under frozen scope; Backtrader parity ±1 trade; no approval.
+- **Status.** **RECOMMENDED** — precommit complete; execution not started.
 
 ---
 
-## 0-complete. Backtrader entry parity hardening (COMPLETE)
+## 0-complete. Exit hypothesis precommit 002 (COMPLETE)
+
+- **Sprint name.** `research-exit-hypothesis-precommit-002`
+- **Result.** CAMPAIGN_019 pre-registered (thesis invalidation z ≤ −3 / z ≥ +3); PRECOMMITTED_NOT_RUN.
+- **Summary.** [`EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY.md)
+- **Status.** **COMPLETE — PRECOMMIT_DESIGN**
+
+---
+
+## 0-complete-prior. Backtrader entry parity hardening (COMPLETE)
 
 - **Sprint name.** `infra-backtrader-entry-parity-hardening-001`
 - **Result.** PnL fix landed; C008/C009/C018 within ±1 trade; exit shares CLOSE_MATCH.

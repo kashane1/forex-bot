@@ -1576,6 +1576,62 @@
       "kind": "parity_diagnostic",
       "description": "Close-out for infra-backtrader-entry-parity-hardening-001. strategy_evidence: false.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EXIT_HYPOTHESIS_PRECOMMIT_002_PLAN",
+      "path": "docs/research/EXIT_HYPOTHESIS_PRECOMMIT_002_PLAN.md",
+      "kind": "precommit_design",
+      "description": "Plan for exit hypothesis precommit 002 sprint. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_018_FAILURE_ANALYSIS_FOR_NEXT_EXIT",
+      "path": "docs/research/CAMPAIGN_018_FAILURE_ANALYSIS_FOR_NEXT_EXIT_HYPOTHESIS.md",
+      "kind": "precommit_design",
+      "description": "C018 failure analysis informing CAMPAIGN_019 precommit. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EXIT_HYPOTHESIS_PRECOMMIT_002_SELECTION_MEMO",
+      "path": "docs/research/EXIT_HYPOTHESIS_PRECOMMIT_002_SELECTION_MEMO.md",
+      "kind": "precommit_design",
+      "description": "Selected thesis-invalidation exit hypothesis for CAMPAIGN_019. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_019_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE",
+      "path": "docs/research/CAMPAIGN_019_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_019 frozen scope — PRECOMMITTED_NOT_RUN. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_019_EXIT_HYPOTHESIS_GATE_DESIGN",
+      "path": "docs/research/CAMPAIGN_019_EXIT_HYPOTHESIS_GATE_DESIGN.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_019 gate design and falsification criteria. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_019_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN",
+      "path": "docs/research/CAMPAIGN_019_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md",
+      "kind": "precommit_design",
+      "description": "Future CAMPAIGN_019 implementation design. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT_002",
+      "path": "docs/research/NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT_002.md",
+      "kind": "precommit_design",
+      "description": "Copy-paste prompt for CAMPAIGN_019 execution sprint. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY",
+      "path": "docs/research/EXIT_HYPOTHESIS_PRECOMMIT_002_SUMMARY.md",
+      "kind": "precommit_design",
+      "description": "Close-out for research-exit-hypothesis-precommit-002. strategy_evidence: false.",
+      "strategy_evidence": false
     }
   ]
 }
