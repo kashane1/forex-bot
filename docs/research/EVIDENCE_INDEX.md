@@ -448,6 +448,7 @@ by `scripts/validate_research_archive.py`.
 | [`backtests/diagnostics/custom_campaign_002_h4_parity.md`](../../backtests/diagnostics/custom_campaign_002_h4_parity.md) | custom-engine reproduction of the rejected CAMPAIGN_002 H4 baseline |
 | [`NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md`](NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md) | CAMPAIGN_019 `signal_bar_close` vs `next_bar_open` (WARN remediation 001) |
 | [`research/fill_timing_reference_comparison/run_manifest.json`](../../research/fill_timing_reference_comparison/run_manifest.json) | Fill-timing comparison manifest (`strategy_evidence: false`) |
+| [`research/financing_overlay_local_first/run_manifest.json`](../../research/financing_overlay_local_first/run_manifest.json) | Financing overlay manifest (`strategy_evidence: false`) |
 
 ### Shared audit WARN remediation (`infra-shared-audit-warn-remediation-and-next-bar-open-001`)
 
@@ -461,6 +462,23 @@ by `scripts/validate_research_archive.py`.
 | [`NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md`](NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md) | Comparison results |
 | [`SHARED_HTF_ALIGN_MODULE_RESULT.md`](SHARED_HTF_ALIGN_MODULE_RESULT.md) | `htf_align` module |
 | [`CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_WARN_REMEDIATION.md`](CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_WARN_REMEDIATION.md) | Validity impact |
+
+### Financing overlay local-first (`infra-observed-cost-financing-overlay-local-first-001`)
+
+> **Infrastructure only** — trade-ledger financing overlay; synthetic/manual fixtures; no broker I/O; **no strategy approval.**
+
+| document | purpose |
+|---|---|
+| [`OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_PLAN.md`](OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_PLAN.md) | Sprint plan |
+| [`FINANCING_OVERLAY_LEDGER_INVENTORY.md`](FINANCING_OVERLAY_LEDGER_INVENTORY.md) | Ledger inventory + selection |
+| [`FINANCING_OVERLAY_CONTRACT.md`](FINANCING_OVERLAY_CONTRACT.md) | Overlay contract |
+| [`FINANCING_FIXTURE_SUPPORT_LOCAL_FIRST_RESULT.md`](FINANCING_FIXTURE_SUPPORT_LOCAL_FIRST_RESULT.md) | Fixture support |
+| [`FINANCING_OVERLAY_LOCAL_FIRST_RESULT.md`](FINANCING_OVERLAY_LOCAL_FIRST_RESULT.md) | Overlay run results |
+| [`SPREAD_COST_AND_FINANCING_SENSITIVITY_LINKAGE.md`](SPREAD_COST_AND_FINANCING_SENSITIVITY_LINKAGE.md) | Cost atlas linkage |
+| [`CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_FINANCING_OVERLAY_LOCAL_FIRST.md`](CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_FINANCING_OVERLAY_LOCAL_FIRST.md) | Validity impact |
+| [`OBSERVED_FINANCING_CAPTURE_READ_ONLY_NEXT_PROMPT.md`](OBSERVED_FINANCING_CAPTURE_READ_ONLY_NEXT_PROMPT.md) | Future read-only capture prompt |
+| [`OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_SUMMARY.md`](OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_SUMMARY.md) | Close-out |
+| [`research/financing_overlay_local_first/run_manifest.json`](../../research/financing_overlay_local_first/run_manifest.json) | Overlay manifest (`strategy_evidence: false`) |
 
 Supporting infrastructure docs:
 [fill-timing model](FILL_TIMING_MODEL.md) ·

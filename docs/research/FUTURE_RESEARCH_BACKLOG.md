@@ -43,12 +43,19 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0-recommended. Observed financing overlay local-first (NEXT)
+## 0-recommended. Observed financing capture read-only (NEXT)
+
+- **Sprint name.** `infra-observed-financing-capture-readonly-002` (suggested)
+- **Prompt.** [`OBSERVED_FINANCING_CAPTURE_READ_ONLY_NEXT_PROMPT.md`](OBSERVED_FINANCING_CAPTURE_READ_ONLY_NEXT_PROMPT.md)
+- **Why.** Local-first overlay shows ~0.04–0.08R synthetic drag on multi-day ledgers; observed broker financing still missing.
+- **Status.** **RECOMMENDED** — read-only capture only; no strategy approval.
+
+## 0-complete-financing-overlay. Observed financing overlay local-first (COMPLETE)
 
 - **Sprint name.** `infra-observed-cost-financing-overlay-local-first-001`
-- **Scope doc.** [`OBSERVED_COST_FINANCING_OVERLAY_NEXT_SCOPE.md`](OBSERVED_COST_FINANCING_OVERLAY_NEXT_SCOPE.md)
-- **Why.** Multi-day/weekly campaigns still lack universal financing overlay; fill-timing remediation shows validation realism matters.
-- **Status.** **RECOMMENDED** — infrastructure only; no strategy approval.
+- **Result.** Ledger overlay contract, runner, synthetic_fixture runs on C008/C016/C017/C019 reference ledgers.
+- **Summary.** [`OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_SUMMARY.md`](OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_SUMMARY.md)
+- **Status.** **COMPLETE** — infrastructure only; no strategy approval.
 
 ## 0-fill-timing-rule. Approval-bound fill timing (POLICY)
 

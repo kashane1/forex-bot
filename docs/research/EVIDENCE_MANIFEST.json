@@ -1713,6 +1713,20 @@
       "kind": "infrastructure_remediation",
       "description": "WARN remediation sprint close-out: fill timing, htf_align, RSI policy, signal provenance. strategy_evidence: false.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FINANCING_OVERLAY_LOCAL_FIRST_001",
+      "path": "docs/research/FINANCING_OVERLAY_LOCAL_FIRST_RESULT.md",
+      "kind": "financing_infrastructure",
+      "description": "Trade-ledger financing overlay on C008/C016/C017/C019 reference ledgers (synthetic_fixture). strategy_evidence: false; not_approved.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_SUMMARY",
+      "path": "docs/research/OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_SUMMARY.md",
+      "kind": "infrastructure_remediation",
+      "description": "Financing overlay local-first sprint close-out. strategy_evidence: false.",
+      "strategy_evidence": false
     }
   ],
   "shared_audit_warn_remediation_001": {
@@ -1726,6 +1740,18 @@
     "fill_timing_comparison_dir": "research/fill_timing_reference_comparison",
     "fill_timing_result_doc": "docs/research/NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md",
     "htf_align_module": "src/forex_bot/features/htf_align.py",
-    "recommended_next_sprint": "infra-observed-cost-financing-overlay-local-first-001"
+    "recommended_next_sprint": "infra-observed-financing-capture-readonly-002"
+  },
+  "observed_cost_financing_overlay_local_first_001": {
+    "sprint": "infra-observed-cost-financing-overlay-local-first-001",
+    "sprint_type": "financing_infrastructure_only",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "campaign_020_created": false,
+    "plan_doc": "docs/research/OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_PLAN.md",
+    "summary_doc": "docs/research/OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_SUMMARY.md",
+    "overlay_dir": "research/financing_overlay_local_first",
+    "overlay_module": "src/forex_bot/research/financing_overlay.py",
+    "recommended_next_sprint": "infra-observed-financing-capture-readonly-002"
   }
 }
