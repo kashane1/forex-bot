@@ -12,14 +12,13 @@
 
 | Phase | Commit | Description |
 |-------|--------|-------------|
-| 0 | _(see git log)_ | Plan + baseline |
-| 1 | _(see git log)_ | Ledger inventory |
-| 2–3 | _(see git log)_ | Contract, fixtures, module, tests |
-| 4 | _(see git log)_ | Overlay runner script |
-| 5 | _(see git log)_ | Overlay artifacts + result doc |
-| 6–8 | _(see git log)_ | Linkage, validity, future capture prompt |
-| 9 | _(see git log)_ | Evidence index / manifest / backlog |
-| 10 | _(see git log)_ | Final summary |
+| 0 | `a85f47b` | Plan + baseline |
+| 1 | `e12b176` | Ledger inventory |
+| 2–3 | `0170b87` | Contract, fixtures, module, tests |
+| 4 | `986d250` | Overlay runner script |
+| 5 | `7779691` | Overlay artifacts + result doc |
+| 6–8 | `5a089bc` | Linkage, validity, future capture prompt |
+| 9–10 | `658e61e` | Evidence index / manifest / backlog + summary |
 
 ## 3. Files changed by phase
 
