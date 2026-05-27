@@ -178,3 +178,6 @@ backtests/diagnostics/campaign_011_norisk/
 research/financing/observed/raw/
 research/fill_timing_reference_comparison/local_trades/
 research/financing_overlay_local_first/local_adjusted_trades/
+
+# CAMPAIGN_021 full trade CSV dumps (compact summaries committed)
+research/campaign_021/raw/
