@@ -1,0 +1,7 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-03-07T18:00:00+00:00,USD_JPY,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,45.91710690422389,70.1,18,Tue,NY
+2023-03-07T22:00:00+00:00,USD_JPY,H4,validation,0.1.0-c008,short,SESSION_BLOCKED,inside blocked session window,1.9,45.68017069677924,69.5,22,Tue,Asia/late
+2023-12-27T22:00:00+00:00,USD_JPY,H4,validation,0.1.0-c008,long,SESSION_BLOCKED,inside blocked session window,1.3,47.80485588773737,72.4,22,Wed,Asia/late
+2024-04-04T21:00:00+00:00,USD_JPY,H4,validation,0.1.0-c008,long,SESSION_BLOCKED,inside blocked session window,1.6,24.042575081552663,36.9,21,Thu,Asia/late
+2024-10-21T17:00:00+00:00,USD_JPY,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 5.3 > cap 2.0 pips,5.3,43.110273018916736,67.3,17,Mon,NY
+2024-10-21T17:00:00+00:00,USD_JPY,H4,validation,0.1.0-c008,short,SPREAD_TO_ATR,spread/atr 12.29% > 8.0%,5.3,43.110273018916736,67.3,17,Mon,NY

@@ -1,0 +1,27 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-02-22T18:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,long,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,28.59382189636832,43.7,18,Wed,NY
+2023-02-23T06:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,long,SPREAD_TOO_WIDE,spread 1.8 > cap 1.5 pips,1.8,27.665388741370727,42.4,6,Thu,London
+2023-03-07T18:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,long,SPREAD_TOO_WIDE,spread 1.8 > cap 1.5 pips,1.8,31.792545677133248,48.6,18,Tue,NY
+2023-04-12T09:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,27.735064920209197,42.4,9,Wed,London
+2023-07-07T13:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,31.622285817945397,48.2,13,Fri,London/NY overlap
+2023-07-07T17:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 2.6 > cap 1.5 pips,2.6,30.081408259520668,46.4,17,Fri,NY
+2023-07-07T17:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TO_ATR,spread/atr 8.64% > 8.0%,2.6,30.081408259520668,46.4,17,Fri,NY
+2023-07-09T21:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,28.911307669554816,44.2,21,Sun,Asia/late
+2023-07-09T21:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SESSION_BLOCKED,inside blocked session window,1.6,28.911307669554816,44.2,21,Sun,Asia/late
+2023-08-10T09:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,28.14846623245545,43.1,9,Thu,London
+2023-08-14T09:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,long,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,27.898052868525276,42.6,9,Mon,London
+2023-08-16T21:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,long,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,27.771680881407363,42.5,21,Wed,Asia/late
+2023-08-16T21:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,long,SESSION_BLOCKED,inside blocked session window,1.6,27.771680881407363,42.5,21,Wed,Asia/late
+2023-08-30T09:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,28.444162365210616,43.5,9,Wed,London
+2023-11-14T14:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,30.02083357575956,45.8,14,Tue,London/NY overlap
+2024-03-06T10:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TO_ATR,spread/atr 8.45% > 8.0%,1.5,17.748684488366198,27.4,10,Wed,London
+2024-07-01T01:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,20.46657619605837,31.5,1,Mon,Asia/late
+2024-07-11T05:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,14.492212731651557,22.5,5,Thu,Asia/late
+2024-07-11T05:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TO_ATR,spread/atr 11.04% > 8.0%,1.6,14.492212731651557,22.5,5,Thu,Asia/late
+2024-07-23T09:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,long,SPREAD_TO_ATR,spread/atr 9.21% > 8.0%,1.4,15.20262803830862,23.5,9,Tue,London
+2024-08-13T13:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,19.671060542694367,30.3,13,Tue,London/NY overlap
+2024-08-13T13:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TO_ATR,spread/atr 8.13% > 8.0%,1.6,19.671060542694367,30.3,13,Tue,London/NY overlap
+2024-09-13T05:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,20.233669374656955,31.2,5,Fri,Asia/late
+2024-12-18T18:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,long,SPREAD_TOO_WIDE,spread 1.8 > cap 1.5 pips,1.8,34.16819512504672,52.2,18,Wed,NY
+2024-12-18T22:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,long,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,34.05260975897196,51.9,22,Wed,Asia/late
+2024-12-18T22:00:00+00:00,EUR_USD,H4,validation,0.1.0-c008,long,SESSION_BLOCKED,inside blocked session window,1.6,34.05260975897196,51.9,22,Wed,Asia/late

@@ -1,0 +1,29 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-05-18T21:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.4,33.76799865875898,51.4,21,Mon,Asia/late
+2020-08-17T21:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.4,22.76647742121606,34.8,21,Mon,Asia/late
+2020-10-06T17:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,long,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,28.312819439229198,43.7,17,Tue,NY
+2020-10-06T17:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,long,SPREAD_TO_ATR,spread/atr 8.83% > 8.0%,2.5,28.312819439229198,43.7,17,Tue,NY
+2020-10-09T17:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SPREAD_TOO_WIDE,spread 9.3 > cap 2.0 pips,9.3,22.022441881969883,37.7,17,Fri,NY
+2020-10-09T17:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SPREAD_TO_ATR,spread/atr 42.23% > 8.0%,9.3,22.022441881969883,37.7,17,Fri,NY
+2020-10-28T17:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,long,SPREAD_TOO_WIDE,spread 15.0 > cap 2.0 pips,15.0,28.50796167782945,50.3,17,Wed,NY
+2020-10-28T17:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,long,SPREAD_TO_ATR,spread/atr 52.62% > 8.0%,15.0,28.50796167782945,50.3,17,Wed,NY
+2021-01-27T22:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,long,SESSION_BLOCKED,inside blocked session window,1.5,31.463737526353835,47.9,22,Wed,Asia/late
+2021-08-08T21:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,long,SESSION_BLOCKED,inside blocked session window,1.5,22.47237572792369,34.5,21,Sun,Asia/late
+2022-01-26T22:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,long,SESSION_BLOCKED,inside blocked session window,1.2,29.616124075070594,45.0,22,Wed,Asia/late
+2022-11-30T18:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,40.72492427970675,62.2,18,Wed,NY
+2022-11-30T22:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.6,40.37314397401343,61.4,22,Wed,Asia/late
+2023-01-15T22:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.6,41.351585908239485,62.8,22,Sun,Asia/late
+2023-08-15T21:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,long,SESSION_BLOCKED,inside blocked session window,1.2,29.151496608254742,44.3,21,Tue,Asia/late
+2023-10-24T21:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.2,23.24676730095097,35.5,21,Tue,Asia/late
+2023-10-25T21:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,long,SESSION_BLOCKED,inside blocked session window,1.3,24.838653873111866,37.9,21,Wed,Asia/late
+2023-11-01T21:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.3,27.895231617191662,42.5,21,Wed,Asia/late
+2023-12-13T22:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.5,30.695121796603676,46.8,22,Wed,Asia/late
+2024-07-18T21:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,long,SESSION_BLOCKED,inside blocked session window,1.1,16.978050070625454,26.0,21,Thu,Asia/late
+2024-09-12T21:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.2,22.28169281632837,34.0,21,Thu,Asia/late
+2025-05-23T17:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SPREAD_TOO_WIDE,spread 7.4 > cap 2.0 pips,7.4,24.273201740848677,40.1,17,Fri,NY
+2025-05-23T17:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SPREAD_TO_ATR,spread/atr 30.49% > 8.0%,7.4,24.273201740848677,40.1,17,Fri,NY
+2025-11-12T22:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SPREAD_TO_ATR,spread/atr 8.47% > 8.0%,1.4,16.526631061761833,25.5,22,Wed,Asia/late
+2025-11-12T22:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.4,16.526631061761833,25.5,22,Wed,Asia/late
+2026-04-07T17:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,25.697547866176137,39.6,17,Tue,NY
+2026-04-07T17:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SPREAD_TO_ATR,spread/atr 8.56% > 8.0%,2.2,25.697547866176137,39.6,17,Tue,NY
+2026-04-07T21:00:00+00:00,AUD_USD,H4,full,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.2,32.39415159002077,49.2,21,Tue,Asia/late

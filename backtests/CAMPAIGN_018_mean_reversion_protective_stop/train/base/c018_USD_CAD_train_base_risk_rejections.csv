@@ -1,0 +1,23 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-02-26T22:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.7,24.72189586454796,37.9,22,Wed,Asia/late
+2020-04-13T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,54.72732584824967,84.3,17,Mon,NY
+2020-04-13T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SPREAD_TO_ATR,spread/atr 8.22% > 8.0%,4.5,54.72732584824967,84.3,17,Mon,NY
+2020-04-13T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.5 pips,2.7,53.65394543051757,81.8,21,Mon,Asia/late
+2020-04-13T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SESSION_BLOCKED,inside blocked session window,2.7,53.65394543051757,81.8,21,Mon,Asia/late
+2020-04-14T01:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SPREAD_TOO_WIDE,spread 3.0 > cap 2.5 pips,3.0,52.42152075690924,80.1,1,Tue,Asia/late
+2020-05-18T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,42.422587286513256,65.9,17,Mon,NY
+2020-05-18T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SPREAD_TO_ATR,spread/atr 10.61% > 8.0%,4.5,42.422587286513256,65.9,17,Mon,NY
+2020-05-18T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SESSION_BLOCKED,inside blocked session window,2.1,41.070973908905216,62.7,21,Mon,Asia/late
+2020-08-04T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SESSION_BLOCKED,inside blocked session window,2.1,38.1337211214466,58.3,21,Tue,Asia/late
+2020-12-30T18:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,29.346634758529333,46.3,18,Wed,NY
+2020-12-30T18:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,long,SPREAD_TO_ATR,spread/atr 15.33% > 8.0%,4.5,29.346634758529333,46.3,18,Wed,NY
+2021-08-16T13:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SPREAD_TO_ATR,spread/atr 8.05% > 8.0%,1.8,22.347380536661895,34.4,13,Mon,London/NY overlap
+2021-08-16T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,21.51185335547183,34.5,17,Mon,NY
+2021-08-16T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SPREAD_TO_ATR,spread/atr 20.92% > 8.0%,4.5,21.51185335547183,34.5,17,Mon,NY
+2021-08-16T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SPREAD_TO_ATR,spread/atr 10.42% > 8.0%,2.2,21.107435258652377,32.8,21,Mon,Asia/late
+2021-08-16T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,2.2,21.107435258652377,32.8,21,Mon,Asia/late
+2021-08-17T01:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SPREAD_TO_ATR,spread/atr 8.60% > 8.0%,1.8,20.92118988303428,32.3,1,Tue,Asia/late
+2021-09-17T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SPREAD_TOO_WIDE,spread 8.0 > cap 2.5 pips,8.0,36.89652507013464,59.3,17,Fri,NY
+2021-09-17T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SPREAD_TO_ATR,spread/atr 21.68% > 8.0%,8.0,36.89652507013464,59.3,17,Fri,NY
+2021-09-19T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,1.9,36.22891613655364,55.3,21,Sun,Asia/late
+2022-11-27T22:00:00+00:00,USD_CAD,H4,train,0.1.0-c018,short,SESSION_BLOCKED,inside blocked session window,2.0,37.539771743560905,57.3,22,Sun,Asia/late
