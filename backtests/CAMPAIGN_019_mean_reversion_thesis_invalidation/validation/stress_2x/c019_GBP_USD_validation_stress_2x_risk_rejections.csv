@@ -1,0 +1,3 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-04-24T21:00:00+00:00,GBP_USD,H4,validation,0.1.0-c019,short,SESSION_BLOCKED,inside blocked session window,1.9,32.268011301197035,49.4,21,Mon,Asia/late
+2024-05-14T17:00:00+00:00,GBP_USD,H4,validation,0.1.0-c019,short,SPREAD_TO_ATR,spread/atr 8.47% > 8.0%,2.1,24.806545154710435,38.3,17,Tue,NY

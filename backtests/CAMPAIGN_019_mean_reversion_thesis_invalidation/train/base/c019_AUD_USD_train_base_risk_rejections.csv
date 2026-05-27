@@ -1,0 +1,14 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-05-18T21:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,short,SESSION_BLOCKED,inside blocked session window,1.4,33.76799865875898,51.4,21,Mon,Asia/late
+2020-08-17T21:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,short,SESSION_BLOCKED,inside blocked session window,1.4,22.76647742121606,34.8,21,Mon,Asia/late
+2020-10-06T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,long,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,28.312819439229198,43.7,17,Tue,NY
+2020-10-06T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,long,SPREAD_TO_ATR,spread/atr 8.83% > 8.0%,2.5,28.312819439229198,43.7,17,Tue,NY
+2020-10-09T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,short,SPREAD_TOO_WIDE,spread 9.3 > cap 2.0 pips,9.3,22.022441881969883,37.7,17,Fri,NY
+2020-10-09T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,short,SPREAD_TO_ATR,spread/atr 42.23% > 8.0%,9.3,22.022441881969883,37.7,17,Fri,NY
+2020-10-28T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,long,SPREAD_TOO_WIDE,spread 15.0 > cap 2.0 pips,15.0,28.50796167782945,50.3,17,Wed,NY
+2020-10-28T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,long,SPREAD_TO_ATR,spread/atr 52.62% > 8.0%,15.0,28.50796167782945,50.3,17,Wed,NY
+2021-01-27T22:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,long,SESSION_BLOCKED,inside blocked session window,1.5,31.463737526353835,47.9,22,Wed,Asia/late
+2021-08-08T21:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,long,SESSION_BLOCKED,inside blocked session window,1.5,22.47237572792369,34.5,21,Sun,Asia/late
+2022-09-06T21:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,long,SESSION_BLOCKED,inside blocked session window,1.5,31.18121404096954,47.5,21,Tue,Asia/late
+2022-11-30T18:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,short,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,40.72492427970675,62.2,18,Wed,NY
+2022-11-30T22:00:00+00:00,AUD_USD,H4,train,0.1.0-c019,short,SESSION_BLOCKED,inside blocked session window,1.6,40.37314397401343,61.4,22,Wed,Asia/late
