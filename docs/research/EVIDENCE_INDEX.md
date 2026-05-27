@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-27 · **Branch:** `research-exit-hypothesis-precommit-001`
+**Date:** 2026-05-27 · **Branch:** `research-campaign-018-protective-stop-execution-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -14,7 +14,8 @@ map; the linked documents are the authoritative evidence.
 > succeeded; `cross_asset_missing` eliminated). **C008 post-mortem sprint**
 > complete. **Stop/exit diagnostics sprint** complete. **Deduped C008/C009 forensic
 > replay** complete. **Exit hypothesis precommit** complete — CAMPAIGN_018
-> pre-registered but **not executed**. See respective summaries.
+> pre-registered but **not executed**. **CAMPAIGN_018 executed** — **REJECT**
+> (train gate fail). See respective summaries.
 > See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
 ## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
@@ -140,6 +141,24 @@ map; the linked documents are the authoritative evidence.
 | [`CAMPAIGN_018_EXIT_HYPOTHESIS_GATE_DESIGN.md`](CAMPAIGN_018_EXIT_HYPOTHESIS_GATE_DESIGN.md) | Gate design |
 | [`CAMPAIGN_018_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md`](CAMPAIGN_018_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md) | Future implementation design |
 | [`NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT.md`](NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT.md) | Execution sprint prompt |
+
+## CAMPAIGN_018 protective stop execution (CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001)
+
+> **CAMPAIGN_018 executed** — `strategy_evidence: true`, `not_approved: true`.
+> Verdict **REJECT** (train −0.119 R; validation +0.194 R). Test lockbox **not opened**.
+> Recommended next sprint: `research-financing-modeled-pnl-and-carry-readiness-001`.
+
+| document | purpose |
+|---|---|
+| [`CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_PLAN.md`](CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_PLAN.md) | Execution sprint plan |
+| [`CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md`](CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md) | Sprint close-out |
+| [`CAMPAIGN_018_TRAIN_VALIDATION_RESULT.md`](CAMPAIGN_018_TRAIN_VALIDATION_RESULT.md) | Train/validation results |
+| [`CAMPAIGN_018_GATE_DECISION.md`](CAMPAIGN_018_GATE_DECISION.md) | Gate decision |
+| [`CAMPAIGN_018_TEST_LOCKBOX_NOT_OPENED.md`](CAMPAIGN_018_TEST_LOCKBOX_NOT_OPENED.md) | Lockbox closed |
+| [`CAMPAIGN_018_FINAL_INTERPRETATION.md`](CAMPAIGN_018_FINAL_INTERPRETATION.md) | Final interpretation |
+| [`research/campaign_018/gate_result.json`](../../research/campaign_018/gate_result.json) | Gate JSON |
+| [`research/campaign_018/mechanism_diagnostics.json`](../../research/campaign_018/mechanism_diagnostics.json) | Mechanism JSON |
+| [`research/campaign_018/metrics_summary.json`](../../research/campaign_018/metrics_summary.json) | Metrics JSON |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

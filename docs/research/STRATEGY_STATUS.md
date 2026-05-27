@@ -1,6 +1,6 @@
 # Strategy Status Registry
 
-**Date:** 2026-05-27 · **Branch:** `infra-deduped-c008-c009-rerun-forensic-only-001`
+**Date:** 2026-05-27 · **Branch:** `research-campaign-018-protective-stop-execution-001`
 
 This is the human-readable status of every strategy family the project
 has built. It is the companion to the machine-enforced registry
@@ -64,6 +64,7 @@ strategy is approved.**
 | `pullback_continuation` | rejected | NO | NO | NO | CAMPAIGN_007 |
 | `mean_reversion 0.1.0-c008` | rejected (research-only) | NO | NO | NO | CAMPAIGN_008 |
 | `mean_reversion 0.2.0-c009` | rejected (research-only) | NO | NO | NO | CAMPAIGN_009 |
+| `mean_reversion_protective_stop 0.1.0-c018` | rejected | NO | NO | NO | CAMPAIGN_018 |
 | `session_breakout 0.1.0-c010` | rejected | NO | NO | NO | CAMPAIGN_010 |
 | `random_entry_anchor 0.1.0-c011` | rejected (null model anchor) | NO | NO | NO | CAMPAIGN_011 |
 | `regime_switcher_atr_percentile 0.1.0-c012` | rejected | NO | NO | NO | CAMPAIGN_012 |
@@ -357,6 +358,17 @@ for the FOMC-block + NFP-falsification analysis.
 - **Paper / demo / live:** NO / NO / NO.
 - **Reason:** Failed pre-committed train-split gate; capped at research-only.
   See [`C008_C009_EVIDENCE_INTEGRITY_DECISION.md`](C008_C009_EVIDENCE_INTEGRITY_DECISION.md).
+
+### `mean_reversion_protective_stop 0.1.0-c018`
+
+- **Status:** rejected — research-only (`paper_only = True`).
+- **Evidence:** CAMPAIGN_018 — C008-identical entries + protective stop after +1R MFE
+  (break-even). Deduped H4 run 2026-05-27. Train **−0.119 R** (236 trades); validation
+  **+0.194 R** (142 trades, 6/6 pairs, PF 1.58). Screening **FAIL** (train gate, full
+  stress_15x). Test lockbox **not opened**. Mechanism active (53% armed, 0% targets).
+- **Paper / demo / live:** NO / NO / NO.
+- **Reason:** Failed precommitted train-split gate. Protective-stop hypothesis **falsified**
+  on train despite validation uplift vs C008. See [`CAMPAIGN_018_FINAL_INTERPRETATION.md`](CAMPAIGN_018_FINAL_INTERPRETATION.md).
 
 ### `mean_reversion 0.2.0-c009`
 

@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-27 · **Branch:** `research-exit-hypothesis-precommit-001`
+**Date:** 2026-05-27 · **Branch:** `research-campaign-018-protective-stop-execution-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -17,7 +17,8 @@
 > [`C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md`](C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md),
 > [`STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md`](STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md),
 > [`DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md`](DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md),
-> [`EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md).
+> [`EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md),
+> [`CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md`](CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md).
 
 Ordering is rough priority. **Item 0** is the recommended next sprint.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
@@ -26,28 +27,25 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. CAMPAIGN_018 protective-stop execution (RECOMMENDED NEXT SPRINT)
+## 0. Financing-modeled PnL and carry readiness (RECOMMENDED NEXT SPRINT)
 
-- **Why it matters.** Exit hypothesis `delayed_reversion_protective_stop_after_1R` is
-  pre-registered with frozen C008 entries, gates, and falsification criteria. Deduped
-  C008/C009 forensics confirmed stop/time pathology and winner-capping by midline target.
-- **Sprint name.** `research-campaign-018-protective-stop-execution-001`
-- **Scope.** Implement and run CAMPAIGN_018 per precommit docs only; deduped backtest;
-  no approval; test lockbox only if screening passes.
-- **Prompt.** [`NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT.md`](NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT.md)
-- **Status.** **RECOMMENDED** — precommit complete.
-
----
-
-## 0-deferred. Financing-modeled PnL and carry readiness (PARALLEL)
-
-- **Why it matters.** C008/C018 40-bar time exits imply multi-day holds; financing unmodeled.
+- **Why it matters.** CAMPAIGN_018 REJECT but validation +0.194 R with 40-bar holds;
+  financing unmodeled. Required before fair comparison of any multi-day-hold exit variant.
 - **Sprint name.** `research-financing-modeled-pnl-and-carry-readiness-001`
-- **Status.** **DEFERRED** — run overlay during or immediately after C018 execution.
+- **Status.** **RECOMMENDED** — CAMPAIGN_018 complete; exit hypothesis falsified on train.
 
 ---
 
-## 0-complete. Exit hypothesis precommit (COMPLETE)
+## 0-complete. CAMPAIGN_018 protective-stop execution (COMPLETE — REJECT)
+
+- **Sprint name.** `research-campaign-018-protective-stop-execution-001`
+- **Result.** Train −0.119 R / val +0.194 R; screening FAIL; test lockbox not opened.
+- **Summary.** [`CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md`](CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md)
+- **Status.** **COMPLETE — REJECT**
+
+---
+
+## 0-complete-prior. Exit hypothesis precommit (COMPLETE)
 
 - **Sprint name.** `research-exit-hypothesis-precommit-001`
 - **Delivered.** One hypothesis selected, CAMPAIGN_018 scope/gates/implementation design,
