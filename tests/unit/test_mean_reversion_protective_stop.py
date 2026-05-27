@@ -5,20 +5,17 @@ from __future__ import annotations
 from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 
-import pytest
-
 from forex_bot.backtesting.engine import BacktestEngine
 from forex_bot.backtesting.fills import FillModel
 from forex_bot.domain.candles import Candle, CandleFrame
 from forex_bot.domain.instruments import Instrument
 from forex_bot.domain.signals import Signal
 from forex_bot.strategies.base import StrategyContext
+from forex_bot.strategies.mean_reversion import MeanReversionStrategy
 from forex_bot.strategies.mean_reversion_protective_stop import (
     MeanReversionProtectiveStopStrategy,
     c008_entry_params,
 )
-from forex_bot.strategies.mean_reversion import MeanReversionStrategy
-
 
 _EUR = Instrument(
     name="EUR_USD",

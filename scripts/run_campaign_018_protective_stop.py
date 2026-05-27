@@ -371,17 +371,6 @@ def run_test(ctx: CampaignCtx) -> dict[str, Any]:
 
 def write_artifacts(payload: dict[str, Any]) -> None:
     OUT_RESEARCH.mkdir(parents=True, exist_ok=True)
-    for name, key in [
-        ("run_manifest.json", "manifest"),
-        ("train_metrics.json", "aggregate"),
-        ("validation_metrics.json", "aggregate"),
-        ("gate_result.json", "gates"),
-        ("mechanism_diagnostics.json", "mechanism"),
-        ("cost_stress_2x.json", "aggregate"),
-        ("comparison_to_c008_c009_deduped.json", "comparison"),
-        ("comparison_to_c011_null.json", "comparison"),
-    ]:
-        pass
     (OUT_RESEARCH / "run_manifest.json").write_text(
         json.dumps(payload.get("manifest", {}), indent=2, default=str),
         encoding="utf-8",
