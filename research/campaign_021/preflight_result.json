@@ -1,0 +1,45 @@
+{
+  "blocked_reasons": [],
+  "campaign_id": "CAMPAIGN_021",
+  "checked_at_utc": "2026-05-27T20:58:44.293298+00:00",
+  "d1agg_pairs_in_store": 0,
+  "data_provenance": {
+    "context_h1": "m1_derived",
+    "context_h4": "m1_derived",
+    "d1agg_context": "native_h4_derived_d1agg",
+    "execution_m15": "m1_derived",
+    "m1_derived_d1agg_allowed": false
+  },
+  "fill_timing": "next_bar_open",
+  "m1_corpus": {
+    "expected_pairs": [
+      "EUR_USD",
+      "GBP_USD",
+      "USD_JPY",
+      "AUD_USD",
+      "USD_CAD",
+      "USD_CHF",
+      "NZD_USD"
+    ],
+    "overall_status": "PASS",
+    "pair_count": 7
+  },
+  "native_h4_rows": 69648,
+  "not_approved": true,
+  "pairs": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "NZD_USD"
+  ],
+  "preflight_ok": true,
+  "status": "SCAFFOLD_ONLY",
+  "strategy_evidence": false,
+  "strategy_name": "lower_timeframe_mtf_confluence_entry",
+  "test_lockbox_opened": false,
+  "version": "0.1.0-c021",
+  "warmup_bars_required": 120
+}
