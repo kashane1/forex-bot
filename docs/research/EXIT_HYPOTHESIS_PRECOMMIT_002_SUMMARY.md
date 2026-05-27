@@ -25,7 +25,7 @@
 | 4 | `6755898` | Gate design |
 | 5 | `babeeda` | Implementation design + execution prompt |
 | 6 | `5bacb62` | Archive updates |
-| 7 | *(this commit)* | Final summary + validation |
+| 7 | `198d2db` | Final summary + validation |
 
 ---
 
