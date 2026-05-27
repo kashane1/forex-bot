@@ -1,0 +1,63 @@
+{
+  "trade_count": 142,
+  "expectancy_r": 0.194,
+  "profit_factor": 1.5774,
+  "pairs_positive": 6,
+  "pairs_total": 6,
+  "per_pair": {
+    "EUR_USD": {
+      "trade_count": 20,
+      "total_return_pct": 1.7266110000000001,
+      "max_drawdown_pct": -1.2621350000000007,
+      "profit_factor": 1.7499156317714462,
+      "expectancy_r": 0.34069086778918134,
+      "win_rate": 0.15,
+      "average_spread_paid_pips": 1.44
+    },
+    "GBP_USD": {
+      "trade_count": 28,
+      "total_return_pct": 1.280921000000057,
+      "max_drawdown_pct": -1.7702673795214567,
+      "profit_factor": 1.449500535854528,
+      "expectancy_r": 0.18180415687087143,
+      "win_rate": 0.25,
+      "average_spread_paid_pips": 1.7535714285714283
+    },
+    "USD_JPY": {
+      "trade_count": 27,
+      "total_return_pct": 0.6235787881936794,
+      "max_drawdown_pct": -2.426442931899184,
+      "profit_factor": 1.176124135647518,
+      "expectancy_r": 0.0006551513302117802,
+      "win_rate": 0.14814814814814814,
+      "average_spread_paid_pips": 1.551851851851852
+    },
+    "AUD_USD": {
+      "trade_count": 27,
+      "total_return_pct": 0.3715519999999861,
+      "max_drawdown_pct": -1.7692429506771357,
+      "profit_factor": 1.1312006587717174,
+      "expectancy_r": 0.056856387991623646,
+      "win_rate": 0.14814814814814814,
+      "average_spread_paid_pips": 1.2444444444444445
+    },
+    "USD_CAD": {
+      "trade_count": 18,
+      "total_return_pct": 1.216107404018496,
+      "max_drawdown_pct": -1.5202406971723603,
+      "profit_factor": 1.6746764686041298,
+      "expectancy_r": 0.19316205168055423,
+      "win_rate": 0.16666666666666666,
+      "average_spread_paid_pips": 1.7833333333333334
+    },
+    "USD_CHF": {
+      "trade_count": 22,
+      "total_return_pct": 2.3099637931951245,
+      "max_drawdown_pct": -0.5108971748747007,
+      "profit_factor": 2.2831827133895324,
+      "expectancy_r": 0.48269175731550096,
+      "win_rate": 0.22727272727272727,
+      "average_spread_paid_pips": 1.5999999999999999
+    }
+  }
+}

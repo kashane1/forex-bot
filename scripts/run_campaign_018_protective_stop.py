@@ -392,7 +392,7 @@ def write_artifacts(payload: dict[str, Any]) -> None:
         json.dumps(agg.get("validation", {}), indent=2), encoding="utf-8"
     )
     (OUT_RESEARCH / "gate_result.json").write_text(
-        json.dumps(payload.get("gates", {}), indent=2, default=str), encoding="utf-8"
+        json.dumps(payload.get("gates", {}), indent=2), encoding="utf-8"
     )
     (OUT_RESEARCH / "mechanism_diagnostics.json").write_text(
         json.dumps(payload.get("mechanism", {}), indent=2), encoding="utf-8"

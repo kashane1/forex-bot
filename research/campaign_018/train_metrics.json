@@ -1,0 +1,63 @@
+{
+  "trade_count": 236,
+  "expectancy_r": -0.1188,
+  "profit_factor": 0.9223,
+  "pairs_positive": 2,
+  "pairs_total": 6,
+  "per_pair": {
+    "EUR_USD": {
+      "trade_count": 38,
+      "total_return_pct": -0.30814700000001416,
+      "max_drawdown_pct": -1.5510547356103501,
+      "profit_factor": 0.9241892053135728,
+      "expectancy_r": -0.029125357542108116,
+      "win_rate": 0.10526315789473684,
+      "average_spread_paid_pips": 1.3605263157894734
+    },
+    "GBP_USD": {
+      "trade_count": 41,
+      "total_return_pct": -2.8645739999999975,
+      "max_drawdown_pct": -3.88777508470064,
+      "profit_factor": 0.5027418362022367,
+      "expectancy_r": -0.2767724842043652,
+      "win_rate": 0.12195121951219512,
+      "average_spread_paid_pips": 1.751219512195122
+    },
+    "USD_JPY": {
+      "trade_count": 40,
+      "total_return_pct": 3.6870519277632186,
+      "max_drawdown_pct": -1.7612866526653947,
+      "profit_factor": 1.9353127626091078,
+      "expectancy_r": 0.0034801842703589903,
+      "win_rate": 0.225,
+      "average_spread_paid_pips": 1.33
+    },
+    "AUD_USD": {
+      "trade_count": 48,
+      "total_return_pct": 1.0515000000000052,
+      "max_drawdown_pct": -2.5995670000000017,
+      "profit_factor": 1.2332053864123433,
+      "expectancy_r": 0.08944702828368767,
+      "win_rate": 0.16666666666666666,
+      "average_spread_paid_pips": 1.3875
+    },
+    "USD_CAD": {
+      "trade_count": 44,
+      "total_return_pct": -4.194411067988391,
+      "max_drawdown_pct": -5.928667438811123,
+      "profit_factor": 0.41235753406922593,
+      "expectancy_r": -0.29876153271201616,
+      "win_rate": 0.09090909090909091,
+      "average_spread_paid_pips": 1.8772727272727272
+    },
+    "USD_CHF": {
+      "trade_count": 25,
+      "total_return_pct": -1.6823346719903154,
+      "max_drawdown_pct": -2.1775422356821874,
+      "profit_factor": 0.5261415972352821,
+      "expectancy_r": -0.27439410433702655,
+      "win_rate": 0.08,
+      "average_spread_paid_pips": 1.66
+    }
+  }
+}

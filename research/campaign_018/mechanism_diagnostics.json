@@ -1,0 +1,15 @@
+{
+  "total_trades": 1018,
+  "protective_stop_armed_count": 543,
+  "protective_stop_armed_rate_pct": 53.34,
+  "protective_stop_exit_count": 377,
+  "protective_stop_exit_rate_pct": 37.03,
+  "target_exit_count": 0,
+  "exit_reason_counts": {
+    "eod": 1,
+    "protective_stop": 377,
+    "stop": 473,
+    "time": 167
+  },
+  "median_r": 0.0
+}

@@ -1,0 +1,12 @@
+{
+  "campaign_id": "CAMPAIGN_018",
+  "strategy_name": "mean_reversion_protective_stop",
+  "strategy_version": "0.1.0-c018",
+  "hypothesis": "delayed_reversion_protective_stop_after_1R",
+  "config_path": "configs/campaign_018_mean_reversion_protective_stop.yaml",
+  "dedupe_policy": "keep_last",
+  "git_commit": "2ec55d3b48f64afa3b8adf8c253641582500fe38",
+  "git_branch": "research-campaign-018-protective-stop-execution-001",
+  "started_at_utc": "2026-05-27T01:16:37.097189+00:00",
+  "elapsed_seconds": 318.6
+}
