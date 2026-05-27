@@ -285,7 +285,18 @@ CAMPAIGN_012's verdict is **REJECT** if any of the following hold:
 | no-lookahead | any structural-audit unit test fails |
 | pipeline | the runner aborts before completion (`BLOCKED`) |
 
-## 17. Cross-links
+## 17. Infrastructure policy (future precommits — post-2026-05-27)
+
+CAMPAIGN_012 executed before these rules; this checklist is updated as a **template** for future campaigns.
+
+| Requirement | Reference |
+|-------------|-----------|
+| `fill_timing: next_bar_open` for approval-bound evidence | [`FILL_TIMING_APPROVAL_BOUND_POLICY.md`](FILL_TIMING_APPROVAL_BOUND_POLICY.md) |
+| HTF: `htf_align` / `d1agg_htf` or documented exception | [`HTF_ALIGNMENT_POLICY_FOR_FUTURE_STRATEGIES.md`](HTF_ALIGNMENT_POLICY_FOR_FUTURE_STRATEGIES.md) |
+| D1AGG (not native OANDA D1) for daily regime gate | §5 no-lookahead; `d1agg_htf` module |
+| `research_metadata` block in campaign YAML or manifest entry | `execution_realism.py` |
+
+## 18. Cross-links
 
 - [`REGIME_SWITCHER_ATR_PERCENTILE_001_PLAN.md`](REGIME_SWITCHER_ATR_PERCENTILE_001_PLAN.md)
 - [`REGIME_SWITCHER_ATR_PERCENTILE_IMPLEMENTATION_SPEC.md`](REGIME_SWITCHER_ATR_PERCENTILE_IMPLEMENTATION_SPEC.md)
