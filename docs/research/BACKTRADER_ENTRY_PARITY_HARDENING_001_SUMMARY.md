@@ -22,7 +22,8 @@
 | 3 | `5810ada` | Refreshed entry parity comparison |
 | 4 | `dd1ccc2` | Parity hardened status memo |
 | 5 | `92b8edb` | Archive/backlog updates |
-| 6 | *(this commit)* | Final validation + summary |
+| 6 | `d5cacfc` | Final validation + summary |
+| fix | `53ee3ff` | Bespoke-only CSV refresh (211 → 3 rows) |
 
 ---
 
