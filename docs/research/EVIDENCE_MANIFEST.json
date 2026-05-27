@@ -1541,6 +1541,41 @@
       "kind": "parity_diagnostic",
       "description": "Close-out for infra-entry-orchestration-parity-diagnostics-001. strategy_evidence: false.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_ENTRY_PARITY_HARDENING_001_PLAN",
+      "path": "docs/research/BACKTRADER_ENTRY_PARITY_HARDENING_001_PLAN.md",
+      "kind": "parity_diagnostic",
+      "description": "Plan for Backtrader entry parity hardening sprint. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_ENTRY_PARITY_HARDENING_RESULT",
+      "path": "docs/research/BACKTRADER_ENTRY_PARITY_HARDENING_RESULT.md",
+      "kind": "parity_diagnostic",
+      "description": "Post-hardening entry comparison results. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_PARITY_HARDENED_STATUS",
+      "path": "docs/research/BACKTRADER_PARITY_HARDENED_STATUS.md",
+      "kind": "parity_diagnostic",
+      "description": "Final parity hardened status for C008/C009/C018. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_PARITY_RUN_MANIFEST",
+      "path": "research/backtrader_exit_parity/parity_run_manifest.json",
+      "kind": "parity_diagnostic",
+      "description": "Backtrader parity run metadata (version, PnL mode, data source). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_ENTRY_PARITY_HARDENING_001_SUMMARY",
+      "path": "docs/research/BACKTRADER_ENTRY_PARITY_HARDENING_001_SUMMARY.md",
+      "kind": "parity_diagnostic",
+      "description": "Close-out for infra-backtrader-entry-parity-hardening-001. strategy_evidence: false.",
+      "strategy_evidence": false
     }
   ]
 }

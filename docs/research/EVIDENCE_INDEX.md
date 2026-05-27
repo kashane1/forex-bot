@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-27 · **Branch:** `infra-entry-orchestration-parity-diagnostics-001`
+**Date:** 2026-05-27 · **Branch:** `infra-backtrader-entry-parity-hardening-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -242,6 +242,23 @@ map; the linked documents are the authoritative evidence.
 | [`ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md`](ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md) | Sprint close-out |
 | [`research/entry_parity/entry_timestamp_comparison.json`](../../research/entry_parity/entry_timestamp_comparison.json) | Entry comparison JSON |
 | [`research/entry_parity/backtrader_adjustment_experiment.json`](../../research/entry_parity/backtrader_adjustment_experiment.json) | Adjustment profiles |
+
+## Backtrader entry parity hardening (BACKTRADER_ENTRY_PARITY_HARDENING_001)
+
+> **Parity diagnostic only** — `strategy_evidence: false`. Formalizes quote→USD PnL
+> fix and engine-aligned risk windows; C008/C009/C018 within ±1 trade tolerance.
+> Independent Backtrader lane **hardened for these campaigns only**. Manual financing
+> sample **paused**. No strategy approved. Recommended next:
+> `research-exit-hypothesis-precommit-002`.
+
+| document | purpose |
+|---|---|
+| [`BACKTRADER_ENTRY_PARITY_HARDENING_001_PLAN.md`](BACKTRADER_ENTRY_PARITY_HARDENING_001_PLAN.md) | Sprint plan and truth audit |
+| [`BACKTRADER_ENTRY_PARITY_HARDENING_RESULT.md`](BACKTRADER_ENTRY_PARITY_HARDENING_RESULT.md) | Post-hardening entry comparison |
+| [`BACKTRADER_PARITY_HARDENED_STATUS.md`](BACKTRADER_PARITY_HARDENED_STATUS.md) | Final parity decision |
+| [`BACKTRADER_ENTRY_PARITY_HARDENING_001_SUMMARY.md`](BACKTRADER_ENTRY_PARITY_HARDENING_001_SUMMARY.md) | Sprint close-out |
+| [`research/backtrader_exit_parity/parity_run_manifest.json`](../../research/backtrader_exit_parity/parity_run_manifest.json) | Run metadata (BT version, PnL mode) |
+| [`research/backtrader_exit_parity/pnl.py`](../../research/backtrader_exit_parity/pnl.py) | Home-currency PnL conversion module |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
