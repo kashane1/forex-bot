@@ -1,0 +1,7 @@
+campaign,split,bespoke_entries,backtrader_entries,common,bespoke_only,backtrader_only
+C008,train,216,165,165,51,0
+C008,validation,138,114,114,24,0
+C009,train,252,207,207,45,0
+C009,validation,151,125,125,26,0
+C018,train,236,197,197,39,0
+C018,validation,142,117,117,25,0

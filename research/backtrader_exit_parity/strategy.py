@@ -13,7 +13,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import datetime
 from decimal import Decimal
-from typing import Any
+from typing import Any, Literal
 
 import backtrader as bt
 import pandas as pd
@@ -31,6 +31,7 @@ from forex_bot.strategies.mean_reversion_protective_stop import (
 )
 from research.backtrader_exit_parity.data_feed import DedupedBidAskFeed, prepare_candle_window
 from research.backtrader_exit_parity.exit_logic import OpenTrade, process_bar_exit
+from research.backtrader_exit_parity.risk_windows import drawdown_pct, realized_windows
 
 
 @dataclass
@@ -76,9 +77,20 @@ def _synthetic_account_snapshot(ts: pd.Timestamp, equity: float):
 
 
 def _pnl(trade: OpenTrade, exit_price: Decimal, instrument: Instrument) -> Decimal:
-    if trade.side == "long":
-        return (exit_price - trade.entry_price) * trade.units
-    return (trade.entry_price - exit_price) * trade.units
+    diff_quote = (
+        (exit_price - trade.entry_price)
+        if trade.side == "long"
+        else (trade.entry_price - exit_price)
+    )
+    gross_quote = diff_quote * trade.units
+    home = "USD"
+    if instrument.quote_currency == home:
+        return gross_quote
+    if instrument.base_currency == home:
+        return gross_quote / exit_price
+    raise ValueError(
+        f"Unsupported cross pair {instrument.name} for account_currency={home}"
+    )
 
 
 def run_mean_reversion_exit_parity(
@@ -94,6 +106,8 @@ def run_mean_reversion_exit_parity(
     risk_engine: RiskEngine | None,
     max_bars_in_trade: int,
     starting_equity: float,
+    risk_window_mode: Literal["legacy_bt", "engine_aligned"] = "legacy_bt",
+    rejection_log: list[dict[str, Any]] | None = None,
 ) -> PairParityResult:
     """Drive one instrument through Backtrader with exit-parity logic."""
     trades_out: list[ParityTrade] = []
@@ -226,17 +240,21 @@ def run_mean_reversion_exit_parity(
             stop_price_to_use = signal.stop_price
 
             if risk_engine is not None:
-                realized_today = Decimal("0")
-                realized_week = Decimal("0")
-                for t, p in self._realized:
-                    if t.date() == ts.date():
-                        realized_today += p
-                week_start = ts.to_pydatetime().date()
-                for t, p in self._realized:
-                    if (week_start - t.date()).days < 7:
-                        realized_week += p
-                peak = max((e for _, e in self._equity_bars), default=starting_equity)
-                dd_pct = (peak - self._equity) / peak * 100 if peak > 0 else 0.0
+                if risk_window_mode == "engine_aligned":
+                    realized_today, realized_week = realized_windows(ts, self._realized)
+                    dd_pct = drawdown_pct(self._equity_bars, self._equity)
+                else:
+                    realized_today = Decimal("0")
+                    realized_week = Decimal("0")
+                    for t, p in self._realized:
+                        if t.date() == ts.date():
+                            realized_today += p
+                    week_start = ts.to_pydatetime().date()
+                    for t, p in self._realized:
+                        if (week_start - t.date()).days < 7:
+                            realized_week += p
+                    peak = max((e for _, e in self._equity_bars), default=starting_equity)
+                    dd_pct = Decimal(str((peak - self._equity) / peak * 100 if peak > 0 else 0.0))
                 atr_pips_val = signal.features.get("atr_pips")
                 inputs = RiskInputs(
                     signal=signal,
@@ -247,7 +265,7 @@ def run_mean_reversion_exit_parity(
                     quotes_by_instrument=quotes_for_sizing,
                     realized_pl_today=realized_today,
                     realized_pl_week=realized_week,
-                    drawdown_pct=Decimal(str(dd_pct)),
+                    drawdown_pct=dd_pct if isinstance(dd_pct, Decimal) else Decimal(str(dd_pct)),
                     atr_pips=(
                         Decimal(str(atr_pips_val)) if atr_pips_val is not None else None
                     ),
@@ -255,6 +273,17 @@ def run_mean_reversion_exit_parity(
                 )
                 decision, plan = risk_engine.evaluate(inputs)
                 if not decision.approved or plan is None:
+                    if rejection_log is not None:
+                        rejection_log.append(
+                            {
+                                "timestamp": ts.isoformat(),
+                                "instrument": instrument.name,
+                                "side": signal.side,
+                                "codes": [c.value for c in decision.rejection_codes],
+                                "messages": list(decision.rejection_messages),
+                                "risk_window_mode": risk_window_mode,
+                            }
+                        )
                     return
                 units = plan.units
                 stop_price_to_use = plan.stop_loss_price

@@ -1,0 +1,2478 @@
+{
+  "campaigns": {
+    "C008": {
+      "campaign": "C008",
+      "bespoke_entry_count": 354,
+      "backtrader_entry_count": 279,
+      "common_entries": 279,
+      "bespoke_only_entries": 75,
+      "backtrader_only_entries": 0,
+      "common_pct_of_bespoke": 78.81,
+      "common_pct_of_backtrader": 100.0,
+      "attribution_counts": {
+        "risk_engine_or_orchestration_divergence": 74,
+        "backtrader_position_still_open": 1
+      },
+      "by_pair": {
+        "AUD_USD": {
+          "common": 70
+        },
+        "EUR_USD": {
+          "common": 55
+        },
+        "GBP_USD": {
+          "common": 64,
+          "bespoke_only": 1
+        },
+        "USD_CAD": {
+          "common": 44,
+          "bespoke_only": 15
+        },
+        "USD_CHF": {
+          "common": 43
+        },
+        "USD_JPY": {
+          "common": 3,
+          "bespoke_only": 59
+        }
+      },
+      "by_split": {
+        "train": {
+          "common": 165,
+          "bespoke_only": 51
+        },
+        "validation": {
+          "common": 114,
+          "bespoke_only": 24
+        }
+      },
+      "bespoke_only_details": [
+        {
+          "campaign": "C008",
+          "instrument": "GBP_USD",
+          "entry_time": "2024-01-16T06:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-01-24T10:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-02-04T10:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-02-24T06:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-04-20T09:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-04-20T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-05-27T05:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-07-05T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-07-05T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-08-05T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-09-09T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-10-13T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-10-26T05:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-11-28T02:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 2,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-12-05T14:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_CAD",
+          "entry_time": "2022-12-16T14:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-04-28T09:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "backtrader_position_still_open"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-05-06T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-05-29T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-06-23T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-07-10T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-07-24T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-08-11T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-08-25T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-08-27T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-09-14T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-10-07T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-10-20T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-11-05T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-11-18T06:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-12-02T06:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-12-14T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-12-30T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-01-21T02:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 2,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-02-24T10:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-05-07T09:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-05-27T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-07-01T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-07-27T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-09-01T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-09-14T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-09-23T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-10-08T01:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-12-16T02:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 2,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-01-10T14:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-01-12T14:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-02-24T02:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 2,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-04-05T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-05-12T05:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-07-11T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-09-21T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-12-13T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-04-28T01:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-05-15T01:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Monday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-06-15T01:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-07-20T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-08-10T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-08-23T13:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-09-01T09:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Friday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-09-20T05:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-10-12T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-02-08T10:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-02-29T06:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-03-27T05:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-04-10T09:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-04-10T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-13T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Monday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-14T09:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-23T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-29T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-08-15T09:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-10-02T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-10-17T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-10-22T01:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C008",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-11-12T14:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        }
+      ],
+      "warmup_bars_required": 220,
+      "first_bars_note": "Warmup-sensitive gaps not isolated bar-by-bar in this pass; 0 bespoke-only entries lack rejection logs and BT position overlap."
+    },
+    "C009": {
+      "campaign": "C009",
+      "bespoke_entry_count": 403,
+      "backtrader_entry_count": 332,
+      "common_entries": 332,
+      "bespoke_only_entries": 71,
+      "backtrader_only_entries": 0,
+      "common_pct_of_bespoke": 82.38,
+      "common_pct_of_backtrader": 100.0,
+      "attribution_counts": {
+        "risk_engine_or_orchestration_divergence": 70,
+        "backtrader_position_still_open": 1
+      },
+      "by_pair": {
+        "AUD_USD": {
+          "common": 84
+        },
+        "EUR_USD": {
+          "common": 60
+        },
+        "GBP_USD": {
+          "common": 73,
+          "bespoke_only": 1
+        },
+        "USD_CAD": {
+          "common": 64
+        },
+        "USD_CHF": {
+          "common": 48
+        },
+        "USD_JPY": {
+          "common": 3,
+          "bespoke_only": 70
+        }
+      },
+      "by_split": {
+        "train": {
+          "common": 207,
+          "bespoke_only": 45
+        },
+        "validation": {
+          "common": 125,
+          "bespoke_only": 26
+        }
+      },
+      "bespoke_only_details": [
+        {
+          "campaign": "C009",
+          "instrument": "GBP_USD",
+          "entry_time": "2024-01-16T06:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-04-28T09:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "backtrader_position_still_open"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-05-06T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-05-11T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-05-29T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-06-02T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-06-02T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-06-23T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-07-10T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-07-24T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-08-11T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-08-25T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-08-27T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-09-14T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-10-07T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-10-12T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-10-12T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-10-20T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-10-21T05:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-10-27T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-11-05T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-11-18T06:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-12-02T06:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-12-14T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-12-30T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-01-21T02:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 2,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-02-24T10:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-05-07T09:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-05-12T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-05-27T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-07-01T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-07-27T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-09-01T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-09-14T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-09-23T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-10-08T01:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-12-16T02:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 2,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-12-21T14:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-01-10T14:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-01-12T14:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-02-24T02:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 2,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-04-05T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-05-12T05:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-07-11T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-09-21T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-12-13T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-04-10T09:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Monday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-04-28T01:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-05-15T01:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Monday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-06-15T01:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-07-20T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-08-10T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-08-23T13:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-09-01T09:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Friday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-09-05T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-09-20T05:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-10-12T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-02-08T10:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-02-29T06:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-03-27T05:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-04-10T09:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-04-10T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-13T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Monday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-14T09:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-23T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-29T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-08-15T09:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-10-02T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-10-17T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-10-21T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Monday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C009",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-11-12T14:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        }
+      ],
+      "warmup_bars_required": 220,
+      "first_bars_note": "Warmup-sensitive gaps not isolated bar-by-bar in this pass; 0 bespoke-only entries lack rejection logs and BT position overlap."
+    },
+    "C018": {
+      "campaign": "C018",
+      "bespoke_entry_count": 378,
+      "backtrader_entry_count": 314,
+      "common_entries": 314,
+      "bespoke_only_entries": 64,
+      "backtrader_only_entries": 0,
+      "common_pct_of_bespoke": 83.07,
+      "common_pct_of_backtrader": 100.0,
+      "attribution_counts": {
+        "risk_engine_or_orchestration_divergence": 63,
+        "backtrader_position_still_open": 1
+      },
+      "by_pair": {
+        "AUD_USD": {
+          "common": 75
+        },
+        "EUR_USD": {
+          "common": 58
+        },
+        "GBP_USD": {
+          "common": 68,
+          "bespoke_only": 1
+        },
+        "USD_CAD": {
+          "common": 62
+        },
+        "USD_CHF": {
+          "common": 47
+        },
+        "USD_JPY": {
+          "common": 4,
+          "bespoke_only": 63
+        }
+      },
+      "by_split": {
+        "train": {
+          "common": 197,
+          "bespoke_only": 39
+        },
+        "validation": {
+          "common": 117,
+          "bespoke_only": 25
+        }
+      },
+      "bespoke_only_details": [
+        {
+          "campaign": "C018",
+          "instrument": "GBP_USD",
+          "entry_time": "2024-01-16T06:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-04-28T09:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "backtrader_position_still_open"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-05-06T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-05-29T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-06-23T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-07-10T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-07-24T01:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-08-11T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-08-25T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-08-27T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-09-14T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-10-07T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-10-20T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-11-05T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-11-18T06:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-12-02T06:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-12-14T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2020-12-30T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-01-21T02:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 2,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-02-24T10:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-05-07T09:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-05-12T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-05-27T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-07-01T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-07-27T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-09-01T05:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-09-14T13:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-09-23T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-10-08T01:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-10-08T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Friday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-12-16T02:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 2,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2021-12-21T14:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-01-10T14:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-01-12T14:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-02-24T02:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 2,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-04-05T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-05-12T05:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Thursday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-07-11T09:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Monday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-09-21T13:00:00+00:00",
+          "side": "short",
+          "split": "train",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2022-12-13T10:00:00+00:00",
+          "side": "long",
+          "split": "train",
+          "weekday": "Tuesday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-05-15T01:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Monday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-06-15T01:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 1,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-06-16T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Friday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-07-20T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-08-10T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-08-23T13:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-09-01T09:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Friday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-09-05T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-09-20T05:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2023-10-12T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-02-08T10:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 10,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-02-29T06:00:00+00:00",
+          "side": "long",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 6,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-03-27T05:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 5,
+          "session": "Asia/late",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-04-10T09:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-04-10T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-13T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Monday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-14T09:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-23T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-05-29T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-08-15T09:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 9,
+          "session": "London",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-10-02T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Wednesday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-10-17T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Thursday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-10-21T13:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Monday",
+          "hour_utc": 13,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        },
+        {
+          "campaign": "C018",
+          "instrument": "USD_JPY",
+          "entry_time": "2024-11-12T14:00:00+00:00",
+          "side": "short",
+          "split": "validation",
+          "weekday": "Tuesday",
+          "hour_utc": 14,
+          "session": "London/NY overlap",
+          "attribution": "risk_engine_or_orchestration_divergence"
+        }
+      ],
+      "warmup_bars_required": 220,
+      "first_bars_note": "Warmup-sensitive gaps not isolated bar-by-bar in this pass; 0 bespoke-only entries lack rejection logs and BT position overlap."
+    }
+  },
+  "aggregate_attribution": {
+    "risk_engine_or_orchestration_divergence": 207,
+    "backtrader_position_still_open": 3,
+    "C008_bespoke_only": 75,
+    "C008_common": 279,
+    "C009_bespoke_only": 71,
+    "C009_common": 332,
+    "C018_bespoke_only": 64,
+    "C018_common": 314
+  },
+  "generated_at_utc": "2026-05-27T04:52:16.337444+00:00",
+  "strategy_evidence": false,
+  "parity_diagnostic_only": true
+}
