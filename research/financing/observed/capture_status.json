@@ -1,0 +1,17 @@
+{
+  "capture_window": {
+    "from": "2026-05-01T00:00:00Z",
+    "to": "2026-05-14T23:59:59Z"
+  },
+  "credential_status": {
+    "access_token_present": false,
+    "account_id_present": false,
+    "environment_is_practice": true
+  },
+  "credentials_required_for_execute": true,
+  "network_called": false,
+  "not_approved": true,
+  "status": "DRY_RUN_OK",
+  "strategy_evidence": false,
+  "tool": "capture_oanda_observed_financing_readonly"
+}
