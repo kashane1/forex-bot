@@ -1,0 +1,5 @@
+{
+  "reason": "OBSERVED_FIXTURE_EMPTY_OR_SPARSE",
+  "entry_count": 0,
+  "recommendation": "run read-only capture when practice credentials available"
+}

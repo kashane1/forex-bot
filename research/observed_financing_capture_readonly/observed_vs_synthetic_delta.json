@@ -1,0 +1,18 @@
+{
+  "strategy_evidence": false,
+  "not_approved": true,
+  "observed": {
+    "entry_count": 0,
+    "financing_transaction_count": 0,
+    "unknown_transaction_count": 0,
+    "financing_total_by_instrument": {},
+    "capture_window": {
+      "from": "2026-05-13T00:00:00Z",
+      "to": "2026-05-27T23:59:59Z"
+    },
+    "sufficient_for_rate_inference": false
+  },
+  "synthetic_ledger_drag_r": {},
+  "conclusion": "synthetic_only_no_observed_data",
+  "synthetic_vs_observed": "Synthetic stress drag on reference ledgers is material (~0.04\u20130.08R). Without sufficient observed entries, treat stress as conservative directional bound, not calibrated truth."
+}

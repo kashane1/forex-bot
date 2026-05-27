@@ -1,0 +1,8 @@
+{
+  "strategy_evidence": false,
+  "not_approved": true,
+  "fixture_path": "research/observed_financing_capture_readonly/observed_practice_financing.json",
+  "valid": true,
+  "entry_count": 0,
+  "sufficient_for_overlay": false
+}

@@ -1,0 +1,19 @@
+{
+  "account_currency": "USD",
+  "account_id_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "capture_window": {
+    "from": "2026-05-13T00:00:00Z",
+    "to": "2026-05-27T23:59:59Z"
+  },
+  "captured_at_utc": "2026-05-27T12:00:00+00:00",
+  "entries": [],
+  "environment": "practice",
+  "fixture_version": 1,
+  "redaction_status": "sanitized",
+  "source": "oanda_practice_observed",
+  "transaction_counts": {
+    "financing": 0,
+    "total": 0,
+    "unknown": 0
+  }
+}
