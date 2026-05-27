@@ -1478,6 +1478,69 @@
       "kind": "parity_diagnostic",
       "description": "Close-out for infra-backtrader-exit-parity-diagnostics-001. strategy_evidence: false.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_PLAN",
+      "path": "docs/research/ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_PLAN.md",
+      "kind": "parity_diagnostic",
+      "description": "Plan for entry/RiskEngine orchestration parity sprint. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "ENTRY_TIMESTAMP_PARITY_COMPARISON",
+      "path": "docs/research/ENTRY_TIMESTAMP_PARITY_COMPARISON.md",
+      "kind": "parity_diagnostic",
+      "description": "Bespoke vs Backtrader entry timestamp comparison. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "ENTRY_TIMESTAMP_COMPARISON_JSON",
+      "path": "research/entry_parity/entry_timestamp_comparison.json",
+      "kind": "parity_diagnostic",
+      "description": "Machine-readable entry timestamp parity aggregates. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "RISK_FILTER_ENTRY_PARITY_ATTRIBUTION",
+      "path": "docs/research/RISK_FILTER_ENTRY_PARITY_ATTRIBUTION.md",
+      "kind": "parity_diagnostic",
+      "description": "Risk/filter attribution for entry-count gap. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "RISK_FILTER_ATTRIBUTION_JSON",
+      "path": "research/entry_parity/risk_filter_attribution.json",
+      "kind": "parity_diagnostic",
+      "description": "Machine-readable risk/filter attribution. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_ENTRY_PARITY_ADJUSTMENT_EXPERIMENT",
+      "path": "docs/research/BACKTRADER_ENTRY_PARITY_ADJUSTMENT_EXPERIMENT.md",
+      "kind": "parity_diagnostic",
+      "description": "Backtrader PnL-fix adjustment experiment results. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_ADJUSTMENT_EXPERIMENT_JSON",
+      "path": "research/entry_parity/backtrader_adjustment_experiment.json",
+      "kind": "parity_diagnostic",
+      "description": "Machine-readable adjustment experiment profiles. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "ENTRY_ORCHESTRATION_PARITY_DECISION",
+      "path": "docs/research/ENTRY_ORCHESTRATION_PARITY_DECISION.md",
+      "kind": "parity_diagnostic",
+      "description": "Entry orchestration parity classification and next sprint. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY",
+      "path": "docs/research/ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md",
+      "kind": "parity_diagnostic",
+      "description": "Close-out for infra-entry-orchestration-parity-diagnostics-001. strategy_evidence: false.",
+      "strategy_evidence": false
     }
   ]
 }

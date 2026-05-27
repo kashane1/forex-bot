@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-27 · **Branch:** `infra-backtrader-exit-parity-diagnostics-001`
+**Date:** 2026-05-27 · **Branch:** `infra-entry-orchestration-parity-diagnostics-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -225,6 +225,23 @@ map; the linked documents are the authoritative evidence.
 | [`research/backtrader_exit_parity/c009_parity_summary.json`](../../research/backtrader_exit_parity/c009_parity_summary.json) | C009 BT aggregates |
 | [`research/backtrader_exit_parity/c018_parity_summary.json`](../../research/backtrader_exit_parity/c018_parity_summary.json) | C018 BT aggregates |
 | [`research/backtrader_exit_parity/exit_reason_comparison.csv`](../../research/backtrader_exit_parity/exit_reason_comparison.csv) | Exit-reason side-by-side |
+
+## Entry orchestration parity diagnostics (ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001)
+
+> **Parity diagnostic only** — `strategy_evidence: false`. Root cause of ~20% trade-count
+> gap: Backtrader lane missing quote→USD PnL conversion (USD_JPY/USD_CAD). Fixed in branch;
+> gap narrows to ±1 trade. Bespoke engine entry orchestration **trustworthy**.
+
+| document | purpose |
+|---|---|
+| [`ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_PLAN.md`](ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_PLAN.md) | Sprint plan |
+| [`ENTRY_TIMESTAMP_PARITY_COMPARISON.md`](ENTRY_TIMESTAMP_PARITY_COMPARISON.md) | Entry timestamp analysis |
+| [`RISK_FILTER_ENTRY_PARITY_ATTRIBUTION.md`](RISK_FILTER_ENTRY_PARITY_ATTRIBUTION.md) | Root-cause attribution |
+| [`BACKTRADER_ENTRY_PARITY_ADJUSTMENT_EXPERIMENT.md`](BACKTRADER_ENTRY_PARITY_ADJUSTMENT_EXPERIMENT.md) | PnL-fix experiment |
+| [`ENTRY_ORCHESTRATION_PARITY_DECISION.md`](ENTRY_ORCHESTRATION_PARITY_DECISION.md) | Classification + next sprint |
+| [`ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md`](ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md) | Sprint close-out |
+| [`research/entry_parity/entry_timestamp_comparison.json`](../../research/entry_parity/entry_timestamp_comparison.json) | Entry comparison JSON |
+| [`research/entry_parity/backtrader_adjustment_experiment.json`](../../research/entry_parity/backtrader_adjustment_experiment.json) | Adjustment profiles |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

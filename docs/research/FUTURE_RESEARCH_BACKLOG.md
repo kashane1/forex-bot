@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-27 · **Branch:** `infra-backtrader-exit-parity-diagnostics-001`
+**Date:** 2026-05-27 · **Branch:** `infra-entry-orchestration-parity-diagnostics-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -22,7 +22,8 @@
 > [`FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md`](FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md),
 > [`OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md`](OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md),
 > [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md),
-> [`BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md`](BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md).
+> [`BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md`](BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md),
+> [`ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md`](ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md).
 
 Ordering is rough priority. **Item 0** is the recommended next action.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
@@ -31,12 +32,20 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. Exit hypothesis precommit follow-up (RECOMMENDED NEXT SPRINT)
+## 0. Backtrader entry parity hardening (RECOMMENDED NEXT SPRINT)
+
+- **Sprint name.** `infra-backtrader-entry-parity-hardening-001`
+- **Why it matters.** Entry orchestration sprint found **BACKTRADER_IMPLEMENTATION_GAP**: missing quote→USD PnL conversion caused ~20% trade-count gap; fix narrows to ±1 trade ([`ENTRY_ORCHESTRATION_PARITY_DECISION.md`](ENTRY_ORCHESTRATION_PARITY_DECISION.md)).
+- **Action.** Land PnL fix + engine-aligned risk windows; refresh exit-parity artifacts; confirm ±1 tolerance.
+- **Status.** **RECOMMENDED** — then `research-exit-hypothesis-precommit-002`.
+
+---
+
+## 0-next. Exit hypothesis precommit follow-up (AFTER HARDENING)
 
 - **Sprint name.** `research-exit-hypothesis-precommit-002`
-- **Why it matters.** Backtrader exit-parity lane corroborates C008 stop/time split, C009 target capping, and C018 protective exits at the distribution level ([`BACKTRADER_EXIT_PARITY_STATUS.md`](BACKTRADER_EXIT_PARITY_STATUS.md)).
-- **Action.** Pre-register next exit hypothesis if human authorizes; no approval path.
-- **Status.** **RECOMMENDED** — exit pathology confirmed; trade-count gap is entry-orchestration, not exit bug.
+- **Why it matters.** Exit pathology corroborated; entry gap explained and fixable.
+- **Status.** **BLOCKED** until hardening sprint refreshes parity artifacts.
 
 ---
 
@@ -48,7 +57,14 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0-complete. Backtrader exit parity diagnostics (COMPLETE)
+## 0-complete. Entry orchestration parity diagnostics (COMPLETE)
+
+- **Sprint name.** `infra-entry-orchestration-parity-diagnostics-001`
+- **Result.** BACKTRADER_IMPLEMENTATION_GAP — missing quote→USD PnL; fix narrows gap to ±1 trade.
+- **Summary.** [`ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md`](ENTRY_ORCHESTRATION_PARITY_DIAGNOSTICS_001_SUMMARY.md)
+- **Status.** **COMPLETE — PARITY_DIAGNOSTIC**
+
+---
 
 - **Sprint name.** `infra-backtrader-exit-parity-diagnostics-001`
 - **Result.** Backtrader 1.9.78 exit shares CLOSE_MATCH bespoke; trade counts MATERIAL_DIVERGENCE (entry-side).
