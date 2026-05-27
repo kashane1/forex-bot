@@ -24,7 +24,7 @@
 | 5 | `8625744` | preflight runner |
 | 6 | `1994588` | Backtrader parity design |
 | 7 | `888e6a6` | execution sprint prompt |
-| 8–9 | (this commit) | evidence index + summary |
+| 8–9 | `5506ae8` | evidence index + summary |
 
 ## 4. Files changed by phase
 

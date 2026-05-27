@@ -835,7 +835,7 @@
         "fill_timing": "next_bar_open",
         "warmup_bars_required": 520
       },
-      "commit_hash": "TBD-phase9",
+      "commit_hash": "5506ae8",
       "test_window_opened": false,
       "risk_engine_used": false,
       "financing_treatment": "none",
