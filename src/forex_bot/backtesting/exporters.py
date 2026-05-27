@@ -56,6 +56,10 @@ def write_trades_csv(result: BacktestResult, path: Path) -> None:
         "ambiguous_exit",
         "gap_fill",
         "gap_fill_distance_pips",
+        "protective_stop_armed",
+        "protective_stop_arm_time",
+        "protective_stop_arm_mfe_r",
+        "protective_stop_exit",
     ]
     with path.open("w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames)
@@ -84,6 +88,17 @@ def write_trades_csv(result: BacktestResult, path: Path) -> None:
                         if t.gap_fill_distance_pips is not None
                         else ""
                     ),
+                    "protective_stop_armed": t.protective_stop_armed,
+                    "protective_stop_arm_time": (
+                        t.protective_stop_arm_time.isoformat()
+                        if t.protective_stop_arm_time is not None
+                        else ""
+                    ),
+                    "protective_stop_arm_mfe_r": (
+                        "" if t.protective_stop_arm_mfe_r is None
+                        else t.protective_stop_arm_mfe_r
+                    ),
+                    "protective_stop_exit": t.protective_stop_exit,
                 }
             )
 

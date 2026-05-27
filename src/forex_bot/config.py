@@ -216,6 +216,43 @@ class MeanReversionStrategyConfig(BaseModel):
         return self
 
 
+class ProtectiveStopConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    enabled: bool = True
+    favorable_excursion_r_threshold: float = 1.0
+    stop_after_transition: Literal["entry_price"] = "entry_price"
+    ratchet: bool = False
+
+    @model_validator(mode="after")
+    def _check(self) -> ProtectiveStopConfig:
+        if not self.enabled:
+            raise ConfigError("protective_stop.enabled must be true for c018")
+        if self.favorable_excursion_r_threshold != 1.0:
+            raise ConfigError(
+                "protective_stop.favorable_excursion_r_threshold must be 1.0 "
+                "(precommitted — no tuning)"
+            )
+        if self.stop_after_transition != "entry_price":
+            raise ConfigError("protective_stop.stop_after_transition must be entry_price")
+        if self.ratchet:
+            raise ConfigError("protective_stop.ratchet must be false in v0.1.0-c018")
+        return self
+
+
+class MeanReversionProtectiveStopStrategyConfig(MeanReversionStrategyConfig):
+    """CAMPAIGN_018 — C008-identical entries + protective stop (engine)."""
+
+    midline_exit: bool = False
+    protective_stop: ProtectiveStopConfig = Field(default_factory=ProtectiveStopConfig)
+
+    @model_validator(mode="after")
+    def _check_c018(self) -> MeanReversionProtectiveStopStrategyConfig:
+        if self.midline_exit:
+            raise ConfigError("midline_exit must be false for mean_reversion_protective_stop")
+        return self
+
+
 class SessionBreakoutStrategyConfig(BaseModel):
     # CAMPAIGN_010 research candidate (`session_breakout 0.1.0-c010`).
     # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
@@ -695,6 +732,7 @@ class StrategyConfig(BaseModel):
     volatility_breakout: VolatilityBreakoutStrategyConfig | None = None
     pullback_continuation: PullbackContinuationStrategyConfig | None = None
     mean_reversion: MeanReversionStrategyConfig | None = None
+    mean_reversion_protective_stop: MeanReversionProtectiveStopStrategyConfig | None = None
     session_breakout: SessionBreakoutStrategyConfig | None = None
     random_entry_anchor: RandomEntryAnchorStrategyConfig | None = None
     regime_switcher_atr_percentile: (
@@ -739,6 +777,13 @@ class StrategyConfig(BaseModel):
         if "mean_reversion" in self.enabled and self.mean_reversion is None:
             raise ConfigError(
                 "strategy.mean_reversion config required when enabled"
+            )
+        if (
+            "mean_reversion_protective_stop" in self.enabled
+            and self.mean_reversion_protective_stop is None
+        ):
+            raise ConfigError(
+                "strategy.mean_reversion_protective_stop config required when enabled"
             )
         if "session_breakout" in self.enabled and self.session_breakout is None:
             raise ConfigError(

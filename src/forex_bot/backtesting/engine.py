@@ -105,6 +105,12 @@ class _OpenTrade:
     # Optional fixed take-profit / midline-target level (CAMPAIGN_009).
     # When set, the trade exits if price reaches it. None = no target.
     take_profit_price: Decimal | None = None
+    # Protective stop state (CAMPAIGN_018 research backtest).
+    protective_armed: bool = False
+    protective_arm_bar: int | None = None
+    protective_arm_mfe_r: float | None = None
+    protective_arm_time: pd.Timestamp | None = None
+    peak_mfe_r: float = 0.0
 
 
 class BacktestEngine:
@@ -126,6 +132,7 @@ class BacktestEngine:
         risk_engine: RiskEngine | None = None,
         settings: Settings | None = None,
         gap_fill_policy: GapFillPolicy = "none",
+        protective_stop_after_r: float | None = None,
     ) -> None:
         self.instrument = instrument
         self.strategy = strategy
@@ -146,6 +153,7 @@ class BacktestEngine:
         # behavior + config_hash. See
         # docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.
         self.gap_fill_policy: GapFillPolicy = gap_fill_policy
+        self.protective_stop_after_r = protective_stop_after_r
 
     def run(
         self,
@@ -190,6 +198,11 @@ class BacktestEngine:
                 **(
                     {"gap_fill_policy": self.gap_fill_policy}
                     if self.gap_fill_policy != "none"
+                    else {}
+                ),
+                **(
+                    {"protective_stop_after_r": self.protective_stop_after_r}
+                    if self.protective_stop_after_r is not None
                     else {}
                 ),
             }),
@@ -292,6 +305,33 @@ class BacktestEngine:
                 # § "Trailing-stop ordering caveat".
                 pre_trailing_stop_price: Decimal = open_trade.stop_price
 
+                risk_dist = (
+                    open_trade.entry_price - open_trade.initial_stop_price
+                ).copy_abs()
+                if risk_dist > 0:
+                    if open_trade.side == "long":
+                        fav_move = bid_high - open_trade.entry_price
+                    else:
+                        fav_move = open_trade.entry_price - ask_low
+                    if fav_move > 0:
+                        mfe_r = float(fav_move / risk_dist)
+                        open_trade.peak_mfe_r = max(open_trade.peak_mfe_r, mfe_r)
+                    if (
+                        self.protective_stop_after_r is not None
+                        and not open_trade.protective_armed
+                        and open_trade.peak_mfe_r >= self.protective_stop_after_r
+                    ):
+                        open_trade.protective_armed = True
+                        open_trade.protective_arm_bar = open_trade.bars_held
+                        open_trade.protective_arm_mfe_r = open_trade.peak_mfe_r
+                        open_trade.protective_arm_time = ts
+                        be_stop = open_trade.entry_price
+                        if open_trade.side == "long":
+                            if be_stop > open_trade.stop_price:
+                                open_trade.stop_price = be_stop
+                        elif be_stop < open_trade.stop_price:
+                            open_trade.stop_price = be_stop
+
                 if (
                     self.trailing_stop_atr_multiple is not None
                     and atr_series is not None
@@ -361,11 +401,18 @@ class BacktestEngine:
                 if not did_gap_fill:
                     if open_trade.side == "long":
                         if bid_low <= open_trade.stop_price:
-                            exit_reason = (
-                                "trailing_stop"
-                                if open_trade.stop_price != open_trade.initial_stop_price
-                                else "stop"
-                            )
+                            if (
+                                open_trade.protective_armed
+                                and open_trade.stop_price == open_trade.entry_price
+                            ):
+                                exit_reason = "protective_stop"
+                            else:
+                                exit_reason = (
+                                    "trailing_stop"
+                                    if open_trade.stop_price
+                                    != open_trade.initial_stop_price
+                                    else "stop"
+                                )
                             exit_price = open_trade.stop_price
                         elif tp is not None and bid_high >= tp:
                             exit_reason = "target"
@@ -375,11 +422,18 @@ class BacktestEngine:
                             exit_price = bid_close
                     else:
                         if ask_high >= open_trade.stop_price:
-                            exit_reason = (
-                                "trailing_stop"
-                                if open_trade.stop_price != open_trade.initial_stop_price
-                                else "stop"
-                            )
+                            if (
+                                open_trade.protective_armed
+                                and open_trade.stop_price == open_trade.entry_price
+                            ):
+                                exit_reason = "protective_stop"
+                            else:
+                                exit_reason = (
+                                    "trailing_stop"
+                                    if open_trade.stop_price
+                                    != open_trade.initial_stop_price
+                                    else "stop"
+                                )
                             exit_price = open_trade.stop_price
                         elif tp is not None and ask_low <= tp:
                             exit_reason = "target"
@@ -413,6 +467,11 @@ class BacktestEngine:
                         * open_trade.units
                     )
                     r = pnl / risk_distance if risk_distance > 0 else Decimal("0")
+                    arm_time = (
+                        open_trade.protective_arm_time.to_pydatetime()
+                        if open_trade.protective_arm_time is not None
+                        else None
+                    )
                     trades.append(
                         TradeRecord(
                             instrument=self.instrument.name,
@@ -432,6 +491,10 @@ class BacktestEngine:
                             ambiguous_exit=tp_also_in_range,
                             gap_fill=did_gap_fill,
                             gap_fill_distance_pips=gap_fill_distance_pips,
+                            protective_stop_armed=open_trade.protective_armed,
+                            protective_stop_arm_time=arm_time,
+                            protective_stop_arm_mfe_r=open_trade.protective_arm_mfe_r,
+                            protective_stop_exit=exit_reason == "protective_stop",
                         )
                     )
                     open_trade = None

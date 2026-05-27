@@ -43,8 +43,13 @@ class TradeRecord:
     # gap_fill_distance_pips: absolute distance from the stop/tp level to
     # the filled bar-open, in pips. Always None when gap_fill is False.
     gap_fill_distance_pips: Decimal | None = None
+    # CAMPAIGN_018 protective stop (research backtest only).
+    protective_stop_armed: bool = False
+    protective_stop_arm_time: datetime | None = None
+    protective_stop_arm_mfe_r: float | None = None
+    protective_stop_exit: bool = False
 
-    def to_dict(self) -> dict[str, str | int | bool | None]:
+    def to_dict(self) -> dict[str, str | int | bool | float | None]:
         # Explicit per-field serialization. Bools and Optional[Decimal] do
         # not survive the prior `isinstance(v, int)` filter (Python: True
         # is an int) — list every field by hand so additions are visible.
@@ -70,6 +75,14 @@ class TradeRecord:
                 if self.gap_fill_distance_pips is not None
                 else None
             ),
+            "protective_stop_armed": self.protective_stop_armed,
+            "protective_stop_arm_time": (
+                self.protective_stop_arm_time.isoformat()
+                if self.protective_stop_arm_time is not None
+                else None
+            ),
+            "protective_stop_arm_mfe_r": self.protective_stop_arm_mfe_r,
+            "protective_stop_exit": self.protective_stop_exit,
         }
 
 
