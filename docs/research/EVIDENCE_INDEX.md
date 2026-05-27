@@ -177,6 +177,24 @@ map; the linked documents are the authoritative evidence.
 | [`research/financing/modeled_pnl_readiness_audit.json`](../../research/financing/modeled_pnl_readiness_audit.json) | Machine-readable audit |
 | [`research/financing/c008_c009_c018_financing_exposure.json`](../../research/financing/c008_c009_c018_financing_exposure.json) | Exposure JSON |
 
+## Observed financing capture read-only (OBSERVED_FINANCING_CAPTURE_READONLY_001)
+
+> **Infrastructure / read-only capture** — `strategy_evidence: false`. Practice GET
+> transactions only. Capture result: **OBSERVED_FINANCING_EMPTY** (zero DAILY_FINANCING
+> in 180-day window). MODELED not ready. Recommended next:
+> `infra-practice-overnight-financing-sample-collection-001`.
+
+| document | purpose |
+|---|---|
+| [`OBSERVED_FINANCING_CAPTURE_READONLY_001_PLAN.md`](OBSERVED_FINANCING_CAPTURE_READONLY_001_PLAN.md) | Sprint plan |
+| [`OBSERVED_FINANCING_CAPTURE_READONLY_RUNBOOK.md`](OBSERVED_FINANCING_CAPTURE_READONLY_RUNBOOK.md) | Runbook |
+| [`OBSERVED_FINANCING_CAPTURE_PREFLIGHT.md`](OBSERVED_FINANCING_CAPTURE_PREFLIGHT.md) | Preflight checks |
+| [`OBSERVED_FINANCING_CAPTURE_RESULT.md`](OBSERVED_FINANCING_CAPTURE_RESULT.md) | Capture result (empty) |
+| [`OBSERVED_FINANCING_SCHEMA_RECONCILIATION.md`](OBSERVED_FINANCING_SCHEMA_RECONCILIATION.md) | Schema vs overlay |
+| [`OBSERVED_FINANCING_READINESS_DECISION.md`](OBSERVED_FINANCING_READINESS_DECISION.md) | Readiness decision |
+| [`research/financing/observed/observed_financing_capture_status.json`](../../research/financing/observed/observed_financing_capture_status.json) | Capture status |
+| [`research/financing/observed/observed_financing_manifest.json`](../../research/financing/observed/observed_financing_manifest.json) | Endpoint manifest |
+
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
 > **Implementation infrastructure / data only** — `strategy_evidence: false`. No

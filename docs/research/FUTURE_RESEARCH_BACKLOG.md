@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-27 · **Branch:** `research-financing-modeled-pnl-and-carry-readiness-001`
+**Date:** 2026-05-27 · **Branch:** `infra-observed-financing-capture-readonly-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -19,7 +19,8 @@
 > [`DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md`](DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md),
 > [`EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md),
 > [`CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md`](CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md),
-> [`FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md`](FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md).
+> [`FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md`](FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md),
+> [`OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md`](OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md).
 
 Ordering is rough priority. **Item 0** is the recommended next sprint.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
@@ -28,16 +29,25 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. Observed financing capture read-only (RECOMMENDED NEXT SPRINT)
+## 0. Practice overnight financing sample collection (RECOMMENDED NEXT SPRINT)
 
-- **Why it matters.** Modeled overlay utility exists; binding blocker is observed
-  broker DAILY_FINANCING capture for MODELED treatment.
-- **Sprint name.** `infra-observed-financing-capture-readonly-001`
-- **Status.** **RECOMMENDED** — financing readiness sprint complete.
+- **Why it matters.** Read-only capture succeeded but returned **zero DAILY_FINANCING**
+  — practice account has no overnight holds under research freeze.
+- **Sprint name.** `infra-practice-overnight-financing-sample-collection-001`
+- **Status.** **RECOMMENDED** — parser/capture ready; observed data empty.
 
 ---
 
-## 0-complete. Financing modeled PnL and carry readiness (COMPLETE)
+## 0-complete. Observed financing capture read-only (COMPLETE — EMPTY)
+
+- **Sprint name.** `infra-observed-financing-capture-readonly-001`
+- **Result.** Read-only GET capture; 0 DAILY_FINANCING in 180 days; parser + sanitizer ready.
+- **Summary.** [`OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md`](OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md)
+- **Status.** **COMPLETE — OBSERVED_FINANCING_EMPTY**
+
+---
+
+## 0-complete-prior. Financing modeled PnL and carry readiness (COMPLETE)
 
 - **Sprint name.** `research-financing-modeled-pnl-and-carry-readiness-001`
 - **Delivered.** Capability audit, overlay utility, C008/C009/C018 synthetic exposure.
