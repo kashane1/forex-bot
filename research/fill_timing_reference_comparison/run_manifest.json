@@ -1,0 +1,38 @@
+{
+  "reference_campaign": "CAMPAIGN_019",
+  "strategy_name": "mean_reversion_thesis_invalidation",
+  "strategy_version": "0.1.0-c019",
+  "strategy_evidence": false,
+  "not_approved": true,
+  "test_lockbox_opened": false,
+  "splits": [
+    "train",
+    "validation"
+  ],
+  "cost_regime": "base",
+  "dedupe_policy": "keep_last",
+  "data_path": "configs/campaign_019_mean_reversion_thesis_invalidation.yaml",
+  "database_path": "data/campaign_002.sqlite3",
+  "git_commit": "1349488170009e2c88a1cec918d87d296c4a91de",
+  "git_branch": "infra-shared-audit-warn-remediation-and-next-bar-open-001",
+  "generated_at_utc": "2026-05-27T06:41:16.610445+00:00",
+  "data_request_hashes_unique": [
+    "0245bbb93292ed45",
+    "2ad33a9087468c86",
+    "3cf380e718827472",
+    "6f675d8afa7a5912",
+    "946fa286f64f2228",
+    "9aac877de9d4b199",
+    "a99b361405ea09f9",
+    "ab966a4fc624d0eb",
+    "bcbd4f3543b00b71",
+    "ce160e53c996b7ca",
+    "db68e305c34b0164",
+    "f6cb9b0624f9174c"
+  ],
+  "config_hashes_unique": [
+    "1e2a8b69a3021484",
+    "502b09a937bb8c3d"
+  ],
+  "note": "Only fill_timing differs between runs; C019 committed artifacts used signal_bar_close"
+}

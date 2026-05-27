@@ -145,3 +145,10 @@ def test_rsi_early_bars_filled_to_50_not_nan():
     r = rsi(s, length=14)
     assert r.iloc[0] == 50.0
     assert r.iloc[-1] != 50.0 or len(s) > 20
+
+
+def test_rsi_strict_nan_warmup():
+    s = _series([1.0, 1.1, 1.0, 1.2, 1.1, 1.3, 1.2, 1.4, 1.3, 1.5, 1.4, 1.6, 1.5, 1.7, 1.6])
+    r = rsi(s, length=14, warmup_policy="nan")
+    assert pd.isna(r.iloc[0])
+    assert pd.notna(r.iloc[-1])

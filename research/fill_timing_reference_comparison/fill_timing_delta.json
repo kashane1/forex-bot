@@ -1,0 +1,16 @@
+{
+  "train": {
+    "trade_count_delta": -2.0,
+    "expectancy_r_delta": 0.0342,
+    "profit_factor_delta": 0.0608,
+    "pairs_positive_delta": 1.0,
+    "interpretation": "negative expectancy_r_delta means next_bar_open is worse (more conservative) than signal_bar_close"
+  },
+  "validation": {
+    "trade_count_delta": -5.0,
+    "expectancy_r_delta": -0.0787,
+    "profit_factor_delta": -0.0861,
+    "pairs_positive_delta": -2.0,
+    "interpretation": "negative expectancy_r_delta means next_bar_open is worse (more conservative) than signal_bar_close"
+  }
+}

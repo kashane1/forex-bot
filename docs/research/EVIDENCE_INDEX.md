@@ -446,6 +446,21 @@ by `scripts/validate_research_archive.py`.
 | [`backtests/diagnostics/d1agg_next_open_six_pair_smoke.md`](../../backtests/diagnostics/d1agg_next_open_six_pair_smoke.md) | D1AGG + next-bar-open smoke across the six majors |
 | [`research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md`](../../research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md) | Lean-parity export bundle for the CAMPAIGN_002 H4 baseline (seven pairs) |
 | [`backtests/diagnostics/custom_campaign_002_h4_parity.md`](../../backtests/diagnostics/custom_campaign_002_h4_parity.md) | custom-engine reproduction of the rejected CAMPAIGN_002 H4 baseline |
+| [`NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md`](NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md) | CAMPAIGN_019 `signal_bar_close` vs `next_bar_open` (WARN remediation 001) |
+| [`research/fill_timing_reference_comparison/run_manifest.json`](../../research/fill_timing_reference_comparison/run_manifest.json) | Fill-timing comparison manifest (`strategy_evidence: false`) |
+
+### Shared audit WARN remediation (`infra-shared-audit-warn-remediation-and-next-bar-open-001`)
+
+> **Infrastructure only** — addresses audit WARNs (fill timing, HTF align, RSI policy, signal provenance). **No strategy approval.**
+
+| document | purpose |
+|---|---|
+| [`SHARED_AUDIT_WARN_REMEDIATION_AND_NEXT_BAR_OPEN_001_PLAN.md`](SHARED_AUDIT_WARN_REMEDIATION_AND_NEXT_BAR_OPEN_001_PLAN.md) | Sprint plan |
+| [`SHARED_AUDIT_WARN_REMEDIATION_AND_NEXT_BAR_OPEN_001_SUMMARY.md`](SHARED_AUDIT_WARN_REMEDIATION_AND_NEXT_BAR_OPEN_001_SUMMARY.md) | Close-out |
+| [`NEXT_BAR_OPEN_REFERENCE_COMPARISON_DESIGN.md`](NEXT_BAR_OPEN_REFERENCE_COMPARISON_DESIGN.md) | Comparison design |
+| [`NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md`](NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md) | Comparison results |
+| [`SHARED_HTF_ALIGN_MODULE_RESULT.md`](SHARED_HTF_ALIGN_MODULE_RESULT.md) | `htf_align` module |
+| [`CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_WARN_REMEDIATION.md`](CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_WARN_REMEDIATION.md) | Validity impact |
 
 Supporting infrastructure docs:
 [fill-timing model](FILL_TIMING_MODEL.md) ·

@@ -6,6 +6,8 @@ need intrabar logic must opt in elsewhere; this module never peeks ahead.
 
 from __future__ import annotations
 
+from typing import Literal
+
 import numpy as np
 import pandas as pd
 
@@ -44,14 +46,31 @@ def donchian_low(low: pd.Series, length: int) -> pd.Series:
     return low.shift(1).rolling(window=length, min_periods=length).min()
 
 
-def rsi(close: pd.Series, length: int = 14) -> pd.Series:
+def rsi(
+    close: pd.Series,
+    length: int = 14,
+    *,
+    warmup_policy: Literal["neutral_fill", "nan"] = "neutral_fill",
+) -> pd.Series:
+    """RSI with explicit warmup policy.
+
+    * ``neutral_fill`` (default) — legacy behavior: warmup bars filled with 50.0.
+    * ``nan`` — strict: NaN until ``min_periods`` satisfied (new strategies).
+    """
+    if length <= 0:
+        raise ValueError("rsi length must be > 0")
     delta = close.diff()
     up = delta.clip(lower=0.0)
     down = (-delta).clip(lower=0.0)
     roll_up = up.ewm(alpha=1 / length, adjust=False, min_periods=length).mean()
     roll_down = down.ewm(alpha=1 / length, adjust=False, min_periods=length).mean()
     rs = roll_up / roll_down.replace(0, np.nan)
-    return (100 - (100 / (1 + rs))).fillna(50.0)
+    out = 100 - (100 / (1 + rs))
+    if warmup_policy == "neutral_fill":
+        return out.fillna(50.0)
+    if warmup_policy == "nan":
+        return out
+    raise ValueError(f"unknown warmup_policy: {warmup_policy!r}")
 
 
 def zscore(series: pd.Series, length: int) -> pd.Series:

@@ -43,7 +43,25 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0-recommended. Exit hypothesis precommit 003 OR financing overlay (NEXT)
+## 0-recommended. Observed financing overlay local-first (NEXT)
+
+- **Sprint name.** `infra-observed-cost-financing-overlay-local-first-001`
+- **Scope doc.** [`OBSERVED_COST_FINANCING_OVERLAY_NEXT_SCOPE.md`](OBSERVED_COST_FINANCING_OVERLAY_NEXT_SCOPE.md)
+- **Why.** Multi-day/weekly campaigns still lack universal financing overlay; fill-timing remediation shows validation realism matters.
+- **Status.** **RECOMMENDED** — infrastructure only; no strategy approval.
+
+## 0-fill-timing-rule. Approval-bound fill timing (POLICY)
+
+- Future approval-bound precommits must **declare `fill_timing`**; default recommendation **`next_bar_open`**.
+- Evidence: [`NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md`](NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md) (C019 validation −0.079 R delta).
+
+## 0-complete. Shared audit WARN remediation (COMPLETE)
+
+- **Sprint name.** `infra-shared-audit-warn-remediation-and-next-bar-open-001`
+- **Result.** C019 fill-timing comparison; `htf_align`; RSI `warmup_policy`; optional signal provenance fields.
+- **Summary.** [`SHARED_AUDIT_WARN_REMEDIATION_AND_NEXT_BAR_OPEN_001_SUMMARY.md`](SHARED_AUDIT_WARN_REMEDIATION_AND_NEXT_BAR_OPEN_001_SUMMARY.md)
+
+## 0-previous. Exit hypothesis precommit 003 OR financing overlay
 
 - **Why it matters.** C018 (+1R protective) and C019 (z±3 thesis invalidation) both show validation uplift with **train failure** — exit-only tweaks on C008 entries are not rescuing in-sample edge.
 - **Options.**

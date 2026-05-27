@@ -170,3 +170,4 @@ backtests/diagnostics/campaign_011_norisk/
 
 # Observed financing raw API responses (gitignored; sanitized summaries committed)
 research/financing/observed/raw/
+research/fill_timing_reference_comparison/local_trades/

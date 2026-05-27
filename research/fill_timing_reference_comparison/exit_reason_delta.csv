@@ -1,0 +1,5 @@
+exit_reason,signal_bar_close_share,next_bar_open_share,delta_share
+eod,0.0046,0.0046,0.0
+stop,0.6073,0.6129,0.0056
+thesis_invalidation,0.1233,0.106,-0.0173
+time,0.2648,0.2765,0.0117
