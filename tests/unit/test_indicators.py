@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from forex_bot.strategies.indicators import adx, atr, donchian_high, donchian_low, ema
+from forex_bot.strategies.indicators import adx, atr, donchian_high, donchian_low, ema, rsi, zscore
 
 
 def _series(values: list[float]) -> pd.Series:
@@ -122,3 +122,26 @@ def test_adx_invalid_length():
     s = _series([1.0, 2.0, 3.0])
     with pytest.raises(ValueError):
         adx(s, s, s, 0)
+
+
+def test_zscore_warmup_is_nan_not_zero():
+    s = _series([1.0, 2.0, 3.0, 4.0, 5.0])
+    z = zscore(s, length=3)
+    assert pd.isna(z.iloc[0])
+    assert pd.isna(z.iloc[1])
+    assert pd.notna(z.iloc[2])
+
+
+def test_zscore_no_lookahead():
+    s = _series([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0])
+    full = zscore(s, length=3)
+    trunc = zscore(s.iloc[:5], length=3)
+    assert abs(float(full.iloc[4]) - float(trunc.iloc[4])) < 1e-9
+
+
+def test_rsi_early_bars_filled_to_50_not_nan():
+    """RSI uses fillna(50.0) during warmup — strategies must gate on bar count."""
+    s = _series([1.0, 1.1, 1.0, 1.2, 1.1, 1.3, 1.2, 1.4, 1.3, 1.5, 1.4, 1.6, 1.5, 1.7, 1.6])
+    r = rsi(s, length=14)
+    assert r.iloc[0] == 50.0
+    assert r.iloc[-1] != 50.0 or len(s) > 20
