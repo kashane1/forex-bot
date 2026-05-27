@@ -69,14 +69,17 @@ from datetime import UTC, datetime
 from decimal import Decimal
 from typing import Any
 
-import numpy as np
 import pandas as pd
 
-from forex_bot.backtesting.d1_aggregation import aggregate_h4_to_d1
 from forex_bot.domain.candles import Candle
 from forex_bot.domain.signals import Signal
+from forex_bot.features import d1agg_htf
 from forex_bot.strategies.base import StrategyContext
 from forex_bot.strategies.indicators import atr
+
+# Back-compat aliases for unit tests.
+_wilder_atr_over_d1agg = d1agg_htf.wilder_atr_over_d1agg
+_compute_regime = d1agg_htf.compute_regime_label
 
 
 def _df_to_completed_h4_candle_list(
@@ -127,80 +130,6 @@ def _to_decimal(value: Any) -> Decimal | None:
     except TypeError:
         return None
     return Decimal(str(value))
-
-
-def _wilder_atr_over_d1agg(
-    d1_candles: list[Candle], length: int
-) -> list[float]:
-    """Wilder ATR over D1AGG candles (mid OHLC).
-
-    Returns the ATR series as a Python list of floats with one entry
-    per D1AGG candle (early values are NaN until the Wilder smoother
-    has warmed up; we return them as-is so the caller can fail-closed).
-    """
-    if length <= 0:
-        raise ValueError("daily_atr_lookback must be > 0")
-    rows: list[dict[str, float]] = []
-    for c in d1_candles:
-        mid_h = _mid(c.bid_h, c.ask_h)
-        mid_l = _mid(c.bid_l, c.ask_l)
-        mid_c = _mid(c.bid_c, c.ask_c)
-        rows.append({"high": mid_h, "low": mid_l, "close": mid_c})
-    if not rows:
-        return []
-    frame = pd.DataFrame(rows)
-    series = atr(frame["high"], frame["low"], frame["close"], length)
-    return [float(v) for v in series.tolist()]
-
-
-def _mid(bid: Decimal | None, ask: Decimal | None) -> float:
-    if bid is None or ask is None:
-        return float("nan")
-    return float((bid + ask) / 2)
-
-
-def _compute_regime(
-    d1_atr_series: list[float],
-    *,
-    lookback_days: int,
-    percentile_threshold: float,
-) -> tuple[str, float, float] | None:
-    """Classify HIGH-VOL vs LOW-VOL from the trailing D1AGG ATR window.
-
-    Returns ``(label, reference, percentile_value)`` on success or
-    ``None`` if the input is insufficient or non-finite (fail-closed).
-
-    Binding invariants (R3 — see implementation spec §3):
-
-    * The reference is the *most recent emitted* D1AGG ATR
-      (``d1_atr_series[-1]``).
-    * The trailing window is exactly the ``lookback_days`` values
-      *strictly preceding* the reference: ``d1_atr_series[-(lookback_days+1):-1]``.
-      The reference itself is NOT in the window.
-    * The percentile is computed over the trailing window only —
-      never global / cross-fold.
-    * HIGH-VOL inclusivity at the threshold: ``reference >= P`` (P-inclusive).
-
-    The helper is purely functional with no module-level state; the
-    Phase 3 structural-audit unit test enforces this.
-    """
-    if lookback_days <= 0 or not (0.0 < percentile_threshold < 1.0):
-        return None
-    if len(d1_atr_series) < lookback_days + 1:
-        return None
-    reference = d1_atr_series[-1]
-    if not math.isfinite(reference) or reference <= 0:
-        return None
-    trailing = d1_atr_series[-(lookback_days + 1) : -1]
-    if len(trailing) != lookback_days:
-        return None
-    if not all(math.isfinite(v) and v > 0 for v in trailing):
-        return None
-    pct_value = float(np.percentile(trailing, percentile_threshold * 100))
-    if not math.isfinite(pct_value):
-        return None
-    label = "HIGH_VOL" if reference >= pct_value else "LOW_VOL"
-    return label, float(reference), pct_value
 
 
 class RegimeSwitcherAtrPercentileStrategy:
@@ -260,27 +189,23 @@ class RegimeSwitcherAtrPercentileStrategy:
         ):
             return None
 
-        # R3: regime gate via D1AGG ATR percentile.
+        # R3: regime gate via D1AGG ATR percentile (shared d1agg_htf helper).
         h4_candles = _df_to_completed_h4_candle_list(df, ctx.instrument.name)
-        try:
-            agg = aggregate_h4_to_d1(h4_candles, instrument=ctx.instrument.name)
-        except ValueError:
-            return None  # defensive — should be unreachable
-        d1_candles = agg.candles
-        if len(d1_candles) < daily_atr_len + regime_lookback + 1:
-            return None
-
-        d1_atr_series = _wilder_atr_over_d1agg(d1_candles, daily_atr_len)
-        regime_result = _compute_regime(
-            d1_atr_series,
-            lookback_days=regime_lookback,
-            percentile_threshold=regime_threshold,
+        gate = d1agg_htf.regime_gate_from_h4_candles(
+            h4_candles,
+            instrument=ctx.instrument.name,
+            daily_atr_len=daily_atr_len,
+            regime_lookback=regime_lookback,
+            regime_threshold=regime_threshold,
         )
-        if regime_result is None:
+        if gate is None:
             return None
-        regime_label, reference_atr, pct_value = regime_result
+        regime_label, reference_atr, pct_value, d1_htf_time, d1agg_count = gate
         if regime_label != "HIGH_VOL":
             return None
+        htf_times: dict[str, datetime] = {}
+        if d1_htf_time is not None:
+            htf_times["d1agg_atr"] = d1_htf_time
 
         # R4: fail-closed on NaN / non-finite / zero H4 ATR.
         h4_atr_series = atr(df["high"], df["low"], df["close"], atr_len)
@@ -324,23 +249,27 @@ class RegimeSwitcherAtrPercentileStrategy:
             side,
         )
 
+        decision_dt = pd.Timestamp(idx_t).tz_convert(UTC).to_pydatetime()
         return Signal(
             signal_id=signal_id,
             strategy_name=self.name,
             strategy_version=self.version,
             instrument=ctx.instrument.name,
             timeframe=timeframe,
-            timestamp=pd.Timestamp(idx_t).tz_convert(UTC).to_pydatetime(),
+            timestamp=decision_dt,
             side=side,  # type: ignore[arg-type]
             entry_intent="market",
             stop_model=f"ATR{atr_len}*{atr_multiple}",
             stop_price=ctx.instrument.round_price(Decimal(str(stop))),
             exit_model="time_stop_only",
+            decision_time=decision_dt,
+            htf_feature_times=htf_times or None,
             features={
+                "d1agg_htf_time": d1_htf_time.isoformat() if d1_htf_time else None,
                 "regime": "HIGH_VOL",
                 "d1agg_atr_reference": float(reference_atr),
                 "d1agg_atr_percentile_value": float(pct_value),
-                "d1agg_count": len(d1_candles),
+                "d1agg_count": d1agg_count,
                 "trend_move": float(move),
                 "min_move_threshold": float(min_move),
                 "prior_atr_h4": float(prior_atr_h4),

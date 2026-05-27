@@ -671,18 +671,22 @@ def test_strategy_module_does_not_import_broker_execution_loops():
 
 
 def test_strategy_module_uses_numpy_percentile_only_no_full_sample_helpers():
-    """The strategy uses numpy.percentile (deterministic, pure functional).
+    """Regime percentile uses numpy.percentile in shared d1agg_htf module.
 
     Specifically forbid full-sample / global helpers that would be a
     no-lookahead hazard if mistakenly used.
     """
-    src = _STRATEGY_SOURCE
-    src_stripped = re.sub(r'""".*?"""', "", src, flags=re.DOTALL)
-    # numpy.percentile is allowed (the regime computation).
+    d1agg_src = (
+        _REPO_ROOT / "src" / "forex_bot" / "features" / "d1agg_htf.py"
+    ).read_text(encoding="utf-8")
+    src_stripped = re.sub(r'""".*?"""', "", d1agg_src, flags=re.DOTALL)
     assert "np.percentile" in src_stripped
+    src = _STRATEGY_SOURCE
+    src_stripped_strategy = re.sub(r'""".*?"""', "", src, flags=re.DOTALL)
+    assert "d1agg_htf" in src_stripped_strategy
     # Forbidden full-series stat shortcuts that would imply lookahead:
-    assert ".rolling(" not in src_stripped  # roll-window helpers handled elsewhere
-    assert ".expanding(" not in src_stripped
+    assert ".rolling(" not in src_stripped_strategy
+    assert ".expanding(" not in src_stripped_strategy
 
 
 # ===========================================================================
