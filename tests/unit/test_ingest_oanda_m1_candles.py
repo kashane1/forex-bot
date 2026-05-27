@@ -57,6 +57,41 @@ def test_missing_date_range_refused(capsys) -> None:
     assert "required" in capsys.readouterr().err
 
 
+def test_allow_large_range_permits_multi_week_dry_run(capsys) -> None:
+    rc = ingest.main(
+        [
+            "--instrument",
+            "EUR_USD",
+            "--start",
+            "2024-01-01",
+            "--end",
+            "2024-02-01",
+            "--allow-large-range",
+        ],
+        environ={},
+    )
+    out = json.loads(capsys.readouterr().out)
+    assert rc == 0
+    assert out["status"] == "DRY_RUN"
+    assert out["chunk_count"] > ingest.MAX_DAYS_WITHOUT_CHUNK_LIMIT
+
+
+def test_majors_flag_lists_all_major_pairs(capsys) -> None:
+    rc = ingest.main(
+        [
+            "--majors",
+            "--start",
+            "2024-01-01",
+            "--end",
+            "2024-01-02",
+        ],
+        environ={},
+    )
+    out = json.loads(capsys.readouterr().out)
+    assert rc == 0
+    assert out["instruments"] == list(ingest.MAJOR_FOREX_PAIRS)
+
+
 def test_too_large_date_range_requires_chunk_limit(capsys) -> None:
     rc = ingest.main(
         [

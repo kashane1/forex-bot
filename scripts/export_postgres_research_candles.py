@@ -22,6 +22,7 @@ from forex_bot.data.research_db import (
     ResearchDatabaseUnsafe,
     get_research_database_config,
 )
+from forex_bot.project_env import bootstrap_environ
 
 CSV_HEADER = [
     "time",
@@ -178,6 +179,7 @@ def build_manifest(
 
 
 def main(argv: list[str] | None = None, *, environ: dict[str, str] | None = None) -> int:
+    environ = bootstrap_environ(environ)
     parser = argparse.ArgumentParser(description="Export research candles from Postgres.")
     parser.add_argument("--granularity", default="H4")
     parser.add_argument("--out", default="research/lean_parity/exports/campaign_002_h4")

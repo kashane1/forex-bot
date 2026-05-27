@@ -26,6 +26,7 @@ from forex_bot.data.research_db import (
     get_research_database_config,
 )
 from forex_bot.logging_config import _scrub_value
+from forex_bot.project_env import bootstrap_environ
 
 DEFAULT_INSTRUMENTS = (
     "EUR_USD",
@@ -241,6 +242,7 @@ def run_ingestion(args: argparse.Namespace, *, environ: dict[str, str] | None = 
 
 
 def main(argv: list[str] | None = None, *, environ: dict[str, str] | None = None) -> int:
+    environ = bootstrap_environ(environ)
     parser = argparse.ArgumentParser(description="Ingest OANDA practice candles into local Postgres.")
     parser.add_argument("--granularity", default=DEFAULT_GRANULARITY)
     parser.add_argument("--start", required=False, default="2020-01-01T00:00:00Z")

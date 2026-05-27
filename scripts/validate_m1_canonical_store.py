@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from forex_bot.data.postgres_candle_store import PostgresCandleStore, compute_candle_data_hash
 from forex_bot.data.research_db import get_research_database_config
+from forex_bot.project_env import bootstrap_environ
 from forex_bot.data.timeframe_aggregation import aggregate_m1_candles
 from forex_bot.domain.candles import Candle
 
@@ -129,14 +130,15 @@ def _decimal(value: Any) -> Decimal | None:
     return None if value is None else Decimal(str(value))
 
 
-def main(argv: list[str] | None = None) -> int:
+def main(argv: list[str] | None = None, *, environ: dict[str, str] | None = None) -> int:
+    environ = bootstrap_environ(environ)
     parser = argparse.ArgumentParser(description="Validate local canonical M1 candle rows.")
     parser.add_argument("--instrument", required=True)
     parser.add_argument("--start", required=True)
     parser.add_argument("--end", required=True)
     parser.add_argument("--output")
     args = parser.parse_args(argv)
-    cfg = get_research_database_config(require=True)
+    cfg = get_research_database_config(environ=environ, require=True)
     store = PostgresCandleStore(cfg)
     start = parse_utc(args.start)
     end = parse_utc(args.end)

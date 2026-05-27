@@ -18,6 +18,7 @@ from forex_bot.data.research_db import (
     ResearchDatabaseUnsafe,
     get_research_database_config,
 )
+from forex_bot.project_env import bootstrap_environ
 
 
 def build_report(*, create_schema: bool, environ: dict[str, str] | None = None) -> dict:
@@ -54,6 +55,7 @@ def build_report(*, create_schema: bool, environ: dict[str, str] | None = None) 
 
 
 def main(argv: list[str] | None = None, *, environ: dict[str, str] | None = None) -> int:
+    environ = bootstrap_environ(environ)
     parser = argparse.ArgumentParser(description="Preflight the local research PostgreSQL DB.")
     parser.add_argument("--create-schema", action="store_true")
     args = parser.parse_args(argv)

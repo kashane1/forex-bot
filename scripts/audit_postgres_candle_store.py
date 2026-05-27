@@ -24,6 +24,7 @@ from forex_bot.data.research_db import (
     ResearchDatabaseUnsafe,
     get_research_database_config,
 )
+from forex_bot.project_env import bootstrap_environ
 
 DEFAULT_INSTRUMENTS = (
     "EUR_USD",
@@ -130,6 +131,7 @@ def render_markdown(summary: dict[str, Any]) -> str:
 
 
 def main(argv: list[str] | None = None, *, environ: dict[str, str] | None = None) -> int:
+    environ = bootstrap_environ(environ)
     parser = argparse.ArgumentParser(description="Audit the local Postgres candle store.")
     parser.add_argument("--granularity", default="H4")
     parser.add_argument("--out", default="reports/data_quality/postgres_h4_audit_latest")
