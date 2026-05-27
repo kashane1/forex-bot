@@ -4,11 +4,9 @@
   "test_lockbox_opened": false,
   "campaign_020_created": false,
   "modes": [
-    "none",
-    "synthetic_fixture",
-    "manual_observed_fixture"
+    "none"
   ],
-  "git_commit": "8a96f41de188dcfc19b1e3fe6c899118fd871760",
+  "git_commit": "658e61e6d36b982392a53cc340e11a774a32a1a7",
   "git_branch": "infra-observed-cost-financing-overlay-local-first-001",
-  "generated_at_utc": "2026-05-27T09:18:35.869737+00:00"
+  "generated_at_utc": "2026-05-27T09:19:05.785925+00:00"
 }

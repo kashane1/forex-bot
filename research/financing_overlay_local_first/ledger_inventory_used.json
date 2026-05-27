@@ -1,7 +1,7 @@
 {
   "strategy_evidence": false,
   "not_approved": true,
-  "generated_at_utc": "2026-05-27T09:18:35.891022+00:00",
+  "generated_at_utc": "2026-05-27T09:19:05.980997+00:00",
   "entries": [
     {
       "path": "/Users/kashane/dev/forex-bot/backtests/CAMPAIGN_019_mean_reversion_thesis_invalidation/train/base/c019_AUD_USD_train_base_trades.csv",
