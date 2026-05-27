@@ -133,7 +133,12 @@ backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic/**/*_trades.csv
 backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic/**/*_metrics.json
 backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic/**/*_metrics.md
 
-# CAMPAIGN_018 — gitignore bulky trade/equity CSVs
+# CAMPAIGN_019 — gitignore bulky trade/equity CSVs
+backtests/CAMPAIGN_019_mean_reversion_thesis_invalidation/**/*_equity.csv
+backtests/CAMPAIGN_019_mean_reversion_thesis_invalidation/**/*_trades.csv
+backtests/CAMPAIGN_019_mean_reversion_thesis_invalidation/**/*_metrics.json
+backtests/CAMPAIGN_019_mean_reversion_thesis_invalidation/**/*_metrics.md
+
 backtests/CAMPAIGN_018_mean_reversion_protective_stop/**/*_equity.csv
 backtests/CAMPAIGN_018_mean_reversion_protective_stop/**/*_trades.csv
 backtests/CAMPAIGN_018_mean_reversion_protective_stop/**/*_metrics.json

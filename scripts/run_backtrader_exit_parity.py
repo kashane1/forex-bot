@@ -26,7 +26,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Backtrader exit-parity diagnostics")
     parser.add_argument(
         "--campaign",
-        choices=["C008", "C009", "C018", "all"],
+        choices=["C008", "C009", "C018", "C019", "all"],
         default="all",
     )
     parser.add_argument("--out-dir", type=Path, default=PARITY_OUT_DIR)
