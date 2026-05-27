@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
-  "generated": "2026-05-26",
-  "branch": "research-stop-and-exit-diagnostics-001",
+  "generated": "2026-05-27",
+  "branch": "infra-deduped-c008-c009-rerun-forensic-only-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -17,15 +17,15 @@
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "infra-deduped-c008-c009-rerun-forensic-only-001",
-    "next_non_strategy_sprint_status": "RECOMMENDED_DEDUP_FORENSIC_REPLAY",
-    "completed_non_strategy_sprint": "research-stop-and-exit-diagnostics-001",
-    "prior_completed_non_strategy_sprint": "research-c008-mean-reversion-post-mortem-001",
+    "next_non_strategy_sprint": "research-exit-hypothesis-precommit-001",
+    "next_non_strategy_sprint_status": "RECOMMENDED_EXIT_HYPOTHESIS_PRECOMMIT",
+    "completed_non_strategy_sprint": "infra-deduped-c008-c009-rerun-forensic-only-001",
+    "prior_completed_non_strategy_sprint": "research-stop-and-exit-diagnostics-001",
     "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
     "prior_non_strategy_sprint_note": "Subsumed by completed cost-atlas work in infra-multi-timeframe-confluence-and-cost-atlas-001.",
     "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
     "trade_quality_roadmap_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md",
-    "trade_quality_infra_doc": "docs/research/STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md"
+    "trade_quality_infra_doc": "docs/research/DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md"
   },
   "pro_alpha_confluence_roadmap": {
     "sprint": "PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_001",
@@ -107,6 +107,50 @@
       "c009_midline_target_caps_winner_tail_vs_c008_time_exits",
       "c008_stops_split_bad_entry_vs_favorable_then_stopped",
       "c008_c009_likely_contaminated_blocks_promotion"
+    ]
+  },
+  "deduped_c008_c009_rerun": {
+    "sprint": "DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001",
+    "sprint_type": "forensic_replay_evidence_integrity_only",
+    "strategy_evidence": false,
+    "forensic_only": true,
+    "not_approval": true,
+    "strategy_approved": false,
+    "campaign_018_created": false,
+    "test_window_opened": false,
+    "retuning_performed": false,
+    "new_strategy_campaign_created": false,
+    "c008_verdict_unchanged": "REJECT",
+    "c009_verdict_unchanged": "REJECT",
+    "c008_evidence_integrity": "DEDUPED_FORENSIC_REPLAY_CONFIRMED",
+    "c009_evidence_integrity": "DEDUPED_FORENSIC_REPLAY_CONFIRMED",
+    "dedupe_rows_dropped": 106286,
+    "dedupe_mechanism": "keep_last_by_pair_timestamp",
+    "c008_trade_counts_base": {
+      "train": 216,
+      "validation": 138
+    },
+    "c009_trade_counts_base": {
+      "train": 252,
+      "validation": 151
+    },
+    "c008_deduped_train_exp_r": -0.025,
+    "c008_deduped_validation_exp_r": 0.1612,
+    "c009_deduped_train_exp_r": -0.025,
+    "c009_deduped_validation_exp_r": 0.186,
+    "train_fail_validation_positive_persists": true,
+    "stop_time_split_persists": true,
+    "c009_winner_capping_persists": true,
+    "plan_doc": "docs/research/DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_PLAN.md",
+    "summary_doc": "docs/research/DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md",
+    "integrity_decision_doc": "docs/research/C008_C009_EVIDENCE_INTEGRITY_DECISION.md",
+    "diagnostics_dir": "research/deduped_c008_c009_rerun",
+    "recommended_next_sprint": "research-exit-hypothesis-precommit-001",
+    "key_findings": [
+      "trade_counts_unchanged_after_dedupe",
+      "c008_train_fail_validation_positive_shape_confirmed",
+      "c009_train_exp_material_change_gate_still_fail",
+      "exit_pathology_confirmed_on_deduped_outputs"
     ]
   },
   "infra_external_data_blocker_resolution": {

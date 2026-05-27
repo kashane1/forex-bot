@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-26 · **Branch:** `research-stop-and-exit-diagnostics-001`
+**Date:** 2026-05-27 · **Branch:** `infra-deduped-c008-c009-rerun-forensic-only-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -12,7 +12,8 @@ map; the linked documents are the authoritative evidence.
 > confluence prototype, cross-asset scaffolding — diagnostic only).
 > Cross-asset **blocker-resolution sprint** complete (full-window FRED ingest
 > succeeded; `cross_asset_missing` eliminated). **C008 post-mortem sprint**
-> complete. **Stop/exit diagnostics sprint** complete. See respective summaries.
+> complete. **Stop/exit diagnostics sprint** complete. **Deduped C008/C009 forensic
+> replay** complete. See respective summaries.
 > See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
 ## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
@@ -102,6 +103,26 @@ map; the linked documents are the authoritative evidence.
 | [`research/exit_diagnostics/cross_campaign_exit_matrix.json`](../../research/exit_diagnostics/cross_campaign_exit_matrix.json) | Machine-readable exit matrix |
 | [`research/exit_diagnostics/c008_c009_exit_forensics.json`](../../research/exit_diagnostics/c008_c009_exit_forensics.json) | C008/C009 forensics JSON |
 | [`research/exit_diagnostics/stop_distance_adverse_excursion.json`](../../research/exit_diagnostics/stop_distance_adverse_excursion.json) | MAE/MFE JSON |
+
+## Deduped C008/C009 forensic replay (DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001)
+
+> **Forensic replay only** — `strategy_evidence: false`. C008/C009 remain **REJECT**.
+> Deduped replay confirmed train-fail/validation-positive shape and exit pathology.
+> Recommended next sprint: `research-exit-hypothesis-precommit-001`.
+
+| document | purpose |
+|---|---|
+| [`DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_PLAN.md`](DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_PLAN.md) | Sprint plan |
+| [`DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md`](DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md) | Sprint close-out |
+| [`C008_C009_FROZEN_CONFIG_RECONSTRUCTION.md`](C008_C009_FROZEN_CONFIG_RECONSTRUCTION.md) | Frozen rule reconstruction |
+| [`C008_C009_DEDUPED_FORENSIC_REPLAY_RESULTS.md`](C008_C009_DEDUPED_FORENSIC_REPLAY_RESULTS.md) | Replay results |
+| [`C008_C009_OLD_VS_DEDUPED_COMPARISON.md`](C008_C009_OLD_VS_DEDUPED_COMPARISON.md) | Old vs deduped comparison |
+| [`C008_C009_DEDUPED_EXIT_ANATOMY.md`](C008_C009_DEDUPED_EXIT_ANATOMY.md) | Deduped exit anatomy |
+| [`C008_C009_DEDUPED_MAE_MFE_DIAGNOSTICS.md`](C008_C009_DEDUPED_MAE_MFE_DIAGNOSTICS.md) | Deduped MAE/MFE |
+| [`C008_C009_EVIDENCE_INTEGRITY_DECISION.md`](C008_C009_EVIDENCE_INTEGRITY_DECISION.md) | Integrity decision |
+| [`research/deduped_c008_c009_rerun/metrics_summary.json`](../../research/deduped_c008_c009_rerun/metrics_summary.json) | Deduped metrics JSON |
+| [`research/deduped_c008_c009_rerun/gate_result.json`](../../research/deduped_c008_c009_rerun/gate_result.json) | Gate JSON |
+| [`research/deduped_c008_c009_rerun/old_vs_deduped_metric_comparison.json`](../../research/deduped_c008_c009_rerun/old_vs_deduped_metric_comparison.json) | Comparison JSON |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

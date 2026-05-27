@@ -1,6 +1,6 @@
 # Strategy Status Registry
 
-**Date:** 2026-05-26 · **Branch:** `research-broad-strategy-pause-and-roadmap-001`
+**Date:** 2026-05-27 · **Branch:** `infra-deduped-c008-c009-rerun-forensic-only-001`
 
 This is the human-readable status of every strategy family the project
 has built. It is the companion to the machine-enforced registry
@@ -31,11 +31,16 @@ C015/C016/C017 is authorized.
 ### Evidence integrity (dedupe audit 001)
 
 Pre-fix bespoke campaigns on `data/campaign_002.sqlite3` may be
-**LIKELY_CONTAMINATED** by duplicate UTC H4 bars. See
+**LIKELY_CONTAMINATED** by duplicate UTC H4 bars. **C008/C009 updated:**
+deduped forensic replay (`infra-deduped-c008-c009-rerun-forensic-only-001`)
+confirmed descriptive claims — label now **`DEDUPED_FORENSIC_REPLAY_CONFIRMED`**
+(verdicts unchanged REJECT). See
+[`C008_C009_EVIDENCE_INTEGRITY_DECISION.md`](C008_C009_EVIDENCE_INTEGRITY_DECISION.md).
+Other pre-fix campaigns: see
 [`CAMPAIGN_EVIDENCE_INTEGRITY_AFTER_DEDUP_FIX.md`](CAMPAIGN_EVIDENCE_INTEGRITY_AFTER_DEDUP_FIX.md).
 Verdicts are **unchanged**; metrics before dedupe-fix rerun carry
 **EVIDENCE INTEGRITY UNKNOWN — RERUN REQUIRED BEFORE USE** unless
-marked **DEDUP-SAFE**.
+marked **DEDUP-SAFE** or **DEDUPED_FORENSIC_REPLAY_CONFIRMED**.
 
 ## Status legend
 
@@ -341,27 +346,30 @@ for the FOMC-block + NFP-falsification analysis.
 ### `mean_reversion 0.1.0-c008`
 
 - **Status:** rejected — research-only by design (`paper_only = True`).
+- **Evidence integrity:** **`DEDUPED_FORENSIC_REPLAY_CONFIRMED`** (deduped forensic
+  replay 2026-05-27; prior label LIKELY_CONTAMINATED superseded for descriptive use).
 - **Evidence:** CAMPAIGN_008 — regime-filtered (ADX-14 < 20) reversion
-  of z-score extremes, real OANDA H4. Screening **failed by a single
-  gate**: train expectancy −0.017 R against a "train ≥ 0" gate.
-  Validation (2023–2024) was **+0.172 R, PF 1.29, 6/6 pairs positive**,
-  surviving 2× cost stress — the strongest positive signal in the
-  project, but unconfirmed.
+  of z-score extremes, real OANDA H4. Screening **failed**: train expectancy
+  **−0.025 R** (deduped replay; original −0.017 R) against "train ≥ 0" gate.
+  Validation (2023–2024) **+0.161 R, PF 1.29, 6/6 pairs positive** (deduped;
+  original +0.172 R), surviving 2× cost stress — strongest positive signal in
+  the project, but **unconfirmed** (test lockbox unopened).
 - **Paper / demo / live:** NO / NO / NO.
-- **Reason:** Failed its pre-committed train-split gate; capped at
-  research-only; flagged for human review (`CAMPAIGN_008_HUMAN_REVIEW.md`).
+- **Reason:** Failed pre-committed train-split gate; capped at research-only.
+  See [`C008_C009_EVIDENCE_INTEGRITY_DECISION.md`](C008_C009_EVIDENCE_INTEGRITY_DECISION.md).
 
 ### `mean_reversion 0.2.0-c009`
 
 - **Status:** rejected — research-only (`paper_only = True`).
-- **Evidence:** CAMPAIGN_009 — the human-authorized follow-up that added
-  exactly one rule, a midline-target exit, and re-screened under fresh,
-  stricter gates. Screening **failed**: train expectancy **−0.062 R**
-  (worse than c008's −0.017 R); validation +0.170 R. The midline exit
-  caps reversion winners — it falsified the rescue hypothesis.
+- **Evidence integrity:** **`DEDUPED_FORENSIC_REPLAY_CONFIRMED`** (deduped forensic
+  replay 2026-05-27; prior label LIKELY_CONTAMINATED superseded for descriptive use).
+- **Evidence:** CAMPAIGN_009 — human-authorized follow-up adding midline-target exit.
+  Screening **failed**: train expectancy **−0.025 R** (deduped; original −0.062 R —
+  material change but gate outcome unchanged); validation **+0.186 R** (deduped;
+  original +0.170 R). Midline exit caps reversion winners — falsified rescue hypothesis.
 - **Paper / demo / live:** NO / NO / NO.
-- **Reason:** Failed its pre-committed train-split gate by a wider
-  margin than c008. The 2025–2026 test window was never opened.
+- **Reason:** Failed pre-committed train-split gate. Test window 2025–2026 never opened.
+  See [`C008_C009_EVIDENCE_INTEGRITY_DECISION.md`](C008_C009_EVIDENCE_INTEGRITY_DECISION.md).
 
 ### `session_breakout 0.1.0-c010`
 
