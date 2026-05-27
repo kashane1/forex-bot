@@ -123,6 +123,16 @@ backtests/campaign_009_mean_reversion/runs/**/*_trades.csv
 backtests/campaign_009_mean_reversion/runs/**/*_metrics.json
 backtests/campaign_009_mean_reversion/runs/**/*_metrics.md
 
+# C008/C009 deduped forensic replay — gitignore bulky trade/equity CSVs
+backtests/CAMPAIGN_008_mean_reversion_deduped_forensic/**/*_equity.csv
+backtests/CAMPAIGN_008_mean_reversion_deduped_forensic/**/*_trades.csv
+backtests/CAMPAIGN_008_mean_reversion_deduped_forensic/**/*_metrics.json
+backtests/CAMPAIGN_008_mean_reversion_deduped_forensic/**/*_metrics.md
+backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic/**/*_equity.csv
+backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic/**/*_trades.csv
+backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic/**/*_metrics.json
+backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic/**/*_metrics.md
+
 # Free / local parity verifier outputs — the trades CSV is regenerable
 # bulk; the small summary JSON / markdown may be committed by the user
 # if they choose, but the trade list is always gitignored.
