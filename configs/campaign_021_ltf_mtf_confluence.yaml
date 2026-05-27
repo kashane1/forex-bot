@@ -1,0 +1,141 @@
+# CAMPAIGN_021 — LTF MTF confluence entry. RESEARCH SCAFFOLD ONLY.
+#
+# lower_timeframe_mtf_confluence_entry 0.1.0-c021 — M15 execution, HTF context.
+# Precommit: docs/research/CAMPAIGN_021_LTF_MTF_CONFLUENCE_PRECOMMIT.md
+#
+# NOT APPROVED. configs/approved_strategies.yaml remains approved: [].
+# Full evidence requires a separate execution sprint.
+
+campaign:
+  id: CAMPAIGN_021
+  strategy_family: lower_timeframe_mtf_confluence_entry
+  version: 0.1.0-c021
+  not_approved: true
+  scaffold_only: true
+  status: SCAFFOLD_ONLY
+
+research_metadata:
+  fill_timing: next_bar_open
+  execution_realism: conservative
+  evidence_use: approval_bound
+  promotion_eligible: false
+
+data_provenance:
+  execution_m15: m1_derived
+  context_h1: m1_derived
+  context_h4: m1_derived
+  d1agg_context: native_h4_derived_d1agg
+  m1_derived_d1agg_allowed: false
+
+financing:
+  financing_mode: none
+  financing_overlay_required: true
+  observed_financing_status: blocked_pending_practice_sample
+
+app:
+  name: oanda-forex-research-bot
+  mode: paper
+  trading_enabled: false
+  allow_order_submission: false
+  allow_live_trading: false
+  database_path: ./data/campaign_002.sqlite3
+  log_path: ./logs/campaign_021.jsonl
+  kill_switch_path: ./KILL_SWITCH
+
+broker:
+  name: oanda
+  environment: practice
+  account_id_env: OANDA_ACCOUNT_ID_PRACTICE
+  token_env: OANDA_ACCESS_TOKEN_PRACTICE
+  request_timeout_seconds: 15
+  max_retries: 3
+
+market:
+  account_currency: USD
+  instruments:
+    - EUR_USD
+    - GBP_USD
+    - USD_JPY
+    - AUD_USD
+    - USD_CAD
+    - USD_CHF
+    - NZD_USD
+  granularity: M15
+  candle_price_components: BA
+  daily_alignment: 17
+  alignment_timezone: America/New_York
+  weekly_alignment: Friday
+
+strategy:
+  enabled:
+    - lower_timeframe_mtf_confluence_entry
+  lower_timeframe_mtf_confluence_entry:
+    version: 0.1.0-c021
+    timeframe: M15
+    d1_ema_fast: 20
+    d1_ema_slow: 50
+    h4_ema_context: 50
+    h1_ema_slope_bars: 3
+    m15_pullback_lookback: 8
+    adx_lookback: 14
+    adx_min: 18.0
+    atr_lookback: 14
+    atr_stop_multiple: 2.0
+    max_bars_in_trade: 32
+    min_atr_pips: {}
+
+risk:
+  starting_equity_usd: 500
+  risk_per_trade_pct: 0.25
+  max_risk_per_trade_pct: 0.50
+  max_daily_loss_pct: 1.00
+  max_weekly_loss_pct: 2.00
+  max_total_drawdown_pct: 8.00
+  max_open_positions: 1
+  max_pending_orders: 1
+  max_correlated_positions: 1
+  max_positions_per_instrument: 1
+  require_stop_loss: true
+  require_server_side_protection: true
+  allow_martingale: false
+  allow_grid: false
+  allow_averaging_down: false
+
+margin:
+  min_margin_available_pct_of_nav: 80
+  max_margin_used_pct_of_nav: 10
+  reject_if_margin_closeout_percent_above: 20
+
+spread_filter:
+  enabled: true
+  max_spread_to_atr_pct: 8.0
+  max_spread_pips:
+    EUR_USD: 1.5
+    GBP_USD: 2.5
+    USD_JPY: 2.0
+    AUD_USD: 2.0
+    USD_CAD: 2.5
+    USD_CHF: 2.0
+    NZD_USD: 2.5
+
+session_filter:
+  enabled: true
+  timezone: America/New_York
+  block_new_trades:
+    - name: rollover
+      start: "16:45"
+      end: "17:15"
+    - name: friday_close
+      day: Friday
+      start: "15:00"
+      end: "23:59"
+    - name: sunday_open
+      day: Sunday
+      start: "00:00"
+      end: "19:00"
+
+backtest:
+  fixed_slippage_pips: 0.2
+  spread_slippage_multiplier: 0.5
+  starting_equity_usd: 500
+  commission_per_unit: 0.0

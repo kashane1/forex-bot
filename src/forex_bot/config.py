@@ -766,6 +766,44 @@ class FailedBreakoutReversalStrategyConfig(BaseModel):
         return self
 
 
+class LowerTimeframeMtfConfluenceEntryStrategyConfig(BaseModel):
+    # CAMPAIGN_021 research candidate (`lower_timeframe_mtf_confluence_entry 0.1.0-c021`).
+    # SCAFFOLD ONLY — not approved. See CAMPAIGN_021_LTF_MTF_CONFLUENCE_PRECOMMIT.md.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["M15"] = "M15"
+    d1_ema_fast: int = 20
+    d1_ema_slow: int = 50
+    h4_ema_context: int = 50
+    h1_ema_slope_bars: int = 3
+    m15_pullback_lookback: int = 8
+    adx_lookback: int = 14
+    adx_min: float = 18.0
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    max_bars_in_trade: int = 32
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> LowerTimeframeMtfConfluenceEntryStrategyConfig:
+        if self.d1_ema_fast < 2 or self.d1_ema_slow <= self.d1_ema_fast:
+            raise ConfigError("d1_ema_slow must be > d1_ema_fast >= 2")
+        if self.h4_ema_context < 2:
+            raise ConfigError("h4_ema_context must be >= 2")
+        if self.h1_ema_slope_bars < 1:
+            raise ConfigError("h1_ema_slope_bars must be >= 1")
+        if self.m15_pullback_lookback < 1:
+            raise ConfigError("m15_pullback_lookback must be >= 1")
+        if self.adx_lookback < 2 or not (0 < self.adx_min < 100):
+            raise ConfigError("adx_lookback >= 2 and adx_min in (0, 100)")
+        if self.atr_lookback < 2 or self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_lookback >= 2 and atr_stop_multiple > 0")
+        if self.max_bars_in_trade < 1 or self.max_bars_in_trade > 200:
+            raise ConfigError("max_bars_in_trade must be in [1, 200]")
+        return self
+
+
 class MultiTimeframeConfluencePullbackStrategyConfig(BaseModel):
     # CAMPAIGN_020 research candidate (`multi_timeframe_confluence_pullback 0.1.0-c020`).
     # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
@@ -854,6 +892,9 @@ class StrategyConfig(BaseModel):
     ) = None
     multi_timeframe_confluence_pullback: (
         MultiTimeframeConfluencePullbackStrategyConfig | None
+    ) = None
+    lower_timeframe_mtf_confluence_entry: (
+        LowerTimeframeMtfConfluenceEntryStrategyConfig | None
     ) = None
 
     @model_validator(mode="after")
@@ -955,6 +996,14 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.multi_timeframe_confluence_pullback config "
+                "required when enabled"
+            )
+        if (
+            "lower_timeframe_mtf_confluence_entry" in self.enabled
+            and self.lower_timeframe_mtf_confluence_entry is None
+        ):
+            raise ConfigError(
+                "strategy.lower_timeframe_mtf_confluence_entry config "
                 "required when enabled"
             )
         return self
