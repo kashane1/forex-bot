@@ -37,7 +37,10 @@ Default structure:
 ## What Not To Redo Yet
 
 - Do not rerun C020.
-- Do not create CAMPAIGN_021 evidence until M1 store validation is complete.
+- M1 full-corpus validation is **complete** (`READY_WITH_WARNINGS` — see
+  `M1_FULL_CORPUS_LTF_LANE_READINESS_DECISION.md`). CAMPAIGN_021
+  **scaffold** may proceed; evidence remains blocked until scaffold precommit locks.
+- D1AGG context for scaffold: **native H4→D1AGG** from Postgres until M1→D1AGG day completeness is repaired.
 - Do not tune parameters before the lower-timeframe scaffold has a locked precommit.
 - Do not open test lockboxes.
 - Do not approve strategy configs.

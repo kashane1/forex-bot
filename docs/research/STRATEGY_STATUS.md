@@ -28,7 +28,9 @@ CAMPAIGN_020 remains **REJECT**. The infrastructure sprint
 `infra-m1-canonical-data-and-ltf-execution-lane-001` prepared a
 canonical M1 data and lower-timeframe execution lane so future research
 can evaluate M15/M5 entries with H1/H4/D1AGG context. It created no
-CAMPAIGN_021 evidence, no strategy verdict, and no approval.
+CAMPAIGN_021 evidence, no strategy verdict, and no approval. M1 full-corpus
+validation (`infra-m1-full-corpus-validation-and-aggregation-001`) is
+**READY_WITH_WARNINGS** for CAMPAIGN_021 **scaffold** only.
 
 | document | purpose |
 |---|---|
