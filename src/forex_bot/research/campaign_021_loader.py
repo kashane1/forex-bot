@@ -7,6 +7,8 @@ from datetime import UTC, datetime
 from decimal import Decimal
 from typing import Any
 
+import pandas as pd
+
 from forex_bot.backtesting.d1_aggregation import aggregate_h4_to_d1
 from forex_bot.data.m1_corpus_validation import (
     MAJOR_PAIRS,
