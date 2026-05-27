@@ -16,13 +16,13 @@
 
 | Phase | Commit |
 |---|---|
-| 0 | *(phase 0 commit)* |
-| 1 | *(phase 1 commit)* |
-| 2 | *(phase 2 commit)* |
-| 3 | *(phase 3 commit)* |
-| 4 | *(phase 4 commit)* |
-| 5 | *(phase 5 commit)* |
-| 6 | *(this commit)* |
+| 0 | `eeb35d2` |
+| 1 | `56a22ee` |
+| 2 | `56a22ee` |
+| 3 | `56a22ee` |
+| 4 | `a7d51ba` |
+| 5 | `c251911` |
+| 6 | `225868d` |
 
 ---
 
