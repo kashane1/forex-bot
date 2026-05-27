@@ -457,22 +457,17 @@ broad-search re-entry gates are met.**
 - See `docs/research/HYPOTHESIS_BACKLOG.md` for the earlier,
   campaign-era hypothesis list.
 
-## 9. CAMPAIGN_021 LTF MTF confluence scaffold — READY (next authorized step)
+## 9. CAMPAIGN_021 LTF MTF confluence — scaffold COMPLETE; execution NEXT
 
-- **Why it might matter.** CAMPAIGN_020 showed train-negative /
-  validation-positive behavior on H4 entries. Lower-timeframe execution
-  may improve entry precision while keeping H1/H4/D1AGG context.
-- **Prerequisites met.** `infra-m1-full-corpus-validation-and-aggregation-001`
-  classified the ingested M1 corpus `READY_WITH_WARNINGS` (12,793,196 rows;
-  hybrid D1AGG from native H4 documented).
-- **Required data / code.** Canonical M1 in Postgres; M1→M5/M15/H1/H4;
-  native H4→D1AGG for D1 context until M1 day-level repair; LTF alignment
-  and preflight scaffolds from lane 001.
-- **Risk of overfitting.** High until a precommitted scaffold and
-  locked gates exist. M15 should be the first execution timeframe; M5 is
-  supported but noisier.
-- **What would count as success.** A future separately-authorized
-  CAMPAIGN_021 scaffold and then evidence run that uses canonical M1
-  aggregated frames, `next_bar_open`, `htf_align`, strict warmups, and
-  unchanged financing/approval gates. This backlog item itself
-  authorizes no evidence and no approval.
+- **Scaffold status (2026-05-27).** Branch
+  `research-campaign-021-ltf-mtf-confluence-scaffold-001` delivered
+  precommit, strategy module, config, tests, preflight runner, parity
+  design. **No train/validation/test evidence.** `approved: []` unchanged.
+- **Next authorized step.** Execution sprint per
+  [`NEXT_SPRINT_PROMPT_CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION.md`](NEXT_SPRINT_PROMPT_CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION.md)
+  on branch `research-campaign-021-ltf-mtf-confluence-execution-001`.
+- **Data.** M1 corpus `READY_WITH_WARNINGS`; M15/H1/H4 from M1;
+  D1AGG from native H4 only until M1→D1AGG day completeness improves.
+- **Risk.** M15 may add noise vs H4; gates and 2× cost stress unchanged.
+- **Success (future).** Train/validation gates + Backtrader parity before
+  any test lockbox; still no approval without human registry change.

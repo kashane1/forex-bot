@@ -1,6 +1,6 @@
 # Strategy Status Registry
 
-**Date:** 2026-05-27 · **Branch:** `infra-m1-canonical-data-and-ltf-execution-lane-001`
+**Date:** 2026-05-27 · **Branch:** `research-campaign-021-ltf-mtf-confluence-scaffold-001`
 
 This is the human-readable status of every strategy family the project
 has built. It is the companion to the machine-enforced registry
@@ -30,7 +30,8 @@ canonical M1 data and lower-timeframe execution lane so future research
 can evaluate M15/M5 entries with H1/H4/D1AGG context. It created no
 CAMPAIGN_021 evidence, no strategy verdict, and no approval. M1 full-corpus
 validation (`infra-m1-full-corpus-validation-and-aggregation-001`) is
-**READY_WITH_WARNINGS** for CAMPAIGN_021 **scaffold** only.
+**READY_WITH_WARNINGS**. CAMPAIGN_021 is **SCAFFOLD_ONLY /
+PRECOMMITTED_NOT_EXECUTED** — no train/validation/test verdict.
 
 | document | purpose |
 |---|---|
@@ -85,6 +86,7 @@ strategy is approved.**
 | `weekly_cross_sectional_momentum_low_turnover 0.1.0-c016` | rejected (deduped) | NO | NO | NO | CAMPAIGN_016 deduped |
 | `weekly_volatility_contraction_breakout 0.1.0-c017` | rejected (deduped) | NO | NO | NO | CAMPAIGN_017 deduped |
 | `multi_timeframe_confluence_pullback 0.1.0-c020` | rejected | NO | NO | NO | CAMPAIGN_020 |
+| `lower_timeframe_mtf_confluence_entry 0.1.0-c021` | scaffold-only (not executed) | NO | NO | NO | CAMPAIGN_021 |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
@@ -398,6 +400,16 @@ for the FOMC-block + NFP-falsification analysis.
 - **Reason:** Failed precommitted train-split gate. Thesis-invalidation hypothesis **falsified**
   on train despite validation uplift and beat-null vs C011. See
   [`CAMPAIGN_019_FINAL_INTERPRETATION.md`](CAMPAIGN_019_FINAL_INTERPRETATION.md).
+
+### `lower_timeframe_mtf_confluence_entry 0.1.0-c021`
+
+- **Status:** scaffold-only — **PRECOMMITTED_NOT_EXECUTED** (no evidence verdict).
+- **Evidence:** None in scaffold sprint. M15 execution with H1/H4/D1AGG context;
+  hybrid provenance (M1-derived M15/H1/H4, native H4→D1AGG). Preflight PASS.
+- **Paper / demo / live:** NO / NO / NO.
+- **Reason:** Scaffold/precommit sprint only. Future execution sprint required for
+  train/validation gates. See
+  [`CAMPAIGN_021_LTF_MTF_CONFLUENCE_PRECOMMIT.md`](CAMPAIGN_021_LTF_MTF_CONFLUENCE_PRECOMMIT.md).
 
 ### `multi_timeframe_confluence_pullback 0.1.0-c020`
 

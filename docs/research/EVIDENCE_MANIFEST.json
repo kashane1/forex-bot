@@ -1932,5 +1932,35 @@
     "readiness_doc": "docs/research/M1_FULL_CORPUS_LTF_LANE_READINESS_DECISION.md",
     "artifacts_dir": "research/m1_full_corpus_validation",
     "recommended_next_sprint": "research-campaign-021-ltf-mtf-confluence-scaffold-001"
+  },
+  "campaign_021_ltf_mtf_confluence_scaffold_001": {
+    "campaign_id": "CAMPAIGN_021",
+    "strategy_name": "lower_timeframe_mtf_confluence_entry",
+    "version": "0.1.0-c021",
+    "sprint": "research-campaign-021-ltf-mtf-confluence-scaffold-001",
+    "sprint_type": "strategy_scaffold_and_precommit_only",
+    "status": "SCAFFOLD_ONLY",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "test_lockbox_opened": false,
+    "c020_verdict_unchanged": "REJECT",
+    "paper_demo_live_blocked": true,
+    "execution_timeframe": "M15",
+    "data_provenance": {
+      "execution_m15": "m1_derived",
+      "context_h1": "m1_derived",
+      "context_h4": "m1_derived",
+      "d1agg_context": "native_h4_derived_d1agg"
+    },
+    "plan_doc": "docs/research/CAMPAIGN_021_LTF_MTF_CONFLUENCE_SCAFFOLD_001_PLAN.md",
+    "precommit_doc": "docs/research/CAMPAIGN_021_LTF_MTF_CONFLUENCE_PRECOMMIT.md",
+    "distinctness_doc": "docs/research/CAMPAIGN_021_STRUCTURAL_DISTINCTNESS_MEMO.md",
+    "preflight_doc": "docs/research/CAMPAIGN_021_PREFLIGHT_SCAFFOLD_RESULT.md",
+    "parity_design_doc": "docs/research/CAMPAIGN_021_BACKTRADER_PARITY_DESIGN.md",
+    "summary_doc": "docs/research/CAMPAIGN_021_LTF_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md",
+    "execution_prompt_doc": "docs/research/NEXT_SPRINT_PROMPT_CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION.md",
+    "config_path": "configs/campaign_021_ltf_mtf_confluence.yaml",
+    "preflight_artifact": "research/campaign_021/preflight_result.json",
+    "recommended_next_sprint": "research-campaign-021-ltf-mtf-confluence-execution-001"
   }
 }

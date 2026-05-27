@@ -1507,6 +1507,21 @@ from native H4 until M1→D1AGG day completeness improves).
 | [`M1_FULL_CORPUS_LTF_LANE_READINESS_DECISION.md`](M1_FULL_CORPUS_LTF_LANE_READINESS_DECISION.md) | Phase 8 readiness |
 | [`M1_FULL_CORPUS_VALIDATION_AND_AGGREGATION_001_SUMMARY.md`](M1_FULL_CORPUS_VALIDATION_AND_AGGREGATION_001_SUMMARY.md) | Phase 9 close-out |
 
+## CAMPAIGN_021 LTF MTF confluence scaffold (research-campaign-021-ltf-mtf-confluence-scaffold-001)
+
+> **SCAFFOLD_ONLY** — `strategy_evidence: false`, `not_approved: true`.
+> No train/validation/test verdict. C020 remains REJECT.
+
+| document | what it is |
+|---|---|
+| [`CAMPAIGN_021_LTF_MTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_021_LTF_MTF_CONFLUENCE_SCAFFOLD_001_PLAN.md) | Phase 0 plan |
+| [`CAMPAIGN_021_STRUCTURAL_DISTINCTNESS_MEMO.md`](CAMPAIGN_021_STRUCTURAL_DISTINCTNESS_MEMO.md) | Distinctness vs rejected families |
+| [`CAMPAIGN_021_LTF_MTF_CONFLUENCE_PRECOMMIT.md`](CAMPAIGN_021_LTF_MTF_CONFLUENCE_PRECOMMIT.md) | Frozen parameters and gates |
+| [`CAMPAIGN_021_PREFLIGHT_SCAFFOLD_RESULT.md`](CAMPAIGN_021_PREFLIGHT_SCAFFOLD_RESULT.md) | Preflight PASS (compact) |
+| [`CAMPAIGN_021_BACKTRADER_PARITY_DESIGN.md`](CAMPAIGN_021_BACKTRADER_PARITY_DESIGN.md) | Parity design (not run) |
+| [`NEXT_SPRINT_PROMPT_CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION.md`](NEXT_SPRINT_PROMPT_CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION.md) | Future execution prompt |
+| [`CAMPAIGN_021_LTF_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_021_LTF_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md) | Scaffold sprint close-out |
+
 ## Machine-readable manifest & validation
 
 - [`docs/research/EVIDENCE_MANIFEST.json`](EVIDENCE_MANIFEST.json) — a
