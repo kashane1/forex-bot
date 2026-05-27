@@ -25,7 +25,7 @@
 | 6 | `349fe5c` | Backtrader parity design |
 | 7 | `72c7aaa` | execution sprint prompt |
 | 8 | `d068116` | evidence index + status |
-| 9 | `TBD` | this summary (phase 9 close-out) |
+| 9 | `590898e` | scaffold close-out summary |
 
 ## 4. Files changed by phase
 
