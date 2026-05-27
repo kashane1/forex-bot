@@ -160,6 +160,23 @@ map; the linked documents are the authoritative evidence.
 | [`research/campaign_018/mechanism_diagnostics.json`](../../research/campaign_018/mechanism_diagnostics.json) | Mechanism JSON |
 | [`research/campaign_018/metrics_summary.json`](../../research/campaign_018/metrics_summary.json) | Metrics JSON |
 
+## Financing modeled PnL and carry readiness (FINANCING_MODELED_PNL_AND_CARRY_READINESS_001)
+
+> **Infrastructure / diagnostic only** — `strategy_evidence: false`. Engine PnL
+> remains UNMODELED. C008/C009/C018 verdicts unchanged (**REJECT**). Observed
+> financing **not used** — `SYNTHETIC_FINANCING_DIAGNOSTIC` only.
+> Recommended next sprint: `infra-observed-financing-capture-readonly-001`.
+
+| document | purpose |
+|---|---|
+| [`FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_PLAN.md`](FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_PLAN.md) | Sprint plan |
+| [`FINANCING_CAPABILITY_AUDIT.md`](FINANCING_CAPABILITY_AUDIT.md) | Capability audit |
+| [`C008_C009_C018_FINANCING_EXPOSURE_DIAGNOSTIC.md`](C008_C009_C018_FINANCING_EXPOSURE_DIAGNOSTIC.md) | MR financing exposure |
+| [`CARRY_AND_FINANCING_READINESS_MEMO.md`](CARRY_AND_FINANCING_READINESS_MEMO.md) | Carry readiness gaps |
+| [`NEXT_SPRINT_PROMPT_AFTER_FINANCING_MODELED_PNL.md`](NEXT_SPRINT_PROMPT_AFTER_FINANCING_MODELED_PNL.md) | Next sprint prompt |
+| [`research/financing/modeled_pnl_readiness_audit.json`](../../research/financing/modeled_pnl_readiness_audit.json) | Machine-readable audit |
+| [`research/financing/c008_c009_c018_financing_exposure.json`](../../research/financing/c008_c009_c018_financing_exposure.json) | Exposure JSON |
+
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
 > **Implementation infrastructure / data only** — `strategy_evidence: false`. No

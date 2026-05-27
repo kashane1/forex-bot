@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-27 · **Branch:** `research-campaign-018-protective-stop-execution-001`
+**Date:** 2026-05-27 · **Branch:** `research-financing-modeled-pnl-and-carry-readiness-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -18,7 +18,8 @@
 > [`STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md`](STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md),
 > [`DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md`](DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md),
 > [`EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md),
-> [`CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md`](CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md).
+> [`CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md`](CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md),
+> [`FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md`](FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md).
 
 Ordering is rough priority. **Item 0** is the recommended next sprint.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
@@ -27,16 +28,25 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. Financing-modeled PnL and carry readiness (RECOMMENDED NEXT SPRINT)
+## 0. Observed financing capture read-only (RECOMMENDED NEXT SPRINT)
 
-- **Why it matters.** CAMPAIGN_018 REJECT but validation +0.194 R with 40-bar holds;
-  financing unmodeled. Required before fair comparison of any multi-day-hold exit variant.
-- **Sprint name.** `research-financing-modeled-pnl-and-carry-readiness-001`
-- **Status.** **RECOMMENDED** — CAMPAIGN_018 complete; exit hypothesis falsified on train.
+- **Why it matters.** Modeled overlay utility exists; binding blocker is observed
+  broker DAILY_FINANCING capture for MODELED treatment.
+- **Sprint name.** `infra-observed-financing-capture-readonly-001`
+- **Status.** **RECOMMENDED** — financing readiness sprint complete.
 
 ---
 
-## 0-complete. CAMPAIGN_018 protective-stop execution (COMPLETE — REJECT)
+## 0-complete. Financing modeled PnL and carry readiness (COMPLETE)
+
+- **Sprint name.** `research-financing-modeled-pnl-and-carry-readiness-001`
+- **Delivered.** Capability audit, overlay utility, C008/C009/C018 synthetic exposure.
+- **Summary.** [`FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md`](FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md)
+- **Status.** **COMPLETE** — carry not ready; observed capture is next blocker.
+
+---
+
+## 0-complete-prior. CAMPAIGN_018 protective-stop execution (COMPLETE — REJECT)
 
 - **Sprint name.** `research-campaign-018-protective-stop-execution-001`
 - **Result.** Train −0.119 R / val +0.194 R; screening FAIL; test lockbox not opened.

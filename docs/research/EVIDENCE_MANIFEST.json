@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-27",
-  "branch": "research-campaign-018-protective-stop-execution-001",
+  "branch": "research-financing-modeled-pnl-and-carry-readiness-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -20,10 +20,10 @@
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "research-financing-modeled-pnl-and-carry-readiness-001",
-    "next_non_strategy_sprint_status": "RECOMMENDED_FINANCING_OVERLAY",
-    "completed_non_strategy_sprint": "research-campaign-018-protective-stop-execution-001",
-    "prior_completed_non_strategy_sprint": "research-exit-hypothesis-precommit-001",
+    "next_non_strategy_sprint": "infra-observed-financing-capture-readonly-001",
+    "next_non_strategy_sprint_status": "RECOMMENDED_OBSERVED_FINANCING_CAPTURE",
+    "completed_non_strategy_sprint": "research-financing-modeled-pnl-and-carry-readiness-001",
+    "prior_completed_non_strategy_sprint": "research-campaign-018-protective-stop-execution-001",
     "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
     "prior_non_strategy_sprint_note": "Subsumed by completed cost-atlas work in infra-multi-timeframe-confluence-and-cost-atlas-001.",
     "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
@@ -1351,6 +1351,27 @@
       "path": "docs/research/STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md",
       "kind": "research_diagnostic",
       "description": "Close-out for research-stop-and-exit-diagnostics-001. No strategy approved. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FINANCING_MODELED_PNL_READINESS_AUDIT",
+      "path": "research/financing/modeled_pnl_readiness_audit.json",
+      "kind": "infra_diagnostic",
+      "description": "Machine-readable financing capability audit. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "C008_C009_C018_FINANCING_EXPOSURE",
+      "path": "research/financing/c008_c009_c018_financing_exposure.json",
+      "kind": "research_diagnostic",
+      "description": "SYNTHETIC_FINANCING_DIAGNOSTIC on C008/C009/C018 trades. Not verdict-changing. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY",
+      "path": "docs/research/FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md",
+      "kind": "infra_diagnostic",
+      "description": "Close-out for research-financing-modeled-pnl-and-carry-readiness-001. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]
