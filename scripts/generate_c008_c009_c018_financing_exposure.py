@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from research.financing.overlay import (  # noqa: E402
+from research.financing.overlay import (
     apply_financing_overlay,
     load_trades_from_glob,
 )

@@ -21,7 +21,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from datetime import date
 
-from research.financing.models import FinancingTreatment, FinancingSourceType, RatePair
+from research.financing.models import FinancingSourceType, FinancingTreatment, RatePair
 
 # Mirrored from src/forex_bot/financing.CONSERVATIVE_BP_PER_DAY.
 #

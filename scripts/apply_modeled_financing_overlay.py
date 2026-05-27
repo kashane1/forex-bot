@@ -24,15 +24,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from research.financing.fixtures import load_rate_fixture  # noqa: E402
-from research.financing.manual_csv import load_manual_csv_rate_schedule  # noqa: E402
-from research.financing.overlay import (  # noqa: E402
+from research.financing.fixtures import load_rate_fixture
+from research.financing.manual_csv import load_manual_csv_rate_schedule
+from research.financing.overlay import (
     apply_financing_overlay,
     load_trades_from_csv,
     load_trades_from_glob,
     write_overlay_result,
 )
-from research.financing.rates import FinancingRateSource, default_stress_rate_source  # noqa: E402
+from research.financing.rates import FinancingRateSource, default_stress_rate_source
 
 
 def _resolve_rate_source(args: argparse.Namespace) -> FinancingRateSource:
