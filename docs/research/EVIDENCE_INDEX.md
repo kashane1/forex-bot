@@ -463,6 +463,24 @@ by `scripts/validate_research_archive.py`.
 | [`SHARED_HTF_ALIGN_MODULE_RESULT.md`](SHARED_HTF_ALIGN_MODULE_RESULT.md) | `htf_align` module |
 | [`CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_WARN_REMEDIATION.md`](CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_WARN_REMEDIATION.md) | Validity impact |
 
+### Observed financing capture read-only 002 (`infra-observed-financing-capture-readonly-002`)
+
+> **Read-only infrastructure** — practice transaction inspection only; capture **blocked** in CI runner (`BLOCKED_READONLY_CREDENTIALS`); prior practice history **empty**. **No strategy approval.**
+
+| document | purpose |
+|---|---|
+| [`OBSERVED_FINANCING_CAPTURE_READONLY_002_PLAN.md`](OBSERVED_FINANCING_CAPTURE_READONLY_002_PLAN.md) | Sprint plan |
+| [`OANDA_READONLY_ENDPOINT_SAFETY_REVIEW.md`](OANDA_READONLY_ENDPOINT_SAFETY_REVIEW.md) | Allowlist / denylist |
+| [`OBSERVED_FINANCING_FIXTURE_SCHEMA.md`](OBSERVED_FINANCING_FIXTURE_SCHEMA.md) | Sanitized fixture schema |
+| [`OBSERVED_FINANCING_CAPTURE_SCRIPT_RESULT.md`](OBSERVED_FINANCING_CAPTURE_SCRIPT_RESULT.md) | Capture script |
+| [`OBSERVED_FINANCING_CAPTURE_BLOCKED.md`](OBSERVED_FINANCING_CAPTURE_BLOCKED.md) | Blocker classification |
+| [`OBSERVED_FINANCING_CAPTURE_READONLY_RESULT.md`](OBSERVED_FINANCING_CAPTURE_READONLY_RESULT.md) | Capture result |
+| [`OBSERVED_VS_SYNTHETIC_FINANCING_RECONCILIATION.md`](OBSERVED_VS_SYNTHETIC_FINANCING_RECONCILIATION.md) | Reconciliation |
+| [`OBSERVED_FINANCING_OVERLAY_REFERENCE_RESULT.md`](OBSERVED_FINANCING_OVERLAY_REFERENCE_RESULT.md) | Reference overlay |
+| [`CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_OBSERVED_FINANCING_CAPTURE.md`](CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_OBSERVED_FINANCING_CAPTURE.md) | Validity impact |
+| [`OBSERVED_FINANCING_CAPTURE_READONLY_002_SUMMARY.md`](OBSERVED_FINANCING_CAPTURE_READONLY_002_SUMMARY.md) | Close-out |
+| [`research/observed_financing_capture_readonly/run_manifest.json`](../../research/observed_financing_capture_readonly/run_manifest.json) | Run manifest |
+
 ### Financing overlay local-first (`infra-observed-cost-financing-overlay-local-first-001`)
 
 > **Infrastructure only** — trade-ledger financing overlay; synthetic/manual fixtures; no broker I/O; **no strategy approval.**

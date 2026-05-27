@@ -43,12 +43,18 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0-recommended. Observed financing capture read-only (NEXT)
+## 0-recommended. Practice overnight sample + observed capture execute (NEXT)
 
-- **Sprint name.** `infra-observed-financing-capture-readonly-002` (suggested)
-- **Prompt.** [`OBSERVED_FINANCING_CAPTURE_READ_ONLY_NEXT_PROMPT.md`](OBSERVED_FINANCING_CAPTURE_READ_ONLY_NEXT_PROMPT.md)
-- **Why.** Local-first overlay shows ~0.04–0.08R synthetic drag on multi-day ledgers; observed broker financing still missing.
-- **Status.** **RECOMMENDED** — read-only capture only; no strategy approval.
+- **Why.** Sprint 002 built capture tooling; execute blocked without local practice credentials; prior window returned **OBSERVED_FINANCING_EMPTY**.
+- **Actions.** Human overnight hold per [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md); then `scripts/capture_oanda_observed_financing_readonly.py --execute-readonly-capture`.
+- **Status.** **BLOCKED_AWAITING_LOCAL_CREDENTIALS_AND_SAMPLE**
+
+## 0-complete-capture-002. Observed financing capture read-only 002 (COMPLETE)
+
+- **Sprint name.** `infra-observed-financing-capture-readonly-002`
+- **Result.** Endpoint allowlist, capture script, fixture schema, reconciliation; execute blocked in runner; empty placeholder fixture.
+- **Summary.** [`OBSERVED_FINANCING_CAPTURE_READONLY_002_SUMMARY.md`](OBSERVED_FINANCING_CAPTURE_READONLY_002_SUMMARY.md)
+- **Status.** **COMPLETE** — infrastructure only; no strategy approval.
 
 ## 0-complete-financing-overlay. Observed financing overlay local-first (COMPLETE)
 
