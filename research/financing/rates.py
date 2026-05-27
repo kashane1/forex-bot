@@ -21,7 +21,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from datetime import date
 
-from research.financing.models import FinancingTreatment, RatePair
+from research.financing.models import FinancingTreatment, FinancingSourceType, RatePair
 
 # Mirrored from src/forex_bot/financing.CONSERVATIVE_BP_PER_DAY.
 #
@@ -63,6 +63,7 @@ class FinancingRateSource(ABC):
 
     name: str = "abstract"
     treatment: FinancingTreatment = FinancingTreatment.UNMODELED
+    source_type: FinancingSourceType = FinancingSourceType.SYNTHETIC_FIXTURE
 
     @abstractmethod
     def rate_for(self, date_utc: date, instrument: str) -> RatePair | None:
@@ -88,6 +89,7 @@ class TableRateSource(FinancingRateSource):
         *,
         name: str = "table",
         treatment: FinancingTreatment = FinancingTreatment.ESTIMATED,
+        source_type: FinancingSourceType = FinancingSourceType.SYNTHETIC_FIXTURE,
     ) -> None:
         if treatment == FinancingTreatment.MODELED:
             raise ValueError(
@@ -98,6 +100,7 @@ class TableRateSource(FinancingRateSource):
         self._table = dict(table)
         self.name = name
         self.treatment = treatment
+        self.source_type = source_type
 
     def rate_for(self, date_utc: date, instrument: str) -> RatePair | None:
         return self._table.get((date_utc, instrument))
@@ -113,6 +116,7 @@ class ConservativeStressRateSource(FinancingRateSource):
     """
 
     treatment = FinancingTreatment.ESTIMATED
+    source_type = FinancingSourceType.SYNTHETIC_FIXTURE
 
     def __init__(
         self,

@@ -42,15 +42,26 @@ from research.financing.fixtures import (
     load_rate_fixture,
     utc_date_of,
 )
+from research.financing.manual_csv import (
+    ManualCsvValidationError,
+    load_manual_csv_rate_schedule,
+)
 from research.financing.models import (
     DailyFinancingEvent,
     FinancingCalculatorConfig,
     FinancingRunReport,
+    FinancingSourceType,
     FinancingTreatment,
     MissingRatePolicy,
     PositionFinancingSummary,
     PositionInterval,
     RatePair,
+)
+from research.financing.overlay import (
+    apply_financing_overlay,
+    load_trades_from_csv,
+    load_trades_from_glob,
+    write_overlay_result,
 )
 from research.financing.rates import (
     CONSERVATIVE_BP_PER_DAY,
@@ -71,8 +82,10 @@ __all__ = [
     "FinancingCalculatorConfig",
     "FinancingRateSource",
     "FinancingRunReport",
+    "FinancingSourceType",
     "FinancingTreatment",
     "FixtureValidationError",
+    "ManualCsvValidationError",
     "MissingFinancingRateError",
     "MissingRatePolicy",
     "ObservedEventDict",
@@ -80,13 +93,18 @@ __all__ = [
     "PositionInterval",
     "RatePair",
     "TableRateSource",
+    "apply_financing_overlay",
     "calculate_position",
     "calculate_run",
     "canonical_event_key",
     "default_stress_rate_source",
     "dump_events_json",
+    "load_manual_csv_rate_schedule",
     "load_observed_event_fixture",
     "load_rate_fixture",
+    "load_trades_from_csv",
+    "load_trades_from_glob",
     "render_summary_md",
     "utc_date_of",
+    "write_overlay_result",
 ]

@@ -61,6 +61,21 @@ class MissingRatePolicy(str, Enum):
     ERROR = "error"
 
 
+class FinancingSourceType(str, Enum):
+    """Provenance of financing rate data.
+
+    * ``SYNTHETIC_FIXTURE`` — committed JSON fixture or generated
+      schedule for diagnostic use only.
+    * ``MANUAL_CSV`` — hand-maintained CSV rate schedule.
+    * ``OBSERVED_FUTURE`` — reserved for broker-observed rates once
+      capture sprint completes; not available in this repo today.
+    """
+
+    SYNTHETIC_FIXTURE = "synthetic_fixture"
+    MANUAL_CSV = "manual_csv"
+    OBSERVED_FUTURE = "observed_future"
+
+
 class RatePair(BaseModel):
     """Annualized financing rates in basis points for one (date,
     instrument). ``long_annual_bp`` is what a *long* position
