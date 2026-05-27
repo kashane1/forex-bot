@@ -340,6 +340,29 @@ def _tracked_text_files(repo_root: Path = REPO_ROOT) -> list[Path]:
     return files
 
 
+def check_execution_realism_policy(manifest: dict) -> CheckResult:
+    """Optional manifest policy block is internally consistent."""
+    policy = manifest.get("execution_realism_policy")
+    if not policy:
+        return CheckResult(
+            "execution_realism_policy",
+            True,
+            ["no execution_realism_policy block (optional)"],
+        )
+    required = policy.get("approval_bound_fill_timing_default")
+    if required != "next_bar_open":
+        return CheckResult(
+            "execution_realism_policy",
+            False,
+            ["approval_bound_fill_timing_default must be next_bar_open when set"],
+        )
+    return CheckResult(
+        "execution_realism_policy",
+        True,
+        ["execution_realism_policy present"],
+    )
+
+
 def validate_archive(repo_root: Path = REPO_ROOT) -> ArchiveValidation:
     """Run every research-archive integrity check on the real repo."""
     checks: list[CheckResult] = []
@@ -362,6 +385,7 @@ def validate_archive(repo_root: Path = REPO_ROOT) -> ArchiveValidation:
     checks.append(check_verdicts_non_approval(campaigns))
     checks.append(check_report_verdict_tokens(campaigns, repo_root))
     checks.append(check_diagnostic_artifacts(diagnostics, repo_root))
+    checks.append(check_execution_realism_policy(manifest))
     checks.append(
         check_evidence_index_links(
             repo_root / "docs" / "research" / "EVIDENCE_INDEX.md", repo_root
