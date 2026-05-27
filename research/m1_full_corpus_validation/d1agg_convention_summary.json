@@ -1,0 +1,83 @@
+{
+  "generated_at_utc": "2026-05-27T20:42:11.306498+00:00",
+  "overall_status": "WARN",
+  "pairs": [
+    {
+      "ambiguous_days": 0,
+      "convention": "H4_first_five_to_13NY_D1AGG",
+      "h4_derived_d1agg_count": 1294,
+      "incomplete_days": 1293,
+      "instrument": "EUR_USD",
+      "m1_derived_d1agg_count": 0,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 0,
+      "status": "WARN"
+    },
+    {
+      "ambiguous_days": 0,
+      "convention": "H4_first_five_to_13NY_D1AGG",
+      "h4_derived_d1agg_count": 1294,
+      "incomplete_days": 1282,
+      "instrument": "GBP_USD",
+      "m1_derived_d1agg_count": 0,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 0,
+      "status": "WARN"
+    },
+    {
+      "ambiguous_days": 0,
+      "convention": "H4_first_five_to_13NY_D1AGG",
+      "h4_derived_d1agg_count": 1294,
+      "incomplete_days": 1291,
+      "instrument": "USD_JPY",
+      "m1_derived_d1agg_count": 0,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 0,
+      "status": "WARN"
+    },
+    {
+      "ambiguous_days": 0,
+      "convention": "H4_first_five_to_13NY_D1AGG",
+      "h4_derived_d1agg_count": 1294,
+      "incomplete_days": 1185,
+      "instrument": "AUD_USD",
+      "m1_derived_d1agg_count": 0,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 0,
+      "status": "WARN"
+    },
+    {
+      "ambiguous_days": 0,
+      "convention": "H4_first_five_to_13NY_D1AGG",
+      "h4_derived_d1agg_count": 1294,
+      "incomplete_days": 1270,
+      "instrument": "USD_CAD",
+      "m1_derived_d1agg_count": 0,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 0,
+      "status": "WARN"
+    },
+    {
+      "ambiguous_days": 0,
+      "convention": "H4_first_five_to_13NY_D1AGG",
+      "h4_derived_d1agg_count": 1294,
+      "incomplete_days": 1152,
+      "instrument": "USD_CHF",
+      "m1_derived_d1agg_count": 0,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 0,
+      "status": "WARN"
+    },
+    {
+      "ambiguous_days": 0,
+      "convention": "H4_first_five_to_13NY_D1AGG",
+      "h4_derived_d1agg_count": 1294,
+      "incomplete_days": 1245,
+      "instrument": "NZD_USD",
+      "m1_derived_d1agg_count": 0,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 0,
+      "status": "WARN"
+    }
+  ]
+}

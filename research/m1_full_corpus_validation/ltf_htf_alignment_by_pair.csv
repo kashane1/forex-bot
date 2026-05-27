@@ -1,0 +1,8 @@
+instrument,status,execution_timeframe,decision_samples,lookahead_violations,stale_features,unavailable_features
+EUR_USD,WARN,M15,505,0,0,506
+GBP_USD,WARN,M15,538,0,0,541
+USD_JPY,WARN,M15,538,0,0,539
+AUD_USD,WARN,M15,546,0,96,558
+USD_CAD,WARN,M15,507,0,0,512
+USD_CHF,WARN,M15,512,0,142,595
+NZD_USD,WARN,M15,507,0,3,510

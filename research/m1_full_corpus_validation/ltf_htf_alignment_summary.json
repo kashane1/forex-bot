@@ -1,0 +1,89 @@
+{
+  "generated_at_utc": "2026-05-27T20:43:13.215137+00:00",
+  "m15": [
+    {
+      "decision_samples": 505,
+      "execution_timeframe": "M15",
+      "instrument": "EUR_USD",
+      "lookahead_violations": 0,
+      "stale_features": 0,
+      "status": "WARN",
+      "unavailable_features": 506
+    },
+    {
+      "decision_samples": 538,
+      "execution_timeframe": "M15",
+      "instrument": "GBP_USD",
+      "lookahead_violations": 0,
+      "stale_features": 0,
+      "status": "WARN",
+      "unavailable_features": 541
+    },
+    {
+      "decision_samples": 538,
+      "execution_timeframe": "M15",
+      "instrument": "USD_JPY",
+      "lookahead_violations": 0,
+      "stale_features": 0,
+      "status": "WARN",
+      "unavailable_features": 539
+    },
+    {
+      "decision_samples": 546,
+      "execution_timeframe": "M15",
+      "instrument": "AUD_USD",
+      "lookahead_violations": 0,
+      "stale_features": 96,
+      "status": "WARN",
+      "unavailable_features": 558
+    },
+    {
+      "decision_samples": 507,
+      "execution_timeframe": "M15",
+      "instrument": "USD_CAD",
+      "lookahead_violations": 0,
+      "stale_features": 0,
+      "status": "WARN",
+      "unavailable_features": 512
+    },
+    {
+      "decision_samples": 512,
+      "execution_timeframe": "M15",
+      "instrument": "USD_CHF",
+      "lookahead_violations": 0,
+      "stale_features": 142,
+      "status": "WARN",
+      "unavailable_features": 595
+    },
+    {
+      "decision_samples": 507,
+      "execution_timeframe": "M15",
+      "instrument": "NZD_USD",
+      "lookahead_violations": 0,
+      "stale_features": 3,
+      "status": "WARN",
+      "unavailable_features": 510
+    }
+  ],
+  "m5_subset": [
+    {
+      "decision_samples": 501,
+      "execution_timeframe": "M5",
+      "instrument": "EUR_USD",
+      "lookahead_violations": 0,
+      "stale_features": 0,
+      "status": "WARN",
+      "unavailable_features": 502
+    },
+    {
+      "decision_samples": 511,
+      "execution_timeframe": "M5",
+      "instrument": "GBP_USD",
+      "lookahead_violations": 0,
+      "stale_features": 0,
+      "status": "WARN",
+      "unavailable_features": 514
+    }
+  ],
+  "overall_status": "WARN"
+}

@@ -1,0 +1,76 @@
+{
+  "generated_at_utc": "2026-05-27T20:43:25.423349+00:00",
+  "overall_status": "FAIL",
+  "pairs": [
+    {
+      "errors": [
+        "context frame empty: D1AGG"
+      ],
+      "execution_timeframe": "M15",
+      "instrument": "EUR_USD",
+      "next_bar_open_available": true,
+      "status": "FAIL",
+      "time_stop_bars": 48
+    },
+    {
+      "errors": [
+        "context frame empty: D1AGG"
+      ],
+      "execution_timeframe": "M15",
+      "instrument": "GBP_USD",
+      "next_bar_open_available": true,
+      "status": "FAIL",
+      "time_stop_bars": 48
+    },
+    {
+      "errors": [
+        "context frame empty: D1AGG"
+      ],
+      "execution_timeframe": "M15",
+      "instrument": "USD_JPY",
+      "next_bar_open_available": true,
+      "status": "FAIL",
+      "time_stop_bars": 48
+    },
+    {
+      "errors": [
+        "context frame empty: D1AGG"
+      ],
+      "execution_timeframe": "M15",
+      "instrument": "AUD_USD",
+      "next_bar_open_available": true,
+      "status": "FAIL",
+      "time_stop_bars": 48
+    },
+    {
+      "errors": [
+        "context frame empty: D1AGG"
+      ],
+      "execution_timeframe": "M15",
+      "instrument": "USD_CAD",
+      "next_bar_open_available": true,
+      "status": "FAIL",
+      "time_stop_bars": 48
+    },
+    {
+      "errors": [
+        "context frame empty: D1AGG"
+      ],
+      "execution_timeframe": "M15",
+      "instrument": "USD_CHF",
+      "next_bar_open_available": true,
+      "status": "FAIL",
+      "time_stop_bars": 48
+    },
+    {
+      "errors": [
+        "context frame empty: D1AGG"
+      ],
+      "execution_timeframe": "M15",
+      "instrument": "NZD_USD",
+      "next_bar_open_available": true,
+      "status": "FAIL",
+      "time_stop_bars": 48
+    }
+  ]
+}

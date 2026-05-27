@@ -1,0 +1,8 @@
+instrument,status,m1_derived_d1agg_count,h4_derived_d1agg_count,overlap_count,ohlc_mismatch_count,incomplete_days,ambiguous_days
+EUR_USD,WARN,0,1294,0,0,1293,0
+GBP_USD,WARN,0,1294,0,0,1282,0
+USD_JPY,WARN,0,1294,0,0,1291,0
+AUD_USD,WARN,0,1294,0,0,1185,0
+USD_CAD,WARN,0,1294,0,0,1270,0
+USD_CHF,WARN,0,1294,0,0,1152,0
+NZD_USD,WARN,0,1294,0,0,1245,0

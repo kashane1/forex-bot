@@ -518,23 +518,6 @@ def d1agg_for_pair(store: PostgresCandleStore, instrument: str) -> dict[str, Any
     }
 
 
-def _frame_from_candles(candles: list[Candle]) -> pd.DataFrame:
-    rows = []
-    for c in candles:
-        rows.append(
-            {
-                "time": _candle_key(c),
-                "complete": c.complete,
-                "value": float(c.mid_c) if c.mid_c is not None else float(c.bid_c or 0),
-            }
-        )
-    frame = pd.DataFrame(rows).set_index("time")
-    frame.index = pd.DatetimeIndex(frame.index)
-    if frame.index.tz is None:
-        frame.index = frame.index.tz_localize("UTC")
-    return frame.sort_index()
-
-
 def ltf_alignment_for_pair(
     store: PostgresCandleStore,
     instrument: str,
@@ -562,12 +545,23 @@ def ltf_alignment_for_pair(
     if len(m15) < 10:
         return {"instrument": instrument, "status": "FAIL", "reason": "insufficient_sample_bars"}
     decisions = pd.DatetimeIndex([c.time for c in m15[:: max(1, len(m15) // sample_decisions)]])
+    def _feature_frame(candles: list[Candle], granularity: str) -> pd.DataFrame:
+        frame = CandleFrame.from_candles(instrument, granularity, candles).df
+        if frame.empty:
+            return pd.DataFrame(columns=["time", "value", "complete"])
+        frame = frame.reset_index().rename(columns={"index": "time"})
+        if "time" not in frame.columns:
+            frame = frame.rename(columns={frame.columns[0]: "time"})
+        if "value" not in frame.columns:
+            frame["value"] = frame["close"] if "close" in frame.columns else frame["bid_close"]
+        return frame
+
     aligned = align_ltf_execution_context(
         decisions,
         execution_timeframe=execution_timeframe,
-        h1_frame=_frame_from_candles(h1),
-        h4_frame=_frame_from_candles(h4),
-        d1agg_frame=_frame_from_candles(d1),
+        h1_frame=_feature_frame(h1, "H1"),
+        h4_frame=_feature_frame(h4, "H4"),
+        d1agg_frame=_feature_frame(d1, "D1AGG"),
         value_columns=["value"],
         max_staleness=pd.Timedelta("7D"),
     )
