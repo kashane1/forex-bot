@@ -10,7 +10,9 @@
 
 ## 2. Commit hashes by phase
 
-*(Filled at sprint close — see `git log` on branch.)*
+| Phase | Commit |
+|-------|--------|
+| 0–11 | `4e43b0f` |
 
 ## 3. Files changed by phase
 
