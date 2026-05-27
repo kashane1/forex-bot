@@ -11,6 +11,9 @@ from forex_bot.strategies.failed_breakout_reversal import (
     FailedBreakoutReversalStrategy,
 )
 from forex_bot.strategies.mean_reversion import MeanReversionStrategy
+from forex_bot.strategies.multi_timeframe_confluence_pullback import (
+    MultiTimeframeConfluencePullbackStrategy,
+)
 from forex_bot.strategies.pullback_continuation import PullbackContinuationStrategy
 from forex_bot.strategies.random_entry_anchor import RandomEntryAnchorStrategy
 from forex_bot.strategies.regime_switcher_atr_percentile import (
@@ -31,6 +34,7 @@ __all__ = [
     "CrossPairCurrencyStrengthRotationStrategy",
     "FailedBreakoutReversalStrategy",
     "MeanReversionStrategy",
+    "MultiTimeframeConfluencePullbackStrategy",
     "PullbackContinuationStrategy",
     "RandomEntryAnchorStrategy",
     "RegimeSwitcherAtrPercentileStrategy",

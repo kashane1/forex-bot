@@ -766,6 +766,62 @@ class FailedBreakoutReversalStrategyConfig(BaseModel):
         return self
 
 
+class MultiTimeframeConfluencePullbackStrategyConfig(BaseModel):
+    # CAMPAIGN_020 research candidate (`multi_timeframe_confluence_pullback 0.1.0-c020`).
+    # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
+    # See docs/research/CAMPAIGN_020_MTF_CONFLUENCE_PRECOMMIT.md.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H1", "H4", "D"] = "H4"
+    d1_ema_fast: int = 20
+    d1_ema_slow: int = 50
+    h4_ema_context: int = 50
+    h4_ema_pullback: int = 20
+    pullback_lookback: int = 6
+    pullback_band_atr: float = 0.5
+    rsi_lookback: int = 14
+    rsi_pullback_long: float = 40.0
+    rsi_pullback_short: float = 60.0
+    adx_lookback: int = 14
+    adx_min: float = 18.0
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    trailing_stop_atr_multiple: float | None = None
+    max_bars_in_trade: int = 24
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> MultiTimeframeConfluencePullbackStrategyConfig:
+        if self.d1_ema_fast < 2 or self.d1_ema_slow <= self.d1_ema_fast:
+            raise ConfigError("d1_ema_slow must be > d1_ema_fast >= 2")
+        if self.h4_ema_context < 2 or self.h4_ema_pullback < 2:
+            raise ConfigError("h4 EMA lengths must be >= 2")
+        if self.pullback_lookback < 1:
+            raise ConfigError("pullback_lookback must be >= 1")
+        if self.pullback_band_atr <= 0:
+            raise ConfigError("pullback_band_atr must be > 0")
+        if self.rsi_lookback < 2:
+            raise ConfigError("rsi_lookback must be >= 2")
+        if not (0 < self.rsi_pullback_long < self.rsi_pullback_short < 100):
+            raise ConfigError(
+                "rsi_pullback_long < rsi_pullback_short and both in (0, 100)"
+            )
+        if self.adx_lookback < 2 or not (0 < self.adx_min < 100):
+            raise ConfigError("adx_lookback >= 2 and adx_min in (0, 100)")
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1 or self.max_bars_in_trade > 60:
+            raise ConfigError("max_bars_in_trade must be in [1, 60]")
+        if self.trailing_stop_atr_multiple is not None:
+            raise ConfigError(
+                "trailing_stop_atr_multiple must be None in v1 — hard stop + time only"
+            )
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -795,6 +851,9 @@ class StrategyConfig(BaseModel):
     ) = None
     weekly_volatility_contraction_breakout: (
         WeeklyVolatilityContractionBreakoutStrategyConfig | None
+    ) = None
+    multi_timeframe_confluence_pullback: (
+        MultiTimeframeConfluencePullbackStrategyConfig | None
     ) = None
 
     @model_validator(mode="after")
@@ -888,6 +947,14 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.weekly_volatility_contraction_breakout config "
+                "required when enabled"
+            )
+        if (
+            "multi_timeframe_confluence_pullback" in self.enabled
+            and self.multi_timeframe_confluence_pullback is None
+        ):
+            raise ConfigError(
+                "strategy.multi_timeframe_confluence_pullback config "
                 "required when enabled"
             )
         return self
