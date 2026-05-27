@@ -1,0 +1,70 @@
+{
+  "c019_validation": {
+    "trade_count": 138,
+    "expectancy_r": 0.0962,
+    "profit_factor": 1.1423,
+    "pairs_positive": 6,
+    "pairs_total": 6,
+    "per_pair": {
+      "EUR_USD": {
+        "trade_count": 20,
+        "total_return_pct": 1.3529669999999827,
+        "max_drawdown_pct": -1.6671080000000074,
+        "profit_factor": 1.3473911648029988,
+        "expectancy_r": 0.26830648800730794,
+        "win_rate": 0.25,
+        "average_spread_paid_pips": 1.4349999999999998
+      },
+      "GBP_USD": {
+        "trade_count": 28,
+        "total_return_pct": 0.5907520000000277,
+        "max_drawdown_pct": -2.142912169946262,
+        "profit_factor": 1.1287016158724557,
+        "expectancy_r": 0.08621702226456687,
+        "win_rate": 0.39285714285714285,
+        "average_spread_paid_pips": 1.7535714285714283
+      },
+      "USD_JPY": {
+        "trade_count": 25,
+        "total_return_pct": 0.04467251045565668,
+        "max_drawdown_pct": -2.7467647483766298,
+        "profit_factor": 1.0095497171198962,
+        "expectancy_r": 8.42396690918654e-05,
+        "win_rate": 0.24,
+        "average_spread_paid_pips": 1.5519999999999998
+      },
+      "AUD_USD": {
+        "trade_count": 26,
+        "total_return_pct": 0.5421889999999818,
+        "max_drawdown_pct": -1.7687637019039513,
+        "profit_factor": 1.1274661809280677,
+        "expectancy_r": 0.08519934105905105,
+        "win_rate": 0.34615384615384615,
+        "average_spread_paid_pips": 1.2384615384615383
+      },
+      "USD_CAD": {
+        "trade_count": 18,
+        "total_return_pct": 0.6591245234872423,
+        "max_drawdown_pct": -2.17849826789897,
+        "profit_factor": 1.1980765116847893,
+        "expectancy_r": 0.1049663228773391,
+        "win_rate": 0.2777777777777778,
+        "average_spread_paid_pips": 1.7833333333333334
+      },
+      "USD_CHF": {
+        "trade_count": 21,
+        "total_return_pct": 0.1584934680875172,
+        "max_drawdown_pct": -1.8672349872262202,
+        "profit_factor": 1.0429056869705935,
+        "expectancy_r": 0.06638164063987795,
+        "win_rate": 0.3333333333333333,
+        "average_spread_paid_pips": 1.5904761904761902
+      }
+    }
+  },
+  "c011_null": {
+    "aggregate_expectancy_r": -0.0029,
+    "total_trades": null
+  },
+  "beat_null_threshold": 0.0071
+}

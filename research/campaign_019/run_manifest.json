@@ -1,0 +1,12 @@
+{
+  "campaign_id": "CAMPAIGN_019",
+  "strategy_name": "mean_reversion_thesis_invalidation",
+  "strategy_version": "0.1.0-c019",
+  "hypothesis": "thesis_invalidation_zscore_continuation_exit",
+  "config_path": "configs/campaign_019_mean_reversion_thesis_invalidation.yaml",
+  "dedupe_policy": "keep_last",
+  "git_commit": "a9ebce4ea9e7b469229fa70536f0d10ad474ece4",
+  "git_branch": "research-campaign-019-thesis-invalidation-execution-001",
+  "started_at_utc": "2026-05-27T05:53:33.498359+00:00",
+  "elapsed_seconds": 298.6
+}

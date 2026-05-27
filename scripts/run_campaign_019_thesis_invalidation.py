@@ -310,22 +310,22 @@ def evaluate_gates(agg: dict[str, Any], mech: dict[str, Any]) -> dict[str, Any]:
     ti_rate = mech.get("thesis_invalidation_exit_rate_pct", 0.0)
     train_exp = train.get("expectancy_r") or -999.0
     checks = {
-        "train_expectancy_gte_zero": train_exp >= 0,
-        "validation_expectancy_gt_zero": val_exp > 0,
-        "validation_pf_gte_1_05": (val.get("profit_factor") or 0) >= 1.05,
-        "validation_pairs_positive_gte_2": val.get("pairs_positive", 0) >= 2,
-        "validation_trade_count_gte_30": val.get("trade_count", 0) >= 30,
-        "validation_stress_2x_expectancy_gte_zero": (val2x.get("expectancy_r") or -999) >= 0,
-        "beat_null_vs_c011": val_exp > beat_null_threshold,
-        "thesis_invalidation_mechanism_active": 5.0 <= ti_rate <= 45.0,
-        "zero_target_exits": mech.get("target_exit_count", 0) == 0,
-        "zero_protective_exits": mech.get("protective_stop_exit_count", 0) == 0,
-        "train_expectancy_gte_c008_deduped": train_exp >= C008_TRAIN_EXP_BASELINE,
-        "full_stress_15x_expectancy_gte_zero": (full15.get("expectancy_r") or -999) >= 0,
+        "train_expectancy_gte_zero": bool(train_exp >= 0),
+        "validation_expectancy_gt_zero": bool(val_exp > 0),
+        "validation_pf_gte_1_05": bool((val.get("profit_factor") or 0) >= 1.05),
+        "validation_pairs_positive_gte_2": bool(val.get("pairs_positive", 0) >= 2),
+        "validation_trade_count_gte_30": bool(val.get("trade_count", 0) >= 30),
+        "validation_stress_2x_expectancy_gte_zero": bool((val2x.get("expectancy_r") or -999) >= 0),
+        "beat_null_vs_c011": bool(val_exp > beat_null_threshold),
+        "thesis_invalidation_mechanism_active": bool(5.0 <= ti_rate <= 45.0),
+        "zero_target_exits": bool(mech.get("target_exit_count", 0) == 0),
+        "zero_protective_exits": bool(mech.get("protective_stop_exit_count", 0) == 0),
+        "train_expectancy_gte_c008_deduped": bool(train_exp >= C008_TRAIN_EXP_BASELINE),
+        "full_stress_15x_expectancy_gte_zero": bool((full15.get("expectancy_r") or -999) >= 0),
     }
     passed = all(checks.values())
     failed = [k for k, v in checks.items() if not v]
-    within_null = abs(val_exp - C011_NULL_EXP_R) < 0.005
+    within_null = bool(abs(float(val_exp) - C011_NULL_EXP_R) < 0.005)
     return {
         "screening_pass": passed,
         "checks": checks,
@@ -340,9 +340,9 @@ def evaluate_gates(agg: dict[str, Any], mech: dict[str, Any]) -> dict[str, Any]:
 def evaluate_test_gates(agg: dict[str, Any]) -> dict[str, Any]:
     test = agg.get("test", {})
     checks = {
-        "test_expectancy_gte_zero": (test.get("expectancy_r") or -999) >= 0,
-        "test_pf_gte_1_0": (test.get("profit_factor") or 0) >= 1.0,
-        "test_trade_count_gte_20": test.get("trade_count", 0) >= 20,
+        "test_expectancy_gte_zero": bool((test.get("expectancy_r") or -999) >= 0),
+        "test_pf_gte_1_0": bool((test.get("profit_factor") or 0) >= 1.0),
+        "test_trade_count_gte_20": bool(test.get("trade_count", 0) >= 20),
     }
     passed = all(checks.values())
     train = agg.get("train", {})
@@ -355,7 +355,7 @@ def evaluate_test_gates(agg: dict[str, Any]) -> dict[str, Any]:
             + (val.get("expectancy_r") or 0) * (val.get("trade_count") or 0)
             + (test.get("expectancy_r") or 0) * (test.get("trade_count") or 0)
         ) / total
-    checks["combined_train_val_test_exp_gte_zero"] = (combined_exp or -999) >= 0
+    checks["combined_train_val_test_exp_gte_zero"] = bool((combined_exp or -999) >= 0)
     passed = passed and checks["combined_train_val_test_exp_gte_zero"]
     return {
         "test_pass": passed,
@@ -433,7 +433,7 @@ def write_artifacts(payload: dict[str, Any]) -> None:
         json.dumps(agg.get("validation_stress_2x", {}), indent=2), encoding="utf-8"
     )
     comp = payload.get("comparison", {})
-    (OUT_RESEARCH / "comparison_to_c008_c009_deduped.json").write_text(
+    (OUT_RESEARCH / "comparison_to_c008_c009_c018_deduped.json").write_text(
         json.dumps(
             {k: comp[k] for k in ("c019", "c008_deduped", "c009_deduped", "c018_executed") if k in comp},
             indent=2,

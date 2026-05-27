@@ -1,0 +1,17 @@
+{
+  "total_trades": 968,
+  "thesis_invalidation_exit_count": 122,
+  "thesis_invalidation_exit_rate_pct": 12.6,
+  "protective_stop_exit_count": 0,
+  "target_exit_count": 0,
+  "exit_reason_counts": {
+    "eod": 1,
+    "stop": 551,
+    "thesis_invalidation": 122,
+    "time": 294
+  },
+  "median_r": -0.743,
+  "time_exit_median_r": 1.3615,
+  "thesis_invalidation_zscore_median": 3.0557,
+  "thesis_invalidation_zscore_samples": 122
+}

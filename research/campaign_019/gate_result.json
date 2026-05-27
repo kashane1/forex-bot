@@ -1,0 +1,26 @@
+{
+  "screening_pass": false,
+  "checks": {
+    "train_expectancy_gte_zero": false,
+    "validation_expectancy_gt_zero": true,
+    "validation_pf_gte_1_05": true,
+    "validation_pairs_positive_gte_2": true,
+    "validation_trade_count_gte_30": true,
+    "validation_stress_2x_expectancy_gte_zero": true,
+    "beat_null_vs_c011": true,
+    "thesis_invalidation_mechanism_active": true,
+    "zero_target_exits": true,
+    "zero_protective_exits": true,
+    "train_expectancy_gte_c008_deduped": false,
+    "full_stress_15x_expectancy_gte_zero": false
+  },
+  "failed_gates": [
+    "train_expectancy_gte_zero",
+    "train_expectancy_gte_c008_deduped",
+    "full_stress_15x_expectancy_gte_zero"
+  ],
+  "within_null": false,
+  "beat_null_threshold": 0.0071,
+  "test_window_opened": false,
+  "verdict": "REJECT"
+}
