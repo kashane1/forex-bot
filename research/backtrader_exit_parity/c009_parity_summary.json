@@ -2,90 +2,96 @@
   "campaign": "C009",
   "strategy_evidence": false,
   "parity_diagnostic_only": true,
-  "generated_at_utc": "2026-05-27T04:12:08.121946+00:00",
+  "generated_at_utc": "2026-05-27T05:05:37.078438+00:00",
   "engine": "backtrader_exit_parity",
+  "backtrader_version": "1.9.78.123",
+  "pnl_conversion_mode": "home_currency_v1",
+  "account_currency": "USD",
+  "risk_window_mode": "engine_aligned",
+  "data_source": "./data/campaign_002.sqlite3",
+  "deduped_candles": true,
   "fill_timing": "signal_bar_close",
   "gap_fill_policy": "none",
   "midline_exit": true,
   "protective_stop_after_r": null,
   "aggregate": {
-    "total_trades": 332,
+    "total_trades": 402,
     "by_exit_reason": {
       "eod": {
         "count": 1,
-        "share_pct": 0.3,
+        "share_pct": 0.25,
         "expectancy_r": -0.037,
         "avg_bars_held": 1.0
       },
       "stop": {
-        "count": 188,
-        "share_pct": 56.63,
-        "expectancy_r": -1.0,
-        "avg_bars_held": 7.97
+        "count": 227,
+        "share_pct": 56.47,
+        "expectancy_r": -0.7887,
+        "avg_bars_held": 7.99
       },
       "target": {
-        "count": 133,
-        "share_pct": 40.06,
-        "expectancy_r": 1.5059,
-        "avg_bars_held": 10.89
+        "count": 164,
+        "share_pct": 40.8,
+        "expectancy_r": 1.1781,
+        "avg_bars_held": 10.45
       },
       "time": {
         "count": 10,
-        "share_pct": 3.01,
-        "expectancy_r": 0.5764,
+        "share_pct": 2.49,
+        "expectancy_r": 0.5783,
         "avg_bars_held": 40.0
       }
     }
   },
   "by_split": {
     "train": {
-      "total_trades": 207,
+      "total_trades": 252,
       "by_exit_reason": {
         "eod": {
           "count": 1,
-          "share_pct": 0.48,
+          "share_pct": 0.4,
           "expectancy_r": -0.037,
           "avg_bars_held": 1.0
         },
         "stop": {
-          "count": 127,
-          "share_pct": 61.35,
-          "expectancy_r": -1.0,
-          "avg_bars_held": 8.06
+          "count": 151,
+          "share_pct": 59.92,
+          "expectancy_r": -0.7992,
+          "avg_bars_held": 7.86
         },
         "target": {
-          "count": 76,
-          "share_pct": 36.71,
-          "expectancy_r": 1.5375,
-          "avg_bars_held": 11.36
+          "count": 97,
+          "share_pct": 38.49,
+          "expectancy_r": 1.1593,
+          "avg_bars_held": 10.9
         },
         "time": {
           "count": 3,
-          "share_pct": 1.45,
-          "expectancy_r": 0.642,
+          "share_pct": 1.19,
+          "expectancy_r": 0.6289,
           "avg_bars_held": 40.0
         }
       }
     },
     "validation": {
-      "total_trades": 125,
+      "total_trades": 150,
       "by_exit_reason": {
         "stop": {
-          "count": 61,
-          "share_pct": 48.8,
-          "expectancy_r": -1.0,
-          "avg_bars_held": 7.79
+          "count": 76,
+          "share_pct": 50.67,
+          "expectancy_r": -0.7679,
+          "avg_bars_held": 8.25
         },
         "target": {
-          "count": 57,
-          "share_pct": 45.6,
-          "expectancy_r": 1.4638,
-          "avg_bars_held": 10.26
+          "count": 67,
+          "share_pct": 44.67,
+          "expectancy_r": 1.2053,
+          "avg_bars_held": 9.81
         },
         "time": {
           "count": 7,
-          "share_pct": 5.6,
-          "expectancy_r": 0.5482,
+          "share_pct": 4.67,
+          "expectancy_r": 0.5567,
           "avg_bars_held": 40.0
         }
       }

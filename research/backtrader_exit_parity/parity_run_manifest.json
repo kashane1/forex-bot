@@ -1,0 +1,27 @@
+{
+  "strategy_evidence": false,
+  "parity_diagnostic_only": true,
+  "generated_at_utc": "2026-05-27T05:07:30.363294+00:00",
+  "backtrader_version": "1.9.78.123",
+  "pnl_conversion_mode": "home_currency_v1",
+  "account_currency": "USD",
+  "risk_window_mode": "engine_aligned",
+  "data_source": "./data/campaign_002.sqlite3",
+  "deduped_candles": true,
+  "fill_timing": "signal_bar_close",
+  "gap_fill_policy": "none",
+  "campaigns": {
+    "C008": {
+      "total_trades": 353,
+      "campaign_version": "C008"
+    },
+    "C009": {
+      "total_trades": 402,
+      "campaign_version": "C009"
+    },
+    "C018": {
+      "total_trades": 377,
+      "campaign_version": "C018"
+    }
+  }
+}
