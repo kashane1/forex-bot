@@ -849,7 +849,7 @@
         "dedupe_policy": "keep_last",
         "approval_path": "none (REJECT — train gate fail; test lockbox closed). configs/approved_strategies.yaml remains approved: []."
       },
-      "commit_hash": "TBD-exec",
+      "commit_hash": "458420d",
       "test_window_opened": false,
       "risk_engine_used": true,
       "financing_treatment": "none",
