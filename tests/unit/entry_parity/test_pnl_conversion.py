@@ -5,7 +5,7 @@ from __future__ import annotations
 from decimal import Decimal
 
 from research.backtrader_exit_parity.exit_logic import OpenTrade
-from research.backtrader_exit_parity.strategy import _pnl
+from research.backtrader_exit_parity.pnl import pnl_home_currency
 
 from forex_bot.domain.instruments import Instrument
 
@@ -33,6 +33,6 @@ def test_usd_jpy_pnl_converts_quote_to_usd():
         trade_units_precision=0,
     )
     trade = _trade("long", "150.000", 1000)
-    pnl = _pnl(trade, Decimal("149.000"), inst)
+    pnl = pnl_home_currency(trade, Decimal("149.000"), inst)
     expected = float(Decimal("-1000") / Decimal("149.000"))
     assert abs(float(pnl) - expected) < 0.001

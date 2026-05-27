@@ -31,6 +31,7 @@ from forex_bot.strategies.mean_reversion_protective_stop import (
 )
 from research.backtrader_exit_parity.data_feed import DedupedBidAskFeed, prepare_candle_window
 from research.backtrader_exit_parity.exit_logic import OpenTrade, process_bar_exit
+from research.backtrader_exit_parity.pnl import pnl_home_currency
 from research.backtrader_exit_parity.risk_windows import drawdown_pct, realized_windows
 
 
@@ -77,20 +78,8 @@ def _synthetic_account_snapshot(ts: pd.Timestamp, equity: float):
 
 
 def _pnl(trade: OpenTrade, exit_price: Decimal, instrument: Instrument) -> Decimal:
-    diff_quote = (
-        (exit_price - trade.entry_price)
-        if trade.side == "long"
-        else (trade.entry_price - exit_price)
-    )
-    gross_quote = diff_quote * trade.units
-    home = "USD"
-    if instrument.quote_currency == home:
-        return gross_quote
-    if instrument.base_currency == home:
-        return gross_quote / exit_price
-    raise ValueError(
-        f"Unsupported cross pair {instrument.name} for account_currency={home}"
-    )
+    """Backward-compatible alias for ``pnl_home_currency``."""
+    return pnl_home_currency(trade, exit_price, instrument)
 
 
 def run_mean_reversion_exit_parity(
@@ -106,7 +95,7 @@ def run_mean_reversion_exit_parity(
     risk_engine: RiskEngine | None,
     max_bars_in_trade: int,
     starting_equity: float,
-    risk_window_mode: Literal["legacy_bt", "engine_aligned"] = "legacy_bt",
+    risk_window_mode: Literal["legacy_bt", "engine_aligned"] = "engine_aligned",
     rejection_log: list[dict[str, Any]] | None = None,
 ) -> PairParityResult:
     """Drive one instrument through Backtrader with exit-parity logic."""

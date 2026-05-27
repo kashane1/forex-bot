@@ -8,6 +8,8 @@ from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
+import backtrader as bt
+
 from forex_bot.backtesting.fills import FillModel
 from forex_bot.config import load_settings
 from forex_bot.data.db import Database
@@ -15,6 +17,8 @@ from forex_bot.data.repositories import InstrumentRepo
 from forex_bot.risk.policy import RiskEngine
 from research.backtrader_exit_parity.constants import (
     CAMPAIGN_CONFIGS,
+    FILL_TIMING,
+    GAP_FILL_POLICY,
     PARITY_OUT_DIR,
     REPO_ROOT,
     SPLITS,
@@ -22,9 +26,13 @@ from research.backtrader_exit_parity.constants import (
 )
 from research.backtrader_exit_parity.data_feed import load_split_frame
 from research.backtrader_exit_parity.exit_logic import exit_reason_stats
+from research.backtrader_exit_parity.pnl import DEFAULT_ACCOUNT_CURRENCY
 from research.backtrader_exit_parity.strategy import (
     run_mean_reversion_exit_parity,
 )
+
+PNL_CONVERSION_MODE = "home_currency_v1"
+RISK_WINDOW_MODE = "engine_aligned"
 
 
 def _campaign_params(campaign: str, settings: Any) -> tuple[dict[str, Any], bool, float | None]:
@@ -92,6 +100,7 @@ def run_campaign_parity(
                     risk_engine=risk_engine,
                     max_bars_in_trade=max_bars,
                     starting_equity=starting_equity,
+                    risk_window_mode=RISK_WINDOW_MODE,
                 )
                 for t in result.trades:
                     rec = {
@@ -118,8 +127,14 @@ def run_campaign_parity(
             "parity_diagnostic_only": True,
             "generated_at_utc": datetime.now(tz=UTC).isoformat(),
             "engine": "backtrader_exit_parity",
-            "fill_timing": "signal_bar_close",
-            "gap_fill_policy": "none",
+            "backtrader_version": bt.__version__,
+            "pnl_conversion_mode": PNL_CONVERSION_MODE,
+            "account_currency": DEFAULT_ACCOUNT_CURRENCY,
+            "risk_window_mode": RISK_WINDOW_MODE,
+            "data_source": str(db_path or settings.app.database_path),
+            "deduped_candles": True,
+            "fill_timing": FILL_TIMING,
+            "gap_fill_policy": GAP_FILL_POLICY,
             "midline_exit": midline_exit,
             "protective_stop_after_r": protective_r,
             "aggregate": exit_reason_stats(all_trades),
@@ -164,4 +179,37 @@ def run_all_campaigns(
     results = {}
     for campaign in ("C008", "C009", "C018"):
         results[campaign] = run_campaign_parity(campaign, repo_root=repo_root, out_dir=out_dir)
+    write_parity_run_manifest(results, out_dir or PARITY_OUT_DIR)
     return results
+
+
+def write_parity_run_manifest(
+    results: dict[str, dict[str, Any]],
+    out_dir: Path,
+) -> Path:
+    """Write run metadata for refreshed parity artifacts."""
+    first = next(iter(results.values()), {})
+    manifest: dict[str, Any] = {
+        "strategy_evidence": False,
+        "parity_diagnostic_only": True,
+        "generated_at_utc": datetime.now(tz=UTC).isoformat(),
+        "backtrader_version": first.get("backtrader_version", bt.__version__),
+        "pnl_conversion_mode": PNL_CONVERSION_MODE,
+        "account_currency": DEFAULT_ACCOUNT_CURRENCY,
+        "risk_window_mode": RISK_WINDOW_MODE,
+        "data_source": first.get("data_source", "data/campaign_002.sqlite3"),
+        "deduped_candles": True,
+        "fill_timing": FILL_TIMING,
+        "gap_fill_policy": GAP_FILL_POLICY,
+        "campaigns": {
+            campaign: {
+                "total_trades": data.get("aggregate", {}).get("total_trades", 0),
+                "campaign_version": data.get("campaign"),
+            }
+            for campaign, data in results.items()
+        },
+    }
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / "parity_run_manifest.json"
+    path.write_text(json.dumps(manifest, indent=2, default=str), encoding="utf-8")
+    return path
