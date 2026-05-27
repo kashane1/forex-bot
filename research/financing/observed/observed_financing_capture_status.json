@@ -1,0 +1,24 @@
+{
+  "capture_window": {
+    "from": "2025-11-28T02:52:53.212469Z",
+    "to": "2026-05-27T02:52:53.212469Z"
+  },
+  "credential_status": {
+    "access_token_present": true,
+    "account_id_present": true,
+    "environment_is_practice": true,
+    "live_token_present": true
+  },
+  "daily_financing_count": 0,
+  "likely_reasons": [
+    "no overnight positions in capture window",
+    "practice account has no DAILY_FINANCING history",
+    "research freeze prevented order submission"
+  ],
+  "not_approved": true,
+  "status": "OBSERVED_FINANCING_EMPTY",
+  "strategy_evidence": false,
+  "tool": "capture_observed_financing_readonly",
+  "tool_version": "1",
+  "transactions_fetched": 0
+}

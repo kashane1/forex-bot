@@ -1,0 +1,31 @@
+{
+  "capture_window": {
+    "from": "2025-11-28T02:52:53.212469Z",
+    "to": "2026-05-27T02:52:53.212469Z"
+  },
+  "endpoint_allowlist": [
+    "",
+    "/summary",
+    "/transactions",
+    "/transactions/sinceid",
+    "/transactions/idrange"
+  ],
+  "endpoint_denylist_fragments": [
+    "/orders",
+    "/trades/",
+    "/positions/",
+    "/openTrades",
+    "/openPositions",
+    "/pendingOrders",
+    "/transactions/stream",
+    "/configure",
+    "/funding"
+  ],
+  "host": "https://api-fxpractice.oanda.com",
+  "methods_allowed": [
+    "GET"
+  ],
+  "strategy_evidence": false,
+  "tool": "capture_observed_financing_readonly",
+  "type_filter": "DAILY_FINANCING"
+}

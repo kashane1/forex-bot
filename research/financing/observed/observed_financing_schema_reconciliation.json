@@ -1,0 +1,26 @@
+{
+  "reconciliation_date": "2026-05-27",
+  "strategy_evidence": false,
+  "observed_capture_status": "OBSERVED_FINANCING_EMPTY",
+  "observed_data_available": false,
+  "overlay_utility": "research/financing/overlay.py",
+  "rate_source_types": {
+    "synthetic_fixture": "ConservativeStressRateSource — available",
+    "manual_csv": "load_manual_csv_rate_schedule — available",
+    "observed_future": "not populated — empty capture"
+  },
+  "schema_mapping": {
+    "observed_parser_output": "SanitizedFinancingEvent (transaction_id_redacted, instrument, trade_id_redacted, units, financing, time)",
+    "overlay_input": "PositionInterval from trade CSV (entry_time, exit_time, instrument, side, units)",
+    "gap": "Observed DAILY_FINANCING events are point-in-time charges, not hold-interval rates — bridge must aggregate observed events into per-(date, instrument) RatePair table for TableRateSource"
+  },
+  "per_day_rate_availability": false,
+  "per_position_financing": "parser supports positionFinancings + openTradeFinancings when data exists",
+  "per_trade_financing": "parser supports openTradeFinancings.tradeID + financing when data exists",
+  "conversion_factors": "homeConversionFactors not present in empty capture; parser reserves extension point",
+  "overlay_can_use_observed_directly": false,
+  "bridge_required": true,
+  "bridge_description": "Aggregate sanitized events → TableRateSource or ObservedRateSource mapping financing amounts to annual_bp per (date, instrument, side)",
+  "modeled_treatment_ready": false,
+  "campaign_verdicts_changed": false
+}
