@@ -12,13 +12,12 @@
 
 | Phase | Commit |
 |-------|--------|
-| 0 | _(filled at commit)_ |
-| 1–2 | _(filled at commit)_ |
-| 3 | _(filled at commit)_ |
-| 4 | _(filled at commit)_ |
-| 5–7 | _(filled at commit)_ |
-| 8 | _(filled at commit)_ |
-| 9 | _(filled at commit)_ |
+| 0 | `4e66f4c` |
+| 1–2 | `19bc872` |
+| 3 | `f374ec1` |
+| 4 | `bf92701` |
+| 5–7 | `0107a0e` |
+| 8–9 | `5ef8cca` |
 
 ## 3. Files changed by phase
 
@@ -162,7 +161,7 @@ Still requires observed financing before promotion review; gross R remains optim
 
 ## 36. Recommended next sprint
 
-Human practice overnight sample + local `--execute-readonly-capture` with secret scan; then observed-vs-synthetic rate bridge if entries &gt; 0.
+Human practice overnight sample + local `--execute-readonly-capture` with secret scan; then observed-vs-synthetic rate bridge if entries > 0.
 
 ## 37. Review first
 
