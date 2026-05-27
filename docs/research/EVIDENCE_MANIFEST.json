@@ -786,7 +786,13 @@
       "test_window_opened": false,
       "risk_engine_used": true,
       "financing_treatment": "estimated",
-      "strategy_approved": false
+      "strategy_approved": false,
+      "fill_timing": "signal_bar_close",
+      "execution_realism": "optimistic_upper_bound",
+      "evidence_use": "legacy",
+      "promotion_eligible": false,
+      "fill_timing_justification": "executed before next_bar_open policy; validation uplift partly optimistic",
+      "next_bar_open_validation_expectancy_r": 0.0175
     }
   ],
   "diagnostic_artifacts": [
@@ -1749,6 +1755,30 @@
     "htf_align_module": "src/forex_bot/features/htf_align.py",
     "recommended_next_sprint": "infra-observed-financing-capture-readonly-002",
     "successor_sprint": "infra-observed-financing-capture-readonly-002"
+  },
+  "execution_realism_policy": {
+    "approval_bound_fill_timing_default": "next_bar_open",
+    "signal_bar_close_default_execution_realism": "optimistic_upper_bound",
+    "signal_bar_close_promotion_eligible": false,
+    "c019_fill_timing_committed": "signal_bar_close",
+    "c019_next_bar_open_validation_expectancy_r": 0.0175,
+    "c019_signal_bar_close_validation_expectancy_r": 0.0962,
+    "fill_timing_comparison_doc": "docs/research/NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md"
+  },
+  "next_bar_open_policy_and_htf_align_migration_001": {
+    "sprint": "infra-next-bar-open-policy-and-htf-align-migration-001",
+    "sprint_type": "execution_realism_and_htf_infrastructure",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "campaign_020_created": false,
+    "plan_doc": "docs/research/NEXT_BAR_OPEN_POLICY_AND_HTF_ALIGN_MIGRATION_001_PLAN.md",
+    "summary_doc": "docs/research/NEXT_BAR_OPEN_POLICY_AND_HTF_ALIGN_MIGRATION_001_SUMMARY.md",
+    "fill_timing_policy_doc": "docs/research/FILL_TIMING_APPROVAL_BOUND_POLICY.md",
+    "htf_policy_doc": "docs/research/HTF_ALIGNMENT_POLICY_FOR_FUTURE_STRATEGIES.md",
+    "htf_migration_module": "src/forex_bot/features/d1agg_htf.py",
+    "execution_realism_module": "src/forex_bot/research/execution_realism.py",
+    "regime_switcher_htf_migrated": true,
+    "recommended_next_sprint": "practice-overnight-sample-and-capture-execute"
   },
   "observed_financing_capture_readonly_002": {
     "sprint": "infra-observed-financing-capture-readonly-002",

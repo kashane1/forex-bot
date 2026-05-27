@@ -380,6 +380,9 @@ for the FOMC-block + NFP-falsification analysis.
   6/6 pairs, PF 1.14). Screening **FAIL** (train gate, train vs C008, stress_15x).
   Test lockbox **not opened**. Mechanism active (12.6% thesis_invalidation; 0% targets/protective).
   Backtrader parity **PASS** (±1 trade).
+- **Fill timing:** committed run used `signal_bar_close` (**optimistic upper bound** on
+  validation); `next_bar_open` comparison validation **+0.0175 R** (~−0.079 R delta).
+  See [`FILL_TIMING_APPROVAL_BOUND_POLICY.md`](FILL_TIMING_APPROVAL_BOUND_POLICY.md).
 - **Paper / demo / live:** NO / NO / NO.
 - **Reason:** Failed precommitted train-split gate. Thesis-invalidation hypothesis **falsified**
   on train despite validation uplift and beat-null vs C011. See
