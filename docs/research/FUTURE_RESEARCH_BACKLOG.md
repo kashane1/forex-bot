@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-27 · **Branch:** `infra-practice-overnight-financing-sample-plan-001`
+**Date:** 2026-05-27 · **Branch:** `infra-backtrader-exit-parity-diagnostics-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -21,7 +21,8 @@
 > [`CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md`](CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md),
 > [`FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md`](FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md),
 > [`OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md`](OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md),
-> [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md).
+> [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md),
+> [`BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md`](BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md).
 
 Ordering is rough priority. **Item 0** is the recommended next action.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
@@ -30,11 +31,38 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. Human practice overnight sample (RECOMMENDED NEXT ACTION — NOT A SPRINT)
+## 0. Exit hypothesis precommit follow-up (RECOMMENDED NEXT SPRINT)
+
+- **Sprint name.** `research-exit-hypothesis-precommit-002`
+- **Why it matters.** Backtrader exit-parity lane corroborates C008 stop/time split, C009 target capping, and C018 protective exits at the distribution level ([`BACKTRADER_EXIT_PARITY_STATUS.md`](BACKTRADER_EXIT_PARITY_STATUS.md)).
+- **Action.** Pre-register next exit hypothesis if human authorizes; no approval path.
+- **Status.** **RECOMMENDED** — exit pathology confirmed; trade-count gap is entry-orchestration, not exit bug.
+
+---
+
+## 0-paused. Human practice overnight sample (PAUSED — NOT A SPRINT)
 
 - **Why it matters.** Read-only capture returned **zero DAILY_FINANCING**; parser/capture ready but no observed data.
 - **Action.** Human follows [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md) — manual practice UI trades only.
-- **Status.** **PAUSED** until human completes sample — no Cursor/bot order submission.
+- **Status.** **PAUSED** by operator directive — no Cursor/bot order submission; do not resume until explicitly authorized.
+
+---
+
+## 0-complete. Backtrader exit parity diagnostics (COMPLETE)
+
+- **Sprint name.** `infra-backtrader-exit-parity-diagnostics-001`
+- **Result.** Backtrader 1.9.78 exit shares CLOSE_MATCH bespoke; trade counts MATERIAL_DIVERGENCE (entry-side).
+- **Summary.** [`BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md`](BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md)
+- **Status.** **COMPLETE — PARITY_DIAGNOSTIC**
+
+---
+
+## 0-complete-prior. Practice overnight financing sample plan (COMPLETE — PLANNING ONLY)
+
+- **Sprint name.** `infra-practice-overnight-financing-sample-plan-001`
+- **Result.** Human-only runbooks; manual sample path created then **paused** by operator.
+- **Summary.** [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md)
+- **Status.** **COMPLETE — PAUSED**
 
 ---
 
@@ -43,7 +71,7 @@ broad-search re-entry gates are met.**
 - **Sprint name.** `infra-observed-financing-post-sample-capture-001`
 - **Trigger.** Human sample exists; OANDA history shows DAILY_FINANCING > 0.
 - **Action.** Run capture per [`POST_SAMPLE_OBSERVED_FINANCING_CAPTURE_CHECKLIST.md`](POST_SAMPLE_OBSERVED_FINANCING_CAPTURE_CHECKLIST.md); commit sanitized artifacts.
-- **Status.** **BLOCKED** — waiting on human sample.
+- **Status.** **BLOCKED** — manual sample paused; no bot trades.
 
 ---
 
@@ -53,15 +81,6 @@ broad-search re-entry gates are met.**
 - **Trigger.** Post-sample capture succeeds with sanitized JSON.
 - **Design.** [`OBSERVED_TO_MODELED_FINANCING_BRIDGE_DESIGN.md`](OBSERVED_TO_MODELED_FINANCING_BRIDGE_DESIGN.md)
 - **Status.** **BLOCKED** — waiting on non-empty observed capture.
-
----
-
-## 0-complete. Practice overnight financing sample plan (COMPLETE — PLANNING ONLY)
-
-- **Sprint name.** `infra-practice-overnight-financing-sample-plan-001`
-- **Delivered.** Human runbook, post-sample checklist, bridge design. No orders placed.
-- **Summary.** [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md)
-- **Status.** **COMPLETE** — awaiting human sample.
 
 ---
 

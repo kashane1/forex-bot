@@ -1422,6 +1422,62 @@
       "kind": "infra_runbook",
       "description": "Close-out for infra-practice-overnight-financing-sample-plan-001. strategy_evidence: false.",
       "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_PLAN",
+      "path": "docs/research/BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_PLAN.md",
+      "kind": "parity_diagnostic",
+      "description": "Plan for C008/C009/C018 Backtrader exit-parity lane. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_EXIT_PARITY_C008_SUMMARY",
+      "path": "research/backtrader_exit_parity/c008_parity_summary.json",
+      "kind": "parity_diagnostic",
+      "description": "C008 Backtrader vs bespoke exit-reason comparison aggregates. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_EXIT_PARITY_C009_SUMMARY",
+      "path": "research/backtrader_exit_parity/c009_parity_summary.json",
+      "kind": "parity_diagnostic",
+      "description": "C009 Backtrader vs bespoke exit-reason comparison aggregates. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_EXIT_PARITY_C018_SUMMARY",
+      "path": "research/backtrader_exit_parity/c018_parity_summary.json",
+      "kind": "parity_diagnostic",
+      "description": "C018 Backtrader vs bespoke exit-reason comparison aggregates. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_EXIT_PARITY_EXIT_REASON_COMPARISON",
+      "path": "research/backtrader_exit_parity/exit_reason_comparison.csv",
+      "kind": "parity_diagnostic",
+      "description": "Side-by-side exit-reason counts bespoke vs Backtrader. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_EXIT_PARITY_DIVERGENCE_ANALYSIS",
+      "path": "docs/research/BACKTRADER_EXIT_PARITY_DIVERGENCE_ANALYSIS.md",
+      "kind": "parity_diagnostic",
+      "description": "Root-cause taxonomy for Backtrader exit parity. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_EXIT_PARITY_STATUS",
+      "path": "docs/research/BACKTRADER_EXIT_PARITY_STATUS.md",
+      "kind": "parity_diagnostic",
+      "description": "Parity status and next-sprint decision. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY",
+      "path": "docs/research/BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md",
+      "kind": "parity_diagnostic",
+      "description": "Close-out for infra-backtrader-exit-parity-diagnostics-001. strategy_evidence: false.",
+      "strategy_evidence": false
     }
   ]
 }

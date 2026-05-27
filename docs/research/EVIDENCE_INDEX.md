@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-27 · **Branch:** `research-campaign-018-protective-stop-execution-001`
+**Date:** 2026-05-27 · **Branch:** `infra-backtrader-exit-parity-diagnostics-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -208,6 +208,23 @@ map; the linked documents are the authoritative evidence.
 | [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md) | Human collection runbook |
 | [`POST_SAMPLE_OBSERVED_FINANCING_CAPTURE_CHECKLIST.md`](POST_SAMPLE_OBSERVED_FINANCING_CAPTURE_CHECKLIST.md) | Post-sample capture checklist |
 | [`OBSERVED_TO_MODELED_FINANCING_BRIDGE_DESIGN.md`](OBSERVED_TO_MODELED_FINANCING_BRIDGE_DESIGN.md) | Bridge design (not implemented) |
+
+## Backtrader exit parity diagnostics (BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001)
+
+> **Parity diagnostic only** — `strategy_evidence: false`. Independent Backtrader
+> lane for C008/C009/C018 exit behavior. Manual financing sample **paused**. No
+> strategy approved. Recommended next: `research-exit-hypothesis-precommit-002`.
+
+| document | purpose |
+|---|---|
+| [`BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_PLAN.md`](BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_PLAN.md) | Sprint plan and truth audit |
+| [`BACKTRADER_EXIT_PARITY_DIVERGENCE_ANALYSIS.md`](BACKTRADER_EXIT_PARITY_DIVERGENCE_ANALYSIS.md) | Divergence taxonomy |
+| [`BACKTRADER_EXIT_PARITY_STATUS.md`](BACKTRADER_EXIT_PARITY_STATUS.md) | Status and next-sprint decision |
+| [`BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md`](BACKTRADER_EXIT_PARITY_DIAGNOSTICS_001_SUMMARY.md) | Sprint close-out |
+| [`research/backtrader_exit_parity/c008_parity_summary.json`](../../research/backtrader_exit_parity/c008_parity_summary.json) | C008 BT aggregates |
+| [`research/backtrader_exit_parity/c009_parity_summary.json`](../../research/backtrader_exit_parity/c009_parity_summary.json) | C009 BT aggregates |
+| [`research/backtrader_exit_parity/c018_parity_summary.json`](../../research/backtrader_exit_parity/c018_parity_summary.json) | C018 BT aggregates |
+| [`research/backtrader_exit_parity/exit_reason_comparison.csv`](../../research/backtrader_exit_parity/exit_reason_comparison.csv) | Exit-reason side-by-side |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
