@@ -63,9 +63,13 @@ broad-search re-entry gates are met.**
 - **Summary.** [`OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_SUMMARY.md`](OBSERVED_COST_FINANCING_OVERLAY_LOCAL_FIRST_001_SUMMARY.md)
 - **Status.** **COMPLETE** — infrastructure only; no strategy approval.
 
-## 0-fill-timing-rule. Approval-bound fill timing (POLICY)
+## 0-fill-timing-rule. Approval-bound fill timing + HTF align (POLICY — COMPLETE)
 
-- Future approval-bound precommits must **declare `fill_timing`**; default recommendation **`next_bar_open`**.
+- **Sprint:** `infra-next-bar-open-policy-and-htf-align-migration-001`
+- Future approval-bound precommits must **declare `fill_timing`**; default **`next_bar_open`**; `signal_bar_close` = diagnostic/upper-bound (`promotion_eligible: false`).
+- Future HTF strategies must use **`htf_align.align_last_completed()`** or **`d1agg_htf`** (weekly completed-period = documented exception).
+- Multi-day strategies must declare **financing mode**; observed financing still **BLOCKED** until practice sample.
+- Docs: [`FILL_TIMING_APPROVAL_BOUND_POLICY.md`](FILL_TIMING_APPROVAL_BOUND_POLICY.md), [`HTF_ALIGNMENT_POLICY_FOR_FUTURE_STRATEGIES.md`](HTF_ALIGNMENT_POLICY_FOR_FUTURE_STRATEGIES.md), [`NEXT_BAR_OPEN_POLICY_AND_HTF_ALIGN_MIGRATION_001_SUMMARY.md`](NEXT_BAR_OPEN_POLICY_AND_HTF_ALIGN_MIGRATION_001_SUMMARY.md)
 - Evidence: [`NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md`](NEXT_BAR_OPEN_REFERENCE_COMPARISON_RESULT.md) (C019 validation −0.079 R delta).
 
 ## 0-complete. Shared audit WARN remediation (COMPLETE)

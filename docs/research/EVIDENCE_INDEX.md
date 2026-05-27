@@ -463,6 +463,23 @@ by `scripts/validate_research_archive.py`.
 | [`SHARED_HTF_ALIGN_MODULE_RESULT.md`](SHARED_HTF_ALIGN_MODULE_RESULT.md) | `htf_align` module |
 | [`CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_WARN_REMEDIATION.md`](CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_WARN_REMEDIATION.md) | Validity impact |
 
+### next_bar_open policy + HTF align migration (`infra-next-bar-open-policy-and-htf-align-migration-001`)
+
+> **Infrastructure only** — mechanical `fill_timing` policy for approval-bound evidence; regime-switcher D1AGG path migrated to `d1agg_htf` / `htf_align`. **No strategy approval. CAMPAIGN_020 not created.**
+
+| document | purpose |
+|---|---|
+| [`NEXT_BAR_OPEN_POLICY_AND_HTF_ALIGN_MIGRATION_001_PLAN.md`](NEXT_BAR_OPEN_POLICY_AND_HTF_ALIGN_MIGRATION_001_PLAN.md) | Sprint plan |
+| [`FILL_TIMING_APPROVAL_BOUND_POLICY.md`](FILL_TIMING_APPROVAL_BOUND_POLICY.md) | Canonical fill-timing policy |
+| [`FILL_TIMING_POLICY_VALIDATION_RESULT.md`](FILL_TIMING_POLICY_VALIDATION_RESULT.md) | Schema / validation |
+| [`FILL_TIMING_EVIDENCE_MANIFEST_INTEGRATION_RESULT.md`](FILL_TIMING_EVIDENCE_MANIFEST_INTEGRATION_RESULT.md) | Manifest integration |
+| [`NEXT_BAR_OPEN_APPROVAL_GATE_RESULT.md`](NEXT_BAR_OPEN_APPROVAL_GATE_RESULT.md) | Promotion gate |
+| [`HTF_ALIGN_MIGRATION_DESIGN.md`](HTF_ALIGN_MIGRATION_DESIGN.md) | HTF migration design |
+| [`HTF_ALIGN_MIGRATION_RESULT.md`](HTF_ALIGN_MIGRATION_RESULT.md) | HTF migration result |
+| [`HTF_ALIGNMENT_POLICY_FOR_FUTURE_STRATEGIES.md`](HTF_ALIGNMENT_POLICY_FOR_FUTURE_STRATEGIES.md) | Future HTF policy |
+| [`CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_NEXT_BAR_OPEN_POLICY_AND_HTF_MIGRATION.md`](CAMPAIGN_VALIDITY_IMPACT_MEMO_AFTER_NEXT_BAR_OPEN_POLICY_AND_HTF_MIGRATION.md) | Validity impact |
+| [`NEXT_BAR_OPEN_POLICY_AND_HTF_ALIGN_MIGRATION_001_SUMMARY.md`](NEXT_BAR_OPEN_POLICY_AND_HTF_ALIGN_MIGRATION_001_SUMMARY.md) | Close-out |
+
 ### Observed financing capture read-only 002 (`infra-observed-financing-capture-readonly-002`)
 
 > **Read-only infrastructure** — practice transaction inspection only; capture **blocked** in CI runner (`BLOCKED_READONLY_CREDENTIALS`); prior practice history **empty**. **No strategy approval.**
