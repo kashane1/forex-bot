@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-27 · **Branch:** `infra-observed-financing-capture-readonly-001`
+**Date:** 2026-05-27 · **Branch:** `infra-practice-overnight-financing-sample-plan-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -20,25 +20,52 @@
 > [`EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md),
 > [`CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md`](CAMPAIGN_018_PROTECTIVE_STOP_EXECUTION_001_SUMMARY.md),
 > [`FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md`](FINANCING_MODELED_PNL_AND_CARRY_READINESS_001_SUMMARY.md),
-> [`OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md`](OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md).
+> [`OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md`](OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md),
+> [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md).
 
-Ordering is rough priority. **Item 0** is the recommended next sprint.
+Ordering is rough priority. **Item 0** is the recommended next action.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
 items 5–8 are genuinely new strategy research — **blocked until
 broad-search re-entry gates are met.**
 
 ---
 
-## 0. Practice overnight financing sample collection (RECOMMENDED NEXT SPRINT)
+## 0. Human practice overnight sample (RECOMMENDED NEXT ACTION — NOT A SPRINT)
 
-- **Why it matters.** Read-only capture succeeded but returned **zero DAILY_FINANCING**
-  — practice account has no overnight holds under research freeze.
-- **Sprint name.** `infra-practice-overnight-financing-sample-collection-001`
-- **Status.** **RECOMMENDED** — parser/capture ready; observed data empty.
+- **Why it matters.** Read-only capture returned **zero DAILY_FINANCING**; parser/capture ready but no observed data.
+- **Action.** Human follows [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md) — manual practice UI trades only.
+- **Status.** **PAUSED** until human completes sample — no Cursor/bot order submission.
 
 ---
 
-## 0-complete. Observed financing capture read-only (COMPLETE — EMPTY)
+## 0-next. Post-sample observed financing capture (CONDITIONAL SPRINT)
+
+- **Sprint name.** `infra-observed-financing-post-sample-capture-001`
+- **Trigger.** Human sample exists; OANDA history shows DAILY_FINANCING > 0.
+- **Action.** Run capture per [`POST_SAMPLE_OBSERVED_FINANCING_CAPTURE_CHECKLIST.md`](POST_SAMPLE_OBSERVED_FINANCING_CAPTURE_CHECKLIST.md); commit sanitized artifacts.
+- **Status.** **BLOCKED** — waiting on human sample.
+
+---
+
+## 0-next-bridge. Observed-to-modeled financing bridge (CONDITIONAL SPRINT)
+
+- **Sprint name.** `infra-financing-observed-to-modeled-bridge-001`
+- **Trigger.** Post-sample capture succeeds with sanitized JSON.
+- **Design.** [`OBSERVED_TO_MODELED_FINANCING_BRIDGE_DESIGN.md`](OBSERVED_TO_MODELED_FINANCING_BRIDGE_DESIGN.md)
+- **Status.** **BLOCKED** — waiting on non-empty observed capture.
+
+---
+
+## 0-complete. Practice overnight financing sample plan (COMPLETE — PLANNING ONLY)
+
+- **Sprint name.** `infra-practice-overnight-financing-sample-plan-001`
+- **Delivered.** Human runbook, post-sample checklist, bridge design. No orders placed.
+- **Summary.** [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md)
+- **Status.** **COMPLETE** — awaiting human sample.
+
+---
+
+## 0-complete-prior. Observed financing capture read-only (COMPLETE — EMPTY)
 
 - **Sprint name.** `infra-observed-financing-capture-readonly-001`
 - **Result.** Read-only GET capture; 0 DAILY_FINANCING in 180 days; parser + sanitizer ready.

@@ -195,6 +195,20 @@ map; the linked documents are the authoritative evidence.
 | [`research/financing/observed/observed_financing_capture_status.json`](../../research/financing/observed/observed_financing_capture_status.json) | Capture status |
 | [`research/financing/observed/observed_financing_manifest.json`](../../research/financing/observed/observed_financing_manifest.json) | Endpoint manifest |
 
+## Practice overnight financing sample plan (PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001)
+
+> **Planning / runbook only** — `strategy_evidence: false`. Human manually places
+> practice trades; Cursor/bot must **not** submit orders. DAILY_FINANCING capture
+> remains empty until human sample exists. Next after sample:
+> `infra-observed-financing-post-sample-capture-001`.
+
+| document | purpose |
+|---|---|
+| [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001.md) | Sprint plan |
+| [`PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md`](PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md) | Human collection runbook |
+| [`POST_SAMPLE_OBSERVED_FINANCING_CAPTURE_CHECKLIST.md`](POST_SAMPLE_OBSERVED_FINANCING_CAPTURE_CHECKLIST.md) | Post-sample capture checklist |
+| [`OBSERVED_TO_MODELED_FINANCING_BRIDGE_DESIGN.md`](OBSERVED_TO_MODELED_FINANCING_BRIDGE_DESIGN.md) | Bridge design (not implemented) |
+
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
 > **Implementation infrastructure / data only** — `strategy_evidence: false`. No

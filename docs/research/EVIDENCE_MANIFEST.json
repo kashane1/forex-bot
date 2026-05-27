@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-27",
-  "branch": "infra-observed-financing-capture-readonly-001",
+  "branch": "infra-practice-overnight-financing-sample-plan-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -20,10 +20,10 @@
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "infra-practice-overnight-financing-sample-collection-001",
-    "next_non_strategy_sprint_status": "RECOMMENDED_OVERNIGHT_FINANCING_SAMPLE",
-    "completed_non_strategy_sprint": "infra-observed-financing-capture-readonly-001",
-    "prior_completed_non_strategy_sprint": "research-financing-modeled-pnl-and-carry-readiness-001",
+    "next_non_strategy_sprint": "infra-observed-financing-post-sample-capture-001",
+    "next_non_strategy_sprint_status": "BLOCKED_AWAITING_HUMAN_SAMPLE",
+    "completed_non_strategy_sprint": "infra-practice-overnight-financing-sample-plan-001",
+    "prior_completed_non_strategy_sprint": "infra-observed-financing-capture-readonly-001",
     "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
     "prior_non_strategy_sprint_note": "Subsumed by completed cost-atlas work in infra-multi-timeframe-confluence-and-cost-atlas-001.",
     "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
@@ -1393,6 +1393,34 @@
       "path": "docs/research/OBSERVED_FINANCING_CAPTURE_READONLY_001_SUMMARY.md",
       "kind": "infra_diagnostic",
       "description": "Close-out for infra-observed-financing-capture-readonly-001. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001",
+      "path": "docs/research/PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001.md",
+      "kind": "infra_runbook",
+      "description": "Planning sprint for human-only practice overnight financing sample. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK",
+      "path": "docs/research/PRACTICE_OVERNIGHT_FINANCING_SAMPLE_COLLECTION_RUNBOOK.md",
+      "kind": "infra_runbook",
+      "description": "Human-only manual practice trade procedure for DAILY_FINANCING samples. No bot orders. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "OBSERVED_TO_MODELED_FINANCING_BRIDGE_DESIGN",
+      "path": "docs/research/OBSERVED_TO_MODELED_FINANCING_BRIDGE_DESIGN.md",
+      "kind": "infra_design",
+      "description": "Design for observed-to-modeled financing bridge. Not implemented. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY",
+      "path": "docs/research/PRACTICE_OVERNIGHT_FINANCING_SAMPLE_PLAN_001_SUMMARY.md",
+      "kind": "infra_runbook",
+      "description": "Close-out for infra-practice-overnight-financing-sample-plan-001. strategy_evidence: false.",
       "strategy_evidence": false
     }
   ]
