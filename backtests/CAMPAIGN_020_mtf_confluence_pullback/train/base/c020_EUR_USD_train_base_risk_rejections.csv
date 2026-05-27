@@ -1,0 +1,39 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-06-15T17:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 4.0 > cap 1.5 pips,4.0,,89.8,17,Mon,NY
+2020-08-20T21:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.4,,70.8,21,Thu,Asia/late
+2020-09-10T21:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.4,,71.6,21,Thu,Asia/late
+2020-09-17T17:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 2.2 > cap 1.5 pips,2.2,,73.3,17,Thu,NY
+2020-10-04T21:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.4,,58.9,21,Sun,Asia/late
+2020-10-23T05:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 1.8 > cap 1.5 pips,1.8,,47.7,5,Fri,Asia/late
+2020-11-09T22:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.4,,87.9,22,Mon,Asia/late
+2020-11-10T22:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.3,,78.0,22,Tue,Asia/late
+2021-06-23T01:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,,53.7,1,Wed,Asia/late
+2021-06-23T17:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 3.8 > cap 1.5 pips,3.8,,54.6,17,Wed,NY
+2021-06-24T01:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,,50.5,1,Thu,Asia/late
+2021-07-04T21:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.5,,50.0,21,Sun,Asia/late
+2021-07-05T17:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 9.3 > cap 1.5 pips,9.3,,48.4,17,Mon,NY
+2021-07-06T05:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,,41.2,5,Tue,Asia/late
+2021-08-11T17:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 2.8 > cap 1.5 pips,2.8,,38.7,17,Wed,NY
+2021-10-04T21:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,,44.1,21,Mon,Asia/late
+2021-10-04T21:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.6,,44.1,21,Mon,Asia/late
+2021-10-17T21:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.4,,39.6,21,Sun,Asia/late
+2021-10-25T09:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,,41.4,9,Mon,London
+2021-11-01T21:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.5,,56.2,21,Mon,Asia/late
+2021-11-02T05:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,,52.2,5,Tue,Asia/late
+2021-11-02T13:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,,51.7,13,Tue,London/NY overlap
+2021-11-07T22:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.5,,52.2,22,Sun,Asia/late
+2022-02-15T22:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,,65.5,22,Tue,Asia/late
+2022-02-15T22:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.6,,65.5,22,Tue,Asia/late
+2022-02-27T22:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.9 > cap 1.5 pips,1.9,,85.4,22,Sun,Asia/late
+2022-02-27T22:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.9,,85.4,22,Sun,Asia/late
+2022-03-08T18:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 10 > cap 1.5 pips,10,,112.1,18,Tue,NY
+2022-04-19T09:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.8 > cap 1.5 pips,1.8,,59.2,9,Tue,London
+2022-04-21T17:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 10.0 > cap 1.5 pips,10.0,,74.8,17,Thu,NY
+2022-04-22T05:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.8 > cap 1.5 pips,1.8,,68.6,5,Fri,Asia/late
+2022-05-03T13:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.6 > cap 1.5 pips,1.6,,82.5,13,Tue,London/NY overlap
+2022-05-18T13:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 1.7 > cap 1.5 pips,1.7,,73.0,13,Wed,London/NY overlap
+2022-07-13T17:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 10.0 > cap 1.5 pips,10.0,,100.6,17,Wed,NY
+2022-08-31T05:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 2.8 > cap 1.5 pips,2.8,,77.7,5,Wed,Asia/late
+2022-10-11T17:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 10.0 > cap 1.5 pips,10.0,,96.6,17,Tue,NY
+2022-12-15T18:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 6.2 > cap 1.5 pips,6.2,,103.5,18,Thu,NY
+2022-12-23T14:00:00+00:00,EUR_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 1.9 > cap 1.5 pips,1.9,,69.1,14,Fri,London/NY overlap

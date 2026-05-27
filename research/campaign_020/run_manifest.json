@@ -1,0 +1,13 @@
+{
+  "campaign_id": "CAMPAIGN_020",
+  "strategy_name": "multi_timeframe_confluence_pullback",
+  "strategy_version": "0.1.0-c020",
+  "fill_timing": "next_bar_open",
+  "execution_realism": "conservative",
+  "config_path": "configs/campaign_020_mtf_confluence_pullback.yaml",
+  "dedupe_policy": "keep_last",
+  "git_commit": "37d36c4bb71b7baa5a2d0631a7c8b2a6c35bb8cb",
+  "git_branch": "research-campaign-020-mtf-confluence-execution-001",
+  "started_at_utc": "2026-05-27T16:40:12.748759+00:00",
+  "elapsed_seconds": 2613.8
+}

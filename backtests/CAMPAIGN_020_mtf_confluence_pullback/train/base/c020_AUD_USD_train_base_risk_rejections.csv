@@ -1,0 +1,12 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-06-15T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 8.7 > cap 2.0 pips,8.7,,103.6,17,Mon,NY
+2020-07-24T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 15.0 > cap 2.0 pips,15.0,,56.1,17,Fri,NY
+2020-07-30T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 15.0 > cap 2.0 pips,15.0,,67.4,17,Thu,NY
+2020-08-20T21:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.6,,58.9,21,Thu,Asia/late
+2021-02-18T18:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 4.7 > cap 2.0 pips,4.7,,50.6,18,Thu,NY
+2021-07-21T21:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.1,,52.0,21,Wed,Asia/late
+2021-07-23T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 15.0 > cap 2.0 pips,15.0,,57.1,17,Fri,NY
+2021-08-26T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 4.7 > cap 2.0 pips,4.7,,44.2,17,Thu,NY
+2021-09-22T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 6.2 > cap 2.0 pips,6.2,,49.5,17,Wed,NY
+2022-03-29T17:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 7.4 > cap 2.0 pips,7.4,,64.2,17,Tue,NY
+2022-06-26T21:00:00+00:00,AUD_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.5,,68.5,21,Sun,Asia/late

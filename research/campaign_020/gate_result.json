@@ -1,0 +1,23 @@
+{
+  "screening_pass": false,
+  "train_gate_pass": false,
+  "checks": {
+    "train_expectancy_gte_zero": false,
+    "validation_expectancy_gt_zero": true,
+    "validation_pf_gte_1_05": true,
+    "validation_trade_count_gte_80": true,
+    "validation_pairs_positive_gte_2": true,
+    "validation_stress_2x_expectancy_gte_zero": true,
+    "beat_null_vs_c011": true,
+    "backtrader_parity_pass": false
+  },
+  "failed_gates": [
+    "train_expectancy_gte_zero",
+    "backtrader_parity_pass"
+  ],
+  "within_null": false,
+  "beat_null_threshold": 0.0070845928504591205,
+  "test_window_opened": false,
+  "verdict": "REJECT",
+  "fill_timing": "next_bar_open"
+}

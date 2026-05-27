@@ -1,6 +1,6 @@
 # Strategy Status Registry
 
-**Date:** 2026-05-27 · **Branch:** `research-mtf-confluence-candidate-020-scaffold-001`
+**Date:** 2026-05-27 · **Branch:** `research-campaign-020-mtf-confluence-execution-001`
 
 This is the human-readable status of every strategy family the project
 has built. It is the companion to the machine-enforced registry
@@ -74,7 +74,7 @@ strategy is approved.**
 | `failed_breakout_reversal 0.1.0-c015` | rejected (deduped rerun) | NO | NO | NO | CAMPAIGN_015 deduped |
 | `weekly_cross_sectional_momentum_low_turnover 0.1.0-c016` | rejected (deduped) | NO | NO | NO | CAMPAIGN_016 deduped |
 | `weekly_volatility_contraction_breakout 0.1.0-c017` | rejected (deduped) | NO | NO | NO | CAMPAIGN_017 deduped |
-| `multi_timeframe_confluence_pullback 0.1.0-c020` | scaffold only (not executed) | NO | NO | NO | CAMPAIGN_020 scaffold |
+| `multi_timeframe_confluence_pullback 0.1.0-c020` | rejected | NO | NO | NO | CAMPAIGN_020 |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
@@ -391,14 +391,14 @@ for the FOMC-block + NFP-falsification analysis.
 
 ### `multi_timeframe_confluence_pullback 0.1.0-c020`
 
-- **Status:** scaffold only — **SCAFFOLD_ONLY** (not executed).
-- **Evidence:** CAMPAIGN_020 — precommit frozen 2026-05-27; D1AGG + H4 MTF confluence
-  pullback continuation; `fill_timing` committed to **next_bar_open**. No train/validation/test
-  run in scaffold sprint.
+- **Status:** rejected — research-only.
+- **Evidence:** CAMPAIGN_020 — D1AGG + H4 MTF confluence pullback; **`next_bar_open`**
+  execution 2026-05-27. Train **−0.035 R** (353 trades); validation **+0.053 R** (204 trades,
+  PF 1.13). Screening **FAIL** (train gate, Backtrader parity not run). Test lockbox **closed**.
 - **Paper / demo / live:** NO / NO / NO.
-- **Reason:** Awaiting execution sprint per
-  [`NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md`](NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md).
-  See [`CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md).
+- **Reason:** Train expectancy negative under approval-bound fill timing. Validation uplift
+  does not rescue per gate discipline. See
+  [`CAMPAIGN_020_FINAL_INTERPRETATION.md`](CAMPAIGN_020_FINAL_INTERPRETATION.md).
 
 ### `mean_reversion 0.2.0-c009`
 

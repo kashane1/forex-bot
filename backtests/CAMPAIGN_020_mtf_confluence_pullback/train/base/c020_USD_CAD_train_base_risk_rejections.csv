@@ -1,0 +1,19 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-05-05T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,2.2,,98.0,21,Tue,Asia/late
+2020-06-15T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,2.0,,114.4,21,Mon,Asia/late
+2020-08-16T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 2.9 > cap 2.5 pips,2.9,,64.1,21,Sun,Asia/late
+2020-08-16T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,2.9,,64.1,21,Sun,Asia/late
+2020-11-30T22:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.7,,58.3,22,Mon,Asia/late
+2020-12-16T18:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,,61.1,18,Wed,NY
+2021-01-19T22:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,2.0,,61.8,22,Tue,Asia/late
+2021-03-17T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,,55.3,17,Wed,NY
+2021-05-04T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.7,,56.5,21,Tue,Asia/late
+2021-05-12T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,2.2,,72.6,21,Wed,Asia/late
+2021-09-09T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,,79.6,17,Thu,NY
+2021-09-22T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,,90.9,17,Wed,NY
+2021-09-30T21:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,2.2,,88.8,21,Thu,Asia/late
+2022-02-27T22:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 2.6 > cap 2.5 pips,2.6,,84.8,22,Sun,Asia/late
+2022-02-27T22:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,2.6,,84.8,22,Sun,Asia/late
+2022-03-28T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.5 pips,4.5,,70.6,17,Mon,NY
+2022-10-11T17:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 8.1 > cap 2.5 pips,8.1,,123.3,17,Tue,NY
+2022-11-23T18:00:00+00:00,USD_CAD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 12.6 > cap 2.5 pips,12.6,,84.4,18,Wed,NY

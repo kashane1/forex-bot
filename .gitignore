@@ -139,6 +139,12 @@ backtests/CAMPAIGN_019_mean_reversion_thesis_invalidation/**/*_trades.csv
 backtests/CAMPAIGN_019_mean_reversion_thesis_invalidation/**/*_metrics.json
 backtests/CAMPAIGN_019_mean_reversion_thesis_invalidation/**/*_metrics.md
 
+# CAMPAIGN_020 — gitignore bulky trade/equity CSVs
+backtests/CAMPAIGN_020_mtf_confluence_pullback/**/*_equity.csv
+backtests/CAMPAIGN_020_mtf_confluence_pullback/**/*_trades.csv
+backtests/CAMPAIGN_020_mtf_confluence_pullback/**/*_metrics.json
+backtests/CAMPAIGN_020_mtf_confluence_pullback/**/*_metrics.md
+
 backtests/CAMPAIGN_018_mean_reversion_protective_stop/**/*_equity.csv
 backtests/CAMPAIGN_018_mean_reversion_protective_stop/**/*_trades.csv
 backtests/CAMPAIGN_018_mean_reversion_protective_stop/**/*_metrics.json

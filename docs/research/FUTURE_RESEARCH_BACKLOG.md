@@ -34,13 +34,12 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0-next. CAMPAIGN_020 MTF confluence execution (AUTHORIZED — NOT RUN)
+## 0-complete-c020. CAMPAIGN_020 MTF confluence execution (COMPLETE — REJECT)
 
 - **Sprint name.** `research-campaign-020-mtf-confluence-execution-001`
-- **Why.** Scaffold/precommit complete under `next_bar_open` + `htf_align`; first new candidate after broad-search pause with structural distinctness memo.
-- **Prompt.** [`NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md`](NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md)
-- **Precommit.** [`CAMPAIGN_020_MTF_CONFLUENCE_PRECOMMIT.md`](CAMPAIGN_020_MTF_CONFLUENCE_PRECOMMIT.md)
-- **Status.** **PRECOMMITTED_NOT_EXECUTED** — awaiting execution sprint
+- **Result.** Train **−0.035 R**, validation **+0.053 R** under `next_bar_open`; train gate **FAIL**; test lockbox **closed**.
+- **Summary.** [`CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION_001_SUMMARY.md`](CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION_001_SUMMARY.md)
+- **Status.** **COMPLETE — REJECT**
 
 ---
 

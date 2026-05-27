@@ -1,0 +1,23 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2020-05-20T21:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,2.0,,84.1,21,Wed,Asia/late
+2020-05-21T17:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,,83.7,17,Thu,NY
+2020-06-15T17:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,,121.2,17,Mon,NY
+2020-07-14T21:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.8,,76.0,21,Tue,Asia/late
+2020-10-01T05:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 8.3 > cap 2.5 pips,8.3,,95.9,5,Thu,Asia/late
+2020-10-02T01:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 2.6 > cap 2.5 pips,2.6,,114.5,1,Fri,Asia/late
+2020-12-21T18:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,,151.1,18,Mon,NY
+2021-03-14T21:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.7,,83.9,21,Sun,Asia/late
+2021-03-17T17:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 6.0 > cap 2.5 pips,6.0,,83.1,17,Wed,NY
+2021-04-25T21:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.8,,70.7,21,Sun,Asia/late
+2021-08-31T21:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.7,,57.9,21,Tue,Asia/late
+2022-01-14T18:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 15.0 > cap 2.5 pips,15.0,,62.3,18,Fri,NY
+2022-02-07T22:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,2.1,,65.8,22,Mon,Asia/late
+2022-03-09T22:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,2.0,,88.0,22,Wed,Asia/late
+2022-05-01T21:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,2.3,,103.6,21,Sun,Asia/late
+2022-05-18T17:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 9.2 > cap 2.5 pips,9.2,,112.7,17,Wed,NY
+2022-09-28T21:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 2.8 > cap 2.5 pips,2.8,,258.3,21,Wed,Asia/late
+2022-09-28T21:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,2.8,,258.3,21,Wed,Asia/late
+2022-10-11T17:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 17.1 > cap 2.5 pips,17.1,,165.5,17,Tue,NY
+2022-11-06T22:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 2.6 > cap 2.5 pips,2.6,,145.6,22,Sun,Asia/late
+2022-11-06T22:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,2.6,,145.6,22,Sun,Asia/late
+2022-12-05T22:00:00+00:00,GBP_USD,H4,train,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,2.4,,143.1,22,Mon,Asia/late

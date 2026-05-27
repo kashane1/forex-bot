@@ -1,0 +1,12 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-06-20T17:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 25.0 > cap 2.5 pips,25.0,,74.4,17,Tue,NY
+2023-09-11T17:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 15.8 > cap 2.5 pips,15.8,,63.1,17,Mon,NY
+2023-09-20T17:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 8.2 > cap 2.5 pips,8.2,,60.2,17,Wed,NY
+2023-10-01T21:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,2.2,,69.8,21,Sun,Asia/late
+2023-11-30T22:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.9,,73.3,22,Thu,Asia/late
+2023-12-13T18:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 8.9 > cap 2.5 pips,8.9,,77.6,18,Wed,NY
+2024-04-07T21:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.7,,55.2,21,Sun,Asia/late
+2024-08-28T21:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,2.0,,61.6,21,Wed,Asia/late
+2024-09-17T21:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.8,,58.6,21,Tue,Asia/late
+2024-12-18T18:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 17.9 > cap 2.5 pips,17.9,,71.6,18,Wed,NY
+2024-12-20T18:00:00+00:00,GBP_USD,H4,validation,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 12.2 > cap 2.5 pips,12.2,,100.2,18,Fri,NY

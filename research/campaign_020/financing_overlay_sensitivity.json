@@ -1,0 +1,10 @@
+{
+  "applied": false,
+  "reason": "1 validation error for PositionInterval\n  Value error, close_time 2021-05-12 09:00:00+00:00 must be strictly after open_time 2021-05-12 09:00:00+00:00 [type=value_error, input_value={'position_id': 'c020_EUR... 'home_currency': 'USD'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error",
+  "hold_diagnostics": {
+    "total_trades": 761,
+    "avg_hold_calendar_days": 3.716,
+    "median_hold_calendar_days": 3.833,
+    "pct_holds_gt_1_day": 77.66
+  }
+}

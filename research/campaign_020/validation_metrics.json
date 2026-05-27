@@ -1,0 +1,63 @@
+{
+  "trade_count": 204,
+  "expectancy_r": 0.053,
+  "profit_factor": 1.1313,
+  "pairs_positive": 5,
+  "pairs_total": 6,
+  "per_pair": {
+    "EUR_USD": {
+      "trade_count": 28,
+      "total_return_pct": -1.7679239999999874,
+      "max_drawdown_pct": -2.073365999999987,
+      "profit_factor": 0.6012639214041167,
+      "expectancy_r": -0.2495347263635967,
+      "win_rate": 0.32142857142857145,
+      "average_spread_paid_pips": 1.4642857142857142
+    },
+    "GBP_USD": {
+      "trade_count": 38,
+      "total_return_pct": 0.8558110000000063,
+      "max_drawdown_pct": -2.021732441966686,
+      "profit_factor": 1.147526328318916,
+      "expectancy_r": 0.09115438665948546,
+      "win_rate": 0.39473684210526316,
+      "average_spread_paid_pips": 1.7868421052631576
+    },
+    "USD_JPY": {
+      "trade_count": 36,
+      "total_return_pct": 1.0933089014573572,
+      "max_drawdown_pct": -1.6915238974129467,
+      "profit_factor": 1.2122400631060497,
+      "expectancy_r": 0.0008300175224643378,
+      "win_rate": 0.3611111111111111,
+      "average_spread_paid_pips": 1.6666666666666667
+    },
+    "AUD_USD": {
+      "trade_count": 29,
+      "total_return_pct": 0.031007999999976832,
+      "max_drawdown_pct": -2.0927509657532464,
+      "profit_factor": 1.0076651954936324,
+      "expectancy_r": 0.006929142847835952,
+      "win_rate": 0.4482758620689655,
+      "average_spread_paid_pips": 1.2482758620689653
+    },
+    "USD_CAD": {
+      "trade_count": 36,
+      "total_return_pct": 2.576177788880085,
+      "max_drawdown_pct": -1.766658617646859,
+      "profit_factor": 1.5536812952337933,
+      "expectancy_r": 0.2065192313934561,
+      "win_rate": 0.5,
+      "average_spread_paid_pips": 1.8305555555555553
+    },
+    "USD_CHF": {
+      "trade_count": 37,
+      "total_return_pct": 1.4631600976671155,
+      "max_drawdown_pct": -1.6507854582637265,
+      "profit_factor": 1.265193236148868,
+      "expectancy_r": 0.18012270595858285,
+      "win_rate": 0.3783783783783784,
+      "average_spread_paid_pips": 1.564864864864865
+    }
+  }
+}

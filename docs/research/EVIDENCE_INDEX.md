@@ -295,23 +295,23 @@ map; the linked documents are the authoritative evidence.
 | [`research/campaign_019/gate_result.json`](../../research/campaign_019/gate_result.json) | Machine-readable gates |
 | [`research/backtrader_exit_parity/c019_parity_summary.json`](../../research/backtrader_exit_parity/c019_parity_summary.json) | BT parity summary |
 
-## CAMPAIGN_020 MTF confluence pullback scaffold (research-mtf-confluence-candidate-020-scaffold-001)
+## CAMPAIGN_020 MTF confluence pullback (research-campaign-020-mtf-confluence-execution-001)
 
-> **Scaffold / precommit only** — `strategy_evidence: false`, `not_approved: true`.
-> Verdict **SCAFFOLD_ONLY** — no train/validation/test evidence; `fill_timing` committed
-> to **next_bar_open**. Broad search pause reopened only for this precommitted candidate.
+> **CAMPAIGN_020 executed** — `strategy_evidence: true`, `not_approved: true`.
+> Verdict **REJECT** — train **−0.035 R** under `next_bar_open`; validation **+0.053 R**;
+> test lockbox **closed** (train gate fail).
 
 | document | purpose |
 |---|---|
-| [`CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_PLAN.md) | Scaffold sprint plan |
-| [`CAMPAIGN_020_STRUCTURAL_DISTINCTNESS_MEMO.md`](CAMPAIGN_020_STRUCTURAL_DISTINCTNESS_MEMO.md) | Distinctness vs rejected families |
 | [`CAMPAIGN_020_MTF_CONFLUENCE_PRECOMMIT.md`](CAMPAIGN_020_MTF_CONFLUENCE_PRECOMMIT.md) | Frozen parameters and gates |
-| [`CAMPAIGN_020_PREFLIGHT_SCAFFOLD_RESULT.md`](CAMPAIGN_020_PREFLIGHT_SCAFFOLD_RESULT.md) | Preflight runner result |
-| [`CAMPAIGN_020_BACKTRADER_PARITY_DESIGN.md`](CAMPAIGN_020_BACKTRADER_PARITY_DESIGN.md) | Parity design (no historical run) |
-| [`NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md`](NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md) | Future execution prompt |
-| [`CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md) | Sprint close-out |
-| [`research/campaign_020/preflight.json`](../../research/campaign_020/preflight.json) | Preflight machine output |
-| [`research/campaign_020/execution_plan.json`](../../research/campaign_020/execution_plan.json) | Execution plan stub |
+| [`CAMPAIGN_020_TRAIN_VALIDATION_RESULT.md`](CAMPAIGN_020_TRAIN_VALIDATION_RESULT.md) | Train/validation results |
+| [`CAMPAIGN_020_GATE_DECISION.md`](CAMPAIGN_020_GATE_DECISION.md) | Gate decision |
+| [`CAMPAIGN_020_TEST_LOCKBOX_NOT_OPENED.md`](CAMPAIGN_020_TEST_LOCKBOX_NOT_OPENED.md) | Lockbox closed |
+| [`CAMPAIGN_020_BACKTRADER_PARITY_RESULT.md`](CAMPAIGN_020_BACKTRADER_PARITY_RESULT.md) | Parity NOT_RUN |
+| [`CAMPAIGN_020_FINAL_INTERPRETATION.md`](CAMPAIGN_020_FINAL_INTERPRETATION.md) | Final interpretation |
+| [`CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION_001_SUMMARY.md`](CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION_001_SUMMARY.md) | Execution sprint close-out |
+| [`research/campaign_020/gate_result.json`](../../research/campaign_020/gate_result.json) | Machine-readable gates |
+| [`CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md) | Scaffold sprint close-out |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

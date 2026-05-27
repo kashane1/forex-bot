@@ -1,0 +1,8 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-06-20T21:00:00+00:00,USD_CAD,H4,validation,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.8,,57.9,21,Tue,Asia/late
+2023-11-13T18:00:00+00:00,USD_CAD,H4,validation,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 16.7 > cap 2.5 pips,16.7,,57.1,18,Mon,NY
+2024-03-01T18:00:00+00:00,USD_CAD,H4,validation,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 13.8 > cap 2.5 pips,13.8,,48.9,18,Fri,NY
+2024-03-21T17:00:00+00:00,USD_CAD,H4,validation,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 7.3 > cap 2.5 pips,7.3,,62.5,17,Thu,NY
+2024-04-18T21:00:00+00:00,USD_CAD,H4,validation,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.7,,53.7,21,Thu,Asia/late
+2024-05-30T17:00:00+00:00,USD_CAD,H4,validation,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 2.9 > cap 2.5 pips,2.9,,47.6,17,Thu,NY
+2024-12-20T18:00:00+00:00,USD_CAD,H4,validation,0.1.0-c020,long,SPREAD_TOO_WIDE,spread 8.3 > cap 2.5 pips,8.3,,67.2,18,Fri,NY

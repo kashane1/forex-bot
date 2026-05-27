@@ -1,0 +1,11 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2023-05-03T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.3,,51.0,21,Wed,Asia/late
+2023-05-15T17:00:00+00:00,AUD_USD,H4,validation,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 13.8 > cap 2.0 pips,13.8,,61.8,17,Mon,NY
+2023-08-04T17:00:00+00:00,AUD_USD,H4,validation,0.1.0-c020,short,SPREAD_TOO_WIDE,spread 6.9 > cap 2.0 pips,6.9,,62.8,17,Fri,NY
+2023-11-30T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.4,,53.7,22,Thu,Asia/late
+2023-12-20T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c020,long,SESSION_BLOCKED,inside blocked session window,1.2,,50.9,22,Wed,Asia/late
+2024-07-31T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.3,,46.1,21,Wed,Asia/late
+2024-10-31T21:00:00+00:00,AUD_USD,H4,validation,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.4,,43.1,21,Thu,Asia/late
+2024-11-05T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.7,,41.4,22,Tue,Asia/late
+2024-12-05T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.1,,48.7,22,Thu,Asia/late
+2024-12-09T22:00:00+00:00,AUD_USD,H4,validation,0.1.0-c020,short,SESSION_BLOCKED,inside blocked session window,1.2,,54.3,22,Mon,Asia/late
