@@ -1,0 +1,29 @@
+{
+  "id": "900002",
+  "type": "DAILY_FINANCING",
+  "accountID": "001-001-FIXTURE-001",
+  "time": "2024-06-02T21:00:00.000000000Z",
+  "financing": "-0.9200",
+  "accountBalance": "498.6300",
+  "positionFinancings": [
+    {
+      "instrument": "EUR_USD",
+      "financing": "-0.5100",
+      "openTradeFinancings": [
+        {"tradeID": "7001", "financing": "-0.3000"},
+        {"tradeID": "7002", "financing": "-0.2100"}
+      ]
+    },
+    {
+      "instrument": "USD_JPY",
+      "financing": "0.1500",
+      "openTradeFinancings": [
+        {"tradeID": "7010", "units": "5000", "financing": "0.1500", "financingRate": "0.00008"}
+      ]
+    },
+    {
+      "instrument": "GBP_USD",
+      "financing": "-0.5600"
+    }
+  ]
+}

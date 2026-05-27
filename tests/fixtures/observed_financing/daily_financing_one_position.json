@@ -1,0 +1,27 @@
+{
+  "id": "900001",
+  "type": "DAILY_FINANCING",
+  "accountID": "001-001-FIXTURE-001",
+  "userID": "user-fixture-001",
+  "requestID": "req-fixture-001",
+  "time": "2024-06-01T21:00:00.000000000Z",
+  "financing": "-0.4500",
+  "accountBalance": "499.5500",
+  "accountFinancingMode": "SECOND_BY_SECOND",
+  "positionFinancings": [
+    {
+      "instrument": "EUR_USD",
+      "financing": "-0.4500",
+      "baseFinancing": "-0.2000",
+      "quoteFinancing": "-0.2500",
+      "openTradeFinancings": [
+        {
+          "tradeID": "7001",
+          "units": "1000",
+          "financing": "-0.4500",
+          "financingRate": "-0.00012"
+        }
+      ]
+    }
+  ]
+}

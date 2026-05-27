@@ -1,0 +1,9 @@
+{
+  "id": "800001",
+  "type": "ORDER_FILL",
+  "accountID": "001-001-FIXTURE-001",
+  "time": "2024-06-01T12:00:00.000000000Z",
+  "instrument": "EUR_USD",
+  "units": "100",
+  "financing": "0"
+}

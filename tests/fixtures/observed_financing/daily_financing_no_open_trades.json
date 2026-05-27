@@ -1,0 +1,14 @@
+{
+  "id": "900003",
+  "type": "DAILY_FINANCING",
+  "accountID": "001-001-FIXTURE-001",
+  "time": "2024-06-03T21:00:00.000000000Z",
+  "financing": "-0.1200",
+  "accountBalance": "498.5100",
+  "positionFinancings": [
+    {
+      "instrument": "AUD_USD",
+      "financing": "-0.1200"
+    }
+  ]
+}
