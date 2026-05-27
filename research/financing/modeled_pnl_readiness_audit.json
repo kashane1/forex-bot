@@ -1,0 +1,135 @@
+{
+  "audit_date": "2026-05-27",
+  "sprint_id": "FINANCING_MODELED_PNL_AND_CARRY_READINESS_001",
+  "strategy_evidence": false,
+  "not_approved": true,
+  "paper_demo_live_enabled": false,
+  "existing_modules": {
+    "src/forex_bot/financing.py": {
+      "role": "Conservative per-trade bp/day stress overlay + FinancingModel interface",
+      "classes": [
+        "FinancingTreatment",
+        "FinancingModel",
+        "NoFinancingModel",
+        "ConservativeStressFinancingModel",
+        "FutureOandaObservedFinancingModel"
+      ],
+      "treatment": "ESTIMATED (stress overlay) or UNMODELED (engine default)",
+      "in_engine_pnl": false
+    },
+    "research/financing/__init__.py": {
+      "role": "Public API for per-day rollover calculator",
+      "import_isolated_from_forex_bot": true
+    },
+    "research/financing/models.py": {
+      "role": "Pydantic domain models (PositionInterval, RatePair, FinancingRunReport, etc.)"
+    },
+    "research/financing/rates.py": {
+      "role": "FinancingRateSource, TableRateSource, ConservativeStressRateSource"
+    },
+    "research/financing/calculator.py": {
+      "role": "calculate_position, calculate_run — per-day rollover accrual"
+    },
+    "research/financing/reporting.py": {
+      "role": "JSON and markdown report dumpers"
+    },
+    "research/financing/fixtures.py": {
+      "role": "JSON fixture loaders for observed events and rate tables"
+    }
+  },
+  "existing_fixtures": {
+    "research/financing/fixtures/rates_two_week_*.json": "Per-pair two-week synthetic rate tables (6 pairs)",
+    "research/financing/fixtures/observed_*.json": "Observed-event shape validation fixtures (synthetic, not live capture)"
+  },
+  "existing_rate_schemas": {
+    "RatePair": {
+      "long_annual_bp": "float — negative = debit, positive = credit",
+      "short_annual_bp": "float"
+    },
+    "fixture_kind_financing_rates": "JSON with date/instrument/long_bp/short_bp rows",
+    "fixture_kind_observed_financing_events": "Mirrors ObservedFinancingEvent domain shape"
+  },
+  "observed_financing_capture_design": {
+    "docs": [
+      "docs/research/OBSERVED_FINANCING_CAPTURE.md",
+      "docs/research/FINANCING_OBSERVED_CAPTURE_PILOT_SPEC.md",
+      "docs/research/FINANCING_OBSERVED_FIXTURE_SCHEMA.md"
+    ],
+    "script": "scripts/capture_oanda_observed_financing_pilot.py",
+    "status": "Designed; pilot not run under freeze; no DAILY_FINANCING history in repo",
+    "oanda_historical_rates": "Not available via v20 REST API for 2020-2026"
+  },
+  "reconciliation_tooling": {
+    "script": "scripts/reconcile_financing_fixtures.py",
+    "docs": [
+      "docs/research/FINANCING_RECONCILIATION_TOOLING_PROTOCOL.md",
+      "docs/research/FINANCING_RECONCILIATION_TOOLING_STATUS.md"
+    ],
+    "status": "Implemented for synthetic fixture reconciliation"
+  },
+  "campaign_financing_overlays": {
+    "scripts": [
+      "scripts/build_campaign_010_financing_overlay.py",
+      "scripts/build_campaign_011_financing_overlay.py",
+      "scripts/build_campaign_012_financing_overlay.py",
+      "scripts/build_campaign_013_financing_overlay.py",
+      "scripts/build_campaign_014_financing_overlay.py"
+    ],
+    "treatment": "ESTIMATED conservative stress",
+    "c008_c009_c018": "No dedicated financing overlay yet — this sprint adds descriptive diagnostics"
+  },
+  "engine_pnl_includes_financing": false,
+  "engine_pnl_model": "NoFinancingModel — UNMODELED",
+  "campaign_artifacts_financing_overlay": {
+    "c010_c014": "financing_run.json + financing_summary.json under backtests/CAMPAIGN_*/financing/",
+    "c008_c009_c018": "None committed; trade CSVs exist locally under backtests/ (gitignored)"
+  },
+  "estimated_vs_modeled_vs_observed": {
+    "estimated": [
+      "ConservativeStressFinancingModel (src/forex_bot/financing.py)",
+      "ConservativeStressRateSource (research/financing/rates.py)",
+      "TableRateSource with hand-built/synthetic tables"
+    ],
+    "modeled": "Refused — FutureOandaObservedFinancingModel raises NotImplementedError",
+    "observed": "No observed rate history committed; pilot capture not executed",
+    "unmodeled": "BacktestEngine PnL stream"
+  },
+  "current_blockers": [
+    "Engine PnL does not accrue financing — gross R is carry-blind",
+    "No historical OANDA financing rate time series for backtest windows",
+    "No DAILY_FINANCING transaction capture from live/practice account",
+    "Practice account longRate/shortRate are zero",
+    "Cross-pair home-currency conversion deferred in calculator v1",
+    "Holiday calendar absent — missing holidays treated via missing-rate policy",
+    "C008/C009/C018 validation uplift on 40-bar holds may be carry-inflated"
+  ],
+  "safety_constraints": {
+    "approved_strategies_empty": true,
+    "no_broker_order_apis": true,
+    "no_strategy_campaign_this_sprint": true,
+    "modeled_treatment_refused_without_observed_data": true,
+    "import_isolation_research_financing": true
+  },
+  "tests": {
+    "unit": [
+      "tests/unit/test_financing.py",
+      "tests/unit/test_financing_model.py",
+      "tests/unit/test_observed_financing.py"
+    ],
+    "research": [
+      "tests/research/test_financing_models.py",
+      "tests/research/test_financing_rates.py",
+      "tests/research/test_financing_calculator.py",
+      "tests/research/test_financing_reporting.py",
+      "tests/research/test_financing_fixtures.py",
+      "tests/research/test_financing_reconciliation_tooling.py",
+      "tests/research/test_financing_pair_fixture_expansion.py"
+    ]
+  },
+  "this_sprint_additions_planned": [
+    "FinancingSourceType enum (synthetic_fixture / manual_csv / observed_future)",
+    "ManualCsvRateSource loader",
+    "apply_modeled_financing_overlay.py script",
+    "C008/C009/C018 descriptive financing exposure diagnostic"
+  ]
+}
