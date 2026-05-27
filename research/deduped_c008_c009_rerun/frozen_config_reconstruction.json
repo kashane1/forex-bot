@@ -1,0 +1,142 @@
+{
+  "strategy_evidence": false,
+  "forensic_only": true,
+  "generated_at_utc": "2026-05-26T00:00:00+00:00",
+  "reconstruction_status": "COMPLETE",
+  "uncertainty_notes": [],
+  "dedupe_mechanism": {
+    "policy": "keep_last",
+    "key": ["instrument", "granularity", "utc_time"],
+    "code_path": "src/forex_bot/data/candle_dedupe.py",
+    "load_boundary": "CandleRepo.list() / list_with_dedupe_stats()",
+    "fix_commit": "30b4654"
+  },
+  "splits": {
+    "train": {"from": "2020-01-01", "to": "2022-12-31", "authorized_forensic": true},
+    "validation": {"from": "2023-01-01", "to": "2024-12-31", "authorized_forensic": true},
+    "test_untouched": {"from": "2025-01-01", "to": "2026-05-20", "authorized_forensic": false},
+    "full": {"from": "2020-01-01", "to": "2026-05-20", "authorized_forensic_c008_cost_stress_only": true}
+  },
+  "cost_regimes": [
+    {"name": "base", "spread_multiplier": 0.5, "fixed_slippage_pips": 0.2},
+    {"name": "stress_15x", "spread_multiplier": 1.5, "fixed_slippage_pips": 0.3},
+    {"name": "stress_2x", "spread_multiplier": 2.0, "fixed_slippage_pips": 0.5}
+  ],
+  "CAMPAIGN_008": {
+    "campaign_id": "CAMPAIGN_008",
+    "strategy_name": "mean_reversion",
+    "strategy_version": "0.1.0-c008",
+    "config_path": "configs/campaign_008_range_mean_reversion.yaml",
+    "original_index_path": "backtests/campaign_008_range_mean_reversion/runs/_index.json",
+    "original_report_path": "backtests/CAMPAIGN_008_RANGE_MEAN_REVERSION_REPORT.md",
+    "precommit_path": "docs/research/CAMPAIGN_008_RANGE_MEAN_REVERSION_PRECOMMIT.md",
+    "forensic_out_root": "backtests/CAMPAIGN_008_mean_reversion_deduped_forensic",
+    "database_path": "./data/campaign_002.sqlite3",
+    "required_data_source": "oanda-practice",
+    "pair_universe": ["EUR_USD", "GBP_USD", "USD_JPY", "AUD_USD", "USD_CAD", "USD_CHF"],
+    "timeframe": "H4",
+    "entry_rules": [
+      "ADX-14 < adx_max (20.0) range regime gate",
+      "Long: z-score <= -2.0 AND RSI < 35",
+      "Short: z-score >= +2.0 AND RSI > 65",
+      "Counter-trend direction toward rolling mean"
+    ],
+    "exit_rules": [
+      "Hard stop: 1.5 x ATR-14",
+      "Time stop: 40 bars (max_bars_in_trade)",
+      "midline_exit: false (absent in config, default false)",
+      "No take-profit target"
+    ],
+    "frozen_parameters": {
+      "atr_lookback": 14,
+      "zscore_lookback": 20,
+      "zscore_long_threshold": -2.0,
+      "zscore_short_threshold": 2.0,
+      "rsi_lookback": 14,
+      "regime_ema": 200,
+      "adx_lookback": 14,
+      "adx_max": 20.0,
+      "atr_stop_multiple": 1.5,
+      "trailing_stop_atr_multiple": null,
+      "max_bars_in_trade": 40,
+      "midline_exit": false,
+      "risk_per_trade_pct": 0.25
+    },
+    "session_filters": "rollover, friday_close, sunday_open blocks per config",
+    "spread_filter": "enabled per config max_spread_to_atr_pct and per-pair caps",
+    "financing": "unmodeled in-engine; conservative overlay in report only",
+    "authorized_forensic_runs": [
+      "train/base per pair",
+      "validation/base per pair",
+      "full/base, full/stress_15x, full/stress_2x per pair"
+    ],
+    "test_window_status": "NOT_OPENED",
+    "original_headline_metrics_base": {
+      "train": {"trades": 216, "expectancy_r": -0.017, "profit_factor": 1.02, "pairs_positive": "5/6"},
+      "validation": {"trades": 138, "expectancy_r": 0.172, "profit_factor": 1.29, "pairs_positive": "6/6"},
+      "full_stress_15x": {"expectancy_r": 0.04},
+      "full_stress_2x": {"expectancy_r": 0.027},
+      "screening_gate": "FAIL",
+      "failed_gate": "train_expectancy_gte_zero"
+    },
+    "original_gates": {
+      "train_expectancy_gte_zero": true,
+      "validation_expectancy_gte_zero": true,
+      "validation_pf_gte_1_05": true,
+      "validation_pairs_positive_gte_2": true,
+      "validation_trade_count_gte_30": true,
+      "full_stress_15x_expectancy_gte_zero": true
+    }
+  },
+  "CAMPAIGN_009": {
+    "campaign_id": "CAMPAIGN_009",
+    "strategy_name": "mean_reversion",
+    "strategy_version": "0.2.0-c009",
+    "config_path": "configs/campaign_009_mean_reversion.yaml",
+    "original_index_path": "backtests/campaign_009_mean_reversion/runs/_index.json",
+    "original_report_path": "backtests/CAMPAIGN_009_MEAN_REVERSION_REPORT.md",
+    "precommit_path": "docs/research/CAMPAIGN_009_PRECOMMIT.md",
+    "forensic_out_root": "backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic",
+    "database_path": "./data/campaign_002.sqlite3",
+    "required_data_source": "oanda-practice",
+    "pair_universe": ["EUR_USD", "GBP_USD", "USD_JPY", "AUD_USD", "USD_CAD", "USD_CHF"],
+    "timeframe": "H4",
+    "entry_rules": "Identical to CAMPAIGN_008",
+    "exit_rules": [
+      "Hard stop: 1.5 x ATR-14",
+      "Midline target: rolling mean over zscore_lookback (20) bars",
+      "Time stop: 40 bars backstop",
+      "midline_exit: true (single predeclared change vs C008)"
+    ],
+    "frozen_parameters": {
+      "atr_lookback": 14,
+      "zscore_lookback": 20,
+      "zscore_long_threshold": -2.0,
+      "zscore_short_threshold": 2.0,
+      "rsi_lookback": 14,
+      "regime_ema": 200,
+      "adx_lookback": 14,
+      "adx_max": 20.0,
+      "atr_stop_multiple": 1.5,
+      "trailing_stop_atr_multiple": null,
+      "max_bars_in_trade": 40,
+      "midline_exit": true,
+      "risk_per_trade_pct": 0.25
+    },
+    "session_filters": "Identical to CAMPAIGN_008",
+    "spread_filter": "Identical to CAMPAIGN_008",
+    "financing": "unmodeled in-engine",
+    "authorized_forensic_runs": [
+      "train/{base,stress_15x,stress_2x} per pair",
+      "validation/{base,stress_15x,stress_2x} per pair"
+    ],
+    "test_window_status": "NOT_OPENED",
+    "original_headline_metrics_base": {
+      "train": {"trades": 252, "expectancy_r": -0.062, "profit_factor": 0.97},
+      "validation": {"trades": 151, "expectancy_r": 0.17, "profit_factor": 1.37, "pairs_positive": "4/6"},
+      "screening_gate": "FAIL",
+      "failed_gate": "train_expectancy_gte_zero"
+    },
+    "diff_vs_c008": ["midline_exit: true only"]
+  }
+}
