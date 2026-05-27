@@ -23,7 +23,7 @@
 | 7 | `c1b8d11` | HTF policy for future strategies |
 | 8 | `e0e4430` | campaign validity impact memo |
 | 9 | `e646b97` | evidence index and backlog |
-| 10 | `TBD` | final summary (this commit) |
+| 10 | `bea1de3` | final summary (this commit) |
 
 ## 3. Files changed by phase
 
