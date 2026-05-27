@@ -115,14 +115,25 @@ research_metadata:
 
 ## Future execution gates (not run in scaffold)
 
+### Gate discipline (non-negotiable)
+
+1. **Train/validation only first** — no test window until pre-test gates pass.
+2. **No retuning** — frozen `0.1.0-c021`; no parameter changes after seeing any split.
+3. **No test lockbox** unless **both** train gates **and** validation gates pass.
+4. **Backtrader parity PASS** required **before** test lockbox opens (after train+val pass, still before test).
+5. **No validation rescue if train fails** — train expectancy < 0 or any train gate fail → immediate **REJECT**;
+   do not run test; do not cite validation uplift; do not soften gates or retune (same discipline as
+   CAMPAIGN_020).
+6. **No approval under any outcome** — `approved_strategies.yaml` stays `approved: []`; paper/demo/live blocked.
+
+### Metric gates
+
 - Train expectancy ≥ 0 (`next_bar_open`)
 - Validation expectancy > 0; PF ≥ 1.05; trades ≥ 150 (or documented lower)
 - ≥ 4/7 validation pairs positive (or majority if fewer pairs)
 - 2× cost stress validation expectancy ≥ 0
 - Beat C011 deduped null by +0.010R
 - Financing overlay if avg hold > 1 day
-- Backtrader parity **before** test lockbox
-- Test lockbox only if train/val + parity pass
 - Max status: RESEARCH_PASS / PROMOTION_REVIEW_REQUIRED — **not approval**
 
 ## No tuning rule
