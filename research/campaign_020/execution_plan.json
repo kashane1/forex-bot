@@ -1,0 +1,31 @@
+{
+  "campaign_id": "CAMPAIGN_020",
+  "strategy": "multi_timeframe_confluence_pullback",
+  "version": "0.1.0-c020",
+  "status": "PRECOMMITTED_NOT_EXECUTED",
+  "splits": {
+    "train": [
+      "2020-01-01",
+      "2022-12-31"
+    ],
+    "validation": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "test": [
+      "2025-01-01",
+      "2026-05-20"
+    ]
+  },
+  "fill_timing": "next_bar_open",
+  "precommit_doc": "docs/research/CAMPAIGN_020_MTF_CONFLUENCE_PRECOMMIT.md",
+  "execution_prompt": "docs/research/NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md",
+  "full_evidence_blocked": true,
+  "not_approved": true,
+  "research_metadata": {
+    "fill_timing": "next_bar_open",
+    "execution_realism": "conservative",
+    "evidence_use": "approval_bound",
+    "promotion_eligible": false
+  }
+}

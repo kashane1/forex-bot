@@ -1,0 +1,26 @@
+{
+  "campaign_id": "CAMPAIGN_020",
+  "strategy_name": "multi_timeframe_confluence_pullback",
+  "version": "0.1.0-c020",
+  "not_approved": true,
+  "scaffold_only": true,
+  "strategy_evidence": false,
+  "test_lockbox_opened": false,
+  "database_path": "data/campaign_002.sqlite3",
+  "database_exists": true,
+  "fill_timing": "next_bar_open",
+  "execution_realism": "conservative",
+  "financing_mode": "none",
+  "financing_overlay_required": true,
+  "warmup_bars_required": 520,
+  "pairs": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "USD_CAD",
+    "USD_CHF"
+  ],
+  "blocked_reasons": [],
+  "preflight_ok": true
+}
