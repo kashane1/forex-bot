@@ -1,0 +1,1049 @@
+{
+  "CAMPAIGN_019": [
+    {
+      "campaign_id": "CAMPAIGN_019",
+      "ledger_label": "c019_train_validation_base",
+      "financing_mode": "none",
+      "rate_source": "none",
+      "synthetic": false,
+      "trade_count": 357,
+      "gross_expectancy_r": -0.006974871832393245,
+      "adjusted_expectancy_r": -0.006974871832393245,
+      "financing_drag_r": 0.0,
+      "avg_hold_days": 3.194,
+      "max_hold_days": 6.667,
+      "unavailable_rate_trades": 0,
+      "warnings": [],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 71,
+          "gross_r": 5.675860360286592,
+          "financing_r": 0.0,
+          "adjusted_r": 5.675860360286592,
+          "hold_days": 246.66666666666657
+        },
+        "EUR_USD": {
+          "trades": 56,
+          "gross_r": 7.316271944450488,
+          "financing_r": 0.0,
+          "adjusted_r": 7.316271944450488,
+          "hold_days": 177.49999999999991
+        },
+        "GBP_USD": {
+          "trades": 66,
+          "gross_r": -1.9417841138752516,
+          "financing_r": 0.0,
+          "adjusted_r": -1.9417841138752516,
+          "hold_days": 210.4999999999999
+        },
+        "USD_CAD": {
+          "trades": 59,
+          "gross_r": -13.956895552123386,
+          "financing_r": 0.0,
+          "adjusted_r": -13.956895552123386,
+          "hold_days": 158.99999999999997
+        },
+        "USD_CHF": {
+          "trades": 43,
+          "gross_r": 0.34714710956678685,
+          "financing_r": 0.0,
+          "adjusted_r": 0.34714710956678685,
+          "hold_days": 140.33333333333337
+        },
+        "USD_JPY": {
+          "trades": 62,
+          "gross_r": 0.06937100753037935,
+          "financing_r": 0.0,
+          "adjusted_r": 0.06937100753037935,
+          "hold_days": 206.3333333333333
+        }
+      },
+      "by_hold_bucket": {
+        "1-3d": {
+          "trades": 80,
+          "gross_r": -63.8255623343407,
+          "financing_r": 0.0,
+          "adjusted_r": -63.8255623343407,
+          "hold_days": 158.6666666666666
+        },
+        "3-7d": {
+          "trades": 154,
+          "gross_r": 159.77652260851158,
+          "financing_r": 0.0,
+          "adjusted_r": 159.77652260851158,
+          "hold_days": 917.3333333333317
+        },
+        "0-1d": {
+          "trades": 123,
+          "gross_r": -98.44098951833512,
+          "financing_r": 0.0,
+          "adjusted_r": -98.44098951833512,
+          "hold_days": 64.33333333333334
+        }
+      }
+    },
+    {
+      "campaign_id": "CAMPAIGN_019",
+      "ledger_label": "c019_train_validation_base",
+      "financing_mode": "synthetic_fixture",
+      "rate_source": "conservative_stress",
+      "synthetic": true,
+      "trade_count": 357,
+      "gross_expectancy_r": -0.006974871832393245,
+      "adjusted_expectancy_r": -0.08929019576632638,
+      "financing_drag_r": -0.08231532393393312,
+      "avg_hold_days": 3.194,
+      "max_hold_days": 6.667,
+      "unavailable_rate_trades": 0,
+      "warnings": [],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 71,
+          "gross_r": 5.675860360286592,
+          "financing_r": -4.164255347139796,
+          "adjusted_r": 1.5116050131467937,
+          "hold_days": 246.66666666666657
+        },
+        "EUR_USD": {
+          "trades": 56,
+          "gross_r": 7.316271944450488,
+          "financing_r": -4.129376095646029,
+          "adjusted_r": 3.1868958488044616,
+          "hold_days": 177.49999999999991
+        },
+        "GBP_USD": {
+          "trades": 66,
+          "gross_r": -1.9417841138752516,
+          "financing_r": -4.790830841371554,
+          "adjusted_r": -6.732614955246806,
+          "hold_days": 210.4999999999999
+        },
+        "USD_CAD": {
+          "trades": 59,
+          "gross_r": -13.956895552123386,
+          "financing_r": -2.8699394564315908,
+          "adjusted_r": -16.82683500855497,
+          "hold_days": 158.99999999999997
+        },
+        "USD_CHF": {
+          "trades": 43,
+          "gross_r": 0.34714710956678685,
+          "financing_r": -3.574421731167143,
+          "adjusted_r": -3.227274621600358,
+          "hold_days": 140.33333333333337
+        },
+        "USD_JPY": {
+          "trades": 62,
+          "gross_r": 0.06937100753037935,
+          "financing_r": -9.857747172658005,
+          "adjusted_r": -9.788376165127618,
+          "hold_days": 206.3333333333333
+        }
+      },
+      "by_hold_bucket": {
+        "1-3d": {
+          "trades": 80,
+          "gross_r": -63.8255623343407,
+          "financing_r": -3.83561218009884,
+          "adjusted_r": -67.66117451443955,
+          "hold_days": 158.6666666666666
+        },
+        "3-7d": {
+          "trades": 154,
+          "gross_r": 159.77652260851158,
+          "financing_r": -24.01368452398113,
+          "adjusted_r": 135.7628380845302,
+          "hold_days": 917.3333333333317
+        },
+        "0-1d": {
+          "trades": 123,
+          "gross_r": -98.44098951833512,
+          "financing_r": -1.5372739403341538,
+          "adjusted_r": -99.97826345866929,
+          "hold_days": 64.33333333333334
+        }
+      }
+    },
+    {
+      "campaign_id": "CAMPAIGN_019",
+      "ledger_label": "c019_train_validation_base",
+      "financing_mode": "manual_observed_fixture",
+      "rate_source": "manual_fixture_table",
+      "synthetic": true,
+      "trade_count": 357,
+      "gross_expectancy_r": -0.006974871832393245,
+      "adjusted_expectancy_r": -0.13336654136769957,
+      "financing_drag_r": -0.1263916695353064,
+      "avg_hold_days": 3.194,
+      "max_hold_days": 6.667,
+      "unavailable_rate_trades": 290,
+      "warnings": [
+        "fixtures are committed synthetic schedules labeled for diagnostic use; not broker-observed history"
+      ],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 71,
+          "gross_r": 5.675860360286592,
+          "financing_r": -7.138723452239651,
+          "adjusted_r": -1.4628630919530652,
+          "hold_days": 246.66666666666657
+        },
+        "EUR_USD": {
+          "trades": 56,
+          "gross_r": 7.316271944450488,
+          "financing_r": -8.258752191292057,
+          "adjusted_r": -0.9424802468415636,
+          "hold_days": 177.49999999999991
+        },
+        "GBP_USD": {
+          "trades": 66,
+          "gross_r": -1.9417841138752516,
+          "financing_r": -8.212852870922664,
+          "adjusted_r": -10.154636984797914,
+          "hold_days": 210.4999999999999
+        },
+        "USD_CAD": {
+          "trades": 59,
+          "gross_r": -13.956895552123386,
+          "financing_r": -6.887854695435817,
+          "adjusted_r": -20.844750247559194,
+          "hold_days": 158.99999999999997
+        },
+        "USD_CHF": {
+          "trades": 43,
+          "gross_r": 0.34714710956678685,
+          "financing_r": -4.76589564155619,
+          "adjusted_r": -4.418748531989402,
+          "hold_days": 140.33333333333337
+        },
+        "USD_JPY": {
+          "trades": 62,
+          "gross_r": 0.06937100753037935,
+          "financing_r": -9.857747172658005,
+          "adjusted_r": -9.788376165127618,
+          "hold_days": 206.3333333333333
+        }
+      },
+      "by_hold_bucket": {
+        "1-3d": {
+          "trades": 80,
+          "gross_r": -63.8255623343407,
+          "financing_r": -6.005475893682084,
+          "adjusted_r": -69.83103822802279,
+          "hold_days": 158.6666666666666
+        },
+        "3-7d": {
+          "trades": 154,
+          "gross_r": 159.77652260851158,
+          "financing_r": -36.636516248234415,
+          "adjusted_r": 123.14000636027704,
+          "hold_days": 917.3333333333317
+        },
+        "0-1d": {
+          "trades": 123,
+          "gross_r": -98.44098951833512,
+          "financing_r": -2.47983388218788,
+          "adjusted_r": -100.92082340052302,
+          "hold_days": 64.33333333333334
+        }
+      }
+    }
+  ],
+  "CAMPAIGN_016": [
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "ledger_label": "c016_weekly_momentum_folds_base",
+      "financing_mode": "none",
+      "rate_source": "none",
+      "synthetic": false,
+      "trade_count": 137,
+      "gross_expectancy_r": -0.06326844639033014,
+      "adjusted_expectancy_r": -0.06326844639033014,
+      "financing_drag_r": 0.0,
+      "avg_hold_days": 4.005,
+      "max_hold_days": 7.0,
+      "unavailable_rate_trades": 0,
+      "warnings": [
+        "fold_00_USD_JPY_trades.csv: row 1 repaired close_time from bars_held=1"
+      ],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 10,
+          "gross_r": 6.531781647128543,
+          "financing_r": 0.0,
+          "adjusted_r": 6.531781647128543,
+          "hold_days": 59.66666666666667
+        },
+        "EUR_USD": {
+          "trades": 5,
+          "gross_r": 6.120948096350963,
+          "financing_r": 0.0,
+          "adjusted_r": 6.120948096350963,
+          "hold_days": 35.0
+        },
+        "GBP_USD": {
+          "trades": 15,
+          "gross_r": -15.0,
+          "financing_r": 0.0,
+          "adjusted_r": -15.0,
+          "hold_days": 36.49999999999999
+        },
+        "NZD_USD": {
+          "trades": 5,
+          "gross_r": 11.202829727635734,
+          "financing_r": 0.0,
+          "adjusted_r": 11.202829727635734,
+          "hold_days": 35.0
+        },
+        "USD_CAD": {
+          "trades": 37,
+          "gross_r": -9.764327761632055,
+          "financing_r": 0.0,
+          "adjusted_r": -9.764327761632055,
+          "hold_days": 143.49999999999997
+        },
+        "USD_CHF": {
+          "trades": 35,
+          "gross_r": -7.817233630451424,
+          "financing_r": 0.0,
+          "adjusted_r": -7.817233630451424,
+          "hold_days": 128.33333333333331
+        },
+        "USD_JPY": {
+          "trades": 30,
+          "gross_r": 0.05822476549301273,
+          "financing_r": 0.0,
+          "adjusted_r": 0.05822476549301273,
+          "hold_days": 110.66666666666666
+        }
+      },
+      "by_hold_bucket": {
+        "3-7d": {
+          "trades": 76,
+          "gross_r": 33.20252765055543,
+          "financing_r": 0.0,
+          "adjusted_r": 33.20252765055543,
+          "hold_days": 467.33333333333326
+        },
+        "1-3d": {
+          "trades": 36,
+          "gross_r": -25.186571793709156,
+          "financing_r": 0.0,
+          "adjusted_r": -25.186571793709156,
+          "hold_days": 68.0
+        },
+        "0-1d": {
+          "trades": 25,
+          "gross_r": -16.683733012321504,
+          "financing_r": 0.0,
+          "adjusted_r": -16.683733012321504,
+          "hold_days": 13.333333333333336
+        }
+      }
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "ledger_label": "c016_weekly_momentum_folds_base",
+      "financing_mode": "synthetic_fixture",
+      "rate_source": "conservative_stress",
+      "synthetic": true,
+      "trade_count": 137,
+      "gross_expectancy_r": -0.06326844639033014,
+      "adjusted_expectancy_r": -0.1152679061946621,
+      "financing_drag_r": -0.05199945980433202,
+      "avg_hold_days": 4.005,
+      "max_hold_days": 7.0,
+      "unavailable_rate_trades": 0,
+      "warnings": [
+        "fold_00_USD_JPY_trades.csv: row 1 repaired close_time from bars_held=1"
+      ],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 10,
+          "gross_r": 6.531781647128543,
+          "financing_r": -0.5199727265982514,
+          "adjusted_r": 6.011808920530291,
+          "hold_days": 59.66666666666667
+        },
+        "EUR_USD": {
+          "trades": 5,
+          "gross_r": 6.120948096350963,
+          "financing_r": -0.24765936350203965,
+          "adjusted_r": 5.873288732848923,
+          "hold_days": 35.0
+        },
+        "GBP_USD": {
+          "trades": 15,
+          "gross_r": -15.0,
+          "financing_r": -0.45786003810651754,
+          "adjusted_r": -15.457860038106517,
+          "hold_days": 36.49999999999999
+        },
+        "NZD_USD": {
+          "trades": 5,
+          "gross_r": 11.202829727635734,
+          "financing_r": -0.3706446953692115,
+          "adjusted_r": 10.832185032266523,
+          "hold_days": 35.0
+        },
+        "USD_CAD": {
+          "trades": 37,
+          "gross_r": -9.764327761632055,
+          "financing_r": -1.6116908883005099,
+          "adjusted_r": -11.376018649932568,
+          "hold_days": 143.49999999999997
+        },
+        "USD_CHF": {
+          "trades": 35,
+          "gross_r": -7.817233630451424,
+          "financing_r": -1.820942469918465,
+          "adjusted_r": -9.638176100369888,
+          "hold_days": 128.33333333333331
+        },
+        "USD_JPY": {
+          "trades": 30,
+          "gross_r": 0.05822476549301273,
+          "financing_r": -2.09515581139849,
+          "adjusted_r": -2.0369310459054772,
+          "hold_days": 110.66666666666666
+        }
+      },
+      "by_hold_bucket": {
+        "3-7d": {
+          "trades": 76,
+          "gross_r": 33.20252765055543,
+          "financing_r": -6.357738947831508,
+          "adjusted_r": 26.84478870272393,
+          "hold_days": 467.33333333333326
+        },
+        "1-3d": {
+          "trades": 36,
+          "gross_r": -25.186571793709156,
+          "financing_r": -0.6980356710964466,
+          "adjusted_r": -25.884607464805597,
+          "hold_days": 68.0
+        },
+        "0-1d": {
+          "trades": 25,
+          "gross_r": -16.683733012321504,
+          "financing_r": -0.06815137426553308,
+          "adjusted_r": -16.75188438658704,
+          "hold_days": 13.333333333333336
+        }
+      }
+    },
+    {
+      "campaign_id": "CAMPAIGN_016",
+      "ledger_label": "c016_weekly_momentum_folds_base",
+      "financing_mode": "manual_observed_fixture",
+      "rate_source": "manual_fixture_table",
+      "synthetic": true,
+      "trade_count": 137,
+      "gross_expectancy_r": -0.06326844639033014,
+      "adjusted_expectancy_r": -0.14500663332018066,
+      "financing_drag_r": -0.08173818692985052,
+      "avg_hold_days": 4.005,
+      "max_hold_days": 7.0,
+      "unavailable_rate_trades": 118,
+      "warnings": [
+        "fixtures are committed synthetic schedules labeled for diagnostic use; not broker-observed history",
+        "fold_00_USD_JPY_trades.csv: row 1 repaired close_time from bars_held=1"
+      ],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 10,
+          "gross_r": 6.531781647128543,
+          "financing_r": -0.8913818170255737,
+          "adjusted_r": 5.640399830102969,
+          "hold_days": 59.66666666666667
+        },
+        "EUR_USD": {
+          "trades": 5,
+          "gross_r": 6.120948096350963,
+          "financing_r": -0.4953187270040793,
+          "adjusted_r": 5.625629369346885,
+          "hold_days": 35.0
+        },
+        "GBP_USD": {
+          "trades": 15,
+          "gross_r": -15.0,
+          "financing_r": -0.7849029224683159,
+          "adjusted_r": -15.784902922468317,
+          "hold_days": 36.49999999999999
+        },
+        "NZD_USD": {
+          "trades": 5,
+          "gross_r": 11.202829727635734,
+          "financing_r": -0.6353909063472197,
+          "adjusted_r": 10.567438821288516,
+          "hold_days": 35.0
+        },
+        "USD_CAD": {
+          "trades": 37,
+          "gross_r": -9.764327761632055,
+          "financing_r": -3.868058131921222,
+          "adjusted_r": -13.63238589355328,
+          "hold_days": 143.49999999999997
+        },
+        "USD_CHF": {
+          "trades": 35,
+          "gross_r": -7.817233630451424,
+          "financing_r": -2.4279232932246204,
+          "adjusted_r": -10.245156923676044,
+          "hold_days": 128.33333333333331
+        },
+        "USD_JPY": {
+          "trades": 30,
+          "gross_r": 0.05822476549301273,
+          "financing_r": -2.09515581139849,
+          "adjusted_r": -2.0369310459054772,
+          "hold_days": 110.66666666666666
+        }
+      },
+      "by_hold_bucket": {
+        "3-7d": {
+          "trades": 76,
+          "gross_r": 33.20252765055543,
+          "financing_r": -10.052641449637548,
+          "adjusted_r": 23.149886200917898,
+          "hold_days": 467.33333333333326
+        },
+        "1-3d": {
+          "trades": 36,
+          "gross_r": -25.186571793709156,
+          "financing_r": -1.038187492010559,
+          "adjusted_r": -26.22475928571971,
+          "hold_days": 68.0
+        },
+        "0-1d": {
+          "trades": 25,
+          "gross_r": -16.683733012321504,
+          "financing_r": -0.10730266774141627,
+          "adjusted_r": -16.791035680062922,
+          "hold_days": 13.333333333333336
+        }
+      }
+    }
+  ],
+  "CAMPAIGN_017": [
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "ledger_label": "c017_weekly_vol_breakout_folds_base",
+      "financing_mode": "none",
+      "rate_source": "none",
+      "synthetic": false,
+      "trade_count": 230,
+      "gross_expectancy_r": -0.02266635435993691,
+      "adjusted_expectancy_r": -0.02266635435993691,
+      "financing_drag_r": 0.0,
+      "avg_hold_days": 5.867,
+      "max_hold_days": 7.0,
+      "unavailable_rate_trades": 0,
+      "warnings": [],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 40,
+          "gross_r": -10.980888399788348,
+          "financing_r": 0.0,
+          "adjusted_r": -10.980888399788348,
+          "hold_days": 226.1666666666667
+        },
+        "EUR_USD": {
+          "trades": 28,
+          "gross_r": 0.42615995535075146,
+          "financing_r": 0.0,
+          "adjusted_r": 0.42615995535075146,
+          "hold_days": 178.33333333333334
+        },
+        "GBP_USD": {
+          "trades": 35,
+          "gross_r": 2.984646580523527,
+          "financing_r": 0.0,
+          "adjusted_r": 2.984646580523527,
+          "hold_days": 219.66666666666666
+        },
+        "NZD_USD": {
+          "trades": 31,
+          "gross_r": -4.858649258040117,
+          "financing_r": 0.0,
+          "adjusted_r": -4.858649258040117,
+          "hold_days": 164.66666666666669
+        },
+        "USD_CAD": {
+          "trades": 34,
+          "gross_r": -7.260517175652598,
+          "financing_r": 0.0,
+          "adjusted_r": -7.260517175652598,
+          "hold_days": 179.33333333333334
+        },
+        "USD_CHF": {
+          "trades": 37,
+          "gross_r": 14.450288159986616,
+          "financing_r": 0.0,
+          "adjusted_r": 14.450288159986616,
+          "hold_days": 223.49999999999997
+        },
+        "USD_JPY": {
+          "trades": 25,
+          "gross_r": 0.02569863483468452,
+          "financing_r": 0.0,
+          "adjusted_r": 0.02569863483468452,
+          "hold_days": 157.66666666666666
+        }
+      },
+      "by_hold_bucket": {
+        "3-7d": {
+          "trades": 194,
+          "gross_r": 20.24749858884396,
+          "financing_r": 0.0,
+          "adjusted_r": 20.24749858884396,
+          "hold_days": 1272.3333333333337
+        },
+        "1-3d": {
+          "trades": 30,
+          "gross_r": -21.401119681897505,
+          "financing_r": 0.0,
+          "adjusted_r": -21.401119681897505,
+          "hold_days": 72.00000000000001
+        },
+        "0-1d": {
+          "trades": 6,
+          "gross_r": -4.059640409731941,
+          "financing_r": 0.0,
+          "adjusted_r": -4.059640409731941,
+          "hold_days": 5.0
+        }
+      }
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "ledger_label": "c017_weekly_vol_breakout_folds_base",
+      "financing_mode": "synthetic_fixture",
+      "rate_source": "conservative_stress",
+      "synthetic": true,
+      "trade_count": 230,
+      "gross_expectancy_r": -0.02266635435993691,
+      "adjusted_expectancy_r": -0.06651913662105205,
+      "financing_drag_r": -0.04385278226111512,
+      "avg_hold_days": 5.867,
+      "max_hold_days": 7.0,
+      "unavailable_rate_trades": 0,
+      "warnings": [],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 40,
+          "gross_r": -10.980888399788348,
+          "financing_r": -1.2937562647419893,
+          "adjusted_r": -12.274644664530335,
+          "hold_days": 226.1666666666667
+        },
+        "EUR_USD": {
+          "trades": 28,
+          "gross_r": 0.42615995535075146,
+          "financing_r": -1.30888587221928,
+          "adjusted_r": -0.8827259168685293,
+          "hold_days": 178.33333333333334
+        },
+        "GBP_USD": {
+          "trades": 35,
+          "gross_r": 2.984646580523527,
+          "financing_r": -1.6174692080183255,
+          "adjusted_r": 1.3671773725052019,
+          "hold_days": 219.66666666666666
+        },
+        "NZD_USD": {
+          "trades": 31,
+          "gross_r": -4.858649258040117,
+          "financing_r": -0.9636684411952497,
+          "adjusted_r": -5.8223176992353665,
+          "hold_days": 164.66666666666669
+        },
+        "USD_CAD": {
+          "trades": 34,
+          "gross_r": -7.260517175652598,
+          "financing_r": -1.2548887945161986,
+          "adjusted_r": -8.515405970168796,
+          "hold_days": 179.33333333333334
+        },
+        "USD_CHF": {
+          "trades": 37,
+          "gross_r": 14.450288159986616,
+          "financing_r": -2.007911556628773,
+          "adjusted_r": 12.442376603357841,
+          "hold_days": 223.49999999999997
+        },
+        "USD_JPY": {
+          "trades": 25,
+          "gross_r": 0.02569863483468452,
+          "financing_r": -1.6395597827366697,
+          "adjusted_r": -1.6138611479019853,
+          "hold_days": 157.66666666666666
+        }
+      },
+      "by_hold_bucket": {
+        "3-7d": {
+          "trades": 194,
+          "gross_r": 20.24749858884396,
+          "financing_r": -9.467649399539345,
+          "adjusted_r": 10.7798491893046,
+          "hold_days": 1272.3333333333337
+        },
+        "1-3d": {
+          "trades": 30,
+          "gross_r": -21.401119681897505,
+          "financing_r": -0.5805295141358537,
+          "adjusted_r": -21.981649196033352,
+          "hold_days": 72.00000000000001
+        },
+        "0-1d": {
+          "trades": 6,
+          "gross_r": -4.059640409731941,
+          "financing_r": -0.037961006381279715,
+          "adjusted_r": -4.097601416113221,
+          "hold_days": 5.0
+        }
+      }
+    },
+    {
+      "campaign_id": "CAMPAIGN_017",
+      "ledger_label": "c017_weekly_vol_breakout_folds_base",
+      "financing_mode": "manual_observed_fixture",
+      "rate_source": "manual_fixture_table",
+      "synthetic": true,
+      "trade_count": 230,
+      "gross_expectancy_r": -0.02266635435993691,
+      "adjusted_expectancy_r": -0.09479224707262884,
+      "financing_drag_r": -0.07212589271269193,
+      "avg_hold_days": 5.867,
+      "max_hold_days": 7.0,
+      "unavailable_rate_trades": 230,
+      "warnings": [
+        "fixtures are committed synthetic schedules labeled for diagnostic use; not broker-observed history"
+      ],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 40,
+          "gross_r": -10.980888399788348,
+          "financing_r": -2.2178678824148395,
+          "adjusted_r": -13.198756282203183,
+          "hold_days": 226.1666666666667
+        },
+        "EUR_USD": {
+          "trades": 28,
+          "gross_r": 0.42615995535075146,
+          "financing_r": -2.61777174443856,
+          "adjusted_r": -2.1916117890878093,
+          "hold_days": 178.33333333333334
+        },
+        "GBP_USD": {
+          "trades": 35,
+          "gross_r": 2.984646580523527,
+          "financing_r": -2.772804356602844,
+          "adjusted_r": 0.21184222392068347,
+          "hold_days": 219.66666666666666
+        },
+        "NZD_USD": {
+          "trades": 31,
+          "gross_r": -4.858649258040117,
+          "financing_r": -1.6520030420489995,
+          "adjusted_r": -6.510652300089118,
+          "hold_days": 164.66666666666669
+        },
+        "USD_CAD": {
+          "trades": 34,
+          "gross_r": -7.260517175652598,
+          "financing_r": -3.011733106838876,
+          "adjusted_r": -10.272250282491475,
+          "hold_days": 179.33333333333334
+        },
+        "USD_CHF": {
+          "trades": 37,
+          "gross_r": 14.450288159986616,
+          "financing_r": -2.6772154088383626,
+          "adjusted_r": 11.773072751148248,
+          "hold_days": 223.49999999999997
+        },
+        "USD_JPY": {
+          "trades": 25,
+          "gross_r": 0.02569863483468452,
+          "financing_r": -1.6395597827366697,
+          "adjusted_r": -1.6138611479019853,
+          "hold_days": 157.66666666666666
+        }
+      },
+      "by_hold_bucket": {
+        "3-7d": {
+          "trades": 194,
+          "gross_r": 20.24749858884396,
+          "financing_r": -15.565903319711358,
+          "adjusted_r": 4.681595269132594,
+          "hold_days": 1272.3333333333337
+        },
+        "1-3d": {
+          "trades": 30,
+          "gross_r": -21.401119681897505,
+          "financing_r": -0.9555518289167627,
+          "adjusted_r": -22.356671510814262,
+          "hold_days": 72.00000000000001
+        },
+        "0-1d": {
+          "trades": 6,
+          "gross_r": -4.059640409731941,
+          "financing_r": -0.06750017529102334,
+          "adjusted_r": -4.127140585022964,
+          "hold_days": 5.0
+        }
+      }
+    }
+  ],
+  "CAMPAIGN_008": [
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "ledger_label": "c008_deduped_forensic_train",
+      "financing_mode": "none",
+      "rate_source": "none",
+      "synthetic": false,
+      "trade_count": 216,
+      "gross_expectancy_r": -0.02495588229083048,
+      "adjusted_expectancy_r": -0.02495588229083048,
+      "financing_drag_r": 0.0,
+      "avg_hold_days": 3.132,
+      "max_hold_days": 6.667,
+      "unavailable_rate_trades": 0,
+      "warnings": [],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 44,
+          "gross_r": 3.293245093881681,
+          "financing_r": 0.0,
+          "adjusted_r": 3.293245093881681,
+          "hold_days": 151.83333333333331
+        },
+        "EUR_USD": {
+          "trades": 35,
+          "gross_r": 5.416491762687294,
+          "financing_r": 0.0,
+          "adjusted_r": 5.416491762687294,
+          "hold_days": 116.16666666666666
+        },
+        "GBP_USD": {
+          "trades": 37,
+          "gross_r": 1.0121130565647416,
+          "financing_r": 0.0,
+          "adjusted_r": 1.0121130565647416,
+          "hold_days": 114.66666666666667
+        },
+        "USD_CAD": {
+          "trades": 41,
+          "gross_r": -15.66131010849368,
+          "financing_r": 0.0,
+          "adjusted_r": -15.66131010849368,
+          "hold_days": 100.0
+        },
+        "USD_CHF": {
+          "trades": 22,
+          "gross_r": 0.4555527201217826,
+          "financing_r": 0.0,
+          "adjusted_r": 0.4555527201217826,
+          "hold_days": 63.666666666666664
+        },
+        "USD_JPY": {
+          "trades": 37,
+          "gross_r": 0.0934369004187925,
+          "financing_r": 0.0,
+          "adjusted_r": 0.0934369004187925,
+          "hold_days": 130.16666666666669
+        }
+      },
+      "by_hold_bucket": {
+        "1-3d": {
+          "trades": 49,
+          "gross_r": -40.6694528120572,
+          "financing_r": 0.0,
+          "adjusted_r": -40.6694528120572,
+          "hold_days": 94.83333333333333
+        },
+        "3-7d": {
+          "trades": 90,
+          "gross_r": 94.68736045698826,
+          "financing_r": 0.0,
+          "adjusted_r": 94.68736045698826,
+          "hold_days": 541.0000000000002
+        },
+        "0-1d": {
+          "trades": 77,
+          "gross_r": -59.40837821975043,
+          "financing_r": 0.0,
+          "adjusted_r": -59.40837821975043,
+          "hold_days": 40.66666666666667
+        }
+      }
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "ledger_label": "c008_deduped_forensic_train",
+      "financing_mode": "synthetic_fixture",
+      "rate_source": "conservative_stress",
+      "synthetic": true,
+      "trade_count": 216,
+      "gross_expectancy_r": -0.02495588229083048,
+      "adjusted_expectancy_r": -0.1051158288883254,
+      "financing_drag_r": -0.08015994659749494,
+      "avg_hold_days": 3.132,
+      "max_hold_days": 6.667,
+      "unavailable_rate_trades": 0,
+      "warnings": [],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 44,
+          "gross_r": 3.293245093881681,
+          "financing_r": -2.2591630789215302,
+          "adjusted_r": 1.034082014960152,
+          "hold_days": 151.83333333333331
+        },
+        "EUR_USD": {
+          "trades": 35,
+          "gross_r": 5.416491762687294,
+          "financing_r": -2.598893398994756,
+          "adjusted_r": 2.817598363692539,
+          "hold_days": 116.16666666666666
+        },
+        "GBP_USD": {
+          "trades": 37,
+          "gross_r": 1.0121130565647416,
+          "financing_r": -2.351811966836697,
+          "adjusted_r": -1.3396989102719559,
+          "hold_days": 114.66666666666667
+        },
+        "USD_CAD": {
+          "trades": 41,
+          "gross_r": -15.66131010849368,
+          "financing_r": -1.5460166661073016,
+          "adjusted_r": -17.207326774600983,
+          "hold_days": 100.0
+        },
+        "USD_CHF": {
+          "trades": 22,
+          "gross_r": 0.4555527201217826,
+          "financing_r": -1.65200979746809,
+          "adjusted_r": -1.1964570773463066,
+          "hold_days": 63.666666666666664
+        },
+        "USD_JPY": {
+          "trades": 37,
+          "gross_r": 0.0934369004187925,
+          "financing_r": -6.9066535567305305,
+          "adjusted_r": -6.813216656311737,
+          "hold_days": 130.16666666666669
+        }
+      },
+      "by_hold_bucket": {
+        "1-3d": {
+          "trades": 49,
+          "gross_r": -40.6694528120572,
+          "financing_r": -2.3476932617817696,
+          "adjusted_r": -43.017146073838965,
+          "hold_days": 94.83333333333333
+        },
+        "3-7d": {
+          "trades": 90,
+          "gross_r": 94.68736045698826,
+          "financing_r": -13.99102837727634,
+          "adjusted_r": 80.69633207971187,
+          "hold_days": 541.0000000000002
+        },
+        "0-1d": {
+          "trades": 77,
+          "gross_r": -59.40837821975043,
+          "financing_r": -0.9758268260008003,
+          "adjusted_r": -60.384205045751244,
+          "hold_days": 40.66666666666667
+        }
+      }
+    },
+    {
+      "campaign_id": "CAMPAIGN_008",
+      "ledger_label": "c008_deduped_forensic_train",
+      "financing_mode": "manual_observed_fixture",
+      "rate_source": "manual_fixture_table",
+      "synthetic": true,
+      "trade_count": 216,
+      "gross_expectancy_r": -0.02495588229083048,
+      "adjusted_expectancy_r": -0.1449655523519706,
+      "financing_drag_r": -0.1200096700611401,
+      "avg_hold_days": 3.132,
+      "max_hold_days": 6.667,
+      "unavailable_rate_trades": 172,
+      "warnings": [
+        "fixtures are committed synthetic schedules labeled for diagnostic use; not broker-observed history"
+      ],
+      "by_pair": {
+        "AUD_USD": {
+          "trades": 44,
+          "gross_r": 3.293245093881681,
+          "financing_r": -3.8728509924369097,
+          "adjusted_r": -0.579605898555229,
+          "hold_days": 151.83333333333331
+        },
+        "EUR_USD": {
+          "trades": 35,
+          "gross_r": 5.416491762687294,
+          "financing_r": -5.197786797989512,
+          "adjusted_r": 0.2187049646977821,
+          "hold_days": 116.16666666666666
+        },
+        "GBP_USD": {
+          "trades": 37,
+          "gross_r": 1.0121130565647416,
+          "financing_r": -4.0316776574343365,
+          "adjusted_r": -3.0195646008695967,
+          "hold_days": 114.66666666666667
+        },
+        "USD_CAD": {
+          "trades": 41,
+          "gross_r": -15.66131010849368,
+          "financing_r": -3.7104399986575243,
+          "adjusted_r": -19.371750107151197,
+          "hold_days": 100.0
+        },
+        "USD_CHF": {
+          "trades": 22,
+          "gross_r": 0.4555527201217826,
+          "financing_r": -2.2026797299574534,
+          "adjusted_r": -1.7471270098356702,
+          "hold_days": 63.666666666666664
+        },
+        "USD_JPY": {
+          "trades": 37,
+          "gross_r": 0.0934369004187925,
+          "financing_r": -6.9066535567305305,
+          "adjusted_r": -6.813216656311737,
+          "hold_days": 130.16666666666669
+        }
+      },
+      "by_hold_bucket": {
+        "1-3d": {
+          "trades": 49,
+          "gross_r": -40.6694528120572,
+          "financing_r": -3.5271249986161597,
+          "adjusted_r": -44.19657781067333,
+          "hold_days": 94.83333333333333
+        },
+        "3-7d": {
+          "trades": 90,
+          "gross_r": 94.68736045698826,
+          "financing_r": -20.89212630976924,
+          "adjusted_r": 73.79523414721898,
+          "hold_days": 541.0000000000002
+        },
+        "0-1d": {
+          "trades": 77,
+          "gross_r": -59.40837821975043,
+          "financing_r": -1.5028374248208696,
+          "adjusted_r": -60.911215644571314,
+          "hold_days": 40.66666666666667
+        }
+      }
+    }
+  ]
+}

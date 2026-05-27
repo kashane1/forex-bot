@@ -1,0 +1,26 @@
+[
+  {
+    "campaign_id": "CAMPAIGN_019",
+    "ledger_label": "c019_train_validation_base",
+    "financing_mode": "manual_observed_fixture",
+    "unavailable_rate_trades": 290
+  },
+  {
+    "campaign_id": "CAMPAIGN_016",
+    "ledger_label": "c016_weekly_momentum_folds_base",
+    "financing_mode": "manual_observed_fixture",
+    "unavailable_rate_trades": 118
+  },
+  {
+    "campaign_id": "CAMPAIGN_017",
+    "ledger_label": "c017_weekly_vol_breakout_folds_base",
+    "financing_mode": "manual_observed_fixture",
+    "unavailable_rate_trades": 230
+  },
+  {
+    "campaign_id": "CAMPAIGN_008",
+    "ledger_label": "c008_deduped_forensic_train",
+    "financing_mode": "manual_observed_fixture",
+    "unavailable_rate_trades": 172
+  }
+]
