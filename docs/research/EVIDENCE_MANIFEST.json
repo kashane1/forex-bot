@@ -1916,5 +1916,21 @@
     "smoke_result_doc": "docs/research/M1_INGESTION_AGGREGATION_SMOKE_RESULT.md",
     "roadmap_doc": "docs/research/LOWER_TIMEFRAME_STRATEGY_TRANSLATION_ROADMAP.md",
     "recommended_next_sprint": "CAMPAIGN_021 scaffold only after M1 local data is available"
+  },
+  "m1_full_corpus_validation_and_aggregation_001": {
+    "sprint": "infra-m1-full-corpus-validation-and-aggregation-001",
+    "sprint_type": "data_validation_and_aggregation_only",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "campaign_021_evidence_created": false,
+    "c020_verdict_unchanged": "REJECT",
+    "paper_demo_live_blocked": true,
+    "readiness": "READY_WITH_WARNINGS",
+    "m1_row_count": 12793196,
+    "plan_doc": "docs/research/M1_FULL_CORPUS_VALIDATION_AND_AGGREGATION_001_PLAN.md",
+    "summary_doc": "docs/research/M1_FULL_CORPUS_VALIDATION_AND_AGGREGATION_001_SUMMARY.md",
+    "readiness_doc": "docs/research/M1_FULL_CORPUS_LTF_LANE_READINESS_DECISION.md",
+    "artifacts_dir": "research/m1_full_corpus_validation",
+    "recommended_next_sprint": "research-campaign-021-ltf-mtf-confluence-scaffold-001"
   }
 }

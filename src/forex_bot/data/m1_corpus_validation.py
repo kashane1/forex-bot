@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 import csv
-import json
 from collections import defaultdict
+from collections.abc import Iterator
 from dataclasses import dataclass, field
 from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
-from typing import Any, Iterator, Literal
+from typing import Any, Literal
 
 import pandas as pd
 
@@ -451,9 +451,7 @@ def h4_drift_for_pair(store: PostgresCandleStore, instrument: str, *, max_exampl
             if len(examples) < max_examples:
                 examples.append(diff)
     status: Status = "PASS"
-    if len(overlap) == 0:
-        status = "FAIL"
-    elif ohlc_mismatch / max(len(overlap), 1) > 0.01:
+    if len(overlap) == 0 or ohlc_mismatch / max(len(overlap), 1) > 0.01:
         status = "FAIL"
     elif missing_in_derived or extra_in_derived or ohlc_mismatch > 0:
         status = "WARN"
