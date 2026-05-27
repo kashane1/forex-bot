@@ -1,0 +1,8 @@
+instrument,status,actual_m1_count,missing_minutes,duplicate_timestamps,incomplete_candles,negative_or_zero_spreads,extreme_spreads,bid_ask_violations,ohlc_violations
+EUR_USD,PASS,1843476,34283,0,0,0,0,0,0
+GBP_USD,WARN,1836170,41589,0,0,0,0,0,0
+USD_JPY,WARN,1844454,33305,0,0,0,34977,0,0
+AUD_USD,WARN,1822196,55563,0,0,0,0,0,0
+USD_CAD,WARN,1836013,41746,0,0,0,0,0,0
+USD_CHF,WARN,1786535,91224,0,0,0,0,0,0
+NZD_USD,WARN,1824352,53407,0,0,0,0,0,0

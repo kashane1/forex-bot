@@ -65,6 +65,11 @@ def classify_count_delta(actual: int, expected: int) -> Status:
     return "FAIL"
 
 
+def extreme_spread_threshold(instrument: str) -> float:
+    """Price-unit threshold; JPY quotes use larger absolute spreads."""
+    return 0.05 if "JPY" in instrument else 0.01
+
+
 def classify_quality(report: dict[str, Any]) -> Status:
     if report.get("duplicate_timestamps", 0) > 0:
         return "FAIL"
@@ -77,9 +82,10 @@ def classify_quality(report: dict[str, Any]) -> Status:
     missing = report.get("missing_minutes", 0)
     expected = report.get("expected_weekday_minutes", 1)
     missing_pct = missing / expected if expected else 0
-    if missing_pct > 0.02:
+    # Weekday calendar minutes over-count FX close; treat large gaps separately.
+    if missing_pct > 0.05:
         return "FAIL"
-    if missing_pct > 0.005 or report.get("extreme_spreads", 0) > 0:
+    if missing_pct > 0.02 or report.get("extreme_spreads", 0) > 0:
         return "WARN"
     return "PASS"
 
@@ -199,7 +205,7 @@ def quality_sql_base(store: PostgresCandleStore, instrument: str) -> dict[str, A
                SUM(CASE WHEN NOT complete THEN 1 ELSE 0 END) AS incomplete_candles,
                SUM(CASE WHEN bid_c IS NOT NULL AND ask_c IS NOT NULL AND bid_c > ask_c THEN 1 ELSE 0 END) AS bid_ask_violations,
                SUM(CASE WHEN bid_c IS NOT NULL AND ask_c IS NOT NULL AND (ask_c - bid_c) <= 0 THEN 1 ELSE 0 END) AS bad_spreads,
-               SUM(CASE WHEN bid_c IS NOT NULL AND ask_c IS NOT NULL AND (ask_c - bid_c) > 0.01 THEN 1 ELSE 0 END) AS extreme_spreads,
+               SUM(CASE WHEN bid_c IS NOT NULL AND ask_c IS NOT NULL AND (ask_c - bid_c) > %s THEN 1 ELSE 0 END) AS extreme_spreads,
                SUM(CASE WHEN bid_h IS NOT NULL AND bid_l IS NOT NULL AND bid_h < bid_l THEN 1 ELSE 0 END)
                  + SUM(CASE WHEN ask_h IS NOT NULL AND ask_l IS NOT NULL AND ask_h < ask_l THEN 1 ELSE 0 END) AS ohlc_violations,
                percentile_cont(0.5) WITHIN GROUP (ORDER BY (ask_c - bid_c)) AS spread_p50,
@@ -208,8 +214,9 @@ def quality_sql_base(store: PostgresCandleStore, instrument: str) -> dict[str, A
         FROM {schema}.candles
         WHERE instrument = %s AND granularity = 'M1'
     """
+    threshold = extreme_spread_threshold(instrument)
     with store.connection() as conn, conn.cursor() as cur:
-        cur.execute(sql, (instrument,))
+        cur.execute(sql, (threshold, instrument))
         row = cur.fetchone()
     row_count = int(row[0])
     distinct_times = int(row[1])

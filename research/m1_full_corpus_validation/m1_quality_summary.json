@@ -1,0 +1,209 @@
+{
+  "generated_at_utc": "2026-05-27T20:05:51.333316+00:00",
+  "overall_status": "WARN",
+  "pairs": [
+    {
+      "actual_m1_count": 1843476,
+      "bid_ask_violations": 0,
+      "distinct_timestamps": 1843476,
+      "duplicate_timestamps": 0,
+      "end_utc": "2026-05-26T23:59:00+00:00",
+      "expected_weekday_minutes": 1877759,
+      "extreme_spreads": 0,
+      "first_timestamp": "2021-05-27T00:00:00+00:00",
+      "incomplete_candles": 0,
+      "instrument": "EUR_USD",
+      "largest_gaps": [
+        {
+          "minutes": 4326,
+          "start": "2023-12-22T21:57:00+00:00"
+        }
+      ],
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "missing_minutes": 34283,
+      "negative_or_zero_spreads": 0,
+      "ohlc_violations": 0,
+      "spread_percentiles": {
+        "p50": 0.0001500000000000945,
+        "p90": 0.00017000000000000348,
+        "p99": 0.0004899999999998794
+      },
+      "start_utc": "2021-05-27T00:00:00+00:00",
+      "status": "PASS"
+    },
+    {
+      "actual_m1_count": 1836170,
+      "bid_ask_violations": 0,
+      "distinct_timestamps": 1836170,
+      "duplicate_timestamps": 0,
+      "end_utc": "2026-05-26T23:59:00+00:00",
+      "expected_weekday_minutes": 1877759,
+      "extreme_spreads": 0,
+      "first_timestamp": "2021-05-27T00:00:00+00:00",
+      "incomplete_candles": 0,
+      "instrument": "GBP_USD",
+      "largest_gaps": [
+        {
+          "minutes": 4325,
+          "start": "2023-12-22T21:58:00+00:00"
+        }
+      ],
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "missing_minutes": 41589,
+      "negative_or_zero_spreads": 0,
+      "ohlc_violations": 0,
+      "spread_percentiles": {
+        "p50": 0.00018999999999991246,
+        "p90": 0.00022999999999995246,
+        "p99": 0.0009900000000000464
+      },
+      "start_utc": "2021-05-27T00:00:00+00:00",
+      "status": "WARN"
+    },
+    {
+      "actual_m1_count": 1844454,
+      "bid_ask_violations": 0,
+      "distinct_timestamps": 1844454,
+      "duplicate_timestamps": 0,
+      "end_utc": "2026-05-26T23:59:00+00:00",
+      "expected_weekday_minutes": 1877759,
+      "extreme_spreads": 34977,
+      "first_timestamp": "2021-05-27T00:00:00+00:00",
+      "incomplete_candles": 0,
+      "instrument": "USD_JPY",
+      "largest_gaps": [
+        {
+          "minutes": 4326,
+          "start": "2023-12-22T21:57:00+00:00"
+        }
+      ],
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "missing_minutes": 33305,
+      "negative_or_zero_spreads": 0,
+      "ohlc_violations": 0,
+      "spread_percentiles": {
+        "p50": 0.016999999999995907,
+        "p90": 0.020999999999986585,
+        "p99": 0.0730000000000075
+      },
+      "start_utc": "2021-05-27T00:00:00+00:00",
+      "status": "WARN"
+    },
+    {
+      "actual_m1_count": 1822196,
+      "bid_ask_violations": 0,
+      "distinct_timestamps": 1822196,
+      "duplicate_timestamps": 0,
+      "end_utc": "2026-05-26T23:59:00+00:00",
+      "expected_weekday_minutes": 1877759,
+      "extreme_spreads": 0,
+      "first_timestamp": "2021-05-27T00:00:00+00:00",
+      "incomplete_candles": 0,
+      "instrument": "AUD_USD",
+      "largest_gaps": [
+        {
+          "minutes": 4326,
+          "start": "2023-12-29T21:57:00+00:00"
+        }
+      ],
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "missing_minutes": 55563,
+      "negative_or_zero_spreads": 0,
+      "ohlc_violations": 0,
+      "spread_percentiles": {
+        "p50": 0.0001300000000000745,
+        "p90": 0.0001500000000000945,
+        "p99": 0.0004899999999999904
+      },
+      "start_utc": "2021-05-27T00:00:00+00:00",
+      "status": "WARN"
+    },
+    {
+      "actual_m1_count": 1836013,
+      "bid_ask_violations": 0,
+      "distinct_timestamps": 1836013,
+      "duplicate_timestamps": 0,
+      "end_utc": "2026-05-26T23:59:00+00:00",
+      "expected_weekday_minutes": 1877759,
+      "extreme_spreads": 0,
+      "first_timestamp": "2021-05-27T00:00:00+00:00",
+      "incomplete_candles": 0,
+      "instrument": "USD_CAD",
+      "largest_gaps": [
+        {
+          "minutes": 4326,
+          "start": "2023-12-22T21:57:00+00:00"
+        }
+      ],
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "missing_minutes": 41746,
+      "negative_or_zero_spreads": 0,
+      "ohlc_violations": 0,
+      "spread_percentiles": {
+        "p50": 0.00018999999999991246,
+        "p90": 0.00022999999999995246,
+        "p99": 0.0007299999999998974
+      },
+      "start_utc": "2021-05-27T00:00:00+00:00",
+      "status": "WARN"
+    },
+    {
+      "actual_m1_count": 1786535,
+      "bid_ask_violations": 0,
+      "distinct_timestamps": 1786535,
+      "duplicate_timestamps": 0,
+      "end_utc": "2026-05-26T23:59:00+00:00",
+      "expected_weekday_minutes": 1877759,
+      "extreme_spreads": 0,
+      "first_timestamp": "2021-05-27T00:00:00+00:00",
+      "incomplete_candles": 0,
+      "instrument": "USD_CHF",
+      "largest_gaps": [
+        {
+          "minutes": 4326,
+          "start": "2023-12-22T21:57:00+00:00"
+        }
+      ],
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "missing_minutes": 91224,
+      "negative_or_zero_spreads": 0,
+      "ohlc_violations": 0,
+      "spread_percentiles": {
+        "p50": 0.00015999999999993797,
+        "p90": 0.00019000000000002348,
+        "p99": 0.0011799999999999589
+      },
+      "start_utc": "2021-05-27T00:00:00+00:00",
+      "status": "WARN"
+    },
+    {
+      "actual_m1_count": 1824352,
+      "bid_ask_violations": 0,
+      "distinct_timestamps": 1824352,
+      "duplicate_timestamps": 0,
+      "end_utc": "2026-05-26T23:59:00+00:00",
+      "expected_weekday_minutes": 1877759,
+      "extreme_spreads": 0,
+      "first_timestamp": "2021-05-27T00:00:00+00:00",
+      "incomplete_candles": 0,
+      "instrument": "NZD_USD",
+      "largest_gaps": [
+        {
+          "minutes": 4086,
+          "start": "2023-12-22T21:57:00+00:00"
+        }
+      ],
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "missing_minutes": 53407,
+      "negative_or_zero_spreads": 0,
+      "ohlc_violations": 0,
+      "spread_percentiles": {
+        "p50": 0.0001500000000000945,
+        "p90": 0.00019000000000002348,
+        "p99": 0.0007000000000000339
+      },
+      "start_utc": "2021-05-27T00:00:00+00:00",
+      "status": "WARN"
+    }
+  ]
+}
