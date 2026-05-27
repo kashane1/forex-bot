@@ -1,0 +1,78 @@
+{
+  "campaign": "C008",
+  "strategy_evidence": false,
+  "parity_diagnostic_only": true,
+  "generated_at_utc": "2026-05-27T04:10:13.315337+00:00",
+  "engine": "backtrader_exit_parity",
+  "fill_timing": "signal_bar_close",
+  "gap_fill_policy": "none",
+  "midline_exit": false,
+  "protective_stop_after_r": null,
+  "aggregate": {
+    "total_trades": 279,
+    "by_exit_reason": {
+      "eod": {
+        "count": 1,
+        "share_pct": 0.36,
+        "expectancy_r": -0.037,
+        "avg_bars_held": 1.0
+      },
+      "stop": {
+        "count": 194,
+        "share_pct": 69.53,
+        "expectancy_r": -1.0,
+        "avg_bars_held": 10.46
+      },
+      "time": {
+        "count": 84,
+        "share_pct": 30.11,
+        "expectancy_r": 2.4,
+        "avg_bars_held": 40.0
+      }
+    }
+  },
+  "by_split": {
+    "train": {
+      "total_trades": 165,
+      "by_exit_reason": {
+        "eod": {
+          "count": 1,
+          "share_pct": 0.61,
+          "expectancy_r": -0.037,
+          "avg_bars_held": 1.0
+        },
+        "stop": {
+          "count": 122,
+          "share_pct": 73.94,
+          "expectancy_r": -1.0,
+          "avg_bars_held": 10.56
+        },
+        "time": {
+          "count": 42,
+          "share_pct": 25.45,
+          "expectancy_r": 2.5026,
+          "avg_bars_held": 40.0
+        }
+      }
+    },
+    "validation": {
+      "total_trades": 114,
+      "by_exit_reason": {
+        "stop": {
+          "count": 72,
+          "share_pct": 63.16,
+          "expectancy_r": -1.0,
+          "avg_bars_held": 10.29
+        },
+        "time": {
+          "count": 42,
+          "share_pct": 36.84,
+          "expectancy_r": 2.2974,
+          "avg_bars_held": 40.0
+        }
+      }
+    }
+  },
+  "protective_arm_rate_pct": null,
+  "protective_exit_rate_pct": null
+}
