@@ -1694,20 +1694,6 @@
       "strategy_evidence": false
     },
     {
-      "artifact_id": "CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_SUMMARY",
-      "path": "docs/research/CAMPAIGN_019_THESIS_INVALIDATION_EXECUTION_001_SUMMARY.md",
-      "kind": "campaign_evidence",
-      "description": "CAMPAIGN_019 execution close-out. REJECT on train gate. strategy_evidence: true; not_approved: true.",
-      "strategy_evidence": true
-    },
-    {
-      "artifact_id": "CAMPAIGN_019_GATE_RESULT",
-      "path": "research/campaign_019/gate_result.json",
-      "kind": "campaign_evidence",
-      "description": "CAMPAIGN_019 screening gate machine-readable result. strategy_evidence: true.",
-      "strategy_evidence": true
-    },
-    {
       "artifact_id": "CAMPAIGN_019_BT_PARITY_SUMMARY",
       "path": "research/backtrader_exit_parity/c019_parity_summary.json",
       "kind": "parity_diagnostic",
