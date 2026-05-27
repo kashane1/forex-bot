@@ -6,6 +6,7 @@ Does not modify backtest engine PnL or approve strategies.
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass, field
 from datetime import date, timedelta
 from enum import StrEnum
@@ -28,7 +29,16 @@ class FinancingOverlayMode(StrEnum):
     NONE = "none"
     SYNTHETIC_FIXTURE = "synthetic_fixture"
     MANUAL_OBSERVED_FIXTURE = "manual_observed_fixture"
+    OBSERVED_PRACTICE_FIXTURE = "observed_practice_fixture"
     UNAVAILABLE = "unavailable"
+
+
+OBSERVED_PRACTICE_FIXTURE_PATH = (
+    Path(__file__).resolve().parents[3]
+    / "research"
+    / "observed_financing_capture_readonly"
+    / "observed_practice_financing.json"
+)
 
 
 @dataclass(frozen=True)
@@ -136,6 +146,25 @@ def resolve_rate_source(
     if mode == FinancingOverlayMode.SYNTHETIC_FIXTURE:
         src = default_stress_rate_source()
         return src, src.name, True, warnings
+    if mode == FinancingOverlayMode.OBSERVED_PRACTICE_FIXTURE:
+        path = OBSERVED_PRACTICE_FIXTURE_PATH
+        if not path.is_file():
+            warnings.append("observed practice fixture missing")
+            return None, "unavailable", False, warnings
+        try:
+            from forex_bot.research.observed_financing_fixture import validate_observed_fixture
+
+            fixture = validate_observed_fixture(json.loads(path.read_text(encoding="utf-8")))
+        except Exception as exc:
+            warnings.append(str(exc))
+            return None, "unavailable", False, warnings
+        if not fixture.entries:
+            warnings.append("observed practice fixture has zero entries — overlay skipped")
+            return None, "unavailable", False, warnings
+        warnings.append("observed practice fixture is diagnostic; not strategy evidence")
+        # Insufficient to build full rate table — mark unavailable for calculator overlay
+        return None, "observed_practice_sparse", False, warnings
+
     if mode == FinancingOverlayMode.MANUAL_OBSERVED_FIXTURE:
         paths = fixture_paths or sorted(FIXTURES_DIR.glob("rates_two_week_*.json"))
         if not paths:
