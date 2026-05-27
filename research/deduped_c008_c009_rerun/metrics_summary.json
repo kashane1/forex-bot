@@ -1,0 +1,452 @@
+{
+  "strategy_evidence": false,
+  "forensic_only": true,
+  "not_approval": true,
+  "test_window_opened": false,
+  "generated_at_utc": "2026-05-27T00:20:07.525655+00:00",
+  "CAMPAIGN_008": {
+    "train_base": {
+      "trade_count": 216,
+      "expectancy_r": -0.025,
+      "profit_factor": 1.0248,
+      "pairs_positive": 5,
+      "pairs_total": 6,
+      "per_pair": {
+        "EUR_USD": {
+          "trade_count": 35,
+          "total_return_pct": 1.2990240000000153,
+          "max_drawdown_pct": -2.105815564268564,
+          "profit_factor": 1.2129279461208815,
+          "expectancy_r": 0.15475690750535123,
+          "win_rate": 0.3142857142857143,
+          "average_spread_paid_pips": 1.3542857142857143
+        },
+        "GBP_USD": {
+          "trade_count": 37,
+          "total_return_pct": 0.2107889999999779,
+          "max_drawdown_pct": -1.5110679037360546,
+          "profit_factor": 1.0332147488113843,
+          "expectancy_r": 0.02735440693418218,
+          "win_rate": 0.2972972972972973,
+          "average_spread_paid_pips": 1.7351351351351347
+        },
+        "USD_JPY": {
+          "trade_count": 37,
+          "total_return_pct": 2.234011337793085,
+          "max_drawdown_pct": -2.6149173247814,
+          "profit_factor": 1.3562545572039142,
+          "expectancy_r": 0.0025253216329403387,
+          "win_rate": 0.35135135135135137,
+          "average_spread_paid_pips": 1.3378378378378377
+        },
+        "AUD_USD": {
+          "trade_count": 44,
+          "total_return_pct": 0.7776039999999984,
+          "max_drawdown_pct": -1.9169540000000096,
+          "profit_factor": 1.1089849011278252,
+          "expectancy_r": 0.07484647940640192,
+          "win_rate": 0.3181818181818182,
+          "average_spread_paid_pips": 1.3863636363636362
+        },
+        "USD_CAD": {
+          "trade_count": 41,
+          "total_return_pct": -4.979616973131307,
+          "max_drawdown_pct": -6.998950424810118,
+          "profit_factor": 0.40077115561495263,
+          "expectancy_r": -0.3819831733778947,
+          "win_rate": 0.17073170731707318,
+          "average_spread_paid_pips": 1.8658536585365857
+        },
+        "USD_CHF": {
+          "trade_count": 22,
+          "total_return_pct": 0.16746801465445937,
+          "max_drawdown_pct": -2.3465288179004693,
+          "profit_factor": 1.036703126640173,
+          "expectancy_r": 0.020706941823717392,
+          "win_rate": 0.18181818181818182,
+          "average_spread_paid_pips": 1.6590909090909092
+        }
+      }
+    },
+    "validation_base": {
+      "trade_count": 138,
+      "expectancy_r": 0.1612,
+      "profit_factor": 1.2935,
+      "pairs_positive": 6,
+      "pairs_total": 6,
+      "per_pair": {
+        "EUR_USD": {
+          "trade_count": 20,
+          "total_return_pct": 1.569661,
+          "max_drawdown_pct": -1.5114450000000033,
+          "profit_factor": 1.4255406075104353,
+          "expectancy_r": 0.3097266968846812,
+          "win_rate": 0.25,
+          "average_spread_paid_pips": 1.44
+        },
+        "GBP_USD": {
+          "trade_count": 28,
+          "total_return_pct": 0.813203000000029,
+          "max_drawdown_pct": -2.1425243170916013,
+          "profit_factor": 1.1858406068454996,
+          "expectancy_r": 0.11681022570107043,
+          "win_rate": 0.39285714285714285,
+          "average_spread_paid_pips": 1.7535714285714283
+        },
+        "USD_JPY": {
+          "trade_count": 25,
+          "total_return_pct": 0.8542274849345333,
+          "max_drawdown_pct": -1.9566790976835957,
+          "profit_factor": 1.1898397247450714,
+          "expectancy_r": 0.0009454827118291723,
+          "win_rate": 0.24,
+          "average_spread_paid_pips": 1.5519999999999998
+        },
+        "AUD_USD": {
+          "trade_count": 26,
+          "total_return_pct": 0.5619559999999746,
+          "max_drawdown_pct": -1.7684221725888127,
+          "profit_factor": 1.1326734711608564,
+          "expectancy_r": 0.08803824587641215,
+          "win_rate": 0.34615384615384615,
+          "average_spread_paid_pips": 1.2384615384615383
+        },
+        "USD_CAD": {
+          "trade_count": 18,
+          "total_return_pct": 0.6591245234872423,
+          "max_drawdown_pct": -2.17849826789897,
+          "profit_factor": 1.1980765116847893,
+          "expectancy_r": 0.1049663228773391,
+          "win_rate": 0.2777777777777778,
+          "average_spread_paid_pips": 1.7833333333333334
+        },
+        "USD_CHF": {
+          "trade_count": 21,
+          "total_return_pct": 1.8048263480835436,
+          "max_drawdown_pct": -1.4916443628796288,
+          "profit_factor": 1.6287927699019138,
+          "expectancy_r": 0.40855699040338567,
+          "win_rate": 0.38095238095238093,
+          "average_spread_paid_pips": 1.5904761904761902
+        }
+      }
+    },
+    "full_stress_15x": {
+      "trade_count": 469,
+      "expectancy_r": 0.043,
+      "profit_factor": 1.0729,
+      "pairs_positive": 4,
+      "pairs_total": 6,
+      "per_pair": {
+        "EUR_USD": {
+          "trade_count": 66,
+          "total_return_pct": 3.4420539999999944,
+          "max_drawdown_pct": -2.3180201255708077,
+          "profit_factor": 1.2807391725240758,
+          "expectancy_r": 0.2010039486047417,
+          "win_rate": 0.2878787878787879,
+          "average_spread_paid_pips": 1.396969696969697
+        },
+        "GBP_USD": {
+          "trade_count": 90,
+          "total_return_pct": 2.246959999999998,
+          "max_drawdown_pct": -2.750135420825238,
+          "profit_factor": 1.1449497685600611,
+          "expectancy_r": 0.09926841923237253,
+          "win_rate": 0.3333333333333333,
+          "average_spread_paid_pips": 1.7800000000000005
+        },
+        "USD_JPY": {
+          "trade_count": 87,
+          "total_return_pct": 2.1985588245700516,
+          "max_drawdown_pct": -5.262148367499975,
+          "profit_factor": 1.1405323156536933,
+          "expectancy_r": 0.0009418478928788729,
+          "win_rate": 0.2988505747126437,
+          "average_spread_paid_pips": 1.4758620689655173
+        },
+        "AUD_USD": {
+          "trade_count": 95,
+          "total_return_pct": 2.3784670000000396,
+          "max_drawdown_pct": -2.1092819999999843,
+          "profit_factor": 1.146152863452988,
+          "expectancy_r": 0.09900003357447328,
+          "win_rate": 0.3368421052631579,
+          "average_spread_paid_pips": 1.34
+        },
+        "USD_CAD": {
+          "trade_count": 73,
+          "total_return_pct": -3.7734397117986873,
+          "max_drawdown_pct": -7.256741685340227,
+          "profit_factor": 0.7284217446759014,
+          "expectancy_r": -0.15774065837098847,
+          "win_rate": 0.2328767123287671,
+          "average_spread_paid_pips": 1.826027397260274
+        },
+        "USD_CHF": {
+          "trade_count": 58,
+          "total_return_pct": -0.0370771214914245,
+          "max_drawdown_pct": -2.5201865900476963,
+          "profit_factor": 0.9965327885789399,
+          "expectancy_r": 6.2393157823560406e-06,
+          "win_rate": 0.27586206896551724,
+          "average_spread_paid_pips": 1.6120689655172413
+        }
+      }
+    },
+    "full_stress_2x": {
+      "trade_count": 469,
+      "expectancy_r": 0.0297,
+      "profit_factor": 1.0485,
+      "pairs_positive": 4,
+      "pairs_total": 6,
+      "per_pair": {
+        "EUR_USD": {
+          "trade_count": 66,
+          "total_return_pct": 3.146795999999985,
+          "max_drawdown_pct": -2.374056027389626,
+          "profit_factor": 1.2529135976032493,
+          "expectancy_r": 0.18188809461455055,
+          "win_rate": 0.2878787878787879,
+          "average_spread_paid_pips": 1.396969696969697
+        },
+        "GBP_USD": {
+          "trade_count": 90,
+          "total_return_pct": 1.8973139999999722,
+          "max_drawdown_pct": -2.8062319350297438,
+          "profit_factor": 1.1207158531518675,
+          "expectancy_r": 0.08309399163798778,
+          "win_rate": 0.3333333333333333,
+          "average_spread_paid_pips": 1.7800000000000005
+        },
+        "USD_JPY": {
+          "trade_count": 87,
+          "total_return_pct": 1.8646621447920175,
+          "max_drawdown_pct": -5.442684921110988,
+          "profit_factor": 1.117735385557842,
+          "expectancy_r": 0.0008047750566660091,
+          "win_rate": 0.2988505747126437,
+          "average_spread_paid_pips": 1.4758620689655173
+        },
+        "AUD_USD": {
+          "trade_count": 95,
+          "total_return_pct": 1.9673020000000152,
+          "max_drawdown_pct": -2.2279380000000173,
+          "profit_factor": 1.1191269931331136,
+          "expectancy_r": 0.08179759648239415,
+          "win_rate": 0.3368421052631579,
+          "average_spread_paid_pips": 1.34
+        },
+        "USD_CAD": {
+          "trade_count": 73,
+          "total_return_pct": -4.0929198739797945,
+          "max_drawdown_pct": -7.384823089966698,
+          "profit_factor": 0.7101697158424535,
+          "expectancy_r": -0.16760211742592515,
+          "win_rate": 0.2328767123287671,
+          "average_spread_paid_pips": 1.826027397260274
+        },
+        "USD_CHF": {
+          "trade_count": 58,
+          "total_return_pct": -0.32619216435521015,
+          "max_drawdown_pct": -2.6063392564079555,
+          "profit_factor": 0.9700685892062239,
+          "expectancy_r": -0.019769704379860926,
+          "win_rate": 0.27586206896551724,
+          "average_spread_paid_pips": 1.6120689655172413
+        }
+      }
+    }
+  },
+  "CAMPAIGN_009": {
+    "train_base": {
+      "trade_count": 252,
+      "expectancy_r": -0.0253,
+      "profit_factor": 0.9673,
+      "pairs_positive": 2,
+      "pairs_total": 6,
+      "per_pair": {
+        "EUR_USD": {
+          "trade_count": 38,
+          "total_return_pct": -0.5679779999999912,
+          "max_drawdown_pct": -1.647618645273798,
+          "profit_factor": 0.9028574360553121,
+          "expectancy_r": -0.05710671919760181,
+          "win_rate": 0.39473684210526316,
+          "average_spread_paid_pips": 1.355263157894737
+        },
+        "GBP_USD": {
+          "trade_count": 43,
+          "total_return_pct": -1.0396910000000092,
+          "max_drawdown_pct": -3.1247620021128406,
+          "profit_factor": 0.8540451067275443,
+          "expectancy_r": -0.0924822370446764,
+          "win_rate": 0.3488372093023256,
+          "average_spread_paid_pips": 1.7534883720930234
+        },
+        "USD_JPY": {
+          "trade_count": 46,
+          "total_return_pct": 1.3863993816391806,
+          "max_drawdown_pct": -1.7111918538008961,
+          "profit_factor": 1.2162675532842044,
+          "expectancy_r": 0.0011087385743004839,
+          "win_rate": 0.45652173913043476,
+          "average_spread_paid_pips": 1.317391304347826
+        },
+        "AUD_USD": {
+          "trade_count": 55,
+          "total_return_pct": 3.773791999999987,
+          "max_drawdown_pct": -1.244930999999997,
+          "profit_factor": 1.5507677021592337,
+          "expectancy_r": 0.2685492088758546,
+          "win_rate": 0.4909090909090909,
+          "average_spread_paid_pips": 1.3781818181818182
+        },
+        "USD_CAD": {
+          "trade_count": 45,
+          "total_return_pct": -1.9427534526442636,
+          "max_drawdown_pct": -4.021417550265687,
+          "profit_factor": 0.7396128214487311,
+          "expectancy_r": -0.13554083184851268,
+          "win_rate": 0.3333333333333333,
+          "average_spread_paid_pips": 1.8733333333333333
+        },
+        "USD_CHF": {
+          "trade_count": 25,
+          "total_return_pct": -2.0992777084797853,
+          "max_drawdown_pct": -2.963520871246278,
+          "profit_factor": 0.5399665433505225,
+          "expectancy_r": -0.3579164286432585,
+          "win_rate": 0.28,
+          "average_spread_paid_pips": 1.6640000000000001
+        }
+      }
+    },
+    "validation_base": {
+      "trade_count": 151,
+      "expectancy_r": 0.1859,
+      "profit_factor": 1.367,
+      "pairs_positive": 4,
+      "pairs_total": 6,
+      "per_pair": {
+        "EUR_USD": {
+          "trade_count": 22,
+          "total_return_pct": -0.14094600000000845,
+          "max_drawdown_pct": -1.192872370595827,
+          "profit_factor": 0.9576169558638506,
+          "expectancy_r": -0.022997460737809214,
+          "win_rate": 0.4090909090909091,
+          "average_spread_paid_pips": 1.436363636363636
+        },
+        "GBP_USD": {
+          "trade_count": 31,
+          "total_return_pct": 3.0991420000000103,
+          "max_drawdown_pct": -1.5348597458041824,
+          "profit_factor": 1.8468142498728064,
+          "expectancy_r": 0.39090669492467356,
+          "win_rate": 0.5483870967741935,
+          "average_spread_paid_pips": 1.7451612903225802
+        },
+        "USD_JPY": {
+          "trade_count": 27,
+          "total_return_pct": -0.05754743469703616,
+          "max_drawdown_pct": -1.7445653654793132,
+          "profit_factor": 0.9857136630126213,
+          "expectancy_r": -0.00011667708198638305,
+          "win_rate": 0.4074074074074074,
+          "average_spread_paid_pips": 1.5481481481481483
+        },
+        "AUD_USD": {
+          "trade_count": 29,
+          "total_return_pct": 1.827559000000023,
+          "max_drawdown_pct": -1.2649616185123167,
+          "profit_factor": 1.5225133812000182,
+          "expectancy_r": 0.24822764844706907,
+          "win_rate": 0.5172413793103449,
+          "average_spread_paid_pips": 1.23448275862069
+        },
+        "USD_CAD": {
+          "trade_count": 19,
+          "total_return_pct": 0.10378049536556855,
+          "max_drawdown_pct": -1.8965808846585348,
+          "profit_factor": 1.037226563399749,
+          "expectancy_r": 0.014202105387176606,
+          "win_rate": 0.42105263157894735,
+          "average_spread_paid_pips": 1.773684210526316
+        },
+        "USD_CHF": {
+          "trade_count": 23,
+          "total_return_pct": 2.01485070611771,
+          "max_drawdown_pct": -0.7648289370991777,
+          "profit_factor": 1.852212681640011,
+          "expectancy_r": 0.39074586371950343,
+          "win_rate": 0.5652173913043478,
+          "average_spread_paid_pips": 1.6043478260869564
+        }
+      }
+    },
+    "validation_stress_2x": {
+      "trade_count": 151,
+      "expectancy_r": 0.1348,
+      "profit_factor": 1.2467,
+      "pairs_positive": 3,
+      "pairs_total": 6,
+      "per_pair": {
+        "EUR_USD": {
+          "trade_count": 22,
+          "total_return_pct": -0.4464860000000015,
+          "max_drawdown_pct": -1.3825158234117787,
+          "profit_factor": 0.8724951580909714,
+          "expectancy_r": -0.07346613527703524,
+          "win_rate": 0.4090909090909091,
+          "average_spread_paid_pips": 1.436363636363636
+        },
+        "GBP_USD": {
+          "trade_count": 31,
+          "total_return_pct": 2.67914800000002,
+          "max_drawdown_pct": -1.6603617870991314,
+          "profit_factor": 1.696815425117157,
+          "expectancy_r": 0.3242272178770142,
+          "win_rate": 0.5483870967741935,
+          "average_spread_paid_pips": 1.7451612903225802
+        },
+        "USD_JPY": {
+          "trade_count": 27,
+          "total_return_pct": -0.3122002433832427,
+          "max_drawdown_pct": -1.7995865846871997,
+          "profit_factor": 0.9250890666994515,
+          "expectancy_r": -0.00037145355335883667,
+          "win_rate": 0.4074074074074074,
+          "average_spread_paid_pips": 1.5481481481481483
+        },
+        "AUD_USD": {
+          "trade_count": 29,
+          "total_return_pct": 1.4237320000000109,
+          "max_drawdown_pct": -1.3668867816380594,
+          "profit_factor": 1.3858155736238909,
+          "expectancy_r": 0.1866780329172214,
+          "win_rate": 0.5172413793103449,
+          "average_spread_paid_pips": 1.23448275862069
+        },
+        "USD_CAD": {
+          "trade_count": 19,
+          "total_return_pct": -0.1771792213216994,
+          "max_drawdown_pct": -2.0705874120826078,
+          "profit_factor": 0.9397863177047537,
+          "expectancy_r": -0.027900103983587176,
+          "win_rate": 0.42105263157894735,
+          "average_spread_paid_pips": 1.773684210526316
+        },
+        "USD_CHF": {
+          "trade_count": 23,
+          "total_return_pct": 1.6592233027815206,
+          "max_drawdown_pct": -0.8165760974399345,
+          "profit_factor": 1.6604379463259527,
+          "expectancy_r": 0.30638170554882055,
+          "win_rate": 0.5652173913043478,
+          "average_spread_paid_pips": 1.6043478260869564
+        }
+      }
+    }
+  }
+}

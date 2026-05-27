@@ -1,0 +1,27 @@
+{
+  "strategy_evidence": false,
+  "forensic_only": true,
+  "generated_at_utc": "2026-05-27T00:20:26.894407+00:00",
+  "CAMPAIGN_008": {
+    "mae_mfe_computed": true,
+    "trades_computed": 354,
+    "stop_trades": 241,
+    "stop_pct_reached_1r_before_stop": 60.17,
+    "stop_pct_never_1r_favorable": 39.83,
+    "stop_median_mfe_r": 1.1136,
+    "time_median_mfe_r": 3.2929,
+    "target_median_mfe_r": null,
+    "median_stop_distance_pips": 45.33
+  },
+  "CAMPAIGN_009": {
+    "mae_mfe_computed": true,
+    "trades_computed": 403,
+    "stop_trades": 227,
+    "stop_pct_reached_1r_before_stop": 53.3,
+    "stop_pct_never_1r_favorable": 46.7,
+    "stop_median_mfe_r": 1.0356,
+    "time_median_mfe_r": 1.6532,
+    "target_median_mfe_r": 1.8265,
+    "median_stop_distance_pips": 45.25
+  }
+}

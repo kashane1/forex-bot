@@ -1,0 +1,172 @@
+{
+  "strategy_evidence": false,
+  "forensic_only": true,
+  "generated_at_utc": "2026-05-27T00:20:26.890549+00:00",
+  "CAMPAIGN_008": {
+    "total_trades": 354,
+    "by_exit_reason": {
+      "eod": {
+        "count": 1,
+        "share_pct": 0.28,
+        "expectancy_r": -0.037,
+        "median_r": -0.037,
+        "avg_bars_held": 1.0
+      },
+      "stop": {
+        "count": 241,
+        "share_pct": 68.08,
+        "expectancy_r": -0.796,
+        "median_r": -1.0,
+        "avg_bars_held": 10.2
+      },
+      "time": {
+        "count": 112,
+        "share_pct": 31.64,
+        "expectancy_r": 1.8637,
+        "median_r": 1.3528,
+        "avg_bars_held": 40.0
+      }
+    }
+  },
+  "CAMPAIGN_009": {
+    "total_trades": 403,
+    "by_exit_reason": {
+      "eod": {
+        "count": 1,
+        "share_pct": 0.25,
+        "expectancy_r": -0.037,
+        "median_r": -0.037,
+        "avg_bars_held": 1.0
+      },
+      "stop": {
+        "count": 227,
+        "share_pct": 56.33,
+        "expectancy_r": -0.7887,
+        "median_r": -1.0,
+        "avg_bars_held": 7.99
+      },
+      "target": {
+        "count": 165,
+        "share_pct": 40.94,
+        "expectancy_r": 1.1817,
+        "median_r": 1.3251,
+        "avg_bars_held": 10.56
+      },
+      "time": {
+        "count": 10,
+        "share_pct": 2.48,
+        "expectancy_r": 0.5783,
+        "median_r": 0.5485,
+        "avg_bars_held": 40.0
+      }
+    }
+  },
+  "c008_train_validation": {
+    "train": {
+      "total_trades": 216,
+      "by_exit_reason": {
+        "eod": {
+          "count": 1,
+          "share_pct": 0.46,
+          "expectancy_r": -0.037,
+          "median_r": -0.037,
+          "avg_bars_held": 1.0
+        },
+        "stop": {
+          "count": 153,
+          "share_pct": 70.83,
+          "expectancy_r": -0.8024,
+          "median_r": -1.0,
+          "avg_bars_held": 10.31
+        },
+        "time": {
+          "count": 62,
+          "share_pct": 28.7,
+          "expectancy_r": 1.8937,
+          "median_r": 1.1312,
+          "avg_bars_held": 40.0
+        }
+      }
+    },
+    "validation": {
+      "total_trades": 138,
+      "by_exit_reason": {
+        "stop": {
+          "count": 88,
+          "share_pct": 63.77,
+          "expectancy_r": -0.785,
+          "median_r": -1.0,
+          "avg_bars_held": 10.01
+        },
+        "time": {
+          "count": 50,
+          "share_pct": 36.23,
+          "expectancy_r": 1.8266,
+          "median_r": 1.4099,
+          "avg_bars_held": 40.0
+        }
+      }
+    }
+  },
+  "c009_train_validation": {
+    "train": {
+      "total_trades": 252,
+      "by_exit_reason": {
+        "eod": {
+          "count": 1,
+          "share_pct": 0.4,
+          "expectancy_r": -0.037,
+          "median_r": -0.037,
+          "avg_bars_held": 1.0
+        },
+        "stop": {
+          "count": 151,
+          "share_pct": 59.92,
+          "expectancy_r": -0.7992,
+          "median_r": -1.0,
+          "avg_bars_held": 7.86
+        },
+        "target": {
+          "count": 97,
+          "share_pct": 38.49,
+          "expectancy_r": 1.1593,
+          "median_r": 1.3217,
+          "avg_bars_held": 10.9
+        },
+        "time": {
+          "count": 3,
+          "share_pct": 1.19,
+          "expectancy_r": 0.6289,
+          "median_r": 0.3671,
+          "avg_bars_held": 40.0
+        }
+      }
+    },
+    "validation": {
+      "total_trades": 151,
+      "by_exit_reason": {
+        "stop": {
+          "count": 76,
+          "share_pct": 50.33,
+          "expectancy_r": -0.7679,
+          "median_r": -1.0,
+          "avg_bars_held": 8.25
+        },
+        "target": {
+          "count": 68,
+          "share_pct": 45.03,
+          "expectancy_r": 1.2136,
+          "median_r": 1.3351,
+          "avg_bars_held": 10.09
+        },
+        "time": {
+          "count": 7,
+          "share_pct": 4.64,
+          "expectancy_r": 0.5567,
+          "median_r": 0.7299,
+          "avg_bars_held": 40.0
+        }
+      }
+    }
+  }
+}

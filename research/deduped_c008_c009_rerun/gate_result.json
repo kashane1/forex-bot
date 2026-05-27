@@ -1,0 +1,39 @@
+{
+  "strategy_evidence": false,
+  "forensic_only": true,
+  "not_approval": true,
+  "test_window_opened": false,
+  "generated_at_utc": "2026-05-27T00:20:07.525655+00:00",
+  "CAMPAIGN_008": {
+    "screening_pass": false,
+    "checks": {
+      "train_expectancy_gte_zero": false,
+      "validation_expectancy_gte_zero": true,
+      "validation_pf_gte_1_05": true,
+      "validation_pairs_positive_gte_2": true,
+      "validation_trade_count_gte_30": true,
+      "full_stress_15x_expectancy_gte_zero": true
+    },
+    "failed_gates": [
+      "train_expectancy_gte_zero"
+    ],
+    "test_window_opened": false,
+    "verdict": "REJECT"
+  },
+  "CAMPAIGN_009": {
+    "screening_pass": false,
+    "checks": {
+      "train_expectancy_gte_zero": false,
+      "validation_expectancy_gt_zero": true,
+      "validation_pf_gte_1_05": true,
+      "validation_stress_2x_expectancy_gte_zero": true,
+      "validation_pairs_positive_gte_2": true,
+      "validation_trade_count_gte_30": true
+    },
+    "failed_gates": [
+      "train_expectancy_gte_zero"
+    ],
+    "test_window_opened": false,
+    "verdict": "REJECT"
+  }
+}

@@ -717,8 +717,14 @@ def cmd_replay() -> int:
     (RESEARCH_OUT / "old_vs_deduped_metric_comparison.json").write_text(
         json.dumps(comparison, indent=2), encoding="utf-8"
     )
-    c008_trades = _load_trades_glob("backtests/CAMPAIGN_008_mean_reversion_deduped_forensic/baseline/*/*_trades.csv", "CAMPAIGN_008_DEDUPED")
-    c009_trades = _load_trades_glob("backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic/*/*/*_trades.csv", "CAMPAIGN_009_DEDUPED")
+    c008_trades = _load_trades_glob(
+        "backtests/CAMPAIGN_008_mean_reversion_deduped_forensic/baseline/*/*_trades.csv",
+        "CAMPAIGN_008_DEDUPED",
+    )
+    c009_trades = _load_trades_glob(
+        "backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic/*/base/*_trades.csv",
+        "CAMPAIGN_009_DEDUPED",
+    )
     anatomy = {
         "strategy_evidence": False,
         "forensic_only": True,

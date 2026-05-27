@@ -1,0 +1,165 @@
+{
+  "strategy_evidence": false,
+  "forensic_only": true,
+  "not_approval": true,
+  "test_window_opened": false,
+  "generated_at_utc": "2026-05-27T00:20:07.525655+00:00",
+  "git_commit": "8ed4510bad968218e15ca82a34066e6d8d36d30e",
+  "git_branch": "infra-deduped-c008-c009-rerun-forensic-only-001",
+  "preflight": {
+    "blocked": false,
+    "reason": null,
+    "messages": [],
+    "details": {
+      "dedupe_policy": "keep_last",
+      "input_classification": "DEDUPED_INPUT",
+      "duplicate_rows_detected_total": 106286,
+      "duplicate_rows_dropped_total": 106286,
+      "per_pair": {
+        "EUR_USD": {
+          "source": "oanda-practice",
+          "splits": {
+            "train": {
+              "deduped_count": 4674,
+              "raw_count": 9348,
+              "duplicates_detected": 4674,
+              "duplicates_dropped": 4674
+            },
+            "validation": {
+              "deduped_count": 3111,
+              "raw_count": 6220,
+              "duplicates_detected": 3109,
+              "duplicates_dropped": 3109
+            },
+            "full": {
+              "deduped_count": 9933,
+              "raw_count": 19864,
+              "duplicates_detected": 9931,
+              "duplicates_dropped": 9931
+            }
+          }
+        },
+        "GBP_USD": {
+          "source": "oanda-practice",
+          "splits": {
+            "train": {
+              "deduped_count": 4674,
+              "raw_count": 9348,
+              "duplicates_detected": 4674,
+              "duplicates_dropped": 4674
+            },
+            "validation": {
+              "deduped_count": 3111,
+              "raw_count": 6220,
+              "duplicates_detected": 3109,
+              "duplicates_dropped": 3109
+            },
+            "full": {
+              "deduped_count": 9933,
+              "raw_count": 19864,
+              "duplicates_detected": 9931,
+              "duplicates_dropped": 9931
+            }
+          }
+        },
+        "USD_JPY": {
+          "source": "oanda-practice",
+          "splits": {
+            "train": {
+              "deduped_count": 4675,
+              "raw_count": 9350,
+              "duplicates_detected": 4675,
+              "duplicates_dropped": 4675
+            },
+            "validation": {
+              "deduped_count": 3111,
+              "raw_count": 6220,
+              "duplicates_detected": 3109,
+              "duplicates_dropped": 3109
+            },
+            "full": {
+              "deduped_count": 9934,
+              "raw_count": 19866,
+              "duplicates_detected": 9932,
+              "duplicates_dropped": 9932
+            }
+          }
+        },
+        "AUD_USD": {
+          "source": "oanda-practice",
+          "splits": {
+            "train": {
+              "deduped_count": 4674,
+              "raw_count": 9348,
+              "duplicates_detected": 4674,
+              "duplicates_dropped": 4674
+            },
+            "validation": {
+              "deduped_count": 3111,
+              "raw_count": 6220,
+              "duplicates_detected": 3109,
+              "duplicates_dropped": 3109
+            },
+            "full": {
+              "deduped_count": 9933,
+              "raw_count": 19864,
+              "duplicates_detected": 9931,
+              "duplicates_dropped": 9931
+            }
+          }
+        },
+        "USD_CAD": {
+          "source": "oanda-practice",
+          "splits": {
+            "train": {
+              "deduped_count": 4674,
+              "raw_count": 9348,
+              "duplicates_detected": 4674,
+              "duplicates_dropped": 4674
+            },
+            "validation": {
+              "deduped_count": 3111,
+              "raw_count": 6220,
+              "duplicates_detected": 3109,
+              "duplicates_dropped": 3109
+            },
+            "full": {
+              "deduped_count": 9933,
+              "raw_count": 19864,
+              "duplicates_detected": 9931,
+              "duplicates_dropped": 9931
+            }
+          }
+        },
+        "USD_CHF": {
+          "source": "oanda-practice",
+          "splits": {
+            "train": {
+              "deduped_count": 4674,
+              "raw_count": 9348,
+              "duplicates_detected": 4674,
+              "duplicates_dropped": 4674
+            },
+            "validation": {
+              "deduped_count": 3111,
+              "raw_count": 6220,
+              "duplicates_detected": 3109,
+              "duplicates_dropped": 3109
+            },
+            "full": {
+              "deduped_count": 9933,
+              "raw_count": 19864,
+              "duplicates_detected": 9931,
+              "duplicates_dropped": 9931
+            }
+          }
+        }
+      }
+    }
+  },
+  "c008_runs": 30,
+  "c009_runs": 36,
+  "elapsed_seconds": 942.59,
+  "c008_out": "backtests/CAMPAIGN_008_mean_reversion_deduped_forensic",
+  "c009_out": "backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic"
+}
