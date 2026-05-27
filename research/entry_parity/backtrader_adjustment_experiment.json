@@ -1,51 +1,36 @@
 {
-  "strategy_evidence": false,
-  "profiles": {
-    "legacy_bt_wrong_pnl": {
-      "C008": {
-        "backtrader_trade_count": 279,
-        "bespoke_trade_count": 354,
-        "delta": 75
-      },
-      "C009": {
-        "backtrader_trade_count": 332,
-        "bespoke_trade_count": 403,
-        "delta": 71
-      },
-      "C018": {
-        "backtrader_trade_count": 314,
-        "bespoke_trade_count": 378,
-        "delta": 64
-      }
+  "legacy_bt": {
+    "C008": {
+      "backtrader_trade_count": 353
     },
-    "fixed_pnl_engine_aligned": {
-      "mode": "engine_aligned",
-      "strategy_evidence": false,
-      "parity_diagnostic_only": true,
-      "generated_at_utc": "2026-05-27T04:46:45.711078+00:00",
-      "campaigns": {
-        "C008": {
-          "bespoke_trade_count": 354,
-          "backtrader_trade_count": 353,
-          "delta": 1,
-          "delta_pct": 0.28,
-          "rejection_log_count": 148
-        },
-        "C009": {
-          "bespoke_trade_count": 403,
-          "backtrader_trade_count": 402,
-          "delta": 1,
-          "delta_pct": 0.25,
-          "rejection_log_count": 161
-        },
-        "C018": {
-          "bespoke_trade_count": 378,
-          "backtrader_trade_count": 377,
-          "delta": 1,
-          "delta_pct": 0.26,
-          "rejection_log_count": 151
-        }
-      }
+    "C009": {
+      "backtrader_trade_count": 402
+    },
+    "C018": {
+      "backtrader_trade_count": 377
+    }
+  },
+  "engine_aligned": {
+    "C008": {
+      "bespoke_trade_count": 354,
+      "backtrader_trade_count": 353,
+      "delta": 1,
+      "delta_pct": 0.28,
+      "rejection_log_count": 148
+    },
+    "C009": {
+      "bespoke_trade_count": 403,
+      "backtrader_trade_count": 402,
+      "delta": 1,
+      "delta_pct": 0.25,
+      "rejection_log_count": 161
+    },
+    "C018": {
+      "bespoke_trade_count": 378,
+      "backtrader_trade_count": 377,
+      "delta": 1,
+      "delta_pct": 0.26,
+      "rejection_log_count": 151
     }
   }
 }
