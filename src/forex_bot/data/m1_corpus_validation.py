@@ -289,7 +289,7 @@ def _row_to_candle(row: dict[str, Any], *, instrument: str) -> Candle:
 
     return Candle(
         instrument=instrument,
-        granularity="M1",
+        granularity=row.get("granularity", "M1"),
         time=row["time_utc"],
         complete=bool(row.get("complete")),
         volume=int(row.get("volume") or 0),
@@ -318,30 +318,48 @@ class AggregateAccumulator:
     source_m1_per_bar: dict[str, list[int]] = field(default_factory=lambda: defaultdict(list))
 
 
-def aggregate_chunk(acc: AggregateAccumulator, candles: list[Candle]) -> None:
-    for target in TARGET_GRANULARITIES:
+def aggregate_chunk(acc: AggregateAccumulator, candles: list[Candle]) -> list[Candle]:
+    h4_chunk: list[Candle] = []
+    for target in ("M5", "M15", "H1", "H4"):
         result = aggregate_m1_candles(candles, target=target, missing_policy="omit")
         acc.omitted[target] += result.omitted_incomplete_blocks
         for cov in result.coverage:
             acc.source_m1_per_bar[target].append(cov.observed_minutes)
         for candle in result.candles:
-            key = target
-            acc.counts[key] += 1
+            acc.counts[target] += 1
             if not candle.complete:
-                acc.incomplete[key] += 1
+                acc.incomplete[target] += 1
             ts = candle.time.astimezone(UTC)
-            if key not in acc.first_ts or acc.first_ts[key] is None or ts < acc.first_ts[key]:
-                acc.first_ts[key] = ts
-            if key not in acc.last_ts or acc.last_ts[key] is None or ts > acc.last_ts[key]:
-                acc.last_ts[key] = ts
+            if acc.first_ts.get(target) is None or ts < acc.first_ts[target]:
+                acc.first_ts[target] = ts
+            if acc.last_ts.get(target) is None or ts > acc.last_ts[target]:
+                acc.last_ts[target] = ts
+        if target == "H4":
+            h4_chunk = result.candles
+    return h4_chunk
 
 
 def aggregation_coverage_for_pair(store: PostgresCandleStore, instrument: str) -> dict[str, Any]:
     pr = pair_range(store, instrument)
     acc = AggregateAccumulator()
+    derived_h4: list[Candle] = []
     for chunk in iter_m1_chunks(store, instrument=instrument, start_utc=pr.start_utc, end_utc=pr.end_utc):
         candles = [_row_to_candle(row, instrument=instrument) for row in chunk]
-        aggregate_chunk(acc, candles)
+        derived_h4.extend(aggregate_chunk(acc, candles))
+    if derived_h4:
+        derived_h4 = _dedupe_candles_by_time(derived_h4)
+        d1 = aggregate_h4_to_d1(derived_h4, instrument=instrument)
+        acc.omitted["D1AGG"] += d1.incomplete_count + d1.ambiguous_count
+        for candle in d1.candles:
+            acc.counts["D1AGG"] += 1
+            if not candle.complete:
+                acc.incomplete["D1AGG"] += 1
+            ts = candle.time.astimezone(UTC)
+            if acc.first_ts.get("D1AGG") is None or ts < acc.first_ts["D1AGG"]:
+                acc.first_ts["D1AGG"] = ts
+            if acc.last_ts.get("D1AGG") is None or ts > acc.last_ts["D1AGG"]:
+                acc.last_ts["D1AGG"] = ts
+        acc.source_m1_per_bar["D1AGG"] = [240] * max(len(d1.candles), 1)
     expected_m1 = expected_weekday_minutes(pr.start_utc, pr.end_utc)
     timeframes: dict[str, Any] = {}
     for target in TARGET_GRANULARITIES:
@@ -357,6 +375,13 @@ def aggregation_coverage_for_pair(store: PostgresCandleStore, instrument: str) -
             "coverage_pct_vs_m1": round(count / expected_m1 * 100, 4) if expected_m1 else 0,
         }
     return {"instrument": instrument, "expected_m1_minutes": expected_m1, "timeframes": timeframes}
+
+
+def _dedupe_candles_by_time(candles: list[Candle]) -> list[Candle]:
+    by_time: dict[datetime, Candle] = {}
+    for candle in sorted(candles, key=lambda item: item.time):
+        by_time[_candle_key(candle)] = candle
+    return list(by_time.values())
 
 
 def _candle_key(candle: Candle) -> datetime:
@@ -463,6 +488,7 @@ def d1agg_for_pair(store: PostgresCandleStore, instrument: str) -> dict[str, Any
     for chunk in iter_m1_chunks(store, instrument=instrument, start_utc=pr.start_utc, end_utc=pr.end_utc):
         candles = [_row_to_candle(row, instrument=instrument) for row in chunk]
         derived_h4.extend(aggregate_m1_candles(candles, target="H4", missing_policy="omit").candles)
+    derived_h4 = _dedupe_candles_by_time(derived_h4)
     m1_d1 = aggregate_h4_to_d1(derived_h4, instrument=instrument)
     native_h4_rows = store.query_candles(
         instrument=instrument, granularity="H4", start_utc=pr.start_utc, end_utc=pr.end_utc

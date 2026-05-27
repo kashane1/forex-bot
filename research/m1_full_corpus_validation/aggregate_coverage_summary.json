@@ -1,0 +1,363 @@
+{
+  "generated_at_utc": "2026-05-27T20:25:31.294789+00:00",
+  "overall_status": "PASS",
+  "pairs": [
+    {
+      "expected_m1_minutes": 1877759,
+      "instrument": "EUR_USD",
+      "timeframes": {
+        "D1AGG": {
+          "avg_source_m1_per_bar": 240.0,
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0,
+          "first_timestamp": null,
+          "incomplete_bars": 0,
+          "last_timestamp": null,
+          "omitted_incomplete_blocks": 1293
+        },
+        "H1": {
+          "avg_source_m1_per_bar": 59.0,
+          "bar_count": 27249,
+          "coverage_pct_vs_m1": 1.4511,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T20:00:00+00:00",
+          "omitted_incomplete_blocks": 3998
+        },
+        "H4": {
+          "avg_source_m1_per_bar": 233.01,
+          "bar_count": 5234,
+          "coverage_pct_vs_m1": 0.2787,
+          "first_timestamp": "2021-05-27T01:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T17:00:00+00:00",
+          "omitted_incomplete_blocks": 2678
+        },
+        "M15": {
+          "avg_source_m1_per_bar": 14.8,
+          "bar_count": 116628,
+          "coverage_pct_vs_m1": 6.211,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:45:00+00:00",
+          "omitted_incomplete_blocks": 7958
+        },
+        "M5": {
+          "avg_source_m1_per_bar": 4.94,
+          "bar_count": 360972,
+          "coverage_pct_vs_m1": 19.2236,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:55:00+00:00",
+          "omitted_incomplete_blocks": 12189
+        }
+      }
+    },
+    {
+      "expected_m1_minutes": 1877759,
+      "instrument": "GBP_USD",
+      "timeframes": {
+        "D1AGG": {
+          "avg_source_m1_per_bar": 240.0,
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0,
+          "first_timestamp": null,
+          "incomplete_bars": 0,
+          "last_timestamp": null,
+          "omitted_incomplete_blocks": 1282
+        },
+        "H1": {
+          "avg_source_m1_per_bar": 58.77,
+          "bar_count": 26758,
+          "coverage_pct_vs_m1": 1.425,
+          "first_timestamp": "2021-05-27T03:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:00:00+00:00",
+          "omitted_incomplete_blocks": 4488
+        },
+        "H4": {
+          "avg_source_m1_per_bar": 232.09,
+          "bar_count": 5186,
+          "coverage_pct_vs_m1": 0.2762,
+          "first_timestamp": "2021-05-27T05:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T17:00:00+00:00",
+          "omitted_incomplete_blocks": 2726
+        },
+        "M15": {
+          "avg_source_m1_per_bar": 14.74,
+          "bar_count": 115243,
+          "coverage_pct_vs_m1": 6.1373,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:45:00+00:00",
+          "omitted_incomplete_blocks": 9337
+        },
+        "M5": {
+          "avg_source_m1_per_bar": 4.92,
+          "bar_count": 357741,
+          "coverage_pct_vs_m1": 19.0515,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:55:00+00:00",
+          "omitted_incomplete_blocks": 15264
+        }
+      }
+    },
+    {
+      "expected_m1_minutes": 1877759,
+      "instrument": "USD_JPY",
+      "timeframes": {
+        "D1AGG": {
+          "avg_source_m1_per_bar": 240.0,
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0,
+          "first_timestamp": null,
+          "incomplete_bars": 0,
+          "last_timestamp": null,
+          "omitted_incomplete_blocks": 1291
+        },
+        "H1": {
+          "avg_source_m1_per_bar": 59.03,
+          "bar_count": 28013,
+          "coverage_pct_vs_m1": 1.4918,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:00:00+00:00",
+          "omitted_incomplete_blocks": 3234
+        },
+        "H4": {
+          "avg_source_m1_per_bar": 233.14,
+          "bar_count": 5448,
+          "coverage_pct_vs_m1": 0.2901,
+          "first_timestamp": "2021-05-27T01:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T17:00:00+00:00",
+          "omitted_incomplete_blocks": 2464
+        },
+        "M15": {
+          "avg_source_m1_per_bar": 14.81,
+          "bar_count": 118035,
+          "coverage_pct_vs_m1": 6.286,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:45:00+00:00",
+          "omitted_incomplete_blocks": 6556
+        },
+        "M5": {
+          "avg_source_m1_per_bar": 4.94,
+          "bar_count": 362519,
+          "coverage_pct_vs_m1": 19.3059,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:55:00+00:00",
+          "omitted_incomplete_blocks": 10649
+        }
+      }
+    },
+    {
+      "expected_m1_minutes": 1877759,
+      "instrument": "AUD_USD",
+      "timeframes": {
+        "D1AGG": {
+          "avg_source_m1_per_bar": 240.0,
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0,
+          "first_timestamp": null,
+          "incomplete_bars": 0,
+          "last_timestamp": null,
+          "omitted_incomplete_blocks": 1185
+        },
+        "H1": {
+          "avg_source_m1_per_bar": 58.33,
+          "bar_count": 24774,
+          "coverage_pct_vs_m1": 1.3193,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T19:00:00+00:00",
+          "omitted_incomplete_blocks": 6468
+        },
+        "H4": {
+          "avg_source_m1_per_bar": 230.32,
+          "bar_count": 4362,
+          "coverage_pct_vs_m1": 0.2323,
+          "first_timestamp": "2021-05-28T13:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T13:00:00+00:00",
+          "omitted_incomplete_blocks": 3550
+        },
+        "M15": {
+          "avg_source_m1_per_bar": 14.63,
+          "bar_count": 109904,
+          "coverage_pct_vs_m1": 5.8529,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:45:00+00:00",
+          "omitted_incomplete_blocks": 14640
+        },
+        "M5": {
+          "avg_source_m1_per_bar": 4.89,
+          "bar_count": 348717,
+          "coverage_pct_vs_m1": 18.5709,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:55:00+00:00",
+          "omitted_incomplete_blocks": 24074
+        }
+      }
+    },
+    {
+      "expected_m1_minutes": 1877759,
+      "instrument": "USD_CAD",
+      "timeframes": {
+        "D1AGG": {
+          "avg_source_m1_per_bar": 240.0,
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0,
+          "first_timestamp": null,
+          "incomplete_bars": 0,
+          "last_timestamp": null,
+          "omitted_incomplete_blocks": 1270
+        },
+        "H1": {
+          "avg_source_m1_per_bar": 58.76,
+          "bar_count": 26405,
+          "coverage_pct_vs_m1": 1.4062,
+          "first_timestamp": "2021-05-27T01:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T20:00:00+00:00",
+          "omitted_incomplete_blocks": 4843
+        },
+        "H4": {
+          "avg_source_m1_per_bar": 232.07,
+          "bar_count": 5015,
+          "coverage_pct_vs_m1": 0.2671,
+          "first_timestamp": "2021-05-27T13:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T17:00:00+00:00",
+          "omitted_incomplete_blocks": 2897
+        },
+        "M15": {
+          "avg_source_m1_per_bar": 14.74,
+          "bar_count": 114562,
+          "coverage_pct_vs_m1": 6.101,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:45:00+00:00",
+          "omitted_incomplete_blocks": 10027
+        },
+        "M5": {
+          "avg_source_m1_per_bar": 4.92,
+          "bar_count": 356992,
+          "coverage_pct_vs_m1": 19.0116,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:55:00+00:00",
+          "omitted_incomplete_blocks": 16063
+        }
+      }
+    },
+    {
+      "expected_m1_minutes": 1877759,
+      "instrument": "USD_CHF",
+      "timeframes": {
+        "D1AGG": {
+          "avg_source_m1_per_bar": 240.0,
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0,
+          "first_timestamp": null,
+          "incomplete_bars": 0,
+          "last_timestamp": null,
+          "omitted_incomplete_blocks": 1152
+        },
+        "H1": {
+          "avg_source_m1_per_bar": 57.19,
+          "bar_count": 23400,
+          "coverage_pct_vs_m1": 1.2462,
+          "first_timestamp": "2021-05-27T07:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T22:00:00+00:00",
+          "omitted_incomplete_blocks": 7841
+        },
+        "H4": {
+          "avg_source_m1_per_bar": 225.82,
+          "bar_count": 4039,
+          "coverage_pct_vs_m1": 0.2151,
+          "first_timestamp": "2021-06-17T09:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T13:00:00+00:00",
+          "omitted_incomplete_blocks": 3873
+        },
+        "M15": {
+          "avg_source_m1_per_bar": 14.35,
+          "bar_count": 105604,
+          "coverage_pct_vs_m1": 5.6239,
+          "first_timestamp": "2021-05-27T05:30:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:45:00+00:00",
+          "omitted_incomplete_blocks": 18875
+        },
+        "M5": {
+          "avg_source_m1_per_bar": 4.81,
+          "bar_count": 336541,
+          "coverage_pct_vs_m1": 17.9225,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:55:00+00:00",
+          "omitted_incomplete_blocks": 34610
+        }
+      }
+    },
+    {
+      "expected_m1_minutes": 1877759,
+      "instrument": "NZD_USD",
+      "timeframes": {
+        "D1AGG": {
+          "avg_source_m1_per_bar": 240.0,
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0,
+          "first_timestamp": null,
+          "incomplete_bars": 0,
+          "last_timestamp": null,
+          "omitted_incomplete_blocks": 1245
+        },
+        "H1": {
+          "avg_source_m1_per_bar": 58.38,
+          "bar_count": 23856,
+          "coverage_pct_vs_m1": 1.2705,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T18:00:00+00:00",
+          "omitted_incomplete_blocks": 7395
+        },
+        "H4": {
+          "avg_source_m1_per_bar": 230.48,
+          "bar_count": 4199,
+          "coverage_pct_vs_m1": 0.2236,
+          "first_timestamp": "2021-05-27T09:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T09:00:00+00:00",
+          "omitted_incomplete_blocks": 3717
+        },
+        "M15": {
+          "avg_source_m1_per_bar": 14.65,
+          "bar_count": 110462,
+          "coverage_pct_vs_m1": 5.8827,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:45:00+00:00",
+          "omitted_incomplete_blocks": 14095
+        },
+        "M5": {
+          "avg_source_m1_per_bar": 4.89,
+          "bar_count": 351408,
+          "coverage_pct_vs_m1": 18.7142,
+          "first_timestamp": "2021-05-27T00:00:00+00:00",
+          "incomplete_bars": 0,
+          "last_timestamp": "2026-05-26T23:55:00+00:00",
+          "omitted_incomplete_blocks": 21358
+        }
+      }
+    }
+  ]
+}

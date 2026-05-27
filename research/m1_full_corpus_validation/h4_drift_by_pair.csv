@@ -1,0 +1,8 @@
+instrument,status,native_h4_count,derived_h4_count,overlap_count,exact_match_count,ohlc_mismatch_count,missing_in_derived_count,extra_in_derived_count
+EUR_USD,WARN,7770,5234,5225,5225,0,2545,9
+GBP_USD,WARN,7770,5186,5177,5177,0,2593,9
+USD_JPY,WARN,7770,5448,5439,5439,0,2331,9
+AUD_USD,WARN,7770,4362,4357,4357,0,3413,5
+USD_CAD,WARN,7770,5015,5008,5008,0,2762,7
+USD_CHF,WARN,7770,4039,4034,4034,0,3736,5
+NZD_USD,WARN,7774,4199,4193,4193,0,3581,6

@@ -1,0 +1,118 @@
+{
+  "generated_at_utc": "2026-05-27T20:18:38.690091+00:00",
+  "overall_status": "WARN",
+  "pairs": [
+    {
+      "derived_h4_count": 5234,
+      "exact_match_count": 5225,
+      "examples": [],
+      "extra_in_derived_count": 9,
+      "instrument": "EUR_USD",
+      "likely_causes": [
+        "missing_minute_coverage"
+      ],
+      "missing_in_derived_count": 2545,
+      "native_h4_count": 7770,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 5225,
+      "status": "WARN",
+      "volume_mismatch_count": 0
+    },
+    {
+      "derived_h4_count": 5186,
+      "exact_match_count": 5177,
+      "examples": [],
+      "extra_in_derived_count": 9,
+      "instrument": "GBP_USD",
+      "likely_causes": [
+        "missing_minute_coverage"
+      ],
+      "missing_in_derived_count": 2593,
+      "native_h4_count": 7770,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 5177,
+      "status": "WARN",
+      "volume_mismatch_count": 0
+    },
+    {
+      "derived_h4_count": 5448,
+      "exact_match_count": 5439,
+      "examples": [],
+      "extra_in_derived_count": 9,
+      "instrument": "USD_JPY",
+      "likely_causes": [
+        "missing_minute_coverage"
+      ],
+      "missing_in_derived_count": 2331,
+      "native_h4_count": 7770,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 5439,
+      "status": "WARN",
+      "volume_mismatch_count": 0
+    },
+    {
+      "derived_h4_count": 4362,
+      "exact_match_count": 4357,
+      "examples": [],
+      "extra_in_derived_count": 5,
+      "instrument": "AUD_USD",
+      "likely_causes": [
+        "missing_minute_coverage"
+      ],
+      "missing_in_derived_count": 3413,
+      "native_h4_count": 7770,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 4357,
+      "status": "WARN",
+      "volume_mismatch_count": 0
+    },
+    {
+      "derived_h4_count": 5015,
+      "exact_match_count": 5008,
+      "examples": [],
+      "extra_in_derived_count": 7,
+      "instrument": "USD_CAD",
+      "likely_causes": [
+        "missing_minute_coverage"
+      ],
+      "missing_in_derived_count": 2762,
+      "native_h4_count": 7770,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 5008,
+      "status": "WARN",
+      "volume_mismatch_count": 0
+    },
+    {
+      "derived_h4_count": 4039,
+      "exact_match_count": 4034,
+      "examples": [],
+      "extra_in_derived_count": 5,
+      "instrument": "USD_CHF",
+      "likely_causes": [
+        "missing_minute_coverage"
+      ],
+      "missing_in_derived_count": 3736,
+      "native_h4_count": 7770,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 4034,
+      "status": "WARN",
+      "volume_mismatch_count": 0
+    },
+    {
+      "derived_h4_count": 4199,
+      "exact_match_count": 4193,
+      "examples": [],
+      "extra_in_derived_count": 6,
+      "instrument": "NZD_USD",
+      "likely_causes": [
+        "missing_minute_coverage"
+      ],
+      "missing_in_derived_count": 3581,
+      "native_h4_count": 7774,
+      "ohlc_mismatch_count": 0,
+      "overlap_count": 4193,
+      "status": "WARN",
+      "volume_mismatch_count": 0
+    }
+  ]
+}
