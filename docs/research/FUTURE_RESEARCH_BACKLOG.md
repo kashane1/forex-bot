@@ -456,3 +456,22 @@ broad-search re-entry gates are met.**
   `configs/approved_strategies.yaml`.
 - See `docs/research/HYPOTHESIS_BACKLOG.md` for the earlier,
   campaign-era hypothesis list.
+
+## 9. Lower-timeframe MTF confluence translation — after M1 lane readiness
+
+- **Why it might matter.** CAMPAIGN_020 showed train-negative /
+  validation-positive behavior on H4 entries. Lower-timeframe execution
+  may improve entry precision while keeping H1/H4/D1AGG context.
+- **Required data / code.** Canonical M1 bid/ask store, validated
+  M1-to-M5/M15/H1/H4/D1AGG aggregation, LTF-to-HTF alignment, and
+  lower-timeframe preflight checks. The infrastructure sprint
+  `infra-m1-canonical-data-and-ltf-execution-lane-001` prepared this
+  lane but did not run evidence.
+- **Risk of overfitting.** High until a precommitted scaffold and
+  locked gates exist. M15 should be the first execution timeframe; M5 is
+  supported but noisier.
+- **What would count as success.** A future separately-authorized
+  CAMPAIGN_021 scaffold and then evidence run that uses canonical M1
+  aggregated frames, `next_bar_open`, `htf_align`, strict warmups, and
+  unchanged financing/approval gates. This backlog item itself
+  authorizes no evidence and no approval.

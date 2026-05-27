@@ -1896,5 +1896,25 @@
     "overlay_dir": "research/financing_overlay_local_first",
     "overlay_module": "src/forex_bot/research/financing_overlay.py",
     "recommended_next_sprint": "infra-observed-financing-capture-readonly-002"
+  },
+  "m1_canonical_data_and_ltf_execution_lane_001": {
+    "sprint": "infra-m1-canonical-data-and-ltf-execution-lane-001",
+    "sprint_type": "data_and_backtest_infrastructure_only",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "campaign_021_evidence_created": false,
+    "campaign_020_rerun": false,
+    "c020_verdict_unchanged": "REJECT",
+    "paper_demo_live_blocked": true,
+    "plan_doc": "docs/research/M1_CANONICAL_DATA_AND_LTF_EXECUTION_LANE_001_PLAN.md",
+    "store_design_doc": "docs/research/M1_CANONICAL_DATA_STORE_DESIGN.md",
+    "aggregation_result_doc": "docs/research/M1_TO_MULTI_TIMEFRAME_AGGREGATION_RESULT.md",
+    "ingestion_result_doc": "docs/research/M1_READONLY_INGESTION_CLIENT_RESULT.md",
+    "validator_result_doc": "docs/research/M1_DATA_QUALITY_VALIDATOR_RESULT.md",
+    "alignment_result_doc": "docs/research/LTF_TO_HTF_ALIGNMENT_LANE_RESULT.md",
+    "backtest_scaffold_doc": "docs/research/LTF_BACKTEST_LANE_SCAFFOLD_RESULT.md",
+    "smoke_result_doc": "docs/research/M1_INGESTION_AGGREGATION_SMOKE_RESULT.md",
+    "roadmap_doc": "docs/research/LOWER_TIMEFRAME_STRATEGY_TRANSLATION_ROADMAP.md",
+    "recommended_next_sprint": "CAMPAIGN_021 scaffold only after M1 local data is available"
   }
 }

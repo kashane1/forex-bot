@@ -1462,6 +1462,30 @@ in `lean_parity` unchanged.
 | [`docs/research/EVIDENCE_INDEX.md`](EVIDENCE_INDEX.md) | this index |
 | [`configs/approved_strategies.yaml`](../../configs/approved_strategies.yaml) | machine-enforced approved-strategy registry (empty) |
 
+## M1 canonical data and LTF execution lane 001
+
+Infrastructure-only sprint on branch
+`infra-m1-canonical-data-and-ltf-execution-lane-001`. It builds the
+canonical M1 data-store design, local M1 aggregation into
+M5/M15/H1/H4/D1AGG, a practice-only read-only M1 ingestion scaffold, an
+M1 data-quality validator, LTF-to-HTF alignment helpers, and an LTF
+backtest preflight scaffold. It creates **no CAMPAIGN_021 evidence**,
+does not rerun C020, does not approve any strategy, and does not enable
+paper/demo/live. C020 remains REJECT.
+
+| document | what it is |
+|---|---|
+| [`M1_CANONICAL_DATA_AND_LTF_EXECUTION_LANE_001_PLAN.md`](M1_CANONICAL_DATA_AND_LTF_EXECUTION_LANE_001_PLAN.md) | Phase 0 plan and baseline audit |
+| [`M1_CANONICAL_DATA_STORE_DESIGN.md`](M1_CANONICAL_DATA_STORE_DESIGN.md) | Phase 1 Postgres M1 store design |
+| [`M1_TO_MULTI_TIMEFRAME_AGGREGATION_RESULT.md`](M1_TO_MULTI_TIMEFRAME_AGGREGATION_RESULT.md) | Phase 2 aggregation result |
+| [`M1_READONLY_INGESTION_CLIENT_RESULT.md`](M1_READONLY_INGESTION_CLIENT_RESULT.md) | Phase 3 read-only ingestion scaffold |
+| [`M1_DATA_QUALITY_VALIDATOR_RESULT.md`](M1_DATA_QUALITY_VALIDATOR_RESULT.md) | Phase 4 validator result |
+| [`LTF_TO_HTF_ALIGNMENT_LANE_RESULT.md`](LTF_TO_HTF_ALIGNMENT_LANE_RESULT.md) | Phase 5 alignment helper result |
+| [`LTF_BACKTEST_LANE_SCAFFOLD_RESULT.md`](LTF_BACKTEST_LANE_SCAFFOLD_RESULT.md) | Phase 6 preflight scaffold result |
+| [`M1_INGESTION_AGGREGATION_SMOKE_RESULT.md`](M1_INGESTION_AGGREGATION_SMOKE_RESULT.md) | Phase 7 blocked smoke result |
+| [`LOWER_TIMEFRAME_STRATEGY_TRANSLATION_ROADMAP.md`](LOWER_TIMEFRAME_STRATEGY_TRANSLATION_ROADMAP.md) | Phase 8 future roadmap |
+| [`NEXT_SPRINT_PROMPT_CAMPAIGN_021_LTF_MTF_CONFLUENCE_SCAFFOLD.md`](NEXT_SPRINT_PROMPT_CAMPAIGN_021_LTF_MTF_CONFLUENCE_SCAFFOLD.md) | Phase 8 scaffold-only next prompt |
+
 ## Machine-readable manifest & validation
 
 - [`docs/research/EVIDENCE_MANIFEST.json`](EVIDENCE_MANIFEST.json) — a

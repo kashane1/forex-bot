@@ -1,6 +1,6 @@
 # Strategy Status Registry
 
-**Date:** 2026-05-27 · **Branch:** `research-campaign-020-mtf-confluence-execution-001`
+**Date:** 2026-05-27 · **Branch:** `infra-m1-canonical-data-and-ltf-execution-lane-001`
 
 This is the human-readable status of every strategy family the project
 has built. It is the companion to the machine-enforced registry
@@ -21,6 +21,14 @@ classified the C015–C017 cluster as **NO_RELIABLE_ARCHETYPE** and selected
 dedup-safe evidence; CAMPAIGN_011 remains the **canonical deduped null**
 (−0.0029 R, 1,180 trades). **CAMPAIGN_018 is not created.** No retuning of
 C015/C016/C017 is authorized.
+
+### H4-only entry research — PAUSED pending LTF lane readiness (2026-05-27)
+
+CAMPAIGN_020 remains **REJECT**. The infrastructure sprint
+`infra-m1-canonical-data-and-ltf-execution-lane-001` prepared a
+canonical M1 data and lower-timeframe execution lane so future research
+can evaluate M15/M5 entries with H1/H4/D1AGG context. It created no
+CAMPAIGN_021 evidence, no strategy verdict, and no approval.
 
 | document | purpose |
 |---|---|
