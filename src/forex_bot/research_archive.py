@@ -38,6 +38,8 @@ ALLOWED_VERDICTS = frozenset({
     # non-approval; it is not a verdict on the underlying hypothesis.
     # See CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_PRECOMMIT.md §13.
     "BLOCKED",
+    # Scaffold/precommit only — no train/validation evidence yet.
+    "SCAFFOLD_ONLY",
 })
 
 _REQUIRED_CAMPAIGN_KEYS = frozenset({

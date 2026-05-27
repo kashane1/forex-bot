@@ -17,6 +17,10 @@
     "campaign_018_verdict": "REJECT",
     "campaign_019_executed": true,
     "campaign_019_verdict": "REJECT",
+    "campaign_020_scaffold": true,
+    "campaign_020_executed": false,
+    "campaign_020_verdict": "SCAFFOLD_ONLY",
+    "broad_search_reopen_note": "Paused broad search reopened only for precommitted CAMPAIGN_020 MTF confluence candidate (scaffold sprint 2026-05-27).",
     "dedup_safe_reject_cluster": [
       "CAMPAIGN_015",
       "CAMPAIGN_016",
@@ -259,6 +263,30 @@
     "parity_doc": "docs/research/CAMPAIGN_019_BACKTRADER_PARITY_RESULT.md",
     "artifacts_dir": "research/campaign_019",
     "recommended_next_sprint": "research-exit-hypothesis-precommit-003"
+  },
+  "campaign_020_mtf_confluence": {
+    "sprint": "research-mtf-confluence-candidate-020-scaffold-001",
+    "campaign_id": "CAMPAIGN_020",
+    "strategy_name": "multi_timeframe_confluence_pullback",
+    "strategy_version": "0.1.0-c020",
+    "hypothesis": "multi_timeframe_confluence_pullback_continuation",
+    "strategy_evidence": false,
+    "not_approved": true,
+    "strategy_approved": false,
+    "test_window_opened": false,
+    "verdict": "SCAFFOLD_ONLY",
+    "fill_timing_committed": "next_bar_open",
+    "execution_realism_committed": "conservative",
+    "promotion_eligible": false,
+    "plan_doc": "docs/research/CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_PLAN.md",
+    "precommit_doc": "docs/research/CAMPAIGN_020_MTF_CONFLUENCE_PRECOMMIT.md",
+    "distinctness_doc": "docs/research/CAMPAIGN_020_STRUCTURAL_DISTINCTNESS_MEMO.md",
+    "summary_doc": "docs/research/CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md",
+    "parity_design_doc": "docs/research/CAMPAIGN_020_BACKTRADER_PARITY_DESIGN.md",
+    "preflight_doc": "docs/research/CAMPAIGN_020_PREFLIGHT_SCAFFOLD_RESULT.md",
+    "execution_prompt_doc": "docs/research/NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md",
+    "artifacts_dir": "research/campaign_020",
+    "recommended_next_sprint": "research-campaign-020-mtf-confluence-execution-001"
   },
   "infra_external_data_blocker_resolution": {
     "sprint": "INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001",
@@ -793,6 +821,29 @@
       "promotion_eligible": false,
       "fill_timing_justification": "executed before next_bar_open policy; validation uplift partly optimistic",
       "next_bar_open_validation_expectancy_r": 0.0175
+    },
+    {
+      "campaign_id": "CAMPAIGN_020",
+      "title": "MTF confluence pullback (scaffold / precommit only)",
+      "report_path": "docs/research/CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md",
+      "artifact_folder": "research/campaign_020",
+      "strategy_family": "multi_timeframe_confluence_pullback",
+      "data_source": "oanda-practice",
+      "verdict": "SCAFFOLD_ONLY",
+      "key_metrics": {
+        "note": "No train/validation/test evidence in scaffold sprint; precommit frozen.",
+        "fill_timing": "next_bar_open",
+        "warmup_bars_required": 520
+      },
+      "commit_hash": "TBD-phase9",
+      "test_window_opened": false,
+      "risk_engine_used": false,
+      "financing_treatment": "none",
+      "strategy_approved": false,
+      "fill_timing": "next_bar_open",
+      "execution_realism": "conservative",
+      "evidence_use": "approval_bound",
+      "promotion_eligible": false
     }
   ],
   "diagnostic_artifacts": [
@@ -1704,6 +1755,34 @@
       "path": "research/backtrader_exit_parity/c019_parity_summary.json",
       "kind": "parity_diagnostic",
       "description": "Backtrader exit parity for CAMPAIGN_019. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_020_SCAFFOLD_PLAN",
+      "path": "docs/research/CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_PLAN.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_020 scaffold sprint plan. strategy_evidence: false; SCAFFOLD_ONLY.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_020_PRECOMMIT",
+      "path": "docs/research/CAMPAIGN_020_MTF_CONFLUENCE_PRECOMMIT.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_020 frozen parameters and gates. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_020_DISTINCTNESS_MEMO",
+      "path": "docs/research/CAMPAIGN_020_STRUCTURAL_DISTINCTNESS_MEMO.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_020 structural distinctness vs rejected families. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_020_EXECUTION_PROMPT",
+      "path": "docs/research/NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md",
+      "kind": "precommit_design",
+      "description": "Future CAMPAIGN_020 execution sprint prompt. strategy_evidence: false.",
       "strategy_evidence": false
     },
     {

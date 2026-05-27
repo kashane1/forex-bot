@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-27 · **Branch:** `research-exit-hypothesis-precommit-002`
+**Date:** 2026-05-27 · **Branch:** `research-mtf-confluence-candidate-020-scaffold-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -31,6 +31,16 @@ Ordering is rough priority. **Item 0** is the recommended next action.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
 items 5–8 are genuinely new strategy research — **blocked until
 broad-search re-entry gates are met.**
+
+---
+
+## 0-next. CAMPAIGN_020 MTF confluence execution (AUTHORIZED — NOT RUN)
+
+- **Sprint name.** `research-campaign-020-mtf-confluence-execution-001`
+- **Why.** Scaffold/precommit complete under `next_bar_open` + `htf_align`; first new candidate after broad-search pause with structural distinctness memo.
+- **Prompt.** [`NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md`](NEXT_SPRINT_PROMPT_CAMPAIGN_020_MTF_CONFLUENCE_EXECUTION.md)
+- **Precommit.** [`CAMPAIGN_020_MTF_CONFLUENCE_PRECOMMIT.md`](CAMPAIGN_020_MTF_CONFLUENCE_PRECOMMIT.md)
+- **Status.** **PRECOMMITTED_NOT_EXECUTED** — awaiting execution sprint
 
 ---
 
