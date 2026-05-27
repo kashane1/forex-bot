@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
   "generated": "2026-05-27",
-  "branch": "infra-deduped-c008-c009-rerun-forensic-only-001",
+  "branch": "research-exit-hypothesis-precommit-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -12,20 +12,22 @@
     "meta_analysis_summary": "docs/research/POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY.md",
     "classification": "NO_RELIABLE_ARCHETYPE",
     "campaign_018_created": false,
+    "campaign_018_precommit_staged": true,
+    "campaign_018_executed": false,
     "dedup_safe_reject_cluster": [
       "CAMPAIGN_015",
       "CAMPAIGN_016",
       "CAMPAIGN_017"
     ],
-    "next_non_strategy_sprint": "research-exit-hypothesis-precommit-001",
-    "next_non_strategy_sprint_status": "RECOMMENDED_EXIT_HYPOTHESIS_PRECOMMIT",
-    "completed_non_strategy_sprint": "infra-deduped-c008-c009-rerun-forensic-only-001",
-    "prior_completed_non_strategy_sprint": "research-stop-and-exit-diagnostics-001",
+    "next_non_strategy_sprint": "research-campaign-018-protective-stop-execution-001",
+    "next_non_strategy_sprint_status": "RECOMMENDED_CAMPAIGN_018_EXECUTION",
+    "completed_non_strategy_sprint": "research-exit-hypothesis-precommit-001",
+    "prior_completed_non_strategy_sprint": "infra-deduped-c008-c009-rerun-forensic-only-001",
     "prior_non_strategy_sprint": "infra-observed-cost-and-spread-regime-diagnostics-001",
     "prior_non_strategy_sprint_note": "Subsumed by completed cost-atlas work in infra-multi-timeframe-confluence-and-cost-atlas-001.",
     "next_non_strategy_decision_doc": "docs/research/NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md",
     "trade_quality_roadmap_doc": "docs/research/PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_SUMMARY.md",
-    "trade_quality_infra_doc": "docs/research/DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md"
+    "trade_quality_infra_doc": "docs/research/EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md"
   },
   "pro_alpha_confluence_roadmap": {
     "sprint": "PRO_ALPHA_CONFLUENCE_AND_ASSET_EXPANSION_001",
@@ -145,12 +147,48 @@
     "summary_doc": "docs/research/DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md",
     "integrity_decision_doc": "docs/research/C008_C009_EVIDENCE_INTEGRITY_DECISION.md",
     "diagnostics_dir": "research/deduped_c008_c009_rerun",
-    "recommended_next_sprint": "research-exit-hypothesis-precommit-001",
+    "recommended_next_sprint": "research-campaign-018-protective-stop-execution-001",
     "key_findings": [
       "trade_counts_unchanged_after_dedupe",
       "c008_train_fail_validation_positive_shape_confirmed",
       "c009_train_exp_material_change_gate_still_fail",
       "exit_pathology_confirmed_on_deduped_outputs"
+    ]
+  },
+  "exit_hypothesis_precommit": {
+    "sprint": "EXIT_HYPOTHESIS_PRECOMMIT_001",
+    "sprint_type": "precommit_design_only",
+    "strategy_evidence": false,
+    "precommit_only": true,
+    "strategy_approved": false,
+    "campaign_018_created": false,
+    "campaign_018_precommit_staged": true,
+    "campaign_018_executed": false,
+    "test_window_opened": false,
+    "retuning_performed": false,
+    "backtest_executed": false,
+    "selected_hypothesis": "delayed_reversion_protective_stop_after_1R",
+    "strategy_name": "mean_reversion_protective_stop",
+    "strategy_version": "0.1.0-c018",
+    "entries_frozen_from": "CAMPAIGN_008",
+    "c008_verdict_unchanged": "REJECT",
+    "c009_verdict_unchanged": "REJECT",
+    "plan_doc": "docs/research/EXIT_HYPOTHESIS_PRECOMMIT_001_PLAN.md",
+    "summary_doc": "docs/research/EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md",
+    "selection_memo": "docs/research/EXIT_HYPOTHESIS_SELECTION_MEMO.md",
+    "scope_doc": "docs/research/CAMPAIGN_018_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE.md",
+    "gate_design_doc": "docs/research/CAMPAIGN_018_EXIT_HYPOTHESIS_GATE_DESIGN.md",
+    "implementation_design_doc": "docs/research/CAMPAIGN_018_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md",
+    "next_execution_prompt": "docs/research/NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT.md",
+    "recommended_next_sprint": "research-campaign-018-protective-stop-execution-001",
+    "rejected_hypotheses": [
+      "midline_target_c009_revival",
+      "volatility_scaled_stop_redesign",
+      "regime_dependent_time_stop",
+      "counter_signal_exit",
+      "atr_trail_after_favorable_excursion",
+      "partial_exit_runner_bundle",
+      "no_target_c008_equivalent"
     ]
   },
   "infra_external_data_blocker_resolution": {

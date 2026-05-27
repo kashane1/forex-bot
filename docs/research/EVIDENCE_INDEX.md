@@ -1,6 +1,6 @@
 # Evidence Index
 
-**Date:** 2026-05-27 · **Branch:** `infra-deduped-c008-c009-rerun-forensic-only-001`
+**Date:** 2026-05-27 · **Branch:** `research-exit-hypothesis-precommit-001`
 
 A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
@@ -13,7 +13,8 @@ map; the linked documents are the authoritative evidence.
 > Cross-asset **blocker-resolution sprint** complete (full-window FRED ingest
 > succeeded; `cross_asset_missing` eliminated). **C008 post-mortem sprint**
 > complete. **Stop/exit diagnostics sprint** complete. **Deduped C008/C009 forensic
-> replay** complete. See respective summaries.
+> replay** complete. **Exit hypothesis precommit** complete — CAMPAIGN_018
+> pre-registered but **not executed**. See respective summaries.
 > See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
 ## Broad strategy pause and roadmap (BROAD_STRATEGY_PAUSE_001)
@@ -108,7 +109,7 @@ map; the linked documents are the authoritative evidence.
 
 > **Forensic replay only** — `strategy_evidence: false`. C008/C009 remain **REJECT**.
 > Deduped replay confirmed train-fail/validation-positive shape and exit pathology.
-> Recommended next sprint: `research-exit-hypothesis-precommit-001`.
+> Recommended next sprint: `research-campaign-018-protective-stop-execution-001`.
 
 | document | purpose |
 |---|---|
@@ -123,6 +124,22 @@ map; the linked documents are the authoritative evidence.
 | [`research/deduped_c008_c009_rerun/metrics_summary.json`](../../research/deduped_c008_c009_rerun/metrics_summary.json) | Deduped metrics JSON |
 | [`research/deduped_c008_c009_rerun/gate_result.json`](../../research/deduped_c008_c009_rerun/gate_result.json) | Gate JSON |
 | [`research/deduped_c008_c009_rerun/old_vs_deduped_metric_comparison.json`](../../research/deduped_c008_c009_rerun/old_vs_deduped_metric_comparison.json) | Comparison JSON |
+
+## Exit hypothesis precommit (EXIT_HYPOTHESIS_PRECOMMIT_001)
+
+> **Precommit / design only** — `strategy_evidence: false`. CAMPAIGN_018 identity
+> and gates pre-registered; **no backtest executed**. C008/C009 remain **REJECT**.
+> Recommended next sprint: `research-campaign-018-protective-stop-execution-001`.
+
+| document | purpose |
+|---|---|
+| [`EXIT_HYPOTHESIS_PRECOMMIT_001_PLAN.md`](EXIT_HYPOTHESIS_PRECOMMIT_001_PLAN.md) | Sprint plan |
+| [`EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md) | Sprint close-out |
+| [`EXIT_HYPOTHESIS_SELECTION_MEMO.md`](EXIT_HYPOTHESIS_SELECTION_MEMO.md) | Selected hypothesis |
+| [`CAMPAIGN_018_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE.md`](CAMPAIGN_018_PRECOMMIT_EXIT_HYPOTHESIS_SCOPE.md) | Frozen scope (not executed) |
+| [`CAMPAIGN_018_EXIT_HYPOTHESIS_GATE_DESIGN.md`](CAMPAIGN_018_EXIT_HYPOTHESIS_GATE_DESIGN.md) | Gate design |
+| [`CAMPAIGN_018_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md`](CAMPAIGN_018_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md) | Future implementation design |
+| [`NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT.md`](NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT.md) | Execution sprint prompt |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

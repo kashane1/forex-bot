@@ -1,6 +1,6 @@
 # Future Research Backlog
 
-**Date:** 2026-05-27 · **Branch:** `infra-deduped-c008-c009-rerun-forensic-only-001`
+**Date:** 2026-05-27 · **Branch:** `research-exit-hypothesis-precommit-001`
 
 > **Nothing in this document is authorized.** This is a menu of *possible*
 > future directions, recorded so the research freeze does not lose
@@ -16,7 +16,8 @@
 > [`INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md`](INFRA_EXTERNAL_DATA_INGEST_BLOCKER_RESOLUTION_001_SUMMARY.md),
 > [`C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md`](C008_MEAN_REVERSION_POST_MORTEM_001_SUMMARY.md),
 > [`STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md`](STOP_AND_EXIT_DIAGNOSTICS_001_SUMMARY.md),
-> [`DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md`](DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md).
+> [`DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md`](DEDUPED_C008_C009_RERUN_FORENSIC_ONLY_001_SUMMARY.md),
+> [`EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md).
 
 Ordering is rough priority. **Item 0** is the recommended next sprint.
 Items 1–2 are infrastructure; items 3–4 are validation / diagnostics;
@@ -25,29 +26,38 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0. Exit hypothesis precommit (RECOMMENDED NEXT SPRINT)
+## 0. CAMPAIGN_018 protective-stop execution (RECOMMENDED NEXT SPRINT)
 
-- **Why it matters.** Deduped C008/C009 forensic replay **confirmed** train-fail /
-  validation-positive shape, stop/time exit pathology, and C009 target capping on
-  clean deduped inputs. Evidence integrity now `DEDUPED_FORENSIC_REPLAY_CONFIRMED`.
-  Pre-register allowed exit hypotheses from [`FUTURE_EXIT_RESEARCH_HYPOTHESES.md`](FUTURE_EXIT_RESEARCH_HYPOTHESES.md)
-  under [`FUTURE_EXIT_RESEARCH_GATE.md`](FUTURE_EXIT_RESEARCH_GATE.md) — **not** C008/C009 retune.
-- **Sprint name.** `research-exit-hypothesis-precommit-001`
-- **Scope.** Written precommit for one exit hypothesis on **new campaign ID** with
-  frozen entries. No backtest execution in precommit sprint.
-- **Status.** **RECOMMENDED** — deduped forensic replay complete.
+- **Why it matters.** Exit hypothesis `delayed_reversion_protective_stop_after_1R` is
+  pre-registered with frozen C008 entries, gates, and falsification criteria. Deduped
+  C008/C009 forensics confirmed stop/time pathology and winner-capping by midline target.
+- **Sprint name.** `research-campaign-018-protective-stop-execution-001`
+- **Scope.** Implement and run CAMPAIGN_018 per precommit docs only; deduped backtest;
+  no approval; test lockbox only if screening passes.
+- **Prompt.** [`NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT.md`](NEXT_SPRINT_PROMPT_AFTER_EXIT_HYPOTHESIS_PRECOMMIT.md)
+- **Status.** **RECOMMENDED** — precommit complete.
 
 ---
 
 ## 0-deferred. Financing-modeled PnL and carry readiness (PARALLEL)
 
-- **Why it matters.** C008 40-bar time exits imply multi-day holds; financing unmodeled.
+- **Why it matters.** C008/C018 40-bar time exits imply multi-day holds; financing unmodeled.
 - **Sprint name.** `research-financing-modeled-pnl-and-carry-readiness-001`
-- **Status.** **DEFERRED** — parallel to exit precommit; required before promotion.
+- **Status.** **DEFERRED** — run overlay during or immediately after C018 execution.
 
 ---
 
-## 0-complete. Deduped C008/C009 forensic replay (COMPLETE)
+## 0-complete. Exit hypothesis precommit (COMPLETE)
+
+- **Sprint name.** `research-exit-hypothesis-precommit-001`
+- **Delivered.** One hypothesis selected, CAMPAIGN_018 scope/gates/implementation design,
+  execution sprint prompt. **No backtest run.**
+- **Summary.** [`EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md`](EXIT_HYPOTHESIS_PRECOMMIT_001_SUMMARY.md)
+- **Status.** **COMPLETE** — CAMPAIGN_018 pre-registered, not executed.
+
+---
+
+## 0-complete-prior. Deduped C008/C009 forensic replay (COMPLETE)
 
 - **Sprint name.** `infra-deduped-c008-c009-rerun-forensic-only-001`
 - **Delivered.** Frozen config reconstruction, deduped replay, old vs deduped comparison,
