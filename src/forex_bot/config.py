@@ -253,6 +253,48 @@ class MeanReversionProtectiveStopStrategyConfig(MeanReversionStrategyConfig):
         return self
 
 
+class ThesisInvalidationConfig(BaseModel):
+    """CAMPAIGN_019 thesis-invalidation exit — precommitted fixed thresholds."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    enabled: bool = True
+    zscore_lookback: int = 20
+    long_exit_zscore: float = -3.0
+    short_exit_zscore: float = 3.0
+
+    @model_validator(mode="after")
+    def _check_c019(self) -> ThesisInvalidationConfig:
+        if not self.enabled:
+            raise ConfigError("thesis_invalidation.enabled must be true for c019")
+        if self.zscore_lookback != 20:
+            raise ConfigError(
+                "thesis_invalidation.zscore_lookback must be 20 (precommitted — matches entry)"
+            )
+        if self.long_exit_zscore != -3.0:
+            raise ConfigError(
+                "thesis_invalidation.long_exit_zscore must be -3.0 (precommitted — no tuning)"
+            )
+        if self.short_exit_zscore != 3.0:
+            raise ConfigError(
+                "thesis_invalidation.short_exit_zscore must be 3.0 (precommitted — no tuning)"
+            )
+        return self
+
+
+class MeanReversionThesisInvalidationStrategyConfig(MeanReversionStrategyConfig):
+    """CAMPAIGN_019 — C008-identical entries + thesis invalidation (engine)."""
+
+    midline_exit: bool = False
+    thesis_invalidation: ThesisInvalidationConfig = Field(default_factory=ThesisInvalidationConfig)
+
+    @model_validator(mode="after")
+    def _check_c019(self) -> MeanReversionThesisInvalidationStrategyConfig:
+        if self.midline_exit:
+            raise ConfigError("midline_exit must be false for mean_reversion_thesis_invalidation")
+        return self
+
+
 class SessionBreakoutStrategyConfig(BaseModel):
     # CAMPAIGN_010 research candidate (`session_breakout 0.1.0-c010`).
     # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
@@ -733,6 +775,7 @@ class StrategyConfig(BaseModel):
     pullback_continuation: PullbackContinuationStrategyConfig | None = None
     mean_reversion: MeanReversionStrategyConfig | None = None
     mean_reversion_protective_stop: MeanReversionProtectiveStopStrategyConfig | None = None
+    mean_reversion_thesis_invalidation: MeanReversionThesisInvalidationStrategyConfig | None = None
     session_breakout: SessionBreakoutStrategyConfig | None = None
     random_entry_anchor: RandomEntryAnchorStrategyConfig | None = None
     regime_switcher_atr_percentile: (
@@ -784,6 +827,13 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.mean_reversion_protective_stop config required when enabled"
+            )
+        if (
+            "mean_reversion_thesis_invalidation" in self.enabled
+            and self.mean_reversion_thesis_invalidation is None
+        ):
+            raise ConfigError(
+                "strategy.mean_reversion_thesis_invalidation config required when enabled"
             )
         if "session_breakout" in self.enabled and self.session_breakout is None:
             raise ConfigError(

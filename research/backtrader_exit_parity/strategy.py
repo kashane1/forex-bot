@@ -25,9 +25,13 @@ from forex_bot.domain.market import MarketState, Quote, SpreadSnapshot
 from forex_bot.domain.positions import Position
 from forex_bot.risk.policy import RiskEngine, RiskInputs
 from forex_bot.strategies.base import StrategyContext
+from forex_bot.strategies.indicators import zscore
 from forex_bot.strategies.mean_reversion import MeanReversionStrategy
 from forex_bot.strategies.mean_reversion_protective_stop import (
     MeanReversionProtectiveStopStrategy,
+)
+from forex_bot.strategies.mean_reversion_thesis_invalidation import (
+    MeanReversionThesisInvalidationStrategy,
 )
 from research.backtrader_exit_parity.data_feed import DedupedBidAskFeed, prepare_candle_window
 from research.backtrader_exit_parity.exit_logic import OpenTrade, process_bar_exit
@@ -97,6 +101,9 @@ def run_mean_reversion_exit_parity(
     starting_equity: float,
     risk_window_mode: Literal["legacy_bt", "engine_aligned"] = "engine_aligned",
     rejection_log: list[dict[str, Any]] | None = None,
+    thesis_invalidation_long_z: float | None = None,
+    thesis_invalidation_short_z: float | None = None,
+    thesis_invalidation_zscore_lookback: int = 20,
 ) -> PairParityResult:
     """Drive one instrument through Backtrader with exit-parity logic."""
     trades_out: list[ParityTrade] = []
@@ -104,6 +111,10 @@ def run_mean_reversion_exit_parity(
     if campaign == "C018":
         strategy = MeanReversionProtectiveStopStrategy(
             version=strategy_cfg.get("version", "0.1.0-c018")
+        )
+    elif campaign == "C019":
+        strategy = MeanReversionThesisInvalidationStrategy(
+            version=strategy_cfg.get("version", "0.1.0-c019")
         )
     else:
         strategy = MeanReversionStrategy(version=strategy_cfg.get("version", "0.1.0-c008"))
@@ -132,6 +143,12 @@ def run_mean_reversion_exit_parity(
             window = prepare_candle_window(self._full_df.iloc[: i + 1])
 
             if self._open is not None:
+                bar_z: float | None = None
+                if thesis_invalidation_long_z is not None:
+                    z_series = zscore(window["close"], thesis_invalidation_zscore_lookback)
+                    last_z = z_series.iloc[-1]
+                    if pd.notna(last_z):
+                        bar_z = float(last_z)
                 exit_res = process_bar_exit(
                     self._open,
                     row,
@@ -142,6 +159,9 @@ def run_mean_reversion_exit_parity(
                     gap_fill_policy="none",
                     trailing_stop_atr_multiple=cfg.get("trailing_stop_atr_multiple"),
                     atr_value=None,
+                    thesis_invalidation_long_z=thesis_invalidation_long_z,
+                    thesis_invalidation_short_z=thesis_invalidation_short_z,
+                    bar_zscore=bar_z,
                 )
                 if exit_res is not None:
                     pnl = _pnl(self._open, exit_res.exit_price, instrument)

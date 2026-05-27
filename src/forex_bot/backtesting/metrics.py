@@ -48,6 +48,9 @@ class TradeRecord:
     protective_stop_arm_time: datetime | None = None
     protective_stop_arm_mfe_r: float | None = None
     protective_stop_exit: bool = False
+    # CAMPAIGN_019 thesis invalidation (research backtest only).
+    thesis_invalidation_exit: bool = False
+    zscore_at_exit: float | None = None
 
     def to_dict(self) -> dict[str, str | int | bool | float | None]:
         # Explicit per-field serialization. Bools and Optional[Decimal] do
@@ -83,6 +86,8 @@ class TradeRecord:
             ),
             "protective_stop_arm_mfe_r": self.protective_stop_arm_mfe_r,
             "protective_stop_exit": self.protective_stop_exit,
+            "thesis_invalidation_exit": self.thesis_invalidation_exit,
+            "zscore_at_exit": self.zscore_at_exit,
         }
 
 

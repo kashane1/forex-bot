@@ -48,6 +48,8 @@ def _dec(row: pd.Series, col: str, fallback: str) -> Decimal:
     return Decimal(str(row[fallback]))
 
 
+
+
 def process_bar_exit(
     trade: OpenTrade,
     row: pd.Series,
@@ -59,6 +61,9 @@ def process_bar_exit(
     gap_fill_policy: str = "none",
     trailing_stop_atr_multiple: float | None = None,
     atr_value: float | None = None,
+    thesis_invalidation_long_z: float | None = None,
+    thesis_invalidation_short_z: float | None = None,
+    bar_zscore: float | None = None,
 ) -> ExitResult | None:
     """Advance ``trade`` by one bar; return an exit if triggered."""
     trade.bars_held += 1
@@ -71,6 +76,16 @@ def process_bar_exit(
     ask_close = _dec(row, "ask_close", "close")
     bid_open = _dec(row, "bid_open", "open")
     ask_open = _dec(row, "ask_open", "open")
+
+    if (
+        bar_zscore is not None
+        and thesis_invalidation_long_z is not None
+        and thesis_invalidation_short_z is not None
+    ):
+        if trade.side == "long" and bar_zscore <= thesis_invalidation_long_z:
+            return ExitResult(exit_reason="thesis_invalidation", exit_price=bid_close)
+        if trade.side == "short" and bar_zscore >= thesis_invalidation_short_z:
+            return ExitResult(exit_reason="thesis_invalidation", exit_price=ask_close)
 
     pre_trailing_stop_price = trade.stop_price
 

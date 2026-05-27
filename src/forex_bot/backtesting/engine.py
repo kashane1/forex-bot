@@ -44,7 +44,7 @@ from forex_bot.domain.positions import Position
 from forex_bot.risk.policy import RiskEngine, RiskInputs
 from forex_bot.risk.sizing import size_position
 from forex_bot.strategies.base import Strategy, StrategyContext
-from forex_bot.strategies.indicators import atr
+from forex_bot.strategies.indicators import atr, zscore
 
 
 @dataclass
@@ -133,6 +133,10 @@ class BacktestEngine:
         settings: Settings | None = None,
         gap_fill_policy: GapFillPolicy = "none",
         protective_stop_after_r: float | None = None,
+        thesis_invalidation_enabled: bool = False,
+        thesis_invalidation_long_z: float = -3.0,
+        thesis_invalidation_short_z: float = 3.0,
+        thesis_invalidation_zscore_lookback: int = 20,
     ) -> None:
         self.instrument = instrument
         self.strategy = strategy
@@ -154,6 +158,10 @@ class BacktestEngine:
         # docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.
         self.gap_fill_policy: GapFillPolicy = gap_fill_policy
         self.protective_stop_after_r = protective_stop_after_r
+        self.thesis_invalidation_enabled = thesis_invalidation_enabled
+        self.thesis_invalidation_long_z = thesis_invalidation_long_z
+        self.thesis_invalidation_short_z = thesis_invalidation_short_z
+        self.thesis_invalidation_zscore_lookback = thesis_invalidation_zscore_lookback
 
     def run(
         self,
@@ -203,6 +211,18 @@ class BacktestEngine:
                 **(
                     {"protective_stop_after_r": self.protective_stop_after_r}
                     if self.protective_stop_after_r is not None
+                    else {}
+                ),
+                **(
+                    {
+                        "thesis_invalidation_enabled": self.thesis_invalidation_enabled,
+                        "thesis_invalidation_long_z": self.thesis_invalidation_long_z,
+                        "thesis_invalidation_short_z": self.thesis_invalidation_short_z,
+                        "thesis_invalidation_zscore_lookback": (
+                            self.thesis_invalidation_zscore_lookback
+                        ),
+                    }
+                    if self.thesis_invalidation_enabled
                     else {}
                 ),
             }),
@@ -353,17 +373,40 @@ class BacktestEngine:
 
                 exit_reason: str | None = None
                 exit_price: Decimal | None = None
+                zscore_at_exit: float | None = None
                 did_gap_fill = False
                 gap_fill_distance_pips: Decimal | None = None
 
                 tp = open_trade.take_profit_price
+
+                if self.thesis_invalidation_enabled:
+                    z_series = zscore(
+                        window["close"], self.thesis_invalidation_zscore_lookback
+                    )
+                    last_z = z_series.iloc[-1]
+                    if pd.notna(last_z):
+                        z_val = float(last_z)
+                        if (
+                            open_trade.side == "long"
+                            and z_val <= self.thesis_invalidation_long_z
+                        ):
+                            exit_reason = "thesis_invalidation"
+                            exit_price = bid_close
+                            zscore_at_exit = z_val
+                        elif (
+                            open_trade.side == "short"
+                            and z_val >= self.thesis_invalidation_short_z
+                        ):
+                            exit_reason = "thesis_invalidation"
+                            exit_price = ask_close
+                            zscore_at_exit = z_val
 
                 # Opt-in gap-through resolver (sprint infra-exit-fidelity-001).
                 # When the bar OPENED past the stop or tp level, fill at the
                 # bar open instead of at the level. Precedence: adverse stop
                 # > favorable tp (mirrors the existing if/elif precedence).
                 # See docs/research/GAP_FILL_AND_AMBIGUOUS_EXIT_MODEL.md.
-                if self.gap_fill_policy == "gap_through":
+                if exit_reason is None and self.gap_fill_policy == "gap_through":
                     is_long = open_trade.side == "long"
                     open_px = bid_open if is_long else ask_open
                     stop_breached = (
@@ -398,7 +441,7 @@ class BacktestEngine:
                 # adverse stop is checked first (conservative — assume the
                 # loss filled before any favourable target), then tp, then
                 # the time stop.
-                if not did_gap_fill:
+                if exit_reason is None and not did_gap_fill:
                     if open_trade.side == "long":
                         if bid_low <= open_trade.stop_price:
                             if (
@@ -495,6 +538,8 @@ class BacktestEngine:
                             protective_stop_arm_time=arm_time,
                             protective_stop_arm_mfe_r=open_trade.protective_arm_mfe_r,
                             protective_stop_exit=exit_reason == "protective_stop",
+                            thesis_invalidation_exit=exit_reason == "thesis_invalidation",
+                            zscore_at_exit=zscore_at_exit,
                         )
                     )
                     open_trade = None

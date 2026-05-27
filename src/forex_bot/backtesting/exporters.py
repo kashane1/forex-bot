@@ -60,6 +60,8 @@ def write_trades_csv(result: BacktestResult, path: Path) -> None:
         "protective_stop_arm_time",
         "protective_stop_arm_mfe_r",
         "protective_stop_exit",
+        "thesis_invalidation_exit",
+        "zscore_at_exit",
     ]
     with path.open("w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames)
@@ -99,6 +101,10 @@ def write_trades_csv(result: BacktestResult, path: Path) -> None:
                         else t.protective_stop_arm_mfe_r
                     ),
                     "protective_stop_exit": t.protective_stop_exit,
+                    "thesis_invalidation_exit": t.thesis_invalidation_exit,
+                    "zscore_at_exit": (
+                        "" if t.zscore_at_exit is None else t.zscore_at_exit
+                    ),
                 }
             )
 

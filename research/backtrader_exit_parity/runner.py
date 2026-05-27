@@ -35,15 +35,19 @@ PNL_CONVERSION_MODE = "home_currency_v1"
 RISK_WINDOW_MODE = "engine_aligned"
 
 
-def _campaign_params(campaign: str, settings: Any) -> tuple[dict[str, Any], bool, float | None]:
+def _campaign_params(campaign: str, settings: Any) -> tuple[dict[str, Any], bool, float | None, float | None, float | None]:
     if campaign == "C018":
         cfg = settings.strategy.mean_reversion_protective_stop.model_dump()
         ps = cfg.get("protective_stop") or {}
         threshold = float(ps.get("favorable_excursion_r_threshold", 1.0))
-        return cfg, False, threshold
+        return cfg, False, threshold, None, None
+    if campaign == "C019":
+        cfg = settings.strategy.mean_reversion_thesis_invalidation.model_dump()
+        ti = cfg.get("thesis_invalidation") or {}
+        return cfg, False, None, float(ti.get("long_exit_zscore", -3.0)), float(ti.get("short_exit_zscore", 3.0))
     cfg = settings.strategy.mean_reversion.model_dump()
     midline = bool(cfg.get("midline_exit", campaign == "C009"))
-    return cfg, midline, None
+    return cfg, midline, None, None, None
 
 
 def run_campaign_parity(
@@ -56,7 +60,12 @@ def run_campaign_parity(
     """Run train + validation exit parity for one campaign."""
     config_path = CAMPAIGN_CONFIGS[campaign]
     settings = load_settings(config_path)
-    strategy_cfg, midline_exit, protective_r = _campaign_params(campaign, settings)
+    strategy_cfg, midline_exit, protective_r, ti_long, ti_short = _campaign_params(campaign, settings)
+    engine_cfg = {
+        k: v
+        for k, v in strategy_cfg.items()
+        if k not in ("protective_stop", "thesis_invalidation")
+    }
     fill_model = FillModel(
         fixed_slippage_pips=Decimal(str(settings.backtest.fixed_slippage_pips)),
         spread_slippage_multiplier=Decimal(
@@ -91,7 +100,7 @@ def run_campaign_parity(
                 result = run_mean_reversion_exit_parity(
                     frame,
                     instrument=meta,
-                    strategy_cfg=strategy_cfg,
+                    strategy_cfg=engine_cfg,
                     settings=settings,
                     campaign=campaign,
                     midline_exit=midline_exit,
@@ -101,6 +110,8 @@ def run_campaign_parity(
                     max_bars_in_trade=max_bars,
                     starting_equity=starting_equity,
                     risk_window_mode=RISK_WINDOW_MODE,
+                    thesis_invalidation_long_z=ti_long,
+                    thesis_invalidation_short_z=ti_short,
                 )
                 for t in result.trades:
                     rec = {

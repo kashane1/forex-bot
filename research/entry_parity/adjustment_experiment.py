@@ -44,7 +44,7 @@ def run_adjustment_experiment(
     for campaign in ("C008", "C009", "C018"):
         config_path = CAMPAIGN_CONFIGS[campaign]
         settings = load_settings(config_path)
-        strategy_cfg, midline_exit, protective_r = _campaign_params(campaign, settings)
+        strategy_cfg, midline_exit, protective_r, ti_long, ti_short = _campaign_params(campaign, settings)
         fill_model = FillModel(
             fixed_slippage_pips=Decimal(str(settings.backtest.fixed_slippage_pips)),
             spread_slippage_multiplier=Decimal(
@@ -89,6 +89,8 @@ def run_adjustment_experiment(
                         starting_equity=starting_equity,
                         risk_window_mode=mode,
                         rejection_log=rejections,
+                        thesis_invalidation_long_z=ti_long,
+                        thesis_invalidation_short_z=ti_short,
                     )
                     bt_count += len(result.trades)
 

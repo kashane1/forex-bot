@@ -16,12 +16,14 @@ CAMPAIGN_CONFIGS: dict[str, Path] = {
     "C008": REPO_ROOT / "configs" / "campaign_008_range_mean_reversion.yaml",
     "C009": REPO_ROOT / "configs" / "campaign_009_mean_reversion.yaml",
     "C018": REPO_ROOT / "configs" / "campaign_018_mean_reversion_protective_stop.yaml",
+    "C019": REPO_ROOT / "configs" / "campaign_019_mean_reversion_thesis_invalidation.yaml",
 }
 
 BESPOKE_TRADE_GLOBS: dict[str, str] = {
     "C008": "backtests/CAMPAIGN_008_mean_reversion_deduped_forensic/baseline/{split}/*_trades.csv",
     "C009": "backtests/CAMPAIGN_009_mean_reversion_midline_deduped_forensic/{split}/base/*_trades.csv",
     "C018": "backtests/CAMPAIGN_018_mean_reversion_protective_stop/{split}/base/*_trades.csv",
+    "C019": "backtests/CAMPAIGN_019_mean_reversion_thesis_invalidation/{split}/base/*_trades.csv",
 }
 
 FILL_TIMING = "signal_bar_close"
