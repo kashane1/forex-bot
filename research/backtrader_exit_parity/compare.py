@@ -82,20 +82,23 @@ def build_comparison(
     rows: list[dict[str, Any]] = []
     classifications: dict[str, Any] = {}
 
-    for campaign in ("C008", "C009", "C018"):
+    for campaign in ("C008", "C009", "C018", "C019"):
         bt_summary_path = out_dir / f"{campaign.lower()}_parity_summary.json"
         if not bt_summary_path.exists():
             classifications[campaign] = "BLOCKED"
             continue
         bt_summary = json.loads(bt_summary_path.read_text(encoding="utf-8"))
         campaign_rows: list[dict[str, Any]] = []
+        count_tol = 1 if campaign == "C019" else 2
 
         for split in ("train", "validation"):
             bespoke_raw = load_bespoke_trades(repo_root, campaign, split)
             bespoke_norm = _normalize_trades(bespoke_raw)
             bespoke_stats = exit_reason_stats(bespoke_norm)
             bt_split_stats = bt_summary.get("by_split", {}).get(split, {})
-            verdict = classify_parity(bespoke_stats, bt_split_stats)
+            verdict = classify_parity(
+                bespoke_stats, bt_split_stats, count_tolerance=count_tol
+            )
             campaign_rows.append(
                 {
                     "campaign": campaign,

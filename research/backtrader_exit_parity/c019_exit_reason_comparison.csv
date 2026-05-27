@@ -1,0 +1,8 @@
+campaign,split,exit_reason,bespoke_count,bespoke_share_pct,bespoke_expectancy_r,backtrader_count,backtrader_share_pct,backtrader_expectancy_r,share_delta_pct,verdict
+C019,train,eod,1,0.46,-0.037,1,0.46,-0.037,0.0,PASS
+C019,train,stop,133,60.73,-0.8083,133,60.73,-0.8083,0.0,PASS
+C019,train,thesis_invalidation,27,12.33,-0.6852,27,12.33,-0.6852,0.0,PASS
+C019,train,time,58,26.48,1.9012,58,26.48,1.9012,0.0,PASS
+C019,validation,stop,73,52.9,-0.8026,73,53.28,-0.8026,0.38,CLOSE_MATCH
+C019,validation,thesis_invalidation,18,13.04,-0.8855,18,13.14,-0.8855,0.1,CLOSE_MATCH
+C019,validation,time,47,34.06,1.8682,46,33.58,1.8799,0.48,CLOSE_MATCH
