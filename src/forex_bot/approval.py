@@ -221,3 +221,17 @@ def assert_loop_strategies_approved(
             f"deliberate, reviewed human action — see "
             f"docs/research/STRATEGY_APPROVAL_PROCESS.md."
         )
+
+
+def execution_realism_promotion_blockers(meta: object | None) -> list[str]:
+    """Fill-timing policy blockers for promotion review (not registry approval).
+
+    Empty list means execution-realism metadata does not block promotion
+    readiness evaluation; other gates (verdict, registry, loops) still apply.
+    """
+    from forex_bot.research.execution_realism import (
+        ExecutionRealismMetadata,
+        promotion_readiness_errors,
+    )
+
+    return promotion_readiness_errors(meta)
