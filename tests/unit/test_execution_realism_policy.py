@@ -8,9 +8,6 @@ from pydantic import ValidationError
 from forex_bot.approval import execution_realism_promotion_blockers, load_approval_registry
 from forex_bot.research.execution_realism import (
     EvidenceUse,
-    ExecutionRealism,
-    ExecutionRealismMetadata,
-    FillTiming,
     legacy_mode_metadata,
     parse_research_metadata,
     promotion_readiness_errors,

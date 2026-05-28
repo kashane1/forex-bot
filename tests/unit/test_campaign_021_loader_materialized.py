@@ -6,7 +6,7 @@ from datetime import UTC, datetime
 
 import pytest
 
-from forex_bot.data.m1_timeframe_materialization import MATERIALIZED_SOURCE, STORAGE_GRANULARITY
+from forex_bot.data.m1_timeframe_materialization import STORAGE_GRANULARITY
 from forex_bot.data.postgres_candle_store import PostgresCandleStore
 from forex_bot.data.research_db import ResearchDatabaseConfig
 from forex_bot.research.campaign_021_loader import (

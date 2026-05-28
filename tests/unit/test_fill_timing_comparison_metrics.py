@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import pandas as pd
-
-from forex_bot.backtesting.fills import NEXT_BAR_OPEN_UNAVAILABLE
 from research.fill_timing_comparison.metrics import (
     compare_exit_reason_shares,
     count_next_bar_open_unavailable,
@@ -13,6 +11,8 @@ from research.fill_timing_comparison.metrics import (
     metrics_from_runs,
     pair_fold_delta_rows,
 )
+
+from forex_bot.backtesting.fills import NEXT_BAR_OPEN_UNAVAILABLE
 
 
 def test_fill_timing_delta_negative_when_open_worse():

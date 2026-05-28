@@ -17,9 +17,9 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from forex_bot.data.postgres_candle_store import PostgresCandleStore, compute_candle_data_hash
 from forex_bot.data.research_db import get_research_database_config
-from forex_bot.project_env import bootstrap_environ
 from forex_bot.data.timeframe_aggregation import aggregate_m1_candles
 from forex_bot.domain.candles import Candle
+from forex_bot.project_env import bootstrap_environ
 
 
 def parse_utc(value: str) -> datetime:

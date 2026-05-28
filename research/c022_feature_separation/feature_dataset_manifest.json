@@ -1,0 +1,87 @@
+{
+  "strategy_evidence": false,
+  "not_approved": true,
+  "diagnostic_only": true,
+  "uses_realized_path_only": true,
+  "campaign_id": "CAMPAIGN_022",
+  "status": "OK",
+  "lookahead_policy": "Features read at last bar with time <= decision_time (decision_time = entry_time - one M15 bar). HTF via align_last_completed. Outcome fields are labels only, never features.",
+  "reconstruction_note": "Numeric HTF/M15 entry features were not persisted by C022; they are reconstructed read-only and are a lookahead-safe approximation.",
+  "campaign_dir": "/Users/kashane/dev/forex-bot/backtests/CAMPAIGN_022_h4_h1_pullback_resolution",
+  "params": {
+    "h4_ema_fast": 20,
+    "h4_ema_slow": 50,
+    "h4_ema_slope_bars": 3,
+    "h4_adx_lookback": 14,
+    "h1_ema_fast": 20,
+    "h1_ema_slow": 50,
+    "h1_rsi_lookback": 14,
+    "h1_pullback_lookback": 6,
+    "atr_lookback": 14,
+    "m15_adx_lookback": 14
+  },
+  "rows": 2396,
+  "rows_by_split": {
+    "train": 1369,
+    "validation": 1027
+  },
+  "rows_by_instrument": {
+    "USD_CHF": 444,
+    "USD_CAD": 424,
+    "AUD_USD": 371,
+    "GBP_USD": 310,
+    "USD_JPY": 306,
+    "EUR_USD": 274,
+    "NZD_USD": 267
+  },
+  "exit_class_counts": {
+    "hard_stop": 1439,
+    "time_stop": 957
+  },
+  "mfe_status_counts": {
+    "OK": 2311,
+    "NO_BARS": 85
+  },
+  "feature_columns": [
+    "hour",
+    "weekday",
+    "session_bucket",
+    "spread_pips",
+    "spread_to_atr_pct",
+    "atr_at_entry",
+    "m15_adx_at_entry",
+    "m15_reclaim_distance_atr",
+    "m15_body_atr",
+    "m15_close_dist_ema50_atr",
+    "h4_adx_at_entry",
+    "h4_bias_score",
+    "h4_ema_slope_atr",
+    "h4_close_dist_ema50_atr",
+    "h1_rsi_at_entry",
+    "h1_pullback_depth_atr",
+    "h1_close_dist_ema50_atr",
+    "volatility_regime"
+  ],
+  "outcome_label_columns": [
+    "result_r",
+    "exit_reason",
+    "bars_held",
+    "pnl",
+    "mfe_r",
+    "mae_r",
+    "reached_plus_0_25r",
+    "reached_plus_0_5r",
+    "reached_plus_1_0r",
+    "touched_minus_0_5r",
+    "touched_minus_0_9r",
+    "mfe_status"
+  ],
+  "missing_field_counts": {
+    "mfe_r": 85,
+    "mae_r": 85
+  },
+  "recon_h4_bias_vs_side_agreement": 1.0,
+  "full_dataset_path": "research/c022_feature_separation/c022_lifecycle_features.parquet",
+  "full_dataset_gitignored": true,
+  "preview_path": "research/c022_feature_separation/c022_lifecycle_features_preview.csv"
+}

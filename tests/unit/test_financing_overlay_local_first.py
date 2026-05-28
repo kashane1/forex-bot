@@ -131,27 +131,22 @@ def test_none_mode_has_zero_drag(tmp_path: Path) -> None:
     assert summary.gross_expectancy_r == summary.adjusted_expectancy_r
 
 
-def test_overlay_script_missing_ledger_exits(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_overlay_script_inventory_only_is_safe_and_hermetic(tmp_path: Path) -> None:
+    # The inventory-only path works regardless of which (gitignored) ledger CSVs
+    # are present locally. Run it into an isolated out-dir so the test never
+    # mutates the committed research artifacts; globs resolve relative to ROOT.
     script = ROOT / "scripts" / "apply_financing_overlay_to_trade_ledgers.py"
-    monkeypatch.chdir(tmp_path)
+    out_dir = tmp_path / "overlay_out"
     proc = subprocess.run(
-        [sys.executable, str(script), "--modes", "none"],
-        capture_output=True,
-        text=True,
-        cwd=ROOT,
-        env={**dict(**{"PATH": ""}), **__import__("os").environ},
-    )
-    # Script should fail when reference globs find no files in empty cwd — actually runs from ROOT
-    proc = subprocess.run(
-        [sys.executable, str(script), "--inventory-only"],
+        [sys.executable, str(script), "--inventory-only", "--out-dir", str(out_dir)],
         capture_output=True,
         text=True,
         cwd=ROOT,
     )
-    assert proc.returncode == 0
-    manifest = json.loads((ROOT / "research/financing_overlay_local_first/run_manifest.json").read_text())
-    assert manifest["not_approved"] is True
-    assert manifest["campaign_020_created"] is False
+    assert proc.returncode == 0, proc.stderr
+    inventory = json.loads((out_dir / "ledger_inventory_used.json").read_text())
+    assert inventory["not_approved"] is True
+    assert inventory["strategy_evidence"] is False
 
 
 def test_run_manifest_schema() -> None:

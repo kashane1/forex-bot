@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
+from decimal import Decimal
 
 import pandas as pd
 
@@ -12,7 +13,6 @@ from forex_bot.features.htf_align import (
     HTF_UNAVAILABLE,
     align_last_completed,
 )
-from decimal import Decimal
 
 
 def _htf_frame(rows: list[tuple]) -> pd.DataFrame:
