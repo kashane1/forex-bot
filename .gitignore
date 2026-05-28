@@ -194,3 +194,6 @@ backtests/CAMPAIGN_022_h4_h1_pullback_resolution/**/*_lifecycle_features.csv
 # C022 winner/loser feature-separation: full per-trade dataset is local-only.
 # Only the manifest, summary stats, and small preview CSV are committed.
 research/c022_feature_separation/c022_lifecycle_features.parquet
+# USD_JPY microstructure-confirmation diagnostic: full per-trade dataset local-only.
+# Only the inventory JSON, manifest, summary JSON, and small preview CSV are committed.
+research/usdjpy_microstructure_diagnostic/*.parquet

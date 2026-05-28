@@ -1,0 +1,69 @@
+{
+  "instrument": "USD_JPY",
+  "total": 306,
+  "by_split": {
+    "train": 133,
+    "validation": 173
+  },
+  "splits": {
+    "train": {
+      "n": 133,
+      "hard_stop": 81,
+      "time_stop": 52,
+      "winners": 46,
+      "long": 93,
+      "short": 40,
+      "win_rate": 0.3459,
+      "mean_r": -0.001717
+    },
+    "validation": {
+      "n": 173,
+      "hard_stop": 91,
+      "time_stop": 82,
+      "winners": 70,
+      "long": 89,
+      "short": 84,
+      "win_rate": 0.4046,
+      "mean_r": 0.000396
+    }
+  },
+  "totals": {
+    "hard_stop": 172,
+    "time_stop": 134,
+    "winners": 116,
+    "win_rate": 0.3791,
+    "mean_r": -0.000522
+  },
+  "mfe_mae": {
+    "available_ok": 299,
+    "no_bars": 7,
+    "other_status": {
+      "NO_BARS": 7
+    },
+    "straight_to_stop": 79,
+    "straight_to_stop_share_of_stops": 0.4593,
+    "mean_mfe_r": 1.1709,
+    "mean_mae_r": -0.8842,
+    "by_split_ok": {
+      "train": 130,
+      "validation": 169
+    }
+  },
+  "strategy_evidence": false,
+  "not_approved": true,
+  "diagnostic_only": true,
+  "status": "OK",
+  "local_m15_data": "reachable",
+  "entry_features_reconstructed": false,
+  "split_windows": {
+    "train": [
+      "2021-06-01",
+      "2023-12-31"
+    ],
+    "validation": [
+      "2024-01-01",
+      "2025-06-30"
+    ]
+  },
+  "test_window_note": "2025-07+ test window is a sealed lockbox; not in this diagnostic."
+}
