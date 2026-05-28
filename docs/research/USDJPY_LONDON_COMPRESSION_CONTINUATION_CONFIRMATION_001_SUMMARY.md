@@ -140,10 +140,15 @@ C008 CSVs). No failures.
 Given `PAUSE_STRATEGY_RESEARCH`, the recommended next sprint is **not** a strategy lane.
 Two defensible options (each a separate, later, non-campaign sprint):
 
-- **`infra-external-data-overlays-for-blocked-theses-001`** — build the maintained
-  economic-event calendar + timeline-aligned rates/risk (FRED) research features that the
-  atlas scorecard flagged as blocking theses #7 (macro/calendar) and #8 (carry/rates/
-  risk-off). Infrastructure only; no strategy, no campaign.
+- **`research-usdjpy-macro-regime-context-tradeability-001`** — build lookahead-safe
+  slow overlays (public-schedule economic-event calendar fixture + as-of/lagged rates/risk
+  FRED features) and run a read-only diagnostic on whether **slow** macro/rates/calendar
+  context classifies USD/JPY **tradeability** (when **not** to trade; when setups are
+  more/less likely to survive). **NOT fast-news trading, NOT latency-dependent, NOT a
+  macro entry** — macro is a tradeability conditioner / no-trade filter only. Framing
+  locked in `MACRO_REGIME_CONTEXT_TRADEABILITY_THESIS_FRAMING.md`; full prompt in
+  `NEXT_SPRINT_PROMPT_MACRO_REGIME_CONTEXT_TRADEABILITY.md`. Infrastructure + read-only
+  diagnostic; no strategy, no campaign.
 - **Hold/freeze** strategy research until a genuinely new, externally-sourced,
   structurally-distinct thesis with a mechanism appears (re-enter the external-thesis
   sourcing framework rather than mining USD_JPY price structure further).

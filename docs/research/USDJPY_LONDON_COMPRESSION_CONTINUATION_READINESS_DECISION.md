@@ -74,11 +74,16 @@ precommit design.
 Strategy research is paused. The two defensible non-strategy directions (neither started
 here, neither a campaign) are:
 
-1. **Build the missing external-data overlays** that the atlas scorecard flagged as
-   *blocked for lack of data*, so genuinely different theses (#7 macro/calendar windows,
-   #8 carry/rates/risk-off regime) become testable in future: a maintained economic-event
-   calendar and a timeline-aligned rates/risk feature (FRED DGS2/DGS10/VIX/SP500 exist
-   but are not maintained research features). This is **infrastructure**, not a strategy.
+1. **Slow macro/rates/calendar regime context for tradeability classification** — build
+   the missing lookahead-safe overlays (a public-schedule economic-event calendar fixture;
+   as-of/lagged rates/risk features from the FRED cache: DGS2/DGS10/VIX/SP500) and test
+   whether **slow** context classifies USD/JPY *tradeability* (when **not** to trade,
+   when setups are more/less likely to survive). **Explicitly NOT fast-news trading, NOT
+   latency-dependent, NOT a macro entry signal** — macro is a tradeability conditioner /
+   no-trade filter only. Framing locked in
+   `MACRO_REGIME_CONTEXT_TRADEABILITY_THESIS_FRAMING.md`; prompt in
+   `NEXT_SPRINT_PROMPT_MACRO_REGIME_CONTEXT_TRADEABILITY.md`. This is **infrastructure +
+   read-only diagnostic**, not a strategy.
 2. **Hold / freeze** strategy research entirely until a genuinely new, externally-sourced,
    structurally-distinct thesis with a mechanism appears — re-entering the
    external-thesis-sourcing framework rather than mining USD_JPY price structure further.
