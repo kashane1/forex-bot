@@ -32,6 +32,17 @@ pre-registered sensitivity sibling, **not** parameter tuning after seeing outcom
 > `BLOCKED_CONTAMINATED_BY_PRIOR_RESULTS`** instead of proceeding. That condition does
 > **not** hold here — C022 has produced no evidence.
 
+> **Update — 2026-05-28 (timeline clarification).** The statements above ("C022 has
+> produced no evidence", "C022 is itself unexecuted") describe the state **at the time
+> this precommit was authored, 2026-05-27**, which the Phase 0 audit verified (C022 was
+> `SCAFFOLD_ONLY` and absent from `EVIDENCE_MANIFEST.json`). A **separate, concurrent**
+> CAMPAIGN_022 *execution* sprint subsequently ran C022 to a **REJECT** verdict on the
+> same branch, in parallel. This does **not** retroactively contaminate C023: the ADX22
+> arm was frozen here **before** any C022 results existed or were viewed, so it remains a
+> genuine pre-registration, not tuning on C022's outcome. C023 itself remains
+> `SCAFFOLD_ONLY` — unexecuted. See `STRATEGY_STATUS.md` for the current C022 (REJECT)
+> and C023 (scaffold) statuses.
+
 ## Identity
 
 | field | value |

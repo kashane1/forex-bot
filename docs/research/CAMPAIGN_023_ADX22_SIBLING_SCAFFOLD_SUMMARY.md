@@ -31,6 +31,12 @@ was viewed (C022 has no entry in the validated `campaigns` array of
 Choosing ADX22 before any results exist is a pre-registered sensitivity arm. The
 `BLOCKED_CONTAMINATED_BY_PRIOR_RESULTS` guard in the precommit does **not** trigger.
 
+> **Update — 2026-05-28.** This section reflects the state when authored (2026-05-27). A
+> separate, concurrent CAMPAIGN_022 *execution* sprint has since run C022 to a **REJECT**
+> on the same branch, in parallel. Because the ADX22 arm was frozen before any C022
+> results existed/were viewed, C023 remains a genuine pre-registration. C023 itself is
+> still `SCAFFOLD_ONLY` / unexecuted; C022 is now REJECT (see `STRATEGY_STATUS.md`).
+
 ## 4. Branch
 
 `claude/loving-hawking-7ab830` (checked out in worktree

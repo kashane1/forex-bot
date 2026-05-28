@@ -43,6 +43,13 @@ not parameter tuning after seeing outcomes.
 > correct action would be to **stop and document `BLOCKED_CONTAMINATED_BY_PRIOR_RESULTS`**.
 > That condition does **not** hold here.
 
+> **Update — 2026-05-28 (timeline clarification).** The "C022 is unexecuted" statements
+> above were true and verified **when this plan was written, 2026-05-27**. A separate,
+> concurrent CAMPAIGN_022 *execution* sprint later ran C022 to a **REJECT** on the same
+> branch, in parallel. The ADX22 arm was frozen before any C022 results existed or were
+> viewed, so C023 remains a genuine pre-registration (not post-hoc tuning). C023 itself
+> is still `SCAFFOLD_ONLY` / unexecuted.
+
 ## Phase 0 audit findings (C022 baseline)
 
 1. **C022 scaffold exists** — strategy, config model, YAML, precommit doc, tests all
