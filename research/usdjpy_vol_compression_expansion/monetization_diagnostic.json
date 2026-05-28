@@ -1,0 +1,335 @@
+{
+  "_meta": {
+    "kind": "vol_compression_expansion_monetization_diagnostic",
+    "NOT_edge_claim": true,
+    "NOT_strategy": true,
+    "roundtrip_cost_pips_optimistic": 4.4,
+    "horizons": [
+      16,
+      32
+    ],
+    "compressed_def": ">=3 of 4 percentile features <= 0.20",
+    "execution": "enter at first prior-range break level in bars i+1..i+h; exit at close[i+h]; whipsaw charges an extra round-trip",
+    "test_lockbox_excluded": "2025-07-01"
+  },
+  "by_horizon": {
+    "h16": {
+      "n_compressed_decision_bars": 13768,
+      "n_traded": 13004,
+      "trade_participation": 0.9445,
+      "whipsaw_rate_given_traded": 0.2734,
+      "M2_continuation": {
+        "train": {
+          "n": 8024,
+          "mean_pips_net": -4.8693,
+          "median_pips_net": -4.95,
+          "win_rate": 0.3919,
+          "total_pips_net": -39071.5
+        },
+        "validation": {
+          "n": 4980,
+          "mean_pips_net": -1.5192,
+          "median_pips_net": -2.2,
+          "win_rate": 0.4598,
+          "total_pips_net": -7565.7
+        }
+      },
+      "M3_fade": {
+        "train": {
+          "n": 8024,
+          "mean_pips_net": -6.4048,
+          "median_pips_net": -5.0,
+          "win_rate": 0.3791,
+          "total_pips_net": -51392.5
+        },
+        "validation": {
+          "n": 4980,
+          "mean_pips_net": -9.5762,
+          "median_pips_net": -7.4,
+          "win_rate": 0.347,
+          "total_pips_net": -47689.5
+        }
+      },
+      "M1_straddle_proxy": {
+        "note": "direction-agnostic straddle \u2248 M2 continuation (triggered side held); a true both-legs straddle pays >=2 costs and is strictly worse"
+      },
+      "M4_session_continuation_active_only": {
+        "train": {
+          "n": 5332,
+          "mean_pips_net": -4.3071,
+          "median_pips_net": -4.6,
+          "win_rate": 0.3931,
+          "total_pips_net": -22965.3
+        },
+        "validation": {
+          "n": 3266,
+          "mean_pips_net": 0.0084,
+          "median_pips_net": -1.2,
+          "win_rate": 0.4764,
+          "total_pips_net": 27.3
+        }
+      },
+      "M2_continuation_by_session": {
+        "london": {
+          "train": {
+            "n": 815,
+            "mean_pips_net": 1.0412,
+            "median_pips_net": -0.1,
+            "win_rate": 0.4945,
+            "total_pips_net": 848.6
+          },
+          "validation": {
+            "n": 692,
+            "mean_pips_net": 3.0409,
+            "median_pips_net": 2.45,
+            "win_rate": 0.5477,
+            "total_pips_net": 2104.3
+          }
+        },
+        "london_ny_overlap": {
+          "train": {
+            "n": 214,
+            "mean_pips_net": -2.7364,
+            "median_pips_net": -2.8,
+            "win_rate": 0.3832,
+            "total_pips_net": -585.6
+          },
+          "validation": {
+            "n": 193,
+            "mean_pips_net": 2.7062,
+            "median_pips_net": -2.7,
+            "win_rate": 0.4404,
+            "total_pips_net": 522.3
+          }
+        },
+        "ny": {
+          "train": {
+            "n": 1872,
+            "mean_pips_net": -6.3779,
+            "median_pips_net": -5.6,
+            "win_rate": 0.3809,
+            "total_pips_net": -11939.5
+          },
+          "validation": {
+            "n": 1319,
+            "mean_pips_net": -1.8394,
+            "median_pips_net": -2.6,
+            "win_rate": 0.4481,
+            "total_pips_net": -2426.2
+          }
+        },
+        "off_hours": {
+          "train": {
+            "n": 2444,
+            "mean_pips_net": -6.3555,
+            "median_pips_net": -5.95,
+            "win_rate": 0.3867,
+            "total_pips_net": -15532.8
+          },
+          "validation": {
+            "n": 1424,
+            "mean_pips_net": -3.5894,
+            "median_pips_net": -3.9,
+            "win_rate": 0.4403,
+            "total_pips_net": -5111.3
+          }
+        },
+        "rollover": {
+          "train": {
+            "n": 248,
+            "mean_pips_net": -2.3121,
+            "median_pips_net": -4.85,
+            "win_rate": 0.4194,
+            "total_pips_net": -573.4
+          },
+          "validation": {
+            "n": 290,
+            "mean_pips_net": -8.5576,
+            "median_pips_net": -7.85,
+            "win_rate": 0.369,
+            "total_pips_net": -2481.7
+          }
+        },
+        "tokyo": {
+          "train": {
+            "n": 2431,
+            "mean_pips_net": -4.6437,
+            "median_pips_net": -5.1,
+            "win_rate": 0.3694,
+            "total_pips_net": -11288.8
+          },
+          "validation": {
+            "n": 1062,
+            "mean_pips_net": -0.163,
+            "median_pips_net": -1.65,
+            "win_rate": 0.4718,
+            "total_pips_net": -173.1
+          }
+        }
+      }
+    },
+    "h32": {
+      "n_compressed_decision_bars": 13768,
+      "n_traded": 13637,
+      "trade_participation": 0.9905,
+      "whipsaw_rate_given_traded": 0.4316,
+      "M2_continuation": {
+        "train": {
+          "n": 8467,
+          "mean_pips_net": -5.7273,
+          "median_pips_net": -4.9,
+          "win_rate": 0.4362,
+          "total_pips_net": -48493.0
+        },
+        "validation": {
+          "n": 5170,
+          "mean_pips_net": -0.6006,
+          "median_pips_net": 0.1,
+          "win_rate": 0.5006,
+          "total_pips_net": -3105.0
+        }
+      },
+      "M3_fade": {
+        "train": {
+          "n": 8467,
+          "mean_pips_net": -7.0222,
+          "median_pips_net": -6.4,
+          "win_rate": 0.3977,
+          "total_pips_net": -59456.6
+        },
+        "validation": {
+          "n": 5170,
+          "mean_pips_net": -11.7501,
+          "median_pips_net": -10.5,
+          "win_rate": 0.3692,
+          "total_pips_net": -60747.8
+        }
+      },
+      "M1_straddle_proxy": {
+        "note": "direction-agnostic straddle \u2248 M2 continuation (triggered side held); a true both-legs straddle pays >=2 costs and is strictly worse"
+      },
+      "M4_session_continuation_active_only": {
+        "train": {
+          "n": 5736,
+          "mean_pips_net": -4.9473,
+          "median_pips_net": -4.8,
+          "win_rate": 0.4378,
+          "total_pips_net": -28377.9
+        },
+        "validation": {
+          "n": 3446,
+          "mean_pips_net": 0.4063,
+          "median_pips_net": 1.75,
+          "win_rate": 0.5197,
+          "total_pips_net": 1400.2
+        }
+      },
+      "M2_continuation_by_session": {
+        "london": {
+          "train": {
+            "n": 846,
+            "mean_pips_net": 2.2108,
+            "median_pips_net": 4.0,
+            "win_rate": 0.5544,
+            "total_pips_net": 1870.3
+          },
+          "validation": {
+            "n": 712,
+            "mean_pips_net": 6.1229,
+            "median_pips_net": 4.6,
+            "win_rate": 0.5421,
+            "total_pips_net": 4359.5
+          }
+        },
+        "london_ny_overlap": {
+          "train": {
+            "n": 225,
+            "mean_pips_net": -5.6142,
+            "median_pips_net": -3.3,
+            "win_rate": 0.4222,
+            "total_pips_net": -1263.2
+          },
+          "validation": {
+            "n": 202,
+            "mean_pips_net": 8.2386,
+            "median_pips_net": -2.6,
+            "win_rate": 0.4505,
+            "total_pips_net": 1664.2
+          }
+        },
+        "ny": {
+          "train": {
+            "n": 2055,
+            "mean_pips_net": -5.2903,
+            "median_pips_net": -6.2,
+            "win_rate": 0.4229,
+            "total_pips_net": -10871.6
+          },
+          "validation": {
+            "n": 1425,
+            "mean_pips_net": -1.9383,
+            "median_pips_net": 2.7,
+            "win_rate": 0.5354,
+            "total_pips_net": -2762.1
+          }
+        },
+        "off_hours": {
+          "train": {
+            "n": 2478,
+            "mean_pips_net": -7.4854,
+            "median_pips_net": -5.4,
+            "win_rate": 0.4294,
+            "total_pips_net": -18548.9
+          },
+          "validation": {
+            "n": 1434,
+            "mean_pips_net": -1.2356,
+            "median_pips_net": -2.6,
+            "win_rate": 0.4672,
+            "total_pips_net": -1771.9
+          }
+        },
+        "rollover": {
+          "train": {
+            "n": 253,
+            "mean_pips_net": -6.1905,
+            "median_pips_net": -2.8,
+            "win_rate": 0.4664,
+            "total_pips_net": -1566.2
+          },
+          "validation": {
+            "n": 290,
+            "mean_pips_net": -9.4252,
+            "median_pips_net": -7.75,
+            "win_rate": 0.4379,
+            "total_pips_net": -2733.3
+          }
+        },
+        "tokyo": {
+          "train": {
+            "n": 2610,
+            "mean_pips_net": -6.94,
+            "median_pips_net": -6.2,
+            "win_rate": 0.413,
+            "total_pips_net": -18113.4
+          },
+          "validation": {
+            "n": 1107,
+            "mean_pips_net": -1.6815,
+            "median_pips_net": -0.1,
+            "win_rate": 0.4977,
+            "total_pips_net": -1861.4
+          }
+        }
+      }
+    }
+  },
+  "M5_no_trade_filter": {
+    "cost_hostile_sessions": [
+      "off_hours",
+      "rollover"
+    ],
+    "frac_compressed_in_hostile_sessions": 0.324,
+    "note": "rollover/off_hours carry wider spread; excluding them is the adopted overlay"
+  }
+}
