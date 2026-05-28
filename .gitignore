@@ -178,3 +178,7 @@ backtests/diagnostics/campaign_011_norisk/
 research/financing/observed/raw/
 research/fill_timing_reference_comparison/local_trades/
 research/financing_overlay_local_first/local_adjusted_trades/
+
+# CAMPAIGN_022 bulky backtest artifacts (equity curves) — keep compact json + trades only
+backtests/CAMPAIGN_022_h4_h1_pullback_resolution/**/*equity*.csv
+research/campaign_022/run_tv.log

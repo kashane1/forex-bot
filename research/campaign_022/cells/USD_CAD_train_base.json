@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "trade_count": 275,
+    "total_return_pct": -5.062247270270048,
+    "max_drawdown_pct": -8.14976210215165,
+    "profit_factor": 0.8868757265868028,
+    "expectancy_r": -0.05117017101299906,
+    "win_rate": 0.33090909090909093,
+    "average_spread_paid_pips": 1.9003636363636365
+  },
+  "trades_path": "backtests/CAMPAIGN_022_h4_h1_pullback_resolution/train/base/c022_USD_CAD_train_base_trades.csv"
+}

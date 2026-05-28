@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "trade_count": 189,
+    "total_return_pct": -7.928887000000062,
+    "max_drawdown_pct": -8.001392942194457,
+    "profit_factor": 0.7308973511661094,
+    "expectancy_r": -0.15939087004145036,
+    "win_rate": 0.3492063492063492,
+    "average_spread_paid_pips": 1.4539682539682541
+  },
+  "trades_path": "backtests/CAMPAIGN_022_h4_h1_pullback_resolution/validation/base/c022_NZD_USD_validation_base_trades.csv"
+}

@@ -1,0 +1,60 @@
+{
+  "overall_base": {
+    "trades": 2396,
+    "win_rate": 0.326,
+    "mean_R": -0.1308,
+    "median_R": -0.7336,
+    "avg_win_R": 1.237,
+    "avg_loss_R": -0.792,
+    "exit_mix": {
+      "stop": 0.601,
+      "time": 0.399
+    },
+    "mean_R_by_exit": {
+      "stop": -0.855,
+      "time": 0.959
+    },
+    "avg_bars_held": 19.0,
+    "pct_R_le_-0.9": 0.423,
+    "pct_R_ge_1": 0.149
+  },
+  "train_base": {
+    "trades": 1369,
+    "win_rate": 0.336,
+    "mean_R": -0.1042,
+    "median_R": -0.744,
+    "avg_win_R": 1.288,
+    "avg_loss_R": -0.809,
+    "exit_mix": {
+      "stop": 0.592,
+      "time": 0.408
+    },
+    "mean_R_by_exit": {
+      "stop": -0.868,
+      "time": 1.006
+    },
+    "avg_bars_held": 19.0,
+    "pct_R_le_-0.9": 0.416,
+    "pct_R_ge_1": 0.164
+  },
+  "validation_base": {
+    "trades": 1027,
+    "win_rate": 0.313,
+    "mean_R": -0.1663,
+    "median_R": -0.7224,
+    "avg_win_R": 1.165,
+    "avg_loss_R": -0.771,
+    "exit_mix": {
+      "stop": 0.611,
+      "time": 0.389
+    },
+    "mean_R_by_exit": {
+      "time": 0.892,
+      "stop": -0.839
+    },
+    "avg_bars_held": 19.1,
+    "pct_R_le_-0.9": 0.432,
+    "pct_R_ge_1": 0.13
+  },
+  "note": "MFE/MAE not recorded by exporter; R-distribution + exit-mix used as continuation-quality proxies. spread/cost as configured."
+}

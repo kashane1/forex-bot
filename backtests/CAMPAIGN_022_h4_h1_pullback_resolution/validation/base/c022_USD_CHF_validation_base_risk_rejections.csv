@@ -1,0 +1,43 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2024-02-12T03:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,long,MARGIN_BUFFER,margin 54.24434173060869764091070224 > cap 50.473564474712737,1.4,,6.1,3,Mon,Asia/late
+2024-03-08T13:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 4.8 > cap 2.0 pips,4.8,,11.3,13,Fri,London/NY overlap
+2024-03-13T06:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,MARGIN_BUFFER,margin 51.50559771182433009896815584 > cap 50.897535413047234,1.5,,6.5,6,Wed,London
+2024-07-21T22:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SESSION_BLOCKED,inside blocked session window,2.0,,8.5,22,Sun,Asia/late
+2024-10-18T07:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,long,MARGIN_BUFFER,margin 52.35422991238904343610402506 > cap 49.16895930880983,1.4,,6.1,7,Fri,London
+2024-10-21T04:30:00+00:00,USD_CHF,M15,validation,0.1.0-c022,long,MARGIN_BUFFER,margin 53.46463571564835850921766880 > cap 48.637711375229713,1.5,,5.9,4,Mon,Asia/late
+2024-10-21T05:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,long,MARGIN_BUFFER,margin 55.35479960458542168883647525 > cap 48.637711375229713,1.5,,5.7,5,Mon,Asia/late
+2024-10-22T04:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,long,MARGIN_BUFFER,margin 56.34455740963298511602107791 > cap 48.637711375229713,1.4,,5.6,4,Tue,Asia/late
+2024-11-07T18:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 8.0 > cap 2.0 pips,8.0,,17.9,18,Thu,NY
+2024-12-15T22:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 14.1 > cap 2.0 pips,14.1,,14.6,22,Sun,Asia/late
+2024-12-15T22:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,long,SESSION_BLOCKED,inside blocked session window,14.1,,14.6,22,Sun,Asia/late
+2025-02-24T00:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SESSION_BLOCKED,inside blocked session window,1.7,,12.9,0,Mon,Asia/late
+2025-03-07T20:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SESSION_BLOCKED,inside blocked session window,1.8,,19.5,20,Fri,NY
+2025-03-10T20:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 8.2 > cap 2.0 pips,8.2,,16.7,20,Mon,NY
+2025-03-10T20:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SESSION_BLOCKED,inside blocked session window,8.2,,16.7,20,Mon,NY
+2025-04-06T21:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 15.0 > cap 2.0 pips,15.0,,32.3,21,Sun,Asia/late
+2025-04-06T21:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SESSION_BLOCKED,inside blocked session window,15.0,,32.3,21,Sun,Asia/late
+2025-04-18T11:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 4.5 > cap 2.0 pips,4.5,,13.6,11,Fri,London
+2025-05-13T13:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.2,,19.6,13,Tue,London/NY overlap
+2025-05-15T04:30:00+00:00,USD_CHF,M15,validation,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.4,,10.8,4,Thu,Asia/late
+2025-05-22T11:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.3,,14.7,11,Thu,London
+2025-05-23T05:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.6,,9.3,5,Fri,Asia/late
+2025-05-23T06:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.3,,10.6,6,Fri,London
+2025-05-26T09:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.3,,12.9,9,Mon,London
+2025-05-26T13:30:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.9,,13.1,13,Mon,London/NY overlap
+2025-05-26T22:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.9 > cap 2.0 pips,2.9,,10.0,22,Mon,Asia/late
+2025-05-26T22:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,2.9,,10.0,22,Mon,Asia/late
+2025-05-27T03:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.7,,11.1,3,Tue,Asia/late
+2025-05-30T14:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.6,,20.4,14,Fri,London/NY overlap
+2025-05-30T14:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.3,,21.5,14,Fri,London/NY overlap
+2025-06-03T04:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.6,,9.3,4,Tue,Asia/late
+2025-06-03T05:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.7,,9.5,5,Tue,Asia/late
+2025-06-03T06:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 3.2 > cap 2.0 pips,3.2,,11.3,6,Tue,London
+2025-06-03T06:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,3.2,,11.3,6,Tue,London
+2025-06-03T07:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.6,,11.1,7,Tue,London
+2025-06-13T12:30:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.6,,16.5,12,Fri,London/NY overlap
+2025-06-13T14:00:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.7,,16.8,14,Fri,London/NY overlap
+2025-06-13T17:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.4,,14.4,17,Fri,NY
+2025-06-25T13:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.5,,13.1,13,Wed,London/NY overlap
+2025-06-27T01:45:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,1.9,,11.7,1,Fri,Asia/late
+2025-06-27T12:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 5.0 > cap 2.0 pips,5.0,,14.5,12,Fri,London/NY overlap
+2025-06-27T12:15:00+00:00,USD_CHF,M15,validation,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.183% >= cap 8.0%,5.0,,14.5,12,Fri,London/NY overlap

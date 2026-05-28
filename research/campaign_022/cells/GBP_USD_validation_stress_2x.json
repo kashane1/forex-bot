@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "trade_count": 54,
+    "total_return_pct": -8.155482000000024,
+    "max_drawdown_pct": -8.15548200000003,
+    "profit_factor": 0.277471940901318,
+    "expectancy_r": -0.48457084420341223,
+    "win_rate": 0.24074074074074073,
+    "average_spread_paid_pips": 1.7222222222222219
+  },
+  "trades_path": "backtests/CAMPAIGN_022_h4_h1_pullback_resolution/validation/stress_2x/c022_GBP_USD_validation_stress_2x_trades.csv"
+}

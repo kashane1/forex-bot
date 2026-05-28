@@ -1,0 +1,72 @@
+{
+  "trade_count": 1027,
+  "expectancy_r": -0.1663,
+  "profit_factor": 0.6895,
+  "pairs_positive": 1,
+  "pairs_total": 7,
+  "per_pair": {
+    "EUR_USD": {
+      "trade_count": 67,
+      "total_return_pct": -8.12503699999998,
+      "max_drawdown_pct": -8.125036999999976,
+      "profit_factor": 0.37272932911294676,
+      "expectancy_r": -0.46669656913441104,
+      "win_rate": 0.208955223880597,
+      "average_spread_paid_pips": 1.4537313432835821
+    },
+    "GBP_USD": {
+      "trade_count": 74,
+      "total_return_pct": -8.196627999999983,
+      "max_drawdown_pct": -8.196627999999986,
+      "profit_factor": 0.3636376270036097,
+      "expectancy_r": -0.42801337335914896,
+      "win_rate": 0.25675675675675674,
+      "average_spread_paid_pips": 1.7216216216216216
+    },
+    "USD_JPY": {
+      "trade_count": 173,
+      "total_return_pct": 2.5810095988585413,
+      "max_drawdown_pct": -3.2530892485981697,
+      "profit_factor": 1.100855039787197,
+      "expectancy_r": 0.00039609313956173226,
+      "win_rate": 0.4046242774566474,
+      "average_spread_paid_pips": 1.6624277456647396
+    },
+    "AUD_USD": {
+      "trade_count": 205,
+      "total_return_pct": -8.007374000000024,
+      "max_drawdown_pct": -8.007374000000027,
+      "profit_factor": 0.7607469771701368,
+      "expectancy_r": -0.14696825717929002,
+      "win_rate": 0.2975609756097561,
+      "average_spread_paid_pips": 1.2858536585365852
+    },
+    "USD_CAD": {
+      "trade_count": 149,
+      "total_return_pct": -7.45472403572699,
+      "max_drawdown_pct": -8.122133305354145,
+      "profit_factor": 0.7046138675120004,
+      "expectancy_r": -0.14248994762164038,
+      "win_rate": 0.2684563758389262,
+      "average_spread_paid_pips": 1.808724832214765
+    },
+    "USD_CHF": {
+      "trade_count": 170,
+      "total_return_pct": -6.013794281536278,
+      "max_drawdown_pct": -8.182950242477812,
+      "profit_factor": 0.7931440764304115,
+      "expectancy_r": -0.15523776720042892,
+      "win_rate": 0.3,
+      "average_spread_paid_pips": 1.5088235294117647
+    },
+    "NZD_USD": {
+      "trade_count": 189,
+      "total_return_pct": -7.928887000000062,
+      "max_drawdown_pct": -8.001392942194457,
+      "profit_factor": 0.7308973511661094,
+      "expectancy_r": -0.15939087004145036,
+      "win_rate": 0.3492063492063492,
+      "average_spread_paid_pips": 1.4539682539682541
+    }
+  }
+}

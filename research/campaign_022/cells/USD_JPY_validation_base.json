@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "trade_count": 173,
+    "total_return_pct": 2.5810095988585413,
+    "max_drawdown_pct": -3.2530892485981697,
+    "profit_factor": 1.100855039787197,
+    "expectancy_r": 0.00039609313956173226,
+    "win_rate": 0.4046242774566474,
+    "average_spread_paid_pips": 1.6624277456647396
+  },
+  "trades_path": "backtests/CAMPAIGN_022_h4_h1_pullback_resolution/validation/base/c022_USD_JPY_validation_base_trades.csv"
+}

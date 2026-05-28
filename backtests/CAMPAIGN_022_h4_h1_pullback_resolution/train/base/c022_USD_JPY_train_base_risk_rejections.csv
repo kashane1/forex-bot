@@ -1,0 +1,439 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2021-07-02T12:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 3.2 > cap 2.0 pips,3.2,,10.7,12,Fri,London/NY overlap
+2021-07-02T12:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 52.08747510630281500618978416 > cap 50.00,3.2,,10.7,12,Fri,London/NY overlap
+2021-07-13T12:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 51.88329107270700608081778388 > cap 49.86910295986926,1.4,,10.6,12,Tue,London/NY overlap
+2021-07-16T05:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 50.03704173279551066626041956 > cap 49.60807991458339,1.3,,10.9,5,Fri,Asia/late
+2021-08-04T10:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 64.27617144297070075367099628 > cap 49.47774572435203,1.3,,8.4,10,Wed,London
+2021-08-09T12:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 53.40339380072996677016941764 > cap 49.47774572435203,1.4,,10.2,12,Mon,London/NY overlap
+2021-08-11T18:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 52.04306229885161529791462028 > cap 49.47774572435203,1.3,,10.5,18,Wed,NY
+2021-08-12T02:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 64.24378195519366715424989924 > cap 49.47774572435203,1.3,,8.5,2,Thu,Asia/late
+2021-08-12T02:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 62.76369502502207830438622316 > cap 49.47774572435203,1.3,,8.7,2,Thu,Asia/late
+2021-08-12T04:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 79.16394335581046749118047976 > cap 49.47774572435203,1.1,,6.9,4,Thu,Asia/late
+2021-08-12T06:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 72.80428605718064028187256860 > cap 49.47774572435203,1.3,,7.5,6,Thu,London
+2021-08-12T06:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 69.12406921505848681499327504 > cap 49.47774572435203,1.3,,7.9,6,Thu,London
+2021-08-12T09:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 65.80387393629788640861559084 > cap 49.47774572435203,1.3,,8.3,9,Thu,London
+2021-08-17T23:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 71.27577033152121817957741656 > cap 49.47774572435203,1.3,,7.6,23,Tue,Asia/late
+2021-08-18T00:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 68.55624380221887412683194084 > cap 49.47774572435203,1.2,,7.9,0,Wed,Asia/late
+2021-09-27T05:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 72.00390487295604306207120968 > cap 49.47774572435203,1.2,,7.6,5,Mon,Asia/late
+2021-09-27T07:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 55.84302748811739829758010592 > cap 49.47774572435203,1.2,,9.8,7,Mon,London
+2021-10-14T19:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 52.72278333098690694072926932 > cap 50.564238392357396,1.2,,10.9,19,Thu,NY
+2021-10-19T04:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 52.36298056250082102525254736 > cap 50.445924963581047,1.3,,11.0,4,Tue,Asia/late
+2021-10-19T17:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 50.64310258811584816153623976 > cap 50.55522690239675,1.4,,11.4,17,Tue,NY
+2021-12-31T04:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 78.84479528708466564715695816 > cap 49.326551745621487,1.4,,7.2,4,Fri,Asia/late
+2021-12-31T05:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 63.08383564975677553856845032 > cap 49.326551745621487,1.4,,9.0,5,Fri,Asia/late
+2021-12-31T15:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 54.60308213378492802709568164 > cap 49.326551745621487,1.3,,10.4,15,Fri,London/NY overlap
+2022-01-24T05:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 54.59616165344159439010887616 > cap 48.967995907825986,1.6,,10.2,5,Mon,Asia/late
+2022-01-31T04:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 53.08321800057161168512856932 > cap 48.74859777756547,1.4,,10.6,4,Mon,Asia/late
+2022-03-18T05:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 57.96414862844992736995010632 > cap 48.348974161977407,1.7,,9.9,5,Fri,Asia/late
+2022-04-14T12:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,,18.3,12,Thu,London/NY overlap
+2022-04-20T05:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,41.2,5,Wed,Asia/late
+2022-05-23T22:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.9 > cap 2.0 pips,2.9,,16.6,22,Mon,Asia/late
+2022-06-10T12:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,38.4,12,Fri,London/NY overlap
+2022-06-22T21:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 8.1 > cap 2.0 pips,8.1,,22.4,21,Wed,Asia/late
+2022-07-27T18:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,22.5,18,Wed,NY
+2022-08-09T07:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,19.3,7,Tue,London
+2022-08-10T05:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 47.60282013493397714565019368 > cap 46.897420528609086,1.6,,13.3,5,Wed,Asia/late
+2022-08-11T22:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.8 > cap 2.0 pips,2.8,,22.6,22,Thu,Asia/late
+2022-08-15T22:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,,15.7,22,Mon,Asia/late
+2022-08-15T22:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.7,,15.7,22,Mon,Asia/late
+2022-08-16T00:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,17.2,0,Tue,Asia/late
+2022-08-22T10:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,27.0,10,Mon,London
+2022-08-23T04:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,21.3,4,Tue,Asia/late
+2022-08-23T05:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,20.8,5,Tue,Asia/late
+2022-08-23T07:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,25.0,7,Tue,London
+2022-08-23T12:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,21.6,12,Tue,London/NY overlap
+2022-08-24T15:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,37.9,15,Wed,London/NY overlap
+2022-08-31T07:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,20.1,7,Wed,London
+2022-08-31T13:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,25.3,13,Wed,London/NY overlap
+2022-08-31T15:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,28.4,15,Wed,London/NY overlap
+2022-08-31T15:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,29.2,15,Wed,London/NY overlap
+2022-09-01T10:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,22.4,10,Thu,London
+2022-09-01T12:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,21.2,12,Thu,London/NY overlap
+2022-09-02T16:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.3,,36.1,16,Fri,NY
+2022-09-02T19:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SESSION_BLOCKED,inside blocked session window,1.4,,23.9,19,Fri,NY
+2022-09-02T19:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,23.9,19,Fri,NY
+2022-09-05T02:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,22.9,2,Mon,Asia/late
+2022-09-06T02:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,16.1,2,Tue,Asia/late
+2022-09-07T22:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,25.3,22,Wed,Asia/late
+2022-09-08T01:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,,34.9,1,Thu,Asia/late
+2022-09-08T01:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.2,,34.9,1,Thu,Asia/late
+2022-09-08T02:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,33.6,2,Thu,Asia/late
+2022-09-08T08:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,35.8,8,Thu,London
+2022-09-08T08:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.1,,35.8,8,Thu,London
+2022-09-08T12:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,40.0,12,Thu,London/NY overlap
+2022-09-08T13:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,51.3,13,Thu,London/NY overlap
+2022-09-08T15:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,45.4,15,Thu,London/NY overlap
+2022-09-12T22:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,26.4,22,Mon,Asia/late
+2022-09-12T22:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.1,,26.4,22,Mon,Asia/late
+2022-09-13T12:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2,,30.1,12,Tue,London/NY overlap
+2022-09-15T10:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,28.1,10,Thu,London
+2022-09-15T11:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,28.0,11,Thu,London
+2022-09-16T02:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,26.6,2,Fri,Asia/late
+2022-10-13T12:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.2,,14.4,12,Thu,London/NY overlap
+2022-10-13T12:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 47.48193235928533637214602580 > cap 46.410194834360897,1.2,,14.4,12,Thu,London/NY overlap
+2022-10-13T15:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,44.0,15,Thu,London/NY overlap
+2022-10-13T16:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,39.5,16,Thu,NY
+2022-10-13T18:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,36.8,18,Thu,NY
+2022-10-13T18:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,35.7,18,Thu,NY
+2022-10-18T02:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,19.2,2,Tue,Asia/late
+2022-10-18T05:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,16.0,5,Tue,Asia/late
+2022-10-18T05:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,15.5,5,Tue,Asia/late
+2022-10-18T09:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,36.5,9,Tue,London
+2022-10-18T13:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,23.6,13,Tue,London/NY overlap
+2022-10-18T14:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,23.5,14,Tue,London/NY overlap
+2022-10-20T08:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,16.7,8,Thu,London
+2022-10-20T12:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,16.8,12,Thu,London/NY overlap
+2022-10-20T15:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,21.3,15,Thu,London/NY overlap
+2022-10-27T13:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,44.1,13,Thu,London/NY overlap
+2022-10-27T13:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.1,,44.1,13,Thu,London/NY overlap
+2022-10-27T17:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,44.3,17,Thu,NY
+2022-10-28T02:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 3.6 > cap 2.0 pips,3.6,,27.1,2,Fri,Asia/late
+2022-10-28T02:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,3.6,,27.1,2,Fri,Asia/late
+2022-10-28T03:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,40.6,3,Fri,Asia/late
+2022-10-28T03:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.1,,40.6,3,Fri,Asia/late
+2022-11-02T05:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,28.1,5,Wed,Asia/late
+2022-11-08T12:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,26.8,12,Tue,London/NY overlap
+2022-11-08T13:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,26.2,13,Tue,London/NY overlap
+2022-11-09T16:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,43.4,16,Wed,NY
+2022-11-09T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.6 > cap 2.0 pips,2.6,,25.1,23,Wed,Asia/late
+2022-11-09T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.6,,25.1,23,Wed,Asia/late
+2022-11-09T23:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,24.2,23,Wed,Asia/late
+2022-11-14T12:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,,46.0,12,Mon,London/NY overlap
+2022-11-14T12:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.3,,46.0,12,Mon,London/NY overlap
+2022-11-14T15:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,44.3,15,Mon,London/NY overlap
+2022-11-14T16:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,42.7,16,Mon,NY
+2022-11-14T17:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,40.8,17,Mon,NY
+2022-11-15T05:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,32.1,5,Tue,Asia/late
+2022-11-15T06:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,30.8,6,Tue,London
+2022-11-15T06:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,30.5,6,Tue,London
+2022-11-15T18:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,55.4,18,Tue,NY
+2022-11-16T05:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,,43.8,5,Wed,Asia/late
+2022-11-16T05:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.4,,43.8,5,Wed,Asia/late
+2022-11-16T06:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,43.5,6,Wed,London
+2022-11-16T06:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,43.7,6,Wed,London
+2022-11-16T07:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,46.7,7,Wed,London
+2022-11-16T11:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,40.3,11,Wed,London
+2022-11-16T14:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,45.7,14,Wed,London/NY overlap
+2022-11-18T05:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,25.4,5,Fri,Asia/late
+2022-11-25T02:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,27.0,2,Fri,Asia/late
+2022-11-25T03:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,24.9,3,Fri,Asia/late
+2022-11-25T14:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,33.2,14,Fri,London/NY overlap
+2022-11-25T15:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,32.1,15,Fri,London/NY overlap
+2022-11-25T15:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,31.3,15,Fri,London/NY overlap
+2022-11-28T00:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,22.3,0,Mon,Asia/late
+2022-11-28T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,,23.6,23,Mon,Asia/late
+2022-11-28T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.3,,23.6,23,Mon,Asia/late
+2022-11-29T01:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,32.1,1,Tue,Asia/late
+2022-11-29T03:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,35.4,3,Tue,Asia/late
+2022-11-29T12:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,38.1,12,Tue,London/NY overlap
+2022-11-29T15:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,44.1,15,Tue,London/NY overlap
+2022-11-30T04:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,25.4,4,Wed,Asia/late
+2022-11-30T07:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,26.7,7,Wed,London
+2022-11-30T18:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,,41.6,18,Wed,NY
+2022-11-30T18:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.2,,41.6,18,Wed,NY
+2022-12-02T16:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,59.6,16,Fri,NY
+2022-12-02T16:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.1,,59.6,16,Fri,NY
+2022-12-04T23:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SESSION_BLOCKED,inside blocked session window,2.0,,31.7,23,Sun,Asia/late
+2022-12-04T23:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,31.7,23,Sun,Asia/late
+2022-12-05T12:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,33.3,12,Mon,London/NY overlap
+2022-12-14T20:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.5 > cap 2.0 pips,2.5,,57.0,20,Wed,NY
+2022-12-14T20:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.5,,57.0,20,Wed,NY
+2022-12-14T20:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,,65.3,20,Wed,NY
+2022-12-14T20:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.3,,65.3,20,Wed,NY
+2022-12-22T20:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,20.4,20,Thu,NY
+2022-12-22T23:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 4.4 > cap 2.0 pips,4.4,,21.4,23,Thu,Asia/late
+2022-12-22T23:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,4.4,,21.4,23,Thu,Asia/late
+2022-12-30T21:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,,35.5,21,Fri,Asia/late
+2022-12-30T21:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SESSION_BLOCKED,inside blocked session window,2.7,,35.5,21,Fri,Asia/late
+2022-12-30T21:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.7,,35.5,21,Fri,Asia/late
+2023-01-02T23:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,,24.5,23,Mon,Asia/late
+2023-01-02T23:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.3,,24.5,23,Mon,Asia/late
+2023-01-03T13:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,40.2,13,Tue,London/NY overlap
+2023-01-03T18:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,41.1,18,Tue,NY
+2023-01-04T00:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,,35.4,0,Wed,Asia/late
+2023-01-04T00:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.2,,35.4,0,Wed,Asia/late
+2023-01-04T01:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,37.5,1,Wed,Asia/late
+2023-01-09T07:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,30.2,7,Mon,London
+2023-01-16T11:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,,41.6,11,Mon,London
+2023-01-16T11:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.4,,41.6,11,Mon,London
+2023-01-16T13:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,35.3,13,Mon,London/NY overlap
+2023-01-16T19:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,22.4,19,Mon,NY
+2023-01-17T04:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,30.8,4,Tue,Asia/late
+2023-01-17T04:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,30.1,4,Tue,Asia/late
+2023-02-07T08:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,22.3,8,Tue,London
+2023-02-07T11:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,27.9,11,Tue,London
+2023-02-07T12:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,26.6,12,Tue,London/NY overlap
+2023-02-07T13:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,28.0,13,Tue,London/NY overlap
+2023-02-19T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,20.3,23,Sun,Asia/late
+2023-02-19T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SESSION_BLOCKED,inside blocked session window,2.1,,20.3,23,Sun,Asia/late
+2023-02-19T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.1,,20.3,23,Sun,Asia/late
+2023-02-20T03:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,19.5,3,Mon,Asia/late
+2023-02-20T08:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,18.8,8,Mon,London
+2023-02-20T09:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,21.7,9,Mon,London
+2023-02-20T09:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,21.1,9,Mon,London
+2023-02-21T01:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,13.8,1,Tue,Asia/late
+2023-02-22T08:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,19.4,8,Wed,London
+2023-02-22T16:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,27.0,16,Wed,NY
+2023-02-23T04:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,13.2,4,Thu,Asia/late
+2023-02-23T04:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 47.40263678067992597729624288 > cap 46.410194834360897,1.5,,13.2,4,Thu,Asia/late
+2023-02-23T05:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,12.4,5,Thu,Asia/late
+2023-02-23T05:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 50.44374131242629006297331980 > cap 46.410194834360897,2.0,,12.4,5,Thu,Asia/late
+2023-02-24T01:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,,36.9,1,Fri,Asia/late
+2023-02-24T01:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.2,,36.9,1,Fri,Asia/late
+2023-02-27T08:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,25.8,8,Mon,London
+2023-02-27T16:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,27.4,16,Mon,NY
+2023-03-01T04:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,16.7,4,Wed,Asia/late
+2023-03-02T10:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,29.3,10,Thu,London
+2023-03-02T12:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,28.8,12,Thu,London/NY overlap
+2023-03-03T00:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,20.6,0,Fri,Asia/late
+2023-03-03T02:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,21.1,2,Fri,Asia/late
+2023-03-03T03:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,20.3,3,Fri,Asia/late
+2023-03-14T06:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,31.5,6,Tue,London
+2023-03-14T06:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.1,,31.5,6,Tue,London
+2023-03-14T18:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,41.2,18,Tue,NY
+2023-03-15T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,,47.8,23,Wed,Asia/late
+2023-03-15T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.4,,47.8,23,Wed,Asia/late
+2023-03-16T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.7 > cap 2.0 pips,2.7,,36.9,23,Thu,Asia/late
+2023-03-16T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.7,,36.9,23,Thu,Asia/late
+2023-03-17T07:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,30.7,7,Fri,London
+2023-03-17T09:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,35.3,9,Fri,London
+2023-03-20T02:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,34.5,2,Mon,Asia/late
+2023-03-20T16:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,45.0,16,Mon,NY
+2023-03-21T14:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,33.2,14,Tue,London/NY overlap
+2023-03-23T12:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,31.6,12,Thu,London/NY overlap
+2023-03-23T13:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,36.8,13,Thu,London/NY overlap
+2023-03-23T13:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 3.3 > cap 2.0 pips,3.3,,38.7,13,Thu,London/NY overlap
+2023-03-23T13:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,3.3,,38.7,13,Thu,London/NY overlap
+2023-03-23T14:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,38.0,14,Thu,London/NY overlap
+2023-03-27T00:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,23.7,0,Mon,Asia/late
+2023-03-27T02:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,27.6,2,Mon,Asia/late
+2023-03-27T02:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,27.0,2,Mon,Asia/late
+2023-03-28T09:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,27.1,9,Tue,London
+2023-03-28T10:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,27.6,10,Tue,London
+2023-03-28T11:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,26.2,11,Tue,London
+2023-03-31T05:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,26.5,5,Fri,Asia/late
+2023-04-02T21:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 8.6 > cap 2.0 pips,8.6,,17.3,21,Sun,Asia/late
+2023-04-02T21:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SESSION_BLOCKED,inside blocked session window,8.6,,17.3,21,Sun,Asia/late
+2023-04-02T21:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,8.6,,17.3,21,Sun,Asia/late
+2023-05-02T10:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,20.8,10,Tue,London
+2023-05-02T12:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,22.6,12,Tue,London/NY overlap
+2023-05-04T13:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,33.5,13,Thu,London/NY overlap
+2023-05-05T16:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,28.7,16,Fri,NY
+2023-05-08T06:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,16.3,6,Mon,London
+2023-05-08T07:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,17.3,7,Mon,London
+2023-05-08T17:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,17.7,17,Mon,NY
+2023-05-08T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,14.6,23,Mon,Asia/late
+2023-05-09T08:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,19.7,8,Tue,London
+2023-05-09T08:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,21.1,8,Tue,London
+2023-05-09T11:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,19.4,11,Tue,London
+2023-05-19T10:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,23.9,10,Fri,London
+2023-05-19T18:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,29.9,18,Fri,NY
+2023-05-22T09:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,20.0,9,Mon,London
+2023-05-22T17:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,30.6,17,Mon,NY
+2023-05-22T18:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,29.7,18,Mon,NY
+2023-05-23T09:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,24.3,9,Tue,London
+2023-05-24T12:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,21.8,12,Wed,London/NY overlap
+2023-05-24T23:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,27.5,23,Wed,Asia/late
+2023-05-25T08:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,23.1,8,Thu,London
+2023-05-26T07:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,18.6,7,Fri,London
+2023-05-26T09:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,20.9,9,Fri,London
+2023-05-29T07:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,17.0,7,Mon,London
+2023-05-29T14:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,14.9,14,Mon,London/NY overlap
+2023-05-30T03:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.3,,19.3,3,Tue,Asia/late
+2023-05-30T09:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,30.2,9,Tue,London
+2023-05-30T09:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.1,,30.2,9,Tue,London
+2023-06-21T13:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,23.7,13,Wed,London/NY overlap
+2023-06-21T14:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,28.8,14,Wed,London/NY overlap
+2023-06-21T15:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,29.0,15,Wed,London/NY overlap
+2023-06-21T20:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 4.6 > cap 2.0 pips,4.6,,20.1,20,Wed,NY
+2023-06-21T20:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,4.6,,20.1,20,Wed,NY
+2023-06-22T00:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,17.5,0,Thu,Asia/late
+2023-06-23T09:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,29.3,9,Fri,London
+2023-06-23T13:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,26.1,13,Fri,London/NY overlap
+2023-06-26T01:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,23.7,1,Mon,Asia/late
+2023-06-26T02:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,23.4,2,Mon,Asia/late
+2023-06-26T06:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,18.1,6,Mon,London
+2023-06-26T11:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,22.5,11,Mon,London
+2023-06-26T13:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,21.1,13,Mon,London/NY overlap
+2023-06-26T18:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,20.1,18,Mon,NY
+2023-06-27T14:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,26.2,14,Tue,London/NY overlap
+2023-06-28T02:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,18.1,2,Wed,Asia/late
+2023-06-29T12:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,20.8,12,Thu,London/NY overlap
+2023-06-30T07:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,19.9,7,Fri,London
+2023-06-30T09:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.2,,23.1,9,Fri,London
+2023-06-30T11:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,19.8,11,Fri,London
+2023-06-30T14:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,31.0,14,Fri,London/NY overlap
+2023-07-03T05:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,16.0,5,Mon,Asia/late
+2023-07-03T10:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,19.2,10,Mon,London
+2023-07-03T16:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,24.7,16,Mon,NY
+2023-07-04T02:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,14.4,2,Tue,Asia/late
+2023-07-04T02:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 46.60273883566640276303643600 > cap 46.410194834360897,1.7,,14.4,2,Tue,Asia/late
+2023-07-04T04:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,12.6,4,Tue,Asia/late
+2023-07-04T04:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 53.24312891728288789095044992 > cap 46.410194834360897,1.7,,12.6,4,Tue,Asia/late
+2023-07-04T19:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,7.4,19,Tue,NY
+2023-07-04T19:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 90.56595643037895808163505508 > cap 46.410194834360897,1.9,,7.4,19,Tue,NY
+2023-07-05T11:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,19.5,11,Wed,London
+2023-07-10T05:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.3,,22.7,5,Mon,Asia/late
+2023-07-10T10:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,23.0,10,Mon,London
+2023-07-11T13:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,27.2,13,Tue,London/NY overlap
+2023-07-11T14:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,31.5,14,Tue,London/NY overlap
+2023-07-11T19:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,18.3,19,Tue,NY
+2023-07-13T06:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,25.0,6,Thu,London
+2023-07-14T14:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,40.0,14,Fri,London/NY overlap
+2023-07-17T08:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,19.8,8,Mon,London
+2023-07-18T12:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,37.7,12,Tue,London/NY overlap
+2023-07-21T06:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,20.7,6,Fri,London
+2023-07-24T13:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,30.2,13,Mon,London/NY overlap
+2023-07-24T15:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,37.4,15,Mon,London/NY overlap
+2023-07-24T16:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.3,,33.6,16,Mon,NY
+2023-07-25T09:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,22.0,9,Tue,London
+2023-07-25T10:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,22.2,10,Tue,London
+2023-07-26T18:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,21.1,18,Wed,NY
+2023-07-26T18:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,,26.7,18,Wed,NY
+2023-07-26T18:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.2,,26.7,18,Wed,NY
+2023-07-26T21:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 5.1 > cap 2.0 pips,5.1,,32.8,21,Wed,Asia/late
+2023-07-26T21:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,5.1,,32.8,21,Wed,Asia/late
+2023-07-27T17:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,27.6,17,Thu,NY
+2023-07-28T04:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,,109.9,4,Fri,Asia/late
+2023-07-28T04:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.2,,109.9,4,Fri,Asia/late
+2023-07-28T06:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,,107.7,6,Fri,London
+2023-07-28T06:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.2,,107.7,6,Fri,London
+2023-07-28T07:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.3 > cap 2.0 pips,2.3,,99.5,7,Fri,London
+2023-07-28T07:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.3,,99.5,7,Fri,London
+2023-07-28T09:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,,79.4,9,Fri,London
+2023-07-28T09:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.4,,79.4,9,Fri,London
+2023-08-16T07:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,14.6,7,Wed,London
+2023-08-17T14:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,26.5,14,Thu,London/NY overlap
+2023-09-20T18:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.3,,15.6,18,Wed,NY
+2023-09-27T02:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,13.4,2,Wed,Asia/late
+2023-09-27T02:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 51.60259727185785473398097348 > cap 46.410194834360897,1.5,,13.4,2,Wed,Asia/late
+2023-09-27T03:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,12.3,3,Wed,Asia/late
+2023-09-27T03:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 56.20301755092452766871371524 > cap 46.410194834360897,1.6,,12.3,3,Wed,Asia/late
+2023-09-28T06:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,12.8,6,Thu,London
+2023-09-28T06:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 54.16308140254820129920113520 > cap 46.410194834360897,1.7,,12.8,6,Thu,London
+2023-09-28T08:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,14.3,8,Thu,London
+2023-09-28T08:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 48.48275820523890322386321424 > cap 46.410194834360897,1.7,,14.3,8,Thu,London
+2023-09-28T11:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,13.2,11,Thu,London
+2023-09-28T11:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 52.48316292774392285542087992 > cap 46.410194834360897,1.8,,13.2,11,Thu,London
+2023-09-28T12:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,,13.3,12,Thu,London/NY overlap
+2023-09-28T12:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.2,,13.3,12,Thu,London/NY overlap
+2023-09-28T12:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 52.08383607874648453194053836 > cap 46.410194834360897,2.2,,13.3,12,Thu,London/NY overlap
+2023-09-28T13:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,18.7,13,Thu,London/NY overlap
+2023-09-28T14:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,21.3,14,Thu,London/NY overlap
+2023-09-28T16:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,21.3,16,Thu,NY
+2023-09-28T17:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,20.2,17,Thu,NY
+2023-09-28T19:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,16.8,19,Thu,NY
+2023-09-28T20:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SPREAD_TOO_WIDE,spread 2.9 > cap 2.0 pips,2.9,,15.2,20,Thu,NY
+2023-09-28T20:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.9,,15.2,20,Thu,NY
+2023-09-28T22:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,13.6,22,Thu,Asia/late
+2023-09-28T22:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 50.92272912423625254582484724 > cap 46.410194834360897,1.6,,13.6,22,Thu,Asia/late
+2023-09-29T04:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,14.0,4,Fri,Asia/late
+2023-09-29T04:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 49.48281572085145127654090388 > cap 46.410194834360897,1.7,,14.0,4,Fri,Asia/late
+2023-10-03T08:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,12.8,8,Tue,London
+2023-10-03T08:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 54.32308182124609115574971384 > cap 46.410194834360897,1.7,,12.8,8,Tue,London
+2023-10-05T13:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,21.1,13,Thu,London/NY overlap
+2023-10-09T03:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,13.2,3,Mon,Asia/late
+2023-10-09T03:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 52.44333978031113092504634116 > cap 46.410194834360897,1.9,,13.2,3,Mon,Asia/late
+2023-10-09T04:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,11.6,4,Mon,Asia/late
+2023-10-09T04:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 59.64299880329445995729403760 > cap 46.410194834360897,1.5,,11.6,4,Mon,Asia/late
+2023-10-09T06:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,10.9,6,Mon,London
+2023-10-09T06:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 63.52383196927346216493394196 > cap 46.410194834360897,1.8,,10.9,6,Mon,London
+2023-10-09T07:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,10.8,7,Mon,London
+2023-10-09T07:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 64.08343673113666074481279120 > cap 46.410194834360897,1.6,,10.8,7,Mon,London
+2023-10-10T09:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,22.6,9,Tue,London
+2023-10-10T13:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,19.0,13,Tue,London/NY overlap
+2023-10-11T07:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,14.7,7,Wed,London
+2023-10-11T07:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 46.91763308435542073455770828 > cap 46.410194834360897,1.5,,14.7,7,Wed,London
+2023-10-11T11:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,16.6,11,Wed,London
+2023-10-12T07:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,13.9,7,Thu,London
+2023-10-12T07:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 49.80250411486076517972974332 > cap 46.410194834360897,1.5,,13.9,7,Thu,London
+2023-10-13T06:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,12.3,6,Fri,London
+2023-10-13T06:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 56.48282912070848235305903684 > cap 46.410194834360897,1.5,,12.3,6,Fri,London
+2023-10-13T08:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,12.5,8,Fri,London
+2023-10-13T08:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 55.56296905894298081547587240 > cap 46.410194834360897,1.6,,12.5,8,Fri,London
+2023-10-20T18:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,10.8,18,Fri,NY
+2023-10-20T18:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 64.40343760008540621330201772 > cap 46.410194834360897,1.6,,10.8,18,Fri,NY
+2023-10-20T19:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SESSION_BLOCKED,inside blocked session window,1.7,,10.0,19,Fri,NY
+2023-10-20T19:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,10.0,19,Fri,NY
+2023-10-20T19:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 69.52394271283356630292273972 > cap 46.410194834360897,1.7,,10.0,19,Fri,NY
+2023-10-22T22:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,SESSION_BLOCKED,inside blocked session window,2.0,,9.1,22,Sun,Asia/late
+2023-10-22T22:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,9.1,22,Sun,Asia/late
+2023-10-22T22:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 76.40509768335646418276929648 > cap 46.410194834360897,2.0,,9.1,22,Sun,Asia/late
+2023-10-23T00:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,7.9,0,Mon,Asia/late
+2023-10-23T00:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 88.00499134189023718883354076 > cap 46.410194834360897,1.7,,7.9,0,Mon,Asia/late
+2023-10-23T12:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,7.9,12,Mon,London/NY overlap
+2023-10-23T12:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 88.08528687950593900267438524 > cap 46.410194834360897,1.8,,7.9,12,Mon,London/NY overlap
+2023-10-23T13:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,7.7,13,Mon,London/NY overlap
+2023-10-23T13:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 90.36451961199494486366804160 > cap 46.410194834360897,1.5,,7.7,13,Mon,London/NY overlap
+2023-10-24T17:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,12.2,17,Tue,NY
+2023-10-24T17:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 56.96285141218992060499063880 > cap 46.410194834360897,1.5,,12.2,17,Tue,NY
+2023-10-26T00:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,12.5,0,Thu,Asia/late
+2023-10-26T00:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 55.76334098943458027921468372 > cap 46.410194834360897,1.8,,12.5,0,Thu,Asia/late
+2023-10-26T07:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,26.4,7,Thu,London
+2023-10-26T11:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,18.7,11,Thu,London
+2023-10-26T14:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,22.5,14,Thu,London/NY overlap
+2023-10-27T06:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,12.4,6,Fri,London
+2023-10-27T06:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 56.20280580065169130201797976 > cap 46.410194834360897,1.5,,12.4,6,Fri,London
+2023-10-30T14:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,13.3,14,Mon,London/NY overlap
+2023-10-30T14:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 52.07668499180896290414979044 > cap 46.410194834360897,1.9,,13.3,14,Mon,London/NY overlap
+2023-10-30T19:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,18.2,19,Mon,NY
+2023-10-30T20:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 3.9 > cap 2.0 pips,3.9,,21.7,20,Mon,NY
+2023-10-30T20:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,3.9,,21.7,20,Mon,NY
+2023-11-01T15:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,23.5,15,Wed,London/NY overlap
+2023-11-06T14:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,14.5,14,Mon,London/NY overlap
+2023-11-06T14:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 47.87744145347672166187963396 > cap 46.410194834360897,1.6,,14.5,14,Mon,London/NY overlap
+2023-11-16T12:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,12.9,12,Thu,London/NY overlap
+2023-11-16T12:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,long,MARGIN_BUFFER,margin 54.40269697680798252253264632 > cap 46.410194834360897,1.5,,12.9,12,Thu,London/NY overlap
+2023-11-20T01:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,19.3,1,Mon,Asia/late
+2023-11-21T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,21.7,23,Tue,Asia/late
+2023-11-21T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.1,,21.7,23,Tue,Asia/late
+2023-11-22T02:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,23.5,2,Wed,Asia/late
+2023-11-27T06:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,20.1,6,Mon,London
+2023-11-27T10:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,22.6,10,Mon,London
+2023-11-27T16:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,27.7,16,Mon,NY
+2023-11-27T16:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,27.4,16,Mon,NY
+2023-11-28T11:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,20.5,11,Tue,London
+2023-11-28T12:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,21.8,12,Tue,London/NY overlap
+2023-11-28T13:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,24.0,13,Tue,London/NY overlap
+2023-11-29T13:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,27.6,13,Wed,London/NY overlap
+2023-11-29T14:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,32.7,14,Wed,London/NY overlap
+2023-11-29T15:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,39.6,15,Wed,London/NY overlap
+2023-11-29T20:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,26.2,20,Wed,NY
+2023-12-05T00:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,20.1,0,Tue,Asia/late
+2023-12-08T13:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,36.6,13,Fri,London/NY overlap
+2023-12-08T14:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,61.0,14,Fri,London/NY overlap
+2023-12-10T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.4 > cap 2.0 pips,2.4,,24.0,23,Sun,Asia/late
+2023-12-10T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SESSION_BLOCKED,inside blocked session window,2.4,,24.0,23,Sun,Asia/late
+2023-12-10T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.4,,24.0,23,Sun,Asia/late
+2023-12-12T16:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,38.4,16,Tue,NY
+2023-12-13T00:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,22.7,0,Wed,Asia/late
+2023-12-15T02:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,31.5,2,Fri,Asia/late
+2023-12-15T07:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,32.1,7,Fri,London
+2023-12-15T07:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,31.5,7,Fri,London
+2023-12-15T14:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,49.2,14,Fri,London/NY overlap
+2023-12-15T20:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SESSION_BLOCKED,inside blocked session window,1.7,,29.8,20,Fri,NY
+2023-12-15T20:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,29.8,20,Fri,NY
+2023-12-18T00:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.0,,26.6,0,Mon,Asia/late
+2023-12-18T02:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2,,28.2,2,Mon,Asia/late
+2023-12-20T13:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,24.3,13,Wed,London/NY overlap
+2023-12-21T09:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.6,,25.8,9,Thu,London
+2023-12-22T04:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,22.9,4,Fri,Asia/late
+2023-12-22T08:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,24.0,8,Fri,London
+2023-12-22T08:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.1,,24.0,8,Fri,London
+2023-12-22T13:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,22.9,13,Fri,London/NY overlap
+2023-12-25T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 3.4 > cap 2.0 pips,3.4,,17.2,23,Mon,Asia/late
+2023-12-25T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,3.4,,17.2,23,Mon,Asia/late
+2023-12-26T05:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,15.4,5,Tue,Asia/late
+2023-12-26T06:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,14.0,6,Tue,London
+2023-12-26T06:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 47.11718428480538790603503124 > cap 46.410194834360897,1.7,,14.0,6,Tue,London
+2023-12-26T10:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.4,,13.5,10,Tue,London
+2023-12-26T10:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 48.91759432935010924009638420 > cap 46.410194834360897,1.4,,13.5,10,Tue,London
+2023-12-26T11:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,13.5,11,Tue,London
+2023-12-26T11:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,MARGIN_BUFFER,margin 48.91707908499257162324958996 > cap 46.410194834360897,1.7,,13.5,11,Tue,London
+2023-12-28T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,,22.2,23,Thu,Asia/late
+2023-12-28T23:00:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,2.2,,22.2,23,Thu,Asia/late
+2023-12-29T02:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.8,,24.1,2,Fri,Asia/late
+2023-12-29T03:30:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.5,,22.3,3,Fri,Asia/late
+2023-12-29T04:15:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,21.2,4,Fri,Asia/late
+2023-12-29T11:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.9,,23.7,11,Fri,London
+2023-12-29T14:45:00+00:00,USD_JPY,M15,train,0.1.0-c022,short,DRAWDOWN_LIMIT,drawdown 8.2154% >= cap 8.0%,1.7,,27.6,14,Fri,London/NY overlap

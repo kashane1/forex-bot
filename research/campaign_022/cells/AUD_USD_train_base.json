@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "trade_count": 166,
+    "total_return_pct": -3.3615600000000745,
+    "max_drawdown_pct": -8.096963225106165,
+    "profit_factor": 0.8807835947535928,
+    "expectancy_r": -0.07568317679182725,
+    "win_rate": 0.3253012048192771,
+    "average_spread_paid_pips": 1.3885542168674698
+  },
+  "trades_path": "backtests/CAMPAIGN_022_h4_h1_pullback_resolution/train/base/c022_AUD_USD_train_base_trades.csv"
+}
