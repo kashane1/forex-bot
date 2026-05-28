@@ -13,6 +13,11 @@ from forex_bot.research.lifecycle_features import (
     missing_field_counts,
     pip_size,
     price_based_r,
+    record_from_trade_row,
+    records_from_trade_rows,
+    session_bucket_from_utc,
+    weekday_from,
+    write_lifecycle_features_csv,
 )
 
 
@@ -125,6 +130,56 @@ def test_derive_stop_distance_pips():
     assert derive_stop_distance_pips("EUR_USD", 1.10000, 1.10200) == pytest.approx(20.0)
     assert derive_stop_distance_pips("USD_JPY", 110.00, 110.13) == pytest.approx(13.0)
     assert derive_stop_distance_pips("EUR_USD", None, 1.1) is None
+
+
+def test_session_bucket_and_weekday_derivation():
+    assert session_bucket_from_utc(datetime(2024, 1, 2, 3, 0, tzinfo=UTC)) == "asia"
+    assert session_bucket_from_utc(datetime(2024, 1, 2, 9, 0, tzinfo=UTC)) == "london"
+    assert session_bucket_from_utc(datetime(2024, 1, 2, 14, 0, tzinfo=UTC)) == "london_ny_overlap"
+    assert session_bucket_from_utc(datetime(2024, 1, 2, 18, 0, tzinfo=UTC)) == "new_york"
+    assert session_bucket_from_utc(datetime(2024, 1, 2, 22, 0, tzinfo=UTC)) == "late"
+    assert session_bucket_from_utc(None) is None
+    # 2024-01-02 is a Tuesday
+    assert weekday_from(datetime(2024, 1, 2, 0, 0, tzinfo=UTC)) == "Tue"
+    assert weekday_from(None) is None
+
+
+def test_record_from_trade_row_uses_corrected_r_for_jpy():
+    # A USD_JPY full-stop row: source r_multiple is the buggy ~-0.009, but the
+    # exporter must recompute the corrected price-based R = -1.0.
+    row = {
+        "instrument": "USD_JPY", "side": "short",
+        "entry_time": "2021-07-09T10:00:00+00:00",
+        "exit_time": "2021-07-09T13:45:00+00:00",
+        "entry_price": "110.0100", "exit_price": "110.140", "stop_price": "110.140",
+        "r_multiple": "-0.00908", "bars_held": "16", "spread_paid_pips": "1.2",
+        "exit_reason": "stop",
+    }
+    rec = record_from_trade_row(row, campaign_id="CAMPAIGN_022",
+                                strategy_name="h4_h1_pullback_resolution_entry", split="train")
+    assert rec.result_r == pytest.approx(-1.0, abs=1e-6)  # corrected, not -0.009
+    assert rec.instrument == "USD_JPY"
+    assert rec.stop_distance_pips == pytest.approx(13.0)
+    assert rec.session_bucket == "london"  # 10:00 UTC
+    assert rec.weekday == "Fri"  # 2021-07-09 is a Friday
+    # MFE/MAE + signal features not in source -> explicitly None
+    assert rec.mfe_r is None and rec.h4_adx_at_entry is None
+
+
+def test_records_export_roundtrip_csv(tmp_path):
+    rows = [
+        {"instrument": "EUR_USD", "side": "long", "entry_time": "2024-01-02T09:00:00+00:00",
+         "exit_time": "2024-01-02T12:00:00+00:00", "entry_price": "1.1000",
+         "exit_price": "1.1050", "stop_price": "1.0950", "bars_held": "12",
+         "exit_reason": "time", "spread_paid_pips": "0.8"},
+    ]
+    recs = records_from_trade_rows(rows, campaign_id="CAMPAIGN_022", split="validation")
+    out = write_lifecycle_features_csv(recs, tmp_path / "feat.csv")
+    assert out.exists()
+    text = out.read_text()
+    assert text.splitlines()[0] == ",".join(CSV_COLUMNS)  # canonical header
+    # result_r corrected: (1.1050-1.1000)/(1.1000-1.0950) = +1.0
+    assert recs[0].result_r == pytest.approx(1.0)
 
 
 def test_missing_field_counts():

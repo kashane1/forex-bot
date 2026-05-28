@@ -39,6 +39,10 @@ from forex_bot.research.campaign_022_loader import (
     load_c022_frames,
 )
 from forex_bot.research.execution_realism import FillTiming, parse_research_metadata
+from forex_bot.research.lifecycle_features import (
+    records_from_trade_rows,
+    write_lifecycle_features_csv,
+)
 from forex_bot.risk.policy import RiskEngine
 from forex_bot.strategies.h4_h1_pullback_resolution_entry import (
     H4H1PullbackResolutionEntryStrategy,
@@ -197,6 +201,9 @@ class CampaignCtx:
     strategy_cfg: dict[str, Any]
     data_provenance: dict[str, Any]
     fill_timing: str = "next_bar_open"
+    # Opt-in diagnostic export of lifecycle features alongside trades. Default
+    # OFF: never changes the canonical trade/metric output or any verdict.
+    emit_lifecycle_features: bool = False
     runs: list[RunRecord] = field(default_factory=list)
     all_trades: list[pd.DataFrame] = field(default_factory=list)
     _frame_cache: dict[tuple[str, str], C022Frames] = field(default_factory=dict)
@@ -229,6 +236,23 @@ def _frames_for(ctx: CampaignCtx, instrument: str, split: str) -> C022Frames:
             ctx.store, instrument, from_dt=_parse(frm), to_dt=_parse(to)
         )
     return ctx._frame_cache[key]
+
+
+def _emit_lifecycle_features(
+    trades_df: pd.DataFrame, sub: Path, label: str, split: str
+) -> None:
+    """Opt-in diagnostic side-output: a compact lifecycle-features CSV next to the
+    canonical trades CSV. Pure post-processing — never touches strategy logic,
+    frozen parameters, the trades CSV, or any metric/verdict."""
+    records = records_from_trade_rows(
+        trades_df.to_dict("records"),
+        campaign_id="CAMPAIGN_022",
+        strategy_name=EXPECTED_STRATEGY,
+        split=split,
+    )
+    out = sub / f"{label}_lifecycle_features.csv"
+    write_lifecycle_features_csv(records, out)
+    print(f"  [diagnostic] wrote {out.relative_to(ROOT)} ({len(records)} rows)")
 
 
 def run_pair_split(
@@ -308,6 +332,8 @@ def run_pair_split(
     trades_df = pd.read_csv(paths["trades_csv"]) if Path(paths["trades_csv"]).exists() else pd.DataFrame()
     if not trades_df.empty:
         ctx.all_trades.append(trades_df)
+        if ctx.emit_lifecycle_features:
+            _emit_lifecycle_features(trades_df, sub, label, split)
     rec = RunRecord(
         split=split,
         cost_regime=regime_name,
@@ -508,13 +534,27 @@ def preflight(ctx: CampaignCtx) -> dict[str, Any]:
     }
 
 
-def main() -> int:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="CAMPAIGN_022 runner")
     parser.add_argument("--preflight-only", action="store_true")
     parser.add_argument("--validate-config", action="store_true")
     parser.add_argument(
+        "--emit-lifecycle-features",
+        action="store_true",
+        help=(
+            "Opt-in: also write a compact *_lifecycle_features.csv next to each "
+            "trades CSV (diagnostic only; default OFF; no effect on trades, "
+            "metrics, frozen parameters, or verdict)."
+        ),
+    )
+    parser.add_argument(
         "command", nargs="?", choices=["train-validation", "test", "full"],
     )
+    return parser
+
+
+def main() -> int:
+    parser = build_parser()
     args = parser.parse_args()
 
     if args.validate_config:
@@ -525,6 +565,7 @@ def main() -> int:
         return 0
 
     ctx = load_ctx()
+    ctx.emit_lifecycle_features = bool(args.emit_lifecycle_features)
 
     if args.preflight_only:
         pf = preflight(ctx)

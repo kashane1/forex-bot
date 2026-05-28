@@ -21,9 +21,11 @@ verdict, and is not imported by any broker/executor/live path.
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+import csv
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, fields
 from datetime import datetime
+from pathlib import Path
 
 __all__ = [
     "CSV_COLUMNS",
@@ -32,6 +34,11 @@ __all__ = [
     "missing_field_counts",
     "pip_size",
     "price_based_r",
+    "record_from_trade_row",
+    "records_from_trade_rows",
+    "session_bucket_from_utc",
+    "weekday_from",
+    "write_lifecycle_features_csv",
 ]
 
 
@@ -205,3 +212,142 @@ def missing_field_counts(records: list[LifecycleFeatureRecord]) -> dict[str, int
             counts[f.name] = missing
     counts["_total_records"] = len(records)
     return counts
+
+
+# Coarse FX session buckets by UTC hour (diagnostic only — approximate windows).
+def session_bucket_from_utc(dt: datetime | None) -> str | None:
+    if dt is None:
+        return None
+    h = dt.hour
+    if 0 <= h < 7:
+        return "asia"
+    if 7 <= h < 12:
+        return "london"
+    if 12 <= h < 16:
+        return "london_ny_overlap"
+    if 16 <= h < 21:
+        return "new_york"
+    return "late"
+
+
+def weekday_from(dt: datetime | None) -> str | None:
+    if dt is None:
+        return None
+    return ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")[dt.weekday()]
+
+
+def _f(m: Mapping[str, object], *keys: str) -> float | None:
+    for k in keys:
+        v = m.get(k)
+        if v is not None and v != "":
+            try:
+                return float(v)  # type: ignore[arg-type]
+            except (ValueError, TypeError):
+                return None
+    return None
+
+
+def _i(m: Mapping[str, object], *keys: str) -> int | None:
+    for k in keys:
+        v = m.get(k)
+        if v is not None and v != "":
+            try:
+                return int(float(v))  # type: ignore[arg-type]
+            except (ValueError, TypeError):
+                return None
+    return None
+
+
+def _s(m: Mapping[str, object], *keys: str) -> str | None:
+    for k in keys:
+        v = m.get(k)
+        if v is not None and v != "":
+            return str(v)
+    return None
+
+
+def _dt(m: Mapping[str, object], *keys: str) -> datetime | None:
+    raw = _s(m, *keys)
+    if raw is None:
+        return None
+    try:
+        return datetime.fromisoformat(raw)
+    except ValueError:
+        return None
+
+
+def record_from_trade_row(
+    row: Mapping[str, object],
+    *,
+    campaign_id: str,
+    strategy_name: str | None = None,
+    split: str | None = None,
+) -> LifecycleFeatureRecord:
+    """Map a campaign trade CSV row (C022-style columns) to a feature record.
+
+    `result_r` is recomputed with the **corrected pair-agnostic** convention
+    (`price_based_r`), deliberately not copying the source `r_multiple` (which
+    carries the USD-base scaling quirk — see the C022 R-multiple audit). MFE/MAE
+    and HTF signal features are left **None** (not present in historical trades);
+    they are populated only by instrumented future runs / MFE-MAE reconstruction.
+    `weekday` and `session_bucket` are derived from `entry_time` (no fabrication).
+    """
+    instrument = _s(row, "instrument")
+    side = _s(row, "side")
+    entry_price = _f(row, "entry_price")
+    exit_price = _f(row, "exit_price")
+    stop_price = _f(row, "stop_price", "initial_stop_price")
+    entry_time = _dt(row, "entry_time")
+
+    result_r = None
+    if side and entry_price is not None and exit_price is not None and stop_price is not None:
+        result_r = price_based_r(side, entry_price, exit_price, stop_price)
+
+    return LifecycleFeatureRecord(
+        campaign_id=campaign_id,
+        strategy_name=strategy_name,
+        split=split,
+        instrument=instrument,
+        side=side,
+        entry_time=entry_time,
+        exit_time=_dt(row, "exit_time"),
+        entry_price=entry_price,
+        exit_price=exit_price,
+        initial_stop_price=stop_price,
+        stop_distance_pips=derive_stop_distance_pips(instrument, entry_price, stop_price),
+        spread_pips=_f(row, "spread_paid_pips", "spread_pips"),
+        bars_held=_i(row, "bars_held"),
+        result_r=result_r,
+        exit_reason=_s(row, "exit_reason"),
+        session_bucket=session_bucket_from_utc(entry_time),
+        weekday=weekday_from(entry_time),
+    )
+
+
+def records_from_trade_rows(
+    rows: Iterable[Mapping[str, object]],
+    *,
+    campaign_id: str,
+    strategy_name: str | None = None,
+    split: str | None = None,
+) -> list[LifecycleFeatureRecord]:
+    return [
+        record_from_trade_row(
+            row, campaign_id=campaign_id, strategy_name=strategy_name, split=split
+        )
+        for row in rows
+    ]
+
+
+def write_lifecycle_features_csv(
+    records: Iterable[LifecycleFeatureRecord], path: str | Path
+) -> Path:
+    """Write records to a compact CSV with the canonical `CSV_COLUMNS` header."""
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with p.open("w", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=list(CSV_COLUMNS))
+        writer.writeheader()
+        for rec in records:
+            writer.writerow(rec.to_csv_row())
+    return p
