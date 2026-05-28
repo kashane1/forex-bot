@@ -24,6 +24,12 @@ from forex_bot.domain.candles import Candle
 MATERIALIZED_FROM_M1 = ("M5", "M15", "H1", "H4")
 MATERIALIZED_SOURCE = "m1_materialized"
 NATIVE_H4_SOURCES_PRESERVED = frozenset({"oanda-practice", "oanda-practice-readonly"})
+STORAGE_GRANULARITY = {
+    "M5": "M5",
+    "M15": "M15",
+    "H1": "H1",
+    "H4": "H4M1",
+}
 MISSING_POLICY = "omit"
 AGGREGATION_CONFIG = {
     "source_granularity": "M1",
@@ -88,10 +94,13 @@ def _decimal_to_float(value: Decimal | None) -> float | None:
     return None if value is None else float(value)
 
 
-def candle_to_record(candle: Candle, *, fetch_batch_id: str) -> CandleRecord:
+def candle_to_record(
+    candle: Candle, *, fetch_batch_id: str, storage_granularity: str | None = None
+) -> CandleRecord:
+    gran = storage_granularity or candle.granularity
     return CandleRecord(
         instrument=candle.instrument,
-        granularity=candle.granularity,
+        granularity=gran,
         time_utc=candle.time.astimezone(UTC),
         complete=candle.complete,
         volume=int(candle.volume),
@@ -117,9 +126,10 @@ def _incremental_start(
     target: str,
     default_start: datetime,
 ) -> datetime:
+    storage_gran = STORAGE_GRANULARITY[target]
     last = store.max_candle_time(
         instrument=instrument,
-        granularity=target,
+        granularity=storage_gran,
         source=MATERIALIZED_SOURCE,
     )
     if last is None:
@@ -208,7 +218,13 @@ def materialize_pair(
                     stats.first_utc = ts
                 if stats.last_utc is None or ts > stats.last_utc:
                     stats.last_utc = ts
-                pending[target].append(candle_to_record(candle, fetch_batch_id=run))
+                pending[target].append(
+                    candle_to_record(
+                        candle,
+                        fetch_batch_id=run,
+                        storage_granularity=STORAGE_GRANULARITY[target],
+                    )
+                )
                 if len(pending[target]) >= batch_size and not dry_run:
                     _flush_target(store, target, pending[target], fetched_at=fetched_at)
                     result.targets[target].rows_upserted += len(pending[target])
@@ -233,15 +249,7 @@ def _flush_target(
     *,
     fetched_at: datetime,
 ) -> None:
-    if target == "H4":
-        store.upsert_materialized_candles(
-            records,
-            source=MATERIALIZED_SOURCE,
-            fetched_at_utc=fetched_at,
-            preserve_sources=NATIVE_H4_SOURCES_PRESERVED,
-        )
-    else:
-        store.upsert_candles(records, source=MATERIALIZED_SOURCE, fetched_at_utc=fetched_at)
+    store.upsert_candles(records, source=MATERIALIZED_SOURCE, fetched_at_utc=fetched_at)
 
 
 def verify_materialized_pair(
@@ -270,9 +278,10 @@ def verify_materialized_pair(
         "status": "PASS",
     }
     for target in targets:
+        storage_gran = STORAGE_GRANULARITY[target]
         stored_rows = store.query_candles(
             instrument=instrument,
-            granularity=target,
+            granularity=storage_gran,
             start_utc=from_utc,
             end_utc=to_utc,
             source=MATERIALIZED_SOURCE,
@@ -292,9 +301,9 @@ def verify_materialized_pair(
         for ts in sorted(set(expected) & set(stored)):
             exp = expected[ts]
             got = stored[ts]
-            for field in ("bid_o", "bid_h", "bid_l", "bid_c", "ask_o", "ask_h", "ask_l", "ask_c"):
-                ev = _decimal_to_float(getattr(exp, field))
-                gv = _decimal_to_float(getattr(got, field))
+            for price_field in ("bid_o", "bid_h", "bid_l", "bid_c", "ask_o", "ask_h", "ask_l", "ask_c"):
+                ev = _decimal_to_float(getattr(exp, price_field))
+                gv = _decimal_to_float(getattr(got, price_field))
                 if ev is None and gv is None:
                     continue
                 if ev is None or gv is None or abs(ev - gv) > OHLC_TOLERANCE:

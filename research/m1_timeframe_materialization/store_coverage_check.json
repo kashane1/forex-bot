@@ -1,0 +1,188 @@
+{
+  "checked_at_utc": "2026-05-28T03:16:06.396103+00:00",
+  "pairs": {
+    "AUD_USD": {
+      "status": "PASS",
+      "targets": {
+        "H1": {
+          "last_utc": "2026-05-26T19:00:00+00:00",
+          "row_count": 24774,
+          "storage_granularity": "H1"
+        },
+        "H4": {
+          "last_utc": "2026-05-26T13:00:00+00:00",
+          "row_count": 4362,
+          "storage_granularity": "H4M1"
+        },
+        "M15": {
+          "last_utc": "2026-05-26T23:45:00+00:00",
+          "row_count": 109904,
+          "storage_granularity": "M15"
+        },
+        "M5": {
+          "last_utc": "2026-05-26T23:55:00+00:00",
+          "row_count": 348717,
+          "storage_granularity": "M5"
+        }
+      }
+    },
+    "EUR_USD": {
+      "status": "PASS",
+      "targets": {
+        "H1": {
+          "last_utc": "2026-05-26T20:00:00+00:00",
+          "row_count": 27249,
+          "storage_granularity": "H1"
+        },
+        "H4": {
+          "last_utc": "2026-05-26T17:00:00+00:00",
+          "row_count": 5234,
+          "storage_granularity": "H4M1"
+        },
+        "M15": {
+          "last_utc": "2026-05-26T23:45:00+00:00",
+          "row_count": 116628,
+          "storage_granularity": "M15"
+        },
+        "M5": {
+          "last_utc": "2026-05-26T23:55:00+00:00",
+          "row_count": 360972,
+          "storage_granularity": "M5"
+        }
+      }
+    },
+    "GBP_USD": {
+      "status": "PASS",
+      "targets": {
+        "H1": {
+          "last_utc": "2026-05-26T23:00:00+00:00",
+          "row_count": 26758,
+          "storage_granularity": "H1"
+        },
+        "H4": {
+          "last_utc": "2026-05-26T17:00:00+00:00",
+          "row_count": 5186,
+          "storage_granularity": "H4M1"
+        },
+        "M15": {
+          "last_utc": "2026-05-26T23:45:00+00:00",
+          "row_count": 115243,
+          "storage_granularity": "M15"
+        },
+        "M5": {
+          "last_utc": "2026-05-26T23:55:00+00:00",
+          "row_count": 357741,
+          "storage_granularity": "M5"
+        }
+      }
+    },
+    "NZD_USD": {
+      "status": "PASS",
+      "targets": {
+        "H1": {
+          "last_utc": "2026-05-26T18:00:00+00:00",
+          "row_count": 23856,
+          "storage_granularity": "H1"
+        },
+        "H4": {
+          "last_utc": "2026-05-26T09:00:00+00:00",
+          "row_count": 4199,
+          "storage_granularity": "H4M1"
+        },
+        "M15": {
+          "last_utc": "2026-05-26T23:45:00+00:00",
+          "row_count": 110462,
+          "storage_granularity": "M15"
+        },
+        "M5": {
+          "last_utc": "2026-05-26T23:55:00+00:00",
+          "row_count": 351408,
+          "storage_granularity": "M5"
+        }
+      }
+    },
+    "USD_CAD": {
+      "status": "PASS",
+      "targets": {
+        "H1": {
+          "last_utc": "2026-05-26T20:00:00+00:00",
+          "row_count": 26405,
+          "storage_granularity": "H1"
+        },
+        "H4": {
+          "last_utc": "2026-05-26T17:00:00+00:00",
+          "row_count": 5015,
+          "storage_granularity": "H4M1"
+        },
+        "M15": {
+          "last_utc": "2026-05-26T23:45:00+00:00",
+          "row_count": 114562,
+          "storage_granularity": "M15"
+        },
+        "M5": {
+          "last_utc": "2026-05-26T23:55:00+00:00",
+          "row_count": 356992,
+          "storage_granularity": "M5"
+        }
+      }
+    },
+    "USD_CHF": {
+      "status": "PASS",
+      "targets": {
+        "H1": {
+          "last_utc": "2026-05-26T22:00:00+00:00",
+          "row_count": 23400,
+          "storage_granularity": "H1"
+        },
+        "H4": {
+          "last_utc": "2026-05-26T13:00:00+00:00",
+          "row_count": 4039,
+          "storage_granularity": "H4M1"
+        },
+        "M15": {
+          "last_utc": "2026-05-26T23:45:00+00:00",
+          "row_count": 105604,
+          "storage_granularity": "M15"
+        },
+        "M5": {
+          "last_utc": "2026-05-26T23:55:00+00:00",
+          "row_count": 336541,
+          "storage_granularity": "M5"
+        }
+      }
+    },
+    "USD_JPY": {
+      "status": "PASS",
+      "targets": {
+        "H1": {
+          "last_utc": "2026-05-26T23:00:00+00:00",
+          "row_count": 28013,
+          "storage_granularity": "H1"
+        },
+        "H4": {
+          "last_utc": "2026-05-26T17:00:00+00:00",
+          "row_count": 5448,
+          "storage_granularity": "H4M1"
+        },
+        "M15": {
+          "last_utc": "2026-05-26T23:45:00+00:00",
+          "row_count": 118035,
+          "storage_granularity": "M15"
+        },
+        "M5": {
+          "last_utc": "2026-05-26T23:55:00+00:00",
+          "row_count": 362519,
+          "storage_granularity": "M5"
+        }
+      }
+    }
+  },
+  "source": "m1_materialized",
+  "status": "PASS",
+  "targets": [
+    "M5",
+    "M15",
+    "H1",
+    "H4"
+  ]
+}

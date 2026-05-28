@@ -332,8 +332,7 @@ ON CONFLICT (instrument, granularity, time_utc) DO UPDATE SET
             return 0
         with self.connection() as conn:
             with conn.cursor() as cur:
-                for row in rows:
-                    cur.execute(sql, row)
+                cur.executemany(sql, rows)
             commit = getattr(conn, "commit", None)
             if callable(commit):
                 commit()
@@ -430,10 +429,10 @@ WHERE {self.config.schema}.candles.source NOT IN ({", ".join("%s" for _ in prese
         if not rows:
             return 0
         preserve_params = tuple(preserve)
+        batched = [row + preserve_params for row in rows]
         with self.connection() as conn:
             with conn.cursor() as cur:
-                for row in rows:
-                    cur.execute(sql, row + preserve_params)
+                cur.executemany(sql, batched)
             commit = getattr(conn, "commit", None)
             if callable(commit):
                 commit()
