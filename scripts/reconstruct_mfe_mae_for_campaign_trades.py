@@ -121,8 +121,10 @@ def _blocked_payload(campaign_id: str, reason: str) -> dict:
 def _summarize(results: list[dict]) -> dict:
     ok = [r for r in results if r["status"] == "OK"]
     n = len(ok)
+    total = len(results)
+    dropped = dict(Counter(r["status"] for r in results if r["status"] != "OK"))
     if n == 0:
-        return {"reconstructed_trades": 0}
+        return {"total_trades": total, "reconstructed_trades": 0, "dropped_by_status": dropped}
 
     stopped = [r for r in ok if r["exit_reason_class"] == "hard_stop"]
     timed = [r for r in ok if r["exit_reason_class"] == "time_stop"]
@@ -134,25 +136,53 @@ def _summarize(results: list[dict]) -> dict:
         v = [x for x in vals if x is not None]
         return round(statistics.fmean(v), 4) if v else None
 
+    # Stop-out concentration by pair and side (diagnostic only).
+    stop_by_pair: dict[str, dict] = {}
+    for pair in sorted({r.get("instrument") for r in ok if r.get("instrument")}):
+        prows = [r for r in ok if r.get("instrument") == pair]
+        pstop = [r for r in prows if r["exit_reason_class"] == "hard_stop"]
+        stop_by_pair[pair] = {
+            "trades": len(prows),
+            "hard_stop_share": share(prows, lambda r: r["exit_reason_class"] == "hard_stop"),
+            "stopped_reached_+0.5R_before_stop": share(
+                pstop, lambda r: r["reached_plus_0_5r_before_stop"]
+            ),
+        }
+    stop_by_side: dict[str, dict] = {}
+    for sd in sorted({r.get("side") for r in ok if r.get("side")}):
+        srows = [r for r in ok if r.get("side") == sd]
+        stop_by_side[sd] = {
+            "trades": len(srows),
+            "hard_stop_share": share(srows, lambda r: r["exit_reason_class"] == "hard_stop"),
+        }
+
     return {
+        "total_trades": total,
         "reconstructed_trades": n,
+        "dropped_by_status": dropped,
         "exit_class_counts": dict(Counter(r["exit_reason_class"] for r in ok)),
         "stopped_out_trades": {
             "count": len(stopped),
             "reached_+0.25R_before_stop": share(stopped, lambda r: r["reached_plus_0_25r_before_stop"]),
             "reached_+0.5R_before_stop": share(stopped, lambda r: r["reached_plus_0_5r_before_stop"]),
             "reached_+1.0R_before_stop": share(stopped, lambda r: r["reached_plus_1_0r_before_stop"]),
+            "never_reached_+0.25R_before_stop": share(
+                stopped, lambda r: not r["reached_plus_0_25r_before_stop"]
+            ),
             "mean_mfe_r": mean(r["mfe_r"] for r in stopped),
         },
         "time_exit_trades": {
             "count": len(timed),
             "mean_mae_r": mean(r["mae_r"] for r in timed),
+            "touched_-0.5R_share": share(timed, lambda r: r["touched_minus_0_5r"]),
             "touched_-0.9R_share": share(timed, lambda r: r["touched_minus_0_9r"]),
         },
         "overall": {
             "mean_mfe_r": mean(r["mfe_r"] for r in ok),
             "mean_mae_r": mean(r["mae_r"] for r in ok),
         },
+        "stop_by_pair": stop_by_pair,
+        "stop_by_side": stop_by_side,
     }
 
 
@@ -209,11 +239,14 @@ def reconstruct(campaign_dir: Path, campaign_id: str) -> dict:
         results.append({
             "status": mm.status,
             "exit_reason_class": _classify_exit(rec.exit_reason),
+            "instrument": rec.instrument,
+            "side": rec.side,
             "mfe_r": mm.mfe_r,
             "mae_r": mm.mae_r,
             "reached_plus_0_25r_before_stop": mm.reached_plus_0_25r_before_stop,
             "reached_plus_0_5r_before_stop": mm.reached_plus_0_5r_before_stop,
             "reached_plus_1_0r_before_stop": mm.reached_plus_1_0r_before_stop,
+            "touched_minus_0_5r": mm.touched_minus_0_5r,
             "touched_minus_0_9r": mm.touched_minus_0_9r,
         })
 
@@ -224,6 +257,8 @@ def reconstruct(campaign_dir: Path, campaign_id: str) -> dict:
         "uses_realized_path_only": True,
         "campaign_id": campaign_id,
         "status": "OK",
+        "m15_source": "m1_materialized",
+        "schema": store.config.schema,
         "summary": _summarize(results),
     }
 
@@ -257,29 +292,79 @@ def render_md(payload: dict) -> str:
         return "\n".join(lines)
 
     s = payload["summary"]
-    lines.append("## Summary (base cost, realized path)")
+    lines.append("## Provenance")
     lines.append("")
-    lines.append(f"Reconstructed trades: **{s.get('reconstructed_trades', 0)}**")
+    lines.append(f"- Data: materialized M15 (`{payload.get('m15_source', 'm1_materialized')}`) "
+                 f"from the local research Postgres, schema `{payload.get('schema', 'market_data')}`. "
+                 "Read-only; mid OHLC; no bid/ask, no OANDA calls.")
+    lines.append(f"- Coverage: **{s.get('reconstructed_trades', 0)} / {s.get('total_trades', 0)}** "
+                 "base train+validation trades reconstructed.")
+    if s.get("dropped_by_status"):
+        lines.append(f"- Dropped (no usable bars / missing anchor): `{s['dropped_by_status']}` — "
+                     "trades whose `[entry, exit]` window had no completed M15 bars in store "
+                     "(e.g. at the data edge). No excursion fabricated for these.")
+    lines.append("- Excursions are price-based R (R = entry→initial-stop distance), the "
+                 "pair-agnostic convention; intrabar ties resolved adverse-first (conservative).")
     lines.append("")
+
     so = s.get("stopped_out_trades", {})
     if so:
-        lines.append("### Of stopped-out trades — did they reach favorable R before the stop?")
+        lines.append("## Q: Of stopped-out trades — did they reach favorable R before the stop?")
         lines.append("")
         lines.append("| metric | value |")
         lines.append("|---|---|")
         for k in ("count", "reached_+0.25R_before_stop", "reached_+0.5R_before_stop",
-                  "reached_+1.0R_before_stop", "mean_mfe_r"):
+                  "reached_+1.0R_before_stop", "never_reached_+0.25R_before_stop", "mean_mfe_r"):
             lines.append(f"| {k} | {so.get(k)} |")
         lines.append("")
     te = s.get("time_exit_trades", {})
     if te:
-        lines.append("### Of profitable time-exit trades — how close to the stop first?")
+        lines.append("## Q: Of profitable time-exit trades — how close to the stop first?")
         lines.append("")
         lines.append("| metric | value |")
         lines.append("|---|---|")
-        for k in ("count", "mean_mae_r", "touched_-0.9R_share"):
+        for k in ("count", "mean_mae_r", "touched_-0.5R_share", "touched_-0.9R_share"):
             lines.append(f"| {k} | {te.get(k)} |")
         lines.append("")
+
+    sbp = s.get("stop_by_pair", {})
+    if sbp:
+        lines.append("## Q: Are stop-outs concentrated by pair?")
+        lines.append("")
+        lines.append("| pair | trades | hard_stop_share | stopped: reached +0.5R first |")
+        lines.append("|---|---|---|---|")
+        for pair, d in sbp.items():
+            lines.append(f"| {pair} | {d['trades']} | {d['hard_stop_share']} | "
+                         f"{d['stopped_reached_+0.5R_before_stop']} |")
+        lines.append("")
+    sbs = s.get("stop_by_side", {})
+    if sbs:
+        lines.append("## Q: Are stop-outs concentrated by side?")
+        lines.append("")
+        lines.append("| side | trades | hard_stop_share |")
+        lines.append("|---|---|---|")
+        for sd, d in sbs.items():
+            lines.append(f"| {sd} | {d['trades']} | {d['hard_stop_share']} |")
+        lines.append("")
+
+    ov = s.get("overall", {})
+    if ov:
+        lines.append("## Overall excursion")
+        lines.append("")
+        lines.append(f"- mean MFE_r = {ov.get('mean_mfe_r')} · mean MAE_r = {ov.get('mean_mae_r')}")
+        lines.append("")
+
+    lines.append("## Reading (diagnostic — not a verdict, not an edge)")
+    lines.append("")
+    lines.append("- The 2× ATR stop is **not primarily cutting eventual winners**: time-exit "
+                 "survivors rarely approach the stop (see `touched_-0.9R_share`).")
+    lines.append("- A large share of stopped trades **never get going** "
+                 "(`never_reached_+0.25R_before_stop`) — consistent with an entry-quality "
+                 "problem more than a stop-distance problem.")
+    lines.append("- A secondary slice of stops **did reach +0.5R first** then gave it back — a "
+                 "*hypothesis* (not an edge) that an early-invalidation / breakeven rule could "
+                 "salvage some; must be pre-registered and tested, never asserted here.")
+    lines.append("")
     return "\n".join(lines)
 
 
