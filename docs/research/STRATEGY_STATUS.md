@@ -142,6 +142,7 @@ strategy is approved.**
 | `lower_timeframe_mtf_confluence_entry 0.1.0-c021` | rejected | NO | NO | NO | CAMPAIGN_021 |
 | `h4_h1_pullback_resolution_entry 0.1.0-c022` | rejected (family RETIRED) | NO | NO | NO | CAMPAIGN_022 |
 | `h4_h1_pullback_resolution_entry 0.1.0-c023` (ADX22 sibling of C022) | scaffold-only (not executed; family RETIRED) | NO | NO | NO | CAMPAIGN_023 (scaffold) |
+| `m5_donchian_htf_confluence_breakout 0.1.0-c024` | scaffold-only (not run) | NO | NO | NO | CAMPAIGN_024 (scaffold) |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
@@ -487,6 +488,28 @@ for the FOMC-block + NFP-falsification analysis.
   authorized** — H4 ADX does not separate C022 winners from losers, so the ADX22
   gate has no evidential support. This remains scaffold-only; status unchanged. See
   [`C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md`](C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md).
+
+### `m5_donchian_htf_confluence_breakout 0.1.0-c024` — M5 Donchian + HTF confluence
+
+- **Status:** scaffold-only — **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED**
+  (no evidence verdict).
+- **Evidence:** None in scaffold sprint. M5 execution (Donchian(20) breakout
+  trigger) with M15 pullback/compression setup + H1/H4M1 trend + D1AGG
+  (native-H4-derived) permissive regime, all via `align_last_completed`
+  (last-completed HTF bars only). Materialized M1-derived M5/M15/H1/H4M1.
+  Preflight + data-feature preflight only.
+- **Paper / demo / live:** NO / NO / NO.
+- **Reason:** Returns to early price-action/Donchian breakout structure but
+  moves the trigger from a blunt H4 channel to a precise M5 channel gated by
+  multi-timeframe agreement; requires an M15 pullback/compression precondition
+  to avoid turnover chasing; `next_bar_open` fills only; single frozen stop
+  (farther of 2.0×ATR and the opposite prior-20-bar channel side) + 48-bar time
+  stop, no TP/trailing/protective. Pair-level diagnostics mandatory; no assumed
+  universal seven-pair edge. Future execution sprint required for any
+  train/validation gates. See
+  [`CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md)
+  and
+  [`CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md).
 
 ### `multi_timeframe_confluence_pullback 0.1.0-c020`
 

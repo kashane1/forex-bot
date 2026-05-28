@@ -330,6 +330,23 @@ map; the linked documents are the authoritative evidence.
 | [`../../tests/unit/test_h4_h1_pullback_resolution_adx22.py`](../../tests/unit/test_h4_h1_pullback_resolution_adx22.py) | Proves C023 == C022 except ADX gate |
 | [`CAMPAIGN_023_ADX22_SIBLING_SCAFFOLD_SUMMARY.md`](CAMPAIGN_023_ADX22_SIBLING_SCAFFOLD_SUMMARY.md) | Scaffold sprint close-out |
 
+## CAMPAIGN_024 M5 Donchian + HTF confluence breakout (scaffold only)
+
+> **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED** — `strategy_evidence: false`,
+> `not_approved: true`. Returns to early Donchian/breakout price-action structure
+> but moves the trigger to **M5** under **M15 setup + H1/H4M1 trend + D1AGG
+> regime** confluence. `next_bar_open` fills; single frozen stop + 48-bar time
+> stop; no TP/trailing/protective. No train/validation/test evidence; no verdict;
+> paper/demo/live blocked. Pair-level diagnostics mandatory.
+
+| document | purpose |
+|---|---|
+| [`CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md) | Plan + baseline audit |
+| [`CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md) | Frozen rules, stop, and gates |
+| [`../../configs/campaign_024_m5_donchian_htf_confluence_breakout.yaml`](../../configs/campaign_024_m5_donchian_htf_confluence_breakout.yaml) | Frozen config (M5; `not_approved: true`) |
+| [`../../src/forex_bot/strategies/m5_donchian_htf_confluence_breakout.py`](../../src/forex_bot/strategies/m5_donchian_htf_confluence_breakout.py) | Pure research strategy module |
+| [`../../tests/unit/test_m5_donchian_htf_confluence_breakout.py`](../../tests/unit/test_m5_donchian_htf_confluence_breakout.py) | Strategy unit tests |
+
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
 > **Implementation infrastructure / data only** — `strategy_evidence: false`. No

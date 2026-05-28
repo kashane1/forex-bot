@@ -1849,6 +1849,20 @@
       "strategy_evidence": false
     },
     {
+      "artifact_id": "CAMPAIGN_024_SCAFFOLD_PLAN",
+      "path": "docs/research/CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_024 M5 Donchian + HTF confluence breakout scaffold plan. strategy_evidence: false; SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_024_PRECOMMIT",
+      "path": "docs/research/CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_024 frozen rules, parameters, stop, and gates. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
       "artifact_id": "CAMPAIGN_021_SCAFFOLD_PLAN",
       "path": "docs/research/CAMPAIGN_021_LTF_MTF_CONFLUENCE_SCAFFOLD_001_PLAN.md",
       "kind": "precommit_design",

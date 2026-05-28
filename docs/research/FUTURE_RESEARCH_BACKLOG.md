@@ -34,6 +34,31 @@ broad-search re-entry gates are met.**
 
 ---
 
+## 0-active-c024. CAMPAIGN_024 M5 Donchian + HTF confluence breakout (SCAFFOLD — 2026-05-28)
+
+- **Candidate.** `m5_donchian_htf_confluence_breakout 0.1.0-c024`. M5 Donchian(20)
+  breakout trigger gated by M15 pullback/compression + H1/H4M1 trend + D1AGG
+  (native-H4-derived) permissive regime; `next_bar_open` fills; single frozen stop
+  (farther of 2.0×ATR and the opposite prior-20-bar channel side) + 48-bar time
+  stop; no TP/trailing/protective.
+- **Status.** **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED.** Scaffold + precommit only;
+  no evidence run; test lockbox closed; paper/demo/live blocked.
+- **Precommit / plan.**
+  [`CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md),
+  [`CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md).
+- **Number reuse / distinctness.** The earlier "C024 NOT_READY" note in the retired
+  C022/C023 family closeout referred to a *pullback-resolution continuation* idea
+  that was never created. This CAMPAIGN_024 is a **different strategy** that now
+  takes the C024 number. It is **not** a same-shaped pullback-resolution campaign
+  (the trigger is a Donchian channel break on M5, not an M15 EMA20 reclaim), so it
+  does **not** reopen the retired family and does not depend on its reopening bar.
+- **Recommended next sprint (only if a human authorizes it).**
+  `research-campaign-024-m5-donchian-htf-confluence-train-validation-001` — train/
+  validation only, no test lockbox unless the precommitted gates **and** Backtrader
+  parity pass.
+
+---
+
 ## 0-retired-c022-c023. H4/H1 pullback resolution family (RETIRED — 2026-05-28)
 
 - **Candidates.** `h4_h1_pullback_resolution_entry` — CAMPAIGN_022 (`0.1.0-c022`,
