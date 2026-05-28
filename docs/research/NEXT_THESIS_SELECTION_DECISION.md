@@ -19,6 +19,53 @@
 Pursued first as a **read-only diagnostic** (presence of confirmation primitives on
 C022 winners vs losers), **not** a full campaign and **not** C024.
 
+## 1a. Scope amendment (2026-05-28) — USD_JPY-only
+
+**The selected lane is unchanged: market-microstructure-style confirmation
+diagnostic.** What changes here is the **scope of the next diagnostic sprint**, which
+is narrowed to **USD_JPY only** (not the seven-pair universe).
+
+### Why USD_JPY-only is justified as a research-scoping decision
+
+- **Seven-pair universal rules have repeatedly failed.** A single static rule across
+  EUR_USD/GBP_USD/USD_JPY/AUD_USD/USD_CAD/USD_CHF/NZD_USD has been rejected across
+  many campaigns (C010, C015–C017, C020–C022). A universal rule may simply be too
+  blunt an instrument for *discovery*; narrowing reduces the chance that a real
+  per-pair effect is averaged away into a basket null.
+- **Single-pair research reduces confounding and speeds iteration.** One pair removes
+  cross-pair spread/volatility/session heterogeneity and shrinks run time, so each
+  diagnostic question is answered faster and more cleanly.
+- **USD_JPY has repeatedly appeared "less bad" / near-flat** in prior failed evidence
+  (never strong enough to promote). That makes it the most defensible single pair to
+  interrogate first — not because it has proven edge (it has not), but because it is
+  the least-uniformly-bad starting point.
+- **USD_JPY is operationally cleaner for eventual demo research** *if* a strategy ever
+  earned it — a single, well-understood instrument is simpler to monitor than a basket.
+  (This is a far-future consideration only; nothing here brings demo closer.)
+- **Pair-specific research is easier to interpret** than broad-basket failure: a
+  USD_JPY-only separation result has a single, inspectable session/macro personality
+  behind it rather than seven superimposed ones.
+- **Still diagnostic only.** This is read-only winner/loser separation analysis on a
+  narrowed scope. It is **not** proof of edge, **not** a campaign, and **not** C024.
+
+### Risks this scope introduces (and how they are bounded)
+
+- **Higher overfit risk.** A single pair invites curve-fitting. Mitigation: the
+  diagnostic still reports per train/validation split, keeps post-hoc labels out of
+  features, and applies the same 0.05 negligibility floor.
+- **Smaller universe / smaller sample.** USD_JPY is ~1/7 of the corpus
+  (≈299 C022 base trades by the MFE/MAE diagnostic). Sample-size preservation is an
+  explicit output of the next sprint; a primitive that separates only on a tiny
+  residual sample is not a positive result.
+- **Stricter walk-forward discipline required later.** If this ever becomes a
+  campaign, it needs a clean train/validation/test lockbox — single-pair results are
+  *more*, not less, demanding of out-of-sample confirmation.
+- **No gate-lowering.** Narrowing to one pair must **not** lower the evidence bar.
+  The five-part C024 readiness bar (§5) applies unchanged; "it's only one pair" is
+  never a reason to relax it.
+- **Not approval-adjacent.** A USD_JPY focus does not mean USD_JPY has edge, does not
+  approve anything, and does not move paper/demo/live any closer.
+
 ## 2. Why selected
 
 1. **It targets the actual diagnosed defect.** The C022 closeout localized the
@@ -61,20 +108,25 @@ C022 winners vs losers), **not** a full campaign and **not** C024.
 
 ## 4. What the next sprint should produce
 
-A **read-only confirmation-primitive diagnostic**, not a campaign:
+A **read-only, USD_JPY-only confirmation-primitive diagnostic** (per §1a), not a
+campaign:
 
 1. An inventory of candidate M15 confirmation primitives (sweep+displacement,
    reclaim+impulse, reclaim+break-of-micro-swing, reclaim+retest-hold, range expansion
-   after compression, failed-reclaim/trap).
+   after compression, failed-reclaim/trap), plus USD_JPY session-aware context
+   (Tokyo/London/NY) and spread/ATR context.
 2. Read-only, decision-bar-anchored, lookahead-safe **detectors** for each
    (no strategy-logic edits; side-agreement / causality checks as in the C022
    reconstruction).
 3. A winner-vs-loser **separation comparison** of each primitive's presence on the
-   existing C022 trade set (same AUC / quintile method as the feature-separation
-   sprint), reported per train/validation split.
-4. A **readiness decision**: does any primitive separate winners from losers in both
-   splits with plausible, non-overfit logic? Output is `READY_FOR_PRECOMMIT` /
-   `NOT_READY` for a future C024 — **no C024 created in that sprint either**.
+   **USD_JPY subset** of the existing C022 trade set (same AUC / quintile method as the
+   feature-separation sprint), reported per train/validation split, **with the USD_JPY
+   sample size reported at every step**.
+4. A **readiness decision**: does any primitive separate USD_JPY winners from losers in
+   both splits, with plausible non-overfit logic, while reducing straight-to-stop
+   behavior and preserving a usable sample? Output is `READY_FOR_PRECOMMIT` /
+   `NOT_READY` for a future **USD_JPY-only** C024 — **no C024 created in that sprint
+   either**.
 
 ## 5. What would count as enough evidence to justify a future C024 precommit
 
@@ -95,6 +147,13 @@ diagnostic shows **all** of:
 
 If those hold, the *next* sprint after that precommits C024 out-of-sample. If they do
 not, Lane D is closed like the pullback family — no campaign, no approval.
+
+**Single-pair note (per §1a).** Under the USD_JPY-only scope, this bar is **not
+relaxed**. Criterion 3 becomes "not session/cost/volatility overfit *within* USD_JPY,"
+and a USD_JPY-only result additionally inherits a heightened generalization burden:
+because it cannot borrow strength from other pairs, any future USD_JPY C024 must show
+its effect survives a clean USD_JPY train/validation/test lockbox. "It's only one
+pair" is never grounds to lower the bar.
 
 ## 6. What is explicitly forbidden
 
