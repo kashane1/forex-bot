@@ -4,8 +4,14 @@
 **Branch:** `infra-lifecycle-feature-capture-and-mfe-mae-execution-001`
 **Type:** infrastructure / research diagnostics — **NOT a strategy campaign.**
 **Outcome:** R-convention bug proven & locked; forward feature-capture schema +
-opt-in C022 exporter delivered; MFE/MAE reconstruction re-attempted and again
-**BLOCKED_LOCAL_DATA**; C023 deferred, C024 not ready.
+opt-in C022 exporter delivered. After a read-only local M15 store was made
+reachable (gitignored `.env` symlink), **MFE/MAE reconstruction and the stop-model
+comparison were EXECUTED** on real candles — verdict: the C022 failure is **entry
+edge, not stop placement** (cost-free baseline still negative; no exit rule clears
+zero). C023 deferred; C024 must be entry-feature-driven, not a stop/exit campaign.
+
+> **Update note.** This summary supersedes the earlier "still blocked" framing:
+> the data dependency was resolved mid-sprint and Phases 1 & 5 were executed.
 
 ## 1. Branch
 
@@ -18,13 +24,19 @@ artifacts; no divergence).
 | phase | hash | title |
 |---|---|---|
 | 0 | `4e92658` | branch, audit, data readiness, plan |
-| 1 | (no commit) | MFE/MAE reconstruction re-attempt — BLOCKED, output byte-identical to committed blocked artifact |
 | 2 | `d31c3e9` | C022 R-multiple convention audit |
 | 3 | `4b765fc` | lifecycle feature-capture schema |
 | 4 | `04a6fd4` | opt-in lifecycle export in C022 runner |
-| 5 | `00320b6` | stop-model comparison still blocked |
-| 6 | `431ad7f` | conclusions + C024 readiness |
-| 7 | (this commit) | final validation + summary |
+| 5 (blocked) | `00320b6` | stop-model comparison — initial blocked note |
+| 6 | `431ad7f` | conclusions + C024 readiness (initial) |
+| 7 | `4c9c6fa` | final validation + summary (initial) |
+| 1 EXEC | `80b5759` | **MFE/MAE reconstruction executed on local M15** |
+| 5 EXEC | `98de354` | **stop-model comparison executed on local M15** |
+| post | (this commit) | conclusions + summary updated to executed outcomes |
+
+(Phases ran 0→7 under the initial "blocked" assumption; after local M15 access was
+granted mid-sprint, Phases 1 and 5 were executed and the conclusion/summary docs
+updated. The DB-independent Phases 2–4 were unaffected.)
 
 ## 3. Files changed by phase
 
@@ -48,21 +60,27 @@ change is the C022 *research runner*, additive and opt-in.)
 
 ## 4. Local data readiness result
 
-**BLOCKED_LOCAL_DATA.** `FOREX_BOT_RESEARCH_DATABASE_URL` unset; no `PG*` env; no
-repo `.env`; Postgres on `:5432` rejects all connections (`fe_sendauth: no password
-supplied`) across tcp/socket, OS-user, and `postgres` roles; `data/bot.sqlite3` has
-0 candle rows; no local candle corpora. Exact unblock command is in the plan doc.
+**Initially BLOCKED, then RESOLVED.** At first probe: env unset, Postgres rejected
+all auth, sqlite empty. After the user authorized a gitignored `.env` symlink, a
+**read-only** local research Postgres (`market_data` schema) became reachable with
+materialized M15 for all 7 pairs spanning 2021-05 → 2026-05 (110k–118k bars/pair),
+fully covering C022's train+validation windows. No OANDA calls; no credentials
+committed or printed.
 
 ## 5. Did C022 MFE/MAE reconstruction complete?
 
-**No — still blocked** (see #4). Re-ran `scripts/reconstruct_mfe_mae_for_campaign_trades.py`;
-it wrote the same `BLOCKED_LOCAL_DATA` status (no fabrication). Logic remains
-implemented + unit-tested (11 synthetic-candle tests).
+**Yes — executed.** Reconstructed **2311 / 2396** base train+val trades (85 dropped
+at data edges, no fabrication). `c022_mfe_mae_summary.json` +
+`CAMPAIGN_022_MFE_MAE_STOP_DIAGNOSTICS.md`.
 
 ## 6. Key MFE/MAE findings
 
-None — blocked. The straight-to-stop vs reached-favorable-first question (the
-decisive one for any stop campaign) remains unanswered pending local data.
+- **Stopped-out trades:** 45.9% never reached +0.25R before the stop; 54.1% reached
+  +0.25R, 36.6% +0.5R, 16.3% +1.0R first (mean MFE before stop +0.47R).
+- **Time-exit winners:** mean MAE −0.40R; only **4.7%** ever touched −0.9R — winners
+  rarely approach the stop, so the stop is not cutting live winners.
+- **Stop-outs uniform** across pairs (0.55–0.61) and sides (long 0.59 / short 0.58)
+  — systemic, not a pair/side artifact.
 
 ## 7. R-multiple convention audit result
 
@@ -99,9 +117,15 @@ trade/metric output, frozen parameters, strategy logic, and verdict are unchange
 
 ## 10. Diagnostic stop-model comparison result
 
-**Not executed — gated on MFE/MAE (blocked).** No counterfactuals fabricated. The
-5 stop families are designed and the Phase 3/4 work now makes their missing inputs
-(ATR-at-entry, pullback/reclaim geometry) capturable in future runs.
+**Executed** (`diagnostic_stop_model_comparison.py` over 2396 fixed entries on local
+M15; new pure `stop_model_sim.py` + 10 tests). Every hard-stop multiple
+(1.5×/2.0×/2.5×/3.0× ATR) and every time-to-invalidation rule sits in a tight
+**negative** band (≈ −0.05 to −0.08R); the **cost-free** mid baseline (−0.073R) is
+already negative vs realized −0.140R (gap ≈ cost drag). **No exit rule lifts
+expectancy toward zero** → exits are second-order; the problem is entry edge.
+Diagnostic sensitivity only — no "best" stop promoted, entries unchanged, no verdict
+changed. (ATR-multiple/invalidation evaluated; structure/reclaim families still need
+future signal-geometry capture.)
 
 ## 11. C023 execute/defer recommendation
 
@@ -110,10 +134,11 @@ MFE/MAE evidence to drive the next design.
 
 ## 12. C024 readiness decision
 
-**Not ready.** Failure point unverified (MFE/MAE blocked) and historical R was just
-shown inconsistent. Prerequisites: unblock M15 data + run reconstruction; one
-instrumented `--emit-lifecycle-features` export; adopt `price_based_r`; then
-classify entry-edge vs stop-geometry.
+**Failure point now verified = entry edge, not exits.** So C024 is **not** a
+stop/exit campaign (exits proven second-order). It may become an *entry-feature*
+campaign only after capturing entry signal features and demonstrating one separates
+winners from losers; if none does, retire the pullback-resolution family rather than
+re-tune it. No C024 created this sprint.
 
 ## 13. Did any verdict change?
 
@@ -131,8 +156,9 @@ enablement performed.
 
 ## 16. Tests & validation commands run
 
-- `pytest tests/ -q` → **1951 passed, 1 skipped, 1 failed** (+28 new tests this
-  sprint; the 1 failure is the pre-existing unrelated `test_c008_entry_comparison_runs`).
+- `pytest tests/ -q` → **1961 passed, 1 skipped, 1 failed** (+38 new tests this
+  sprint: R-convention 8, lifecycle_features 14, runner-export 6, stop_model_sim 10;
+  the 1 failure is the pre-existing unrelated `test_c008_entry_comparison_runs`).
 - `ruff check src tests scripts research` → 23 **pre-existing** errors only; all
   sprint files ruff-clean.
 - `check_research_freeze.py` / `validate_research_archive.py` /
@@ -148,12 +174,14 @@ enablement performed.
 
 ## 18. Remaining blockers
 
-- **MFE/MAE reconstruction (Phase 1) and stop-model comparison (Phase 5)** —
-  `BLOCKED_LOCAL_DATA`: no reachable materialized M15 store. Unblock via the plan
-  command, then both run unchanged.
-- ATR-at-entry / H1 pullback / M15 reclaim geometry are not in *historical* C022
-  artifacts; they require a future instrumented `--emit-lifecycle-features` rerun
-  (now possible) before ATR/structure/reclaim stop variants can be compared.
+- **None for the executed diagnostics** — MFE/MAE and the ATR-multiple /
+  time-to-invalidation stop sweep ran on real M15.
+- **Structure / reclaim stop families** and any **entry-feature separation test**
+  still need signal geometry (ATR-at-entry, H1 pullback, M15 reclaim, ADX) that is
+  absent from *historical* C022 artifacts — they require one instrumented
+  `--emit-lifecycle-features` rerun (now wired). This is the gate for designing C024.
+- DB access depends on the local research Postgres + the gitignored `.env` symlink
+  (not committed); the diagnostics re-run only where that store is reachable.
 
 ## 19. Exact files to review first
 
@@ -168,12 +196,13 @@ enablement performed.
 
 ## 20. Recommended next sprint
 
-**MFE/MAE execution once local M15 is reachable** (the genuinely blocking
-dependency): (a) populate/point to a materialized M15 research store and run
-`reconstruct_mfe_mae_for_campaign_trades.py`; (b) run one C022-style diagnostic
-export with `--emit-lifecycle-features` to capture ATR/pullback/reclaim geometry;
-(c) execute the stop-model comparison (Phase 5) and answer straight-to-stop vs
-reached-favorable-first; (d) classify the failure as entry-edge vs stop-geometry
-and only then design C024 around the verified point. Optionally, a separate,
-explicitly-scoped repair sprint to recompute historical per-pair R with the
-pair-agnostic convention (verdicts unchanged).
+**Entry-feature separation study** (the now-verified failure point): run one
+instrumented C022-style diagnostic export with `--emit-lifecycle-features` to capture
+H4 ADX / H1 pullback depth / M15 reclaim distance / ATR-at-entry / session-regime per
+trade, join to the reconstructed MFE/MAE outcome, and test whether **any** entry
+feature separates winners from losers. If one does → design a single, pre-registered
+entry-filter C024 around it. If none does → conclude the pullback-resolution family
+has no recoverable entry edge and retire it (no C024). Exits are already proven
+second-order, so do **not** spend a campaign on stop tuning. Optionally, a separate
+scoped repair sprint to recompute historical per-pair R with `price_based_r`
+(verdicts unchanged).

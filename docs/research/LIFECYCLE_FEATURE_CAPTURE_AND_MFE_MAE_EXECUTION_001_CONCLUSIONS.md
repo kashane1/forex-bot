@@ -3,54 +3,59 @@
 **Date:** 2026-05-28 · **Sprint:** `infra-lifecycle-feature-capture-and-mfe-mae-execution-001`
 **Type:** diagnostics / infrastructure. Approves nothing, changes no verdict, tunes nothing.
 
+> **Update (data unblocked).** A read-only local materialized M15 store became
+> reachable (env via a gitignored `.env` symlink). Phases 1 and 5 were **executed**
+> against real candles — the conclusions below are now evidence-backed, not gated.
+> Still: no verdict/metric changed, nothing approved, no OANDA calls, mid OHLC only.
+
 ## 1. Was MFE/MAE reconstruction completed or still blocked?
 
-**Still BLOCKED_LOCAL_DATA.** The reconstruction was re-attempted this sprint and
-again could not run: no reachable materialized M15 store
-(`FOREX_BOT_RESEARCH_DATABASE_URL` unset, local Postgres needs a password,
-`data/bot.sqlite3` empty, no local candle corpora). No excursion numbers were
-produced or fabricated. The reconstruction *logic* remains implemented and
-unit-tested (`src/forex_bot/research/mfe_mae.py`, 11 synthetic-candle tests); only
-the data is missing here.
+**Completed.** Reconstructed **2311 / 2396** base train+validation trades from local
+materialized M15 (85 dropped at data edges with zero in-window bars; no fabrication).
+See `CAMPAIGN_022_MFE_MAE_STOP_DIAGNOSTICS.md` / `c022_mfe_mae_summary.json`.
 
-## 2. If completed: straight-to-stop vs first reaching favorable?
+## 2. Straight-to-stop vs first reaching favorable?
 
-**Unanswerable this sprint** (blocked, per #1). This is the single highest-value
-question and the explicit gate for any stop-related campaign. The tooling to
-answer it the moment a populated M15 store is reachable is in place.
+**Mixed, leaning "many never get going."** Of hard-stopped trades: **45.9% never
+reached +0.25R** before being stopped (effectively straight-to-stop), while 54.1%
+reached +0.25R, 36.6% reached +0.5R, and 16.3% reached +1.0R first (mean MFE before
+stop +0.47R). So a large plurality are dead on arrival; a meaningful minority showed
+promise and gave it back.
 
 ## 3. Is the 2× ATR stop too tight, too loose, or inconclusive?
 
-**Inconclusive** on path evidence — and that is the honest state. Realized-outcome
-diagnostics (prior sprint, reproduced exactly) show 60% hard-stop @ −0.86R vs 40%
-time-exit @ +0.96R, which is *consistent with* either "stop too tight" or "entries
-go straight to the stop". The two are only separable with MFE/MAE. No stop verdict
-should be asserted until then.
+**Not the lever — effectively "neither helps."** The executed stop-model sweep
+(fixed entries, exit varied) holds expectancy in a tight **negative** band across
+1.5×/2.0×/2.5×/3.0× ATR (≈ −0.05 to −0.08R); wider stops just enlarge `mean_loss_r`
+without lifting expectancy, tighter stops cut losses but also winners. Independently,
+time-exit winners rarely approach the stop (only **4.7%** ever touch −0.9R), so the
+stop is **not** cutting live winners. The 2× ATR stop is not meaningfully too tight
+or too loose — stop distance is not where the edge is lost.
 
 ## 4. Is a structure stop worth pre-committing later?
 
-**Not yet.** Only if MFE/MAE later shows stopped trades had meaningful favorable
-excursion *before* being stopped (i.e. the stop cut live winners). The Phase 3
-schema + Phase 4 exporter now make the H1/M15 structure geometry capturable, so the
-question becomes answerable in a future instrumented run.
+**No, on current evidence.** Since no ATR-multiple variant lifts expectancy toward
+zero and winners don't approach the stop, there is no signal that a structure-based
+stop would help. (The Phase 3/4 capture still makes it testable later if a *new*
+entry shows different path behavior — but nothing justifies it now.)
 
 ## 5. Is an early-invalidation exit worth pre-committing later?
 
-**Most promising of the stop-side ideas, but still gated.** `time-to-invalidation`
-(cut trades that never reach +0.25R/+0.5R within N bars) needs only the per-bar
-path — no extra signal capture — so it is the cheapest to evaluate once Phase 1 is
-unblocked. It is *not* justified to pre-commit now without that evidence.
+**No, on current evidence.** The executed `time-to-invalidation` variants
+(no +0.25R by 8 bars; no +0.5R by 8/12 bars) all land at ≈ −0.06 to −0.07R — still
+negative, not materially better than baseline. Cutting non-starters earlier reduces
+time-in-market but does not create an edge. Not worth a campaign on its own.
 
 ## 6. Is the bigger issue entry timing rather than stop placement?
 
-**Most likely yes — entry edge, not stop placement** (carried from the prior
-sprint's roadmap and reinforced here). Win rate 32.6% vs ~39% breakeven, uniformly
-negative across all 7 pairs, worsening out-of-sample and under cost stress. The
-Phase 2 R-convention audit further shows the true USD_JPY/USD_CAD losses are
-*larger* than recorded — so corrected aggregates would be **more** negative, not
-less. None of that points to a stop tweak rescuing the system; it points to weak
-entry-edge. Confirmation still requires MFE/MAE to rule out the too-tight-stop
-alternative.
+**Yes — now strongly evidenced.** The decisive result: even the **cost-free** mid
+baseline (no spread/slippage) is already **−0.073R**, and *no* exit rule (any ATR
+multiple, any invalidation horizon) crosses zero. Removing cost and re-shaping the
+stop both fail to reach break-even. Combined with the realized 32.6% win vs ~39%
+breakeven, uniform negativity across all 7 pairs and both sides, and the Phase 2
+finding that true JPY/CAD losses are *larger* than recorded — the edge is missing at
+**entry**, not at the stop. Stop geometry is a second-order knob on a population with
+no entry edge.
 
 ## 7. Should C023 (ADX22) execute now or remain deferred?
 
@@ -61,34 +66,40 @@ that should drive the next design.
 
 ## 8. Is the project ready for C024?
 
-**No.** The lifecycle failure point is still not *verified* (MFE/MAE blocked), and
-the historical R convention was just shown to be inconsistent for USD-base pairs.
-Designing C024 now would be intuition, not evidence.
+**Not as a stop/exit campaign, and not yet as an entry campaign without a new
+hypothesis.** The lifecycle failure point is now *verified* — it is **entry edge**,
+not stop placement (cost-free baseline still negative; no exit rule clears zero). So
+the project is ready to **stop investigating exits** and is ready to *design* an
+entry-focused C024 — but only once that design rests on a signal feature shown to
+separate winners from losers, which the C022 artifacts do not yet contain. C024 must
+not be a re-skinned C022 entry or a stop tweak.
 
-## 9. If not ready, what must happen first?
+## 9. What must happen before C024 is designed?
 
-1. **Unblock local M15 data** and run Phase 1 reconstruction (exact command in the
-   plan) — answer #2/#3.
-2. **Run one instrumented C022-style diagnostic export** with
-   `--emit-lifecycle-features` so ATR-at-entry + H1 pullback + M15 reclaim geometry
-   exist for the stop-model comparison (Phase 5).
-3. **Adopt the pair-agnostic `price_based_r`** convention for all future trade
-   writers so per-pair R is comparable (fixes the Phase 2 quirk going forward).
-4. With that evidence, **classify the failure** as entry-edge vs stop-geometry.
+1. ~~Unblock local M15 data / run reconstruction~~ — **done this sprint.**
+2. ~~Execute the stop-model comparison~~ — **done; exits are not the lever.**
+3. **Capture entry signal features** that can be tested for winner/loser separation:
+   run an instrumented C022-style diagnostic export (`--emit-lifecycle-features`) so
+   H4 ADX, H1 pullback depth, M15 reclaim distance, ATR-at-entry, session/regime are
+   recorded per trade, then test which (if any) actually predicts MFE/MAE outcome.
+4. **Adopt the pair-agnostic `price_based_r`** convention in future writers (the
+   Phase 2 fix) so per-pair R is comparable.
+5. Only if a feature shows real separation → design C024 around *that* entry filter.
+   If none separates, the honest conclusion is the pullback-resolution family has no
+   recoverable entry edge and should be retired, not re-tuned.
 
-## 10. If ready, what should C024 focus on?
+## 10. If/when designing C024, what should it focus on?
 
-Only after #9: design C024 around the **verified** failure point. If MFE/MAE shows
-trades go straight to the stop → the problem is entry selection, and C024 should be
-an *entry-quality* hypothesis (e.g. setup-quality filter justified by a signal
-feature that actually separates winners), **not** a stop tweak. If instead MFE/MAE
-shows winners were stopped before paying → a single pre-registered stop change
-(early-invalidation or a specific ATR multiple) becomes a legitimate campaign. Pick
-exactly one, pre-registered, with the confirming measurement named in advance.
+An **entry-quality** hypothesis, pre-registered, justified by a signal feature with
+demonstrated winner/loser separation in the captured lifecycle features — **not** a
+stop change (proven second-order this sprint) and **not** another intuition-driven
+entry variant. Name the confirming measurement in advance. Exactly one change.
 
-## Recommended stance (unchanged default)
+## Recommended stance
 
-- **C023 remains deferred.**
-- **C024 remains blocked** until MFE/MAE evidence and consistent R capture exist.
-- The next campaign must be designed around a **verified** lifecycle failure, not
+- **C023 remains deferred** (an ADX tweak cannot fix an entry-edge problem).
+- **C024 is not a stop/exit campaign** — exits are proven second-order. It may be an
+  entry-feature campaign *only* once a separating feature is found (step #3 above);
+  otherwise retire the family rather than re-tune it.
+- The next campaign must rest on a **verified, feature-level** entry edge, not
   intuition.
