@@ -1,0 +1,30 @@
+{
+  "AUD_USD": {
+    "htf_blocked_samples": 1,
+    "lookahead_violations": 0
+  },
+  "EUR_USD": {
+    "htf_blocked_samples": 1,
+    "lookahead_violations": 0
+  },
+  "GBP_USD": {
+    "htf_blocked_samples": 2,
+    "lookahead_violations": 0
+  },
+  "NZD_USD": {
+    "htf_blocked_samples": 1,
+    "lookahead_violations": 0
+  },
+  "USD_CAD": {
+    "htf_blocked_samples": 2,
+    "lookahead_violations": 0
+  },
+  "USD_CHF": {
+    "htf_blocked_samples": 6,
+    "lookahead_violations": 0
+  },
+  "USD_JPY": {
+    "htf_blocked_samples": 1,
+    "lookahead_violations": 0
+  }
+}

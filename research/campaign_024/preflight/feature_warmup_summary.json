@@ -1,0 +1,65 @@
+{
+  "AUD_USD": {
+    "d1agg_count": 779,
+    "h1_count": 6730,
+    "h4_count": 1031,
+    "m15_count": 31679,
+    "m5_count": 104582,
+    "status": "PASS",
+    "warmup_ok": true
+  },
+  "EUR_USD": {
+    "d1agg_count": 779,
+    "h1_count": 8308,
+    "h4_count": 1483,
+    "m15_count": 36187,
+    "m5_count": 113267,
+    "status": "PASS",
+    "warmup_ok": true
+  },
+  "GBP_USD": {
+    "d1agg_count": 779,
+    "h1_count": 7479,
+    "h4_count": 1269,
+    "m15_count": 33954,
+    "m5_count": 108947,
+    "status": "PASS",
+    "warmup_ok": true
+  },
+  "NZD_USD": {
+    "d1agg_count": 779,
+    "h1_count": 6917,
+    "h4_count": 1129,
+    "m15_count": 33230,
+    "m5_count": 108099,
+    "status": "PASS",
+    "warmup_ok": true
+  },
+  "USD_CAD": {
+    "d1agg_count": 779,
+    "h1_count": 7556,
+    "h4_count": 1240,
+    "m15_count": 34340,
+    "m5_count": 109811,
+    "status": "PASS",
+    "warmup_ok": true
+  },
+  "USD_CHF": {
+    "d1agg_count": 779,
+    "h1_count": 5891,
+    "h4_count": 909,
+    "m15_count": 27704,
+    "m5_count": 92922,
+    "status": "PASS",
+    "warmup_ok": true
+  },
+  "USD_JPY": {
+    "d1agg_count": 779,
+    "h1_count": 8367,
+    "h4_count": 1458,
+    "m15_count": 36490,
+    "m5_count": 113740,
+    "status": "PASS",
+    "warmup_ok": true
+  }
+}

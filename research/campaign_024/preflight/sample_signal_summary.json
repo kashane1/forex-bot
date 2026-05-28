@@ -1,0 +1,15 @@
+{
+  "campaign_id": "CAMPAIGN_024",
+  "evaluated_decisions": 3339,
+  "full_evidence_run": false,
+  "long_signals": 10,
+  "m5_bars": 16753,
+  "pair": "USD_JPY",
+  "scaffold_only": true,
+  "short_signals": 14,
+  "signals": 24,
+  "status": "OK",
+  "step_bars": 5,
+  "window_days": 90,
+  "window_start": "2021-07-01"
+}

@@ -1,0 +1,14 @@
+{
+  "campaign_id": "CAMPAIGN_024",
+  "checked_at_utc": "2026-05-28T23:26:46.853299+00:00",
+  "fill_timing": "next_bar_open",
+  "full_evidence_run": false,
+  "mode": "sample-signals-only",
+  "not_approved": true,
+  "sample_status": "OK",
+  "scaffold_only": true,
+  "strategy_evidence": false,
+  "strategy_name": "m5_donchian_htf_confluence_breakout",
+  "test_lockbox_opened": false,
+  "version": "0.1.0-c024"
+}

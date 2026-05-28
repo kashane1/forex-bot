@@ -1,0 +1,96 @@
+{
+  "campaign_id": "CAMPAIGN_024",
+  "pair_coverage": {
+    "AUD_USD": {
+      "counts": {
+        "H1": 6730,
+        "H4": 1031,
+        "M15": 31679,
+        "M5": 104582
+      },
+      "from_utc": "2020-01-01T00:00:00+00:00",
+      "instrument": "AUD_USD",
+      "materialized_source": "m1_materialized",
+      "status": "PASS",
+      "to_utc": "2022-12-31T23:59:00+00:00"
+    },
+    "EUR_USD": {
+      "counts": {
+        "H1": 8308,
+        "H4": 1483,
+        "M15": 36187,
+        "M5": 113267
+      },
+      "from_utc": "2020-01-01T00:00:00+00:00",
+      "instrument": "EUR_USD",
+      "materialized_source": "m1_materialized",
+      "status": "PASS",
+      "to_utc": "2022-12-31T23:59:00+00:00"
+    },
+    "GBP_USD": {
+      "counts": {
+        "H1": 7479,
+        "H4": 1269,
+        "M15": 33954,
+        "M5": 108947
+      },
+      "from_utc": "2020-01-01T00:00:00+00:00",
+      "instrument": "GBP_USD",
+      "materialized_source": "m1_materialized",
+      "status": "PASS",
+      "to_utc": "2022-12-31T23:59:00+00:00"
+    },
+    "NZD_USD": {
+      "counts": {
+        "H1": 6917,
+        "H4": 1129,
+        "M15": 33230,
+        "M5": 108099
+      },
+      "from_utc": "2020-01-01T00:00:00+00:00",
+      "instrument": "NZD_USD",
+      "materialized_source": "m1_materialized",
+      "status": "PASS",
+      "to_utc": "2022-12-31T23:59:00+00:00"
+    },
+    "USD_CAD": {
+      "counts": {
+        "H1": 7556,
+        "H4": 1240,
+        "M15": 34340,
+        "M5": 109811
+      },
+      "from_utc": "2020-01-01T00:00:00+00:00",
+      "instrument": "USD_CAD",
+      "materialized_source": "m1_materialized",
+      "status": "PASS",
+      "to_utc": "2022-12-31T23:59:00+00:00"
+    },
+    "USD_CHF": {
+      "counts": {
+        "H1": 5891,
+        "H4": 909,
+        "M15": 27704,
+        "M5": 92922
+      },
+      "from_utc": "2020-01-01T00:00:00+00:00",
+      "instrument": "USD_CHF",
+      "materialized_source": "m1_materialized",
+      "status": "PASS",
+      "to_utc": "2022-12-31T23:59:00+00:00"
+    },
+    "USD_JPY": {
+      "counts": {
+        "H1": 8367,
+        "H4": 1458,
+        "M15": 36490,
+        "M5": 113740
+      },
+      "from_utc": "2020-01-01T00:00:00+00:00",
+      "instrument": "USD_JPY",
+      "materialized_source": "m1_materialized",
+      "status": "PASS",
+      "to_utc": "2022-12-31T23:59:00+00:00"
+    }
+  }
+}
