@@ -1,0 +1,15 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2021-10-26T13:45:00+00:00,AUD_USD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 2.2 > cap 2.0 pips,2.2,,14.0,13,Tue,London/NY overlap
+2022-01-16T23:00:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,1.6,,4.6,23,Sun,Asia/late
+2022-01-17T00:00:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,1.4,,12.6,0,Mon,Asia/late
+2022-02-04T20:45:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SPREAD_TOO_WIDE,spread 4.4 > cap 2.0 pips,4.4,,7.4,20,Fri,NY
+2022-02-04T20:45:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,4.4,,7.4,20,Fri,NY
+2022-02-07T00:00:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,1.4,,14.1,0,Mon,Asia/late
+2022-02-18T20:00:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,1.6,,15.2,20,Fri,NY
+2022-08-14T22:45:00+00:00,AUD_USD,M15,train,0.1.0-c021,long,SESSION_BLOCKED,inside blocked session window,1.8,,11.0,22,Sun,Asia/late
+2022-09-02T19:15:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,1.2,,20.8,19,Fri,NY
+2022-09-25T22:30:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,1.5,,20.9,22,Sun,Asia/late
+2022-09-25T23:00:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,1.4,,19.8,23,Sun,Asia/late
+2022-10-02T22:45:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,1.6,,22.5,22,Sun,Asia/late
+2022-10-16T22:30:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SPREAD_TOO_WIDE,spread 2.1 > cap 2.0 pips,2.1,,21.4,22,Sun,Asia/late
+2022-10-16T22:30:00+00:00,AUD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,2.1,,21.4,22,Sun,Asia/late

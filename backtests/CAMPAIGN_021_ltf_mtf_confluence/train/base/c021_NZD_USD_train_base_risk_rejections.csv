@@ -1,0 +1,9 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2021-08-18T17:45:00+00:00,NZD_USD,M15,train,0.1.0-c021,short,SPREAD_TOO_WIDE,spread 2.6 > cap 2.5 pips,2.6,,16.3,17,Wed,NY
+2022-02-04T20:45:00+00:00,NZD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,1.5,,4.6,20,Fri,NY
+2022-02-04T20:45:00+00:00,NZD_USD,M15,train,0.1.0-c021,short,MARGIN_BUFFER,margin 51.7188885 > cap 47.947432000000003,1.5,,4.6,20,Fri,NY
+2022-03-16T18:30:00+00:00,NZD_USD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.5 pips,2.7,,17.6,18,Wed,NY
+2022-04-24T22:00:00+00:00,NZD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,1.8,,16.7,22,Sun,Asia/late
+2022-06-10T19:30:00+00:00,NZD_USD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,2.4,,19.5,19,Fri,NY
+2022-12-18T22:45:00+00:00,NZD_USD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 4.1 > cap 2.5 pips,4.1,,14.4,22,Sun,Asia/late
+2022-12-18T22:45:00+00:00,NZD_USD,M15,train,0.1.0-c021,long,SESSION_BLOCKED,inside blocked session window,4.1,,14.4,22,Sun,Asia/late

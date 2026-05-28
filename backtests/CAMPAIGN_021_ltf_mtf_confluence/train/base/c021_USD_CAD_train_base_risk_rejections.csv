@@ -1,0 +1,21 @@
+timestamp,instrument,granularity,split,strategy_version,side,rejection_code,rejection_reason,spread_pips,atr_pips,stop_distance_pips,hour_utc,day_of_week,session
+2021-08-06T19:45:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SESSION_BLOCKED,inside blocked session window,1.9,,19.7,19,Fri,NY
+2021-08-17T20:45:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SESSION_BLOCKED,inside blocked session window,1.7,,13.0,20,Tue,NY
+2021-10-26T13:45:00+00:00,USD_CAD,M15,train,0.1.0-c021,short,SPREAD_TOO_WIDE,spread 3.7 > cap 2.5 pips,3.7,,15.9,13,Tue,London/NY overlap
+2022-01-26T14:45:00+00:00,USD_CAD,M15,train,0.1.0-c021,short,SPREAD_TOO_WIDE,spread 5.5 > cap 2.5 pips,5.5,,20.4,14,Wed,London/NY overlap
+2022-03-27T23:00:00+00:00,USD_CAD,M15,train,0.1.0-c021,short,SPREAD_TOO_WIDE,spread 2.8 > cap 2.5 pips,2.8,,16.7,23,Sun,Asia/late
+2022-03-27T23:00:00+00:00,USD_CAD,M15,train,0.1.0-c021,short,SESSION_BLOCKED,inside blocked session window,2.8,,16.7,23,Sun,Asia/late
+2022-03-29T13:45:00+00:00,USD_CAD,M15,train,0.1.0-c021,short,SPREAD_TOO_WIDE,spread 3.0 > cap 2.5 pips,3.0,,24.4,13,Tue,London/NY overlap
+2022-05-02T05:45:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 2.8 > cap 2.5 pips,2.8,,15.9,5,Mon,Asia/late
+2022-07-13T01:15:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 2.6 > cap 2.5 pips,2.6,,18.9,1,Wed,Asia/late
+2022-08-30T22:00:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 2.6 > cap 2.5 pips,2.6,,18.7,22,Tue,Asia/late
+2022-09-04T22:00:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 2.8 > cap 2.5 pips,2.8,,23.3,22,Sun,Asia/late
+2022-09-04T22:00:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SESSION_BLOCKED,inside blocked session window,2.8,,23.3,22,Sun,Asia/late
+2022-09-07T13:45:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 4.9 > cap 2.5 pips,4.9,,27.3,13,Wed,London/NY overlap
+2022-09-23T20:30:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 20.0 > cap 2.5 pips,20.0,,56.8,20,Fri,NY
+2022-09-23T20:30:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SESSION_BLOCKED,inside blocked session window,20.0,,56.8,20,Fri,NY
+2022-09-25T22:30:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SESSION_BLOCKED,inside blocked session window,2.3,,33.3,22,Sun,Asia/late
+2022-09-25T23:00:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SESSION_BLOCKED,inside blocked session window,1.8,,30.8,23,Sun,Asia/late
+2022-09-26T01:15:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 2.7 > cap 2.5 pips,2.7,,37.0,1,Mon,Asia/late
+2022-10-07T12:15:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SPREAD_TOO_WIDE,spread 10.0 > cap 2.5 pips,10.0,,26.1,12,Fri,London/NY overlap
+2022-12-02T21:00:00+00:00,USD_CAD,M15,train,0.1.0-c021,long,SESSION_BLOCKED,inside blocked session window,2.1,,27.4,21,Fri,Asia/late
