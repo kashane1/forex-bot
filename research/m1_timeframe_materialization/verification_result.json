@@ -1,0 +1,289 @@
+{
+  "AUD_USD": {
+    "aggregation_config_hash": "f9b7246b79a0635c",
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "instrument": "AUD_USD",
+    "status": "PASS",
+    "targets": {
+      "H1": {
+        "expected_count": 24774,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 24774
+      },
+      "H4": {
+        "expected_count": 4362,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 4362
+      },
+      "M15": {
+        "expected_count": 109904,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 109904
+      },
+      "M5": {
+        "expected_count": 348717,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 348717
+      }
+    },
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  },
+  "EUR_USD": {
+    "aggregation_config_hash": "f9b7246b79a0635c",
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "instrument": "EUR_USD",
+    "status": "PASS",
+    "targets": {
+      "H1": {
+        "expected_count": 27249,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 27249
+      },
+      "H4": {
+        "expected_count": 5234,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 5234
+      },
+      "M15": {
+        "expected_count": 116628,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 116628
+      },
+      "M5": {
+        "expected_count": 360972,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 360972
+      }
+    },
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  },
+  "GBP_USD": {
+    "aggregation_config_hash": "f9b7246b79a0635c",
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "instrument": "GBP_USD",
+    "status": "PASS",
+    "targets": {
+      "H1": {
+        "expected_count": 26758,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 26758
+      },
+      "H4": {
+        "expected_count": 5186,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 5186
+      },
+      "M15": {
+        "expected_count": 115243,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 115243
+      },
+      "M5": {
+        "expected_count": 357741,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 357741
+      }
+    },
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  },
+  "NZD_USD": {
+    "aggregation_config_hash": "f9b7246b79a0635c",
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "instrument": "NZD_USD",
+    "status": "PASS",
+    "targets": {
+      "H1": {
+        "expected_count": 23856,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 23856
+      },
+      "H4": {
+        "expected_count": 4199,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 4199
+      },
+      "M15": {
+        "expected_count": 110462,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 110462
+      },
+      "M5": {
+        "expected_count": 351408,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 351408
+      }
+    },
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  },
+  "USD_CAD": {
+    "aggregation_config_hash": "f9b7246b79a0635c",
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "instrument": "USD_CAD",
+    "status": "PASS",
+    "targets": {
+      "H1": {
+        "expected_count": 26405,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 26405
+      },
+      "H4": {
+        "expected_count": 5015,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 5015
+      },
+      "M15": {
+        "expected_count": 114562,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 114562
+      },
+      "M5": {
+        "expected_count": 356992,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 356992
+      }
+    },
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  },
+  "USD_CHF": {
+    "aggregation_config_hash": "f9b7246b79a0635c",
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "instrument": "USD_CHF",
+    "status": "PASS",
+    "targets": {
+      "H1": {
+        "expected_count": 23400,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 23400
+      },
+      "H4": {
+        "expected_count": 4039,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 4039
+      },
+      "M15": {
+        "expected_count": 105604,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 105604
+      },
+      "M5": {
+        "expected_count": 336541,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 336541
+      }
+    },
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  },
+  "USD_JPY": {
+    "aggregation_config_hash": "f9b7246b79a0635c",
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "instrument": "USD_JPY",
+    "status": "PASS",
+    "targets": {
+      "H1": {
+        "expected_count": 28013,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 28013
+      },
+      "H4": {
+        "expected_count": 5448,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 5448
+      },
+      "M15": {
+        "expected_count": 118035,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 118035
+      },
+      "M5": {
+        "expected_count": 362519,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 362519
+      }
+    },
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  }
+}

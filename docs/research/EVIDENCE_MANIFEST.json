@@ -2042,5 +2042,21 @@
     "config_path": "configs/campaign_021_ltf_mtf_confluence.yaml",
     "preflight_artifact": "research/campaign_021/preflight_result.json",
     "recommended_next_sprint": "research-campaign-021-ltf-mtf-confluence-execution-001"
+  },
+  "m1_derived_timeframe_materialization_001": {
+    "sprint": "infra-m1-derived-timeframe-materialization-001",
+    "sprint_type": "data_materialization_infrastructure",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "paper_demo_live_blocked": true,
+    "status": "INFRA_PASS",
+    "targets": ["M5", "M15", "H1", "H4M1"],
+    "source_label": "m1_materialized",
+    "verification_status": "PASS",
+    "plan_doc": "docs/research/M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_PLAN.md",
+    "result_doc": "docs/research/M1_DERIVED_TIMEFRAME_MATERIALIZATION_RESULT.md",
+    "summary_doc": "docs/research/M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md",
+    "artifacts_dir": "research/m1_timeframe_materialization",
+    "recommended_next_sprint": "merge to main; future LTF campaigns use materialized loader by default"
   }
 }

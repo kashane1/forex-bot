@@ -457,11 +457,21 @@ broad-search re-entry gates are met.**
 - See `docs/research/HYPOTHESIS_BACKLOG.md` for the earlier,
   campaign-era hypothesis list.
 
-## 9. CAMPAIGN_021 LTF MTF confluence — REJECT (2026-05-28)
+## 9. CAMPAIGN_021 LTF MTF confluence — re-execution after materialization
 
-- **Verdict:** REJECT — train expectancy **−0.0174 R** (1,438 trades); train gate fail.
-- **Not run:** validation, 2× cost stress, Backtrader parity, test lockbox (no validation rescue).
-- **vs C020:** train improved from −0.035 R but remained negative; ~4× trade count on M15.
-- **Data.** M1-derived M15/H1/H4 + native H4→D1AGG; `next_bar_open`.
-- **Next.** New structural hypothesis only via new precommit — not C021 retune.
-- See [`CAMPAIGN_021_FINAL_INTERPRETATION.md`](CAMPAIGN_021_FINAL_INTERPRETATION.md).
+- **Prior verdict (pre-materialization):** REJECT — train expectancy −0.0174 R;
+  validation/test not run.
+- **Current step.** Re-run train on materialized M15/H1/H4M1 bars per
+  [`CAMPAIGN_021_EXECUTION_AFTER_M1_MATERIALIZATION_PLAN.md`](CAMPAIGN_021_EXECUTION_AFTER_M1_MATERIALIZATION_PLAN.md).
+- **Data.** Materialized M1-derived M15/H1/H4M1 + native H4→D1AGG; no live M1
+  aggregation fallback.
+- **Next.** Gate-disciplined train → validation → parity → test (if all pass).
+- C020 remains REJECT; no retune.
+
+## 10. M1 derived timeframe materialization — INFRA_PASS (2026-05-28)
+
+- **Sprint.** `infra-m1-derived-timeframe-materialization-001`
+- **What.** Postgres materialization of M1→M5/M15/H1/H4M1 (`source=m1_materialized`).
+- **Why.** Removes per-campaign M1 re-aggregation; `--data-feature-preflight` ~21s vs multi-hour M1 scans.
+- **Note.** Does not fix M15 backtest O(n²) indicator cost; speeds data loading only.
+- See [`M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md`](M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md).

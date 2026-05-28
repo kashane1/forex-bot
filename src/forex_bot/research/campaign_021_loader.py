@@ -1,7 +1,8 @@
-"""CAMPAIGN_021 Postgres M1 → M15/H1/H4 + native H4→D1AGG frame loading."""
+"""CAMPAIGN_021 frame loading — materialized M1-derived bars from Postgres."""
 
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from decimal import Decimal
@@ -10,20 +11,19 @@ from typing import Any
 import pandas as pd
 
 from forex_bot.backtesting.d1_aggregation import aggregate_h4_to_d1
-from forex_bot.data.m1_corpus_validation import (
-    MAJOR_PAIRS,
-    _dedupe_candles_by_time,
-    _row_to_candle,
-    iter_m1_chunks,
+from forex_bot.data.m1_corpus_validation import MAJOR_PAIRS, _row_to_candle
+from forex_bot.data.m1_timeframe_materialization import (
+    MATERIALIZED_SOURCE,
+    STORAGE_GRANULARITY,
+    aggregate_m1_window,
 )
 from forex_bot.data.postgres_candle_store import PostgresCandleStore
-from forex_bot.data.timeframe_aggregation import aggregate_m1_candles
 from forex_bot.domain.candles import Candle, CandleFrame
 from forex_bot.domain.instruments import Instrument
 from forex_bot.features.htf_align import align_last_completed
-from forex_bot.features.ltf_htf_alignment import align_ltf_execution_context
 
 D1AGG_SOURCE = "native_h4_derived_d1agg"
+ALLOW_LIVE_AGGREGATION_ENV = "FOREX_BOT_ALLOW_LIVE_M1_AGGREGATION"
 
 _INSTRUMENT_SPECS: dict[str, dict[str, Any]] = {
     "EUR_USD": {"pip_location": -4, "display_precision": 5, "margin_rate": "0.02"},
@@ -52,6 +52,14 @@ def instrument_for(name: str) -> Instrument:
     )
 
 
+def live_aggregation_enabled() -> bool:
+    return os.environ.get(ALLOW_LIVE_AGGREGATION_ENV, "").strip().lower() in {
+        "1",
+        "true",
+        "yes",
+    }
+
+
 @dataclass(frozen=True)
 class C021Frames:
     instrument: str
@@ -61,19 +69,97 @@ class C021Frames:
     d1agg: CandleFrame
     d1agg_source: str = D1AGG_SOURCE
     m1_row_count: int = 0
+    materialized_source: str = MATERIALIZED_SOURCE
 
 
 def _filter_completed_in_range(
-    candles: list[Candle], *, from_dt: datetime, to_dt: datetime, granularity: str
+    candles: list[Candle], *, from_dt: datetime, to_dt: datetime
 ) -> list[Candle]:
     out: list[Candle] = []
-    for c in candles:
-        if not c.complete:
+    for candle in candles:
+        if not candle.complete:
             continue
-        t = c.time.astimezone(UTC)
-        if from_dt <= t <= to_dt:
-            out.append(c)
-    return sorted(out, key=lambda x: x.time)
+        ts = candle.time.astimezone(UTC)
+        if from_dt <= ts <= to_dt:
+            out.append(candle)
+    return sorted(out, key=lambda item: item.time)
+
+
+def _load_materialized_granularity(
+    store: PostgresCandleStore,
+    instrument: str,
+    storage_granularity: str,
+    frame_granularity: str,
+    *,
+    from_dt: datetime,
+    to_dt: datetime,
+) -> list[Candle]:
+    rows = store.query_candles(
+        instrument=instrument,
+        granularity=storage_granularity,
+        start_utc=from_dt,
+        end_utc=to_dt,
+        source=MATERIALIZED_SOURCE,
+    )
+    candles = [
+        _row_to_candle({**row, "granularity": frame_granularity}, instrument=instrument)
+        for row in rows
+    ]
+    return _filter_completed_in_range(candles, from_dt=from_dt, to_dt=to_dt)
+
+
+def _load_native_h4(
+    store: PostgresCandleStore,
+    instrument: str,
+    *,
+    from_dt: datetime,
+    to_dt: datetime,
+) -> list[Candle]:
+    rows = store.query_candles(
+        instrument=instrument,
+        granularity="H4",
+        start_utc=from_dt,
+        end_utc=to_dt,
+        exclude_sources=(MATERIALIZED_SOURCE,),
+    )
+    return _filter_completed_in_range(
+        [
+            _row_to_candle({**row, "granularity": "H4"}, instrument=instrument)
+            for row in rows
+            if row.get("complete")
+        ],
+        from_dt=from_dt,
+        to_dt=to_dt,
+    )
+
+
+def check_materialized_coverage(
+    store: PostgresCandleStore,
+    instrument: str,
+    *,
+    from_dt: datetime,
+    to_dt: datetime,
+    min_m15: int = 120,
+) -> dict[str, Any]:
+    counts = {
+        granularity: store.count_candles(
+            instrument=instrument,
+            granularity=STORAGE_GRANULARITY[granularity],
+            source=MATERIALIZED_SOURCE,
+            start_utc=from_dt,
+            end_utc=to_dt,
+        )
+        for granularity in ("M5", "M15", "H1", "H4")
+    }
+    ok = counts["M15"] >= min_m15 and counts["H1"] > 0 and counts["H4"] > 0
+    return {
+        "instrument": instrument,
+        "from_utc": from_dt.isoformat(),
+        "to_utc": to_dt.isoformat(),
+        "counts": counts,
+        "materialized_source": MATERIALIZED_SOURCE,
+        "status": "PASS" if ok else "FAIL",
+    }
 
 
 def load_c021_frames(
@@ -82,54 +168,59 @@ def load_c021_frames(
     *,
     from_dt: datetime,
     to_dt: datetime,
+    allow_live_aggregation: bool | None = None,
 ) -> C021Frames:
     if instrument not in MAJOR_PAIRS:
         raise ValueError(f"instrument not in CAMPAIGN_021 universe: {instrument}")
-    m15: list[Candle] = []
-    h1: list[Candle] = []
-    h4_m1: list[Candle] = []
-    m1_rows = 0
-    for chunk in iter_m1_chunks(
-        store,
-        instrument=instrument,
-        start_utc=from_dt,
-        end_utc=to_dt,
-        chunk_days=30,
-    ):
-        m1_rows += len(chunk)
-        candles = [_row_to_candle(row, instrument=instrument) for row in chunk]
-        m15.extend(aggregate_m1_candles(candles, target="M15", missing_policy="omit").candles)
-        h1.extend(aggregate_m1_candles(candles, target="H1", missing_policy="omit").candles)
-        h4_m1.extend(aggregate_m1_candles(candles, target="H4", missing_policy="omit").candles)
-    m15 = _filter_completed_in_range(
-        _dedupe_candles_by_time(m15), from_dt=from_dt, to_dt=to_dt, granularity="M15"
+    use_live = (
+        live_aggregation_enabled()
+        if allow_live_aggregation is None
+        else allow_live_aggregation
     )
-    h1 = _filter_completed_in_range(
-        _dedupe_candles_by_time(h1), from_dt=from_dt, to_dt=to_dt, granularity="H1"
+    coverage = check_materialized_coverage(
+        store, instrument, from_dt=from_dt, to_dt=to_dt
     )
-    h4_m1 = _filter_completed_in_range(
-        _dedupe_candles_by_time(h4_m1), from_dt=from_dt, to_dt=to_dt, granularity="H4"
-    )
-    native_rows = store.query_candles(
-        instrument=instrument,
-        granularity="H4",
-        start_utc=from_dt,
-        end_utc=to_dt,
-    )
-    native_h4 = [
-        _row_to_candle({**r, "granularity": "H4"}, instrument=instrument)
-        for r in native_rows
-        if r.get("complete")
-    ]
+    if coverage["status"] != "PASS":
+        if not use_live:
+            raise SystemExit(
+                f"materialized coverage FAIL for {instrument}: {coverage['counts']}. "
+                "Run scripts/materialize_m1_derived_timeframes.py --all-majors "
+                f"or set {ALLOW_LIVE_AGGREGATION_ENV}=1 for debug fallback."
+            )
+        live_frames = aggregate_m1_window(
+            store, instrument, from_utc=from_dt, to_utc=to_dt
+        )
+        m15 = live_frames["M15"]
+        h1 = live_frames["H1"]
+        h4 = live_frames["H4"]
+        m1_rows = 0
+    else:
+        m15 = _load_materialized_granularity(
+            store, instrument, "M15", "M15", from_dt=from_dt, to_dt=to_dt
+        )
+        h1 = _load_materialized_granularity(
+            store, instrument, "H1", "H1", from_dt=from_dt, to_dt=to_dt
+        )
+        h4 = _load_materialized_granularity(
+            store,
+            instrument,
+            STORAGE_GRANULARITY["H4"],
+            "H4",
+            from_dt=from_dt,
+            to_dt=to_dt,
+        )
+        m1_rows = 0
+
+    native_h4 = _load_native_h4(store, instrument, from_dt=from_dt, to_dt=to_dt)
     d1_result = aggregate_h4_to_d1(native_h4, instrument=instrument)
     d1_candles = _filter_completed_in_range(
-        d1_result.candles, from_dt=from_dt, to_dt=to_dt, granularity="D1AGG"
+        d1_result.candles, from_dt=from_dt, to_dt=to_dt
     )
     return C021Frames(
         instrument=instrument,
         m15=CandleFrame.from_candles(instrument, "M15", m15),
         h1=CandleFrame.from_candles(instrument, "H1", h1),
-        h4=CandleFrame.from_candles(instrument, "H4", h4_m1),
+        h4=CandleFrame.from_candles(instrument, "H4", h4),
         d1agg=CandleFrame.from_candles(instrument, "D1AGG", d1_candles),
         m1_row_count=m1_rows,
     )
@@ -149,7 +240,6 @@ def pair_data_preflight(
     h4_df = frames.h4.completed_only().df
     d1_df = frames.d1agg.completed_only().df
     blocked_htf = 0
-    stale_htf = 0
     lookahead_violations = 0
     if len(m15_df) >= 10:
         step = max(1, len(m15_df) // sample_decisions)
@@ -191,11 +281,12 @@ def pair_data_preflight(
         "h4_count": len(h4_df),
         "d1agg_count": len(d1_df),
         "d1agg_source": frames.d1agg_source,
+        "materialized_source": frames.materialized_source,
         "m1_rows_loaded": frames.m1_row_count,
         "m15_first": m15_df.index.min().isoformat() if len(m15_df) else None,
         "m15_last": m15_df.index.max().isoformat() if len(m15_df) else None,
         "htf_blocked_samples": blocked_htf,
-        "htf_stale_samples": stale_htf,
+        "htf_stale_samples": 0,
         "lookahead_violations": lookahead_violations,
         "status": "PASS"
         if len(m15_df) >= 120 and len(d1_df) >= 20 and lookahead_violations == 0
@@ -223,6 +314,7 @@ def build_data_feature_preflight(
         "campaign_id": "CAMPAIGN_021",
         "d1agg_source": D1AGG_SOURCE,
         "m1_derived_d1agg_used": False,
+        "materialized_source": MATERIALIZED_SOURCE,
         "pairs": by_pair,
         "blocked_pairs": blocked,
         "preflight_ok": not blocked,

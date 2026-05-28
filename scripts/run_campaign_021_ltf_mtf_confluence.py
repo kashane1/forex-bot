@@ -28,6 +28,7 @@ from forex_bot.backtesting.exporters import write_all
 from forex_bot.backtesting.fills import FillModel
 from forex_bot.config import Settings, compute_config_hash
 from forex_bot.data.candle_dedupe import DEDUPE_POLICY
+from forex_bot.data.m1_timeframe_materialization import MATERIALIZED_SOURCE
 from forex_bot.data.postgres_candle_store import PostgresCandleStore
 from forex_bot.data.research_db import get_research_database_config
 from forex_bot.domain.candles import CandleFrame
@@ -42,7 +43,9 @@ from forex_bot.research.campaign_021_gates import (
 from forex_bot.research.campaign_021_loader import (
     D1AGG_SOURCE,
     build_data_feature_preflight,
+    check_materialized_coverage,
     instrument_for,
+    live_aggregation_enabled,
     load_c021_frames,
 )
 from forex_bot.research.execution_realism import (
@@ -222,6 +225,11 @@ class CampaignCtx:
 
 
 def load_ctx() -> CampaignCtx:
+    if live_aggregation_enabled():
+        raise SystemExit(
+            "FOREX_BOT_ALLOW_LIVE_M1_AGGREGATION is set; "
+            "live M1 aggregation is forbidden for CAMPAIGN_021 evidence runs"
+        )
     settings, raw = load_settings()
     strategy_cfg = validate_frozen_config(settings, raw)
     provenance = raw.get("data_provenance") or {}
@@ -282,7 +290,7 @@ def run_pair_split(
         granularity="M15",
         from_time=from_dt.isoformat(),
         to_time=to_dt.isoformat(),
-        source="postgres_m1_derived|d1agg=native_h4",
+        source="postgres_m1_materialized|d1agg=native_h4",
         candle_count=len(m15_frame.df),
     )
     engine = BacktestEngine(
@@ -579,6 +587,48 @@ def preflight(settings: Settings, raw: dict[str, Any]) -> dict[str, Any]:
         result["m1_corpus"] = inv
         if inv.get("missing_pairs"):
             blocked.append(f"missing M1 pairs: {inv['missing_pairs']}")
+        with store.connection() as conn, conn.cursor() as cur:
+            cur.execute(
+                f"""
+                SELECT COUNT(*) FROM {cfg.schema}.candles
+                WHERE granularity = 'H4'
+                """
+            )
+            h4_total = int(cur.fetchone()[0])
+            cur.execute(
+                f"""
+                SELECT COUNT(DISTINCT instrument) FROM {cfg.schema}.candles
+                WHERE granularity = 'D1AGG'
+                """
+            )
+            d1agg_pairs = int(cur.fetchone()[0])
+        result["native_h4_rows"] = h4_total
+        result["d1agg_pairs_in_store"] = d1agg_pairs
+        if h4_total < 1000:
+            blocked.append("insufficient native H4 rows for D1AGG derivation")
+        materialized: dict[str, Any] = {"source": MATERIALIZED_SOURCE, "pairs": {}}
+        train_from, train_to = SPLITS["train"]
+        from_dt = datetime.fromisoformat(train_from).replace(tzinfo=UTC)
+        to_dt = datetime.fromisoformat(train_to).replace(hour=23, minute=59, tzinfo=UTC)
+        missing_materialized: list[str] = []
+        for pair in settings.market.instruments:
+            cov = check_materialized_coverage(
+                store, pair, from_dt=from_dt, to_dt=to_dt
+            )
+            materialized["pairs"][pair] = cov
+            if cov["status"] != "PASS":
+                missing_materialized.append(pair)
+        result["materialized_coverage"] = materialized
+        if missing_materialized:
+            blocked.append(
+                "missing materialized M5/M15/H1/H4 for: "
+                + ", ".join(missing_materialized)
+                + " — run scripts/materialize_m1_derived_timeframes.py --all-majors"
+            )
+        if live_aggregation_enabled():
+            blocked.append(
+                "FOREX_BOT_ALLOW_LIVE_M1_AGGREGATION must not be set for CAMPAIGN_021"
+            )
     except Exception as exc:
         blocked.append(f"postgres: {exc}")
     result["blocked_reasons"] = blocked
