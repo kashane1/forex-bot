@@ -1507,10 +1507,23 @@ from native H4 until M1→D1AGG day completeness improves).
 | [`M1_FULL_CORPUS_LTF_LANE_READINESS_DECISION.md`](M1_FULL_CORPUS_LTF_LANE_READINESS_DECISION.md) | Phase 8 readiness |
 | [`M1_FULL_CORPUS_VALIDATION_AND_AGGREGATION_001_SUMMARY.md`](M1_FULL_CORPUS_VALIDATION_AND_AGGREGATION_001_SUMMARY.md) | Phase 9 close-out |
 
+## CAMPAIGN_021 LTF MTF confluence (execution 2026-05-28)
+
+> **CAMPAIGN_021 executed (train-only path)** — `strategy_evidence: true`, **REJECT**.
+> Validation/test not run after train gate fail. C020 remains REJECT.
+
+| document | what it is |
+|---|---|
+| [`CAMPAIGN_021_TRAIN_RESULT.md`](CAMPAIGN_021_TRAIN_RESULT.md) | Train metrics |
+| [`CAMPAIGN_021_GATE_DECISION.md`](CAMPAIGN_021_GATE_DECISION.md) | Gate decision |
+| [`CAMPAIGN_021_TEST_LOCKBOX_NOT_OPENED.md`](CAMPAIGN_021_TEST_LOCKBOX_NOT_OPENED.md) | Lockbox closed |
+| [`CAMPAIGN_021_BACKTRADER_PARITY_RESULT.md`](CAMPAIGN_021_BACKTRADER_PARITY_RESULT.md) | Parity NOT_RUN |
+| [`CAMPAIGN_021_FINAL_INTERPRETATION.md`](CAMPAIGN_021_FINAL_INTERPRETATION.md) | Final interpretation |
+| [`CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION_001_SUMMARY.md`](CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION_001_SUMMARY.md) | Execution sprint close-out |
+
 ## CAMPAIGN_021 LTF MTF confluence scaffold (research-campaign-021-ltf-mtf-confluence-scaffold-001)
 
-> **SCAFFOLD_ONLY** — `strategy_evidence: false`, `not_approved: true`.
-> No train/validation/test verdict. C020 remains REJECT.
+> **Scaffold phase** — precommit and runner; superseded by execution verdict above.
 
 | document | what it is |
 |---|---|

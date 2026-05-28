@@ -457,17 +457,11 @@ broad-search re-entry gates are met.**
 - See `docs/research/HYPOTHESIS_BACKLOG.md` for the earlier,
   campaign-era hypothesis list.
 
-## 9. CAMPAIGN_021 LTF MTF confluence — scaffold COMPLETE; execution NEXT
+## 9. CAMPAIGN_021 LTF MTF confluence — REJECT (2026-05-28)
 
-- **Scaffold status (2026-05-27).** Branch
-  `research-campaign-021-ltf-mtf-confluence-scaffold-001` delivered
-  precommit, strategy module, config, tests, preflight runner, parity
-  design. **No train/validation/test evidence.** `approved: []` unchanged.
-- **Next authorized step.** Execution sprint per
-  [`NEXT_SPRINT_PROMPT_CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION.md`](NEXT_SPRINT_PROMPT_CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION.md)
-  on branch `research-campaign-021-ltf-mtf-confluence-execution-001`.
-- **Data.** M1 corpus `READY_WITH_WARNINGS`; M15/H1/H4 from M1;
-  D1AGG from native H4 only until M1→D1AGG day completeness improves.
-- **Risk.** M15 may add noise vs H4; gates and 2× cost stress unchanged.
-- **Success (future).** Train/validation gates + Backtrader parity before
-  any test lockbox; still no approval without human registry change.
+- **Verdict:** REJECT — train expectancy **−0.0174 R** (1,438 trades); train gate fail.
+- **Not run:** validation, 2× cost stress, Backtrader parity, test lockbox (no validation rescue).
+- **vs C020:** train improved from −0.035 R but remained negative; ~4× trade count on M15.
+- **Data.** M1-derived M15/H1/H4 + native H4→D1AGG; `next_bar_open`.
+- **Next.** New structural hypothesis only via new precommit — not C021 retune.
+- See [`CAMPAIGN_021_FINAL_INTERPRETATION.md`](CAMPAIGN_021_FINAL_INTERPRETATION.md).
