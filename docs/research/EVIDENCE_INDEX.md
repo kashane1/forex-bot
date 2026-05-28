@@ -328,6 +328,7 @@ map; the linked documents are the authoritative evidence.
 | [`../../configs/campaign_023_h4_h1_pullback_resolution_adx22.yaml`](../../configs/campaign_023_h4_h1_pullback_resolution_adx22.yaml) | Frozen config (`h4_adx_min: 22.0`) |
 | [`../../scripts/run_campaign_023_h4_h1_pullback_resolution_adx22.py`](../../scripts/run_campaign_023_h4_h1_pullback_resolution_adx22.py) | Preflight-only runner (evidence blocked) |
 | [`../../tests/unit/test_h4_h1_pullback_resolution_adx22.py`](../../tests/unit/test_h4_h1_pullback_resolution_adx22.py) | Proves C023 == C022 except ADX gate |
+| [`CAMPAIGN_023_ADX22_SIBLING_SCAFFOLD_SUMMARY.md`](CAMPAIGN_023_ADX22_SIBLING_SCAFFOLD_SUMMARY.md) | Scaffold sprint close-out |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

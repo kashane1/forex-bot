@@ -52,7 +52,7 @@ def _load_settings(path: Path) -> Settings:
 def _force_adx(monkeypatch: pytest.MonkeyPatch, value: float) -> None:
     """Pin the ADX indicator to a constant so the H4 strength gate is testable."""
 
-    def fake_adx(high, low, close, n):  # noqa: ANN001, ANN202
+    def fake_adx(high, low, close, n):
         return pd.Series(value, index=close.index, dtype=float)
 
     monkeypatch.setattr(f"{_MOD}.adx", fake_adx)
