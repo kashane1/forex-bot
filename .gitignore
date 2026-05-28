@@ -217,3 +217,6 @@ research/usdjpy_vol_compression_expansion/*
 # london-compression-continuation-confirmation-001: commit only the compact summary.
 research/usdjpy_london_compression_continuation/*
 !research/usdjpy_london_compression_continuation/confirmation_summary.json
+
+# macro-regime-context-tradeability-001: commit compact summaries only; gitignore parquet.
+research/usdjpy_macro_regime_context/context_dataset.parquet
