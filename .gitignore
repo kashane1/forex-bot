@@ -197,3 +197,6 @@ research/c022_feature_separation/c022_lifecycle_features.parquet
 # USD_JPY microstructure-confirmation diagnostic: full per-trade dataset local-only.
 # Only the inventory JSON, manifest, summary JSON, and small preview CSV are committed.
 research/usdjpy_microstructure_diagnostic/*.parquet
+# USD_JPY post-entry trade-management diagnostic: full per-trade dataset local-only.
+# Only the manifest, summary/analysis JSON, and small preview CSV are committed.
+research/usdjpy_trade_management_diagnostic/*.parquet
