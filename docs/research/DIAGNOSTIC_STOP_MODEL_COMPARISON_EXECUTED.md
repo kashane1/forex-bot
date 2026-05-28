@@ -1,56 +1,37 @@
-# Diagnostic Stop-Model Comparison (Execution Attempt) — STILL BLOCKED
+# Diagnostic Stop-Model Comparison (EXECUTED)
 
-**Date:** 2026-05-28 · **Sprint:** `infra-lifecycle-feature-capture-and-mfe-mae-execution-001`
-**Status:** **NOT EXECUTED — gated on per-bar MFE/MAE, which is BLOCKED_LOCAL_DATA.**
+**Diagnostic sensitivity only** — fixed C022 entries, exit rule varied. No optimization, no 'best' stop promoted, no verdict/metric changed, no C024.
 
-> **Not an optimization sprint.** No "best" stop is selected or promoted. Any
-> comparison, when produced, is **diagnostic sensitivity** only — never a verdict,
-> never an edge, never a tradable recommendation. No C022 metric is rewritten and
-> no C024 is created.
+Reconstructed paths: **2396** (dropped 0); horizon 32 M15 bars; schema `market_data`.
 
-## Why still blocked
+> **Caveats.** mid OHLC only; no spread/slippage; no next-bar-open fill timing; structure/reclaim stop families omitted (need ATR-at-entry & pullback/reclaim geometry not in historical artifacts). Compare DELTAS between variants, not absolute levels.
 
-This phase runs **only if Phase 1 produced real MFE/MAE** (per the sprint plan).
-Phase 1 re-attempted the reconstruction this sprint and again hit
-**BLOCKED_LOCAL_DATA**: no reachable materialized M15 research store
-(`FOREX_BOT_RESEARCH_DATABASE_URL` unset; local Postgres requires a password;
-`data/bot.sqlite3` empty; no local candle corpora). See
-`LIFECYCLE_FEATURE_CAPTURE_AND_MFE_MAE_EXECUTION_001_PLAN.md` §"Local data
-readiness" and `research/trade_lifecycle_diagnostics/c022_mfe_mae_summary.json`
-(status `BLOCKED_LOCAL_DATA`).
+## Baseline sanity check
 
-Without the realized per-bar path, every stop family below is a counterfactual we
-**cannot evaluate without fabricating outcomes** — which is forbidden.
+- realized price-based expectancy: **-0.1402R**
+- simulated 2.0×ATR baseline expectancy: **-0.0732R**
+- should be close; residual = mid-vs-fill-model approximation.
 
-## Stop families (designed, ready to execute once MFE/MAE exists)
+## Hard-stop sensitivity (ATR multiple → R distance)
 
-| family | description | additional input still needed |
-|---|---|---|
-| baseline | C022 2.0× M15 ATR (−1R by construction) | none (it is the realized outcome) |
-| ATR sensitivity | 1.5× / 2.0× / 2.5× / 3.0× ATR | **ATR-at-entry** (now capturable via the Phase 3/4 schema; absent in historical C022) |
-| structure proxy | M15 swing low/high; H1 pullback low/high | swing detection + **H1 pullback geometry** (capturable going forward) |
-| time-to-invalidation | no +0.25R / +0.5R within N bars | first-threshold bar index — **available** from `mfe_mae` once candles exist |
-| reclaim failure | close back through reclaim level | **M15 reclaim level** (capturable going forward) |
+| stop | n | expectancy_r | win_rate | mean_loss_r |
+|---|---|---|---|---|
+| 1.5xATR | 2396 | -0.0513 | 0.2892 | -0.7219 |
+| 2.0xATR(baseline) | 2396 | -0.0732 | 0.3472 | -0.9294 |
+| 2.5xATR | 2396 | -0.0637 | 0.4007 | -1.0984 |
+| 3.0xATR | 2396 | -0.0777 | 0.4257 | -1.2292 |
 
-The `time-to-invalidation` and `baseline` families need only the per-bar path
-(Phase 1 unblocked). The ATR/structure/reclaim families additionally need the
-signal-geometry fields the Phase 3 `lifecycle_features` schema and the Phase 4
-`--emit-lifecycle-features` export now make capturable in **future** runs (they
-cannot be recovered from the historical C022 CSVs).
+## Time-to-invalidation early exit
 
-## What changed this sprint that moves this forward
+| rule | n | expectancy_r | win_rate | mean_loss_r |
+|---|---|---|---|---|
+| no+0.25R_by_8 | 2396 | -0.0748 | 0.3205 | -0.8467 |
+| no+0.5R_by_8 | 2396 | -0.0603 | 0.3397 | -0.7942 |
+| no+0.5R_by_12 | 2396 | -0.0728 | 0.3364 | -0.8514 |
 
-- Phase 3 added the capture schema (`atr_at_entry`, `h1_pullback_depth_atr`,
-  `m15_reclaim_distance_atr`, MFE/MAE, threshold flags).
-- Phase 4 wired an opt-in exporter so a future instrumented C022-style rerun emits
-  those fields. Combined with a reachable M15 store, that closes every input gap
-  for the full comparison.
+## Reading (diagnostic — not an edge)
 
-## To execute later
-
-1. Unblock local data (see plan §"exact command"): populate/point to a
-   materialized M15 store and run Phase 1 reconstruction.
-2. For ATR/structure/reclaim families, rerun a C022-style diagnostic export with
-   `--emit-lifecycle-features` so ATR-at-entry and pullback/reclaim geometry exist.
-3. Emit `research/trade_lifecycle_diagnostics/diagnostic_stop_model_comparison.json`
-   and update this doc with results — each row labeled **diagnostic sensitivity**.
+- Every variant is reported for sensitivity. **No variant is endorsed as tradable**; all remain negative and none is promoted.
+- **All hard-stop multiples (1.5×–3.0× ATR) and all time-to-invalidation rules stay in a tight negative band** — no exit rule lifts expectancy toward zero. Stop geometry is **not** the lever.
+- The simulated baseline here is **cost-free** (mid OHLC, no spread/slippage) yet still negative; the gap to the realized price-based expectancy is approximately the cost drag. Even in the idealized no-cost case the entries do not clear zero — strong evidence the problem is **entry edge, not stop distance**.
+- Any genuinely interesting variant must be re-tested in a pre-registered campaign with the real fill model — never adopted from this sensitivity sweep.

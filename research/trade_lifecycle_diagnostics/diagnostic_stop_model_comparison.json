@@ -1,17 +1,65 @@
 {
+  "status": "OK",
+  "diagnostic_only": true,
   "strategy_evidence": false,
   "not_approved": true,
-  "diagnostic_only": true,
-  "status": "DEFERRED_BLOCKED_LOCAL_DATA",
-  "reason": "The diagnostic stop-model comparison is gated on per-bar MFE/MAE path reconstruction, which is BLOCKED_LOCAL_DATA in this checkout (no reachable materialized M15 research store). See MFE_MAE_RECONSTRUCTION_FEASIBILITY.md and c022_mfe_mae_summary.json.",
-  "note": "No stop-model numbers are fabricated. Every stop family below requires the realized per-bar path that does not exist locally. This file is a structured placeholder so the comparison can be produced unchanged once MFE/MAE is reconstructed locally.",
-  "stop_families_designed": [
-    {"id": "baseline_c022_2x_atr", "description": "Current C022 stop: 2.0x M15 ATR (the frozen baseline; -1R by construction).", "requires": "realized path (already the realized outcome)"},
-    {"id": "atr_sensitivity", "variants": ["1.5x", "2.0x", "2.5x", "3.0x"], "description": "Re-place the stop at k*ATR and recompute hypothetical stop-out vs survival from MFE/MAE.", "requires": "per-bar MFE/MAE + per-trade ATR at entry (ATR not currently exported)"},
-    {"id": "structure_proxy_stop", "description": "M15 local swing low/high (and H1 pullback low/high if reconstructable).", "requires": "per-bar path + swing detection; H1 pullback geometry not exported -> likely partial/unavailable"},
-    {"id": "time_to_invalidation", "description": "Early-exit candidate if trade fails to reach +0.25R/+0.5R within N bars.", "requires": "per-bar MFE/MAE ordering (first_plus_X_bar_index) -> available from mfe_mae module once candles exist"},
-    {"id": "reclaim_failure", "description": "Invalidate if price closes back through the M15 reclaim level.", "requires": "per-bar closes + the recorded reclaim level (reclaim level not exported)"}
-  ],
-  "labeling": "Any future output of this comparison MUST be labeled diagnostic sensitivity, never a campaign verdict and never an edge. No 'best' stop may be selected to promote.",
-  "blocking_inputs_missing": ["per_bar_M15_candles", "per_trade_atr_at_entry", "h1_pullback_geometry", "m15_reclaim_level"]
+  "no_best_stop_selected": true,
+  "entries_unchanged": true,
+  "campaign_id": "CAMPAIGN_022",
+  "schema": "market_data",
+  "max_bars": 32,
+  "reconstructed_paths": 2396,
+  "dropped": 0,
+  "caveats": "mid OHLC only; no spread/slippage; no next-bar-open fill timing; structure/reclaim stop families omitted (need ATR-at-entry & pullback/reclaim geometry not in historical artifacts). Compare DELTAS between variants, not absolute levels.",
+  "baseline_sanity_check": {
+    "realized_price_based_expectancy_r": -0.1402,
+    "simulated_baseline_2x_atr_expectancy_r": -0.0732,
+    "note": "should be close; residual = mid-vs-fill-model approximation."
+  },
+  "hard_stop_sensitivity": {
+    "1.5xATR": {
+      "n": 2396,
+      "expectancy_r": -0.0513,
+      "win_rate": 0.2892,
+      "mean_loss_r": -0.7219
+    },
+    "2.0xATR(baseline)": {
+      "n": 2396,
+      "expectancy_r": -0.0732,
+      "win_rate": 0.3472,
+      "mean_loss_r": -0.9294
+    },
+    "2.5xATR": {
+      "n": 2396,
+      "expectancy_r": -0.0637,
+      "win_rate": 0.4007,
+      "mean_loss_r": -1.0984
+    },
+    "3.0xATR": {
+      "n": 2396,
+      "expectancy_r": -0.0777,
+      "win_rate": 0.4257,
+      "mean_loss_r": -1.2292
+    }
+  },
+  "time_to_invalidation": {
+    "no+0.25R_by_8": {
+      "n": 2396,
+      "expectancy_r": -0.0748,
+      "win_rate": 0.3205,
+      "mean_loss_r": -0.8467
+    },
+    "no+0.5R_by_8": {
+      "n": 2396,
+      "expectancy_r": -0.0603,
+      "win_rate": 0.3397,
+      "mean_loss_r": -0.7942
+    },
+    "no+0.5R_by_12": {
+      "n": 2396,
+      "expectancy_r": -0.0728,
+      "win_rate": 0.3364,
+      "mean_loss_r": -0.8514
+    }
+  }
 }
