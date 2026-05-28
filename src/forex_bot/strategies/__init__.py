@@ -16,6 +16,9 @@ from forex_bot.strategies.h4_h1_pullback_resolution_entry import (
 from forex_bot.strategies.lower_timeframe_mtf_confluence_entry import (
     LowerTimeframeMtfConfluenceEntryStrategy,
 )
+from forex_bot.strategies.m5_donchian_htf_confluence_breakout import (
+    M5DonchianHtfConfluenceBreakoutStrategy,
+)
 from forex_bot.strategies.mean_reversion import MeanReversionStrategy
 from forex_bot.strategies.multi_timeframe_confluence_pullback import (
     MultiTimeframeConfluencePullbackStrategy,
@@ -41,6 +44,7 @@ __all__ = [
     "FailedBreakoutReversalStrategy",
     "H4H1PullbackResolutionEntryStrategy",
     "LowerTimeframeMtfConfluenceEntryStrategy",
+    "M5DonchianHtfConfluenceBreakoutStrategy",
     "MeanReversionStrategy",
     "MultiTimeframeConfluencePullbackStrategy",
     "PullbackContinuationStrategy",

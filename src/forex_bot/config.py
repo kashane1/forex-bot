@@ -804,6 +804,60 @@ class LowerTimeframeMtfConfluenceEntryStrategyConfig(BaseModel):
         return self
 
 
+class M5DonchianHtfConfluenceBreakoutStrategyConfig(BaseModel):
+    # CAMPAIGN_024 research candidate (`m5_donchian_htf_confluence_breakout 0.1.0-c024`).
+    # SCAFFOLD ONLY — not approved. See
+    # docs/research/CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["M5"] = "M5"
+    entry_channel_length: int = 20
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    structure_lookback: int = 20
+    h1_ema_fast: int = 20
+    h1_ema_slow: int = 50
+    h1_ema_slope_bars: int = 3
+    h4_ema_fast: int = 20
+    h4_ema_slow: int = 50
+    d1_ema_fast: int = 20
+    d1_ema_slow: int = 50
+    d1_ema_slope_bars: int = 3
+    m15_pullback_lookback: int = 8
+    m15_compression_donchian_lookback: int = 12
+    m15_compression_atr_lookback: int = 14
+    m15_compression_width_atr_max: float = 3.0
+    max_bars_in_trade: int = 48
+
+    @model_validator(mode="after")
+    def _check(self) -> M5DonchianHtfConfluenceBreakoutStrategyConfig:
+        if self.entry_channel_length < 2:
+            raise ConfigError("entry_channel_length must be >= 2")
+        if self.structure_lookback < 2:
+            raise ConfigError("structure_lookback must be >= 2")
+        if self.atr_lookback < 2 or self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_lookback >= 2 and atr_stop_multiple > 0")
+        for fast, slow, label in (
+            (self.h1_ema_fast, self.h1_ema_slow, "h1"),
+            (self.h4_ema_fast, self.h4_ema_slow, "h4"),
+            (self.d1_ema_fast, self.d1_ema_slow, "d1"),
+        ):
+            if fast < 2 or slow <= fast:
+                raise ConfigError(f"{label}_ema_slow must be > {label}_ema_fast >= 2")
+        if self.h1_ema_slope_bars < 1 or self.d1_ema_slope_bars < 1:
+            raise ConfigError("ema_slope_bars must be >= 1")
+        if self.m15_pullback_lookback < 1:
+            raise ConfigError("m15_pullback_lookback must be >= 1")
+        if self.m15_compression_donchian_lookback < 2 or self.m15_compression_atr_lookback < 2:
+            raise ConfigError("m15 compression lookbacks must be >= 2")
+        if self.m15_compression_width_atr_max <= 0:
+            raise ConfigError("m15_compression_width_atr_max must be > 0")
+        if self.max_bars_in_trade < 1 or self.max_bars_in_trade > 200:
+            raise ConfigError("max_bars_in_trade must be in [1, 200]")
+        return self
+
+
 class MultiTimeframeConfluencePullbackStrategyConfig(BaseModel):
     # CAMPAIGN_020 research candidate (`multi_timeframe_confluence_pullback 0.1.0-c020`).
     # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
@@ -956,6 +1010,9 @@ class StrategyConfig(BaseModel):
     h4_h1_pullback_resolution_entry: (
         H4H1PullbackResolutionEntryStrategyConfig | None
     ) = None
+    m5_donchian_htf_confluence_breakout: (
+        M5DonchianHtfConfluenceBreakoutStrategyConfig | None
+    ) = None
 
     @model_validator(mode="after")
     def _check_enabled(self) -> StrategyConfig:
@@ -1072,6 +1129,14 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.h4_h1_pullback_resolution_entry config "
+                "required when enabled"
+            )
+        if (
+            "m5_donchian_htf_confluence_breakout" in self.enabled
+            and self.m5_donchian_htf_confluence_breakout is None
+        ):
+            raise ConfigError(
+                "strategy.m5_donchian_htf_confluence_breakout config "
                 "required when enabled"
             )
         return self
