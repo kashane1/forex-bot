@@ -10,6 +10,9 @@ from forex_bot.strategies.cross_pair_currency_strength_rotation import (
 from forex_bot.strategies.failed_breakout_reversal import (
     FailedBreakoutReversalStrategy,
 )
+from forex_bot.strategies.h4_h1_pullback_resolution_entry import (
+    H4H1PullbackResolutionEntryStrategy,
+)
 from forex_bot.strategies.lower_timeframe_mtf_confluence_entry import (
     LowerTimeframeMtfConfluenceEntryStrategy,
 )
@@ -36,6 +39,7 @@ __all__ = [
     "CalendarEventWindowAnomalyStrategy",
     "CrossPairCurrencyStrengthRotationStrategy",
     "FailedBreakoutReversalStrategy",
+    "H4H1PullbackResolutionEntryStrategy",
     "LowerTimeframeMtfConfluenceEntryStrategy",
     "MeanReversionStrategy",
     "MultiTimeframeConfluencePullbackStrategy",

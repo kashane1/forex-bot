@@ -130,12 +130,19 @@ def _aligned_h1_trend(
     close = float(aligned["h1_close"].iloc[0])
     ema20 = float(aligned["h1_ema20"].iloc[0])
     ema20_time = aligned["h1_close_time"].iloc[0]
-    # slope from last slope_bars completed H1 ema20 values
-    ema_series = htf["ema20"].dropna()
+    # Slope must be anchored at the aligned (last completed) H1 bar, never the
+    # tail of the full frame — the frame may carry bars after decision_time.
+    aligned_time = pd.Timestamp(ema20_time)
+    if pd.isna(aligned_time):
+        return "neutral", None, HTF_UNAVAILABLE
+    if aligned_time.tzinfo is None:
+        aligned_time = aligned_time.tz_localize("UTC")
+    htf_times = pd.to_datetime(htf["time"], utc=True)
+    ema_series = htf.loc[htf_times <= aligned_time, "ema20"].dropna()
     if len(ema_series) < slope_bars + 1:
         return "neutral", None, HTF_UNAVAILABLE
     slope = float(ema_series.iloc[-1] - ema_series.iloc[-(slope_bars + 1)])
-    ts = pd.Timestamp(ema20_time).to_pydatetime() if pd.notna(ema20_time) else None
+    ts = aligned_time.to_pydatetime()
     if close > ema20 and slope >= 0:
         return "bullish", ts, None
     if close < ema20 and slope <= 0:
