@@ -211,3 +211,5 @@ research/usdjpy_session_atlas/*
 research/usdjpy_vol_compression_expansion/*
 !research/usdjpy_vol_compression_expansion/dataset_manifest.json
 !research/usdjpy_vol_compression_expansion/feature_preview.csv
+!research/usdjpy_vol_compression_expansion/analysis_summary.json
+!research/usdjpy_vol_compression_expansion/monetization_diagnostic.json
