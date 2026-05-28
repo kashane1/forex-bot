@@ -346,6 +346,12 @@ map; the linked documents are the authoritative evidence.
 | [`../../configs/campaign_024_m5_donchian_htf_confluence_breakout.yaml`](../../configs/campaign_024_m5_donchian_htf_confluence_breakout.yaml) | Frozen config (M5; `not_approved: true`) |
 | [`../../src/forex_bot/strategies/m5_donchian_htf_confluence_breakout.py`](../../src/forex_bot/strategies/m5_donchian_htf_confluence_breakout.py) | Pure research strategy module |
 | [`../../tests/unit/test_m5_donchian_htf_confluence_breakout.py`](../../tests/unit/test_m5_donchian_htf_confluence_breakout.py) | Strategy unit tests |
+| [`../../src/forex_bot/research/campaign_024_loader.py`](../../src/forex_bot/research/campaign_024_loader.py) | Materialized M5/M15/H1/H4 + native-H4 D1AGG loader |
+| [`../../src/forex_bot/research/campaign_024_gates.py`](../../src/forex_bot/research/campaign_024_gates.py) | Frozen precommit gates |
+| [`../../scripts/run_campaign_024_m5_donchian_htf_confluence.py`](../../scripts/run_campaign_024_m5_donchian_htf_confluence.py) | Scaffold preflight runner (no evidence machinery) |
+| [`CAMPAIGN_024_BACKTRADER_PARITY_DESIGN.md`](CAMPAIGN_024_BACKTRADER_PARITY_DESIGN.md) | Parity design stub (precommitted gate) |
+| [`CAMPAIGN_024_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md`](CAMPAIGN_024_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md) | Distinctness + prior lessons |
+| [`CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md) | Scaffold sprint close-out |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
