@@ -1,0 +1,32 @@
+{
+  "campaign_id": "CAMPAIGN_021",
+  "command": "train-only",
+  "git_commit": "376ec373fcd30632b8805ffe641258d02445c9b9",
+  "git_branch": "research-campaign-021-ltf-mtf-confluence-execution-001",
+  "started_at_utc": "2026-05-28T01:11:06.713028+00:00",
+  "splits": {
+    "train": [
+      "2020-01-01",
+      "2022-12-31"
+    ],
+    "validation": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "test": [
+      "2025-01-01",
+      "2026-05-20"
+    ]
+  },
+  "dedupe_policy": "keep_last",
+  "data_provenance": {
+    "execution_m15": "m1_derived",
+    "context_h1": "m1_derived",
+    "context_h4": "m1_derived",
+    "d1agg_context": "native_h4_derived_d1agg",
+    "m1_derived_d1agg_allowed": false
+  },
+  "d1agg_source": "native_h4_derived_d1agg",
+  "fill_timing": "next_bar_open",
+  "elapsed_seconds": 6944.7
+}

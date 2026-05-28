@@ -1,0 +1,14 @@
+{
+  "train_gate_pass": false,
+  "checks": {
+    "train_expectancy_gte_zero": false,
+    "train_trade_count_sanity": true,
+    "train_provenance_ok": true
+  },
+  "failed_gates": [
+    "train_expectancy_gte_zero"
+  ],
+  "verdict": "REJECT",
+  "validation_allowed": false,
+  "test_lockbox_allowed": false
+}

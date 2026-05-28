@@ -1,0 +1,8 @@
+{
+  "parity_pass": false,
+  "test_lockbox_allowed": false,
+  "train_gate_pass": false,
+  "validation_allowed": false,
+  "validation_gate_pass": false,
+  "verdict": "REJECT"
+}

@@ -1,0 +1,11 @@
+{
+  "data_provenance": {
+    "execution_m15": "m1_derived",
+    "context_h1": "m1_derived",
+    "context_h4": "m1_derived",
+    "d1agg_context": "native_h4_derived_d1agg",
+    "m1_derived_d1agg_allowed": false
+  },
+  "d1agg_source": "native_h4_derived_d1agg",
+  "fill_timing": "next_bar_open"
+}
