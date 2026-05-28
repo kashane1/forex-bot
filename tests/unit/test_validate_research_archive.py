@@ -25,7 +25,7 @@ from forex_bot.research_archive import (
     validate_archive,
 )
 
-_CAMPAIGN_IDS = {f"CAMPAIGN_{n:03d}" for n in (*range(1, 18), 19, 20)}
+_CAMPAIGN_IDS = {f"CAMPAIGN_{n:03d}" for n in (*range(1, 18), 19, 20, 22)}
 
 
 def test_real_research_archive_passes_every_check():
@@ -35,10 +35,10 @@ def test_real_research_archive_passes_every_check():
     assert result.ok, f"failing checks: {failed}"
 
 
-def test_real_manifest_has_all_nineteen_campaigns():
+def test_real_manifest_has_all_campaigns():
     manifest = load_manifest()
     campaigns = manifest["campaigns"]
-    assert len(campaigns) == 19
+    assert len(campaigns) == len(_CAMPAIGN_IDS)
     assert {c["campaign_id"] for c in campaigns} == _CAMPAIGN_IDS
 
 

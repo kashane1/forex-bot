@@ -1582,6 +1582,26 @@ Compact JSON: `research/m1_timeframe_materialization/`.
   `forex_bot.research_archive` and is unit-tested by
   `tests/unit/test_validate_research_archive.py`.
 
+## CAMPAIGN_022 H4/H1 pullback-resolution execution (research-campaign-022-h4-h1-pullback-resolution-execution-001)
+
+First **executed** evidence for the pullback-resolution thesis (H4 bias + H1 holding-pullback
++ M15 reclaim; H4 top timeframe, no D1). Verdict: **REJECT** — train expectancy −0.1042R
+(0/7 pairs positive), validation −0.1663R, 2× cost-stress −0.2468R; underperforms C020 all-green
+and loses to the C011 null. Train-gate failure terminal; test lockbox never opened; `approved: []`.
+
+| document | role |
+|---|---|
+| [`CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_PRECOMMIT.md`](CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_PRECOMMIT.md) | frozen precommit |
+| [`CAMPAIGN_022_STRUCTURAL_DISTINCTNESS_MEMO.md`](CAMPAIGN_022_STRUCTURAL_DISTINCTNESS_MEMO.md) | distinctness vs C020/C021 |
+| [`CAMPAIGN_022_EXECUTION_001_PLAN.md`](CAMPAIGN_022_EXECUTION_001_PLAN.md) | execution plan, splits, gates |
+| [`CAMPAIGN_022_TRAIN_VALIDATION_RESULT.md`](CAMPAIGN_022_TRAIN_VALIDATION_RESULT.md) | train/validation metrics + gate table |
+| [`CAMPAIGN_022_BEHAVIOR_DIAGNOSTICS.md`](CAMPAIGN_022_BEHAVIOR_DIAGNOSTICS.md) | mechanism diagnostics |
+| [`CAMPAIGN_022_BACKTRADER_PARITY_RESULT.md`](CAMPAIGN_022_BACKTRADER_PARITY_RESULT.md) | parity NOT run (moot — train REJECT) |
+| [`CAMPAIGN_022_GATE_DECISION.md`](CAMPAIGN_022_GATE_DECISION.md) | gate decision (REJECT) |
+| [`CAMPAIGN_022_FINAL_INTERPRETATION.md`](CAMPAIGN_022_FINAL_INTERPRETATION.md) | final interpretation |
+| [`CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_SCAFFOLD_001_SUMMARY.md) | scaffold sprint summary |
+| [`CAMPAIGN_022_EXECUTION_001_SUMMARY.md`](CAMPAIGN_022_EXECUTION_001_SUMMARY.md) | execution sprint summary |
+
 ## How to read the evidence
 
 - **Verdicts are bright lines.** Every campaign fixed its gates in a

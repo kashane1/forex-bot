@@ -87,6 +87,7 @@ strategy is approved.**
 | `weekly_volatility_contraction_breakout 0.1.0-c017` | rejected (deduped) | NO | NO | NO | CAMPAIGN_017 deduped |
 | `multi_timeframe_confluence_pullback 0.1.0-c020` | rejected | NO | NO | NO | CAMPAIGN_020 |
 | `lower_timeframe_mtf_confluence_entry 0.1.0-c021` | scaffold-only (not executed) | NO | NO | NO | CAMPAIGN_021 |
+| `h4_h1_pullback_resolution_entry 0.1.0-c022` | rejected | NO | NO | NO | CAMPAIGN_022 |
 | `h4_h1_pullback_resolution_entry 0.1.0-c023` (ADX22 sibling of C022) | scaffold-only (not executed) | NO | NO | NO | CAMPAIGN_023 (scaffold) |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
