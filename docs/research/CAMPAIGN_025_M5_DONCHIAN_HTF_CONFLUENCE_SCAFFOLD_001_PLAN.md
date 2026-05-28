@@ -1,6 +1,6 @@
-# CAMPAIGN_024 — M5 Donchian + HTF confluence breakout (SCAFFOLD_001 plan)
+# CAMPAIGN_025 — M5 Donchian + HTF confluence breakout (SCAFFOLD_001 plan)
 
-**Branch:** `research-campaign-024-m5-donchian-htf-confluence-scaffold-001`
+**Branch:** `research-campaign-025-m5-donchian-htf-confluence-scaffold-001`
 **Date:** 2026-05-28
 **Status after this sprint:** `SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED`
 
@@ -14,7 +14,7 @@
 ## Purpose
 
 Stand up a fully pre-committed research scaffold for a lower-timeframe
-price-action strategy — **`m5_donchian_htf_confluence_breakout 0.1.0-c024`** —
+price-action strategy — **`m5_donchian_htf_confluence_breakout 0.1.0-c025`** —
 that places a Donchian breakout *trigger* on M5 execution bars but only fires
 when higher timeframes (M15 setup, H1/H4 trend, D1AGG regime) agree.
 
@@ -31,7 +31,7 @@ a sound **price-action trigger** but needs (a) a finer execution timeframe so
 the entry is precise, and (b) multi-timeframe agreement so the trigger only
 fires inside a supportive trend/regime.
 
-C024 therefore:
+C025 therefore:
 1. Uses **H4M1 + H1** to define directional context.
 2. Uses **M15** to require local pullback/compression structure (anti-chasing).
 3. Uses an **M5 Donchian breakout** as the execution trigger.
@@ -45,7 +45,7 @@ C024 therefore:
 - **Vs. blunt H4 Donchian (early breakout idea / CAMPAIGN_002 lineage):** the
   breakout *trigger* moves from H4 to **M5**, so entries are precise rather than
   whole-H4-bar coarse, and the H4 channel is replaced by an H4 *trend* gate.
-- **Vs. broad seven-pair pattern search (C012, C013, C015–C017):** C024 does
+- **Vs. broad seven-pair pattern search (C012, C013, C015–C017):** C025 does
   **not** assume a universal seven-pair edge. The runner reports **pair-level
   diagnostics**, and a future single-pair continuation is allowed **only** if
   pre-committed and justified *before* test evidence.
@@ -104,18 +104,18 @@ materialization sprint; native H4 remains available for D1AGG aggregation.
 
 ## Expected artifacts
 
-- `docs/research/CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md` (this)
-- `docs/research/CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`
+- `docs/research/CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md` (this)
+- `docs/research/CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`
 - `src/forex_bot/strategies/m5_donchian_htf_confluence_breakout.py`
-- `src/forex_bot/research/campaign_024_loader.py`
-- `src/forex_bot/research/campaign_024_gates.py`
+- `src/forex_bot/research/campaign_025_loader.py`
+- `src/forex_bot/research/campaign_025_gates.py`
 - `tests/unit/test_m5_donchian_htf_confluence_breakout.py`
-- `configs/campaign_024_m5_donchian_htf_confluence_breakout.yaml`
-- `scripts/run_campaign_024_m5_donchian_htf_confluence.py`
-- `docs/research/CAMPAIGN_024_BACKTRADER_PARITY_DESIGN.md`
-- `docs/research/CAMPAIGN_024_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md`
-- `docs/research/CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`
-- `research/campaign_024/preflight/*.json` (compact preflight artifacts)
+- `configs/campaign_025_m5_donchian_htf_confluence_breakout.yaml`
+- `scripts/run_campaign_025_m5_donchian_htf_confluence.py`
+- `docs/research/CAMPAIGN_025_BACKTRADER_PARITY_DESIGN.md`
+- `docs/research/CAMPAIGN_025_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md`
+- `docs/research/CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`
+- `research/campaign_025/preflight/*.json` (compact preflight artifacts)
 - Registry updates: `STRATEGY_STATUS.md`, `EVIDENCE_INDEX.md`,
   `EVIDENCE_MANIFEST.json`, `FUTURE_RESEARCH_BACKLOG.md`.
 
@@ -127,8 +127,8 @@ ruff check .
 python scripts/check_research_freeze.py
 python scripts/validate_research_archive.py
 python scripts/scan_artifacts_for_secrets.py
-python scripts/run_campaign_024_m5_donchian_htf_confluence.py --preflight-only
-python scripts/run_campaign_024_m5_donchian_htf_confluence.py --data-feature-preflight
+python scripts/run_campaign_025_m5_donchian_htf_confluence.py --preflight-only
+python scripts/run_campaign_025_m5_donchian_htf_confluence.py --data-feature-preflight
 ```
 
 ## Blocked conditions
@@ -142,7 +142,7 @@ python scripts/run_campaign_024_m5_donchian_htf_confluence.py --data-feature-pre
 
 ## Baseline audit (Phase 0) result
 
-- Branch renamed to `research-campaign-024-m5-donchian-htf-confluence-scaffold-001`;
+- Branch renamed to `research-campaign-025-m5-donchian-htf-confluence-scaffold-001`;
   worktree clean; based on `origin/main`.
 - M1-derived materialization infra present (`scripts/materialize_m1_derived_timeframes.py`,
   `scripts/verify_m1_materialized_coverage.py`,

@@ -1,4 +1,4 @@
-"""CAMPAIGN_024 frame loading — materialized M1-derived bars from Postgres.
+"""CAMPAIGN_025 frame loading — materialized M1-derived bars from Postgres.
 
 M5 execution + M15/H1/H4 context come from the materialized M1-derived store
 (``source=m1_materialized``); D1AGG comes from native-H4-derived aggregation.
@@ -67,7 +67,7 @@ def live_aggregation_enabled() -> bool:
 
 
 @dataclass(frozen=True)
-class C024Frames:
+class C025Frames:
     instrument: str
     m5: CandleFrame
     m15: CandleFrame
@@ -174,16 +174,16 @@ def check_materialized_coverage(
     }
 
 
-def load_c024_frames(
+def load_c025_frames(
     store: PostgresCandleStore,
     instrument: str,
     *,
     from_dt: datetime,
     to_dt: datetime,
     allow_live_aggregation: bool | None = None,
-) -> C024Frames:
+) -> C025Frames:
     if instrument not in MAJOR_PAIRS:
-        raise ValueError(f"instrument not in CAMPAIGN_024 universe: {instrument}")
+        raise ValueError(f"instrument not in CAMPAIGN_025 universe: {instrument}")
     use_live = (
         live_aggregation_enabled()
         if allow_live_aggregation is None
@@ -220,7 +220,7 @@ def load_c024_frames(
     native_h4 = _load_native_h4(store, instrument, from_dt=from_dt, to_dt=to_dt)
     d1_result = aggregate_h4_to_d1(native_h4, instrument=instrument)
     d1_candles = _filter_completed_in_range(d1_result.candles, from_dt=from_dt, to_dt=to_dt)
-    return C024Frames(
+    return C025Frames(
         instrument=instrument,
         m5=CandleFrame.from_candles(instrument, "M5", m5),
         m15=CandleFrame.from_candles(instrument, "M15", m15),
@@ -239,7 +239,7 @@ def pair_data_preflight(
     sample_decisions: int = 200,
 ) -> dict[str, Any]:
     """Per-pair counts, ranges, and an HTF last-completed/no-lookahead probe."""
-    frames = load_c024_frames(store, instrument, from_dt=from_dt, to_dt=to_dt)
+    frames = load_c025_frames(store, instrument, from_dt=from_dt, to_dt=to_dt)
     m5_df = frames.m5.completed_only().df
     m15_df = frames.m15.completed_only().df
     h1_df = frames.h1.completed_only().df
@@ -317,7 +317,7 @@ def build_data_feature_preflight(
         if report.get("status") != "PASS":
             blocked.append(instrument)
     return {
-        "campaign_id": "CAMPAIGN_024",
+        "campaign_id": "CAMPAIGN_025",
         "d1agg_source": D1AGG_SOURCE,
         "m1_derived_d1agg_used": False,
         "materialized_source": MATERIALIZED_SOURCE,

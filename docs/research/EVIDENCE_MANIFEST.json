@@ -1849,38 +1849,38 @@
       "strategy_evidence": false
     },
     {
-      "artifact_id": "CAMPAIGN_024_SCAFFOLD_PLAN",
-      "path": "docs/research/CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md",
+      "artifact_id": "CAMPAIGN_025_SCAFFOLD_PLAN",
+      "path": "docs/research/CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md",
       "kind": "precommit_design",
-      "description": "CAMPAIGN_024 M5 Donchian + HTF confluence breakout scaffold plan. strategy_evidence: false; SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED.",
+      "description": "CAMPAIGN_025 M5 Donchian + HTF confluence breakout scaffold plan. strategy_evidence: false; SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED.",
       "strategy_evidence": false
     },
     {
-      "artifact_id": "CAMPAIGN_024_PRECOMMIT",
-      "path": "docs/research/CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md",
+      "artifact_id": "CAMPAIGN_025_PRECOMMIT",
+      "path": "docs/research/CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md",
       "kind": "precommit_design",
-      "description": "CAMPAIGN_024 frozen rules, parameters, stop, and gates. strategy_evidence: false.",
+      "description": "CAMPAIGN_025 frozen rules, parameters, stop, and gates. strategy_evidence: false.",
       "strategy_evidence": false
     },
     {
-      "artifact_id": "CAMPAIGN_024_BACKTRADER_PARITY_DESIGN",
-      "path": "docs/research/CAMPAIGN_024_BACKTRADER_PARITY_DESIGN.md",
+      "artifact_id": "CAMPAIGN_025_BACKTRADER_PARITY_DESIGN",
+      "path": "docs/research/CAMPAIGN_025_BACKTRADER_PARITY_DESIGN.md",
       "kind": "precommit_design",
-      "description": "CAMPAIGN_024 Backtrader parity design stub (no implementation). strategy_evidence: false.",
+      "description": "CAMPAIGN_025 Backtrader parity design stub (no implementation). strategy_evidence: false.",
       "strategy_evidence": false
     },
     {
-      "artifact_id": "CAMPAIGN_024_DISTINCTNESS_MEMO",
-      "path": "docs/research/CAMPAIGN_024_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md",
+      "artifact_id": "CAMPAIGN_025_DISTINCTNESS_MEMO",
+      "path": "docs/research/CAMPAIGN_025_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md",
       "kind": "precommit_design",
-      "description": "CAMPAIGN_024 distinctness vs C002/C012/C013/C020/C021 and prior-lessons. strategy_evidence: false.",
+      "description": "CAMPAIGN_025 distinctness vs C002/C012/C013/C020/C021 and prior-lessons. strategy_evidence: false.",
       "strategy_evidence": false
     },
     {
-      "artifact_id": "CAMPAIGN_024_SCAFFOLD_SUMMARY",
-      "path": "docs/research/CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md",
+      "artifact_id": "CAMPAIGN_025_SCAFFOLD_SUMMARY",
+      "path": "docs/research/CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md",
       "kind": "precommit_design",
-      "description": "CAMPAIGN_024 scaffold sprint close-out. SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED. strategy_evidence: false.",
+      "description": "CAMPAIGN_025 scaffold sprint close-out. SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED. strategy_evidence: false.",
       "strategy_evidence": false
     },
     {

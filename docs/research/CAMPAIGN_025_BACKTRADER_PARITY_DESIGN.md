@@ -1,6 +1,6 @@
-# CAMPAIGN_024 — Backtrader parity design (DESIGN STUB)
+# CAMPAIGN_025 — Backtrader parity design (DESIGN STUB)
 
-**Strategy:** `m5_donchian_htf_confluence_breakout 0.1.0-c024`
+**Strategy:** `m5_donchian_htf_confluence_breakout 0.1.0-c025`
 **Status:** design only — **no Backtrader implementation in this scaffold sprint**.
 
 > Backtrader parity is a **precommitted gate** (precommit §9.9): no
@@ -13,7 +13,7 @@
 
 ## 1. What must match
 
-The research engine (`scripts/run_campaign_024_*` future train/validation lane)
+The research engine (`scripts/run_campaign_025_*` future train/validation lane)
 and a Backtrader port must agree, per pair and per split, on:
 
 - the **set of entry signals** (signal bar timestamp + side),

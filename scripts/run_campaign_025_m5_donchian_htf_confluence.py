@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CAMPAIGN_024 — M5 Donchian + HTF confluence breakout SCAFFOLD runner.
+"""CAMPAIGN_025 — M5 Donchian + HTF confluence breakout SCAFFOLD runner.
 
 Scaffold/precommit sprint only. This runner implements **preflight** modes only:
 
@@ -34,12 +34,12 @@ from forex_bot.data.m1_timeframe_materialization import MATERIALIZED_SOURCE
 from forex_bot.data.postgres_candle_store import PostgresCandleStore
 from forex_bot.data.research_db import get_research_database_config
 from forex_bot.project_env import bootstrap_environ
-from forex_bot.research.campaign_024_loader import (
+from forex_bot.research.campaign_025_loader import (
     build_data_feature_preflight,
     check_materialized_coverage,
     instrument_for,
     live_aggregation_enabled,
-    load_c024_frames,
+    load_c025_frames,
 )
 from forex_bot.research.execution_realism import (
     ExecutionRealism,
@@ -50,12 +50,12 @@ from forex_bot.strategies.base import StrategyContext
 from forex_bot.strategies.m5_donchian_htf_confluence_breakout import (
     D1AGG_SOURCE_M1,
     M5DonchianHtfConfluenceBreakoutStrategy,
-    validate_c024_data_provenance,
+    validate_c025_data_provenance,
 )
 
-CONFIG_PATH = ROOT / "configs/campaign_024_m5_donchian_htf_confluence_breakout.yaml"
+CONFIG_PATH = ROOT / "configs/campaign_025_m5_donchian_htf_confluence_breakout.yaml"
 APPROVED_PATH = ROOT / "configs/approved_strategies.yaml"
-OUT_RESEARCH = ROOT / "research/campaign_024"
+OUT_RESEARCH = ROOT / "research/campaign_025"
 OUT_PREFLIGHT = OUT_RESEARCH / "preflight"
 EXPECTED_STRATEGY = "m5_donchian_htf_confluence_breakout"
 
@@ -89,7 +89,7 @@ def load_settings() -> tuple[Settings, dict[str, Any]]:
 def assert_registry_empty() -> None:
     approved = yaml.safe_load(APPROVED_PATH.read_text(encoding="utf-8")) or {}
     if approved.get("approved"):
-        raise SystemExit("approved_strategies.yaml must remain empty for CAMPAIGN_024")
+        raise SystemExit("approved_strategies.yaml must remain empty for CAMPAIGN_025")
 
 
 def assert_execution_metadata(raw: dict[str, Any]) -> None:
@@ -101,7 +101,7 @@ def assert_execution_metadata(raw: dict[str, Any]) -> None:
     if meta.execution_realism != ExecutionRealism.CONSERVATIVE:
         raise SystemExit("execution_realism must be conservative")
     provenance = raw.get("data_provenance") or {}
-    validate_c024_data_provenance(provenance)
+    validate_c025_data_provenance(provenance)
     if provenance.get("d1agg_context") == D1AGG_SOURCE_M1:
         raise SystemExit("m1_derived_d1agg forbidden")
 
@@ -114,7 +114,7 @@ def validate_frozen_config(settings: Settings, raw: dict[str, Any]) -> dict[str,
     cfg = settings.strategy.m5_donchian_htf_confluence_breakout
     if cfg is None:
         raise SystemExit("missing m5_donchian_htf_confluence_breakout config")
-    if cfg.version != "0.1.0-c024" or cfg.timeframe != "M5":
+    if cfg.version != "0.1.0-c025" or cfg.timeframe != "M5":
         raise SystemExit("frozen identity diverged")
     if cfg.entry_channel_length != 20 or cfg.atr_stop_multiple != 2.0 or cfg.max_bars_in_trade != 48:
         raise SystemExit("precommitted parameters diverged")
@@ -130,9 +130,9 @@ def _write(name: str, payload: Any) -> Path:
 
 def _run_manifest(mode: str, extra: dict[str, Any] | None = None) -> dict[str, Any]:
     manifest = {
-        "campaign_id": "CAMPAIGN_024",
+        "campaign_id": "CAMPAIGN_025",
         "strategy_name": EXPECTED_STRATEGY,
-        "version": "0.1.0-c024",
+        "version": "0.1.0-c025",
         "mode": mode,
         "scaffold_only": True,
         "not_approved": True,
@@ -158,9 +158,9 @@ def preflight(settings: Settings, raw: dict[str, Any]) -> dict[str, Any]:
     blocked: list[str] = []
     coverage: dict[str, Any] = {}
     result: dict[str, Any] = {
-        "campaign_id": "CAMPAIGN_024",
+        "campaign_id": "CAMPAIGN_025",
         "strategy_name": EXPECTED_STRATEGY,
-        "version": "0.1.0-c024",
+        "version": "0.1.0-c025",
         "not_approved": True,
         "strategy_evidence": False,
         "fill_timing": "next_bar_open",
@@ -223,7 +223,7 @@ def sample_signals(
     strat_cfg["data_provenance"] = raw.get("data_provenance")
     strategy = M5DonchianHtfConfluenceBreakoutStrategy()
     out: dict[str, Any] = {
-        "campaign_id": "CAMPAIGN_024",
+        "campaign_id": "CAMPAIGN_025",
         "pair": pair,
         "window_start": start,
         "window_days": days,
@@ -235,7 +235,7 @@ def sample_signals(
         store = _open_store()
         from_dt = datetime.fromisoformat(start).replace(tzinfo=UTC)
         to_dt = from_dt + timedelta(days=max(1, days))  # bounded window only
-        frames = load_c024_frames(store, pair, from_dt=from_dt, to_dt=to_dt)
+        frames = load_c025_frames(store, pair, from_dt=from_dt, to_dt=to_dt)
     except SystemExit as exc:
         out["status"] = "BLOCKED_DATA_PRECONDITION"
         out["reason"] = str(exc)
@@ -283,7 +283,7 @@ def sample_signals(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="CAMPAIGN_024 SCAFFOLD runner")
+    parser = argparse.ArgumentParser(description="CAMPAIGN_025 SCAFFOLD runner")
     parser.add_argument("--preflight-only", action="store_true")
     parser.add_argument("--data-feature-preflight", action="store_true")
     parser.add_argument("--sample-signals-only", action="store_true")
@@ -299,7 +299,7 @@ def main() -> int:
 
     if args.validate_config:
         validate_frozen_config(settings, raw)
-        print(f"[CAMPAIGN_024] config OK — {EXPECTED_STRATEGY} 0.1.0-c024")
+        print(f"[CAMPAIGN_025] config OK — {EXPECTED_STRATEGY} 0.1.0-c025")
         return 0
 
     if args.preflight_only:
@@ -307,7 +307,7 @@ def main() -> int:
         _write("preflight_result.json", pf)
         _write(
             "pair_coverage_summary.json",
-            {"campaign_id": "CAMPAIGN_024", "pair_coverage": pf.get("pair_coverage", {})},
+            {"campaign_id": "CAMPAIGN_025", "pair_coverage": pf.get("pair_coverage", {})},
         )
         _write("run_manifest.json", _run_manifest("preflight-only", {"preflight_ok": pf["preflight_ok"]}))
         print(json.dumps(pf, indent=2, sort_keys=True, default=str))
@@ -323,7 +323,7 @@ def main() -> int:
             )
         except Exception as exc:
             report = {
-                "campaign_id": "CAMPAIGN_024",
+                "campaign_id": "CAMPAIGN_025",
                 "status": "BLOCKED_DATA_PRECONDITION",
                 "reason": f"postgres unavailable: {exc}",
                 "preflight_ok": False,

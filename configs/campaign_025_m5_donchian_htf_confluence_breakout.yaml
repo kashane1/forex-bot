@@ -1,16 +1,16 @@
-# CAMPAIGN_024 — M5 Donchian + HTF confluence breakout. RESEARCH SCAFFOLD ONLY.
+# CAMPAIGN_025 — M5 Donchian + HTF confluence breakout. RESEARCH SCAFFOLD ONLY.
 #
-# m5_donchian_htf_confluence_breakout 0.1.0-c024 — M5 execution, M15 setup,
+# m5_donchian_htf_confluence_breakout 0.1.0-c025 — M5 execution, M15 setup,
 # H1/H4M1 trend, D1AGG regime context.
-# Precommit: docs/research/CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md
+# Precommit: docs/research/CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md
 #
 # NOT APPROVED. configs/approved_strategies.yaml remains approved: [].
 # Full evidence requires a separate execution sprint. Test lockbox stays closed.
 
 campaign:
-  id: CAMPAIGN_024
+  id: CAMPAIGN_025
   strategy_family: m5_donchian_htf_confluence_breakout
-  version: 0.1.0-c024
+  version: 0.1.0-c025
   not_approved: true
   scaffold_only: true
   promotion_eligible: false
@@ -43,7 +43,7 @@ app:
   allow_order_submission: false
   allow_live_trading: false
   database_path: ./data/campaign_002.sqlite3
-  log_path: ./logs/campaign_024.jsonl
+  log_path: ./logs/campaign_025.jsonl
   kill_switch_path: ./KILL_SWITCH
 
 broker:
@@ -74,7 +74,7 @@ strategy:
   enabled:
     - m5_donchian_htf_confluence_breakout
   m5_donchian_htf_confluence_breakout:
-    version: 0.1.0-c024
+    version: 0.1.0-c025
     timeframe: M5
     entry_channel_length: 20
     atr_lookback: 14

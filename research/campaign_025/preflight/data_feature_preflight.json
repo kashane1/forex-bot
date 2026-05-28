@@ -1,6 +1,6 @@
 {
   "blocked_pairs": [],
-  "campaign_id": "CAMPAIGN_024",
+  "campaign_id": "CAMPAIGN_025",
   "d1agg_source": "native_h4_derived_d1agg",
   "m1_derived_d1agg_used": false,
   "materialized_source": "m1_materialized",

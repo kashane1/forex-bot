@@ -34,9 +34,9 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0-active-c024. CAMPAIGN_024 M5 Donchian + HTF confluence breakout (SCAFFOLD — 2026-05-28)
+## 0-active-c025. CAMPAIGN_025 M5 Donchian + HTF confluence breakout (SCAFFOLD — 2026-05-28)
 
-- **Candidate.** `m5_donchian_htf_confluence_breakout 0.1.0-c024`. M5 Donchian(20)
+- **Candidate.** `m5_donchian_htf_confluence_breakout 0.1.0-c025`. M5 Donchian(20)
   breakout trigger gated by M15 pullback/compression + H1/H4M1 trend + D1AGG
   (native-H4-derived) permissive regime; `next_bar_open` fills; single frozen stop
   (farther of 2.0×ATR and the opposite prior-20-bar channel side) + 48-bar time
@@ -44,16 +44,18 @@ broad-search re-entry gates are met.**
 - **Status.** **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED.** Scaffold + precommit only;
   no evidence run; test lockbox closed; paper/demo/live blocked.
 - **Precommit / plan.**
-  [`CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md),
-  [`CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md).
-- **Number reuse / distinctness.** The earlier "C024 NOT_READY" note in the retired
-  C022/C023 family closeout referred to a *pullback-resolution continuation* idea
-  that was never created. This CAMPAIGN_024 is a **different strategy** that now
-  takes the C024 number. It is **not** a same-shaped pullback-resolution campaign
-  (the trigger is a Donchian channel break on M5, not an M15 EMA20 reclaim), so it
-  does **not** reopen the retired family and does not depend on its reopening bar.
+  [`CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md),
+  [`CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md).
+- **Why C025 (not C024).** The retired C022/C023 family closeout already used
+  **"C024"** for a *pullback-resolution continuation* idea (recorded as
+  `C024 NOT_READY` in `C024_READINESS_FROM_C022_FEATURE_SEPARATION.md`) that was
+  never built. To avoid reusing a number already in the record, this M5 Donchian
+  campaign takes the next free number, **C025**. It is also **not** a same-shaped
+  pullback-resolution campaign (the trigger is a Donchian channel break on M5, not
+  an M15 EMA20 reclaim), so it does **not** reopen the retired family and does not
+  depend on its reopening bar.
 - **Recommended next sprint (only if a human authorizes it).**
-  `research-campaign-024-m5-donchian-htf-confluence-train-validation-001` — train/
+  `research-campaign-025-m5-donchian-htf-confluence-train-validation-001` — train/
   validation only, no test lockbox unless the precommitted gates **and** Backtrader
   parity pass.
 

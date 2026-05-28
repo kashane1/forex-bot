@@ -1,8 +1,8 @@
-"""Unit tests for CAMPAIGN_024 frozen precommit gates."""
+"""Unit tests for CAMPAIGN_025 frozen precommit gates."""
 
 from __future__ import annotations
 
-from forex_bot.research.campaign_024_gates import (
+from forex_bot.research.campaign_025_gates import (
     BEAT_NULL_MARGIN,
     C011_NULL_EXP_R,
     MIN_VALIDATION_PAIRS_POSITIVE,

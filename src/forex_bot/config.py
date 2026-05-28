@@ -805,9 +805,9 @@ class LowerTimeframeMtfConfluenceEntryStrategyConfig(BaseModel):
 
 
 class M5DonchianHtfConfluenceBreakoutStrategyConfig(BaseModel):
-    # CAMPAIGN_024 research candidate (`m5_donchian_htf_confluence_breakout 0.1.0-c024`).
+    # CAMPAIGN_025 research candidate (`m5_donchian_htf_confluence_breakout 0.1.0-c025`).
     # SCAFFOLD ONLY — not approved. See
-    # docs/research/CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md.
+    # docs/research/CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md.
     model_config = ConfigDict(extra="forbid")
 
     version: str

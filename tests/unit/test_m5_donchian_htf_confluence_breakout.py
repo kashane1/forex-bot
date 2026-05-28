@@ -1,4 +1,4 @@
-"""Unit tests for CAMPAIGN_024 M5 Donchian + HTF confluence breakout scaffold."""
+"""Unit tests for CAMPAIGN_025 M5 Donchian + HTF confluence breakout scaffold."""
 
 from __future__ import annotations
 
@@ -29,7 +29,7 @@ from forex_bot.strategies.m5_donchian_htf_confluence_breakout import (
     m5_breakout_side,
     m15_setup_present,
     resolve_exit,
-    validate_c024_data_provenance,
+    validate_c025_data_provenance,
 )
 
 _MODULE = "forex_bot.strategies.m5_donchian_htf_confluence_breakout"
@@ -147,17 +147,17 @@ def test_provenance_rejects_m1_derived_d1agg() -> None:
     bad = dict(_PROVENANCE)
     bad["d1agg_context"] = D1AGG_SOURCE_M1
     with pytest.raises(ValueError, match="rejects m1_derived_d1agg"):
-        validate_c024_data_provenance(bad)
+        validate_c025_data_provenance(bad)
 
 
 def test_provenance_requires_native_d1agg_and_m1_derived_streams() -> None:
-    validate_c024_data_provenance(_PROVENANCE)
+    validate_c025_data_provenance(_PROVENANCE)
     with pytest.raises(ValueError):
-        validate_c024_data_provenance({"d1agg_context": "other"})
+        validate_c025_data_provenance({"d1agg_context": "other"})
     missing = dict(_PROVENANCE)
     missing["context_m15"] = "native"
     with pytest.raises(ValueError, match="context_m15"):
-        validate_c024_data_provenance(missing)
+        validate_c025_data_provenance(missing)
 
 
 # --------------------------------------------------------------------------- #
@@ -215,7 +215,7 @@ def test_long_signal_emitted_when_all_gates_pass(monkeypatch, eur_usd: Instrumen
     sig = strat.generate_signal(_ctx(m5, eur_usd))
     assert sig is not None
     assert sig.side == "long"
-    assert sig.campaign_id == "CAMPAIGN_024"
+    assert sig.campaign_id == "CAMPAIGN_025"
     assert sig.timeframe == "M5"
     assert sig.take_profit_price is None
     assert validate_signal_provenance(sig) == []

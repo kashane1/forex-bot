@@ -1,9 +1,9 @@
-# CAMPAIGN_024 — PRECOMMIT: M5 Donchian + HTF confluence breakout
+# CAMPAIGN_025 — PRECOMMIT: M5 Donchian + HTF confluence breakout
 
 **Strategy:** `m5_donchian_htf_confluence_breakout`
-**Version:** `0.1.0-c024`
-**Campaign:** `CAMPAIGN_024`
-**Branch:** `research-campaign-024-m5-donchian-htf-confluence-scaffold-001`
+**Version:** `0.1.0-c025`
+**Campaign:** `CAMPAIGN_025`
+**Branch:** `research-campaign-025-m5-donchian-htf-confluence-scaffold-001`
 **Date frozen:** 2026-05-28
 **Status:** `SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED`
 

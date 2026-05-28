@@ -1,7 +1,7 @@
-"""CAMPAIGN_024 gate evaluation — frozen precommit thresholds.
+"""CAMPAIGN_025 gate evaluation — frozen precommit thresholds.
 
 These thresholds are pre-registered in
-``docs/research/CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`` §9
+``docs/research/CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`` §9
 and may not be changed after evidence. This scaffold sprint runs no evidence;
 the module exists so a later execution sprint cannot silently re-tune the gates.
 """

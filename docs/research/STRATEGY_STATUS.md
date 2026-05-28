@@ -142,7 +142,7 @@ strategy is approved.**
 | `lower_timeframe_mtf_confluence_entry 0.1.0-c021` | rejected | NO | NO | NO | CAMPAIGN_021 |
 | `h4_h1_pullback_resolution_entry 0.1.0-c022` | rejected (family RETIRED) | NO | NO | NO | CAMPAIGN_022 |
 | `h4_h1_pullback_resolution_entry 0.1.0-c023` (ADX22 sibling of C022) | scaffold-only (not executed; family RETIRED) | NO | NO | NO | CAMPAIGN_023 (scaffold) |
-| `m5_donchian_htf_confluence_breakout 0.1.0-c024` | scaffold-only (not run) | NO | NO | NO | CAMPAIGN_024 (scaffold) |
+| `m5_donchian_htf_confluence_breakout 0.1.0-c025` | scaffold-only (not run) | NO | NO | NO | CAMPAIGN_025 (scaffold) |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
@@ -489,7 +489,7 @@ for the FOMC-block + NFP-falsification analysis.
   gate has no evidential support. This remains scaffold-only; status unchanged. See
   [`C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md`](C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md).
 
-### `m5_donchian_htf_confluence_breakout 0.1.0-c024` — M5 Donchian + HTF confluence
+### `m5_donchian_htf_confluence_breakout 0.1.0-c025` — M5 Donchian + HTF confluence
 
 - **Status:** scaffold-only — **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED**
   (no evidence verdict).
@@ -507,9 +507,9 @@ for the FOMC-block + NFP-falsification analysis.
   stop, no TP/trailing/protective. Pair-level diagnostics mandatory; no assumed
   universal seven-pair edge. Future execution sprint required for any
   train/validation gates. See
-  [`CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md)
+  [`CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md)
   and
-  [`CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md).
+  [`CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md).
 
 ### `multi_timeframe_confluence_pullback 0.1.0-c020`
 

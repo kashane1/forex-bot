@@ -1,7 +1,7 @@
-"""M5 Donchian + HTF confluence breakout — ``m5_donchian_htf_confluence_breakout 0.1.0-c024``.
+"""M5 Donchian + HTF confluence breakout — ``m5_donchian_htf_confluence_breakout 0.1.0-c025``.
 
-CAMPAIGN_024 scaffold only. **NOT approved** for paper, demo, or live.
-See ``docs/research/CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md``.
+CAMPAIGN_025 scaffold only. **NOT approved** for paper, demo, or live.
+See ``docs/research/CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md``.
 
 M5 execution with M15 setup + H1/H4/D1AGG context via ``align_last_completed``.
 The Donchian channel uses prior completed bars only (``donchian_high``/
@@ -33,7 +33,7 @@ Side = Literal["long", "short"]
 Trend = Literal["bullish", "bearish", "neutral"]
 
 EXECUTION_TIMEFRAME = "M5"
-CAMPAIGN_ID = "CAMPAIGN_024"
+CAMPAIGN_ID = "CAMPAIGN_025"
 
 D1AGG_SOURCE_NATIVE = "native_h4_derived_d1agg"
 D1AGG_SOURCE_M1 = "m1_derived_d1agg"
@@ -47,20 +47,20 @@ EXIT_EOD = "eod"
 # --------------------------------------------------------------------------- #
 # Provenance / context guards
 # --------------------------------------------------------------------------- #
-def validate_c024_data_provenance(provenance: dict[str, Any] | None) -> None:
-    """Reject ambiguous or forbidden data sources for CAMPAIGN_024."""
+def validate_c025_data_provenance(provenance: dict[str, Any] | None) -> None:
+    """Reject ambiguous or forbidden data sources for CAMPAIGN_025."""
     if not provenance:
         raise ValueError("BLOCKED_PROVENANCE_AMBIGUITY: data_provenance missing")
     d1_src = provenance.get("d1agg_context") or provenance.get("d1agg_source")
     if d1_src == D1AGG_SOURCE_M1:
-        raise ValueError("CAMPAIGN_024 rejects m1_derived_d1agg")
+        raise ValueError("CAMPAIGN_025 rejects m1_derived_d1agg")
     if d1_src != D1AGG_SOURCE_NATIVE:
         raise ValueError(
-            f"CAMPAIGN_024 requires d1agg_context={D1AGG_SOURCE_NATIVE!r}, got {d1_src!r}"
+            f"CAMPAIGN_025 requires d1agg_context={D1AGG_SOURCE_NATIVE!r}, got {d1_src!r}"
         )
     for key in ("execution_m5", "context_m15", "context_h1", "context_h4"):
         if provenance.get(key) != "m1_derived":
-            raise ValueError(f"CAMPAIGN_024 requires {key}=m1_derived")
+            raise ValueError(f"CAMPAIGN_025 requires {key}=m1_derived")
 
 
 def _require_context_frames(cfg: dict[str, Any]) -> dict[str, CandleFrame]:
@@ -315,18 +315,18 @@ def resolve_exit(
 # Strategy
 # --------------------------------------------------------------------------- #
 class M5DonchianHtfConfluenceBreakoutStrategy:
-    """CAMPAIGN_024 — M5 Donchian + HTF confluence breakout (scaffold only)."""
+    """CAMPAIGN_025 — M5 Donchian + HTF confluence breakout (scaffold only)."""
 
     name: str = "m5_donchian_htf_confluence_breakout"
 
-    def __init__(self, version: str = "0.1.0-c024") -> None:
+    def __init__(self, version: str = "0.1.0-c025") -> None:
         self.version = version
 
     def warmup_bars_required(self) -> int:
         return 60
 
     def generate_signal(self, ctx: StrategyContext) -> Signal | None:
-        validate_c024_data_provenance(ctx.config.get("data_provenance"))
+        validate_c025_data_provenance(ctx.config.get("data_provenance"))
         if ctx.candles.granularity != EXECUTION_TIMEFRAME:
             raise ValueError(
                 f"execution frame must be {EXECUTION_TIMEFRAME}, got {ctx.candles.granularity}"

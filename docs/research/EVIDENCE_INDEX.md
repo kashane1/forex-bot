@@ -6,6 +6,10 @@ A single index of every campaign report, pre-commit, post-mortem, and
 research-freeze document. All paths are repo-relative. This index is the
 map; the linked documents are the authoritative evidence.
 
+> **Before numbering new work**, confirm the campaign number / version code is
+> unused (even by abandoned ideas) per
+> [`CAMPAIGN_NUMBERING_CONVENTION.md`](CAMPAIGN_NUMBERING_CONVENTION.md).
+
 > **Bottom line:** eighteen campaigns (CAMPAIGN_001–017 plus **CAMPAIGN_018** and
 > **CAMPAIGN_019** exit-hypothesis executions), **no approved trading strategy.**
 > Broad seven-pair pattern strategy search is **paused** (2026-05-26).
@@ -330,7 +334,7 @@ map; the linked documents are the authoritative evidence.
 | [`../../tests/unit/test_h4_h1_pullback_resolution_adx22.py`](../../tests/unit/test_h4_h1_pullback_resolution_adx22.py) | Proves C023 == C022 except ADX gate |
 | [`CAMPAIGN_023_ADX22_SIBLING_SCAFFOLD_SUMMARY.md`](CAMPAIGN_023_ADX22_SIBLING_SCAFFOLD_SUMMARY.md) | Scaffold sprint close-out |
 
-## CAMPAIGN_024 M5 Donchian + HTF confluence breakout (scaffold only)
+## CAMPAIGN_025 M5 Donchian + HTF confluence breakout (scaffold only)
 
 > **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED** — `strategy_evidence: false`,
 > `not_approved: true`. Returns to early Donchian/breakout price-action structure
@@ -341,17 +345,17 @@ map; the linked documents are the authoritative evidence.
 
 | document | purpose |
 |---|---|
-| [`CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md) | Plan + baseline audit |
-| [`CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md) | Frozen rules, stop, and gates |
-| [`../../configs/campaign_024_m5_donchian_htf_confluence_breakout.yaml`](../../configs/campaign_024_m5_donchian_htf_confluence_breakout.yaml) | Frozen config (M5; `not_approved: true`) |
+| [`CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md) | Plan + baseline audit |
+| [`CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md) | Frozen rules, stop, and gates |
+| [`../../configs/campaign_025_m5_donchian_htf_confluence_breakout.yaml`](../../configs/campaign_025_m5_donchian_htf_confluence_breakout.yaml) | Frozen config (M5; `not_approved: true`) |
 | [`../../src/forex_bot/strategies/m5_donchian_htf_confluence_breakout.py`](../../src/forex_bot/strategies/m5_donchian_htf_confluence_breakout.py) | Pure research strategy module |
 | [`../../tests/unit/test_m5_donchian_htf_confluence_breakout.py`](../../tests/unit/test_m5_donchian_htf_confluence_breakout.py) | Strategy unit tests |
-| [`../../src/forex_bot/research/campaign_024_loader.py`](../../src/forex_bot/research/campaign_024_loader.py) | Materialized M5/M15/H1/H4 + native-H4 D1AGG loader |
-| [`../../src/forex_bot/research/campaign_024_gates.py`](../../src/forex_bot/research/campaign_024_gates.py) | Frozen precommit gates |
-| [`../../scripts/run_campaign_024_m5_donchian_htf_confluence.py`](../../scripts/run_campaign_024_m5_donchian_htf_confluence.py) | Scaffold preflight runner (no evidence machinery) |
-| [`CAMPAIGN_024_BACKTRADER_PARITY_DESIGN.md`](CAMPAIGN_024_BACKTRADER_PARITY_DESIGN.md) | Parity design stub (precommitted gate) |
-| [`CAMPAIGN_024_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md`](CAMPAIGN_024_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md) | Distinctness + prior lessons |
-| [`CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md) | Scaffold sprint close-out |
+| [`../../src/forex_bot/research/campaign_025_loader.py`](../../src/forex_bot/research/campaign_025_loader.py) | Materialized M5/M15/H1/H4 + native-H4 D1AGG loader |
+| [`../../src/forex_bot/research/campaign_025_gates.py`](../../src/forex_bot/research/campaign_025_gates.py) | Frozen precommit gates |
+| [`../../scripts/run_campaign_025_m5_donchian_htf_confluence.py`](../../scripts/run_campaign_025_m5_donchian_htf_confluence.py) | Scaffold preflight runner (no evidence machinery) |
+| [`CAMPAIGN_025_BACKTRADER_PARITY_DESIGN.md`](CAMPAIGN_025_BACKTRADER_PARITY_DESIGN.md) | Parity design stub (precommitted gate) |
+| [`CAMPAIGN_025_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md`](CAMPAIGN_025_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md) | Distinctness + prior lessons |
+| [`CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md) | Scaffold sprint close-out |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

@@ -1,22 +1,22 @@
-# CAMPAIGN_024 — distinctness & prior-lessons memo
+# CAMPAIGN_025 — distinctness & prior-lessons memo
 
-**Strategy:** `m5_donchian_htf_confluence_breakout 0.1.0-c024`
+**Strategy:** `m5_donchian_htf_confluence_breakout 0.1.0-c025`
 **Status:** SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED.
 
-This memo records how C024 deliberately recombines the parts of prior campaigns
+This memo records how C025 deliberately recombines the parts of prior campaigns
 that worked (as *structure*, not as approved edge) while engineering out the
 specific failure modes that sank earlier attempts. Nothing here is a claim of
-edge — C024 has no evidence yet.
+edge — C025 has no evidence yet.
 
 ---
 
-## What C024 keeps from each lineage
+## What C025 keeps from each lineage
 
 ### From the earliest Donchian / breakout idea (CAMPAIGN_002 lineage)
 - **Keeps:** an explicit, falsifiable **price-action breakout trigger** — a
   Donchian channel break — rather than an indicator-soup entry.
 - **Fixes the blunt-H4 problem:** the early idea broke an **H4** channel across
-  all pairs, so each entry was a whole-H4-bar-coarse, regime-blind event. C024
+  all pairs, so each entry was a whole-H4-bar-coarse, regime-blind event. C025
   moves the *trigger* to **M5** (precise) and demotes H4 to a **trend gate**, not
   the channel itself. The breakout must occur *inside* an agreeing H4/H1 trend.
 
@@ -28,12 +28,12 @@ edge — C024 has no evidence yet.
   data substrate, with **native-H4-derived D1AGG** (M1-derived D1AGG rejected
   until day-completeness is fixed).
 - **Differs:** C020 executed on H4/H1; C021 executed on M15 with an EMA20-reclaim
-  pullback trigger. C024 executes on **M5** with a **Donchian breakout** trigger —
+  pullback trigger. C025 executes on **M5** with a **Donchian breakout** trigger —
   a materially different entry, not a re-parameterization of the C021 pullback.
 
 ### From C019 and the fill-timing / HTF-align infra sprints
 - **Keeps:** **`next_bar_open`** realism and `approval_bound` / `conservative`
-  execution metadata. C024 **forbids** `signal_bar_close` fills and any same-bar
+  execution metadata. C025 **forbids** `signal_bar_close` fills and any same-bar
   entry on the signal bar — the optimistic-fill lineage that flattered earlier
   backtests is structurally excluded.
 
@@ -46,7 +46,7 @@ edge — C024 has no evidence yet.
 
 ### From the turnover-amplification failures
 - **Requires a pullback/compression precondition on M15 before any breakout**, so
-  C024 is not a high-turnover breakout chaser. The scaffold also tracks trade
+  C025 is not a high-turnover breakout chaser. The scaffold also tracks trade
   frequency (sample probe) and the precommit mandates documenting the
   **spread/ATR ratio** so spread-domination is caught before promotion.
 
@@ -56,9 +56,9 @@ edge — C024 has no evidence yet.
   spread/slippage) and a future financing overlay — cost is a gate, not an
   afterthought.
 
-## Why C024 is structurally distinct from specific rejected campaigns
+## Why C025 is structurally distinct from specific rejected campaigns
 
-| vs. | Their entry | C024 entry | Distinct because |
+| vs. | Their entry | C025 entry | Distinct because |
 |---|---|---|---|
 | **CAMPAIGN_002** (Donchian/breakout lineage) | H4 channel break, all pairs, optimistic fills | M5 channel break gated by H4/H1 trend + D1AGG regime + M15 setup, `next_bar_open` | trigger timeframe, regime gating, fill realism all differ |
 | **C012** (regime switcher ATR percentile) | ATR-percentile regime classifier on H4 | price-action Donchian break on M5 | no ATR-percentile regime model; trigger is structural, not statistical |
@@ -66,17 +66,23 @@ edge — C024 has no evidence yet.
 | **C020** (MTF confluence pullback, H4 exec) | H4 pullback into trend | M5 Donchian breakout into trend | execution timeframe (H4→M5) and trigger (pullback→breakout) |
 | **C021** (LTF MTF confluence, M15 exec) | M15 EMA20-reclaim pullback | M5 Donchian channel break | execution timeframe (M15→M5) and trigger (EMA reclaim→Donchian breakout); not a threshold tweak |
 
-## Relationship to the retired C022/C023 pullback family and the old "C024 NOT_READY" note
+## Why this campaign is C025 (and its relationship to the retired C022/C023 family)
 
-The C022/C023 family closeout recorded a prospective **"C024 NOT_READY"** — but
-that referred to a *pullback-resolution continuation* (re-gating the same M15
-EMA20-reclaim signal), which was never created. **This** CAMPAIGN_024 is a
-different strategy that takes the C024 number. It is **not** a same-shaped
-pullback-resolution campaign: the trigger is a Donchian channel break on M5, not
-an M15 EMA20 reclaim. It therefore does not reopen the retired family and does
-not rely on that family's (unmet) reopening bar.
+The campaign number is **C025**, not C024, on purpose. The C022/C023 family
+closeout already used **"C024"** for a prospective *pullback-resolution
+continuation* (re-gating the same M15 EMA20-reclaim signal), recorded as
+**`C024 NOT_READY`** in `C024_READINESS_FROM_C022_FEATURE_SEPARATION.md`. That
+C024 idea was never built, but the number had already entered the record — so to
+avoid any ambiguity this M5 Donchian campaign takes the next free number,
+**C025**. (The scaffold was briefly drafted as C024 and renamed to C025 for
+exactly this reason.)
 
-## What would still kill C024 (pre-registered honesty)
+This is also **not** a same-shaped pullback-resolution campaign: the trigger is a
+Donchian channel break on M5, not an M15 EMA20 reclaim. It therefore does not
+reopen the retired C022/C023 family and does not rely on that family's (unmet)
+reopening bar.
+
+## What would still kill C025 (pre-registered honesty)
 
 - Train expectancy `< 0`, or validation expectancy `≤ 0` / PF `< 1.05`.
 - Fewer than 100 validation trades, or fewer than 4/7 pairs non-negative (absent

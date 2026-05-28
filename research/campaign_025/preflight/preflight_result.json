@@ -1,7 +1,7 @@
 {
   "blocked_reasons": [],
-  "campaign_id": "CAMPAIGN_024",
-  "checked_at_utc": "2026-05-28T23:26:00.357167+00:00",
+  "campaign_id": "CAMPAIGN_025",
+  "checked_at_utc": "2026-05-28T23:44:46.825525+00:00",
   "data_provenance": {
     "context_h1": "m1_derived",
     "context_h4": "m1_derived",
@@ -118,6 +118,6 @@
   "preflight_ok": true,
   "strategy_evidence": false,
   "strategy_name": "m5_donchian_htf_confluence_breakout",
-  "version": "0.1.0-c024",
+  "version": "0.1.0-c025",
   "warmup_bars_required": 60
 }

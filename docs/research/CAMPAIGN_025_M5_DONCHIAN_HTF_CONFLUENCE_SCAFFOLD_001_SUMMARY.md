@@ -1,12 +1,20 @@
-# CAMPAIGN_024 — M5 Donchian + HTF confluence breakout (SCAFFOLD_001 summary)
+# CAMPAIGN_025 — M5 Donchian + HTF confluence breakout (SCAFFOLD_001 summary)
 
 **Status:** `SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED`. No evidence run; test
 lockbox closed; no strategy approved; paper/demo/live blocked.
 
+> **Campaign-number note.** This scaffold was originally built as **CAMPAIGN_024**
+> (phases 0–7, hashes below) and then renamed wholesale to **CAMPAIGN_025** in a
+> follow-up commit, because the number "C024" had already been used in the record
+> for the abandoned C022/C023 pullback-resolution continuation
+> (`C024_READINESS_FROM_C022_FEATURE_SEPARATION.md`, `C024 NOT_READY`). The phase
+> hashes below are the original C024-era commits (history is unchanged); the rename
+> commit sits on top.
+
 ---
 
 ### 1. Branch
-`research-campaign-024-m5-donchian-htf-confluence-scaffold-001` (off `origin/main`).
+`research-campaign-025-m5-donchian-htf-confluence-scaffold-001` (off `origin/main`).
 
 ### 2. Commit hashes by phase
 | Phase | Hash | Title |
@@ -18,29 +26,30 @@ lockbox closed; no strategy approved; paper/demo/live blocked.
 | 4 | `e20bfda` | data-feature preflight runner |
 | 5 | `50d5a90` | Backtrader parity design stub |
 | 6 | `f9eab91` | distinctness + prior-lessons memo |
-| 7 | _this commit_ | scaffold validation + summary |
+| 7 | `30fb4c8` | scaffold validation + summary |
+| rename | _this commit_ | rename CAMPAIGN_024 → CAMPAIGN_025 |
 
 ### 3. Files changed by phase
-- **0:** `docs/research/CAMPAIGN_024_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`
-- **1:** `docs/research/CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`
+- **0:** `docs/research/CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`
+- **1:** `docs/research/CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`
 - **2:** `src/forex_bot/strategies/m5_donchian_htf_confluence_breakout.py`,
   `src/forex_bot/strategies/__init__.py`, `src/forex_bot/config.py`,
   `tests/unit/test_m5_donchian_htf_confluence_breakout.py`
-- **3:** `configs/campaign_024_m5_donchian_htf_confluence_breakout.yaml`,
-  `src/forex_bot/research/campaign_024_gates.py`,
-  `tests/unit/test_campaign_024_gates.py`, `docs/research/STRATEGY_STATUS.md`,
+- **3:** `configs/campaign_025_m5_donchian_htf_confluence_breakout.yaml`,
+  `src/forex_bot/research/campaign_025_gates.py`,
+  `tests/unit/test_campaign_025_gates.py`, `docs/research/STRATEGY_STATUS.md`,
   `docs/research/EVIDENCE_INDEX.md`, `docs/research/EVIDENCE_MANIFEST.json`,
   `docs/research/FUTURE_RESEARCH_BACKLOG.md`
-- **4:** `scripts/run_campaign_024_m5_donchian_htf_confluence.py`,
-  `src/forex_bot/research/campaign_024_loader.py`,
-  `research/campaign_024/preflight/*.json`
-- **5:** `docs/research/CAMPAIGN_024_BACKTRADER_PARITY_DESIGN.md`
-- **6:** `docs/research/CAMPAIGN_024_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md`
+- **4:** `scripts/run_campaign_025_m5_donchian_htf_confluence.py`,
+  `src/forex_bot/research/campaign_025_loader.py`,
+  `research/campaign_025/preflight/*.json`
+- **5:** `docs/research/CAMPAIGN_025_BACKTRADER_PARITY_DESIGN.md`
+- **6:** `docs/research/CAMPAIGN_025_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md`
 - **7:** this summary + EVIDENCE_INDEX/MANIFEST link completion
 
 ### 4. Strategy identity
-`m5_donchian_htf_confluence_breakout 0.1.0-c024`. M5 execution; M15 setup;
-H1/H4M1 trend; D1AGG (native-H4-derived) regime. CAMPAIGN_024.
+`m5_donchian_htf_confluence_breakout 0.1.0-c025`. M5 execution; M15 setup;
+H1/H4M1 trend; D1AGG (native-H4-derived) regime. CAMPAIGN_025.
 
 ### 5. Data provenance
 M5/M15/H1/H4(=H4M1) from materialized M1-derived Postgres bars
@@ -48,7 +57,7 @@ M5/M15/H1/H4(=H4M1) from materialized M1-derived Postgres bars
 (`native_h4_derived_d1agg`). M1-derived D1AGG rejected.
 
 ### 6. Exact precommitted rules
-Frozen in `CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`. Long:
+Frozen in `CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`. Long:
 H4 bullish (close>EMA50 & EMA20≥EMA50) + H1 bullish (EMA20>EMA50 & EMA20 slope≥0
 over 3 bars) + D1AGG not-bearish (close≥EMA50 OR EMA20 slope≥0) + M15 setup
 (low touched ≤EMA20 within 8 bars OR Donchian(12) width/ATR(14)≤3.0) + M5 close >
@@ -83,14 +92,14 @@ open is strictly after the signal timestamp.)
   deterministic farther-of stop, time stop at exactly 48 bars, stop>time>eod
   priority, no target/trailing/protective, no HTF lookahead, provenance,
   granularity guard, open-position block, no broker/executor/OANDA imports.
-- `tests/unit/test_campaign_024_gates.py` (7 tests): frozen thresholds, train
+- `tests/unit/test_campaign_025_gates.py` (7 tests): frozen thresholds, train
   reject/pass, validation screening + parity-still-required, 100-trade floor,
   SINGLE_PAIR_REVIEW_ONLY flag, promotion-review max status.
 
 ### 11. Preflight results
 `--preflight-only`: **all 7 pairs PASS** materialized M5/M15/H1/H4 coverage over
 the train window; registry empty; metadata valid; live aggregation off. Artifact:
-`research/campaign_024/preflight/preflight_result.json`,
+`research/campaign_025/preflight/preflight_result.json`,
 `pair_coverage_summary.json`.
 
 ### 12. Data-feature preflight results
@@ -136,7 +145,7 @@ ruff **clean**; pytest **2029 passed / 3 skipped** (1996 baseline + 26 strategy
   precommitted gates (not done in this scaffold).
 
 ### 21. Recommended next sprint
-`research-campaign-024-m5-donchian-htf-confluence-train-validation-001` — run
+`research-campaign-025-m5-donchian-htf-confluence-train-validation-001` — run
 **train/validation only**, no test lockbox unless the precommitted gates **and**
 Backtrader parity pass. First action there: resolve the 2020 M5-coverage gap
 (narrow window or backfill) before any train claim.
@@ -144,6 +153,6 @@ Backtrader parity pass. First action there: resolve the 2020 M5-coverage gap
 ---
 
 **Files to review first:** the precommit spec
-(`CAMPAIGN_024_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`), the strategy
+(`CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`), the strategy
 module (`src/forex_bot/strategies/m5_donchian_htf_confluence_breakout.py`), and
 its tests (`tests/unit/test_m5_donchian_htf_confluence_breakout.py`).
