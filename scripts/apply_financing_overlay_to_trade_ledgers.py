@@ -243,33 +243,33 @@ def run_overlay(modes: list[FinancingOverlayMode]) -> dict:
     }
 
 
-def write_outputs(payload: dict) -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    (OUT_DIR / "run_manifest.json").write_text(
+def write_outputs(payload: dict, out_dir: Path = OUT_DIR) -> None:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "run_manifest.json").write_text(
         json.dumps(payload["manifest"], indent=2) + "\n",
         encoding="utf-8",
     )
     inv = build_inventory()
-    (OUT_DIR / "ledger_inventory_used.json").write_text(
+    (out_dir / "ledger_inventory_used.json").write_text(
         json.dumps(inv, indent=2) + "\n",
         encoding="utf-8",
     )
-    (OUT_DIR / "overlay_summary_by_campaign.json").write_text(
+    (out_dir / "overlay_summary_by_campaign.json").write_text(
         json.dumps(payload["by_campaign"], indent=2) + "\n",
         encoding="utf-8",
     )
-    (OUT_DIR / "adjusted_metric_delta.json").write_text(
+    (out_dir / "adjusted_metric_delta.json").write_text(
         json.dumps(payload["deltas"], indent=2) + "\n",
         encoding="utf-8",
     )
-    (OUT_DIR / "unavailable_rates_report.json").write_text(
+    (out_dir / "unavailable_rates_report.json").write_text(
         json.dumps(payload["unavailable"], indent=2) + "\n",
         encoding="utf-8",
     )
 
     import csv
 
-    pair_path = OUT_DIR / "overlay_summary_by_pair.csv"
+    pair_path = out_dir / "overlay_summary_by_pair.csv"
     if payload["pair_rows"]:
         fields = list(payload["pair_rows"][0].keys())
         with pair_path.open("w", newline="", encoding="utf-8") as fh:
@@ -277,7 +277,7 @@ def write_outputs(payload: dict) -> None:
             w.writeheader()
             w.writerows(payload["pair_rows"])
 
-    bucket_path = OUT_DIR / "overlay_summary_by_hold_bucket.csv"
+    bucket_path = out_dir / "overlay_summary_by_hold_bucket.csv"
     if payload["bucket_rows"]:
         fields = list(payload["bucket_rows"][0].keys())
         with bucket_path.open("w", newline="", encoding="utf-8") as fh:
@@ -298,22 +298,29 @@ def main() -> None:
         action="store_true",
         help="Write ledger inventory JSON only",
     )
+    parser.add_argument(
+        "--out-dir",
+        default=None,
+        help="Output directory (defaults to research/financing_overlay_local_first). "
+        "Use a temp dir to avoid touching committed artifacts.",
+    )
     args = parser.parse_args()
+    out_dir = Path(args.out_dir) if args.out_dir else OUT_DIR
 
     if args.inventory_only:
-        OUT_DIR.mkdir(parents=True, exist_ok=True)
+        out_dir.mkdir(parents=True, exist_ok=True)
         inv = build_inventory()
-        (OUT_DIR / "ledger_inventory_used.json").write_text(
+        (out_dir / "ledger_inventory_used.json").write_text(
             json.dumps(inv, indent=2) + "\n",
             encoding="utf-8",
         )
-        print(f"Wrote {OUT_DIR / 'ledger_inventory_used.json'}")
+        print(f"Wrote {out_dir / 'ledger_inventory_used.json'}")
         return
 
     modes = [FinancingOverlayMode(m.strip()) for m in args.modes.split(",")]
     payload = run_overlay(modes)
-    write_outputs(payload)
-    print(f"Wrote compact artifacts to {OUT_DIR.relative_to(ROOT)}")
+    write_outputs(payload, out_dir)
+    print(f"Wrote compact artifacts to {out_dir}")
 
 
 if __name__ == "__main__":

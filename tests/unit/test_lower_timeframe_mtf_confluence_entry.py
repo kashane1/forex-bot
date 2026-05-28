@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import inspect
-import re
 from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
@@ -13,7 +12,6 @@ import pytest
 import yaml
 
 from forex_bot.config import (
-    LowerTimeframeMtfConfluenceEntryStrategyConfig,
     Settings,
     StrategyConfig,
     compute_config_hash,
@@ -108,14 +106,14 @@ def _trending_candles(
         o = price
         price += drift
         h = price + 0.0002
-        l = price - 0.0002
+        lo = price - 0.0002
         c = price
         candles.append(
             _make_candle(
                 t,
                 open_=o,
                 high=h,
-                low=l,
+                low=lo,
                 close=c,
                 granularity=granularity,
             )

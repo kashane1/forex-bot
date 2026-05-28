@@ -31,7 +31,6 @@ from forex_bot.data.candle_dedupe import DEDUPE_POLICY
 from forex_bot.data.m1_timeframe_materialization import MATERIALIZED_SOURCE
 from forex_bot.data.postgres_candle_store import PostgresCandleStore
 from forex_bot.data.research_db import get_research_database_config
-from forex_bot.domain.candles import CandleFrame
 from forex_bot.project_env import bootstrap_environ
 from forex_bot.research.campaign_021_gates import (
     C011_NULL_EXP_R,
@@ -41,7 +40,6 @@ from forex_bot.research.campaign_021_gates import (
     evaluate_validation_gates,
 )
 from forex_bot.research.campaign_021_loader import (
-    D1AGG_SOURCE,
     build_data_feature_preflight,
     check_materialized_coverage,
     instrument_for,
@@ -557,7 +555,7 @@ def write_validation_artifacts(payload: dict[str, Any]) -> None:
 
 
 def preflight(settings: Settings, raw: dict[str, Any]) -> dict[str, Any]:
-    from forex_bot.data.m1_corpus_validation import MAJOR_PAIRS, inventory_sql
+    from forex_bot.data.m1_corpus_validation import inventory_sql
 
     strategy = LowerTimeframeMtfConfluenceEntryStrategy()
     blocked: list[str] = []

@@ -14,13 +14,23 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from decimal import Decimal
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
+
+from research.fill_timing_comparison.metrics import (
+    compare_exit_reason_shares,
+    count_next_bar_open_unavailable,
+    entry_price_delta_pips,
+    exit_reason_shares,
+    fill_timing_delta,
+    metrics_from_runs,
+    pair_fold_delta_rows,
+)
 
 from forex_bot.backtesting.engine import BacktestEngine, compute_data_request_hash
 from forex_bot.backtesting.fills import FillModel, FillTiming
@@ -33,15 +43,6 @@ from forex_bot.risk.policy import RiskEngine
 from forex_bot.strategies.mean_reversion_thesis_invalidation import (
     MeanReversionThesisInvalidationStrategy,
     c008_entry_params,
-)
-from research.fill_timing_comparison.metrics import (
-    compare_exit_reason_shares,
-    count_next_bar_open_unavailable,
-    entry_price_delta_pips,
-    exit_reason_shares,
-    fill_timing_delta,
-    metrics_from_runs,
-    pair_fold_delta_rows,
 )
 
 CONFIG_PATH = ROOT / "configs/campaign_019_mean_reversion_thesis_invalidation.yaml"

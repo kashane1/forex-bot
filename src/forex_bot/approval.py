@@ -230,7 +230,6 @@ def execution_realism_promotion_blockers(meta: object | None) -> list[str]:
     readiness evaluation; other gates (verdict, registry, loops) still apply.
     """
     from forex_bot.research.execution_realism import (
-        ExecutionRealismMetadata,
         promotion_readiness_errors,
     )
 

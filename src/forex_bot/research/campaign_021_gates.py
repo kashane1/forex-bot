@@ -90,7 +90,7 @@ def apply_parity_to_gates(gates: dict[str, Any], *, parity_pass: bool) -> dict[s
     if not parity_pass:
         out["screening_pass"] = False
         out["validation_gate_pass"] = False
-        out["verdict"] = "REJECT" if out.get("train_gate_pass") else "REJECT"
+        out["verdict"] = "REJECT"
         out["test_lockbox_allowed"] = False
     else:
         out["test_lockbox_allowed"] = bool(
