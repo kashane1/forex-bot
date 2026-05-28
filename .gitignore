@@ -205,3 +205,9 @@ research/usdjpy_trade_management_diagnostic/*.parquet
 # summary JSON; gitignore any bulky per-bar dumps written under the atlas dir.
 research/usdjpy_session_atlas/*
 !research/usdjpy_session_atlas/usdjpy_session_atlas_summary.json
+
+# vol-compression-expansion-diagnostic-001: commit only compact manifest + preview;
+# gitignore the bulky per-bar parquet dataset.
+research/usdjpy_vol_compression_expansion/*
+!research/usdjpy_vol_compression_expansion/dataset_manifest.json
+!research/usdjpy_vol_compression_expansion/feature_preview.csv

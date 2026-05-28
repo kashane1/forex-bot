@@ -1,0 +1,326 @@
+{
+  "_meta": {
+    "instrument": "USD_JPY",
+    "kind": "vol_compression_expansion_diagnostic_dataset",
+    "NOT_edge_claim": true,
+    "NOT_strategy": true,
+    "window_start": "2021-06-01",
+    "window_end_exclusive": "2025-06-30",
+    "test_lockbox_start_excluded": "2025-07-01",
+    "val_split": "2024-01-01",
+    "n_bars": 95756,
+    "first_bar_utc": "2021-06-01 00:00:00+00:00",
+    "last_bar_utc": "2025-06-29 23:45:00+00:00",
+    "primary_horizon_bars": 8,
+    "params": {
+      "atr_len": 14,
+      "pct_window": 96,
+      "bb_len": 20,
+      "bb_k": 2.0,
+      "rv_len": 20,
+      "inside_lookback": 6,
+      "range_lookback": 16,
+      "horizons": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "compression_cuts": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "primary_cut": 0.2,
+      "followthrough_atr_frac": 0.5
+    },
+    "compression_features": [
+      "range_pct",
+      "atr_pct",
+      "bandwidth_pct",
+      "realized_vol_pct",
+      "inside_bar_count"
+    ],
+    "direction_agnostic_labels": [
+      "fwd_range_pips",
+      "fwd_mfe_pips",
+      "fwd_mae_pips",
+      "breakout_any"
+    ],
+    "directional_labels": [
+      "fwd_signed_move_pips",
+      "breakout_up",
+      "breakout_down",
+      "breakout_followthrough",
+      "false_breakout"
+    ],
+    "parquet_written": true,
+    "parquet_path_gitignored": "research/usdjpy_vol_compression_expansion/dataset.parquet"
+  },
+  "coverage_by_split": {
+    "train": 59852,
+    "validation": 35904
+  },
+  "coverage_by_session": {
+    "tokyo": 25025,
+    "ny": 23578,
+    "london": 20858,
+    "london_ny_overlap": 12963,
+    "off_hours": 12249,
+    "rollover": 1083
+  },
+  "cost_context": {
+    "spread_pips": {
+      "n": 95756,
+      "mean": 1.7511,
+      "p10": 1.3,
+      "p50": 1.7,
+      "p90": 2.0
+    },
+    "atr_pips": {
+      "n": 95743,
+      "mean": 11.4127,
+      "p10": 5.1415,
+      "p50": 10.4387,
+      "p90": 18.3135
+    },
+    "spread_to_atr": {
+      "n": 95743,
+      "mean": 0.1888,
+      "p10": 0.0933,
+      "p50": 0.1651,
+      "p90": 0.3061
+    }
+  },
+  "compression_feature_summary": {
+    "range_pct": {
+      "n": 95709,
+      "mean": 0.5008,
+      "p10": 0.1042,
+      "p50": 0.5,
+      "p90": 0.9062
+    },
+    "atr_pct": {
+      "n": 95696,
+      "mean": 0.4801,
+      "p10": 0.0625,
+      "p50": 0.4688,
+      "p90": 0.9167
+    },
+    "bandwidth_pct": {
+      "n": 95690,
+      "mean": 0.4943,
+      "p10": 0.0833,
+      "p50": 0.4896,
+      "p90": 0.9271
+    },
+    "realized_vol_pct": {
+      "n": 95689,
+      "mean": 0.4951,
+      "p10": 0.0729,
+      "p50": 0.4896,
+      "p90": 0.9479
+    },
+    "inside_bar_count": {
+      "n": 95756,
+      "mean": 0.167,
+      "p10": 0.0,
+      "p50": 0.0,
+      "p90": 1.0
+    }
+  },
+  "expansion_label_summary": {
+    "fwd_range_pips_h4": {
+      "n": 95752,
+      "mean": 23.7348,
+      "p10": 7.9,
+      "p50": 18.8,
+      "p90": 43.7
+    },
+    "fwd_signed_move_pips_h4": {
+      "n": 95752,
+      "mean": 0.1464,
+      "p10": -17.4,
+      "p50": 0.5,
+      "p90": 17.8
+    },
+    "fwd_mfe_pips_h4": {
+      "n": 95752,
+      "mean": 11.5996,
+      "p10": 1.2,
+      "p50": 7.65,
+      "p90": 26.1
+    },
+    "fwd_mae_pips_h4": {
+      "n": 95752,
+      "mean": -12.1353,
+      "p10": -27.5,
+      "p50": -7.6,
+      "p90": -1.1
+    },
+    "breakout_any_h4": {
+      "n": 95756,
+      "rate": 0.536
+    },
+    "breakout_up_h4": {
+      "n": 95756,
+      "rate": 0.2985
+    },
+    "breakout_down_h4": {
+      "n": 95756,
+      "rate": 0.2535
+    },
+    "breakout_followthrough_h4": {
+      "n": 95756,
+      "rate": 0.1945
+    },
+    "false_breakout_h4": {
+      "n": 95756,
+      "rate": 0.2464
+    },
+    "fwd_range_pips_h8": {
+      "n": 95748,
+      "mean": 34.3101,
+      "p10": 11.6,
+      "p50": 27.4,
+      "p90": 63.0
+    },
+    "fwd_signed_move_pips_h8": {
+      "n": 95748,
+      "mean": 0.2933,
+      "p10": -25.2,
+      "p50": 0.9,
+      "p90": 25.9
+    },
+    "fwd_mfe_pips_h8": {
+      "n": 95748,
+      "mean": 16.7284,
+      "p10": 1.9,
+      "p50": 11.2,
+      "p90": 37.6
+    },
+    "fwd_mae_pips_h8": {
+      "n": 95748,
+      "mean": -17.5817,
+      "p10": -39.8,
+      "p50": -10.9,
+      "p90": -1.6
+    },
+    "breakout_any_h8": {
+      "n": 95756,
+      "rate": 0.6849
+    },
+    "breakout_up_h8": {
+      "n": 95756,
+      "rate": 0.3942
+    },
+    "breakout_down_h8": {
+      "n": 95756,
+      "rate": 0.34
+    },
+    "breakout_followthrough_h8": {
+      "n": 95756,
+      "rate": 0.2834
+    },
+    "false_breakout_h8": {
+      "n": 95756,
+      "rate": 0.3276
+    },
+    "fwd_range_pips_h16": {
+      "n": 95740,
+      "mean": 49.9288,
+      "p10": 17.6,
+      "p50": 40.8,
+      "p90": 90.1
+    },
+    "fwd_signed_move_pips_h16": {
+      "n": 95740,
+      "mean": 0.5881,
+      "p10": -37.5,
+      "p50": 1.7,
+      "p90": 38.2
+    },
+    "fwd_mfe_pips_h16": {
+      "n": 95740,
+      "mean": 24.2975,
+      "p10": 2.9,
+      "p50": 16.8,
+      "p90": 54.11
+    },
+    "fwd_mae_pips_h16": {
+      "n": 95740,
+      "mean": -25.6313,
+      "p10": -58.4,
+      "p50": -16.1,
+      "p90": -2.5
+    },
+    "breakout_any_h16": {
+      "n": 95756,
+      "rate": 0.8352
+    },
+    "breakout_up_h16": {
+      "n": 95756,
+      "rate": 0.5091
+    },
+    "breakout_down_h16": {
+      "n": 95756,
+      "rate": 0.4471
+    },
+    "breakout_followthrough_h16": {
+      "n": 95756,
+      "rate": 0.4006
+    },
+    "false_breakout_h16": {
+      "n": 95756,
+      "rate": 0.4114
+    },
+    "fwd_range_pips_h32": {
+      "n": 95724,
+      "mean": 72.8061,
+      "p10": 27.4,
+      "p50": 60.8,
+      "p90": 127.0
+    },
+    "fwd_signed_move_pips_h32": {
+      "n": 95724,
+      "mean": 1.177,
+      "p10": -55.7,
+      "p50": 3.0,
+      "p90": 56.47
+    },
+    "fwd_mfe_pips_h32": {
+      "n": 95724,
+      "mean": 35.3867,
+      "p10": 4.6,
+      "p50": 25.2,
+      "p90": 78.3
+    },
+    "fwd_mae_pips_h32": {
+      "n": 95724,
+      "mean": -37.4194,
+      "p10": -85.9,
+      "p50": -24.2,
+      "p90": -3.7
+    },
+    "breakout_any_h32": {
+      "n": 95756,
+      "rate": 0.9341
+    },
+    "breakout_up_h32": {
+      "n": 95756,
+      "rate": 0.6225
+    },
+    "breakout_down_h32": {
+      "n": 95756,
+      "rate": 0.5575
+    },
+    "breakout_followthrough_h32": {
+      "n": 95756,
+      "rate": 0.5286
+    },
+    "false_breakout_h32": {
+      "n": 95756,
+      "rate": 0.4851
+    }
+  }
+}
