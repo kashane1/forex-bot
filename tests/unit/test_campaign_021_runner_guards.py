@@ -60,3 +60,11 @@ def test_approved_registry_empty() -> None:
         (_REPO / "configs/approved_strategies.yaml").read_text(encoding="utf-8")
     )
     assert approved["approved"] == []
+
+
+def test_runner_blocks_live_m1_aggregation_env(monkeypatch) -> None:
+    import scripts.run_campaign_021_ltf_mtf_confluence as runner
+
+    monkeypatch.setenv("FOREX_BOT_ALLOW_LIVE_M1_AGGREGATION", "1")
+    with pytest.raises(SystemExit, match="live M1 aggregation is forbidden"):
+        runner.load_ctx()
