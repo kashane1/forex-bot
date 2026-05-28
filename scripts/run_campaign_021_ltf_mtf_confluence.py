@@ -205,7 +205,8 @@ def main() -> int:
         return 0 if pf["preflight_ok"] else 1
 
     if args.data_feature_preflight:
-        cfg = get_research_database_config(require=True)
+        environ = bootstrap_environ(None)
+        cfg = get_research_database_config(environ=environ, require=True)
         store = PostgresCandleStore(cfg)
         report = build_data_feature_preflight(
             store,

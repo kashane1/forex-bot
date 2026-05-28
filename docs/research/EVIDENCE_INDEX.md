@@ -1507,6 +1507,20 @@ from native H4 until M1→D1AGG day completeness improves).
 | [`M1_FULL_CORPUS_LTF_LANE_READINESS_DECISION.md`](M1_FULL_CORPUS_LTF_LANE_READINESS_DECISION.md) | Phase 8 readiness |
 | [`M1_FULL_CORPUS_VALIDATION_AND_AGGREGATION_001_SUMMARY.md`](M1_FULL_CORPUS_VALIDATION_AND_AGGREGATION_001_SUMMARY.md) | Phase 9 close-out |
 
+## M1 derived timeframe materialization 001
+
+Branch `infra-m1-derived-timeframe-materialization-001`. Persists M1-derived
+M5/M15/H1/H4M1 under `source=m1_materialized` in Postgres. **No campaign
+evidence.** Unblocks faster CAMPAIGN_021 loader paths.
+
+| document | what it is |
+|---|---|
+| [`M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_PLAN.md`](M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_PLAN.md) | Phase 0 plan |
+| [`M1_DERIVED_TIMEFRAME_MATERIALIZATION_RESULT.md`](M1_DERIVED_TIMEFRAME_MATERIALIZATION_RESULT.md) | Verification + row counts |
+| [`M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md`](M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md) | Sprint close-out |
+
+Compact JSON: `research/m1_timeframe_materialization/`.
+
 ## CAMPAIGN_021 LTF MTF confluence scaffold (research-campaign-021-ltf-mtf-confluence-scaffold-001)
 
 > **SCAFFOLD_ONLY** — `strategy_evidence: false`, `not_approved: true`.

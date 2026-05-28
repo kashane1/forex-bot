@@ -471,3 +471,11 @@ broad-search re-entry gates are met.**
 - **Risk.** M15 may add noise vs H4; gates and 2× cost stress unchanged.
 - **Success (future).** Train/validation gates + Backtrader parity before
   any test lockbox; still no approval without human registry change.
+
+## 10. M1 derived timeframe materialization — INFRA_PASS (2026-05-28)
+
+- **Sprint.** `infra-m1-derived-timeframe-materialization-001`
+- **What.** Postgres materialization of M1→M5/M15/H1/H4M1 (`source=m1_materialized`).
+- **Why.** Removes per-campaign M1 re-aggregation; `--data-feature-preflight` ~2 min vs multi-hour M1 scans.
+- **Note.** Does not fix M15 backtest O(n²) indicator cost; speeds data loading only.
+- See [`M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md`](M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md).

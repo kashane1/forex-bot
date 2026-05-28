@@ -22,6 +22,7 @@ The **M1 canonical corpus is validated** for lower-timeframe infrastructure. M15
 1. Execution: M1 → M15 (default), M5 optional.
 2. Context: M1 → H1/H4.
 3. D1AGG: **native H4 → D1AGG** from Postgres until M1-derived trading-day completeness is repaired.
+4. **Materialized lane (2026-05-28):** M5/M15/H1/H4M1 available under `source=m1_materialized` via `scripts/materialize_m1_derived_timeframes.py`. CAMPAIGN_021 loader reads these by default.
 
 ## Not Approved
 
