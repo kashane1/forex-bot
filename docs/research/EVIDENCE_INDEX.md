@@ -1634,10 +1634,30 @@ changed; no CAMPAIGN_024 created; C023 not executed; `approved: []`.
 | [`C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md`](C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md) | family closeout: RETIRED_UNLESS_NEW_EXTERNAL_THESIS |
 | [`POST_C022_FAMILY_RETIREMENT_AND_NEW_THESIS_SELECTION_001_PLAN.md`](POST_C022_FAMILY_RETIREMENT_AND_NEW_THESIS_SELECTION_001_PLAN.md) | retirement + next-thesis-selection sprint plan |
 
-The next-thesis comparison, selection decision, and copy-paste next-sprint prompt
-(`NEXT_STRUCTURALLY_DIFFERENT_THESIS_OPTIONS`, `NEXT_THESIS_SELECTION_DECISION`,
-`NEXT_SPRINT_PROMPT_AFTER_C022_FAMILY_CLOSEOUT`) are produced later in this same
-sprint and indexed when finalized.
+Next-thesis comparison, selection decision, and scope amendment (USD_JPY-only):
+
+| document | role |
+|---|---|
+| [`NEXT_STRUCTURALLY_DIFFERENT_THESIS_OPTIONS.md`](NEXT_STRUCTURALLY_DIFFERENT_THESIS_OPTIONS.md) | seven candidate lanes scored; Lane E reframed as USD_JPY scope |
+| [`NEXT_THESIS_SELECTION_DECISION.md`](NEXT_THESIS_SELECTION_DECISION.md) | Lane D selected; §1a USD_JPY-only scope; §5 C024 bar |
+| [`POST_C022_USDJPY_SCOPE_AMENDMENT_SUMMARY.md`](POST_C022_USDJPY_SCOPE_AMENDMENT_SUMMARY.md) | USD_JPY scope-amendment summary |
+
+### USD_JPY M15 microstructure-confirmation diagnostic + entry-lane closeout
+
+USD_JPY-only, read-only diagnostic over the 306 USD_JPY C022 base trades. No live M15
+entry primitive separated winners from losers materially/stably or beat the inert
+EMA20-reclaim baseline; the only above-floor separation was **post-entry** (retest-hold
+/ trap), not a live entry filter. USD_JPY microstructure confirmation is **closed as an
+entry-alpha lane**; C024 stays `NOT_READY`; C023 not executed; `approved: []`.
+
+| document | role |
+|---|---|
+| [`USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_PLAN.md`](USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_PLAN.md) | diagnostic sprint plan (USD_JPY-only) |
+| [`USDJPY_MICROSTRUCTURE_DATASET_INVENTORY.md`](USDJPY_MICROSTRUCTURE_DATASET_INVENTORY.md) | dataset inventory (306 trades; 299 MFE/MAE OK) |
+| [`USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_RESULT.md`](USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_RESULT.md) | separation results vs the EMA-reclaim baseline |
+| [`USDJPY_C024_READINESS_DECISION.md`](USDJPY_C024_READINESS_DECISION.md) | USD_JPY C024 readiness = NOT_READY |
+| [`USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md`](USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md) | entry-lane closed; post-entry signals → trade-management only |
+| [`USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md`](USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md) | diagnostic sprint summary |
 
 ## How to read the evidence
 

@@ -2124,5 +2124,30 @@
     "c024_readiness_doc": "docs/research/C024_READINESS_FROM_C022_FEATURE_SEPARATION.md",
     "family_retirement_note": "Post-execution diagnostics (MFE/MAE, executed stop-model comparison, winner/loser feature separation) localized CAMPAIGN_022's failure to the entry signal: all ATR/time stop variants and a cost-free baseline stay negative, and every structural entry feature sits at AUC ~= 0.50. H4 ADX does not separate winners from losers, so C023 ADX22 is unsupported and not executed. Reopening requires a new external thesis, a materially different trigger, independent out-of-sample evidence, and not merely threshold changes. No verdict changed; approved_strategies.yaml remains empty.",
     "recommended_next_sprint": "family RETIRED — do not co-execute; select a structurally different next thesis (see docs/research/NEXT_THESIS_SELECTION_DECISION.md)"
+  },
+  "usdjpy_microstructure_confirmation_diagnostic": {
+    "strategy_evidence": false,
+    "not_approved": true,
+    "diagnostic_only": true,
+    "instrument": "USD_JPY",
+    "lane": "market-microstructure-style confirmation (Lane D), USD_JPY-only scope",
+    "sprint": "research-usdjpy-m15-microstructure-confirmation-diagnostic-001",
+    "status_date": "2026-05-28",
+    "entry_lane_status": "CLOSED_AS_ENTRY_ALPHA",
+    "c024_readiness": "NOT_READY",
+    "c024_created": false,
+    "c023_execution_authorized": false,
+    "n_trades": 306,
+    "n_train": 133,
+    "n_validation": 173,
+    "best_live_stable_effect_abs_auc": 0.016,
+    "negligibility_floor": 0.05,
+    "finding_note": "No live M15 entry primitive (impulse, micro-swing-break, sweep+displacement, range-expansion) showed material, stable winner/loser separation, and none beat the inert EMA20-reclaim baseline (AUC 0.539/0.486). The only above-floor separation was post-entry (retest-hold AUC 0.611/0.552, trap) and is not usable as a live entry filter. USD_JPY microstructure confirmation is closed as an entry-alpha lane; no verdict changed; approved_strategies.yaml remains empty.",
+    "only_sanctioned_followup": "read-only USD_JPY post-entry TRADE-MANAGEMENT diagnostic (not entry alpha)",
+    "next_sprint_branch": "research-usdjpy-post-entry-trade-management-diagnostic-001",
+    "entry_lane_closeout_doc": "docs/research/USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md",
+    "readiness_doc": "docs/research/USDJPY_C024_READINESS_DECISION.md",
+    "result_doc": "docs/research/USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_RESULT.md",
+    "summary_doc": "docs/research/USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md"
   }
 }

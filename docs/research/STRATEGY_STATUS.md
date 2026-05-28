@@ -61,6 +61,26 @@ selected separately and must be independently pre-committed before any execution
 | [`C024_READINESS_FROM_C022_FEATURE_SEPARATION.md`](C024_READINESS_FROM_C022_FEATURE_SEPARATION.md) | C024 readiness = NOT_READY |
 | [`POST_C022_FAMILY_RETIREMENT_AND_NEW_THESIS_SELECTION_001_PLAN.md`](POST_C022_FAMILY_RETIREMENT_AND_NEW_THESIS_SELECTION_001_PLAN.md) | Retirement + next-thesis-selection sprint plan |
 
+### USD_JPY M15 microstructure-confirmation — ENTRY LANE CLOSED (2026-05-28)
+
+The selected next lane (market-microstructure-style confirmation), scoped to
+**USD_JPY only**, was run as a read-only diagnostic over the 306 USD_JPY C022 base
+trades. **Result: no live M15 entry primitive showed material, stable winner/loser
+separation** (best stable live effect |AUC−0.5| = 0.016, below the 0.05 floor; the
+old EMA20-reclaim baseline is itself inert/unstable). The only above-floor separation
+was **post-entry** (retest-hold / trap) and is therefore **not usable as a live entry
+filter**. **USD_JPY M15 microstructure confirmation is CLOSED as an entry-alpha lane;
+C024 remains `NOT_READY`; C023 remains deferred/not executed; no CAMPAIGN_024 created;
+verdicts unchanged; `approved: []`.** The only sanctioned follow-up is a read-only
+USD_JPY **trade-management** diagnostic (treating post-entry retest/trap behavior as
+possible early-invalidation / hold information, **not** entry alpha).
+
+| document | purpose |
+|---|---|
+| [`USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md`](USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md) | Entry-lane closeout + what remains useful |
+| [`USDJPY_C024_READINESS_DECISION.md`](USDJPY_C024_READINESS_DECISION.md) | USD_JPY C024 readiness = NOT_READY |
+| [`USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md`](USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md) | Diagnostic sprint summary |
+
 ### Evidence integrity (dedupe audit 001)
 
 Pre-fix bespoke campaigns on `data/campaign_002.sqlite3` may be
