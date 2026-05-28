@@ -30,6 +30,10 @@ class _FakeCursor:
     def execute(self, sql, params=None):
         self.executed.append((sql, params))
 
+    def executemany(self, sql, params_list):
+        for params in params_list:
+            self.execute(sql, params)
+
     def fetchall(self):
         return []
 

@@ -3,8 +3,6 @@ from __future__ import annotations
 from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 
-import pytest
-
 from forex_bot.data.m1_timeframe_materialization import (
     MATERIALIZED_SOURCE,
     aggregation_config_hash,
@@ -33,6 +31,10 @@ class _FakeCursor:
     def execute(self, sql, params=None):
         self.last_sql = sql
         self._params = params
+
+    def executemany(self, sql, params_list):
+        for params in params_list:
+            self.execute(sql, params)
 
     def fetchone(self):
         if "MAX(time_utc)" in self.last_sql:

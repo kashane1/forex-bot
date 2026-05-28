@@ -14,6 +14,7 @@ from forex_bot.backtesting.d1_aggregation import aggregate_h4_to_d1
 from forex_bot.data.m1_corpus_validation import MAJOR_PAIRS, _row_to_candle
 from forex_bot.data.m1_timeframe_materialization import (
     MATERIALIZED_SOURCE,
+    STORAGE_GRANULARITY,
     aggregate_m1_window,
 )
 from forex_bot.data.postgres_candle_store import PostgresCandleStore
@@ -87,20 +88,21 @@ def _filter_completed_in_range(
 def _load_materialized_granularity(
     store: PostgresCandleStore,
     instrument: str,
-    granularity: str,
+    storage_granularity: str,
+    frame_granularity: str,
     *,
     from_dt: datetime,
     to_dt: datetime,
 ) -> list[Candle]:
     rows = store.query_candles(
         instrument=instrument,
-        granularity=granularity,
+        granularity=storage_granularity,
         start_utc=from_dt,
         end_utc=to_dt,
         source=MATERIALIZED_SOURCE,
     )
     candles = [
-        _row_to_candle({**row, "granularity": granularity}, instrument=instrument)
+        _row_to_candle({**row, "granularity": frame_granularity}, instrument=instrument)
         for row in rows
     ]
     return _filter_completed_in_range(candles, from_dt=from_dt, to_dt=to_dt)
@@ -142,7 +144,7 @@ def check_materialized_coverage(
     counts = {
         granularity: store.count_candles(
             instrument=instrument,
-            granularity=granularity,
+            granularity=STORAGE_GRANULARITY[granularity],
             source=MATERIALIZED_SOURCE,
             start_utc=from_dt,
             end_utc=to_dt,
@@ -194,13 +196,18 @@ def load_c021_frames(
         m1_rows = 0
     else:
         m15 = _load_materialized_granularity(
-            store, instrument, "M15", from_dt=from_dt, to_dt=to_dt
+            store, instrument, "M15", "M15", from_dt=from_dt, to_dt=to_dt
         )
         h1 = _load_materialized_granularity(
-            store, instrument, "H1", from_dt=from_dt, to_dt=to_dt
+            store, instrument, "H1", "H1", from_dt=from_dt, to_dt=to_dt
         )
         h4 = _load_materialized_granularity(
-            store, instrument, "H4", from_dt=from_dt, to_dt=to_dt
+            store,
+            instrument,
+            STORAGE_GRANULARITY["H4"],
+            "H4",
+            from_dt=from_dt,
+            to_dt=to_dt,
         )
         m1_rows = 0
 
