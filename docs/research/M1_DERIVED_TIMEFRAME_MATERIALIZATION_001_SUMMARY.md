@@ -12,7 +12,7 @@
 | 1 | `35bace8` | materialization module + CLI |
 | 2 | `5cfae7f` | full corpus materialize + verification PASS |
 | 3 | `bbba239` + `2061357` | loader reads materialized bars; H4M1 mapping |
-| 4 | `b613f4e` | registry, summary, coverage verify script |
+| 4 | `2f21e42` | registry, summary, coverage verify script |
 
 ## What changed
 
