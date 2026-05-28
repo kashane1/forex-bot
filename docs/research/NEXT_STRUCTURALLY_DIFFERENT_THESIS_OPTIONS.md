@@ -102,7 +102,7 @@ Liquidity sweep + displacement, break/retest, range-expansion candle, failed-con
   read-only **diagnostic** (presence on C022 winners vs losers) before any campaign —
   no threshold-mining required to learn whether any primitive separates at all.
 
-## Lane E — Single-pair specialization diagnostic
+## Lane E — Single-pair (USD_JPY) specialist diagnostic
 
 Especially USD_JPY or pairs that are repeatedly "less bad."
 
@@ -110,10 +110,50 @@ Especially USD_JPY or pairs that are repeatedly "less bad."
 - **Risk.** Pair-specific overfit; and the C022 MFE/MAE diagnostic showed stop-outs
   are **not** concentrated by pair (hard-stop share 0.55–0.61 across all seven), and
   USD_JPY was not meaningfully better. The current evidence gives little reason to
-  expect a single-pair edge hiding in the pullback signal.
-- **Data requirements.** Covered, but per-pair sample shrinks ~7×.
+  expect a single-pair *edge* hiding in the pullback signal.
+- **Data requirements.** Covered, but per-pair sample shrinks ~7× (USD_JPY ≈ 299 C022
+  base trades).
 - **Distinct 2 · Support 2 · Complexity 4 · Overfit-resist 1 · Data-fit 5 · Sample 2 · Precommit 2**
-- **Priority:** low. Weak evidential support, high overfit risk, small samples.
+- **Priority (as a *standalone* thesis):** low. Single-pair specialization on its own
+  — looking for a USD_JPY-specific edge *in the already-dead pullback signal* — has
+  weak support, high overfit risk, and small samples.
+
+### Amendment (2026-05-28): USD_JPY adopted as the *scope* for Lane D, not as a standalone thesis
+
+Single-pair specialization is **not** selected as its own lane. Instead, **USD_JPY is
+adopted as the scope of the Lane D microstructure-confirmation diagnostic** (see
+[`NEXT_THESIS_SELECTION_DECISION.md`](NEXT_THESIS_SELECTION_DECISION.md) §1a). This is
+a **research-scoping decision**, not a claim that USD_JPY has edge. The distinction
+matters: Lane E-as-thesis hunts for a pair-specific edge in the retired signal (weak);
+USD_JPY-as-scope simply runs the *new* microstructure question on the cleanest single
+pair first.
+
+**Why USD_JPY-only microstructure confirmation is preferable to testing all seven pairs immediately:**
+
+- **Fewer confounds.** One pair removes cross-pair heterogeneity, so a separation
+  result is attributable to the primitive, not to which pairs dominated the basket.
+- **Faster runs.** ~1/7 the data per iteration → quicker diagnostic turnaround.
+- **Clearer session behavior.** USD_JPY has a distinct Tokyo/London/NY session
+  personality that is interpretable on its own rather than averaged across seven pairs.
+- **Clearer spread/ATR behavior.** A single, well-characterized cost/volatility profile
+  instead of seven superimposed ones — important given cost was the largest C022
+  context separator.
+- **Clearer macro/session personality.** One instrument's narrative is inspectable;
+  basket failure is not.
+- **Simpler future paper/demo monitoring** *if* a strategy ever earned it — a single
+  instrument is operationally simpler to watch (far-future consideration only).
+
+**But — limits that this scope does not change:**
+
+- **Not enough evidence to approve** anything; `approved_strategies.yaml` stays
+  `approved: []`.
+- **Not enough evidence to launch C024** — readiness is still `NOT_READY` until a
+  USD_JPY diagnostic shows real, stable, non-overfit separation.
+- **Not enough evidence to demo trade** — narrowing scope brings demo no closer.
+- **Pair-specific overfit risk is higher, not lower** — a single-pair result carries a
+  heightened generalization burden and must clear the same five-part C024 bar
+  (no gate-lowering) plus a clean USD_JPY train/validation/test lockbox if it ever
+  becomes a campaign.
 
 ## Lane F — News / calendar / event lane revisit
 
@@ -152,7 +192,7 @@ Event-time windows, macro-release effects.
 | B · Volatility expansion/compression | 2 | 3 | 4 | 2 | 5 | 5 | 3 | low |
 | C · Cost/spread tradeability filter | 4 | 4 | 5 | 4 | 5 | 4 | 4 | med (process) |
 | **D · Microstructure confirmation** | **5** | **4** | **2** | **3** | **4** | **3** | **4** | **high** |
-| E · Single-pair specialization | 2 | 2 | 4 | 1 | 5 | 2 | 2 | low |
+| E · Single-pair specialization (standalone thesis) | 2 | 2 | 4 | 1 | 5 | 2 | 2 | low (but USD_JPY adopted as *scope* for D) |
 | F · News/calendar/event | 4 | 2 | 2 | 2 | 2 | 2 | 3 | low-med |
 | G · Pause / infra deepening | 5 | 4 | 4 | 5 | 5 | — | 5 | med (null) |
 
@@ -162,7 +202,11 @@ Event-time windows, macro-release effects.
   structurally distinct **and** directly targets the diagnosed defect (the inert M15
   EMA-reclaim trigger). It can begin as a **read-only diagnostic** — measuring whether
   any confirmation primitive separates C022 winners from losers — which is precisely
-  the falsifiable, no-threshold-mining first step the freeze favors.
+  the falsifiable, no-threshold-mining first step the freeze favors. **Per the
+  2026-05-28 amendment, the next Lane D diagnostic is scoped to USD_JPY only** (Lane E
+  reframed as a *scope* for D, not a standalone thesis) — fewer confounds, faster runs,
+  and a single interpretable session/cost personality, with no relaxation of the
+  evidence bar.
 - **Lane C / Lane G** are the strongest *non-alpha* options and remain valuable as
   tradeability/process guardrails regardless of which alpha lane is chosen.
 - **Lanes A, B, E, F** are weaker: A/B risk re-deriving mechanical context effects
