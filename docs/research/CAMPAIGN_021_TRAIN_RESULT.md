@@ -1,7 +1,9 @@
 # CAMPAIGN_021 — Train Result
 
 **Date:** 2026-05-28  
-**Command:** `PYTHONUNBUFFERED=1 python scripts/run_campaign_021_ltf_mtf_confluence.py train-only`
+**Command:** `PYTHONUNBUFFERED=1 python scripts/run_campaign_021_ltf_mtf_confluence.py train-only`  
+**Re-run:** post-M1 materialization (`m1_materialized` bars; `m1_rows_loaded: 0`)  
+**Runtime:** ~40.4 min (2,427 s) for 7 pairs — data load no longer bottleneck
 
 ## Split
 
@@ -46,9 +48,17 @@
 
 ## Provenance
 
-- M15/H1/H4: M1-derived Postgres corpus
+- M15/H1/H4: materialized M1-derived Postgres (`source=m1_materialized`; H4 stored as `H4M1`)
 - D1AGG: `native_h4_derived_d1agg`
-- No M1-derived D1AGG
+- No M1-derived D1AGG; no live M1 aggregation fallback
+
+## Exit reasons
+
+| reason | trades | share |
+|---|---:|---:|
+| stop | 819 | 57.0% |
+| time | 618 | 43.0% |
+| eod | 1 | 0.1% |
 
 ## Artifacts
 

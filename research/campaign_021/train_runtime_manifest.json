@@ -1,9 +1,9 @@
 {
   "campaign_id": "CAMPAIGN_021",
   "command": "train-only",
-  "git_commit": "376ec373fcd30632b8805ffe641258d02445c9b9",
+  "git_commit": "9bd23b707ac6c4d4c4f3ebf0756379044de46cee",
   "git_branch": "research-campaign-021-ltf-mtf-confluence-execution-001",
-  "started_at_utc": "2026-05-28T01:11:06.713028+00:00",
+  "started_at_utc": "2026-05-28T04:25:02.816949+00:00",
   "splits": {
     "train": [
       "2020-01-01",
@@ -28,5 +28,5 @@
   },
   "d1agg_source": "native_h4_derived_d1agg",
   "fill_timing": "next_bar_open",
-  "elapsed_seconds": 6944.7
+  "elapsed_seconds": 2426.7
 }

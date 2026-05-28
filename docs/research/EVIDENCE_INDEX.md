@@ -1523,16 +1523,19 @@ Compact JSON: `research/m1_timeframe_materialization/`.
 
 ## CAMPAIGN_021 LTF MTF confluence (execution — post-materialization)
 
-> **Prior train REJECT (pre-materialization, 2026-05-28)** superseded by
-> re-execution on materialized M15/H1/H4M1 bars. See execution plan:
-> [`CAMPAIGN_021_EXECUTION_AFTER_M1_MATERIALIZATION_PLAN.md`](CAMPAIGN_021_EXECUTION_AFTER_M1_MATERIALIZATION_PLAN.md)
+> **CAMPAIGN_021 REJECT** — train expectancy **−0.0174 R** (1,438 trades).
+> Re-run on materialized bars; metrics bit-identical; runtime ~40 min.
+> Validation/test not run after train gate fail. C020 remains REJECT.
 
 | document | what it is |
 |---|---|
-| [`CAMPAIGN_021_TRAIN_RESULT.md`](CAMPAIGN_021_TRAIN_RESULT.md) | Train metrics (updated per run) |
+| [`CAMPAIGN_021_EXECUTION_AFTER_M1_MATERIALIZATION_PLAN.md`](CAMPAIGN_021_EXECUTION_AFTER_M1_MATERIALIZATION_PLAN.md) | Post-materialization execution plan |
+| [`CAMPAIGN_021_TRAIN_RESULT.md`](CAMPAIGN_021_TRAIN_RESULT.md) | Train metrics |
 | [`CAMPAIGN_021_GATE_DECISION.md`](CAMPAIGN_021_GATE_DECISION.md) | Gate decision |
-| [`CAMPAIGN_021_TEST_LOCKBOX_NOT_OPENED.md`](CAMPAIGN_021_TEST_LOCKBOX_NOT_OPENED.md) | Lockbox status |
+| [`CAMPAIGN_021_TEST_LOCKBOX_NOT_OPENED.md`](CAMPAIGN_021_TEST_LOCKBOX_NOT_OPENED.md) | Lockbox closed |
+| [`CAMPAIGN_021_BACKTRADER_PARITY_RESULT.md`](CAMPAIGN_021_BACKTRADER_PARITY_RESULT.md) | Parity NOT_RUN |
 | [`CAMPAIGN_021_FINAL_INTERPRETATION.md`](CAMPAIGN_021_FINAL_INTERPRETATION.md) | Final interpretation |
+| [`CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION_001_SUMMARY.md`](CAMPAIGN_021_LTF_MTF_CONFLUENCE_EXECUTION_001_SUMMARY.md) | Execution sprint close-out |
 
 ## CAMPAIGN_021 LTF MTF confluence scaffold (research-campaign-021-ltf-mtf-confluence-scaffold-001)
 

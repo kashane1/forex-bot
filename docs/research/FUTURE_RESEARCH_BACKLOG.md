@@ -457,16 +457,15 @@ broad-search re-entry gates are met.**
 - See `docs/research/HYPOTHESIS_BACKLOG.md` for the earlier,
   campaign-era hypothesis list.
 
-## 9. CAMPAIGN_021 LTF MTF confluence — re-execution after materialization
+## 9. CAMPAIGN_021 LTF MTF confluence — REJECT (2026-05-28)
 
-- **Prior verdict (pre-materialization):** REJECT — train expectancy −0.0174 R;
-  validation/test not run.
-- **Current step.** Re-run train on materialized M15/H1/H4M1 bars per
-  [`CAMPAIGN_021_EXECUTION_AFTER_M1_MATERIALIZATION_PLAN.md`](CAMPAIGN_021_EXECUTION_AFTER_M1_MATERIALIZATION_PLAN.md).
-- **Data.** Materialized M1-derived M15/H1/H4M1 + native H4→D1AGG; no live M1
-  aggregation fallback.
-- **Next.** Gate-disciplined train → validation → parity → test (if all pass).
-- C020 remains REJECT; no retune.
+- **Verdict:** REJECT — train expectancy **−0.0174 R** (1,438 trades); train gate fail.
+- **Re-run:** post-materialization; metrics bit-identical (bars verified); train runtime ~40 min vs multi-hour pre-infra.
+- **Not run:** validation, 2× cost stress, Backtrader parity, test lockbox (no validation rescue).
+- **vs C020:** train improved from −0.035 R but remained negative; ~4× trade count on M15.
+- **Data.** Materialized M1-derived M15/H1/H4M1 + native H4→D1AGG; `next_bar_open`.
+- **Next.** New structural hypothesis only via new precommit — not C021 retune.
+- See [`CAMPAIGN_021_FINAL_INTERPRETATION.md`](CAMPAIGN_021_FINAL_INTERPRETATION.md).
 
 ## 10. M1 derived timeframe materialization — INFRA_PASS (2026-05-28)
 

@@ -8,6 +8,8 @@
 
 CAMPAIGN_021 tested whether M15 MTF confluence entries with H1/H4/D1AGG context improve on CAMPAIGN_020’s H4-only MTF pullback under `next_bar_open`. Train evidence failed the binding train expectancy gate (−0.0174 R on 1,438 trades). Validation, Backtrader parity, and test lockbox were **not** run per gate discipline.
 
+**Post-materialization re-run (2026-05-28):** Train re-executed on materialized M15/H1/H4M1 bars after infra merge. Metrics are **bit-identical** to the pre-materialization train — expected, since materialization verification showed 0 OHLC mismatches. Runtime dropped from multi-hour (M1 re-aggregation) to ~40 min (7 pairs).
+
 ## Did M15 improve train stability vs C020?
 
 **Partially on expectancy, not enough to pass.** C020 train was −0.035 R (353 trades); C021 train is −0.0174 R (1,438 trades). Lower-timeframe execution reduced train loss rate per trade but remained negative with ~4× trade count.
