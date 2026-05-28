@@ -67,6 +67,46 @@ MATERIALIZED_SOURCE = "m1_materialized"
 MIN_VALIDATION_TRADES = 150
 MIN_VALIDATION_PAIRS_POSITIVE = 4
 
+# Performance (results-identical, verified trade-for-trade):
+#  - SIGNAL_WINDOW_BARS bounds the per-bar M15 history handed to the strategy.
+#    1500 >> the strategy's ~120-bar need, so recursive EMA/ADX seed influence
+#    decays to ~0 and signals are unchanged.
+#  - the HTF indicator frame builder is memoized per static context frame.
+SIGNAL_WINDOW_BARS = 1500
+OUT_CELLS = OUT_RESEARCH / "cells"
+
+
+def _install_perf_shims() -> None:
+    """Memoize the strategy's HTF indicator-frame builder per context frame.
+
+    Identical output (same pure function, cached by frame identity) — only
+    removes redundant per-bar recomputation of EMA/ADX/RSI over the *static*
+    H1/H4 frames. Verified trade-for-trade equal vs the unmemoized strategy.
+    """
+    import forex_bot.strategies.h4_h1_pullback_resolution_entry as strat
+
+    if getattr(strat._htf_indicator_frame, "_c022_memoized", False):
+        return
+    orig = strat._htf_indicator_frame
+    cache: dict[tuple, Any] = {}
+
+    def memo(frame, *, ema_fast_len, ema_slow_len, adx_len=None, rsi_len=None):
+        key = (id(frame), ema_fast_len, ema_slow_len, adx_len, rsi_len)
+        cached = cache.get(key)
+        if cached is None:
+            cached = orig(
+                frame,
+                ema_fast_len=ema_fast_len,
+                ema_slow_len=ema_slow_len,
+                adx_len=adx_len,
+                rsi_len=rsi_len,
+            )
+            cache[key] = cached
+        return cached
+
+    memo._c022_memoized = True  # type: ignore[attr-defined]
+    strat._htf_indicator_frame = memo
+
 
 def _parse(d: str) -> datetime:
     return datetime.fromisoformat(d).replace(tzinfo=UTC)
@@ -170,6 +210,7 @@ def load_ctx() -> CampaignCtx:
     if meta is None or meta.fill_timing != FillTiming.NEXT_BAR_OPEN:
         raise SystemExit("CAMPAIGN_022 requires research_metadata.fill_timing=next_bar_open")
     store = PostgresCandleStore(get_research_database_config())
+    _install_perf_shims()
     return CampaignCtx(
         settings=settings,
         raw=raw,
@@ -194,8 +235,34 @@ def run_pair_split(
     ctx: CampaignCtx, *, instrument: str, split: str, regime: dict[str, object]
 ) -> RunRecord:
     instr = instrument_for(instrument)
+    regime_name = str(regime["name"])
     frm, to = SPLITS[split]
     from_dt, to_dt = _parse(frm), _parse(to)
+
+    # Resumable: a completed cell persists its metrics + trades path. On rerun we
+    # reload it instead of recomputing, so a killed process loses at most one cell.
+    cell_path = OUT_CELLS / f"{instrument}_{split}_{regime_name}.json"
+    if cell_path.exists():
+        cached = json.loads(cell_path.read_text(encoding="utf-8"))
+        rec = RunRecord(
+            split=split,
+            cost_regime=regime_name,
+            instrument=instrument,
+            metrics=cached["metrics"],
+            trades_path=cached["trades_path"],
+        )
+        ctx.runs.append(rec)
+        tp = ROOT / cached["trades_path"]
+        if tp.exists():
+            tdf = pd.read_csv(tp)
+            if not tdf.empty:
+                ctx.all_trades.append(tdf)
+        print(
+            f"  [cached] {split}/{regime_name} {instrument}: "
+            f"{rec.metrics['trade_count']} trades exp_r={rec.metrics['expectancy_r']:.4f}"
+        )
+        return rec
+
     frames = _frames_for(ctx, instrument, split)
     m15_frame = frames.m15
     rows = m15_frame.completed_only().df
@@ -232,9 +299,9 @@ def run_pair_split(
         risk_engine=ctx.risk_engine,
         settings=ctx.settings,
         fill_timing=ctx.fill_timing,
+        max_signal_window_bars=SIGNAL_WINDOW_BARS,
     )
     result = engine.run(m15_frame, data_request_hash=data_hash)
-    regime_name = str(regime["name"])
     sub = OUT_BT / split / regime_name
     label = f"c022_{instrument}_{split}_{regime_name}"
     paths = write_all(result, sub, label, split=split)
@@ -249,6 +316,11 @@ def run_pair_split(
         trades_path=str(paths["trades_csv"].relative_to(ROOT)),
     )
     ctx.runs.append(rec)
+    OUT_CELLS.mkdir(parents=True, exist_ok=True)
+    cell_path.write_text(
+        json.dumps({"metrics": rec.metrics, "trades_path": rec.trades_path}, indent=2),
+        encoding="utf-8",
+    )
     print(
         f"  {split}/{regime_name} {instrument}: "
         f"{rec.metrics['trade_count']} trades exp_r={rec.metrics['expectancy_r']:.4f}"
