@@ -213,3 +213,7 @@ research/usdjpy_vol_compression_expansion/*
 !research/usdjpy_vol_compression_expansion/feature_preview.csv
 !research/usdjpy_vol_compression_expansion/analysis_summary.json
 !research/usdjpy_vol_compression_expansion/monetization_diagnostic.json
+
+# london-compression-continuation-confirmation-001: commit only the compact summary.
+research/usdjpy_london_compression_continuation/*
+!research/usdjpy_london_compression_continuation/confirmation_summary.json
