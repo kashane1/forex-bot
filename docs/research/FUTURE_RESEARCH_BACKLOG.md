@@ -55,28 +55,31 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0-closed-usdjpy-microstructure. USD_JPY M15 microstructure confirmation — ENTRY LANE CLOSED (2026-05-28)
+## 0-closed-usdjpy-microstructure. USD_JPY M15 microstructure — ENTRY + POST-ENTRY LANES CLOSED (2026-05-28)
 
 - **What it was.** The selected Lane D (market-microstructure-style confirmation),
   scoped to **USD_JPY only**, run read-only over the 306 USD_JPY C022 base trades
-  (train 133 / val 173) with live detectors (impulse, micro-swing-break,
-  sweep+displacement, range-expansion) and post-entry detectors (retest-hold, trap).
-- **Status.** **CLOSED as an entry-alpha lane.** No live primitive showed material,
-  stable winner/loser separation (best stable live effect |AUC−0.5| = 0.016, below the
-  0.05 floor) and none beat the inert EMA20-reclaim baseline. The only above-floor
-  separation was **post-entry** (retest-hold AUC 0.611/0.552) and is **not** a live
-  entry filter. **C024 remains `NOT_READY`; no CAMPAIGN_024 created.** See
-  [`USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md`](USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md).
-- **Only sanctioned follow-up (NOT entry alpha).** A read-only **USD_JPY post-entry
-  trade-management diagnostic** — treat retest-hold/trap and early MFE/MAE behavior as
-  candidate early-invalidation / hold / stop-avoidance / time-stop information used
-  *after* a trade is open. Pre-committed, out-of-sample, no threshold mining; ends at a
-  readiness classification (`TRADE_MANAGEMENT_PRECOMMIT_READY` / `DEFER_PENDING_MORE_DIAGNOSTICS`
-  / `NOT_READY`). Branch:
-  `research-usdjpy-post-entry-trade-management-diagnostic-001`. Prompt drafted in
-  `docs/research/NEXT_SPRINT_PROMPT_AFTER_USDJPY_MICROSTRUCTURE_ENTRY_CLOSEOUT.md`.
-- **Forbidden.** No entry-alpha campaign on USD_JPY microstructure; no C024; no
-  approval; no paper/demo/live; do not present any post-entry diagnostic as entry edge.
+  (train 133 / val 173): an **entry** diagnostic (live detectors: impulse,
+  micro-swing-break, sweep+displacement, range-expansion) and a follow-up **post-entry
+  trade-management** diagnostic (retest-hold, trap, early MFE/MAE at horizons 2/4/8/16).
+- **Entry lane: CLOSED.** No live primitive showed material, stable winner/loser
+  separation (best stable live effect |AUC−0.5| = 0.016, below the 0.05 floor) and none
+  beat the inert EMA20-reclaim baseline. **C024 `NOT_READY`; no CAMPAIGN_024 created.**
+- **Post-entry trade-management lane: CLOSED (`NOT_READY`).** Post-entry events separate
+  outcomes only **descriptively**; **all five predeclared early-exit counterfactuals
+  reduced expectancy on both splits** (−0.065 to −0.134R) — flagged trades often recover
+  before the stop and the rules cut winners. Not actionable.
+- **Final status.** The full C022/C023/USD_JPY microstructure thread is **CLOSED at both
+  the entry and management layers — no actionable edge.** See
+  [`C022_C023_USDJPY_MICROSTRUCTURE_THREAD_CLOSEOUT.md`](C022_C023_USDJPY_MICROSTRUCTURE_THREAD_CLOSEOUT.md).
+- **No more mining of this family is recommended.** The next genuinely-new lane is
+  compared in
+  [`NEXT_RESEARCH_LANE_AFTER_USDJPY_MICROSTRUCTURE_CLOSEOUT.md`](NEXT_RESEARCH_LANE_AFTER_USDJPY_MICROSTRUCTURE_CLOSEOUT.md);
+  default = source/map a genuinely different edge (external thesis + session atlas), not
+  another C022-style entry variant.
+- **Forbidden.** No entry-alpha or management campaign on USD_JPY microstructure; no
+  C024; no C023 execution; no approval; no paper/demo/live; no further mining of these
+  signals (the counterfactual already shows acting on them is net-negative).
 
 ---
 

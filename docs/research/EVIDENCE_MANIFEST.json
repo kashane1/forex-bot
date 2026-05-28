@@ -2148,6 +2148,19 @@
     "entry_lane_closeout_doc": "docs/research/USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md",
     "readiness_doc": "docs/research/USDJPY_C024_READINESS_DECISION.md",
     "result_doc": "docs/research/USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_RESULT.md",
-    "summary_doc": "docs/research/USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md"
+    "summary_doc": "docs/research/USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md",
+    "post_entry_trade_management": {
+      "sprint": "research-usdjpy-post-entry-trade-management-diagnostic-001",
+      "status_date": "2026-05-28",
+      "lane_status": "CLOSED",
+      "readiness": "NOT_READY",
+      "finding_note": "Post-entry events (retest-hold/trap, early MFE/MAE at horizons 2/4/8/16) separate outcomes only descriptively. All five predeclared early-exit counterfactuals (next-bar-open) reduced expectancy on BOTH splits (-0.065 to -0.134R): flagged trades often recover before the stop and the rules cut winners. Not actionable; no rule adopted.",
+      "readiness_doc": "docs/research/USDJPY_TRADE_MANAGEMENT_READINESS_DECISION.md",
+      "counterfactuals_doc": "docs/research/USDJPY_POST_ENTRY_MANAGEMENT_COUNTERFACTUALS.md",
+      "summary_doc": "docs/research/USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_SUMMARY.md"
+    },
+    "thread_status": "FULLY_CLOSED_NO_ACTIONABLE_EDGE",
+    "thread_closeout_doc": "docs/research/C022_C023_USDJPY_MICROSTRUCTURE_THREAD_CLOSEOUT.md",
+    "no_further_mining_recommended": true
   }
 }

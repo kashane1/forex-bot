@@ -1659,6 +1659,26 @@ entry-alpha lane**; C024 stays `NOT_READY`; C023 not executed; `approved: []`.
 | [`USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md`](USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md) | entry-lane closed; post-entry signals → trade-management only |
 | [`USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md`](USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md) | diagnostic sprint summary |
 
+### USD_JPY post-entry trade-management diagnostic + full-thread closeout
+
+USD_JPY-only, read-only. Tested whether post-entry retest-hold/trap + early MFE/MAE
+behavior could inform early-invalidation / hold decisions. Post-entry events separate
+outcomes **descriptively**, but **all five predeclared early-exit counterfactuals
+reduced expectancy on both splits** (−0.065 to −0.134R) — not actionable. The
+post-entry trade-management lane is **CLOSED** (`NOT_READY`). With this, the full
+C022/C023/USD_JPY microstructure thread is closed at both the entry and management
+layers; no further mining recommended. No verdict changed; no C024; `approved: []`.
+
+| document | role |
+|---|---|
+| [`USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_PLAN.md`](USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_PLAN.md) | trade-management sprint plan |
+| [`USDJPY_MICROSTRUCTURE_DATASET_INVENTORY.md`](USDJPY_MICROSTRUCTURE_DATASET_INVENTORY.md) | (shared) USD_JPY trade-set inventory |
+| [`USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_RESULT.md`](USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_RESULT.md) | descriptive separation + winner damage |
+| [`USDJPY_POST_ENTRY_MANAGEMENT_COUNTERFACTUALS.md`](USDJPY_POST_ENTRY_MANAGEMENT_COUNTERFACTUALS.md) | early-exit counterfactuals (all reduce expectancy) |
+| [`USDJPY_TRADE_MANAGEMENT_READINESS_DECISION.md`](USDJPY_TRADE_MANAGEMENT_READINESS_DECISION.md) | trade-management readiness = NOT_READY |
+| [`USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_SUMMARY.md`](USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_SUMMARY.md) | trade-management sprint summary |
+| [`C022_C023_USDJPY_MICROSTRUCTURE_THREAD_CLOSEOUT.md`](C022_C023_USDJPY_MICROSTRUCTURE_THREAD_CLOSEOUT.md) | **full-thread closeout + lessons** |
+
 ## How to read the evidence
 
 - **Verdicts are bright lines.** Every campaign fixed its gates in a

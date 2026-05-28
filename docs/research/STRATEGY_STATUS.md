@@ -61,25 +61,36 @@ selected separately and must be independently pre-committed before any execution
 | [`C024_READINESS_FROM_C022_FEATURE_SEPARATION.md`](C024_READINESS_FROM_C022_FEATURE_SEPARATION.md) | C024 readiness = NOT_READY |
 | [`POST_C022_FAMILY_RETIREMENT_AND_NEW_THESIS_SELECTION_001_PLAN.md`](POST_C022_FAMILY_RETIREMENT_AND_NEW_THESIS_SELECTION_001_PLAN.md) | Retirement + next-thesis-selection sprint plan |
 
-### USD_JPY M15 microstructure-confirmation — ENTRY LANE CLOSED (2026-05-28)
+### USD_JPY M15 microstructure — ENTRY + POST-ENTRY LANES CLOSED (2026-05-28)
 
 The selected next lane (market-microstructure-style confirmation), scoped to
 **USD_JPY only**, was run as a read-only diagnostic over the 306 USD_JPY C022 base
 trades. **Result: no live M15 entry primitive showed material, stable winner/loser
 separation** (best stable live effect |AUC−0.5| = 0.016, below the 0.05 floor; the
 old EMA20-reclaim baseline is itself inert/unstable). The only above-floor separation
-was **post-entry** (retest-hold / trap) and is therefore **not usable as a live entry
-filter**. **USD_JPY M15 microstructure confirmation is CLOSED as an entry-alpha lane;
-C024 remains `NOT_READY`; C023 remains deferred/not executed; no CAMPAIGN_024 created;
-verdicts unchanged; `approved: []`.** The only sanctioned follow-up is a read-only
-USD_JPY **trade-management** diagnostic (treating post-entry retest/trap behavior as
-possible early-invalidation / hold information, **not** entry alpha).
+was **post-entry** (retest-hold / trap), so it cannot gate an entry — the **entry lane
+is CLOSED** and C024 is `NOT_READY`.
+
+A follow-up read-only **post-entry trade-management** diagnostic then tested whether
+that post-entry behavior could inform early-invalidation / hold decisions. It could
+not: the signals separate outcomes only **descriptively**, and **all five predeclared
+early-exit counterfactuals reduced expectancy on both splits** (−0.065 to −0.134R) —
+flagged trades often recover before the stop and the rules cut winners. The
+**post-entry trade-management lane is also CLOSED** (`NOT_READY`).
+
+**The full C022/C023/USD_JPY microstructure thread is CLOSED at both the entry and the
+management layer — no actionable edge found. No more mining of this family is
+recommended.** Verdicts unchanged (C022 REJECT, C023 scaffold-only/not executed); no
+CAMPAIGN_024 created; `approved: []`; paper/demo/live blocked.
 
 | document | purpose |
 |---|---|
-| [`USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md`](USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md) | Entry-lane closeout + what remains useful |
+| [`C022_C023_USDJPY_MICROSTRUCTURE_THREAD_CLOSEOUT.md`](C022_C023_USDJPY_MICROSTRUCTURE_THREAD_CLOSEOUT.md) | **Full-thread closeout + lessons (read first)** |
+| [`USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md`](USDJPY_MICROSTRUCTURE_ENTRY_LANE_CLOSEOUT.md) | Entry-lane closeout |
 | [`USDJPY_C024_READINESS_DECISION.md`](USDJPY_C024_READINESS_DECISION.md) | USD_JPY C024 readiness = NOT_READY |
-| [`USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md`](USDJPY_M15_MICROSTRUCTURE_CONFIRMATION_DIAGNOSTIC_001_SUMMARY.md) | Diagnostic sprint summary |
+| [`USDJPY_TRADE_MANAGEMENT_READINESS_DECISION.md`](USDJPY_TRADE_MANAGEMENT_READINESS_DECISION.md) | Post-entry trade-management = NOT_READY |
+| [`USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_SUMMARY.md`](USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_SUMMARY.md) | Trade-management sprint summary |
+| [`NEXT_RESEARCH_LANE_AFTER_USDJPY_MICROSTRUCTURE_CLOSEOUT.md`](NEXT_RESEARCH_LANE_AFTER_USDJPY_MICROSTRUCTURE_CLOSEOUT.md) | Next genuinely-new lane comparison |
 
 ### Evidence integrity (dedupe audit 001)
 
