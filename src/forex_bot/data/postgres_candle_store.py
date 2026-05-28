@@ -339,6 +339,158 @@ ON CONFLICT (instrument, granularity, time_utc) DO UPDATE SET
                 commit()
         return len(rows)
 
+    def upsert_materialized_candles(
+        self,
+        candles: Iterable[CandleRecord],
+        *,
+        source: str,
+        fetched_at_utc: datetime | None = None,
+        preserve_sources: frozenset[str] | None = None,
+    ) -> int:
+        """Upsert M1-materialized rows without overwriting preserved native sources."""
+        fetched_at = fetched_at_utc or datetime.now(UTC)
+        preserve = preserve_sources or frozenset()
+        sql = f"""
+INSERT INTO {self.config.schema}.candles (
+  instrument, granularity, time_utc, complete, volume,
+  bid_o, bid_h, bid_l, bid_c,
+  ask_o, ask_h, ask_l, ask_c,
+  mid_o, mid_h, mid_l, mid_c,
+  spread_open, spread_high, spread_low, spread_close,
+  source, fetch_batch_id, data_hash, fetched_at_utc
+) VALUES (
+  %s, %s, %s, %s, %s,
+  %s, %s, %s, %s,
+  %s, %s, %s, %s,
+  %s, %s, %s, %s,
+  %s, %s, %s, %s,
+  %s, %s, %s, %s
+)
+ON CONFLICT (instrument, granularity, time_utc) DO UPDATE SET
+  complete = EXCLUDED.complete,
+  volume = EXCLUDED.volume,
+  bid_o = EXCLUDED.bid_o,
+  bid_h = EXCLUDED.bid_h,
+  bid_l = EXCLUDED.bid_l,
+  bid_c = EXCLUDED.bid_c,
+  ask_o = EXCLUDED.ask_o,
+  ask_h = EXCLUDED.ask_h,
+  ask_l = EXCLUDED.ask_l,
+  ask_c = EXCLUDED.ask_c,
+  mid_o = EXCLUDED.mid_o,
+  mid_h = EXCLUDED.mid_h,
+  mid_l = EXCLUDED.mid_l,
+  mid_c = EXCLUDED.mid_c,
+  spread_open = EXCLUDED.spread_open,
+  spread_high = EXCLUDED.spread_high,
+  spread_low = EXCLUDED.spread_low,
+  spread_close = EXCLUDED.spread_close,
+  source = EXCLUDED.source,
+  fetch_batch_id = EXCLUDED.fetch_batch_id,
+  data_hash = EXCLUDED.data_hash,
+  fetched_at_utc = EXCLUDED.fetched_at_utc
+WHERE {self.config.schema}.candles.source NOT IN ({", ".join("%s" for _ in preserve) if preserve else "%s"})
+"""
+        if not preserve:
+            # No preserved sources — behave like a normal upsert.
+            return self.upsert_candles(candles, source=source, fetched_at_utc=fetched_at)
+        rows = []
+        for candle in candles:
+            validate_candle_record(candle)
+            spreads = compute_spread_fields(candle)
+            rows.append(
+                (
+                    candle.instrument,
+                    candle.granularity,
+                    candle.time_utc,
+                    candle.complete,
+                    candle.volume,
+                    candle.bid_o,
+                    candle.bid_h,
+                    candle.bid_l,
+                    candle.bid_c,
+                    candle.ask_o,
+                    candle.ask_h,
+                    candle.ask_l,
+                    candle.ask_c,
+                    candle.mid_o,
+                    candle.mid_h,
+                    candle.mid_l,
+                    candle.mid_c,
+                    spreads["spread_open"],
+                    spreads["spread_high"],
+                    spreads["spread_low"],
+                    spreads["spread_close"],
+                    source,
+                    candle.fetch_batch_id,
+                    candle.data_hash or compute_candle_data_hash(candle),
+                    fetched_at,
+                )
+            )
+        if not rows:
+            return 0
+        preserve_params = tuple(preserve)
+        with self.connection() as conn:
+            with conn.cursor() as cur:
+                for row in rows:
+                    cur.execute(sql, row + preserve_params)
+            commit = getattr(conn, "commit", None)
+            if callable(commit):
+                commit()
+        return len(rows)
+
+    def max_candle_time(
+        self,
+        *,
+        instrument: str,
+        granularity: str,
+        source: str | None = None,
+    ) -> datetime | None:
+        clauses = ["instrument = %s", "granularity = %s"]
+        params: list[Any] = [instrument, granularity]
+        if source is not None:
+            clauses.append("source = %s")
+            params.append(source)
+        sql = (
+            f"SELECT MAX(time_utc) FROM {self.config.schema}.candles "
+            f"WHERE {' AND '.join(clauses)}"
+        )
+        with self.connection() as conn, conn.cursor() as cur:
+            cur.execute(sql, tuple(params))
+            row = cur.fetchone()
+        if not row or row[0] is None:
+            return None
+        return row[0].astimezone(UTC)
+
+    def count_candles(
+        self,
+        *,
+        instrument: str,
+        granularity: str,
+        source: str | None = None,
+        start_utc: datetime | None = None,
+        end_utc: datetime | None = None,
+    ) -> int:
+        clauses = ["instrument = %s", "granularity = %s"]
+        params: list[Any] = [instrument, granularity]
+        if source is not None:
+            clauses.append("source = %s")
+            params.append(source)
+        if start_utc is not None:
+            clauses.append("time_utc >= %s")
+            params.append(start_utc)
+        if end_utc is not None:
+            clauses.append("time_utc <= %s")
+            params.append(end_utc)
+        sql = (
+            f"SELECT COUNT(*) FROM {self.config.schema}.candles "
+            f"WHERE {' AND '.join(clauses)}"
+        )
+        with self.connection() as conn, conn.cursor() as cur:
+            cur.execute(sql, tuple(params))
+            row = cur.fetchone()
+        return int(row[0]) if row else 0
+
     def query_candles(
         self,
         *,
@@ -346,6 +498,8 @@ ON CONFLICT (instrument, granularity, time_utc) DO UPDATE SET
         granularity: str,
         start_utc: datetime | None = None,
         end_utc: datetime | None = None,
+        source: str | None = None,
+        exclude_sources: Sequence[str] | None = None,
     ) -> list[dict[str, Any]]:
         clauses = ["instrument = %s", "granularity = %s"]
         params: list[Any] = [instrument, granularity]
@@ -355,6 +509,13 @@ ON CONFLICT (instrument, granularity, time_utc) DO UPDATE SET
         if end_utc is not None:
             clauses.append("time_utc <= %s")
             params.append(end_utc)
+        if source is not None:
+            clauses.append("source = %s")
+            params.append(source)
+        if exclude_sources:
+            placeholders = ", ".join("%s" for _ in exclude_sources)
+            clauses.append(f"source NOT IN ({placeholders})")
+            params.extend(exclude_sources)
         sql = (
             "SELECT instrument, granularity, time_utc, complete, volume, "
             "bid_o, bid_h, bid_l, bid_c, ask_o, ask_h, ask_l, ask_c, "
