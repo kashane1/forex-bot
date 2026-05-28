@@ -39,6 +39,28 @@ validation (`infra-m1-full-corpus-validation-and-aggregation-001`) is
 | [`POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY.md`](POST_DEDUP_FAILURE_META_ANALYSIS_001_SUMMARY.md) | Meta-analysis close-out |
 | [`NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md`](NEXT_NON_STRATEGY_WORKSTREAM_DECISION.md) | Next sprint: observed cost / spread diagnostics |
 
+### C022/C023 pullback-resolution family — RETIRED (2026-05-28)
+
+The `h4_h1_pullback_resolution_entry` family (H4 regime → H1 pullback → M15 EMA
+reclaim) is **retired**, classification `RETIRED_UNLESS_NEW_EXTERNAL_THESIS`.
+**Verdicts are unchanged:** CAMPAIGN_022 remains **REJECT**; CAMPAIGN_023 (ADX22
+sibling) remains **scaffold-only / not executed**; **CAMPAIGN_024 is not created**.
+The full diagnostic chain — MFE/MAE, an executed stop-model comparison (all
+ATR/time variants and a cost-free baseline stay negative), and a winner/loser
+feature separation (every structural entry feature at AUC ≈ 0.50) — localized
+C022's failure to the **entry signal**, not stop geometry or cost. The "re-gate the
+existing pullback signal" lever is empty; C023 ADX22 is unsupported because H4 ADX
+does not separate winners from losers. Reopening requires a **new external
+market-structure thesis, a materially different trigger, independent out-of-sample
+evidence, and not merely threshold changes** (all four). The next research lane is
+selected separately and must be independently pre-committed before any execution.
+
+| document | purpose |
+|---|---|
+| [`C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md`](C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md) | Family closeout memo + reopening criteria |
+| [`C024_READINESS_FROM_C022_FEATURE_SEPARATION.md`](C024_READINESS_FROM_C022_FEATURE_SEPARATION.md) | C024 readiness = NOT_READY |
+| [`POST_C022_FAMILY_RETIREMENT_AND_NEW_THESIS_SELECTION_001_PLAN.md`](POST_C022_FAMILY_RETIREMENT_AND_NEW_THESIS_SELECTION_001_PLAN.md) | Retirement + next-thesis-selection sprint plan |
+
 ### Evidence integrity (dedupe audit 001)
 
 Pre-fix bespoke campaigns on `data/campaign_002.sqlite3` may be
@@ -87,8 +109,8 @@ strategy is approved.**
 | `weekly_volatility_contraction_breakout 0.1.0-c017` | rejected (deduped) | NO | NO | NO | CAMPAIGN_017 deduped |
 | `multi_timeframe_confluence_pullback 0.1.0-c020` | rejected | NO | NO | NO | CAMPAIGN_020 |
 | `lower_timeframe_mtf_confluence_entry 0.1.0-c021` | rejected | NO | NO | NO | CAMPAIGN_021 |
-| `h4_h1_pullback_resolution_entry 0.1.0-c022` | rejected | NO | NO | NO | CAMPAIGN_022 |
-| `h4_h1_pullback_resolution_entry 0.1.0-c023` (ADX22 sibling of C022) | scaffold-only (not executed) | NO | NO | NO | CAMPAIGN_023 (scaffold) |
+| `h4_h1_pullback_resolution_entry 0.1.0-c022` | rejected (family RETIRED) | NO | NO | NO | CAMPAIGN_022 |
+| `h4_h1_pullback_resolution_entry 0.1.0-c023` (ADX22 sibling of C022) | scaffold-only (not executed; family RETIRED) | NO | NO | NO | CAMPAIGN_023 (scaffold) |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
@@ -429,6 +451,11 @@ for the FOMC-block + NFP-falsification analysis.
   only. C022 is itself unexecuted, so this is pre-registration, not tuning after
   results. Future execution sprint required for any train/validation gates. See
   [`CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md`](CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md).
+- **Family status (2026-05-28):** the C022/C023 pullback-resolution family is
+  **RETIRED** (`RETIRED_UNLESS_NEW_EXTERNAL_THESIS`). C023 execution is **not
+  authorized** — H4 ADX does not separate C022 winners from losers, so the ADX22
+  gate has no evidential support. This remains scaffold-only; status unchanged. See
+  [`C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md`](C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md).
 
 ### `multi_timeframe_confluence_pullback 0.1.0-c020`
 

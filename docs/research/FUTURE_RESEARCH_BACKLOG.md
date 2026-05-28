@@ -34,17 +34,24 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0-scaffold-c022-c023. H4/H1 pullback resolution ADX-sensitivity pair (SCAFFOLD — NOT EXECUTED)
+## 0-retired-c022-c023. H4/H1 pullback resolution family (RETIRED — 2026-05-28)
 
 - **Candidates.** `h4_h1_pullback_resolution_entry` — CAMPAIGN_022 (`0.1.0-c022`,
-  H4 ADX gate **20**) and its pre-registered sibling CAMPAIGN_023 (`0.1.0-c023`,
-  H4 ADX gate **22**). Identical in every other respect; one shared strategy class.
+  H4 ADX gate **20**, **REJECT**) and its pre-registered sibling CAMPAIGN_023
+  (`0.1.0-c023`, H4 ADX gate **22**, scaffold-only/not executed). Identical in every
+  other respect; one shared strategy class.
 - **Precommit.** [`CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md`](CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md)
-- **If ever authorized.** Co-execute C022 + C023 as a pre-registered ADX-sensitivity
-  pair under one execution sprint. The ADX threshold is the only permitted difference;
-  no retuning after results; standard gate discipline (train/validation only first,
-  no test lockbox unless both gate sets pass, no approval under any outcome).
-- **Status.** **SCAFFOLD_ONLY — PRECOMMITTED_NOT_EXECUTED.** No evidence; not authorized.
+- **Status.** **RETIRED — `RETIRED_UNLESS_NEW_EXTERNAL_THESIS`** (2026-05-28).
+  Post-execution diagnostics localized C022's failure to the **entry signal**: all
+  ATR/time stop variants and a cost-free baseline stay negative, and every structural
+  entry feature (H4 regime, H1 pullback, M15 reclaim) sits at AUC ≈ 0.50. C023 ADX22
+  is **not authorized** — H4 ADX does not separate winners from losers (flat quintile
+  win-rates). C024 is **NOT_READY**; **no CAMPAIGN_024 is created**. See
+  [`C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md`](C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md).
+- **Reopening bar (all four required).** A new external market-structure thesis; a
+  materially different trigger (not a threshold change on the M15 EMA reclaim);
+  independent out-of-sample evidence; and not merely re-gated parameters. Absent all
+  four, do not open any same-shaped C02x pullback-resolution campaign.
 
 ---
 

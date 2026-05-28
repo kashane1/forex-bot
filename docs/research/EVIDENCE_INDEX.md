@@ -1617,6 +1617,28 @@ and loses to the C011 null. Train-gate failure terminal; test lockbox never open
 | [`CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_SCAFFOLD_001_SUMMARY.md) | scaffold sprint summary |
 | [`CAMPAIGN_022_EXECUTION_001_SUMMARY.md`](CAMPAIGN_022_EXECUTION_001_SUMMARY.md) | execution sprint summary |
 
+### C022 post-execution diagnostics & family closeout
+
+Diagnostic-only follow-ups that localized C022's failure to the **entry signal**
+(not stop geometry or cost) and **retired** the C022/C023 family. No verdict
+changed; no CAMPAIGN_024 created; C023 not executed; `approved: []`.
+
+| document | role |
+|---|---|
+| [`CAMPAIGN_022_MFE_MAE_STOP_DIAGNOSTICS.md`](CAMPAIGN_022_MFE_MAE_STOP_DIAGNOSTICS.md) | MFE/MAE: winners rarely near stop; many stop-outs never get going |
+| [`DIAGNOSTIC_STOP_MODEL_COMPARISON_EXECUTED.md`](DIAGNOSTIC_STOP_MODEL_COMPARISON_EXECUTED.md) | all ATR/time stop variants + cost-free baseline stay negative |
+| [`LIFECYCLE_FEATURE_CAPTURE_AND_MFE_MAE_EXECUTION_001_CONCLUSIONS.md`](LIFECYCLE_FEATURE_CAPTURE_AND_MFE_MAE_EXECUTION_001_CONCLUSIONS.md) | entry-timing problem, not stop placement |
+| [`C022_WINNER_LOSER_FEATURE_SEPARATION_RESULT.md`](C022_WINNER_LOSER_FEATURE_SEPARATION_RESULT.md) | structural entry features all at AUC ≈ 0.50 |
+| [`C022_WINNER_LOSER_FEATURE_SEPARATION_001_SUMMARY.md`](C022_WINNER_LOSER_FEATURE_SEPARATION_001_SUMMARY.md) | feature-separation sprint close-out |
+| [`C024_READINESS_FROM_C022_FEATURE_SEPARATION.md`](C024_READINESS_FROM_C022_FEATURE_SEPARATION.md) | C024 readiness = NOT_READY |
+| [`C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md`](C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md) | family closeout: RETIRED_UNLESS_NEW_EXTERNAL_THESIS |
+| [`POST_C022_FAMILY_RETIREMENT_AND_NEW_THESIS_SELECTION_001_PLAN.md`](POST_C022_FAMILY_RETIREMENT_AND_NEW_THESIS_SELECTION_001_PLAN.md) | retirement + next-thesis-selection sprint plan |
+
+The next-thesis comparison, selection decision, and copy-paste next-sprint prompt
+(`NEXT_STRUCTURALLY_DIFFERENT_THESIS_OPTIONS`, `NEXT_THESIS_SELECTION_DECISION`,
+`NEXT_SPRINT_PROMPT_AFTER_C022_FAMILY_CLOSEOUT`) are produced later in this same
+sprint and indexed when finalized.
+
 ## How to read the evidence
 
 - **Verdicts are bright lines.** Every campaign fixed its gates in a

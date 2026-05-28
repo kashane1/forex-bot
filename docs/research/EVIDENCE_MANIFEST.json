@@ -2114,6 +2114,15 @@
     "config": "configs/campaign_023_h4_h1_pullback_resolution_adx22.yaml",
     "runner": "scripts/run_campaign_023_h4_h1_pullback_resolution_adx22.py",
     "tests": "tests/unit/test_h4_h1_pullback_resolution_adx22.py",
-    "recommended_next_sprint": "co-execute CAMPAIGN_022 (ADX20) + CAMPAIGN_023 (ADX22) as a pre-registered ADX-sensitivity pair; no retuning"
+    "family_status": "RETIRED_UNLESS_NEW_EXTERNAL_THESIS",
+    "family_status_date": "2026-05-28",
+    "family_status_sprint": "research-post-c022-family-retirement-and-new-thesis-selection-001",
+    "c023_execution_authorized": false,
+    "c024_created": false,
+    "c024_readiness": "NOT_READY",
+    "family_closeout_doc": "docs/research/C022_C023_PULLBACK_RESOLUTION_FAMILY_CLOSEOUT.md",
+    "c024_readiness_doc": "docs/research/C024_READINESS_FROM_C022_FEATURE_SEPARATION.md",
+    "family_retirement_note": "Post-execution diagnostics (MFE/MAE, executed stop-model comparison, winner/loser feature separation) localized CAMPAIGN_022's failure to the entry signal: all ATR/time stop variants and a cost-free baseline stay negative, and every structural entry feature sits at AUC ~= 0.50. H4 ADX does not separate winners from losers, so C023 ADX22 is unsupported and not executed. Reopening requires a new external thesis, a materially different trigger, independent out-of-sample evidence, and not merely threshold changes. No verdict changed; approved_strategies.yaml remains empty.",
+    "recommended_next_sprint": "family RETIRED — do not co-execute; select a structurally different next thesis (see docs/research/NEXT_THESIS_SELECTION_DECISION.md)"
   }
 }
