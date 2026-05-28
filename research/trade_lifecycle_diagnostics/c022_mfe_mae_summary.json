@@ -1,0 +1,10 @@
+{
+  "strategy_evidence": false,
+  "not_approved": true,
+  "diagnostic_only": true,
+  "campaign_id": "CAMPAIGN_022",
+  "status": "BLOCKED_LOCAL_DATA",
+  "reason": "research DB unavailable: ResearchDatabaseBlocked: FOREX_BOT_RESEARCH_DATABASE_URL is not set; local Postgres research DB is BLOCKED.",
+  "note": "No fabricated MFE/MAE. The reconstruction logic is implemented and unit-tested (tests/unit/test_mfe_mae.py); only the local candle data is missing in this environment.",
+  "local_command": "export FOREX_BOT_RESEARCH_DATABASE_URL=postgresql://<user>:<pass>@localhost/forex_bot\npython scripts/reconstruct_mfe_mae_for_campaign_trades.py --campaign-dir backtests/CAMPAIGN_022_h4_h1_pullback_resolution --campaign-id CAMPAIGN_022"
+}
