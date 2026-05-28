@@ -1,0 +1,86 @@
+{
+  "strategy_evidence": false,
+  "not_approved": true,
+  "diagnostic_only": true,
+  "uses_realized_path_only": true,
+  "campaign_id": "CAMPAIGN_022",
+  "status": "OK",
+  "m15_source": "m1_materialized",
+  "schema": "market_data",
+  "summary": {
+    "total_trades": 2396,
+    "reconstructed_trades": 2311,
+    "dropped_by_status": {
+      "NO_BARS": 85
+    },
+    "exit_class_counts": {
+      "hard_stop": 1354,
+      "time_stop": 957
+    },
+    "stopped_out_trades": {
+      "count": 1354,
+      "reached_+0.25R_before_stop": 0.5414,
+      "reached_+0.5R_before_stop": 0.3656,
+      "reached_+1.0R_before_stop": 0.1632,
+      "never_reached_+0.25R_before_stop": 0.4586,
+      "mean_mfe_r": 0.4745
+    },
+    "time_exit_trades": {
+      "count": 957,
+      "mean_mae_r": -0.4044,
+      "touched_-0.5R_share": 0.441,
+      "touched_-0.9R_share": 0.047
+    },
+    "overall": {
+      "mean_mfe_r": 1.1217,
+      "mean_mae_r": -0.8858
+    },
+    "stop_by_pair": {
+      "AUD_USD": {
+        "trades": 357,
+        "hard_stop_share": 0.6078,
+        "stopped_reached_+0.5R_before_stop": 0.4009
+      },
+      "EUR_USD": {
+        "trades": 266,
+        "hard_stop_share": 0.6015,
+        "stopped_reached_+0.5R_before_stop": 0.3125
+      },
+      "GBP_USD": {
+        "trades": 302,
+        "hard_stop_share": 0.5728,
+        "stopped_reached_+0.5R_before_stop": 0.4162
+      },
+      "NZD_USD": {
+        "trades": 257,
+        "hard_stop_share": 0.5992,
+        "stopped_reached_+0.5R_before_stop": 0.3247
+      },
+      "USD_CAD": {
+        "trades": 406,
+        "hard_stop_share": 0.5887,
+        "stopped_reached_+0.5R_before_stop": 0.364
+      },
+      "USD_CHF": {
+        "trades": 424,
+        "hard_stop_share": 0.5802,
+        "stopped_reached_+0.5R_before_stop": 0.374
+      },
+      "USD_JPY": {
+        "trades": 299,
+        "hard_stop_share": 0.5518,
+        "stopped_reached_+0.5R_before_stop": 0.3455
+      }
+    },
+    "stop_by_side": {
+      "long": {
+        "trades": 1116,
+        "hard_stop_share": 0.5923
+      },
+      "short": {
+        "trades": 1195,
+        "hard_stop_share": 0.5799
+      }
+    }
+  }
+}

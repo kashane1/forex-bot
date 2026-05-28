@@ -1,0 +1,65 @@
+{
+  "status": "OK",
+  "diagnostic_only": true,
+  "strategy_evidence": false,
+  "not_approved": true,
+  "no_best_stop_selected": true,
+  "entries_unchanged": true,
+  "campaign_id": "CAMPAIGN_022",
+  "schema": "market_data",
+  "max_bars": 32,
+  "reconstructed_paths": 2396,
+  "dropped": 0,
+  "caveats": "mid OHLC only; no spread/slippage; no next-bar-open fill timing; structure/reclaim stop families omitted (need ATR-at-entry & pullback/reclaim geometry not in historical artifacts). Compare DELTAS between variants, not absolute levels.",
+  "baseline_sanity_check": {
+    "realized_price_based_expectancy_r": -0.1402,
+    "simulated_baseline_2x_atr_expectancy_r": -0.0732,
+    "note": "should be close; residual = mid-vs-fill-model approximation."
+  },
+  "hard_stop_sensitivity": {
+    "1.5xATR": {
+      "n": 2396,
+      "expectancy_r": -0.0513,
+      "win_rate": 0.2892,
+      "mean_loss_r": -0.7219
+    },
+    "2.0xATR(baseline)": {
+      "n": 2396,
+      "expectancy_r": -0.0732,
+      "win_rate": 0.3472,
+      "mean_loss_r": -0.9294
+    },
+    "2.5xATR": {
+      "n": 2396,
+      "expectancy_r": -0.0637,
+      "win_rate": 0.4007,
+      "mean_loss_r": -1.0984
+    },
+    "3.0xATR": {
+      "n": 2396,
+      "expectancy_r": -0.0777,
+      "win_rate": 0.4257,
+      "mean_loss_r": -1.2292
+    }
+  },
+  "time_to_invalidation": {
+    "no+0.25R_by_8": {
+      "n": 2396,
+      "expectancy_r": -0.0748,
+      "win_rate": 0.3205,
+      "mean_loss_r": -0.8467
+    },
+    "no+0.5R_by_8": {
+      "n": 2396,
+      "expectancy_r": -0.0603,
+      "win_rate": 0.3397,
+      "mean_loss_r": -0.7942
+    },
+    "no+0.5R_by_12": {
+      "n": 2396,
+      "expectancy_r": -0.0728,
+      "win_rate": 0.3364,
+      "mean_loss_r": -0.8514
+    }
+  }
+}
