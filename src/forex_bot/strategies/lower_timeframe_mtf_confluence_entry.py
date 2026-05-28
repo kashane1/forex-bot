@@ -59,6 +59,44 @@ def _require_context_frames(cfg: dict[str, Any]) -> dict[str, CandleFrame]:
     return raw
 
 
+_HTF_CACHE_KEY = "_c021_htf_frame_cache"
+
+
+def _htf_frame_from_candle_frame(frame: CandleFrame, *, value_cols: list[str]) -> pd.DataFrame:
+    df = frame.completed_only().df
+    if df.empty:
+        return pd.DataFrame(columns=["time", "close", "complete", "ema20", "ema50"])
+    htf = df.reset_index()
+    if "time" not in htf.columns:
+        htf = htf.rename(columns={htf.columns[0]: "time"})
+    htf["time"] = pd.to_datetime(htf["time"], utc=True)
+    htf["close"] = htf["close"].astype(float)
+    htf["complete"] = True
+    close = htf["close"]
+    if "ema20" in value_cols:
+        htf["ema20"] = ema(close, 20)
+    if "ema50" in value_cols:
+        htf["ema50"] = ema(close, 50)
+    return htf
+
+
+def _htf_cache(cfg: dict[str, Any], context_frames: dict[str, CandleFrame]) -> dict[str, pd.DataFrame]:
+    cached = cfg.get(_HTF_CACHE_KEY)
+    if isinstance(cached, dict) and cached:
+        return cached
+    out: dict[str, pd.DataFrame] = {}
+    out["H1"] = _htf_frame_from_candle_frame(context_frames["H1"], value_cols=["ema20"])
+    out["H4"] = _htf_frame_from_candle_frame(context_frames["H4"], value_cols=["ema50", "close"])
+    d1_candles = _frame_rows_to_candles(context_frames["D1AGG"], "D1AGG")
+    out["D1AGG"] = d1agg_trend_htf_frame(
+        d1_candles,
+        ema_fast_len=int(cfg.get("d1_ema_fast", 20)),
+        ema_slow_len=int(cfg.get("d1_ema_slow", 50)),
+    )
+    cfg[_HTF_CACHE_KEY] = out
+    return out
+
+
 def _htf_frame_from_candles(candles: list[Candle], *, value_cols: list[str]) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for candle in candles:
@@ -109,13 +147,12 @@ def _frame_rows_to_candles(frame: CandleFrame, granularity: str) -> list[Candle]
 
 
 def _aligned_h1_trend(
-    h1_frame: CandleFrame,
+    h1_htf: pd.DataFrame,
     decision_time: datetime,
     *,
     slope_bars: int,
 ) -> tuple[D1Trend, datetime | None, str | None]:
-    h1_candles_list = _frame_rows_to_candles(h1_frame, "H1")
-    htf = _htf_frame_from_candles(h1_candles_list, value_cols=["ema20"])
+    htf = h1_htf
     if len(htf) < slope_bars + 2:
         return "neutral", None, HTF_UNAVAILABLE
     aligned = align_last_completed(
@@ -130,8 +167,11 @@ def _aligned_h1_trend(
     close = float(aligned["h1_close"].iloc[0])
     ema20 = float(aligned["h1_ema20"].iloc[0])
     ema20_time = aligned["h1_close_time"].iloc[0]
-    # slope from last slope_bars completed H1 ema20 values
-    ema_series = htf["ema20"].dropna()
+    feat_ts = pd.Timestamp(ema20_time).to_pydatetime() if pd.notna(ema20_time) else None
+    if feat_ts is None:
+        return "neutral", None, HTF_UNAVAILABLE
+    htf_hist = htf[htf["time"] <= feat_ts]
+    ema_series = htf_hist["ema20"].dropna()
     if len(ema_series) < slope_bars + 1:
         return "neutral", None, HTF_UNAVAILABLE
     slope = float(ema_series.iloc[-1] - ema_series.iloc[-(slope_bars + 1)])
@@ -144,13 +184,12 @@ def _aligned_h1_trend(
 
 
 def _aligned_h4_trend(
-    h4_frame: CandleFrame,
+    h4_htf: pd.DataFrame,
     decision_time: datetime,
     *,
     ema_len: int,
 ) -> tuple[D1Trend, datetime | None, str | None]:
-    h4_candles_list = _frame_rows_to_candles(h4_frame, "H4")
-    htf = _htf_frame_from_candles(h4_candles_list, value_cols=["ema50", "close"])
+    htf = h4_htf
     if len(htf) < ema_len + 2:
         return "neutral", None, HTF_UNAVAILABLE
     aligned = align_last_completed(
@@ -174,16 +213,15 @@ def _aligned_h4_trend(
 
 
 def _aligned_d1agg_trend(
-    d1agg_frame: CandleFrame,
+    d1_htf: pd.DataFrame,
     decision_time: datetime,
     *,
     ema_fast_len: int,
     ema_slow_len: int,
 ) -> tuple[D1Trend, datetime | None, str | None]:
-    d1_candles = _frame_rows_to_candles(d1agg_frame, "D1AGG")
-    if len(d1_candles) < ema_slow_len + 2:
+    htf = d1_htf
+    if len(htf) < ema_slow_len + 2:
         return "neutral", None, HTF_UNAVAILABLE
-    htf = d1agg_trend_htf_frame(d1_candles, ema_fast_len=ema_fast_len, ema_slow_len=ema_slow_len)
     aligned = align_last_completed(
         pd.DatetimeIndex([decision_time]),
         htf,
@@ -249,6 +287,7 @@ class LowerTimeframeMtfConfluenceEntryStrategy:
             )
         context_frames = _require_context_frames(ctx.config)
         cfg = ctx.config
+        htf_cache = _htf_cache(cfg, context_frames)
         d1_ema_fast = int(cfg.get("d1_ema_fast", 20))
         d1_ema_slow = int(cfg.get("d1_ema_slow", 50))
         h4_ema = int(cfg.get("h4_ema_context", 50))
@@ -302,18 +341,18 @@ class LowerTimeframeMtfConfluenceEntryStrategy:
         decision_dt = pd.Timestamp(idx_t).tz_convert(UTC).to_pydatetime()
 
         d1_trend, d1_time, d1_block = _aligned_d1agg_trend(
-            context_frames["D1AGG"],
+            htf_cache["D1AGG"],
             decision_dt,
             ema_fast_len=d1_ema_fast,
             ema_slow_len=d1_ema_slow,
         )
         h4_trend, h4_time, h4_block = _aligned_h4_trend(
-            context_frames["H4"],
+            htf_cache["H4"],
             decision_dt,
             ema_len=h4_ema,
         )
         h1_trend, h1_time, h1_block = _aligned_h1_trend(
-            context_frames["H1"],
+            htf_cache["H1"],
             decision_dt,
             slope_bars=h1_slope_bars,
         )

@@ -282,9 +282,8 @@ def run_pair_split(
         granularity="M15",
         from_time=from_dt.isoformat(),
         to_time=to_dt.isoformat(),
-        source="postgres_m1_derived",
+        source="postgres_m1_derived|d1agg=native_h4",
         candle_count=len(m15_frame.df),
-        d1agg_source=D1AGG_SOURCE,
     )
     engine = BacktestEngine(
         instrument=meta,
