@@ -1,0 +1,167 @@
+{
+  "strategy_evidence": false,
+  "not_approved": true,
+  "diagnostic_only": true,
+  "instrument": "USD_JPY",
+  "status": "OK",
+  "caveat": "OPTIMISTIC counterfactuals: assume perfect action at the bar, mid open marks (no spread/slippage on the early exit), and do not net out the entry-edge problem. NOT tradable; no rule adopted; no verdict changed.",
+  "exit_timing": "next-bar-open after the horizon",
+  "rules": [
+    {
+      "rule": "exit if early_reclaim_failure_h2 and still open at h2 (next-bar-open mark)",
+      "event_base": "early_reclaim_failure",
+      "horizon": 2,
+      "per_split": {
+        "train": {
+          "n": 133,
+          "affected": 53,
+          "realized_mean_r": -0.00172,
+          "counterfactual_mean_r": -0.13533,
+          "expectancy_delta_r": -0.13362,
+          "winners_cut": 16,
+          "winner_r_lost_total": 4.502,
+          "stops_exited_early": 36,
+          "stop_r_saved_total": -13.3919
+        },
+        "validation": {
+          "n": 173,
+          "affected": 54,
+          "realized_mean_r": 0.0004,
+          "counterfactual_mean_r": -0.11139,
+          "expectancy_delta_r": -0.11178,
+          "winners_cut": 12,
+          "winner_r_lost_total": 3.4249,
+          "stops_exited_early": 42,
+          "stop_r_saved_total": -15.9134
+        }
+      },
+      "delta_positive_both_splits": false,
+      "delta_stable_sign": true
+    },
+    {
+      "rule": "exit if early_reclaim_failure_h4 and still open at h4 (next-bar-open mark)",
+      "event_base": "early_reclaim_failure",
+      "horizon": 4,
+      "per_split": {
+        "train": {
+          "n": 133,
+          "affected": 60,
+          "realized_mean_r": -0.00172,
+          "counterfactual_mean_r": -0.10017,
+          "expectancy_delta_r": -0.09846,
+          "winners_cut": 20,
+          "winner_r_lost_total": 0.7248,
+          "stops_exited_early": 39,
+          "stop_r_saved_total": -13.8767
+        },
+        "validation": {
+          "n": 173,
+          "affected": 57,
+          "realized_mean_r": 0.0004,
+          "counterfactual_mean_r": -0.09009,
+          "expectancy_delta_r": -0.09049,
+          "winners_cut": 16,
+          "winner_r_lost_total": 0.8703,
+          "stops_exited_early": 37,
+          "stop_r_saved_total": -13.825
+        }
+      },
+      "delta_positive_both_splits": false,
+      "delta_stable_sign": true
+    },
+    {
+      "rule": "exit if early_adverse_expansion_h2 and still open at h2 (next-bar-open mark)",
+      "event_base": "early_adverse_expansion",
+      "horizon": 2,
+      "per_split": {
+        "train": {
+          "n": 133,
+          "affected": 28,
+          "realized_mean_r": -0.00172,
+          "counterfactual_mean_r": -0.09262,
+          "expectancy_delta_r": -0.0909,
+          "winners_cut": 7,
+          "winner_r_lost_total": 2.8464,
+          "stops_exited_early": 20,
+          "stop_r_saved_total": -9.3048
+        },
+        "validation": {
+          "n": 173,
+          "affected": 36,
+          "realized_mean_r": 0.0004,
+          "counterfactual_mean_r": -0.07672,
+          "expectancy_delta_r": -0.07711,
+          "winners_cut": 8,
+          "winner_r_lost_total": 1.6816,
+          "stops_exited_early": 27,
+          "stop_r_saved_total": -12.5667
+        }
+      },
+      "delta_positive_both_splits": false,
+      "delta_stable_sign": true
+    },
+    {
+      "rule": "exit if no_continuation_h4 and still open at h4 (next-bar-open mark)",
+      "event_base": "no_continuation",
+      "horizon": 4,
+      "per_split": {
+        "train": {
+          "n": 133,
+          "affected": 43,
+          "realized_mean_r": -0.00172,
+          "counterfactual_mean_r": -0.10795,
+          "expectancy_delta_r": -0.10623,
+          "winners_cut": 17,
+          "winner_r_lost_total": 3.9453,
+          "stops_exited_early": 25,
+          "stop_r_saved_total": -10.287
+        },
+        "validation": {
+          "n": 173,
+          "affected": 39,
+          "realized_mean_r": 0.0004,
+          "counterfactual_mean_r": -0.06507,
+          "expectancy_delta_r": -0.06546,
+          "winners_cut": 11,
+          "winner_r_lost_total": 0.6015,
+          "stops_exited_early": 26,
+          "stop_r_saved_total": -10.3828
+        }
+      },
+      "delta_positive_both_splits": false,
+      "delta_stable_sign": true
+    },
+    {
+      "rule": "exit if trap_or_failed_breakout and still open at h2 (next-bar-open mark)",
+      "event_base": "trap_or_failed_breakout",
+      "horizon": 2,
+      "per_split": {
+        "train": {
+          "n": 133,
+          "affected": 48,
+          "realized_mean_r": -0.00172,
+          "counterfactual_mean_r": -0.12532,
+          "expectancy_delta_r": -0.1236,
+          "winners_cut": 16,
+          "winner_r_lost_total": 4.502,
+          "stops_exited_early": 31,
+          "stop_r_saved_total": -12.0598
+        },
+        "validation": {
+          "n": 173,
+          "affected": 49,
+          "realized_mean_r": 0.0004,
+          "counterfactual_mean_r": -0.10582,
+          "expectancy_delta_r": -0.10621,
+          "winners_cut": 9,
+          "winner_r_lost_total": 2.7939,
+          "stops_exited_early": 40,
+          "stop_r_saved_total": -15.5808
+        }
+      },
+      "delta_positive_both_splits": false,
+      "delta_stable_sign": true
+    }
+  ],
+  "any_rule_improves_both_splits": false
+}
