@@ -1,0 +1,661 @@
+{
+  "strategy_evidence": false,
+  "not_approved": true,
+  "diagnostic_only": true,
+  "campaign_id": "CAMPAIGN_022",
+  "status": "OK",
+  "winner_definition": "profitable_trade = result_r > 0",
+  "anti_overfit_note": "No threshold selected as a parameter. Any separating feature is hypothesis-generating only. 'Stable' = train & validation AUC on the same side of 0.5; effect = |AUC-0.5|; negligible below 0.05 (~AUC 0.55).",
+  "n_trades": 2396,
+  "n_by_split": {
+    "train": 1369,
+    "validation": 1027
+  },
+  "win_rate_overall": 0.326,
+  "win_rate_by_split": {
+    "train": 0.336,
+    "validation": 0.3126
+  },
+  "label_counts": {
+    "profitable_trade": 781,
+    "survived_to_time_exit": 957,
+    "hard_stop_loss": 1439,
+    "reached_plus_0_5r": 1389,
+    "clean_winner": 485,
+    "straight_to_stop": 706
+  },
+  "missingness": {},
+  "max_stable_effect": 0.0766,
+  "any_material_stable_separator": true,
+  "family_max_stable_effect": {
+    "signal_quality": 0.0442,
+    "cost": 0.0766,
+    "context_volatility": 0.0684,
+    "context_time": 0.0739
+  },
+  "max_signal_quality_effect": 0.0442,
+  "material_signal_quality_separator": false,
+  "strongest_stable_separators": [
+    {
+      "feature": "spread_to_atr_pct",
+      "min_abs_effect": 0.0766,
+      "auc_train": 0.4234,
+      "auc_validation": 0.4069,
+      "median_winner": 18.300072,
+      "median_loser": 21.639747
+    },
+    {
+      "feature": "hour",
+      "min_abs_effect": 0.0739,
+      "auc_train": 0.5739,
+      "auc_validation": 0.5746,
+      "median_winner": 13.0,
+      "median_loser": 11.0
+    },
+    {
+      "feature": "atr_at_entry",
+      "min_abs_effect": 0.0684,
+      "auc_train": 0.5684,
+      "auc_validation": 0.581,
+      "median_winner": 0.000892,
+      "median_loser": 0.000738
+    },
+    {
+      "feature": "h4_close_dist_ema50_atr",
+      "min_abs_effect": 0.0442,
+      "auc_train": 0.5442,
+      "auc_validation": 0.5548,
+      "median_winner": 2.657885,
+      "median_loser": 2.449311
+    },
+    {
+      "feature": "h1_pullback_depth_atr",
+      "min_abs_effect": 0.0371,
+      "auc_train": 0.5453,
+      "auc_validation": 0.5371,
+      "median_winner": 1.071659,
+      "median_loser": 0.91578
+    },
+    {
+      "feature": "spread_pips",
+      "min_abs_effect": 0.014,
+      "auc_train": 0.486,
+      "auc_validation": 0.4817,
+      "median_winner": 1.6,
+      "median_loser": 1.6
+    },
+    {
+      "feature": "m15_reclaim_distance_atr",
+      "min_abs_effect": 0.0065,
+      "auc_train": 0.4935,
+      "auc_validation": 0.4854,
+      "median_winner": 0.308252,
+      "median_loser": 0.326555
+    },
+    {
+      "feature": "m15_adx_at_entry",
+      "min_abs_effect": 0.0041,
+      "auc_train": 0.5041,
+      "auc_validation": 0.5208,
+      "median_winner": 23.465143,
+      "median_loser": 23.296613
+    }
+  ],
+  "numeric_features": {
+    "spread_pips": {
+      "family": "cost",
+      "auc_train": 0.486,
+      "auc_validation": 0.4817,
+      "effect_train": -0.014,
+      "effect_validation": -0.0183,
+      "direction_stable": true,
+      "min_abs_effect": 0.014,
+      "trustworthy": true,
+      "median_winner": 1.6,
+      "median_loser": 1.6,
+      "quintile_winrate": {
+        "buckets": [
+          0.336,
+          0.3387,
+          0.31,
+          0.3256,
+          0.3144
+        ],
+        "spearman_rho": -0.6
+      },
+      "n_missing": 0
+    },
+    "spread_to_atr_pct": {
+      "family": "cost",
+      "auc_train": 0.4234,
+      "auc_validation": 0.4069,
+      "effect_train": -0.0766,
+      "effect_validation": -0.0931,
+      "direction_stable": true,
+      "min_abs_effect": 0.0766,
+      "trustworthy": true,
+      "median_winner": 18.300072,
+      "median_loser": 21.639747,
+      "quintile_winrate": {
+        "buckets": [
+          0.425,
+          0.3925,
+          0.2797,
+          0.2818,
+          0.2505
+        ],
+        "spearman_rho": -0.9
+      },
+      "n_missing": 0
+    },
+    "atr_at_entry": {
+      "family": "context_volatility",
+      "auc_train": 0.5684,
+      "auc_validation": 0.581,
+      "effect_train": 0.0684,
+      "effect_validation": 0.081,
+      "direction_stable": true,
+      "min_abs_effect": 0.0684,
+      "trustworthy": true,
+      "median_winner": 0.000892,
+      "median_loser": 0.000738,
+      "quintile_winrate": {
+        "buckets": [
+          0.2812,
+          0.215,
+          0.3445,
+          0.3946,
+          0.3946
+        ],
+        "spearman_rho": 0.872
+      },
+      "n_missing": 0
+    },
+    "m15_adx_at_entry": {
+      "family": "signal_quality",
+      "auc_train": 0.5041,
+      "auc_validation": 0.5208,
+      "effect_train": 0.0041,
+      "effect_validation": 0.0208,
+      "direction_stable": true,
+      "min_abs_effect": 0.0041,
+      "trustworthy": true,
+      "median_winner": 23.465143,
+      "median_loser": 23.296613,
+      "quintile_winrate": {
+        "buckets": [
+          0.2979,
+          0.3048,
+          0.3695,
+          0.3507,
+          0.3069
+        ],
+        "spearman_rho": 0.6
+      },
+      "n_missing": 0
+    },
+    "m15_reclaim_distance_atr": {
+      "family": "signal_quality",
+      "auc_train": 0.4935,
+      "auc_validation": 0.4854,
+      "effect_train": -0.0065,
+      "effect_validation": -0.0146,
+      "direction_stable": true,
+      "min_abs_effect": 0.0065,
+      "trustworthy": true,
+      "median_winner": 0.308252,
+      "median_loser": 0.326555,
+      "quintile_winrate": {
+        "buckets": [
+          0.3333,
+          0.3361,
+          0.3278,
+          0.3152,
+          0.3173
+        ],
+        "spearman_rho": -0.8
+      },
+      "n_missing": 0
+    },
+    "m15_body_atr": {
+      "family": "signal_quality",
+      "auc_train": 0.4973,
+      "auc_validation": 0.4784,
+      "effect_train": -0.0027,
+      "effect_validation": -0.0216,
+      "direction_stable": true,
+      "min_abs_effect": 0.0027,
+      "trustworthy": true,
+      "median_winner": 0.837513,
+      "median_loser": 0.855023,
+      "quintile_winrate": {
+        "buckets": [
+          0.3375,
+          0.3278,
+          0.3257,
+          0.3236,
+          0.3152
+        ],
+        "spearman_rho": -1.0
+      },
+      "n_missing": 0
+    },
+    "m15_close_dist_ema50_atr": {
+      "family": "signal_quality",
+      "auc_train": 0.4708,
+      "auc_validation": 0.5037,
+      "effect_train": -0.0292,
+      "effect_validation": 0.0037,
+      "direction_stable": false,
+      "min_abs_effect": 0.0037,
+      "trustworthy": true,
+      "median_winner": 0.19674,
+      "median_loser": 0.277371,
+      "quintile_winrate": {
+        "buckets": [
+          0.3354,
+          0.3111,
+          0.3424,
+          0.3466,
+          0.2944
+        ],
+        "spearman_rho": -0.1
+      },
+      "n_missing": 0
+    },
+    "h4_adx_at_entry": {
+      "family": "signal_quality",
+      "auc_train": 0.5153,
+      "auc_validation": 0.5006,
+      "effect_train": 0.0153,
+      "effect_validation": 0.0006,
+      "direction_stable": true,
+      "min_abs_effect": 0.0006,
+      "trustworthy": true,
+      "median_winner": 28.139357,
+      "median_loser": 27.705852,
+      "quintile_winrate": {
+        "buckets": [
+          0.2958,
+          0.3486,
+          0.3319,
+          0.3208,
+          0.3326
+        ],
+        "spearman_rho": 0.3
+      },
+      "n_missing": 0
+    },
+    "h4_bias_score": {
+      "family": "signal_quality",
+      "auc_train": 0.5152,
+      "auc_validation": 0.4836,
+      "effect_train": 0.0152,
+      "effect_validation": -0.0164,
+      "direction_stable": false,
+      "min_abs_effect": 0.0152,
+      "trustworthy": true,
+      "median_winner": -1.0,
+      "median_loser": -1.0,
+      "quintile_winrate": {
+        "buckets": null,
+        "monotonic": null
+      },
+      "n_missing": 0
+    },
+    "h4_ema_slope_atr": {
+      "family": "signal_quality",
+      "auc_train": 0.4995,
+      "auc_validation": 0.497,
+      "effect_train": -0.0005,
+      "effect_validation": -0.003,
+      "direction_stable": true,
+      "min_abs_effect": 0.0005,
+      "trustworthy": true,
+      "median_winner": 0.312228,
+      "median_loser": 0.316894,
+      "quintile_winrate": {
+        "buckets": [
+          0.3125,
+          0.3319,
+          0.3716,
+          0.3027,
+          0.3111
+        ],
+        "spearman_rho": -0.5
+      },
+      "n_missing": 0
+    },
+    "h4_close_dist_ema50_atr": {
+      "family": "signal_quality",
+      "auc_train": 0.5442,
+      "auc_validation": 0.5548,
+      "effect_train": 0.0442,
+      "effect_validation": 0.0548,
+      "direction_stable": true,
+      "min_abs_effect": 0.0442,
+      "trustworthy": true,
+      "median_winner": 2.657885,
+      "median_loser": 2.449311,
+      "quintile_winrate": {
+        "buckets": [
+          0.2458,
+          0.3466,
+          0.334,
+          0.3236,
+          0.38
+        ],
+        "spearman_rho": 0.6
+      },
+      "n_missing": 0
+    },
+    "h1_rsi_at_entry": {
+      "family": "signal_quality",
+      "auc_train": 0.5092,
+      "auc_validation": 0.5014,
+      "effect_train": 0.0092,
+      "effect_validation": 0.0014,
+      "direction_stable": true,
+      "min_abs_effect": 0.0014,
+      "trustworthy": true,
+      "median_winner": 49.8216,
+      "median_loser": 49.631951,
+      "quintile_winrate": {
+        "buckets": [
+          0.3583,
+          0.2965,
+          0.3278,
+          0.2735,
+          0.3737
+        ],
+        "spearman_rho": 0.1
+      },
+      "n_missing": 0
+    },
+    "h1_pullback_depth_atr": {
+      "family": "signal_quality",
+      "auc_train": 0.5453,
+      "auc_validation": 0.5371,
+      "effect_train": 0.0453,
+      "effect_validation": 0.0371,
+      "direction_stable": true,
+      "min_abs_effect": 0.0371,
+      "trustworthy": true,
+      "median_winner": 1.071659,
+      "median_loser": 0.91578,
+      "quintile_winrate": {
+        "buckets": [
+          0.3333,
+          0.2568,
+          0.2902,
+          0.3528,
+          0.3967
+        ],
+        "spearman_rho": 0.7
+      },
+      "n_missing": 0
+    },
+    "h1_close_dist_ema50_atr": {
+      "family": "signal_quality",
+      "auc_train": 0.5033,
+      "auc_validation": 0.5244,
+      "effect_train": 0.0033,
+      "effect_validation": 0.0244,
+      "direction_stable": true,
+      "min_abs_effect": 0.0033,
+      "trustworthy": true,
+      "median_winner": 1.260873,
+      "median_loser": 1.225108,
+      "quintile_winrate": {
+        "buckets": [
+          0.3271,
+          0.309,
+          0.3215,
+          0.334,
+          0.3382
+        ],
+        "spearman_rho": 0.7
+      },
+      "n_missing": 0
+    },
+    "hour": {
+      "family": "context_time",
+      "auc_train": 0.5739,
+      "auc_validation": 0.5746,
+      "effect_train": 0.0739,
+      "effect_validation": 0.0746,
+      "direction_stable": true,
+      "min_abs_effect": 0.0739,
+      "trustworthy": true,
+      "median_winner": 13.0,
+      "median_loser": 11.0,
+      "quintile_winrate": {
+        "buckets": [
+          0.2727,
+          0.2569,
+          0.2945,
+          0.4694,
+          0.3796
+        ],
+        "spearman_rho": 0.8
+      },
+      "n_missing": 0
+    }
+  },
+  "categorical_features": {
+    "instrument": {
+      "train": {
+        "AUD_USD": {
+          "n": 166,
+          "win_rate": 0.3253
+        },
+        "EUR_USD": {
+          "n": 207,
+          "win_rate": 0.3188
+        },
+        "GBP_USD": {
+          "n": 236,
+          "win_rate": 0.3475
+        },
+        "NZD_USD": {
+          "n": 78,
+          "win_rate": 0.2821
+        },
+        "USD_CAD": {
+          "n": 275,
+          "win_rate": 0.3309
+        },
+        "USD_CHF": {
+          "n": 274,
+          "win_rate": 0.3613
+        },
+        "USD_JPY": {
+          "n": 133,
+          "win_rate": 0.3459
+        }
+      },
+      "validation": {
+        "AUD_USD": {
+          "n": 205,
+          "win_rate": 0.2976
+        },
+        "EUR_USD": {
+          "n": 67,
+          "win_rate": 0.209
+        },
+        "GBP_USD": {
+          "n": 74,
+          "win_rate": 0.2568
+        },
+        "NZD_USD": {
+          "n": 189,
+          "win_rate": 0.3492
+        },
+        "USD_CAD": {
+          "n": 149,
+          "win_rate": 0.2685
+        },
+        "USD_CHF": {
+          "n": 170,
+          "win_rate": 0.3
+        },
+        "USD_JPY": {
+          "n": 173,
+          "win_rate": 0.4046
+        }
+      }
+    },
+    "side": {
+      "train": {
+        "long": {
+          "n": 647,
+          "win_rate": 0.3462
+        },
+        "short": {
+          "n": 722,
+          "win_rate": 0.3269
+        }
+      },
+      "validation": {
+        "long": {
+          "n": 516,
+          "win_rate": 0.3004
+        },
+        "short": {
+          "n": 511,
+          "win_rate": 0.3249
+        }
+      }
+    },
+    "session_bucket": {
+      "train": {
+        "asia": {
+          "n": 291,
+          "win_rate": 0.2955
+        },
+        "late": {
+          "n": 11,
+          "win_rate": 0.3636
+        },
+        "london": {
+          "n": 404,
+          "win_rate": 0.2574
+        },
+        "london_ny_overlap": {
+          "n": 425,
+          "win_rate": 0.3976
+        },
+        "new_york": {
+          "n": 238,
+          "win_rate": 0.4076
+        }
+      },
+      "validation": {
+        "asia": {
+          "n": 248,
+          "win_rate": 0.246
+        },
+        "late": {
+          "n": 29,
+          "win_rate": 0.2414
+        },
+        "london": {
+          "n": 268,
+          "win_rate": 0.25
+        },
+        "london_ny_overlap": {
+          "n": 349,
+          "win_rate": 0.3954
+        },
+        "new_york": {
+          "n": 133,
+          "win_rate": 0.3609
+        }
+      }
+    },
+    "weekday": {
+      "train": {
+        "Fri": {
+          "n": 256,
+          "win_rate": 0.2969
+        },
+        "Mon": {
+          "n": 248,
+          "win_rate": 0.3427
+        },
+        "Sun": {
+          "n": 2,
+          "win_rate": 0.5
+        },
+        "Thu": {
+          "n": 266,
+          "win_rate": 0.3722
+        },
+        "Tue": {
+          "n": 318,
+          "win_rate": 0.3836
+        },
+        "Wed": {
+          "n": 279,
+          "win_rate": 0.276
+        }
+      },
+      "validation": {
+        "Fri": {
+          "n": 211,
+          "win_rate": 0.2512
+        },
+        "Mon": {
+          "n": 179,
+          "win_rate": 0.3408
+        },
+        "Sun": {
+          "n": 4,
+          "win_rate": 0.75
+        },
+        "Thu": {
+          "n": 206,
+          "win_rate": 0.3447
+        },
+        "Tue": {
+          "n": 218,
+          "win_rate": 0.2798
+        },
+        "Wed": {
+          "n": 209,
+          "win_rate": 0.3445
+        }
+      }
+    },
+    "volatility_regime": {
+      "train": {
+        "high": {
+          "n": 578,
+          "win_rate": 0.4031
+        },
+        "low": {
+          "n": 295,
+          "win_rate": 0.2847
+        },
+        "med": {
+          "n": 496,
+          "win_rate": 0.2883
+        }
+      },
+      "validation": {
+        "high": {
+          "n": 223,
+          "win_rate": 0.3991
+        },
+        "low": {
+          "n": 505,
+          "win_rate": 0.2515
+        },
+        "med": {
+          "n": 299,
+          "win_rate": 0.3512
+        }
+      }
+    }
+  }
+}
