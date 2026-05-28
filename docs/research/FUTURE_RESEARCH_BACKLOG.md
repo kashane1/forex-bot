@@ -34,6 +34,20 @@ broad-search re-entry gates are met.**
 
 ---
 
+## 0-scaffold-c022-c023. H4/H1 pullback resolution ADX-sensitivity pair (SCAFFOLD — NOT EXECUTED)
+
+- **Candidates.** `h4_h1_pullback_resolution_entry` — CAMPAIGN_022 (`0.1.0-c022`,
+  H4 ADX gate **20**) and its pre-registered sibling CAMPAIGN_023 (`0.1.0-c023`,
+  H4 ADX gate **22**). Identical in every other respect; one shared strategy class.
+- **Precommit.** [`CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md`](CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md)
+- **If ever authorized.** Co-execute C022 + C023 as a pre-registered ADX-sensitivity
+  pair under one execution sprint. The ADX threshold is the only permitted difference;
+  no retuning after results; standard gate discipline (train/validation only first,
+  no test lockbox unless both gate sets pass, no approval under any outcome).
+- **Status.** **SCAFFOLD_ONLY — PRECOMMITTED_NOT_EXECUTED.** No evidence; not authorized.
+
+---
+
 ## 0-complete-c020. CAMPAIGN_020 MTF confluence execution (COMPLETE — REJECT)
 
 - **Sprint name.** `research-campaign-020-mtf-confluence-execution-001`

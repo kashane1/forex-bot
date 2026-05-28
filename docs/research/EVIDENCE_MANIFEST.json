@@ -2006,5 +2006,34 @@
     "summary_doc": "docs/research/M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md",
     "artifacts_dir": "research/m1_timeframe_materialization",
     "recommended_next_sprint": "merge to main; future LTF campaigns use materialized loader by default"
+  },
+  "campaign_023_adx22_sibling": {
+    "campaign_id": "CAMPAIGN_023",
+    "strategy_name": "h4_h1_pullback_resolution_entry",
+    "strategy_version": "0.1.0-c023",
+    "working_name": "H4/H1 Pullback Resolution Entry — ADX22",
+    "sibling_of": "CAMPAIGN_022",
+    "sibling_delta": "h4_adx_min=22.0 (C022=20.0); no other intentional strategy-logic delta",
+    "status": "SCAFFOLD_ONLY",
+    "strategy_evidence": false,
+    "not_approved": true,
+    "strategy_approved": false,
+    "promotion_eligible": false,
+    "test_window_opened": false,
+    "paper_demo_live_blocked": true,
+    "verdict": "SCAFFOLD_ONLY",
+    "fill_timing_committed": "next_bar_open",
+    "execution_realism_committed": "conservative",
+    "data_provenance": {
+      "execution_m15": "m1_derived",
+      "context_h1": "m1_derived",
+      "context_h4": "m1_derived"
+    },
+    "plan_doc": "docs/research/CAMPAIGN_023_ADX22_SIBLING_PLAN.md",
+    "precommit_doc": "docs/research/CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md",
+    "config": "configs/campaign_023_h4_h1_pullback_resolution_adx22.yaml",
+    "runner": "scripts/run_campaign_023_h4_h1_pullback_resolution_adx22.py",
+    "tests": "tests/unit/test_h4_h1_pullback_resolution_adx22.py",
+    "recommended_next_sprint": "co-execute CAMPAIGN_022 (ADX20) + CAMPAIGN_023 (ADX22) as a pre-registered ADX-sensitivity pair; no retuning"
   }
 }

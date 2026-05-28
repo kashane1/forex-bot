@@ -313,6 +313,22 @@ map; the linked documents are the authoritative evidence.
 | [`research/campaign_020/gate_result.json`](../../research/campaign_020/gate_result.json) | Machine-readable gates |
 | [`CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md) | Scaffold sprint close-out |
 
+## CAMPAIGN_023 H4/H1 pullback resolution — ADX22 sibling (scaffold only)
+
+> **SCAFFOLD_ONLY / PRECOMMITTED_NOT_EXECUTED** — `strategy_evidence: false`,
+> `not_approved: true`. Pre-registered ADX-sensitivity **sibling of CAMPAIGN_022**:
+> identical except the H4 directional-bias strength gate (`h4_adx_min` **22.0** vs
+> C022's **20.0**). No train/validation/test evidence; no verdict; paper/demo/live
+> blocked. (CAMPAIGN_022 is a parallel scaffold on the same branch.)
+
+| document | purpose |
+|---|---|
+| [`CAMPAIGN_023_ADX22_SIBLING_PLAN.md`](CAMPAIGN_023_ADX22_SIBLING_PLAN.md) | Plan + C022 baseline audit |
+| [`CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md`](CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md) | Frozen parameters; ADX22 delta; contamination guard |
+| [`../../configs/campaign_023_h4_h1_pullback_resolution_adx22.yaml`](../../configs/campaign_023_h4_h1_pullback_resolution_adx22.yaml) | Frozen config (`h4_adx_min: 22.0`) |
+| [`../../scripts/run_campaign_023_h4_h1_pullback_resolution_adx22.py`](../../scripts/run_campaign_023_h4_h1_pullback_resolution_adx22.py) | Preflight-only runner (evidence blocked) |
+| [`../../tests/unit/test_h4_h1_pullback_resolution_adx22.py`](../../tests/unit/test_h4_h1_pullback_resolution_adx22.py) | Proves C023 == C022 except ADX gate |
+
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
 > **Implementation infrastructure / data only** — `strategy_evidence: false`. No
