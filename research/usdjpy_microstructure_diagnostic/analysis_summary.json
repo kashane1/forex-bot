@@ -1,0 +1,457 @@
+{
+  "strategy_evidence": false,
+  "not_approved": true,
+  "diagnostic_only": true,
+  "instrument": "USD_JPY",
+  "status": "OK",
+  "winner_definition": "profitable_trade = result_r > 0",
+  "anti_overfit_note": "No threshold selected as a parameter. Effect = |AUC-0.5|; negligible below 0.05. Stable = train & validation AUC same side of 0.5 with >= 30 per class. Single-pair sample is small \u2014 large effects are suspicious, not reassuring, until out-of-sample.",
+  "n_trades": 306,
+  "n_by_split": {
+    "train": 133,
+    "validation": 173
+  },
+  "win_rate_overall": 0.3791,
+  "win_rate_by_split": {
+    "train": 0.3459,
+    "validation": 0.4046
+  },
+  "baseline_reclaim_distance_atr": {
+    "auc_train": 0.539,
+    "auc_validation": 0.4863,
+    "effect_train": 0.039,
+    "effect_validation": -0.0137,
+    "direction_stable": false,
+    "min_abs_effect": 0.0137,
+    "trustworthy": true,
+    "n_score_train": 133,
+    "n_score_validation": 173
+  },
+  "best_live_stable_separator": {
+    "detector": "range_expansion_after_compression",
+    "min_abs_effect": 0.016
+  },
+  "any_live_separator_beats_baseline": true,
+  "any_live_separator_material": false,
+  "detectors": {
+    "reclaim_plus_impulse": {
+      "uses_post_decision": false,
+      "live_usable": true,
+      "score_separation": {
+        "auc_train": 0.4908,
+        "auc_validation": 0.4325,
+        "effect_train": -0.0092,
+        "effect_validation": -0.0675,
+        "direction_stable": true,
+        "min_abs_effect": 0.0092,
+        "trustworthy": true,
+        "n_score_train": 133,
+        "n_score_validation": 173
+      },
+      "present_contrast": {
+        "train": {
+          "present": {
+            "n": 40,
+            "win_rate": 0.35,
+            "hard_stop_rate": 0.575,
+            "straight_to_stop_rate": 0.2,
+            "mean_mfe_r": 1.0531
+          },
+          "absent": {
+            "n": 93,
+            "win_rate": 0.3441,
+            "hard_stop_rate": 0.6237,
+            "straight_to_stop_rate": 0.3118,
+            "mean_mfe_r": 0.9748
+          },
+          "win_rate_lift": 0.0059,
+          "hard_stop_reduction": 0.0487,
+          "straight_to_stop_reduction": 0.1118,
+          "mfe_improvement": 0.0783
+        },
+        "validation": {
+          "present": {
+            "n": 57,
+            "win_rate": 0.3509,
+            "hard_stop_rate": 0.614,
+            "straight_to_stop_rate": 0.3684,
+            "mean_mfe_r": 1.168
+          },
+          "absent": {
+            "n": 116,
+            "win_rate": 0.431,
+            "hard_stop_rate": 0.4828,
+            "straight_to_stop_rate": 0.181,
+            "mean_mfe_r": 1.3663
+          },
+          "win_rate_lift": -0.0801,
+          "hard_stop_reduction": -0.1312,
+          "straight_to_stop_reduction": -0.1874,
+          "mfe_improvement": -0.1983
+        },
+        "win_rate_lift_stable": false
+      },
+      "overfit_risk": "low-signal (stable but negligible)",
+      "overfit_reasons": [
+        "present-vs-absent win-rate lift not same-signed across splits"
+      ]
+    },
+    "reclaim_plus_micro_swing_break": {
+      "uses_post_decision": false,
+      "live_usable": true,
+      "score_separation": {
+        "auc_train": 0.4695,
+        "auc_validation": 0.486,
+        "effect_train": -0.0305,
+        "effect_validation": -0.014,
+        "direction_stable": true,
+        "min_abs_effect": 0.014,
+        "trustworthy": true,
+        "n_score_train": 133,
+        "n_score_validation": 173
+      },
+      "present_contrast": {
+        "train": {
+          "present": {
+            "n": 66,
+            "win_rate": 0.3333,
+            "hard_stop_rate": 0.6212,
+            "straight_to_stop_rate": 0.2727,
+            "mean_mfe_r": 0.9967
+          },
+          "absent": {
+            "n": 67,
+            "win_rate": 0.3582,
+            "hard_stop_rate": 0.597,
+            "straight_to_stop_rate": 0.2836,
+            "mean_mfe_r": 0.9987
+          },
+          "win_rate_lift": -0.0249,
+          "hard_stop_reduction": -0.0242,
+          "straight_to_stop_reduction": 0.0109,
+          "mfe_improvement": -0.002
+        },
+        "validation": {
+          "present": {
+            "n": 70,
+            "win_rate": 0.3714,
+            "hard_stop_rate": 0.5571,
+            "straight_to_stop_rate": 0.2857,
+            "mean_mfe_r": 1.5596
+          },
+          "absent": {
+            "n": 103,
+            "win_rate": 0.4272,
+            "hard_stop_rate": 0.5049,
+            "straight_to_stop_rate": 0.2136,
+            "mean_mfe_r": 1.1405
+          },
+          "win_rate_lift": -0.0558,
+          "hard_stop_reduction": -0.0522,
+          "straight_to_stop_reduction": -0.0721,
+          "mfe_improvement": 0.4191
+        },
+        "win_rate_lift_stable": true
+      },
+      "overfit_risk": "low-signal (stable but negligible)",
+      "overfit_reasons": []
+    },
+    "liquidity_sweep_plus_displacement": {
+      "uses_post_decision": false,
+      "live_usable": true,
+      "score_separation": {
+        "auc_train": 0.4648,
+        "auc_validation": 0.5828,
+        "effect_train": -0.0352,
+        "effect_validation": 0.0828,
+        "direction_stable": false,
+        "min_abs_effect": 0.0352,
+        "trustworthy": true,
+        "n_score_train": 133,
+        "n_score_validation": 173
+      },
+      "present_contrast": {
+        "train": {
+          "present": {
+            "n": 110,
+            "win_rate": 0.3636,
+            "hard_stop_rate": 0.6,
+            "straight_to_stop_rate": 0.2818,
+            "mean_mfe_r": 1.0223
+          },
+          "absent": {
+            "n": 23,
+            "win_rate": 0.2609,
+            "hard_stop_rate": 0.6522,
+            "straight_to_stop_rate": 0.2609,
+            "mean_mfe_r": 0.877
+          },
+          "win_rate_lift": 0.1027,
+          "hard_stop_reduction": 0.0522,
+          "straight_to_stop_reduction": -0.0209,
+          "mfe_improvement": 0.1453
+        },
+        "validation": {
+          "present": {
+            "n": 139,
+            "win_rate": 0.4317,
+            "hard_stop_rate": 0.5108,
+            "straight_to_stop_rate": 0.2446,
+            "mean_mfe_r": 1.3666
+          },
+          "absent": {
+            "n": 34,
+            "win_rate": 0.2941,
+            "hard_stop_rate": 0.5882,
+            "straight_to_stop_rate": 0.2353,
+            "mean_mfe_r": 1.0468
+          },
+          "win_rate_lift": 0.1376,
+          "hard_stop_reduction": 0.0774,
+          "straight_to_stop_reduction": -0.0093,
+          "mfe_improvement": 0.3198
+        },
+        "win_rate_lift_stable": true
+      },
+      "overfit_risk": "high",
+      "overfit_reasons": [
+        "AUC direction not stable across train/validation"
+      ]
+    },
+    "range_expansion_after_compression": {
+      "uses_post_decision": false,
+      "live_usable": true,
+      "score_separation": {
+        "auc_train": 0.484,
+        "auc_validation": 0.3828,
+        "effect_train": -0.016,
+        "effect_validation": -0.1172,
+        "direction_stable": true,
+        "min_abs_effect": 0.016,
+        "trustworthy": true,
+        "n_score_train": 133,
+        "n_score_validation": 173
+      },
+      "present_contrast": {
+        "train": {
+          "present": {
+            "n": 25,
+            "win_rate": 0.4,
+            "hard_stop_rate": 0.48,
+            "straight_to_stop_rate": 0.08,
+            "mean_mfe_r": 1.3511
+          },
+          "absent": {
+            "n": 108,
+            "win_rate": 0.3333,
+            "hard_stop_rate": 0.6389,
+            "straight_to_stop_rate": 0.3241,
+            "mean_mfe_r": 0.9177
+          },
+          "win_rate_lift": 0.0667,
+          "hard_stop_reduction": 0.1589,
+          "straight_to_stop_reduction": 0.2441,
+          "mfe_improvement": 0.4334
+        },
+        "validation": {
+          "present": {
+            "n": 26,
+            "win_rate": 0.3462,
+            "hard_stop_rate": 0.5769,
+            "straight_to_stop_rate": 0.3077,
+            "mean_mfe_r": 1.4726
+          },
+          "absent": {
+            "n": 147,
+            "win_rate": 0.415,
+            "hard_stop_rate": 0.517,
+            "straight_to_stop_rate": 0.2313,
+            "mean_mfe_r": 1.2749
+          },
+          "win_rate_lift": -0.0688,
+          "hard_stop_reduction": -0.0599,
+          "straight_to_stop_reduction": -0.0764,
+          "mfe_improvement": 0.1977
+        },
+        "win_rate_lift_stable": false
+      },
+      "overfit_risk": "low-signal (stable but negligible)",
+      "overfit_reasons": [
+        "present-vs-absent win-rate lift not same-signed across splits"
+      ]
+    },
+    "reclaim_plus_retest_hold": {
+      "uses_post_decision": true,
+      "live_usable": false,
+      "score_separation": {
+        "auc_train": 0.6112,
+        "auc_validation": 0.552,
+        "effect_train": 0.1112,
+        "effect_validation": 0.052,
+        "direction_stable": true,
+        "min_abs_effect": 0.052,
+        "trustworthy": true,
+        "n_score_train": 133,
+        "n_score_validation": 173
+      },
+      "present_contrast": {
+        "train": {
+          "present": {
+            "n": 98,
+            "win_rate": 0.3776,
+            "hard_stop_rate": 0.5714,
+            "straight_to_stop_rate": 0.1837,
+            "mean_mfe_r": 1.1145
+          },
+          "absent": {
+            "n": 35,
+            "win_rate": 0.2571,
+            "hard_stop_rate": 0.7143,
+            "straight_to_stop_rate": 0.5429,
+            "mean_mfe_r": 0.6544
+          },
+          "win_rate_lift": 0.1205,
+          "hard_stop_reduction": 0.1429,
+          "straight_to_stop_reduction": 0.3592,
+          "mfe_improvement": 0.4601
+        },
+        "validation": {
+          "present": {
+            "n": 140,
+            "win_rate": 0.4,
+            "hard_stop_rate": 0.5286,
+            "straight_to_stop_rate": 0.2143,
+            "mean_mfe_r": 1.313
+          },
+          "absent": {
+            "n": 33,
+            "win_rate": 0.4242,
+            "hard_stop_rate": 0.5152,
+            "straight_to_stop_rate": 0.3636,
+            "mean_mfe_r": 1.2646
+          },
+          "win_rate_lift": -0.0242,
+          "hard_stop_reduction": -0.0134,
+          "straight_to_stop_reduction": 0.1493,
+          "mfe_improvement": 0.0484
+        },
+        "win_rate_lift_stable": false
+      },
+      "overfit_risk": "elevated (stable but single-pair; needs OOS)",
+      "overfit_reasons": [
+        "post-entry detector \u2014 not a live entry feature regardless of separation",
+        "present-vs-absent win-rate lift not same-signed across splits"
+      ]
+    },
+    "failed_reclaim_or_trap": {
+      "uses_post_decision": true,
+      "live_usable": false,
+      "score_separation": {
+        "auc_train": 0.5588,
+        "auc_validation": 0.4091,
+        "effect_train": 0.0588,
+        "effect_validation": -0.0909,
+        "direction_stable": false,
+        "min_abs_effect": null,
+        "trustworthy": false,
+        "n_score_train": 74,
+        "n_score_validation": 82
+      },
+      "present_contrast": {
+        "train": {
+          "present": {
+            "n": 74,
+            "win_rate": 0.2703,
+            "hard_stop_rate": 0.7162,
+            "straight_to_stop_rate": 0.4595,
+            "mean_mfe_r": 0.7603
+          },
+          "absent": {
+            "n": 59,
+            "win_rate": 0.4407,
+            "hard_stop_rate": 0.4746,
+            "straight_to_stop_rate": 0.0508,
+            "mean_mfe_r": 1.2923
+          },
+          "win_rate_lift": -0.1704,
+          "hard_stop_reduction": -0.2416,
+          "straight_to_stop_reduction": -0.4087,
+          "mfe_improvement": -0.532
+        },
+        "validation": {
+          "present": {
+            "n": 82,
+            "win_rate": 0.2683,
+            "hard_stop_rate": 0.6951,
+            "straight_to_stop_rate": 0.4512,
+            "mean_mfe_r": 0.7861
+          },
+          "absent": {
+            "n": 91,
+            "win_rate": 0.5275,
+            "hard_stop_rate": 0.3736,
+            "straight_to_stop_rate": 0.0549,
+            "mean_mfe_r": 1.7924
+          },
+          "win_rate_lift": -0.2592,
+          "hard_stop_reduction": -0.3215,
+          "straight_to_stop_reduction": -0.3963,
+          "mfe_improvement": -1.0063
+        },
+        "win_rate_lift_stable": true
+      },
+      "overfit_risk": "high",
+      "overfit_reasons": [
+        "post-entry detector \u2014 not a live entry feature regardless of separation",
+        "a class fell below the min-N trust floor on a split",
+        "AUC direction not stable across train/validation"
+      ]
+    }
+  },
+  "context_numeric": {
+    "atr_at_entry": {
+      "auc_train": 0.4563,
+      "auc_validation": 0.5125,
+      "effect_train": -0.0437,
+      "effect_validation": 0.0125,
+      "direction_stable": false,
+      "min_abs_effect": 0.0125,
+      "trustworthy": true,
+      "n_score_train": 133,
+      "n_score_validation": 173
+    },
+    "atr_percentile": {
+      "auc_train": 0.5951,
+      "auc_validation": 0.5336,
+      "effect_train": 0.0951,
+      "effect_validation": 0.0336,
+      "direction_stable": true,
+      "min_abs_effect": 0.0336,
+      "trustworthy": true,
+      "n_score_train": 133,
+      "n_score_validation": 173
+    },
+    "spread_to_atr_pct": {
+      "auc_train": 0.5117,
+      "auc_validation": 0.466,
+      "effect_train": 0.0117,
+      "effect_validation": -0.034,
+      "direction_stable": false,
+      "min_abs_effect": 0.0117,
+      "trustworthy": true,
+      "n_score_train": 133,
+      "n_score_validation": 173
+    },
+    "hour": {
+      "auc_train": 0.5856,
+      "auc_validation": 0.583,
+      "effect_train": 0.0856,
+      "effect_validation": 0.083,
+      "direction_stable": true,
+      "min_abs_effect": 0.083,
+      "trustworthy": true,
+      "n_score_train": 133,
+      "n_score_validation": 173
+    }
+  }
+}
