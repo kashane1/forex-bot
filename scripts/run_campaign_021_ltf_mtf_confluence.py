@@ -18,9 +18,14 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from forex_bot.config import Settings, compute_config_hash
 from forex_bot.data.m1_corpus_validation import MAJOR_PAIRS, inventory_sql
+from forex_bot.data.m1_timeframe_materialization import MATERIALIZED_SOURCE
 from forex_bot.data.postgres_candle_store import PostgresCandleStore
 from forex_bot.data.research_db import get_research_database_config
 from forex_bot.project_env import bootstrap_environ
+from forex_bot.research.campaign_021_loader import (
+    build_data_feature_preflight,
+    check_materialized_coverage,
+)
 from forex_bot.research.execution_realism import FillTiming, parse_research_metadata
 from forex_bot.strategies.lower_timeframe_mtf_confluence_entry import (
     D1AGG_SOURCE_M1,
@@ -36,6 +41,11 @@ EVIDENCE_BLOCKED = (
     "BLOCKED: train/validation/test evidence requires "
     "research-campaign-021-ltf-mtf-confluence-execution-001"
 )
+SPLITS: dict[str, tuple[str, str]] = {
+    "train": ("2020-01-01", "2022-12-31"),
+    "validation": ("2023-01-01", "2024-12-31"),
+    "test": ("2025-01-01", "2026-05-20"),
+}
 
 
 def _load_raw() -> dict[str, Any]:
@@ -139,6 +149,25 @@ def preflight(settings: Settings, raw: dict[str, Any]) -> dict[str, Any]:
         result["d1agg_pairs_in_store"] = d1agg_pairs
         if h4_total < 1000:
             blocked.append("insufficient native H4 rows for D1AGG derivation")
+        materialized: dict[str, Any] = {"source": MATERIALIZED_SOURCE, "pairs": {}}
+        train_from, train_to = SPLITS["train"]
+        from_dt = datetime.fromisoformat(train_from).replace(tzinfo=UTC)
+        to_dt = datetime.fromisoformat(train_to).replace(hour=23, minute=59, tzinfo=UTC)
+        missing_materialized: list[str] = []
+        for pair in settings.market.instruments:
+            cov = check_materialized_coverage(
+                store, pair, from_dt=from_dt, to_dt=to_dt
+            )
+            materialized["pairs"][pair] = cov
+            if cov["status"] != "PASS":
+                missing_materialized.append(pair)
+        result["materialized_coverage"] = materialized
+        if missing_materialized:
+            blocked.append(
+                "missing materialized M5/M15/H1/H4 for: "
+                + ", ".join(missing_materialized)
+                + " — run scripts/materialize_m1_derived_timeframes.py --all-majors"
+            )
     except Exception as exc:
         blocked.append(f"postgres preflight: {exc}")
     result["blocked_reasons"] = blocked
@@ -149,6 +178,7 @@ def preflight(settings: Settings, raw: dict[str, Any]) -> dict[str, Any]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="CAMPAIGN_021 scaffold runner")
     parser.add_argument("--preflight-only", action="store_true")
+    parser.add_argument("--data-feature-preflight", action="store_true")
     parser.add_argument("--validate-config", action="store_true")
     parser.add_argument("--emit-plan", action="store_true")
     parser.add_argument(
@@ -173,6 +203,22 @@ def main() -> int:
         )
         print(json.dumps(pf, indent=2, sort_keys=True))
         return 0 if pf["preflight_ok"] else 1
+
+    if args.data_feature_preflight:
+        cfg = get_research_database_config(require=True)
+        store = PostgresCandleStore(cfg)
+        report = build_data_feature_preflight(
+            store,
+            splits=SPLITS,
+            pairs=list(settings.market.instruments),
+        )
+        OUT_RESEARCH.mkdir(parents=True, exist_ok=True)
+        (OUT_RESEARCH / "data_feature_preflight.json").write_text(
+            json.dumps(report, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        print(json.dumps(report, indent=2, sort_keys=True))
+        return 0 if report["preflight_ok"] else 1
 
     if args.validate_config or args.emit_plan:
         validate_frozen_config(settings, raw)
