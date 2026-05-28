@@ -32,6 +32,7 @@ from forex_bot.strategies.lower_timeframe_mtf_confluence_entry import (
     D1AGG_SOURCE_M1,
     D1AGG_SOURCE_NATIVE,
     LowerTimeframeMtfConfluenceEntryStrategy,
+    _aligned_h1_trend,
     m15_pullback_and_reclaim,
     validate_c021_data_provenance,
 )
@@ -312,6 +313,33 @@ def test_htf_neutral_blocks(monkeypatch, eur_usd: Instrument) -> None:
     )
     cfg = {"adx_min": 0.0}
     assert strategy.generate_signal(_ctx_from_m15(m15, cfg, eur_usd)) is None
+
+
+def test_h1_slope_ignores_future_bars() -> None:
+    # 60 rising H1 bars, then 40 sharply falling bars appended *after* the
+    # decision time. A correct slope is anchored at the aligned bar (rising →
+    # bullish); a tail-of-frame slope would read the falling future and flip.
+    base = datetime(2024, 1, 2, 0, 0, 0, tzinfo=UTC)
+    candles: list[Candle] = []
+    price = 1.0
+    for i in range(60):
+        price += 0.0010
+        candles.append(_make_candle(
+            base + timedelta(hours=i), open_=price - 0.0010, high=price + 0.0002,
+            low=price - 0.0002, close=price, granularity="H1",
+        ))
+    decision_time = candles[-1].time
+    for j in range(40):
+        price -= 0.0030
+        candles.append(_make_candle(
+            base + timedelta(hours=60 + j), open_=price + 0.0030, high=price + 0.0002,
+            low=price - 0.0002, close=price, granularity="H1",
+        ))
+    frame = CandleFrame.from_candles("EUR_USD", "H1", candles)
+    trend, ts, block = _aligned_h1_trend(frame, decision_time, slope_bars=3)
+    assert block is None
+    assert trend == "bullish"
+    assert ts is not None and ts <= decision_time
 
 
 def test_strategy_no_broker_imports() -> None:

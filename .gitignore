@@ -185,3 +185,7 @@ backtests/CAMPAIGN_021_ltf_mtf_confluence/**/*_equity.csv
 backtests/CAMPAIGN_021_ltf_mtf_confluence/**/*_trades.csv
 backtests/CAMPAIGN_021_ltf_mtf_confluence/**/*_metrics.json
 backtests/CAMPAIGN_021_ltf_mtf_confluence/**/*_metrics.md
+
+# CAMPAIGN_022 bulky backtest artifacts (equity curves) — keep compact json + trades only
+backtests/CAMPAIGN_022_h4_h1_pullback_resolution/**/*equity*.csv
+research/campaign_022/run_tv.log

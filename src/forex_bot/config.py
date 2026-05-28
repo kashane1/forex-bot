@@ -860,6 +860,63 @@ class MultiTimeframeConfluencePullbackStrategyConfig(BaseModel):
         return self
 
 
+class H4H1PullbackResolutionEntryStrategyConfig(BaseModel):
+    # CAMPAIGN_022 research candidate (`h4_h1_pullback_resolution_entry 0.1.0-c022`).
+    # SCAFFOLD ONLY — not approved. See
+    # docs/research/CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_PRECOMMIT.md.
+    # Top timeframe is H4 — no D1 / D1AGG layer.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["M15"] = "M15"
+    h4_ema_fast: int = 20
+    h4_ema_slow: int = 50
+    h4_ema_slope_bars: int = 3
+    h4_adx_lookback: int = 14
+    h4_adx_min: float = 20.0
+    h1_ema_fast: int = 20
+    h1_ema_slow: int = 50
+    h1_rsi_lookback: int = 14
+    h1_pullback_lookback: int = 6
+    h1_rsi_pullback_long: float = 45.0
+    h1_rsi_pullback_short: float = 55.0
+    m15_pullback_lookback: int = 8
+    adx_lookback: int = 14
+    adx_min: float = 18.0
+    atr_lookback: int = 14
+    atr_stop_multiple: float = 2.0
+    max_bars_in_trade: int = 32
+    min_atr_pips: dict[str, float] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _check(self) -> H4H1PullbackResolutionEntryStrategyConfig:
+        if self.h4_ema_fast < 2 or self.h4_ema_slow <= self.h4_ema_fast:
+            raise ConfigError("h4_ema_slow must be > h4_ema_fast >= 2")
+        if self.h4_ema_slope_bars < 1:
+            raise ConfigError("h4_ema_slope_bars must be >= 1")
+        if self.h4_adx_lookback < 2 or not (0 < self.h4_adx_min < 100):
+            raise ConfigError("h4_adx_lookback >= 2 and h4_adx_min in (0, 100)")
+        if self.h1_ema_fast < 2 or self.h1_ema_slow <= self.h1_ema_fast:
+            raise ConfigError("h1_ema_slow must be > h1_ema_fast >= 2")
+        if self.h1_rsi_lookback < 2:
+            raise ConfigError("h1_rsi_lookback must be >= 2")
+        if self.h1_pullback_lookback < 1:
+            raise ConfigError("h1_pullback_lookback must be >= 1")
+        if not (0 < self.h1_rsi_pullback_long < self.h1_rsi_pullback_short < 100):
+            raise ConfigError(
+                "h1_rsi_pullback_long < h1_rsi_pullback_short and both in (0, 100)"
+            )
+        if self.m15_pullback_lookback < 1:
+            raise ConfigError("m15_pullback_lookback must be >= 1")
+        if self.adx_lookback < 2 or not (0 < self.adx_min < 100):
+            raise ConfigError("adx_lookback >= 2 and adx_min in (0, 100)")
+        if self.atr_lookback < 2 or self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_lookback >= 2 and atr_stop_multiple > 0")
+        if self.max_bars_in_trade < 1 or self.max_bars_in_trade > 200:
+            raise ConfigError("max_bars_in_trade must be in [1, 200]")
+        return self
+
+
 class StrategyConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -895,6 +952,9 @@ class StrategyConfig(BaseModel):
     ) = None
     lower_timeframe_mtf_confluence_entry: (
         LowerTimeframeMtfConfluenceEntryStrategyConfig | None
+    ) = None
+    h4_h1_pullback_resolution_entry: (
+        H4H1PullbackResolutionEntryStrategyConfig | None
     ) = None
 
     @model_validator(mode="after")
@@ -1004,6 +1064,14 @@ class StrategyConfig(BaseModel):
         ):
             raise ConfigError(
                 "strategy.lower_timeframe_mtf_confluence_entry config "
+                "required when enabled"
+            )
+        if (
+            "h4_h1_pullback_resolution_entry" in self.enabled
+            and self.h4_h1_pullback_resolution_entry is None
+        ):
+            raise ConfigError(
+                "strategy.h4_h1_pullback_resolution_entry config "
                 "required when enabled"
             )
         return self

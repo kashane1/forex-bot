@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "trade_count": 236,
+    "total_return_pct": -6.5281540000000415,
+    "max_drawdown_pct": -8.124725765536798,
+    "profit_factor": 0.8193164432882347,
+    "expectancy_r": -0.10589418281325068,
+    "win_rate": 0.3474576271186441,
+    "average_spread_paid_pips": 1.9398305084745764
+  },
+  "trades_path": "backtests/CAMPAIGN_022_h4_h1_pullback_resolution/train/base/c022_GBP_USD_train_base_trades.csv"
+}

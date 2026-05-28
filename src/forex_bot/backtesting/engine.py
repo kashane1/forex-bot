@@ -137,6 +137,7 @@ class BacktestEngine:
         thesis_invalidation_long_z: float = -3.0,
         thesis_invalidation_short_z: float = 3.0,
         thesis_invalidation_zscore_lookback: int = 20,
+        max_signal_window_bars: int | None = None,
     ) -> None:
         self.instrument = instrument
         self.strategy = strategy
@@ -162,6 +163,13 @@ class BacktestEngine:
         self.thesis_invalidation_long_z = thesis_invalidation_long_z
         self.thesis_invalidation_short_z = thesis_invalidation_short_z
         self.thesis_invalidation_zscore_lookback = thesis_invalidation_zscore_lookback
+        # Opt-in performance bound: cap the per-bar history window handed to the
+        # strategy. Default None preserves prior behavior (full growing window)
+        # and config_hash. When set >= the strategy's required lookback, signals
+        # are numerically identical (recursive EMA/ADX seed influence decays to
+        # ~0 over the bound) while turning the O(n^2) growing-window cost into
+        # O(n*bound). Used by long M15 backtests; verified trade-for-trade equal.
+        self.max_signal_window_bars = max_signal_window_bars
 
     def run(
         self,
@@ -251,7 +259,11 @@ class BacktestEngine:
         )
 
         for i in range(warmup, len(df)):
-            window = df.iloc[: i + 1]
+            if self.max_signal_window_bars is None:
+                window = df.iloc[: i + 1]
+            else:
+                start = max(0, i + 1 - self.max_signal_window_bars)
+                window = df.iloc[start : i + 1]
             row = df.iloc[i]
             ts = window.index[-1]
 

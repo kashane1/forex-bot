@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "trade_count": 274,
+    "total_return_pct": -6.779062089988564,
+    "max_drawdown_pct": -8.16413348375365,
+    "profit_factor": 0.8397207429706164,
+    "expectancy_r": -0.1051317724334945,
+    "win_rate": 0.3613138686131387,
+    "average_spread_paid_pips": 1.626277372262774
+  },
+  "trades_path": "backtests/CAMPAIGN_022_h4_h1_pullback_resolution/train/base/c022_USD_CHF_train_base_trades.csv"
+}

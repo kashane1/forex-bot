@@ -87,6 +87,8 @@ strategy is approved.**
 | `weekly_volatility_contraction_breakout 0.1.0-c017` | rejected (deduped) | NO | NO | NO | CAMPAIGN_017 deduped |
 | `multi_timeframe_confluence_pullback 0.1.0-c020` | rejected | NO | NO | NO | CAMPAIGN_020 |
 | `lower_timeframe_mtf_confluence_entry 0.1.0-c021` | rejected | NO | NO | NO | CAMPAIGN_021 |
+| `h4_h1_pullback_resolution_entry 0.1.0-c022` | rejected | NO | NO | NO | CAMPAIGN_022 |
+| `h4_h1_pullback_resolution_entry 0.1.0-c023` (ADX22 sibling of C022) | scaffold-only (not executed) | NO | NO | NO | CAMPAIGN_023 (scaffold) |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
@@ -411,6 +413,22 @@ for the FOMC-block + NFP-falsification analysis.
 - **Reason:** Train expectancy negative despite improvement vs C020 H4 train
   (−0.035 R). Higher M15 turnover did not earn non-negative train gate.
   See [`CAMPAIGN_021_FINAL_INTERPRETATION.md`](CAMPAIGN_021_FINAL_INTERPRETATION.md).
+
+### `h4_h1_pullback_resolution_entry 0.1.0-c023` — ADX22 sibling of C022
+
+- **Status:** scaffold-only — **PRECOMMITTED_NOT_EXECUTED / SCAFFOLD_ONLY**
+  (no evidence verdict).
+- **Evidence:** None in scaffold sprint. M15 execution with H4 (bias) + H1
+  (pullback-holds) context; no D1 / D1AGG layer; three M1-derived layers
+  (M15/H1/H4). Preflight-only.
+- **Sibling:** identical to CAMPAIGN_022 (`0.1.0-c022`) **except** the H4
+  directional-bias strength gate — `h4_adx_min` **22.0** (C022 uses **20.0**).
+  No other intentional strategy-logic delta; the two share one strategy class.
+- **Paper / demo / live:** NO / NO / NO.
+- **Reason:** Pre-registered ADX-sensitivity sibling; scaffold/precommit sprint
+  only. C022 is itself unexecuted, so this is pre-registration, not tuning after
+  results. Future execution sprint required for any train/validation gates. See
+  [`CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md`](CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md).
 
 ### `multi_timeframe_confluence_pullback 0.1.0-c020`
 

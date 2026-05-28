@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "trade_count": 207,
+    "total_return_pct": -8.11425799999993,
+    "max_drawdown_pct": -8.114257999999927,
+    "profit_factor": 0.7432824980925554,
+    "expectancy_r": -0.15334431454526917,
+    "win_rate": 0.3188405797101449,
+    "average_spread_paid_pips": 1.402898550724638
+  },
+  "trades_path": "backtests/CAMPAIGN_022_h4_h1_pullback_resolution/train/base/c022_EUR_USD_train_base_trades.csv"
+}

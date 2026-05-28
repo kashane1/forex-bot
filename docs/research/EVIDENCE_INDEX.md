@@ -313,6 +313,23 @@ map; the linked documents are the authoritative evidence.
 | [`research/campaign_020/gate_result.json`](../../research/campaign_020/gate_result.json) | Machine-readable gates |
 | [`CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_020_MTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md) | Scaffold sprint close-out |
 
+## CAMPAIGN_023 H4/H1 pullback resolution — ADX22 sibling (scaffold only)
+
+> **SCAFFOLD_ONLY / PRECOMMITTED_NOT_EXECUTED** — `strategy_evidence: false`,
+> `not_approved: true`. Pre-registered ADX-sensitivity **sibling of CAMPAIGN_022**:
+> identical except the H4 directional-bias strength gate (`h4_adx_min` **22.0** vs
+> C022's **20.0**). No train/validation/test evidence; no verdict; paper/demo/live
+> blocked. (CAMPAIGN_022 is a parallel scaffold on the same branch.)
+
+| document | purpose |
+|---|---|
+| [`CAMPAIGN_023_ADX22_SIBLING_PLAN.md`](CAMPAIGN_023_ADX22_SIBLING_PLAN.md) | Plan + C022 baseline audit |
+| [`CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md`](CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md) | Frozen parameters; ADX22 delta; contamination guard |
+| [`../../configs/campaign_023_h4_h1_pullback_resolution_adx22.yaml`](../../configs/campaign_023_h4_h1_pullback_resolution_adx22.yaml) | Frozen config (`h4_adx_min: 22.0`) |
+| [`../../scripts/run_campaign_023_h4_h1_pullback_resolution_adx22.py`](../../scripts/run_campaign_023_h4_h1_pullback_resolution_adx22.py) | Preflight-only runner (evidence blocked) |
+| [`../../tests/unit/test_h4_h1_pullback_resolution_adx22.py`](../../tests/unit/test_h4_h1_pullback_resolution_adx22.py) | Proves C023 == C022 except ADX gate |
+| [`CAMPAIGN_023_ADX22_SIBLING_SCAFFOLD_SUMMARY.md`](CAMPAIGN_023_ADX22_SIBLING_SCAFFOLD_SUMMARY.md) | Scaffold sprint close-out |
+
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
 > **Implementation infrastructure / data only** — `strategy_evidence: false`. No
@@ -1579,6 +1596,26 @@ Compact JSON: `research/m1_timeframe_materialization/`.
   logic lives in
   `forex_bot.research_archive` and is unit-tested by
   `tests/unit/test_validate_research_archive.py`.
+
+## CAMPAIGN_022 H4/H1 pullback-resolution execution (research-campaign-022-h4-h1-pullback-resolution-execution-001)
+
+First **executed** evidence for the pullback-resolution thesis (H4 bias + H1 holding-pullback
++ M15 reclaim; H4 top timeframe, no D1). Verdict: **REJECT** — train expectancy −0.1042R
+(0/7 pairs positive), validation −0.1663R, 2× cost-stress −0.2468R; underperforms C020 all-green
+and loses to the C011 null. Train-gate failure terminal; test lockbox never opened; `approved: []`.
+
+| document | role |
+|---|---|
+| [`CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_PRECOMMIT.md`](CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_PRECOMMIT.md) | frozen precommit |
+| [`CAMPAIGN_022_STRUCTURAL_DISTINCTNESS_MEMO.md`](CAMPAIGN_022_STRUCTURAL_DISTINCTNESS_MEMO.md) | distinctness vs C020/C021 |
+| [`CAMPAIGN_022_EXECUTION_001_PLAN.md`](CAMPAIGN_022_EXECUTION_001_PLAN.md) | execution plan, splits, gates |
+| [`CAMPAIGN_022_TRAIN_VALIDATION_RESULT.md`](CAMPAIGN_022_TRAIN_VALIDATION_RESULT.md) | train/validation metrics + gate table |
+| [`CAMPAIGN_022_BEHAVIOR_DIAGNOSTICS.md`](CAMPAIGN_022_BEHAVIOR_DIAGNOSTICS.md) | mechanism diagnostics |
+| [`CAMPAIGN_022_BACKTRADER_PARITY_RESULT.md`](CAMPAIGN_022_BACKTRADER_PARITY_RESULT.md) | parity NOT run (moot — train REJECT) |
+| [`CAMPAIGN_022_GATE_DECISION.md`](CAMPAIGN_022_GATE_DECISION.md) | gate decision (REJECT) |
+| [`CAMPAIGN_022_FINAL_INTERPRETATION.md`](CAMPAIGN_022_FINAL_INTERPRETATION.md) | final interpretation |
+| [`CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_022_H4_H1_PULLBACK_RESOLUTION_SCAFFOLD_001_SUMMARY.md) | scaffold sprint summary |
+| [`CAMPAIGN_022_EXECUTION_001_SUMMARY.md`](CAMPAIGN_022_EXECUTION_001_SUMMARY.md) | execution sprint summary |
 
 ## How to read the evidence
 

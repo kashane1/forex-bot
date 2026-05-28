@@ -1,0 +1,29 @@
+{
+  "screening_pass": false,
+  "train_gate_pass": false,
+  "checks": {
+    "train_expectancy_gte_zero": false,
+    "validation_expectancy_gt_zero": false,
+    "validation_pf_gte_1_05": false,
+    "validation_trade_count_gte_min": true,
+    "validation_pairs_positive_gte_min": false,
+    "validation_stress_2x_expectancy_gte_zero": false,
+    "beat_null_vs_c011": false,
+    "backtrader_parity_pass": false
+  },
+  "failed_gates": [
+    "train_expectancy_gte_zero",
+    "validation_expectancy_gt_zero",
+    "validation_pf_gte_1_05",
+    "validation_pairs_positive_gte_min",
+    "validation_stress_2x_expectancy_gte_zero",
+    "beat_null_vs_c011",
+    "backtrader_parity_pass"
+  ],
+  "beat_null_threshold": 0.0070845928504591205,
+  "min_validation_trades": 150,
+  "min_validation_pairs_positive": 4,
+  "test_window_opened": false,
+  "verdict": "REJECT",
+  "fill_timing": "next_bar_open"
+}

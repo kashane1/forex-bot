@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "trade_count": 92,
+    "total_return_pct": -8.02491999999998,
+    "max_drawdown_pct": -8.024919999999975,
+    "profit_factor": 0.5467436496599047,
+    "expectancy_r": -0.26627176433071614,
+    "win_rate": 0.2826086956521739,
+    "average_spread_paid_pips": 1.2619565217391304
+  },
+  "trades_path": "backtests/CAMPAIGN_022_h4_h1_pullback_resolution/validation/stress_2x/c022_AUD_USD_validation_stress_2x_trades.csv"
+}

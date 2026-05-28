@@ -396,14 +396,14 @@
   "campaigns": [
     {
       "campaign_id": "CAMPAIGN_001",
-      "title": "Trend-following baseline (synthetic data \u2014 harness validation)",
+      "title": "Trend-following baseline (synthetic data — harness validation)",
       "report_path": "backtests/CAMPAIGN_001_REPORT.md",
       "artifact_folder": "backtests/campaign_001",
       "strategy_family": "trend_following",
       "data_source": "synthetic",
       "verdict": "SYNTHETIC_NOT_EVIDENCE",
       "key_metrics": {
-        "note": "synthetic candles \u2014 metrics are not evidence of edge; superseded by CAMPAIGN_002"
+        "note": "synthetic candles — metrics are not evidence of edge; superseded by CAMPAIGN_002"
       },
       "commit_hash": "152d3a5",
       "test_window_opened": true,
@@ -494,7 +494,7 @@
       "data_source": "oanda-practice",
       "verdict": "REJECT_NO_VALID_RESULT",
       "key_metrics": {
-        "note": "no valid result \u2014 native OANDA D1 rollover/session/spread contamination (infrastructure blocker; see docs/research/D1_AGGREGATION_DESIGN.md)"
+        "note": "no valid result — native OANDA D1 rollover/session/spread contamination (infrastructure blocker; see docs/research/D1_AGGREGATION_DESIGN.md)"
       },
       "commit_hash": "b71f55c",
       "test_window_opened": false,
@@ -533,7 +533,7 @@
         "train_expectancy_r": -0.017,
         "validation_expectancy_r": 0.172,
         "validation_profit_factor": 1.29,
-        "note": "narrow miss \u2014 failed the train >= 0 screening gate; test window not opened"
+        "note": "narrow miss — failed the train >= 0 screening gate; test window not opened"
       },
       "commit_hash": "6f96cd2",
       "test_window_opened": false,
@@ -581,7 +581,7 @@
         "single_pair_dominance_pct": 24.1,
         "financing_cashflow_home_stress_total_usd": -55.69,
         "financing_missing_rate_event_count": 0,
-        "note": "walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4; 0/8 folds pass gates; aggregate expectancy and profit factor fail by wide margins; conservative-stress financing flips USD_CHF (the only +ve pair) to net negative; independent verifier did not run (capability-locked to CAMPAIGN_002 \u2014 only matters for hypothetical PASS); MODELED financing remains refused at four layers"
+        "note": "walk-forward 8 folds rolling/frozen on 7-pair real OANDA practice H4; 0/8 folds pass gates; aggregate expectancy and profit factor fail by wide margins; conservative-stress financing flips USD_CHF (the only +ve pair) to net negative; independent verifier did not run (capability-locked to CAMPAIGN_002 — only matters for hypothetical PASS); MODELED financing remains refused at four layers"
       },
       "commit_hash": "cdfdcbc",
       "test_window_opened": true,
@@ -884,6 +884,29 @@
       "evidence_use": "approval_bound",
       "promotion_eligible": false,
       "commit_hash": "684e94b"
+    },
+    {
+      "campaign_id": "CAMPAIGN_022",
+      "title": "H4/H1 pullback-resolution entry (M15 exec, no D1)",
+      "report_path": "docs/research/CAMPAIGN_022_TRAIN_VALIDATION_RESULT.md",
+      "artifact_folder": "research/campaign_022",
+      "strategy_family": "h4_h1_pullback_resolution_entry",
+      "data_source": "m1_materialized",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "train_expectancy_r": -0.1042,
+        "validation_expectancy_r": -0.1663,
+        "validation_profit_factor": 0.69,
+        "validation_stress_2x_expectancy_r": -0.2468,
+        "validation_pairs_positive": 1,
+        "train_trade_count": 1369,
+        "validation_trade_count": 1027
+      },
+      "commit_hash": "8561e6e",
+      "test_window_opened": false,
+      "risk_engine_used": true,
+      "financing_treatment": "not_applicable_avg_hold_lt_1d",
+      "strategy_approved": false
     }
   ],
   "diagnostic_artifacts": [
@@ -891,105 +914,105 @@
       "artifact_id": "D1AGG_NEXT_OPEN_SMOKE",
       "path": "backtests/diagnostics/d1agg_next_open_smoke.md",
       "kind": "diagnostic_smoke",
-      "description": "Mechanical D1AGG + next-bar-open fill-path smoke, single-pair (infra-execution-fidelity-001). A plumbing check driven by a fixed-bar diagnostic probe \u2014 not strategy evidence.",
+      "description": "Mechanical D1AGG + next-bar-open fill-path smoke, single-pair (infra-execution-fidelity-001). A plumbing check driven by a fixed-bar diagnostic probe — not strategy evidence.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "D1AGG_NEXT_OPEN_SIX_PAIR_SMOKE",
       "path": "backtests/diagnostics/d1agg_next_open_six_pair_smoke.md",
       "kind": "diagnostic_smoke",
-      "description": "Mechanical D1AGG + next-bar-open fill-path smoke across the six majors, re-run on the real rehydrated OANDA practice H4 store (oanda-practice-readonly-001). A plumbing check driven by a fixed-bar diagnostic probe \u2014 not strategy evidence.",
+      "description": "Mechanical D1AGG + next-bar-open fill-path smoke across the six majors, re-run on the real rehydrated OANDA practice H4 store (oanda-practice-readonly-001). A plumbing check driven by a fixed-bar diagnostic probe — not strategy evidence.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "LEAN_PARITY_CAMPAIGN_002_EXPORT",
       "path": "research/lean_parity/exports/campaign_002_h4/EXPORT_MANIFEST.md",
       "kind": "lean_parity_export",
-      "description": "Lean-parity export bundle manifest for the CAMPAIGN_002 H4 baseline, completed to all seven pairs (infra-lean-parity-001). Independent-engine verification input \u2014 not strategy evidence; cannot approve a strategy.",
+      "description": "Lean-parity export bundle manifest for the CAMPAIGN_002 H4 baseline, completed to all seven pairs (infra-lean-parity-001). Independent-engine verification input — not strategy evidence; cannot approve a strategy.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "CUSTOM_CAMPAIGN_002_H4_PARITY",
       "path": "backtests/diagnostics/custom_campaign_002_h4_parity.md",
       "kind": "parity_reproduction",
-      "description": "Custom-engine reproduction of the already-REJECTED CAMPAIGN_002 H4 trend_following baseline on the seven-pair real-OANDA H4 store (infra-lean-parity-001). The hash-pinned custom-engine side of the Lean parity comparison \u2014 not strategy evidence; reproduces a rejected baseline and approves nothing.",
+      "description": "Custom-engine reproduction of the already-REJECTED CAMPAIGN_002 H4 trend_following baseline on the seven-pair real-OANDA H4 store (infra-lean-parity-001). The hash-pinned custom-engine side of the Lean parity comparison — not strategy evidence; reproduces a rejected baseline and approves nothing.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_STATUS",
       "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_STATUS.md",
       "kind": "free_local_parity_verifier",
-      "description": "Headline status of the free / local independent parity verifier (infra-free-local-parity-verifier-001 with Sprint-002 re-confirmation). Implementation complete (research/parity_verifier/), 85 fixture tests pass; full seven-pair full-window comparison against the bespoke no-RiskEngine reference (1647 trades) is BLOCKED locally because the gitignored H4 export CSVs are absent on this branch and no practice credentials are configured. Verifier bugs found: 0; bespoke-engine bugs found: N/A. Verification only \u2014 not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "Headline status of the free / local independent parity verifier (infra-free-local-parity-verifier-001 with Sprint-002 re-confirmation). Implementation complete (research/parity_verifier/), 85 fixture tests pass; full seven-pair full-window comparison against the bespoke no-RiskEngine reference (1647 trades) is BLOCKED locally because the gitignored H4 export CSVs are absent on this branch and no practice credentials are configured. Verifier bugs found: 0; bespoke-engine bugs found: N/A. Verification only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_FULL_DATA_RUN",
       "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_FULL_DATA_RUN.md",
       "kind": "free_local_parity_verifier",
-      "description": "First attempted full-data execution of the free / local verifier (infra-free-local-parity-verifier-002-full-data-run). BLOCKED \u2014 all seven H4 CSV exports absent locally; the script reports BLOCKED per pair, exits 2, writes a deterministic zero-trade summary, and does not fabricate data. Verifier-side bugs: 0. Diagnostic only \u2014 not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "First attempted full-data execution of the free / local verifier (infra-free-local-parity-verifier-002-full-data-run). BLOCKED — all seven H4 CSV exports absent locally; the script reports BLOCKED per pair, exits 2, writes a deterministic zero-trade summary, and does not fabricate data. Verifier-side bugs: 0. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_003_FULL_DATA_RUN",
       "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_003_FULL_DATA_RUN.md",
       "kind": "free_local_parity_verifier",
-      "description": "Sprint-003 guarded OANDA-practice rehydrate + export + verifier attempt (infra-free-local-parity-verifier-003-with-data). Initially BLOCKED; superseded by FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT once the user pointed out the main-repo .env and SQLite store. No orders submitted. Diagnostic only \u2014 not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "Sprint-003 guarded OANDA-practice rehydrate + export + verifier attempt (infra-free-local-parity-verifier-003-with-data). Initially BLOCKED; superseded by FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT once the user pointed out the main-repo .env and SQLite store. No orders submitted. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT",
       "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_003_UNBLOCKED_RESULT.md",
       "kind": "free_local_parity_verifier",
-      "description": "Sprint-003 mid-sprint unblock + Phase 5 debug (infra-free-local-parity-verifier-003-with-data). Zero OANDA API calls (existing main-repo data/campaign_002.sqlite3 already contained the seven-pair H4 CAMPAIGN_002 universe; exports' SHA-256s match committed provenance JSONs). Verifier ran end-to-end across all seven pairs. Initial comparison: 1586 vs 1647 trades (-3.70%, OK total), 1 OK / 5 WARN / 1 FAIL (EUR_USD return delta +2.41 pp); overall FAIL. Phase 5 verifier-side debug found two bugs: (1) initial stop anchored at post-slippage entry_price instead of bar mid close; (2) event loop blocked same-bar re-entry after exit. Both fixed; no bespoke-engine change. Post-debug comparison: 1655 vs 1647 trades (+0.49%, OK total), 3 OK / 4 WARN / 0 FAIL; overall WARN. Both engines agree every pair is loss-making on the no-RiskEngine path; CAMPAIGN_002 stays REJECT under either measurement. Verifier-side bugs fixed: 2. Bespoke-engine bugs found: 0. Diagnostic only \u2014 not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "Sprint-003 mid-sprint unblock + Phase 5 debug (infra-free-local-parity-verifier-003-with-data). Zero OANDA API calls (existing main-repo data/campaign_002.sqlite3 already contained the seven-pair H4 CAMPAIGN_002 universe; exports' SHA-256s match committed provenance JSONs). Verifier ran end-to-end across all seven pairs. Initial comparison: 1586 vs 1647 trades (-3.70%, OK total), 1 OK / 5 WARN / 1 FAIL (EUR_USD return delta +2.41 pp); overall FAIL. Phase 5 verifier-side debug found two bugs: (1) initial stop anchored at post-slippage entry_price instead of bar mid close; (2) event loop blocked same-bar re-entry after exit. Both fixed; no bespoke-engine change. Post-debug comparison: 1655 vs 1647 trades (+0.49%, OK total), 3 OK / 4 WARN / 0 FAIL; overall WARN. Both engines agree every pair is loss-making on the no-RiskEngine path; CAMPAIGN_002 stays REJECT under either measurement. Verifier-side bugs fixed: 2. Bespoke-engine bugs found: 0. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES",
       "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_003_DEBUG_NOTES.md",
       "kind": "free_local_parity_verifier",
-      "description": "Sprint-003 Phase 5 verifier-side debug notes (infra-free-local-parity-verifier-003-with-data). Localizes and documents two verifier-side bugs: Bug #1 (initial stop anchored at the post-slippage entry_price instead of the bar's mid close, per src/forex_bot/strategies/trend_following.py:114-117) and Bug #2 (event loop blocked same-bar re-entry after an exit, contrary to bespoke backtesting/engine.py:322-329 which evaluates new signals after closing a trade on the same bar). Before/after numbers, root-cause traces, and regression tests recorded. Verifier-side fixes only \u2014 no bespoke-engine edits, no CAMPAIGN_002 rule changes, no parameter tuning. Diagnostic only \u2014 not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "Sprint-003 Phase 5 verifier-side debug notes (infra-free-local-parity-verifier-003-with-data). Localizes and documents two verifier-side bugs: Bug #1 (initial stop anchored at the post-slippage entry_price instead of the bar's mid close, per src/forex_bot/strategies/trend_following.py:114-117) and Bug #2 (event loop blocked same-bar re-entry after an exit, contrary to bespoke backtesting/engine.py:322-329 which evaluates new signals after closing a trade on the same bar). Before/after numbers, root-cause traces, and regression tests recorded. Verifier-side fixes only — no bespoke-engine edits, no CAMPAIGN_002 rule changes, no parameter tuning. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_AUDIT",
       "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_AUDIT.md",
       "kind": "free_local_parity_verifier",
-      "description": "Sprint-004 rounding audit (infra-free-local-parity-verifier-004-rounding-closure). Read-only audit of bespoke instrument metadata, round_price (Decimal.quantize at display_precision, ROUND_HALF_UP), sizing, fills, trailing stops, and PnL against the verifier. Produces a five-entry mismatch table: M1 missing initial-stop rounding (FIXED in Sprint-004); M2 missing display_precision field on InstrumentSpec (FIXED as M1 prerequisite); M3 float-vs-Decimal arithmetic throughout (DEFERRED \u2014 would re-implement bespoke inside verifier, sacrificing independence); M4 trailing-stop rounding (no fix needed \u2014 bespoke also doesn't round); M5 units rounding (no fix needed \u2014 int(raw) equivalent to ROUND_DOWN for positive). No code changes this phase. Diagnostic only \u2014 not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "Sprint-004 rounding audit (infra-free-local-parity-verifier-004-rounding-closure). Read-only audit of bespoke instrument metadata, round_price (Decimal.quantize at display_precision, ROUND_HALF_UP), sizing, fills, trailing stops, and PnL against the verifier. Produces a five-entry mismatch table: M1 missing initial-stop rounding (FIXED in Sprint-004); M2 missing display_precision field on InstrumentSpec (FIXED as M1 prerequisite); M3 float-vs-Decimal arithmetic throughout (DEFERRED — would re-implement bespoke inside verifier, sacrificing independence); M4 trailing-stop rounding (no fix needed — bespoke also doesn't round); M5 units rounding (no fix needed — int(raw) equivalent to ROUND_DOWN for positive). No code changes this phase. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_FIXES",
       "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_004_ROUNDING_FIXES.md",
       "kind": "free_local_parity_verifier",
-      "description": "Sprint-004 verifier-side rounding fixes (infra-free-local-parity-verifier-004-rounding-closure). Added display_precision to InstrumentSpec; populated per-pair (5 for USD-quote majors, 3 for USD_JPY); implemented a Decimal-based round_price helper with the identical formula to bespoke instrument.round_price; wired it into the event loop's initial-stop computation. Observed impact on the comparison: negligible (totals unchanged at 1655 vs 1647, all pair statuses unchanged at 3 OK / 4 WARN / 0 FAIL, per-pair return shifts under 0.01 pp). The fix is correct but the fractional-pip difference is too small to flip borderline stop-pierce comparisons on H4 bars. Verifier-side bugs fixed this turn: 0 (rounding was a precision improvement, not a bug fix). Bespoke-engine bugs found: 0. Diagnostic only \u2014 not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "Sprint-004 verifier-side rounding fixes (infra-free-local-parity-verifier-004-rounding-closure). Added display_precision to InstrumentSpec; populated per-pair (5 for USD-quote majors, 3 for USD_JPY); implemented a Decimal-based round_price helper with the identical formula to bespoke instrument.round_price; wired it into the event loop's initial-stop computation. Observed impact on the comparison: negligible (totals unchanged at 1655 vs 1647, all pair statuses unchanged at 3 OK / 4 WARN / 0 FAIL, per-pair return shifts under 0.01 pp). The fix is correct but the fractional-pip difference is too small to flip borderline stop-pierce comparisons on H4 bars. Verifier-side bugs fixed this turn: 0 (rounding was a precision improvement, not a bug fix). Bespoke-engine bugs found: 0. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_004_REMAINING_DRIFT",
       "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_004_REMAINING_DRIFT.md",
       "kind": "free_local_parity_verifier",
-      "description": "Sprint-004 remaining-drift classification (infra-free-local-parity-verifier-004-rounding-closure). Localizes the WARN-band drift surviving the round_price fix on 4/7 pairs (EUR_USD, USD_CAD, USD_CHF, NZD_USD). The cleanest single piece of evidence is USD_CAD: identical 251 vs 251 trade count, identical +0.0000 pp return delta, but -0.0605 R expectancy drift \u2014 same trade set + same total return + different per-trade R means the R denominator (initial_stop_distance * units) differs at sub-pip float-vs-Decimal precision. USD_CHF's +1.6 pp return drift on a USD-base pair points at accumulated divide-by-exit_price precision drift. EUR_USD and NZD_USD classified `unknown` (most plausibly same precision class; not provable without a bespoke trade list). Classification: sizing_pnl_mismatch (float-vs-Decimal flavour) for USD_CAD and USD_CHF; unknown (precision-adjacent) for EUR_USD and NZD_USD. Recommendation: accept as inherent float-precision noise; do not convert verifier to Decimal (would sacrifice independence). Diagnostic only \u2014 not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "Sprint-004 remaining-drift classification (infra-free-local-parity-verifier-004-rounding-closure). Localizes the WARN-band drift surviving the round_price fix on 4/7 pairs (EUR_USD, USD_CAD, USD_CHF, NZD_USD). The cleanest single piece of evidence is USD_CAD: identical 251 vs 251 trade count, identical +0.0000 pp return delta, but -0.0605 R expectancy drift — same trade set + same total return + different per-trade R means the R denominator (initial_stop_distance * units) differs at sub-pip float-vs-Decimal precision. USD_CHF's +1.6 pp return drift on a USD-base pair points at accumulated divide-by-exit_price precision drift. EUR_USD and NZD_USD classified `unknown` (most plausibly same precision class; not provable without a bespoke trade list). Classification: sizing_pnl_mismatch (float-vs-Decimal flavour) for USD_CAD and USD_CHF; unknown (precision-adjacent) for EUR_USD and NZD_USD. Recommendation: accept as inherent float-precision noise; do not convert verifier to Decimal (would sacrifice independence). Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "FREE_LOCAL_PARITY_VERIFIER_ACCEPTED_STATUS",
       "path": "docs/research/FREE_LOCAL_PARITY_VERIFIER_ACCEPTED_STATUS.md",
       "kind": "free_local_parity_verifier",
-      "description": "Closeout reference for the free / local independent parity verifier (research-close-free-local-verifier-and-next-direction-001 Phase 1). The verifier work is ACCEPTED as WARN-band corroborating evidence for the bespoke backtest engine on CAMPAIGN_002 H4 trend_following: verifier 1,655 vs bespoke 1,647 trades (+0.49% OK total), 3 OK / 4 WARN / 0 FAIL pairs, overall WARN. Verifier-side bugs fixed across the four sprints: 2 (both Sprint 003). Bespoke-engine bugs found: 0. Both engines agree every pair is loss-making on the no-RiskEngine path; CAMPAIGN_002 stays REJECT under either measurement. Records why exact parity is not required, why the Decimal end-to-end rewrite is deferred (see DECIMAL_PRECISION_DEFERRED), what the verifier corroborates, what it does not prove, and the remaining WARN-drift summary. No further verifier sprints planned. Diagnostic only \u2014 not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "Closeout reference for the free / local independent parity verifier (research-close-free-local-verifier-and-next-direction-001 Phase 1). The verifier work is ACCEPTED as WARN-band corroborating evidence for the bespoke backtest engine on CAMPAIGN_002 H4 trend_following: verifier 1,655 vs bespoke 1,647 trades (+0.49% OK total), 3 OK / 4 WARN / 0 FAIL pairs, overall WARN. Verifier-side bugs fixed across the four sprints: 2 (both Sprint 003). Bespoke-engine bugs found: 0. Both engines agree every pair is loss-making on the no-RiskEngine path; CAMPAIGN_002 stays REJECT under either measurement. Records why exact parity is not required, why the Decimal end-to-end rewrite is deferred (see DECIMAL_PRECISION_DEFERRED), what the verifier corroborates, what it does not prove, and the remaining WARN-drift summary. No further verifier sprints planned. Diagnostic only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "WALK_FORWARD_HARNESS_STATUS",
       "path": "docs/research/WALK_FORWARD_HARNESS_STATUS.md",
       "kind": "walk_forward_harness",
-      "description": "Headline status of the walk-forward research harness (research-walk-forward-harness-001). Implementation complete (research/walk_forward/ package + scripts/run_walk_forward_dry_run.py); 42 fixture tests pass; protocol documented in WALK_FORWARD_RESEARCH_PROTOCOL.md; metadata-only CAMPAIGN_002 retrospective demonstrates usage without re-running. Harness produces fold plans (train/validation/test windows) and validates them at fold-boundary level; per-fold backtest execution is the campaign code's responsibility. Only `frozen` parameter mode is authorized under the current research freeze. A WalkForwardResults with overall_verdict='PASS' is one of six required evidence items before paper/demo per NEXT_RESEARCH_DIRECTION_AFTER_CAMPAIGN_002_REJECT \u00a78. Infrastructure only \u2014 not strategy evidence; CAMPAIGN_002 remains REJECT.",
+      "description": "Headline status of the walk-forward research harness (research-walk-forward-harness-001). Implementation complete (research/walk_forward/ package + scripts/run_walk_forward_dry_run.py); 42 fixture tests pass; protocol documented in WALK_FORWARD_RESEARCH_PROTOCOL.md; metadata-only CAMPAIGN_002 retrospective demonstrates usage without re-running. Harness produces fold plans (train/validation/test windows) and validates them at fold-boundary level; per-fold backtest execution is the campaign code's responsibility. Only `frozen` parameter mode is authorized under the current research freeze. A WalkForwardResults with overall_verdict='PASS' is one of six required evidence items before paper/demo per NEXT_RESEARCH_DIRECTION_AFTER_CAMPAIGN_002_REJECT §8. Infrastructure only — not strategy evidence; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "BACKTRADER_SECONDARY_LANE_PLAN",
       "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_001_PLAN.md",
       "kind": "backtrader_secondary_lane",
-      "description": "Plan for the Backtrader secondary verification lane (infra-backtrader-secondary-lane-001). A second independent local backtester (canonical backtrader 1.9.78.123) wrapped around the existing Lean parity export CSVs. The lane is verification infrastructure only \u2014 strategy_evidence: false, cannot approve, cannot mutate verdicts; CAMPAIGN_002 remains REJECT.",
+      "description": "Plan for the Backtrader secondary verification lane (infra-backtrader-secondary-lane-001). A second independent local backtester (canonical backtrader 1.9.78.123) wrapped around the existing Lean parity export CSVs. The lane is verification infrastructure only — strategy_evidence: false, cannot approve, cannot mutate verdicts; CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
@@ -1031,14 +1054,14 @@
       "artifact_id": "BACKTRADER_PARITY_FIRST_RESULT",
       "path": "docs/research/BACKTRADER_PARITY_FIRST_RESULT.md",
       "kind": "backtrader_secondary_lane",
-      "description": "Phase 6 of the Backtrader secondary lane: first end-to-end CAMPAIGN_002 attempt \u2014 overall classification BLOCKED. Runner correctly reported all 7 instruments as blocked because the gitignored CSVs are absent and the rehydrated source SQLite (data/oanda_h4_research.sqlite3) is also gitignored. Comparison harness rolled the 0-pairs-on-one-side input to BLOCKED. No bespoke-engine bug found. No Backtrader-adapter bug found. No verdict changed. strategy_evidence: false.",
+      "description": "Phase 6 of the Backtrader secondary lane: first end-to-end CAMPAIGN_002 attempt — overall classification BLOCKED. Runner correctly reported all 7 instruments as blocked because the gitignored CSVs are absent and the rehydrated source SQLite (data/oanda_h4_research.sqlite3) is also gitignored. Comparison harness rolled the 0-pairs-on-one-side input to BLOCKED. No bespoke-engine bug found. No Backtrader-adapter bug found. No verdict changed. strategy_evidence: false.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "BACKTRADER_SECOND_CAMPAIGN_BLOCKED",
       "path": "docs/research/BACKTRADER_SECOND_CAMPAIGN_BLOCKED.md",
       "kind": "backtrader_secondary_lane",
-      "description": "Phase 7 of the Backtrader secondary lane: second-campaign decision \u2014 BLOCKED, same root cause as Phase 6. Recommends CAMPAIGN_011 (random_entry_anchor null-model, ATR-only, max_bars=6) for a future unblock sprint because it exercises a different failure mode than CAMPAIGN_002 (deterministic SHA-256 seed reproducibility, minimal indicator surface). Provides a scoped 6-step next-sprint prompt. strategy_evidence: false.",
+      "description": "Phase 7 of the Backtrader secondary lane: second-campaign decision — BLOCKED, same root cause as Phase 6. Recommends CAMPAIGN_011 (random_entry_anchor null-model, ATR-only, max_bars=6) for a future unblock sprint because it exercises a different failure mode than CAMPAIGN_002 (deterministic SHA-256 seed reproducibility, minimal indicator surface). Provides a scoped 6-step next-sprint prompt. strategy_evidence: false.",
       "strategy_evidence": false
     },
     {
@@ -1080,7 +1103,7 @@
       "artifact_id": "BACKTRADER_REAL_DATA_RUN_003_PLAN",
       "path": "docs/research/BACKTRADER_REAL_DATA_RUN_003_PLAN.md",
       "kind": "backtrader_secondary_lane",
-      "description": "Phase 0 plan for infra-backtrader-secondary-lane-003-real-data-run. The H4 source SQLite that sprints 001/002 documented as the load-bearing blocker was located in the main repo working directory at /Users/kashane/dev/forex-bot/data/campaign_002.sqlite3 (115 MB, 7 pairs, 69 522 H4 candles, oanda-practice). Path B chosen \u2014 regenerate from existing local SQLite, no OANDA call. strategy_evidence: false.",
+      "description": "Phase 0 plan for infra-backtrader-secondary-lane-003-real-data-run. The H4 source SQLite that sprints 001/002 documented as the load-bearing blocker was located in the main repo working directory at /Users/kashane/dev/forex-bot/data/campaign_002.sqlite3 (115 MB, 7 pairs, 69 522 H4 candles, oanda-practice). Path B chosen — regenerate from existing local SQLite, no OANDA call. strategy_evidence: false.",
       "strategy_evidence": false
     },
     {
@@ -1094,21 +1117,21 @@
       "artifact_id": "BACKTRADER_CAMPAIGN_002_REAL_RUN_003",
       "path": "docs/research/BACKTRADER_CAMPAIGN_002_REAL_RUN_003.md",
       "kind": "backtrader_secondary_lane",
-      "description": "Phase 2 of sprint 003: real CAMPAIGN_002 Backtrader run completed. 1 647 trades \u2014 exact match to bespoke no-RiskEngine reference. Per-pair trade counts match exactly (7/7); per-pair win-rate parity (6/7 exact, NZD_USD off by a single trade \u2014 textbook sub-pip rounding signature). ~10 s wall clock, no warnings, no errors, no blocked instruments, no OANDA env-var leak. All five compact comparable artefacts produced in the gitignored research/backtrader_lane/results/campaign_002_real_data_003/ tree. strategy_evidence: false. CAMPAIGN_002 remains REJECT.",
+      "description": "Phase 2 of sprint 003: real CAMPAIGN_002 Backtrader run completed. 1 647 trades — exact match to bespoke no-RiskEngine reference. Per-pair trade counts match exactly (7/7); per-pair win-rate parity (6/7 exact, NZD_USD off by a single trade — textbook sub-pip rounding signature). ~10 s wall clock, no warnings, no errors, no blocked instruments, no OANDA env-var leak. All five compact comparable artefacts produced in the gitignored research/backtrader_lane/results/campaign_002_real_data_003/ tree. strategy_evidence: false. CAMPAIGN_002 remains REJECT.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003",
       "path": "docs/research/BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003.md",
       "kind": "backtrader_secondary_lane",
-      "description": "Phase 3 + 4 of sprint 003: the LOAD-BEARING result. Initial harness PASS on trade counts; manual richer comparison from trade JSONL exposed USD-base R-formula divergence (USD_CAD \u0394 expR -0.0605, USD_JPY \u0394 expR -0.0180). Root cause: BT adapter divided risk_home by exit_price for USD-base pairs; bespoke (src/forex_bot/backtesting/engine.py:411-415) does NOT convert the R denominator. Backtrader-lane R formula fixed; new approximation flag R_FORMULA_MATCHES_BESPOKE; 2 new regression tests. POST-FIX OVERALL CLASSIFICATION: PASS \u2014 every pair \u0394 expR \u2264 0.0014 (two orders of magnitude tighter than the \u00b10.03 tight tolerance), \u0394 ret % \u2264 0.061 pp, \u0394 PF \u2264 0.002. CAMPAIGN_002 remains REJECT \u2014 the lane corroborates the REJECT verdict at sub-pip precision. No bespoke-engine bug found. strategy_evidence: false.",
+      "description": "Phase 3 + 4 of sprint 003: the LOAD-BEARING result. Initial harness PASS on trade counts; manual richer comparison from trade JSONL exposed USD-base R-formula divergence (USD_CAD Δ expR -0.0605, USD_JPY Δ expR -0.0180). Root cause: BT adapter divided risk_home by exit_price for USD-base pairs; bespoke (src/forex_bot/backtesting/engine.py:411-415) does NOT convert the R denominator. Backtrader-lane R formula fixed; new approximation flag R_FORMULA_MATCHES_BESPOKE; 2 new regression tests. POST-FIX OVERALL CLASSIFICATION: PASS — every pair Δ expR ≤ 0.0014 (two orders of magnitude tighter than the ±0.03 tight tolerance), Δ ret % ≤ 0.061 pp, Δ PF ≤ 0.002. CAMPAIGN_002 remains REJECT — the lane corroborates the REJECT verdict at sub-pip precision. No bespoke-engine bug found. strategy_evidence: false.",
       "strategy_evidence": false
     },
     {
       "artifact_id": "BACKTRADER_CAMPAIGN_011_BLOCKED_003",
       "path": "docs/research/BACKTRADER_CAMPAIGN_011_BLOCKED_003.md",
       "kind": "backtrader_secondary_lane",
-      "description": "Phase 5 of sprint 003: CAMPAIGN_011 BLOCKED-by-design. Phase 5 precondition met (CAMPAIGN_002 PASS), but CAMPAIGN_011 has no published no-RiskEngine bespoke reference and its artefacts are per-fold (8 folds x 7 pairs) while the BT runner is full-window \u2014 comparison would be apples-to-oranges. Scoped follow-up: produce a no-RiskEngine CAMPAIGN_011 bespoke reference first, then port + run + compare. CAMPAIGN_011 stays REJECT (null model anchor by design). strategy_evidence: false.",
+      "description": "Phase 5 of sprint 003: CAMPAIGN_011 BLOCKED-by-design. Phase 5 precondition met (CAMPAIGN_002 PASS), but CAMPAIGN_011 has no published no-RiskEngine bespoke reference and its artefacts are per-fold (8 folds x 7 pairs) while the BT runner is full-window — comparison would be apples-to-oranges. Scoped follow-up: produce a no-RiskEngine CAMPAIGN_011 bespoke reference first, then port + run + compare. CAMPAIGN_011 stays REJECT (null model anchor by design). strategy_evidence: false.",
       "strategy_evidence": false
     },
     {
@@ -2050,7 +2073,12 @@
     "strategy_approved": false,
     "paper_demo_live_blocked": true,
     "status": "INFRA_PASS",
-    "targets": ["M5", "M15", "H1", "H4M1"],
+    "targets": [
+      "M5",
+      "M15",
+      "H1",
+      "H4M1"
+    ],
     "source_label": "m1_materialized",
     "verification_status": "PASS",
     "plan_doc": "docs/research/M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_PLAN.md",
@@ -2058,5 +2086,34 @@
     "summary_doc": "docs/research/M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md",
     "artifacts_dir": "research/m1_timeframe_materialization",
     "recommended_next_sprint": "merge to main; future LTF campaigns use materialized loader by default"
+  },
+  "campaign_023_adx22_sibling": {
+    "campaign_id": "CAMPAIGN_023",
+    "strategy_name": "h4_h1_pullback_resolution_entry",
+    "strategy_version": "0.1.0-c023",
+    "working_name": "H4/H1 Pullback Resolution Entry — ADX22",
+    "sibling_of": "CAMPAIGN_022",
+    "sibling_delta": "h4_adx_min=22.0 (C022=20.0); no other intentional strategy-logic delta",
+    "status": "SCAFFOLD_ONLY",
+    "strategy_evidence": false,
+    "not_approved": true,
+    "strategy_approved": false,
+    "promotion_eligible": false,
+    "test_window_opened": false,
+    "paper_demo_live_blocked": true,
+    "verdict": "SCAFFOLD_ONLY",
+    "fill_timing_committed": "next_bar_open",
+    "execution_realism_committed": "conservative",
+    "data_provenance": {
+      "execution_m15": "m1_derived",
+      "context_h1": "m1_derived",
+      "context_h4": "m1_derived"
+    },
+    "plan_doc": "docs/research/CAMPAIGN_023_ADX22_SIBLING_PLAN.md",
+    "precommit_doc": "docs/research/CAMPAIGN_023_H4_H1_PULLBACK_RESOLUTION_ADX22_PRECOMMIT.md",
+    "config": "configs/campaign_023_h4_h1_pullback_resolution_adx22.yaml",
+    "runner": "scripts/run_campaign_023_h4_h1_pullback_resolution_adx22.py",
+    "tests": "tests/unit/test_h4_h1_pullback_resolution_adx22.py",
+    "recommended_next_sprint": "co-execute CAMPAIGN_022 (ADX20) + CAMPAIGN_023 (ADX22) as a pre-registered ADX-sensitivity pair; no retuning"
   }
 }

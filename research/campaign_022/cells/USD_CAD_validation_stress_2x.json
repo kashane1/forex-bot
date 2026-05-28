@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "trade_count": 65,
+    "total_return_pct": -7.582438192043095,
+    "max_drawdown_pct": -8.037958862328326,
+    "profit_factor": 0.46657354029441395,
+    "expectancy_r": -0.26908755921917976,
+    "win_rate": 0.24615384615384617,
+    "average_spread_paid_pips": 1.7907692307692307
+  },
+  "trades_path": "backtests/CAMPAIGN_022_h4_h1_pullback_resolution/validation/stress_2x/c022_USD_CAD_validation_stress_2x_trades.csv"
+}
