@@ -21,7 +21,7 @@
 | 2 | `a34be3f` | data feature preflight |
 | perf | `376ec37` | HTF frame cache for backtests |
 | 3–4 | `684e94b` | train evidence + gate REJECT |
-| 9–10 | `TBD` | archive + this summary |
+| 9–10 | `98f163b` | archive + this summary |
 
 ## 4. Files changed by phase
 
