@@ -1,0 +1,171 @@
+{
+  "aggregation_config_hash": "f9b7246b79a0635c",
+  "campaign_id": "CAMPAIGN_026",
+  "elapsed_seconds": 497.1,
+  "network_or_broker_calls": false,
+  "not_approved": true,
+  "pair_results": {
+    "AUD_USD": {
+      "targets": {
+        "M3": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T23:57:00+00:00",
+          "omitted_incomplete_blocks": 26763,
+          "rows_upserted": 591765
+        },
+        "M30": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T22:00:00+00:00",
+          "omitted_incomplete_blocks": 9802,
+          "rows_upserted": 52459
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "EUR_USD": {
+      "targets": {
+        "M3": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T23:57:00+00:00",
+          "omitted_incomplete_blocks": 13043,
+          "rows_upserted": 606857
+        },
+        "M30": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T22:00:00+00:00",
+          "omitted_incomplete_blocks": 5604,
+          "rows_upserted": 56671
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "GBP_USD": {
+      "targets": {
+        "M3": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T23:57:00+00:00",
+          "omitted_incomplete_blocks": 16728,
+          "rows_upserted": 602436
+        },
+        "M30": {
+          "first_utc": "2021-05-27T00:30:00+00:00",
+          "last_utc": "2026-05-26T23:30:00+00:00",
+          "omitted_incomplete_blocks": 6411,
+          "rows_upserted": 55863
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "NZD_USD": {
+      "targets": {
+        "M3": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T23:57:00+00:00",
+          "omitted_incomplete_blocks": 22606,
+          "rows_upserted": 594912
+        },
+        "M30": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T22:00:00+00:00",
+          "omitted_incomplete_blocks": 10149,
+          "rows_upserted": 52125
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "USD_CAD": {
+      "targets": {
+        "M3": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T23:57:00+00:00",
+          "omitted_incomplete_blocks": 17473,
+          "rows_upserted": 601816
+        },
+        "M30": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T23:00:00+00:00",
+          "omitted_incomplete_blocks": 6939,
+          "rows_upserted": 55339
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "USD_CHF": {
+      "targets": {
+        "M3": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T23:57:00+00:00",
+          "omitted_incomplete_blocks": 40198,
+          "rows_upserted": 573219
+        },
+        "M30": {
+          "first_utc": "2021-05-27T07:00:00+00:00",
+          "last_utc": "2026-05-26T23:30:00+00:00",
+          "omitted_incomplete_blocks": 12072,
+          "rows_upserted": 50192
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "USD_JPY": {
+      "targets": {
+        "M3": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T23:57:00+00:00",
+          "omitted_incomplete_blocks": 11400,
+          "rows_upserted": 608321
+        },
+        "M30": {
+          "first_utc": "2021-05-27T00:00:00+00:00",
+          "last_utc": "2026-05-26T23:30:00+00:00",
+          "omitted_incomplete_blocks": 4508,
+          "rows_upserted": 57767
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    }
+  },
+  "pairs": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "NZD_USD"
+  ],
+  "phase": 2,
+  "source": "m1_materialized",
+  "started_at_utc": "2026-05-29T01:09:28.936067+00:00",
+  "status": "PASS",
+  "storage_granularity": {
+    "M3": "M3",
+    "M30": "M30"
+  },
+  "targets": [
+    "M3",
+    "M30"
+  ],
+  "verify_only": false
+}

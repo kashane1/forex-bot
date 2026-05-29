@@ -1,0 +1,41 @@
+{
+  "aggregation_config_hash": "f9b7246b79a0635c",
+  "campaign_id": "CAMPAIGN_026",
+  "distinct_sources_by_pair_tf": {
+    "AUD_USD": {
+      "M3": 1,
+      "M30": 1
+    },
+    "EUR_USD": {
+      "M3": 1,
+      "M30": 1
+    },
+    "GBP_USD": {
+      "M3": 1,
+      "M30": 1
+    },
+    "NZD_USD": {
+      "M3": 1,
+      "M30": 1
+    },
+    "USD_CAD": {
+      "M3": 1,
+      "M30": 1
+    },
+    "USD_CHF": {
+      "M3": 1,
+      "M30": 1
+    },
+    "USD_JPY": {
+      "M3": 1,
+      "M30": 1
+    }
+  },
+  "native_broker_m3_m30_exists": false,
+  "source": "m1_materialized",
+  "source_granularity": "M1",
+  "storage_granularity": {
+    "M3": "M3",
+    "M30": "M30"
+  }
+}

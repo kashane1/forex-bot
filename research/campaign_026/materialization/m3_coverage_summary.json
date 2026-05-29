@@ -1,0 +1,42 @@
+{
+  "campaign_id": "CAMPAIGN_026",
+  "pairs": {
+    "AUD_USD": {
+      "first_utc": "2021-05-27T00:00:00",
+      "last_utc": "2026-05-26T23:57:00",
+      "rows": 591765
+    },
+    "EUR_USD": {
+      "first_utc": "2021-05-27T00:00:00",
+      "last_utc": "2026-05-26T23:57:00",
+      "rows": 606857
+    },
+    "GBP_USD": {
+      "first_utc": "2021-05-27T00:00:00",
+      "last_utc": "2026-05-26T23:57:00",
+      "rows": 602436
+    },
+    "NZD_USD": {
+      "first_utc": "2021-05-27T00:00:00",
+      "last_utc": "2026-05-26T23:57:00",
+      "rows": 594912
+    },
+    "USD_CAD": {
+      "first_utc": "2021-05-27T00:00:00",
+      "last_utc": "2026-05-26T23:57:00",
+      "rows": 601816
+    },
+    "USD_CHF": {
+      "first_utc": "2021-05-27T00:00:00",
+      "last_utc": "2026-05-26T23:57:00",
+      "rows": 573219
+    },
+    "USD_JPY": {
+      "first_utc": "2021-05-27T00:00:00",
+      "last_utc": "2026-05-26T23:57:00",
+      "rows": 608321
+    }
+  },
+  "source": "m1_materialized",
+  "timeframe": "M3"
+}

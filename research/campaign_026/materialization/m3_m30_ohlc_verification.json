@@ -1,0 +1,364 @@
+{
+  "campaign_id": "CAMPAIGN_026",
+  "exact_reaggregation_sample": {
+    "AUD_USD": {
+      "aggregation_config_hash": "f9b7246b79a0635c",
+      "from_utc": "2021-05-27T00:00:00+00:00",
+      "instrument": "AUD_USD",
+      "status": "PASS",
+      "targets": {
+        "M3": {
+          "expected_count": 12262,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 12262
+        },
+        "M30": {
+          "expected_count": 777,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 777
+        }
+      },
+      "to_utc": "2021-07-11T00:00:00+00:00"
+    },
+    "EUR_USD": {
+      "aggregation_config_hash": "f9b7246b79a0635c",
+      "from_utc": "2021-05-27T00:00:00+00:00",
+      "instrument": "EUR_USD",
+      "status": "PASS",
+      "targets": {
+        "M3": {
+          "expected_count": 14325,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 14325
+        },
+        "M30": {
+          "expected_count": 1270,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 1270
+        }
+      },
+      "to_utc": "2021-07-11T00:00:00+00:00"
+    },
+    "GBP_USD": {
+      "aggregation_config_hash": "f9b7246b79a0635c",
+      "from_utc": "2021-05-27T00:00:00+00:00",
+      "instrument": "GBP_USD",
+      "status": "PASS",
+      "targets": {
+        "M3": {
+          "expected_count": 13456,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 13456
+        },
+        "M30": {
+          "expected_count": 1052,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 1052
+        }
+      },
+      "to_utc": "2021-07-11T00:00:00+00:00"
+    },
+    "NZD_USD": {
+      "aggregation_config_hash": "f9b7246b79a0635c",
+      "from_utc": "2021-05-27T00:00:00+00:00",
+      "instrument": "NZD_USD",
+      "status": "PASS",
+      "targets": {
+        "M3": {
+          "expected_count": 12578,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 12578
+        },
+        "M30": {
+          "expected_count": 841,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 841
+        }
+      },
+      "to_utc": "2021-07-11T00:00:00+00:00"
+    },
+    "USD_CAD": {
+      "aggregation_config_hash": "f9b7246b79a0635c",
+      "from_utc": "2021-05-27T00:00:00+00:00",
+      "instrument": "USD_CAD",
+      "status": "PASS",
+      "targets": {
+        "M3": {
+          "expected_count": 13099,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 13099
+        },
+        "M30": {
+          "expected_count": 923,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 923
+        }
+      },
+      "to_utc": "2021-07-11T00:00:00+00:00"
+    },
+    "USD_CHF": {
+      "aggregation_config_hash": "f9b7246b79a0635c",
+      "from_utc": "2021-05-27T00:00:00+00:00",
+      "instrument": "USD_CHF",
+      "status": "PASS",
+      "targets": {
+        "M3": {
+          "expected_count": 9671,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 9671
+        },
+        "M30": {
+          "expected_count": 505,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 505
+        }
+      },
+      "to_utc": "2021-07-11T00:00:00+00:00"
+    },
+    "USD_JPY": {
+      "aggregation_config_hash": "f9b7246b79a0635c",
+      "from_utc": "2021-05-27T00:00:00+00:00",
+      "instrument": "USD_JPY",
+      "status": "PASS",
+      "targets": {
+        "M3": {
+          "expected_count": 14205,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 14205
+        },
+        "M30": {
+          "expected_count": 1213,
+          "extra_in_store": 0,
+          "missing_in_store": 0,
+          "ohlc_mismatches": 0,
+          "status": "PASS",
+          "stored_count": 1213
+        }
+      },
+      "to_utc": "2021-07-11T00:00:00+00:00"
+    }
+  },
+  "sql_full_window": {
+    "AUD_USD": {
+      "M3": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 591765,
+        "status": "PASS"
+      },
+      "M30": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T22:00:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 52459,
+        "status": "PASS"
+      }
+    },
+    "EUR_USD": {
+      "M3": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 606857,
+        "status": "PASS"
+      },
+      "M30": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T22:00:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 56671,
+        "status": "PASS"
+      }
+    },
+    "GBP_USD": {
+      "M3": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 602436,
+        "status": "PASS"
+      },
+      "M30": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:30:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:30:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 55863,
+        "status": "PASS"
+      }
+    },
+    "NZD_USD": {
+      "M3": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 594912,
+        "status": "PASS"
+      },
+      "M30": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T22:00:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 52125,
+        "status": "PASS"
+      }
+    },
+    "USD_CAD": {
+      "M3": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 601816,
+        "status": "PASS"
+      },
+      "M30": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:00:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 55339,
+        "status": "PASS"
+      }
+    },
+    "USD_CHF": {
+      "M3": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 573219,
+        "status": "PASS"
+      },
+      "M30": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T07:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:30:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 50192,
+        "status": "PASS"
+      }
+    },
+    "USD_JPY": {
+      "M3": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 608321,
+        "status": "PASS"
+      },
+      "M30": {
+        "bidask_ordering_violations": 0,
+        "distinct_sources": 1,
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:30:00",
+        "misaligned_buckets": 0,
+        "ohlc_ordering_violations": 0,
+        "rows": 57767,
+        "status": "PASS"
+      }
+    }
+  }
+}

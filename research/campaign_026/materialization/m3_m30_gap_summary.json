@@ -1,0 +1,132 @@
+{
+  "campaign_id": "CAMPAIGN_026",
+  "note": "weekend/session gaps are expected (omit policy)",
+  "pairs": {
+    "AUD_USD": {
+      "M3": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "rows": 591765
+      },
+      "M30": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T22:00:00",
+        "misaligned_buckets": 0,
+        "rows": 52459
+      }
+    },
+    "EUR_USD": {
+      "M3": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "rows": 606857
+      },
+      "M30": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T22:00:00",
+        "misaligned_buckets": 0,
+        "rows": 56671
+      }
+    },
+    "GBP_USD": {
+      "M3": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "rows": 602436
+      },
+      "M30": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:30:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:30:00",
+        "misaligned_buckets": 0,
+        "rows": 55863
+      }
+    },
+    "NZD_USD": {
+      "M3": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "rows": 594912
+      },
+      "M30": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T22:00:00",
+        "misaligned_buckets": 0,
+        "rows": 52125
+      }
+    },
+    "USD_CAD": {
+      "M3": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "rows": 601816
+      },
+      "M30": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:00:00",
+        "misaligned_buckets": 0,
+        "rows": 55339
+      }
+    },
+    "USD_CHF": {
+      "M3": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "rows": 573219
+      },
+      "M30": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T07:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:30:00",
+        "misaligned_buckets": 0,
+        "rows": 50192
+      }
+    },
+    "USD_JPY": {
+      "M3": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:57:00",
+        "misaligned_buckets": 0,
+        "rows": 608321
+      },
+      "M30": {
+        "duplicate_buckets": 0,
+        "first_utc": "2021-05-27T00:00:00",
+        "incomplete_buckets_stored": 0,
+        "last_utc": "2026-05-26T23:30:00",
+        "misaligned_buckets": 0,
+        "rows": 57767
+      }
+    }
+  }
+}
