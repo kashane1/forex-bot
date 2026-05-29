@@ -130,7 +130,15 @@ def main(argv: list[str] | None = None) -> int:
     else:
         print("validation SKIPPED — train gate catastrophic (confirmation, not rescue)")
 
-    decision = classify(train_summary, val_summary, parity_status="NOT_RUN", engine_ok=True)
+    parity_path = OUT_DIR.parent / "parity" / "parity_summary.json"
+    parity_status = "NOT_RUN"
+    if parity_path.is_file():
+        try:
+            parity_status = json.loads(parity_path.read_text(encoding="utf-8")).get("status", "NOT_RUN")
+        except (OSError, json.JSONDecodeError):
+            parity_status = "NOT_RUN"
+    decision = classify(train_summary, val_summary, parity_status=parity_status, engine_ok=True)
+    decision["parity_status"] = parity_status
     decision["approved"] = False
     decision["test_lockbox_opened"] = False
     decision["paper_demo_live"] = "blocked"

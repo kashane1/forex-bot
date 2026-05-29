@@ -1,0 +1,39 @@
+{
+  "label": "train",
+  "trades": 2387,
+  "approved": false,
+  "evidence_use": "approval_bound",
+  "gross_pips_total": 4626.1,
+  "gross_r_total": 200.1609,
+  "net_pips_total": -838.5,
+  "net_r_total": -44.8409,
+  "expectancy_r": -0.018785,
+  "gross_expectancy_r": 0.083855,
+  "profit_factor_net_pips": 0.9743,
+  "max_drawdown_r": -91.7236,
+  "hit_rate": 0.3942,
+  "avg_hold_range_bars": 7.871,
+  "avg_hold_wall_clock_sec": 21760.2,
+  "exit_reason_distribution": {
+    "time": 1152,
+    "stop": 1234,
+    "end_of_data": 1
+  },
+  "long_short_split": {
+    "long": 1362,
+    "short": 1025
+  },
+  "expectancy_r_cost_2x": -0.121426,
+  "avg_total_cost_pips": 2.2893,
+  "avg_risk_pips": 24.0463,
+  "window": {
+    "from": "2021-05-27T00:00:00+00:00",
+    "to": "2023-12-31T23:59:00+00:00"
+  },
+  "range_bars": 33457,
+  "m1_rows": 955316,
+  "staleness_bounds_s": {
+    "h4": 28800,
+    "d1agg": 259200
+  }
+}

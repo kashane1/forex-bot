@@ -1,0 +1,19 @@
+{
+  "train_gates": {
+    "checks": {
+      "train_trades_ge_30": true,
+      "train_expectancy_ge_0": false
+    },
+    "passed": false,
+    "catastrophic": true,
+    "run_validation": false,
+    "train_expectancy_r": -0.018785,
+    "train_trades": 2387
+  },
+  "approved": false,
+  "test_lockbox_opened": false,
+  "classification": "REJECT_TRAIN_GATE",
+  "validation": "NOT_RUN (train gate catastrophic)",
+  "parity_status": "PASS",
+  "paper_demo_live": "blocked"
+}
