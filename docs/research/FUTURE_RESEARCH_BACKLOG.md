@@ -646,3 +646,12 @@ broad-search re-entry gates are met.**
 - **Why.** Removes per-campaign M1 re-aggregation; `--data-feature-preflight` ~21s vs multi-hour M1 scans.
 - **Note.** Does not fix M15 backtest O(n²) indicator cost; speeds data loading only.
 - See [`M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md`](M1_DERIVED_TIMEFRAME_MATERIALIZATION_001_SUMMARY.md).
+
+## 11. Edge-discovery front-gate idea selection — IDEA-SELECTION/DIAGNOSTIC (2026-05-28)
+
+- **Sprint.** `research-edge-discovery-front-gate-idea-selection-001` (idea-selection evidence, **not** a campaign, **not** CAMPAIGN_027).
+- **What.** Used the merged edge-discovery lab as a front gate to screen 12 candidate idea families cheaply (cost → forward-return → matched-null → ablation → matrix-sanity). Approves nothing; `approved_strategies.yaml` stays `approved: []`; no test lockbox; C011 null; C025/C026 stay REJECT.
+- **Outcome.** Exactly **one CAMPAIGN_ELIGIBLE (borderline/conditional)** idea: **H4 low-vol quiet-session strong-extension short-biased z-score mean reversion** (cleared cost, all six matched nulls, 3/5 filters add edge, conservative-cost-positive, pair-robust 6/7, multi-year 4/7). A **draft precommit prompt** was written but **NOT executed** ([`NEXT_CAMPAIGN_PROMPT_FROM_EDGE_DISCOVERY_FRONT_GATE.md`](NEXT_CAMPAIGN_PROMPT_FROM_EDGE_DISCOVERY_FRONT_GATE.md)). All other families REJECT_CHEAPLY / INCONCLUSIVE / COMPATIBILITY_BLOCKED.
+- **Pre-registered kill-conditions for any future campaign.** Recency (2024/2026 negative); filter forking-path (precommit + clean re-confirm); conditioning narrowness; selection-noise (raw USD_JPY variant flagged `LIKELY_SELECTION_NOISE`).
+- **Next options (none authorized).** (a) On explicit instruction, run the drafted precommit prompt as a scaffold sprint (next free campaign number; grep-verify C027 unused). (b) Optionally extend the edge-discovery lab with a Postgres M1/M15 data path to screen sub-H1 ideas (currently out-of-scope: lab reads SQLite only, though M1-materialized data exists in research Postgres). (c) Source a new external thesis for the still-null families.
+- See [`EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION.md`](EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION.md), [`EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY.md`](EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY.md).

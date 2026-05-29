@@ -1806,6 +1806,38 @@ benchmark; C025/C026 stay REJECT.
 | [`../../research/edge_discovery/retrospectives/c026_cost_feasibility_retrospective.json`](../../research/edge_discovery/retrospectives/c026_cost_feasibility_retrospective.json) | C026 cost-feasibility retrospective |
 | [`../../research/edge_discovery/retrospectives/retrospective_compatibility_gaps.json`](../../research/edge_discovery/retrospectives/retrospective_compatibility_gaps.json) | which retro diagnostics ran vs skipped |
 
+## Edge-discovery front-gate idea selection (EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001)
+
+Infrastructure / diagnostic / **idea-selection** sprint — *consumed* the merged
+edge-discovery lab as a front gate to screen 12 candidate idea families cheaply
+before any campaign. **Not** a campaign, **not** CAMPAIGN_027, approves nothing,
+opens no test lockbox; `approved_strategies.yaml` stays `approved: []`. Local
+data only (H4/H1 on 7 majors; M1/M5/M15/M30 absent → sub-H1 ideas
+compatibility-blocked). Outcome: **one idea CAMPAIGN_ELIGIBLE (borderline)** —
+H4 low-vol quiet-session strong-extension short-biased z-score reversion — for
+which a *draft* precommit prompt was written (not executed). All others
+REJECT_CHEAPLY / INCONCLUSIVE / COMPATIBILITY_BLOCKED. C011 stays null; C025/C026
+stay REJECT. This sprint is **idea-selection evidence, not strategy evidence.**
+
+| document | purpose |
+|---|---|
+| [`EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_PLAN.md`](EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_PLAN.md) | sprint plan + Phase-0 truth audit |
+| [`EDGE_DISCOVERY_IDEA_INVENTORY.md`](EDGE_DISCOVERY_IDEA_INVENTORY.md) | 12-family feasibility inventory |
+| [`EDGE_DISCOVERY_OPPORTUNITY_MAP_REFRESH.md`](EDGE_DISCOVERY_OPPORTUNITY_MAP_REFRESH.md) | H4/H1 cost/vol opportunity map |
+| [`EDGE_DISCOVERY_SIGNAL_PROBE_RESULTS.md`](EDGE_DISCOVERY_SIGNAL_PROBE_RESULTS.md) | 6 forward-return signal probes |
+| [`EDGE_DISCOVERY_MATCHED_NULL_SCREENING_RESULTS.md`](EDGE_DISCOVERY_MATCHED_NULL_SCREENING_RESULTS.md) | matched-null + matrix sanity |
+| [`EDGE_DISCOVERY_FILTER_ABLATION_RESULTS.md`](EDGE_DISCOVERY_FILTER_ABLATION_RESULTS.md) | filter ablation on the strongest probe |
+| [`EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION.md`](EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION.md) | ranked idea selection + decision |
+| [`NEXT_CAMPAIGN_PROMPT_FROM_EDGE_DISCOVERY_FRONT_GATE.md`](NEXT_CAMPAIGN_PROMPT_FROM_EDGE_DISCOVERY_FRONT_GATE.md) | draft precommit prompt (NOT executed) |
+| [`EDGE_DISCOVERY_COMPATIBILITY_CHECKLIST.md`](EDGE_DISCOVERY_COMPATIBILITY_CHECKLIST.md) | campaign edge-discovery compatibility gate |
+| [`EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY.md`](EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY.md) | sprint summary (27-item) |
+| [`../../research/edge_discovery/front_gate_idea_selection/build_opportunity_map.py`](../../research/edge_discovery/front_gate_idea_selection/build_opportunity_map.py) | opportunity-map builder |
+| [`../../research/edge_discovery/front_gate_idea_selection/run_signal_probes.py`](../../research/edge_discovery/front_gate_idea_selection/run_signal_probes.py) | signal-probe engine |
+| [`../../research/edge_discovery/front_gate_idea_selection/run_matched_null_screening.py`](../../research/edge_discovery/front_gate_idea_selection/run_matched_null_screening.py) | matched-null/matrix-sanity screen |
+| [`../../research/edge_discovery/front_gate_idea_selection/run_filter_ablation.py`](../../research/edge_discovery/front_gate_idea_selection/run_filter_ablation.py) | filter-ablation + cost/stationarity check |
+| [`../../research/edge_discovery/front_gate_idea_selection/signal_probe_summary.csv`](../../research/edge_discovery/front_gate_idea_selection/signal_probe_summary.csv) | per-prototype probe summary |
+| [`../../research/edge_discovery/front_gate_idea_selection/matched_null_probe_summary.csv`](../../research/edge_discovery/front_gate_idea_selection/matched_null_probe_summary.csv) | matched-null per-mode results |
+
 ## How to read the evidence
 
 - **Verdicts are bright lines.** Every campaign fixed its gates in a

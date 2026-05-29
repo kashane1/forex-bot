@@ -28,6 +28,28 @@ verdict word by construction. See
 [`EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_SUMMARY.md`](EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_SUMMARY.md)
 and [`EDGE_DISCOVERY_PROTOCOL.md`](EDGE_DISCOVERY_PROTOCOL.md).
 
+### Edge-discovery front-gate idea selection — INFRASTRUCTURE/DIAGNOSTIC (2026-05-28)
+
+`EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001` used the merged lab as a front
+gate to screen 12 candidate idea families cheaply. **Idea-selection evidence
+only — changes no strategy status.** Nothing approved;
+`configs/approved_strategies.yaml` stays empty; no test lockbox opened; **no
+CAMPAIGN_027 created**; C011 stays the null benchmark; C025/C026 stay REJECT;
+the lower-TF Donchian+HTF family stays closed. Screening was confined to H1/H4 on
+the 7 majors (no local M1/M5/M15/M30). Outcome: exactly **one idea is rated
+CAMPAIGN_ELIGIBLE (borderline/conditional)** — an **H4 low-volatility,
+quiet-session, strong-extension, short-biased z-score mean-reversion** idea that
+cleared cost feasibility, forward-return information, all six matched nulls,
+filter-adds-edge ablation, conservative financing cost, pair-robustness (6/7),
+and multi-year positivity (4/7). A **draft precommit prompt was written but NOT
+executed**; opening a campaign requires an explicit future human instruction and
+remains **paper: NO · demo: NO · live: NO** until a full precommitted
+train/validation/test campaign with Backtrader parity passes and a human edits
+the approved registry. All other families were REJECT_CHEAPLY / INCONCLUSIVE /
+COMPATIBILITY_BLOCKED. See
+[`EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION.md`](EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION.md)
+and [`EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY.md`](EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY.md).
+
 ### Broad strategy search — PAUSED (2026-05-26)
 
 Post-dedup failure meta-analysis (`POST_DEDUP_FAILURE_META_ANALYSIS_001`)

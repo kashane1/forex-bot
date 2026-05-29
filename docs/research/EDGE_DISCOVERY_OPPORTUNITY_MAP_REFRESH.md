@@ -95,11 +95,17 @@ multiple-comparison / single-pair-fragility gate before it could be eligible.
 
 ## M15/M30/H1/H4 vs M3/M5 as screening targets
 
-- **M3/M5: rejected and unavailable.** Cost-hostile (C025/C026) *and* no local
-  data (no M1 to materialize from). Out of scope.
-- **M15/M30: cost-plausible but unavailable.** C026 found M15≈0.23 / M30≈0.15
-  were not cost-bound, but there is no local M15/M30/M1 data → **COMPATIBILITY_
-  BLOCKED** for screening here.
+- **M3/M5: rejected; not in the lab's data path.** Cost-hostile (C025/C026).
+  Out of scope.
+- **M15/M30: cost-plausible but not in the lab's data path.** C026 found M15≈0.23
+  / M30≈0.15 were not cost-bound. **Data-availability clarification:**
+  M1-materialized M5/M15/H1/H4M1 *do* exist in the local research **Postgres**
+  store (`infra-m1-derived-timeframe-materialization-001`, `source=m1_materialized`),
+  but the **import-isolated edge-discovery lab reads only the SQLite H4 store +
+  committed files** — it has no Postgres path. Wiring Postgres M1 into the
+  isolated lab is new plumbing outside this cheap front-gate's scope, so sub-H1
+  screening is **OUT-OF-SCOPE here (not nonexistent)**. Given C025/C026 already
+  showed sub-H1 is cost-hostile, this scoping costs the front gate little.
 - **H1/H4: the correct screening targets.** Native, full-coverage, and uniformly
   cost-feasible. **H4 is the cheaper and structurally cleaner target** (lower
   cost-in-R, less micro-noise); **H1 adds session resolution** for session/range

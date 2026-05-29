@@ -86,7 +86,15 @@ H4 SQLite store every CAMPAIGN_002+ config references).
 | **H4** | 7 majors | 2020-01-01 → 2026-05-24 | ~19,880 | native (canonical) |
 | **H1** | 7 majors | 2020-01 → 2026-05 | ~39,700 | native |
 | **D** | 7 majors | 2020 → 2026 | ~1,656 | native |
-| M3 / M5 / M15 / M30 | — | — | — | **NOT present; no M1 to materialize from** |
+| M3 / M5 / M15 / M30 | — | — | — | **not in the lab's SQLite path** (see note) |
+
+> Data-availability note (corrected Phase 9): M1-materialized M5/M15/H1/H4M1 *do*
+> exist in the local research **Postgres** store
+> (`infra-m1-derived-timeframe-materialization-001`), but the import-isolated lab
+> reads only the SQLite H4 store + committed files and has no Postgres path —
+> so sub-H1 screening is **out-of-scope for this cheap front gate (not
+> nonexistent)**. Wiring Postgres into the isolated lab is separate plumbing;
+> C025/C026 already showed sub-H1 is cost-hostile, so the scoping costs little.
 
 Seven majors: EUR_USD, GBP_USD, USD_JPY, AUD_USD, USD_CAD, USD_CHF, NZD_USD.
 

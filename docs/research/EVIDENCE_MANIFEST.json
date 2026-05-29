@@ -995,6 +995,37 @@
     "c025_status": "unchanged (REJECT)",
     "c026_status": "unchanged (REJECT)"
   },
+  "edge_discovery_front_gate_idea_selection_001": {
+    "kind": "research_infrastructure_diagnostic_idea_selection",
+    "status": "EXECUTED",
+    "date": "2026-05-28",
+    "branch": "research-edge-discovery-front-gate-idea-selection-001",
+    "consumes_lab": "research/edge_discovery/ (merged null-benchmark lab) — front gate, not rebuilt/extended core",
+    "summary": "Used the merged edge-discovery lab as a front gate to screen 12 candidate idea families cheaply (cost-feasibility -> forward-return -> matched-null -> filter-ablation -> matrix-sanity) before any campaign. Screening confined to H1/H4 on the 7 majors (no local M1/M5/M15/M30; sub-H1 ideas compatibility-blocked). Exactly one idea rated CAMPAIGN_ELIGIBLE (borderline/conditional): H4 low-vol quiet-session strong-extension short-biased z-score mean reversion. A draft precommit prompt was written but NOT executed. All other families REJECT_CHEAPLY / INCONCLUSIVE / COMPATIBILITY_BLOCKED.",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "test_window_opened": false,
+    "campaign_027_created": false,
+    "campaign_eligible_idea": "H4 low-vol quiet-session strong-extension short-biased z-score mean reversion (borderline/conditional; precommit prompt drafted, not executed)",
+    "plan_doc": "docs/research/EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_PLAN.md",
+    "summary_doc": "docs/research/EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY.md",
+    "decision_doc": "docs/research/EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION.md",
+    "c011_status": "unchanged (null benchmark)",
+    "c025_status": "unchanged (REJECT)",
+    "c026_status": "unchanged (REJECT)",
+    "artifacts": [
+      {"artifact_id": "EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_PLAN", "path": "docs/research/EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_PLAN.md", "kind": "edge_discovery_idea_selection", "description": "Front-gate idea-selection sprint plan + Phase-0 truth audit. strategy_evidence: false.", "strategy_evidence": false},
+      {"artifact_id": "EDGE_DISCOVERY_IDEA_INVENTORY", "path": "docs/research/EDGE_DISCOVERY_IDEA_INVENTORY.md", "kind": "edge_discovery_idea_selection", "description": "Feasibility inventory of 12 candidate idea families. strategy_evidence: false.", "strategy_evidence": false},
+      {"artifact_id": "EDGE_DISCOVERY_OPPORTUNITY_MAP_REFRESH", "path": "docs/research/EDGE_DISCOVERY_OPPORTUNITY_MAP_REFRESH.md", "kind": "edge_discovery_idea_selection", "description": "H4/H1 cost/vol opportunity map (all cells COST_FEASIBLE; USD_JPY cost-advantaged). strategy_evidence: false.", "strategy_evidence": false},
+      {"artifact_id": "EDGE_DISCOVERY_SIGNAL_PROBE_RESULTS", "path": "docs/research/EDGE_DISCOVERY_SIGNAL_PROBE_RESULTS.md", "kind": "edge_discovery_idea_selection", "description": "Six forward-return signal probes vs cost-matched random-timestamp null. strategy_evidence: false.", "strategy_evidence": false},
+      {"artifact_id": "EDGE_DISCOVERY_MATCHED_NULL_SCREENING_RESULTS", "path": "docs/research/EDGE_DISCOVERY_MATCHED_NULL_SCREENING_RESULTS.md", "kind": "edge_discovery_idea_selection", "description": "Matched-null (six modes) + matrix-sanity + holdout fragility on the two survivors. strategy_evidence: false.", "strategy_evidence": false},
+      {"artifact_id": "EDGE_DISCOVERY_FILTER_ABLATION_RESULTS", "path": "docs/research/EDGE_DISCOVERY_FILTER_ABLATION_RESULTS.md", "kind": "edge_discovery_idea_selection", "description": "Filter ablation on z-score reversion; 3/5 filters add edge; subset survives conservative cost. strategy_evidence: false.", "strategy_evidence": false},
+      {"artifact_id": "EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION", "path": "docs/research/EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION.md", "kind": "edge_discovery_idea_selection", "description": "Ranked idea selection; one CAMPAIGN_ELIGIBLE (borderline), rest rejected/inconclusive/blocked. strategy_evidence: false.", "strategy_evidence": false},
+      {"artifact_id": "NEXT_CAMPAIGN_PROMPT_FROM_EDGE_DISCOVERY_FRONT_GATE", "path": "docs/research/NEXT_CAMPAIGN_PROMPT_FROM_EDGE_DISCOVERY_FRONT_GATE.md", "kind": "edge_discovery_process", "description": "Draft precommit prompt for the eligible idea; NOT executed; approves nothing. strategy_evidence: false.", "strategy_evidence": false},
+      {"artifact_id": "EDGE_DISCOVERY_COMPATIBILITY_CHECKLIST", "path": "docs/research/EDGE_DISCOVERY_COMPATIBILITY_CHECKLIST.md", "kind": "edge_discovery_process", "description": "Pass/fail gate a future campaign must satisfy to be edge-discovery compatible. strategy_evidence: false.", "strategy_evidence": false},
+      {"artifact_id": "EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY", "path": "docs/research/EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY.md", "kind": "edge_discovery_idea_selection", "description": "Sprint summary (27-item). strategy_evidence: false.", "strategy_evidence": false}
+    ]
+  },
   "diagnostic_artifacts": [
     {
       "artifact_id": "EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_PLAN",
