@@ -1,0 +1,25 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "n_variants_screened_total": "6 prototypes x 5 horizons = 30 (forward-return screen)",
+  "n_variants_in_matrix": 6,
+  "best_label": "zscore_reversion_h4_usdjpy",
+  "best_value": 0.000117,
+  "median_value": -8.55e-05,
+  "best_minus_median": 0.0002025,
+  "null_reference": 0.0,
+  "best_vs_null": 0.000117,
+  "expected_max_under_null": 0.000425,
+  "deflated_improvement": -0.000308,
+  "prob_best_le_null_max": 0.9375,
+  "fragility_score": 0.9375,
+  "flags": [
+    "LIKELY_SELECTION_NOISE",
+    "FRAGILE_SINGLE_PAIR_RESULT"
+  ],
+  "pair_holdout_sign_flips": true,
+  "notes": [
+    "null_std not supplied; used cross-variant dispersion as the noise scale (conservative \u2014 treats all variant spread as noise)",
+    "time-block-holdout skipped: no per-time-block values supplied"
+  ]
+}

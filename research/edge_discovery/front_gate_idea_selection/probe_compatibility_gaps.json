@@ -1,0 +1,17 @@
+{
+  "diagnostic_only": true,
+  "gaps": [
+    {
+      "item": "carry/financing matched null",
+      "reason": "no carry/swap-rate table locally; only worst-case forex_bot.financing proxy"
+    },
+    {
+      "item": "sub-hour open-expansion matched null",
+      "reason": "no local M1/M5/M15/M30 frames to define the open bar"
+    },
+    {
+      "item": "holding_period_matched_random",
+      "reason": "ledgers use a fixed h12 hold (bars_held=12); equivalent to pair_matched here"
+    }
+  ]
+}

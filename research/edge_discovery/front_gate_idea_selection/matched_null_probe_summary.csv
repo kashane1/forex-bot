@@ -1,0 +1,13 @@
+prototype,mode,n_trades,strategy_expectancy,null_mean,null_p95,prob_null_ge_strategy,strategy_percentile,effect_size,flags
+zscore_reversion_h4,timestamp_random_same_pair,11925,-3.33e-05,-0.0005219,-0.0004114,0.0,100.0,6.015,BEATS_MATCHED_NULL
+zscore_reversion_h4,side_shuffled,11925,-3.33e-05,-0.0003604,-0.0002333,0.0,100.0,5.036,BEATS_MATCHED_NULL
+zscore_reversion_h4,pair_matched_random,11925,-3.33e-05,-0.0003707,-0.0002879,0.0,100.0,5.502,BEATS_MATCHED_NULL
+zscore_reversion_h4,session_matched_random,11925,-3.33e-05,-0.0003739,-0.0002795,0.0,100.0,5.141,BEATS_MATCHED_NULL
+zscore_reversion_h4,holding_period_matched_random,11925,-3.33e-05,-0.0003541,-0.0002227,0.0,100.0,3.678,BEATS_MATCHED_NULL
+zscore_reversion_h4,full_matched_null,11925,-3.33e-05,-0.000378,-0.0002724,0.0,100.0,5.203,BEATS_MATCHED_NULL
+failed_breakout_fade_h4,timestamp_random_same_pair,8318,-9.8e-06,-0.0003611,-0.0002431,0.0,100.0,4.492,BEATS_MATCHED_NULL
+failed_breakout_fade_h4,side_shuffled,8318,-9.8e-06,-0.0003385,-0.0001979,0.0,100.0,3.583,BEATS_MATCHED_NULL
+failed_breakout_fade_h4,pair_matched_random,8318,-9.8e-06,-0.0003511,-0.0002255,0.0,100.0,4.082,BEATS_MATCHED_NULL
+failed_breakout_fade_h4,session_matched_random,8318,-9.8e-06,-0.0003393,-0.0001845,0.0,100.0,3.585,BEATS_MATCHED_NULL
+failed_breakout_fade_h4,holding_period_matched_random,8318,-9.8e-06,-0.0003431,-0.0002517,0.0,100.0,4.706,BEATS_MATCHED_NULL
+failed_breakout_fade_h4,full_matched_null,8318,-9.8e-06,-0.0003537,-0.0002291,0.0,100.0,3.834,BEATS_MATCHED_NULL

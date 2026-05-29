@@ -1,0 +1,280 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "window_bars": 12,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ],
+  "cost_overlay": {
+    "spread_pips": 1.5,
+    "slip_pips": 0.2,
+    "financing": true
+  },
+  "modes": [
+    "timestamp_random_same_pair",
+    "side_shuffled",
+    "pair_matched_random",
+    "session_matched_random",
+    "holding_period_matched_random",
+    "full_matched_null"
+  ],
+  "results": [
+    {
+      "prototype": "zscore_reversion_h4",
+      "mode": "timestamp_random_same_pair",
+      "n_trades": 11925,
+      "strategy_expectancy": -3.33e-05,
+      "null_mean": -0.0005219,
+      "null_p95": -0.0004114,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 6.015,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "zscore_reversion_h4",
+      "mode": "side_shuffled",
+      "n_trades": 11925,
+      "strategy_expectancy": -3.33e-05,
+      "null_mean": -0.0003604,
+      "null_p95": -0.0002333,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 5.036,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "zscore_reversion_h4",
+      "mode": "pair_matched_random",
+      "n_trades": 11925,
+      "strategy_expectancy": -3.33e-05,
+      "null_mean": -0.0003707,
+      "null_p95": -0.0002879,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 5.502,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "zscore_reversion_h4",
+      "mode": "session_matched_random",
+      "n_trades": 11925,
+      "strategy_expectancy": -3.33e-05,
+      "null_mean": -0.0003739,
+      "null_p95": -0.0002795,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 5.141,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "zscore_reversion_h4",
+      "mode": "holding_period_matched_random",
+      "n_trades": 11925,
+      "strategy_expectancy": -3.33e-05,
+      "null_mean": -0.0003541,
+      "null_p95": -0.0002227,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 3.678,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "zscore_reversion_h4",
+      "mode": "full_matched_null",
+      "n_trades": 11925,
+      "strategy_expectancy": -3.33e-05,
+      "null_mean": -0.000378,
+      "null_p95": -0.0002724,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 5.203,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "failed_breakout_fade_h4",
+      "mode": "timestamp_random_same_pair",
+      "n_trades": 8318,
+      "strategy_expectancy": -9.8e-06,
+      "null_mean": -0.0003611,
+      "null_p95": -0.0002431,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 4.492,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "failed_breakout_fade_h4",
+      "mode": "side_shuffled",
+      "n_trades": 8318,
+      "strategy_expectancy": -9.8e-06,
+      "null_mean": -0.0003385,
+      "null_p95": -0.0001979,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 3.583,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "failed_breakout_fade_h4",
+      "mode": "pair_matched_random",
+      "n_trades": 8318,
+      "strategy_expectancy": -9.8e-06,
+      "null_mean": -0.0003511,
+      "null_p95": -0.0002255,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 4.082,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "failed_breakout_fade_h4",
+      "mode": "session_matched_random",
+      "n_trades": 8318,
+      "strategy_expectancy": -9.8e-06,
+      "null_mean": -0.0003393,
+      "null_p95": -0.0001845,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 3.585,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "failed_breakout_fade_h4",
+      "mode": "holding_period_matched_random",
+      "n_trades": 8318,
+      "strategy_expectancy": -9.8e-06,
+      "null_mean": -0.0003431,
+      "null_p95": -0.0002517,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 4.706,
+      "flags": "BEATS_MATCHED_NULL"
+    },
+    {
+      "prototype": "failed_breakout_fade_h4",
+      "mode": "full_matched_null",
+      "n_trades": 8318,
+      "strategy_expectancy": -9.8e-06,
+      "null_mean": -0.0003537,
+      "null_p95": -0.0002291,
+      "prob_null_ge_strategy": 0.0,
+      "strategy_percentile": 100.0,
+      "effect_size": 3.834,
+      "flags": "BEATS_MATCHED_NULL"
+    }
+  ],
+  "fragility": {
+    "zscore_reversion_h4": {
+      "prototype": "zscore_reversion_h4",
+      "full_post_cost_h12": 4.8e-05,
+      "pair_holdout": {
+        "full": 4.8e-05,
+        "min": -5.7e-06,
+        "max": 0.000147,
+        "sign_flips": true,
+        "dominant_pair": "AUD_USD",
+        "per_pair_mean": {
+          "AUD_USD": 0.0003727,
+          "EUR_USD": 0.000192,
+          "GBP_USD": 0.0001001,
+          "NZD_USD": -0.0001073,
+          "USD_CAD": 0.0002085,
+          "USD_CHF": -0.0005475,
+          "USD_JPY": 0.0001174
+        }
+      },
+      "time_block_holdout": {
+        "full": 4.8e-05,
+        "min": -0.0001848,
+        "max": 0.0002517,
+        "sign_flips": true,
+        "dominant_year": "2023",
+        "per_year_mean": {
+          "2020": -0.0010099,
+          "2021": 0.0002499,
+          "2022": -0.000205,
+          "2023": 0.0013336,
+          "2024": -1.4e-06,
+          "2025": 0.0001629,
+          "2026": -0.000396
+        }
+      }
+    },
+    "failed_breakout_fade_h4": {
+      "prototype": "failed_breakout_fade_h4",
+      "full_post_cost_h12": 6.93e-05,
+      "pair_holdout": {
+        "full": 6.93e-05,
+        "min": 1.2e-06,
+        "max": 0.0001178,
+        "sign_flips": false,
+        "dominant_pair": "USD_JPY",
+        "per_pair_mean": {
+          "AUD_USD": 0.0001303,
+          "EUR_USD": -3.57e-05,
+          "GBP_USD": 0.0001528,
+          "NZD_USD": 0.0001238,
+          "USD_CAD": -0.0001397,
+          "USD_CHF": -0.0002077,
+          "USD_JPY": 0.0004999
+        }
+      },
+      "time_block_holdout": {
+        "full": 6.93e-05,
+        "min": -2.33e-05,
+        "max": 0.000257,
+        "sign_flips": true,
+        "dominant_year": "2023",
+        "per_year_mean": {
+          "2020": -0.0009366,
+          "2021": 0.0002321,
+          "2022": 7.45e-05,
+          "2023": 0.0005835,
+          "2024": -3.51e-05,
+          "2025": 0.0003886,
+          "2026": 0.0003607
+        }
+      }
+    }
+  }
+}
