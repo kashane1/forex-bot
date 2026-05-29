@@ -1,0 +1,51 @@
+{
+  "abs_thresholds": [
+    20.0,
+    30.0,
+    40.0,
+    50.0
+  ],
+  "c029_anchor": {
+    "avg_risk_pips": 24.05,
+    "cost_pips": 2.29,
+    "cost_to_risk": 0.095,
+    "gross_edge_R": 0.0839,
+    "instrument": "USD_JPY",
+    "lab_achievable_gross_edge_R": 0.08,
+    "net_edge_R": -0.0188,
+    "threshold": "10pip range"
+  },
+  "computes_pnl_or_returns": false,
+  "elapsed_seconds": 41.0,
+  "kind": "diagnostic_feasibility",
+  "max_rows": null,
+  "network_or_broker_calls": false,
+  "not_approved": true,
+  "pairs": [
+    "USD_JPY"
+  ],
+  "price_basis": "mid",
+  "range_thresholds": [
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0
+  ],
+  "slippage_pips_per_side": 0.2,
+  "source": "local Postgres M1 (granularity=M1); NO broker/network/OANDA calls",
+  "sprint": "research-range-volatility-bar-feasibility-001",
+  "started_at_utc": "2026-05-29T16:13:33.038971+00:00",
+  "strategy_evidence": false,
+  "test_lockbox_touched": false,
+  "tr_thresholds": [
+    20.0,
+    30.0,
+    40.0,
+    50.0
+  ],
+  "window": {
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "to_utc": "2023-12-31T23:59:00+00:00"
+  }
+}
