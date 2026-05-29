@@ -220,3 +220,6 @@ research/usdjpy_london_compression_continuation/*
 
 # macro-regime-context-tradeability-001: commit compact summaries only; gitignore parquet.
 research/usdjpy_macro_regime_context/context_dataset.parquet
+
+# Edge-discovery CLI ad-hoc run outputs (regenerable; not committed)
+research/edge_discovery/cli_runs/

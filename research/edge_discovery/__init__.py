@@ -45,6 +45,11 @@ research-edge-discovery-null-benchmark-lab-001):
 
 from __future__ import annotations
 
+from research.edge_discovery.cost_feasibility import (
+    CostFeasibilityCell,
+    classify_cost_feasibility,
+    cost_feasibility_table,
+)
 from research.edge_discovery.costs import apply_cost_overlay
 from research.edge_discovery.filter_ablation import (
     FilterAblationResult,
@@ -92,6 +97,7 @@ __all__ = [
     "MATCHED_NULL_MODES",
     "CampaignWalkForwardResult",
     "CandleSample",
+    "CostFeasibilityCell",
     "EventFixture",
     "FilterAblationResult",
     "FilterContribution",
@@ -108,7 +114,9 @@ __all__ = [
     "StudySummary",
     "apply_cost_overlay",
     "assert_real_data_kind",
+    "classify_cost_feasibility",
     "compute_forward_returns",
+    "cost_feasibility_table",
     "filter_ablation",
     "fold_pair_summaries_to_frame",
     "holdout_stability",
