@@ -280,3 +280,16 @@ research/h16_overshoot_frontgate/**
 !research/h16_overshoot_frontgate/**/*_study.json
 !research/h16_overshoot_frontgate/**/*_matrix.csv
 !research/h16_overshoot_frontgate/**/*_report.md
+
+# research-non-time-bar-thin-move-frontgate-001: H03 thin-move fade front-gate screen.
+# Diagnostic-only. Same policy as the H16 screen above: ignore the whole output tree
+# (bulky per-bar event tables are regenerable from local M1 and must never be committed)
+# but re-include directories so git descends, then whitelist ONLY compact diagnostics.
+research/h03_thin_move_frontgate/**
+!research/h03_thin_move_frontgate/**/
+!research/h03_thin_move_frontgate/.gitkeep
+!research/h03_thin_move_frontgate/**/*_summary.json
+!research/h03_thin_move_frontgate/**/*_manifest.json
+!research/h03_thin_move_frontgate/**/*_study.json
+!research/h03_thin_move_frontgate/**/*_matrix.csv
+!research/h03_thin_move_frontgate/**/*_report.md

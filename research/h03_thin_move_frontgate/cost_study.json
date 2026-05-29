@@ -1,0 +1,83 @@
+{
+  "EUR_USD": {
+    "instrument": "EUR_USD",
+    "low_bucket_mean_fade_by_horizon": {
+      "1": 1.74768,
+      "2": 2.33319,
+      "3": 3.96892
+    },
+    "low_bucket_mean_spread_pips": 1.6644,
+    "low_bucket_round_trip_cost_pips": 2.0644,
+    "low_exceeds_low_bucket_cost_by_horizon": {
+      "1": false,
+      "2": true,
+      "3": true
+    },
+    "mean_spread_pips": 1.6225,
+    "round_trip_cost_pips": 2.0225,
+    "ultra_thin_exceeds_low_bucket_cost_by_horizon": {
+      "1": false,
+      "2": false,
+      "3": true
+    },
+    "ultra_thin_mean_fade_by_horizon": {
+      "1": -1.48178,
+      "2": 0.93318,
+      "3": 5.34299
+    }
+  },
+  "GBP_USD": {
+    "instrument": "GBP_USD",
+    "low_bucket_mean_fade_by_horizon": {
+      "1": 0.46259,
+      "2": 1.25944,
+      "3": 0.51014
+    },
+    "low_bucket_mean_spread_pips": 2.4442,
+    "low_bucket_round_trip_cost_pips": 2.8442,
+    "low_exceeds_low_bucket_cost_by_horizon": {
+      "1": false,
+      "2": false,
+      "3": false
+    },
+    "mean_spread_pips": 2.2454,
+    "round_trip_cost_pips": 2.6454,
+    "ultra_thin_exceeds_low_bucket_cost_by_horizon": {
+      "1": false,
+      "2": false,
+      "3": false
+    },
+    "ultra_thin_mean_fade_by_horizon": {
+      "1": 0.04067,
+      "2": 0.54052,
+      "3": -0.71792
+    }
+  },
+  "USD_JPY": {
+    "instrument": "USD_JPY",
+    "low_bucket_mean_fade_by_horizon": {
+      "1": 0.20736,
+      "2": 0.57084,
+      "3": -0.67657
+    },
+    "low_bucket_mean_spread_pips": 2.5013,
+    "low_bucket_round_trip_cost_pips": 2.9013,
+    "low_exceeds_low_bucket_cost_by_horizon": {
+      "1": false,
+      "2": false,
+      "3": false
+    },
+    "mean_spread_pips": 2.1174,
+    "round_trip_cost_pips": 2.5174,
+    "ultra_thin_exceeds_low_bucket_cost_by_horizon": {
+      "1": false,
+      "2": false,
+      "3": false
+    },
+    "ultra_thin_mean_fade_by_horizon": {
+      "1": 1.1102,
+      "2": 2.3737,
+      "3": 0.70113
+    }
+  }
+}

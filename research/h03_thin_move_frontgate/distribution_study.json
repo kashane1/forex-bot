@@ -1,0 +1,830 @@
+{
+  "EUR_USD": {
+    "duration_by_bucket_minutes": {
+      "high": {
+        "mean": 998.5817,
+        "median": 914.5,
+        "n": 710,
+        "p25": 490.5,
+        "p75": 1270.5,
+        "p95": 2481.0
+      },
+      "low": {
+        "mean": 68.166,
+        "median": 49.0,
+        "n": 711,
+        "p25": 22.0,
+        "p75": 91.0,
+        "p95": 189.0
+      },
+      "medium": {
+        "mean": 276.9522,
+        "median": 224.0,
+        "n": 711,
+        "p25": 130.0,
+        "p75": 353.0,
+        "p95": 709.0
+      }
+    },
+    "duration_stats_minutes": {
+      "mean": 447.6417,
+      "median": 219.5,
+      "n": 2132,
+      "p25": 75.0,
+      "p75": 627.0,
+      "p95": 1507.0
+    },
+    "instrument": "EUR_USD",
+    "n_bars": 2132,
+    "overshoot_by_bucket_pips": {
+      "high": {
+        "mean": 2.3304,
+        "median": 1.0,
+        "n": 710,
+        "p25": 0.4,
+        "p75": 2.5,
+        "p95": 7.8
+      },
+      "low": {
+        "mean": 3.2882,
+        "median": 1.6,
+        "n": 711,
+        "p25": 0.6,
+        "p75": 3.6,
+        "p95": 10.3
+      },
+      "medium": {
+        "mean": 2.5283,
+        "median": 1.0,
+        "n": 711,
+        "p25": 0.4,
+        "p75": 2.4,
+        "p95": 8.6
+      }
+    },
+    "session_distribution": {
+      "london": 563,
+      "london_ny_overlap": 894,
+      "new_york": 341,
+      "rollover_late": 58,
+      "tokyo": 276
+    },
+    "session_distribution_by_bucket": {
+      "high": {
+        "london": 249,
+        "london_ny_overlap": 235,
+        "new_york": 87,
+        "rollover_late": 20,
+        "tokyo": 119
+      },
+      "low": {
+        "london": 156,
+        "london_ny_overlap": 350,
+        "new_york": 137,
+        "rollover_late": 20,
+        "tokyo": 48
+      },
+      "medium": {
+        "london": 158,
+        "london_ny_overlap": 309,
+        "new_york": 117,
+        "rollover_late": 18,
+        "tokyo": 109
+      }
+    },
+    "spread_by_bucket_pips": {
+      "high": {
+        "mean": 1.599,
+        "median": 1.5,
+        "n": 710,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 2.0
+      },
+      "low": {
+        "mean": 1.6644,
+        "median": 1.5,
+        "n": 711,
+        "p25": 1.4,
+        "p75": 1.7,
+        "p95": 2.1
+      },
+      "medium": {
+        "mean": 1.6039,
+        "median": 1.5,
+        "n": 711,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 2.1
+      }
+    },
+    "spread_by_session_pips": {
+      "london": {
+        "mean": 1.5451,
+        "median": 1.5,
+        "n": 563,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 1.9
+      },
+      "london_ny_overlap": {
+        "mean": 1.5623,
+        "median": 1.5,
+        "n": 894,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 2.0
+      },
+      "new_york": {
+        "mean": 1.5839,
+        "median": 1.5,
+        "n": 341,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 2.1
+      },
+      "rollover_late": {
+        "mean": 3.4655,
+        "median": 1.95,
+        "n": 58,
+        "p25": 1.6,
+        "p75": 4.8,
+        "p95": 10.0
+      },
+      "tokyo": {
+        "mean": 1.6355,
+        "median": 1.6,
+        "n": 276,
+        "p25": 1.5,
+        "p75": 1.7,
+        "p95": 1.9
+      }
+    },
+    "tertile_edges_ticks": [
+      15756.0,
+      36159.0
+    ],
+    "threshold_pips": 30.0,
+    "travel_per_volume_stats": {
+      "mean": 0.0025,
+      "median": 0.0013,
+      "n": 2132,
+      "p25": 0.0007,
+      "p75": 0.0027,
+      "p95": 0.0083
+    },
+    "ultra_thin_overshoot_pips": {
+      "mean": 4.8084,
+      "median": 2.7,
+      "n": 214,
+      "p25": 1.0,
+      "p75": 5.625,
+      "p95": 12.7
+    },
+    "ultra_thin_p10_threshold_ticks": 6221.0,
+    "ultra_thin_session_distribution": {
+      "london": 49,
+      "london_ny_overlap": 121,
+      "new_york": 24,
+      "rollover_late": 7,
+      "tokyo": 13
+    },
+    "ultra_thin_spread_pips": {
+      "mean": 1.8121,
+      "median": 1.6,
+      "n": 214,
+      "p25": 1.5,
+      "p75": 1.8,
+      "p95": 2.6
+    },
+    "volume_autocorr_lag1": 0.1569,
+    "volume_by_bucket_ticks": {
+      "high": {
+        "mean": 71274.7014,
+        "median": 60219.0,
+        "n": 710,
+        "p25": 45743.5,
+        "p75": 85064.75,
+        "p95": 138481.0
+      },
+      "low": {
+        "mean": 8788.5429,
+        "median": 8858.0,
+        "n": 711,
+        "p25": 5596.0,
+        "p75": 12130.0,
+        "p95": 14949.0
+      },
+      "medium": {
+        "mean": 24855.384,
+        "median": 24414.0,
+        "n": 711,
+        "p25": 19747.0,
+        "p75": 29809.0,
+        "p95": 34365.0
+      }
+    },
+    "volume_by_session": {
+      "london": {
+        "mean": 42272.7851,
+        "median": 31295.0,
+        "n": 563,
+        "p25": 14341.0,
+        "p75": 59223.0,
+        "p95": 117896.0
+      },
+      "london_ny_overlap": {
+        "mean": 30155.7383,
+        "median": 20240.0,
+        "n": 894,
+        "p25": 9972.25,
+        "p75": 37670.25,
+        "p95": 92829.0
+      },
+      "new_york": {
+        "mean": 31408.39,
+        "median": 19792.0,
+        "n": 341,
+        "p25": 11537.0,
+        "p75": 36710.5,
+        "p95": 101648.0
+      },
+      "rollover_late": {
+        "mean": 35224.1034,
+        "median": 24515.5,
+        "n": 58,
+        "p25": 12645.0,
+        "p75": 44847.5,
+        "p95": 105466.0
+      },
+      "tokyo": {
+        "mean": 39905.0833,
+        "median": 31742.5,
+        "n": 276,
+        "p25": 20246.5,
+        "p75": 52731.0,
+        "p95": 93502.0
+      }
+    },
+    "volume_stats_ticks": {
+      "mean": 34955.849,
+      "median": 24411.5,
+      "n": 2132,
+      "p25": 12101.5,
+      "p75": 45743.5,
+      "p95": 104893.0
+    }
+  },
+  "GBP_USD": {
+    "duration_by_bucket_minutes": {
+      "high": {
+        "mean": 494.884,
+        "median": 346.0,
+        "n": 1284,
+        "p25": 197.25,
+        "p75": 704.0,
+        "p95": 1297.0
+      },
+      "low": {
+        "mean": 61.757,
+        "median": 22.5,
+        "n": 1284,
+        "p25": 10.0,
+        "p75": 63.75,
+        "p95": 255.0
+      },
+      "medium": {
+        "mean": 180.1089,
+        "median": 89.0,
+        "n": 1285,
+        "p25": 54.0,
+        "p75": 165.5,
+        "p95": 851.0
+      }
+    },
+    "duration_stats_minutes": {
+      "mean": 245.5663,
+      "median": 107.0,
+      "n": 3853,
+      "p25": 36.0,
+      "p75": 297.5,
+      "p95": 1011.0
+    },
+    "instrument": "GBP_USD",
+    "n_bars": 3853,
+    "overshoot_by_bucket_pips": {
+      "high": {
+        "mean": 2.4843,
+        "median": 1.2,
+        "n": 1284,
+        "p25": 0.4,
+        "p75": 2.7,
+        "p95": 7.9
+      },
+      "low": {
+        "mean": 4.561,
+        "median": 1.9,
+        "n": 1284,
+        "p25": 0.6,
+        "p75": 4.4,
+        "p95": 16.4
+      },
+      "medium": {
+        "mean": 2.7094,
+        "median": 1.3,
+        "n": 1285,
+        "p25": 0.5,
+        "p75": 3.0,
+        "p95": 8.9
+      }
+    },
+    "session_distribution": {
+      "london": 1144,
+      "london_ny_overlap": 1453,
+      "new_york": 609,
+      "rollover_late": 104,
+      "tokyo": 543
+    },
+    "session_distribution_by_bucket": {
+      "high": {
+        "london": 416,
+        "london_ny_overlap": 350,
+        "new_york": 189,
+        "rollover_late": 43,
+        "tokyo": 286
+      },
+      "low": {
+        "london": 348,
+        "london_ny_overlap": 577,
+        "new_york": 198,
+        "rollover_late": 29,
+        "tokyo": 132
+      },
+      "medium": {
+        "london": 380,
+        "london_ny_overlap": 526,
+        "new_york": 222,
+        "rollover_late": 32,
+        "tokyo": 125
+      }
+    },
+    "spread_by_bucket_pips": {
+      "high": {
+        "mean": 2.1523,
+        "median": 1.9,
+        "n": 1284,
+        "p25": 1.8,
+        "p75": 2.2,
+        "p95": 2.8
+      },
+      "low": {
+        "mean": 2.4442,
+        "median": 2.0,
+        "n": 1284,
+        "p25": 1.8,
+        "p75": 2.4,
+        "p95": 4.3
+      },
+      "medium": {
+        "mean": 2.1398,
+        "median": 1.9,
+        "n": 1285,
+        "p25": 1.7,
+        "p75": 2.2,
+        "p95": 2.9
+      }
+    },
+    "spread_by_session_pips": {
+      "london": {
+        "mean": 2.0726,
+        "median": 1.9,
+        "n": 1144,
+        "p25": 1.8,
+        "p75": 2.2,
+        "p95": 2.8
+      },
+      "london_ny_overlap": {
+        "mean": 2.0799,
+        "median": 1.9,
+        "n": 1453,
+        "p25": 1.7,
+        "p75": 2.2,
+        "p95": 3.1
+      },
+      "new_york": {
+        "mean": 2.0834,
+        "median": 1.9,
+        "n": 609,
+        "p25": 1.75,
+        "p75": 2.2,
+        "p95": 3.0
+      },
+      "rollover_late": {
+        "mean": 5.8971,
+        "median": 3.05,
+        "n": 104,
+        "p25": 2.2,
+        "p75": 6.0,
+        "p95": 20.1
+      },
+      "tokyo": {
+        "mean": 2.5348,
+        "median": 2.2,
+        "n": 543,
+        "p25": 1.9,
+        "p75": 2.5,
+        "p95": 3.9
+      }
+    },
+    "tertile_edges_ticks": [
+      8402.33,
+      22011.0
+    ],
+    "threshold_pips": 30.0,
+    "travel_per_volume_stats": {
+      "mean": 0.0053,
+      "median": 0.0024,
+      "n": 3853,
+      "p25": 0.0011,
+      "p75": 0.0051,
+      "p95": 0.0169
+    },
+    "ultra_thin_overshoot_pips": {
+      "mean": 7.3627,
+      "median": 2.6,
+      "n": 386,
+      "p25": 1.0,
+      "p75": 7.325,
+      "p95": 22.8
+    },
+    "ultra_thin_p10_threshold_ticks": 3202.0,
+    "ultra_thin_session_distribution": {
+      "london": 100,
+      "london_ny_overlap": 151,
+      "new_york": 54,
+      "rollover_late": 15,
+      "tokyo": 66
+    },
+    "ultra_thin_spread_pips": {
+      "mean": 3.1744,
+      "median": 2.3,
+      "n": 386,
+      "p25": 1.9,
+      "p75": 3.2,
+      "p95": 7.1
+    },
+    "volume_autocorr_lag1": 0.2208,
+    "volume_by_bucket_ticks": {
+      "high": {
+        "mean": 48474.8037,
+        "median": 38274.0,
+        "n": 1284,
+        "p25": 27898.25,
+        "p75": 59226.5,
+        "p95": 104992.0
+      },
+      "low": {
+        "mean": 4610.3731,
+        "median": 4574.5,
+        "n": 1284,
+        "p25": 2856.25,
+        "p75": 6367.75,
+        "p95": 7966.0
+      },
+      "medium": {
+        "mean": 14114.0482,
+        "median": 13618.0,
+        "n": 1285,
+        "p25": 10665.5,
+        "p75": 17186.5,
+        "p95": 21166.0
+      }
+    },
+    "volume_by_session": {
+      "london": {
+        "mean": 25982.8986,
+        "median": 14537.5,
+        "n": 1144,
+        "p25": 7041.0,
+        "p75": 31416.75,
+        "p95": 87982.0
+      },
+      "london_ny_overlap": {
+        "mean": 17882.8562,
+        "median": 11012.0,
+        "n": 1453,
+        "p25": 5449.5,
+        "p75": 21484.0,
+        "p95": 54598.0
+      },
+      "new_york": {
+        "mean": 18896.9163,
+        "median": 13858.0,
+        "n": 609,
+        "p25": 6802.0,
+        "p75": 26104.5,
+        "p95": 51418.0
+      },
+      "rollover_late": {
+        "mean": 24936.7115,
+        "median": 19826.5,
+        "n": 104,
+        "p25": 6990.25,
+        "p75": 32270.0,
+        "p95": 68521.0
+      },
+      "tokyo": {
+        "mean": 30364.7385,
+        "median": 23124.0,
+        "n": 543,
+        "p25": 8694.0,
+        "p75": 46007.0,
+        "p95": 78823.0
+      }
+    },
+    "volume_stats_ticks": {
+      "mean": 22397.5912,
+      "median": 13618.0,
+      "n": 3853,
+      "p25": 6367.5,
+      "p75": 27912.5,
+      "p95": 74066.0
+    }
+  },
+  "USD_JPY": {
+    "duration_by_bucket_minutes": {
+      "high": {
+        "mean": 524.5201,
+        "median": 348.0,
+        "n": 1467,
+        "p25": 222.0,
+        "p75": 619.0,
+        "p95": 1413.0
+      },
+      "low": {
+        "mean": 22.346,
+        "median": 15.0,
+        "n": 1468,
+        "p25": 6.0,
+        "p75": 30.0,
+        "p95": 67.0
+      },
+      "medium": {
+        "mean": 104.0375,
+        "median": 83.0,
+        "n": 1468,
+        "p25": 51.0,
+        "p75": 130.0,
+        "p95": 266.0
+      }
+    },
+    "duration_stats_minutes": {
+      "mean": 216.898,
+      "median": 83.0,
+      "n": 4403,
+      "p25": 26.0,
+      "p75": 247.0,
+      "p95": 914.0
+    },
+    "instrument": "USD_JPY",
+    "n_bars": 4403,
+    "overshoot_by_bucket_pips": {
+      "high": {
+        "mean": 3.358,
+        "median": 1.3,
+        "n": 1467,
+        "p25": 0.5,
+        "p75": 3.0,
+        "p95": 11.7
+      },
+      "low": {
+        "mean": 6.7661,
+        "median": 2.7,
+        "n": 1468,
+        "p25": 0.9,
+        "p75": 7.2,
+        "p95": 27.1
+      },
+      "medium": {
+        "mean": 3.7828,
+        "median": 1.6,
+        "n": 1468,
+        "p25": 0.6,
+        "p75": 3.6,
+        "p95": 12.5
+      }
+    },
+    "session_distribution": {
+      "london": 936,
+      "london_ny_overlap": 1474,
+      "new_york": 568,
+      "rollover_late": 273,
+      "tokyo": 1152
+    },
+    "session_distribution_by_bucket": {
+      "high": {
+        "london": 349,
+        "london_ny_overlap": 409,
+        "new_york": 187,
+        "rollover_late": 107,
+        "tokyo": 415
+      },
+      "low": {
+        "london": 271,
+        "london_ny_overlap": 543,
+        "new_york": 183,
+        "rollover_late": 99,
+        "tokyo": 372
+      },
+      "medium": {
+        "london": 316,
+        "london_ny_overlap": 522,
+        "new_york": 198,
+        "rollover_late": 67,
+        "tokyo": 365
+      }
+    },
+    "spread_by_bucket_pips": {
+      "high": {
+        "mean": 1.9003,
+        "median": 1.8,
+        "n": 1467,
+        "p25": 1.6,
+        "p75": 2.0,
+        "p95": 2.6
+      },
+      "low": {
+        "mean": 2.5013,
+        "median": 2.0,
+        "n": 1468,
+        "p25": 1.8,
+        "p75": 2.5,
+        "p95": 5.5
+      },
+      "medium": {
+        "mean": 1.9504,
+        "median": 1.8,
+        "n": 1468,
+        "p25": 1.7,
+        "p75": 2.0,
+        "p95": 2.5
+      }
+    },
+    "spread_by_session_pips": {
+      "london": {
+        "mean": 1.9329,
+        "median": 1.8,
+        "n": 936,
+        "p25": 1.7,
+        "p75": 2.0,
+        "p95": 2.7
+      },
+      "london_ny_overlap": {
+        "mean": 1.9745,
+        "median": 1.8,
+        "n": 1474,
+        "p25": 1.6,
+        "p75": 2.0,
+        "p95": 3.1
+      },
+      "new_york": {
+        "mean": 1.9315,
+        "median": 1.75,
+        "n": 568,
+        "p25": 1.6,
+        "p75": 2.0,
+        "p95": 3.1
+      },
+      "rollover_late": {
+        "mean": 3.9209,
+        "median": 2.4,
+        "n": 273,
+        "p25": 2.0,
+        "p75": 4.45,
+        "p95": 10.0
+      },
+      "tokyo": {
+        "mean": 2.1144,
+        "median": 1.9,
+        "n": 1152,
+        "p25": 1.7,
+        "p75": 2.2,
+        "p95": 3.2
+      }
+    },
+    "tertile_edges_ticks": [
+      7000.0,
+      19239.0
+    ],
+    "threshold_pips": 30.0,
+    "travel_per_volume_stats": {
+      "mean": 0.0074,
+      "median": 0.0028,
+      "n": 4403,
+      "p25": 0.0013,
+      "p75": 0.0065,
+      "p95": 0.0285
+    },
+    "ultra_thin_overshoot_pips": {
+      "mean": 11.4204,
+      "median": 5.3,
+      "n": 441,
+      "p25": 2.25,
+      "p75": 13.2,
+      "p95": 48.6
+    },
+    "ultra_thin_p10_threshold_ticks": 2333.0,
+    "ultra_thin_session_distribution": {
+      "london": 66,
+      "london_ny_overlap": 158,
+      "new_york": 50,
+      "rollover_late": 63,
+      "tokyo": 104
+    },
+    "ultra_thin_spread_pips": {
+      "mean": 3.5032,
+      "median": 2.5,
+      "n": 441,
+      "p25": 2.0,
+      "p75": 3.7,
+      "p95": 10.0
+    },
+    "volume_autocorr_lag1": 0.2786,
+    "volume_by_bucket_ticks": {
+      "high": {
+        "mean": 42709.5365,
+        "median": 33097.0,
+        "n": 1467,
+        "p25": 24784.0,
+        "p75": 48977.0,
+        "p95": 94730.0
+      },
+      "low": {
+        "mean": 3603.8454,
+        "median": 3614.5,
+        "n": 1468,
+        "p25": 2056.5,
+        "p75": 5221.25,
+        "p95": 6608.0
+      },
+      "medium": {
+        "mean": 12226.3358,
+        "median": 11788.5,
+        "n": 1468,
+        "p25": 9057.25,
+        "p75": 15190.75,
+        "p95": 18415.0
+      }
+    },
+    "volume_by_session": {
+      "london": {
+        "mean": 21032.4808,
+        "median": 13611.0,
+        "n": 936,
+        "p25": 6179.5,
+        "p75": 27850.0,
+        "p95": 63383.0
+      },
+      "london_ny_overlap": {
+        "mean": 18036.5054,
+        "median": 9804.5,
+        "n": 1474,
+        "p25": 4674.0,
+        "p75": 21986.75,
+        "p95": 62985.0
+      },
+      "new_york": {
+        "mean": 19511.6937,
+        "median": 12001.0,
+        "n": 568,
+        "p25": 5534.0,
+        "p75": 22840.75,
+        "p95": 60182.0
+      },
+      "rollover_late": {
+        "mean": 19548.1575,
+        "median": 13206.0,
+        "n": 273,
+        "p25": 2711.0,
+        "p75": 26810.0,
+        "p95": 59541.0
+      },
+      "tokyo": {
+        "mean": 20140.7083,
+        "median": 13075.5,
+        "n": 1152,
+        "p25": 5155.5,
+        "p75": 25699.5,
+        "p95": 61987.0
+      }
+    },
+    "volume_stats_ticks": {
+      "mean": 19507.9709,
+      "median": 11782.0,
+      "n": 4403,
+      "p25": 5216.0,
+      "p75": 24784.0,
+      "p95": 62317.0
+    }
+  }
+}
