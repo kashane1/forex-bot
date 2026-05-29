@@ -50,6 +50,28 @@ COMPATIBILITY_BLOCKED. See
 [`EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION.md`](EDGE_DISCOVERY_IDEA_RANKING_AND_DECISION.md)
 and [`EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY.md`](EDGE_DISCOVERY_FRONT_GATE_IDEA_SELECTION_001_SUMMARY.md).
 
+### CAMPAIGN_027 `h4_filtered_zscore_reversion` — SCAFFOLD_ONLY / PRECOMMITTED (2026-05-28)
+
+`research-campaign-027-h4-filtered-zscore-reversion-scaffold-001` created the
+**CAMPAIGN_027 scaffold** (`h4_filtered_zscore_reversion 0.1.0-c027`) for the one
+front-gate-eligible idea: **short-only filtered H4 z-score mean reversion** —
+20-bar z (mean/σ shifted 1, ddof=1), enter short at |z|>=2.5, low-vol filter
+(ATR-14 simple-mean trailing-250 percentile <=0.33), quiet-session filter
+(asia/london UTC), `next_bar_open` fill, exit = 12-bar time stop + wide 3xATR
+protective stop, conservative financing-inclusive cost binding, 7 majors.
+**Status: paper: NO · demo: NO · live: NO** — `SCAFFOLD_ONLY / PRECOMMITTED /
+NOT_RUN / NOT_APPROVED`. This sprint froze the hypothesis, exact rule, artifact
+contract, kill conditions, execution realism, Backtrader parity design, and the
+future train/validation prompt. **No train/validation/test evidence was run; the
+test lockbox stays closed; `configs/approved_strategies.yaml` stays empty;
+C011 stays the null benchmark; C025/C026 stay REJECT.** The idea is borderline
+(wafer-thin edge; 2024 and 2026-partial negative) and the precommitted kill
+conditions require a future sprint to REJECT it quickly if train/validation
+fails. See
+[`CAMPAIGN_027_PRECOMMIT_H4_FILTERED_ZSCORE_REVERSION_SCOPE.md`](CAMPAIGN_027_PRECOMMIT_H4_FILTERED_ZSCORE_REVERSION_SCOPE.md)
+and
+[`CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_SUMMARY.md).
+
 ### Broad strategy search — PAUSED (2026-05-26)
 
 Post-dedup failure meta-analysis (`POST_DEDUP_FAILURE_META_ANALYSIS_001`)

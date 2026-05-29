@@ -397,6 +397,32 @@ map; the linked documents are the authoritative evidence.
 | [`CAMPAIGN_026_BACKTRADER_PARITY_READINESS.md`](CAMPAIGN_026_BACKTRADER_PARITY_READINESS.md) | Parity readiness = DEFER_PARITY_REJECTED |
 | [`CAMPAIGN_026_TIMEFRAME_LADDER_001_SUMMARY.md`](CAMPAIGN_026_TIMEFRAME_LADDER_001_SUMMARY.md) | **Sprint close-out (41-item summary)** |
 
+## CAMPAIGN_027 Filtered H4 z-score reversion (SCAFFOLD_ONLY / PRECOMMITTED)
+
+> **SCAFFOLD_ONLY / PRECOMMITTED / NOT_RUN / NOT_APPROVED** (2026-05-28). Scaffold
+> for the single idea that survived the edge-discovery front gate: **short-only
+> filtered H4 z-score mean reversion** (20-bar z, mean/σ shifted 1, ddof=1; enter
+> short at |z|>=2.5; low-vol ATR-14 simple-mean trailing-250 percentile <=0.33;
+> quiet-session asia/london UTC; `next_bar_open` fill; exit = 12-bar time stop +
+> wide 3xATR protective stop; conservative financing-inclusive cost binding; 7
+> majors). **No train/validation/test evidence run; test lockbox closed;
+> `approved_strategies.yaml` stays empty; paper/demo/live blocked; C011 stays the
+> null benchmark; C025/C026 stay REJECT.** Borderline (wafer-thin; 2024/2026
+> negative) — the nine precommitted kill conditions bind a future sprint.
+
+| document | purpose |
+|---|---|
+| [`CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_PLAN.md`](CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_PLAN.md) | Plan + truth audit (CAMPAIGN_027 verified free) |
+| [`CAMPAIGN_027_EDGE_DISCOVERY_TO_PRECOMMIT_RECONCILIATION.md`](CAMPAIGN_027_EDGE_DISCOVERY_TO_PRECOMMIT_RECONCILIATION.md) | Front-gate evidence → precommit decision |
+| [`CAMPAIGN_027_PRECOMMIT_H4_FILTERED_ZSCORE_REVERSION_SCOPE.md`](CAMPAIGN_027_PRECOMMIT_H4_FILTERED_ZSCORE_REVERSION_SCOPE.md) | **Frozen rule (binding precommit)** |
+| [`CAMPAIGN_027_EDGE_DISCOVERY_ARTIFACT_CONTRACT.md`](CAMPAIGN_027_EDGE_DISCOVERY_ARTIFACT_CONTRACT.md) | Edge-discovery-compatible artifact contract |
+| [`../../research/campaign_027/artifact_contract.json`](../../research/campaign_027/artifact_contract.json) | Machine-readable artifact contract (scaffold-safe) |
+| [`CAMPAIGN_027_BACKTRADER_PARITY_DESIGN.md`](CAMPAIGN_027_BACKTRADER_PARITY_DESIGN.md) | Backtrader parity design (design only) |
+| [`NEXT_SPRINT_PROMPT_AFTER_CAMPAIGN_027_SCAFFOLD.md`](NEXT_SPRINT_PROMPT_AFTER_CAMPAIGN_027_SCAFFOLD.md) | Future train/validation prompt (NOT executed) |
+| [`../../configs/campaign_027_h4_filtered_zscore_reversion.yaml`](../../configs/campaign_027_h4_filtered_zscore_reversion.yaml) | Campaign config (`not_approved`, scaffold_only) |
+| [`../../src/forex_bot/strategies/h4_filtered_zscore_reversion.py`](../../src/forex_bot/strategies/h4_filtered_zscore_reversion.py) | Short-only pure-signal strategy module |
+| [`../../scripts/run_campaign_027_h4_filtered_zscore_reversion.py`](../../scripts/run_campaign_027_h4_filtered_zscore_reversion.py) | Preflight-only runner (refuses evidence modes) |
+
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
 > **Implementation infrastructure / data only** — `strategy_evidence: false`. No
