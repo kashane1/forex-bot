@@ -34,7 +34,7 @@ import pandas as pd
 
 from forex_bot.data.non_time_bars import RangeBar, pip_size
 from forex_bot.domain.candles import Candle, CandleFrame
-from forex_bot.features.htf_align import HTF_UNAVAILABLE
+from forex_bot.features.htf_align import HTF_STALE, HTF_UNAVAILABLE
 from forex_bot.strategies.indicators import ema
 from forex_bot.strategies.usdjpy_range_bar_mtf_breakout import (
     EXIT_EOD,
@@ -120,7 +120,9 @@ def _half_spread_pips(c: Candle, pip: float) -> float:
 
 
 @dataclass(frozen=True)
-class _M1Index:
+class M1Index:
+    """Lightweight numeric view of the M1 tape (no Candle objects retained)."""
+
     times: list[datetime]
     mid_low: np.ndarray
     mid_high: np.ndarray
@@ -128,7 +130,7 @@ class _M1Index:
     half_spread: np.ndarray
 
     @classmethod
-    def build(cls, m1: Sequence[Candle], pip: float) -> _M1Index:
+    def build(cls, m1: Sequence[Candle], pip: float) -> M1Index:
         times: list[datetime] = []
         lows: list[float] = []
         highs: list[float] = []
@@ -174,15 +176,24 @@ def _ema_close_arrays(frame: CandleFrame, ema_fast: int, ema_slow: int) -> tuple
     return close.to_numpy(), ef, es, times
 
 
+def _staleness_seconds(decision: pd.Timestamp, feature_time_ns: np.datetime64) -> float:
+    return (decision.tz_convert("UTC").tz_localize(None) - feature_time_ns) / np.timedelta64(1, "s")
+
+
 def precompute_h4_trends(
-    h4_frame: CandleFrame, decision_times: Sequence[datetime], params: RangeBarMtfBreakoutConfig
+    h4_frame: CandleFrame,
+    decision_times: Sequence[datetime],
+    params: RangeBarMtfBreakoutConfig,
+    *,
+    max_staleness_seconds: float | None = None,
 ) -> list[tuple[Trend, datetime | None, str | None]]:
     """Per-decision H4 trend (close vs EMA50 + EMA50 slope) — vectorised aligner.
 
     Identical rule to ``usdjpy_range_bar_mtf_breakout.aligned_h4_trend`` but the
     EMA frame is built once and decisions are resolved with ``searchsorted`` (last
     completed H4 bar at/before the decision). Cross-checked against the strategy in
-    tests.
+    tests. If ``max_staleness_seconds`` is set, an aligned bar older than the bound
+    is returned as ``HTF_STALE`` (a block) — the frozen "H4 stale ⇒ no trade" policy.
     """
     close, _ef, es, times = _ema_close_arrays(h4_frame, params.h4_ema_fast, params.h4_ema_slow)
     need = params.h4_ema_slow + params.h4_ema_slope_bars + 1
@@ -204,8 +215,11 @@ def precompute_h4_trends(
         if not all(math.isfinite(v) for v in (c, es_now, es_prev)):
             out.append(("neutral", None, HTF_UNAVAILABLE))
             continue
-        slope = es_now - es_prev
         ft = pd.Timestamp(times[pos]).tz_localize("UTC").to_pydatetime()
+        if max_staleness_seconds is not None and _staleness_seconds(ts, times_ns[pos]) > max_staleness_seconds:
+            out.append(("neutral", ft, HTF_STALE))
+            continue
+        slope = es_now - es_prev
         if c > es_now and slope > 0:
             out.append(("bullish", ft, None))
         elif c < es_now and slope < 0:
@@ -216,9 +230,17 @@ def precompute_h4_trends(
 
 
 def precompute_d1agg_regimes(
-    d1agg_frame: CandleFrame | None, decision_times: Sequence[datetime], params: RangeBarMtfBreakoutConfig
+    d1agg_frame: CandleFrame | None,
+    decision_times: Sequence[datetime],
+    params: RangeBarMtfBreakoutConfig,
+    *,
+    max_staleness_seconds: float | None = None,
 ) -> list[tuple[str, datetime | None, str | None]]:
-    """Per-decision D1AGG permissive regime — vectorised, same rule as the strategy."""
+    """Per-decision D1AGG permissive regime — vectorised, same rule as the strategy.
+
+    With ``max_staleness_seconds`` set, an aligned D1AGG bar older than the bound is
+    ``HTF_STALE`` (a block); the engine then skips the optional D1AGG gate.
+    """
     n = len(decision_times)
     if d1agg_frame is None:
         return [("unavailable", None, HTF_UNAVAILABLE)] * n
@@ -243,6 +265,10 @@ def precompute_d1agg_regimes(
         if not all(math.isfinite(v) for v in (c, es_now, ef_now, ef_prev)):
             out.append(("neither", None, HTF_UNAVAILABLE))
             continue
+        ft = pd.Timestamp(times[pos]).tz_localize("UTC").to_pydatetime()
+        if max_staleness_seconds is not None and _staleness_seconds(ts, times_ns[pos]) > max_staleness_seconds:
+            out.append(("neither", ft, HTF_STALE))
+            continue
         slope = ef_now - ef_prev
         not_bearish = c >= es_now or slope >= 0
         not_bullish = c <= es_now or slope <= 0
@@ -264,21 +290,31 @@ def precompute_d1agg_regimes(
 def run_range_bar_execution(
     *,
     range_bars: Sequence[RangeBar],
-    m1_candles: Sequence[Candle],
+    m1_candles: Sequence[Candle] | None = None,
+    m1_index: M1Index | None = None,
     h4_trends: Sequence[tuple[str, datetime | None, str | None]],
     d1_regimes: Sequence[tuple[str, datetime | None, str | None]],
     params: RangeBarMtfBreakoutConfig,
     fixed_slippage_pips: float = 0.2,
     instrument: str = PAIR,
 ) -> list[RangeBarTrade]:
-    """Resolve the frozen rule into trades on the M1 tape. Deterministic."""
+    """Resolve the frozen rule into trades on the M1 tape. Deterministic.
+
+    Provide either ``m1_candles`` (a Candle sequence, indexed here) or a prebuilt
+    ``m1_index`` (cheaper for full-corpus runs).
+    """
     bars = [b for b in range_bars if not b.incomplete]
     if len(h4_trends) != len(bars) or len(d1_regimes) != len(bars):
         raise ValueError("h4_trends/d1_regimes length must match completed range bars")
     if instrument != PAIR:
         raise ValueError(f"CAMPAIGN_029 is {PAIR}-only; got {instrument!r}")
     pip = float(pip_size(instrument))
-    m1 = _M1Index.build(m1_candles, pip)
+    if m1_index is not None:
+        m1 = m1_index
+    elif m1_candles is not None:
+        m1 = M1Index.build(m1_candles, pip)
+    else:
+        raise ValueError("provide m1_candles or m1_index")
     n = len(bars)
     trades: list[RangeBarTrade] = []
     blocked_until = -1  # one position at a time; no trigger at/before this index

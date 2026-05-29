@@ -216,3 +216,11 @@ def test_vectorised_h4_aligner_matches_strategy_rule() -> None:
         assert (block_b is None) == (block_s is None)
         if time_b is not None and time_s is not None:
             assert time_b == time_s
+
+    # staleness bound: a decision far past the last completed H4 bar is HTF_STALE.
+    last_close = base + timedelta(hours=4 * 79)
+    far = last_close + timedelta(hours=30)
+    stale = precompute_h4_trends(frame, [far], _PARAMS, max_staleness_seconds=8 * 3600)[0]
+    assert stale[2] == "HTF_STALE"
+    fresh = precompute_h4_trends(frame, [last_close + timedelta(hours=1)], _PARAMS, max_staleness_seconds=8 * 3600)[0]
+    assert fresh[2] is None

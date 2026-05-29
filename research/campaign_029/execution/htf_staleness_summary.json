@@ -1,0 +1,63 @@
+{
+  "campaign": "CAMPAIGN_029",
+  "purpose": "HTF/D1AGG availability + staleness (no signals/trades/PnL)",
+  "candidate_bounds": {
+    "h4_seconds": 28800,
+    "d1agg_seconds": 259200
+  },
+  "splits": {
+    "train": {
+      "from": "2021-05-27T00:00:00+00:00",
+      "to": "2023-12-31T23:59:00+00:00",
+      "range_bars": 33457,
+      "m1_rows": 955316,
+      "h4_frame_bars": 2463,
+      "d1agg_frame_bars": 674,
+      "h4": {
+        "decisions": 33457,
+        "missing": 182,
+        "stale_over_bound": 4697,
+        "max_staleness_seconds": 517620.0,
+        "p99_staleness_seconds": 213720.0,
+        "max_staleness_bound_seconds": 28800,
+        "available_and_fresh": 28578
+      },
+      "d1agg": {
+        "decisions": 33457,
+        "missing": 536,
+        "stale_over_bound": 59,
+        "max_staleness_seconds": 344880.0,
+        "p99_staleness_seconds": 253080.0,
+        "max_staleness_bound_seconds": 259200,
+        "available_and_fresh": 32862
+      }
+    },
+    "validation": {
+      "from": "2024-01-01T00:00:00+00:00",
+      "to": "2024-12-31T23:59:00+00:00",
+      "range_bars": 17566,
+      "m1_rows": 370995,
+      "h4_frame_bars": 3664,
+      "d1agg_frame_bars": 934,
+      "h4": {
+        "decisions": 17566,
+        "missing": 0,
+        "stale_over_bound": 1006,
+        "max_staleness_seconds": 300900.0,
+        "p99_staleness_seconds": 206640.0,
+        "max_staleness_bound_seconds": 28800,
+        "available_and_fresh": 16560
+      },
+      "d1agg": {
+        "decisions": 17566,
+        "missing": 0,
+        "stale_over_bound": 52,
+        "max_staleness_seconds": 340980.0,
+        "p99_staleness_seconds": 254880.0,
+        "max_staleness_bound_seconds": 259200,
+        "available_and_fresh": 17514
+      }
+    }
+  },
+  "test_window_loaded": false
+}
