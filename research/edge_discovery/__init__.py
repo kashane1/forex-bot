@@ -64,6 +64,12 @@ from research.edge_discovery.matched_nulls import (
     interpret_matched_null,
     matched_null_baseline,
 )
+from research.edge_discovery.multiple_comparison import (
+    HoldoutStability,
+    MatrixSanityResult,
+    holdout_stability,
+    matrix_sanity,
+)
 from research.edge_discovery.null import NullBaseline, random_null_baseline
 from research.edge_discovery.real_data import (
     CampaignWalkForwardResult,
@@ -91,7 +97,9 @@ __all__ = [
     "FilterContribution",
     "FoldPairSummary",
     "ForwardReturns",
+    "HoldoutStability",
     "MatchedNullResult",
+    "MatrixSanityResult",
     "NullBaseline",
     "Side",
     "StageMetrics",
@@ -103,6 +111,7 @@ __all__ = [
     "compute_forward_returns",
     "filter_ablation",
     "fold_pair_summaries_to_frame",
+    "holdout_stability",
     "interpret_matched_null",
     "load_campaign_fold_pair_summaries",
     "load_campaign_trades",
@@ -112,6 +121,7 @@ __all__ = [
     "load_event_fixture_json",
     "load_h4_candles_from_sqlite",
     "matched_null_baseline",
+    "matrix_sanity",
     "random_null_baseline",
     "resolve_h4_store_path",
     "summarize_study",
