@@ -1,0 +1,293 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "generated_at_utc": "2026-05-29T04:11:34.671059+00:00",
+  "timeframes": [
+    "H4",
+    "H1"
+  ],
+  "instruments": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "NZD_USD"
+  ],
+  "hostile_ratio": 0.25,
+  "n_hostile_session_cells": 0,
+  "cheapest_pair_timeframe": [
+    {
+      "instrument": "USD_JPY",
+      "timeframe": "H4",
+      "spread_atr_ratio": 0.04323,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "GBP_USD",
+      "timeframe": "H4",
+      "spread_atr_ratio": 0.05191,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "AUD_USD",
+      "timeframe": "H4",
+      "spread_atr_ratio": 0.05433,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "EUR_USD",
+      "timeframe": "H4",
+      "spread_atr_ratio": 0.05544,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "USD_CAD",
+      "timeframe": "H4",
+      "spread_atr_ratio": 0.06491,
+      "flags": "COST_FEASIBLE"
+    }
+  ],
+  "cheapest_pair_timeframe_session": [
+    {
+      "instrument": "USD_JPY",
+      "timeframe": "H4",
+      "session": "london_ny_overlap",
+      "spread_atr_ratio": 0.03716,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "USD_JPY",
+      "timeframe": "H4",
+      "session": "london",
+      "spread_atr_ratio": 0.04002,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "USD_JPY",
+      "timeframe": "H4",
+      "session": "asian",
+      "spread_atr_ratio": 0.04034,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "GBP_USD",
+      "timeframe": "H4",
+      "session": "london_ny_overlap",
+      "spread_atr_ratio": 0.04568,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "GBP_USD",
+      "timeframe": "H4",
+      "session": "london",
+      "spread_atr_ratio": 0.0472,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "EUR_USD",
+      "timeframe": "H4",
+      "session": "london_ny_overlap",
+      "spread_atr_ratio": 0.04938,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "AUD_USD",
+      "timeframe": "H4",
+      "session": "london_ny_overlap",
+      "spread_atr_ratio": 0.05081,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "instrument": "AUD_USD",
+      "timeframe": "H4",
+      "session": "london",
+      "spread_atr_ratio": 0.05177,
+      "flags": "COST_FEASIBLE"
+    }
+  ],
+  "most_volatile_pair_timeframe": [
+    {
+      "instrument": "USD_JPY",
+      "timeframe": "H4",
+      "median_atr_pips": 41.3834
+    },
+    {
+      "instrument": "GBP_USD",
+      "timeframe": "H4",
+      "median_atr_pips": 36.3956
+    },
+    {
+      "instrument": "USD_CAD",
+      "timeframe": "H4",
+      "median_atr_pips": 29.9491
+    },
+    {
+      "instrument": "EUR_USD",
+      "timeframe": "H4",
+      "median_atr_pips": 27.907
+    },
+    {
+      "instrument": "AUD_USD",
+      "timeframe": "H4",
+      "median_atr_pips": 25.507
+    }
+  ],
+  "usd_jpy_cells": [
+    {
+      "timeframe": "H1",
+      "spread_atr_ratio": 0.09137,
+      "median_atr_pips": 18.7824,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "timeframe": "H4",
+      "spread_atr_ratio": 0.04323,
+      "median_atr_pips": 41.3834,
+      "flags": "COST_FEASIBLE"
+    }
+  ],
+  "volatility_expansion": {
+    "H4": {
+      "median_atr_pips_by_session": {
+        "asian": 27.831,
+        "london": 28.07,
+        "london_ny_overlap": 29.126,
+        "ny": 28.529
+      },
+      "median_atr_pips_by_vol_regime": {
+        "high_vol": 39.666,
+        "low_vol": 20.943,
+        "mid_vol": 27.753
+      }
+    },
+    "H1": {
+      "median_atr_pips_by_session": {
+        "asian": 12.865,
+        "london": 12.79,
+        "london_ny_overlap": 14.414,
+        "ny": 14.604
+      },
+      "median_atr_pips_by_vol_regime": {
+        "high_vol": 19.64,
+        "low_vol": 9.686,
+        "mid_vol": 13.203
+      }
+    }
+  },
+  "provenance": [
+    {
+      "instrument": "EUR_USD",
+      "granularity": "H4",
+      "dedupe_policy": "keep_last",
+      "raw_count": 19880,
+      "deduped_count": 9949,
+      "bar_count": 9949
+    },
+    {
+      "instrument": "GBP_USD",
+      "granularity": "H4",
+      "dedupe_policy": "keep_last",
+      "raw_count": 19880,
+      "deduped_count": 9949,
+      "bar_count": 9949
+    },
+    {
+      "instrument": "USD_JPY",
+      "granularity": "H4",
+      "dedupe_policy": "keep_last",
+      "raw_count": 19882,
+      "deduped_count": 9950,
+      "bar_count": 9950
+    },
+    {
+      "instrument": "AUD_USD",
+      "granularity": "H4",
+      "dedupe_policy": "keep_last",
+      "raw_count": 19880,
+      "deduped_count": 9949,
+      "bar_count": 9949
+    },
+    {
+      "instrument": "USD_CAD",
+      "granularity": "H4",
+      "dedupe_policy": "keep_last",
+      "raw_count": 19880,
+      "deduped_count": 9949,
+      "bar_count": 9949
+    },
+    {
+      "instrument": "USD_CHF",
+      "granularity": "H4",
+      "dedupe_policy": "keep_last",
+      "raw_count": 19880,
+      "deduped_count": 9949,
+      "bar_count": 9949
+    },
+    {
+      "instrument": "NZD_USD",
+      "granularity": "H4",
+      "dedupe_policy": "keep_last",
+      "raw_count": 19888,
+      "deduped_count": 9953,
+      "bar_count": 9953
+    },
+    {
+      "instrument": "EUR_USD",
+      "granularity": "H1",
+      "dedupe_policy": "keep_last",
+      "raw_count": 39713,
+      "deduped_count": 39713,
+      "bar_count": 39713
+    },
+    {
+      "instrument": "GBP_USD",
+      "granularity": "H1",
+      "dedupe_policy": "keep_last",
+      "raw_count": 39712,
+      "deduped_count": 39712,
+      "bar_count": 39712
+    },
+    {
+      "instrument": "USD_JPY",
+      "granularity": "H1",
+      "dedupe_policy": "keep_last",
+      "raw_count": 39714,
+      "deduped_count": 39714,
+      "bar_count": 39714
+    },
+    {
+      "instrument": "AUD_USD",
+      "granularity": "H1",
+      "dedupe_policy": "keep_last",
+      "raw_count": 39708,
+      "deduped_count": 39708,
+      "bar_count": 39708
+    },
+    {
+      "instrument": "USD_CAD",
+      "granularity": "H1",
+      "dedupe_policy": "keep_last",
+      "raw_count": 39714,
+      "deduped_count": 39714,
+      "bar_count": 39714
+    },
+    {
+      "instrument": "USD_CHF",
+      "granularity": "H1",
+      "dedupe_policy": "keep_last",
+      "raw_count": 39709,
+      "deduped_count": 39709,
+      "bar_count": 39709
+    },
+    {
+      "instrument": "NZD_USD",
+      "granularity": "H1",
+      "dedupe_policy": "keep_last",
+      "raw_count": 39717,
+      "deduped_count": 39717,
+      "bar_count": 39717
+    }
+  ]
+}
