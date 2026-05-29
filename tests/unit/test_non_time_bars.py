@@ -20,6 +20,8 @@ from forex_bot.data.non_time_bars import (
     build_range_bars,
     build_volatility_bars,
     pip_size,
+    stream_range_bars,
+    stream_volatility_bars,
 )
 from forex_bot.domain.candles import Candle
 
@@ -471,6 +473,29 @@ def test_atr_scaled_warmup_emits_no_bars():
 # --------------------------------------------------------------------------- #
 # Config validation
 # --------------------------------------------------------------------------- #
+
+
+def test_stream_builders_match_build_builders():
+    rows = _ramp(120)
+    rcfg = RangeBarConfig(instrument="EUR_USD", threshold_pips=12)
+    assert list(stream_range_bars(rows, rcfg)) == build_range_bars(rows, rcfg)
+    vcfg = VolatilityBarConfig(instrument="EUR_USD", method="true_range", threshold_pips=18)
+    assert list(stream_volatility_bars(rows, vcfg)) == build_volatility_bars(rows, vcfg)
+
+
+def test_stream_builder_rejects_out_of_order():
+    a = mk(0, "1.0000", "1.0001", "0.9999", "1.0000")
+    b = mk(1, "1.0000", "1.0012", "1.0000", "1.0011", minute=-1)  # earlier time, out of order
+    with pytest.raises(ValueError, match="not sorted"):
+        list(stream_range_bars([a, b], RangeBarConfig(instrument="EUR_USD", threshold_pips=10)))
+
+
+def test_stream_builder_is_lazy_generator():
+    # A generator must not materialise its whole input; consuming one bar should
+    # not require exhausting an (here finite) source, and it yields incrementally.
+    gen = stream_range_bars(_ramp(200), RangeBarConfig(instrument="EUR_USD", threshold_pips=8))
+    first = next(gen)
+    assert first.completion_reason in ("range_up", "range_down")
 
 
 def test_config_validation_errors():

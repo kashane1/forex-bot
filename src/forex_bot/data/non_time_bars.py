@@ -231,23 +231,77 @@ def _ordered_rows(
     return rows
 
 
+def _streaming_validate(
+    candles: Iterable[Candle],
+    instrument: str,
+    *,
+    duplicate_policy: DuplicatePolicy,
+) -> Iterator[Candle]:
+    """Memory-bounded validation for already-time-ordered input streams.
+
+    Yields rows one at a time (peak memory = one buffered row), enforcing
+    instrument homogeneity and non-decreasing time, and applying the duplicate
+    policy via single-row lookahead. Unlike :func:`_ordered_rows` it cannot
+    globally re-sort, so the input MUST be time-ordered (out-of-order raises).
+    Used by the ``stream_*`` builders for full-corpus folds.
+    """
+    prev: Candle | None = None
+    for row in candles:
+        if row.instrument != instrument:
+            raise ValueError(
+                f"input instrument {row.instrument!r} does not match config instrument {instrument!r}"
+            )
+        if prev is None:
+            prev = row
+            continue
+        if row.time < prev.time:
+            raise ValueError(f"input not sorted: {row.time} follows {prev.time}")
+        if row.time == prev.time:
+            if duplicate_policy == "reject":
+                raise ValueError(f"duplicate source timestamp: {row.time}")
+            if duplicate_policy == "keep_last":
+                prev = row
+            # keep_first: drop current, retain buffered prev
+            continue
+        yield prev
+        prev = row
+    if prev is not None:
+        yield prev
+
+
 # --------------------------------------------------------------------------- #
 # Range bars
 # --------------------------------------------------------------------------- #
 
 
 def build_range_bars(candles: Iterable[Candle], config: RangeBarConfig) -> list[RangeBar]:
-    """Fold M1 candles into range bars per RANGE_BAR_CONSTRUCTION_SPEC.md."""
-    return list(_iter_range_bars(candles, config))
+    """Fold M1 candles into range bars per RANGE_BAR_CONSTRUCTION_SPEC.md.
 
-
-def _iter_range_bars(candles: Iterable[Candle], config: RangeBarConfig) -> Iterator[RangeBar]:
+    Materialises and validates the full input (supports ``require_sorted=False``
+    re-sort and all duplicate policies). For large corpora use
+    :func:`stream_range_bars`.
+    """
     rows = _ordered_rows(
         candles,
         config.instrument,
         require_sorted=config.require_sorted,
         duplicate_policy=config.duplicate_policy,
     )
+    return list(_fold_range_bars(iter(rows), config))
+
+
+def stream_range_bars(candles: Iterable[Candle], config: RangeBarConfig) -> Iterator[RangeBar]:
+    """Memory-bounded range-bar fold over an already-time-ordered stream.
+
+    Validates incrementally (single-row buffer); the input MUST be time-ordered.
+    Yields completed bars as they form, so a multi-million-row corpus folds in
+    ~one-chunk peak memory.
+    """
+    rows = _streaming_validate(candles, config.instrument, duplicate_policy=config.duplicate_policy)
+    yield from _fold_range_bars(rows, config)
+
+
+def _fold_range_bars(rows: Iterator[Candle], config: RangeBarConfig) -> Iterator[RangeBar]:
     psize = pip_size(config.instrument)
     threshold = Decimal(str(config.threshold_pips))
 
@@ -331,19 +385,31 @@ def _iter_range_bars(candles: Iterable[Candle], config: RangeBarConfig) -> Itera
 def build_volatility_bars(
     candles: Iterable[Candle], config: VolatilityBarConfig
 ) -> list[VolatilityBar]:
-    """Fold M1 candles into volatility bars per VOLATILITY_BAR_CONSTRUCTION_SPEC.md."""
-    return list(_iter_volatility_bars(candles, config))
+    """Fold M1 candles into volatility bars per VOLATILITY_BAR_CONSTRUCTION_SPEC.md.
 
-
-def _iter_volatility_bars(
-    candles: Iterable[Candle], config: VolatilityBarConfig
-) -> Iterator[VolatilityBar]:
+    Materialises and validates the full input. For large corpora use
+    :func:`stream_volatility_bars`.
+    """
     rows = _ordered_rows(
         candles,
         config.instrument,
         require_sorted=config.require_sorted,
         duplicate_policy=config.duplicate_policy,
     )
+    return list(_fold_volatility_bars(iter(rows), config))
+
+
+def stream_volatility_bars(
+    candles: Iterable[Candle], config: VolatilityBarConfig
+) -> Iterator[VolatilityBar]:
+    """Memory-bounded volatility-bar fold over an already-time-ordered stream."""
+    rows = _streaming_validate(candles, config.instrument, duplicate_policy=config.duplicate_policy)
+    yield from _fold_volatility_bars(rows, config)
+
+
+def _fold_volatility_bars(
+    rows: Iterator[Candle], config: VolatilityBarConfig
+) -> Iterator[VolatilityBar]:
     psize = pip_size(config.instrument)
     atr_window = config.atr_window or 0
     atr_multiple = Decimal(str(config.atr_multiple)) if config.atr_multiple is not None else None

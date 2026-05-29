@@ -228,15 +228,13 @@ research/edge_discovery/cli_runs/
 research/campaign_027/train_validation/schema_check/
 
 # infra-range-and-volatility-bars-001: non-time-bar (range/volatility) diagnostics.
-# Gitignore the whole output tree (bulky full generated bars: CSV/parquet/JSONL),
-# then whitelist ONLY the compact JSON summaries/manifests so they are committed.
-# Full generated bars are regenerable from local M1 and must never be committed.
-research/non_time_bars/*
+# Ignore the whole output tree (bulky full generated bars: CSV/parquet/JSONL) but
+# re-include directories so git descends, then whitelist ONLY the compact JSON
+# summaries/manifests. Full generated bars are regenerable from local M1 and must
+# never be committed. (Directory re-include before file whitelist avoids the
+# gitignore "ignored parent dir hides whitelisted child" gotcha.)
+research/non_time_bars/**
+!research/non_time_bars/**/
 !research/non_time_bars/.gitkeep
 !research/non_time_bars/**/*_summary.json
 !research/non_time_bars/**/*_manifest.json
-# Re-assert the ignore for any nested full-bar dumps even under whitelisted dirs.
-research/non_time_bars/**/*.csv
-research/non_time_bars/**/*.parquet
-research/non_time_bars/**/*.jsonl
-research/non_time_bars/**/full_bars/
