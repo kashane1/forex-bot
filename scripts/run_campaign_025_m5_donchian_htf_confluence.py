@@ -282,12 +282,166 @@ def sample_signals(
     return out
 
 
+TRAIN_DIR = OUT_RESEARCH / "train_matrix"
+VALID_DIR = OUT_RESEARCH / "validation"
+# Test window is LOCKED — the runner refuses to operate inside it.
+TEST_WINDOW = ("2025-01-01", "2026-05-20")
+
+
+def _assert_not_test_window(start: str, end: str) -> None:
+    ts, te = TEST_WINDOW
+    if not (end < ts or start > te):
+        raise SystemExit(
+            f"FAIL_IF_TEST_WINDOW: requested window [{start},{end}] overlaps the LOCKED "
+            f"test window [{ts},{te}] — the lockbox stays closed in this sprint."
+        )
+
+
+def _load_candidates() -> list[dict]:
+    reg = json.loads((TRAIN_DIR / "candidate_registry.json").read_text(encoding="utf-8"))
+    return reg["candidates"]
+
+
+def run_train_matrix(settings, raw, *, train_start: str, train_end: str) -> dict[str, Any]:
+    """Run the full candidate matrix on the TRAIN window only; never validation/test."""
+    import csv
+
+    from forex_bot.research import campaign_025_train_matrix as tm
+
+    assert_execution_metadata(raw)
+    assert_registry_empty()
+    _assert_not_test_window(train_start, train_end)
+    pairs = list(settings.market.instruments)
+    ws = datetime.fromisoformat(train_start).replace(tzinfo=UTC)
+    we = datetime.fromisoformat(train_end).replace(hour=23, minute=59, tzinfo=UTC)
+    store = _open_store()
+    feats = tm.load_features_for_window(store, pairs, window_start=ws, window_end=we)
+    candidates = _load_candidates()
+    evals = [tm.evaluate_candidate(feats, c, window_start=ws, window_end=we) for c in candidates]
+    selection = tm.rank_and_select(evals)
+
+    TRAIN_DIR.mkdir(parents=True, exist_ok=True)
+
+    def _csv(name: str, rows: list[dict]) -> None:
+        if not rows:
+            (TRAIN_DIR / name).write_text("", encoding="utf-8")
+            return
+        with (TRAIN_DIR / name).open("w", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+            w.writeheader()
+            w.writerows(rows)
+
+    metrics_rows, gate_rows, pair_rows, side_rows, exit_rows, stress_rows, c011_rows = ([] for _ in range(7))
+    holding, spread_atr, funnel = {}, {}, {}
+    for ev in evals:
+        cid, b, s = ev["candidate_id"], ev["base"], ev["stress_2x"]
+        metrics_rows.append({
+            "candidate_id": cid, "archetype": ev["archetype"], "trade_count": b["trade_count"],
+            "expectancy_r": b["expectancy_r"], "profit_factor": b["profit_factor"],
+            "pairs_nonneg": b["pairs_nonneg"], "top_pair_concentration": b["top_pair_positive_r_concentration"],
+            "stress_2x_expectancy_r": s["expectancy_r"], "beat_c011_null_by": b["beat_c011_null_by"],
+            "avg_hold_bars": round(b["avg_hold_bars"], 2), "avg_spread_atr_ratio": b["avg_spread_atr_ratio"],
+        })
+        gate_rows.append({"candidate_id": cid, "eligible": ev["filters"]["eligible"],
+                          "failed": "|".join(ev["filters"]["failed"]),
+                          "single_pair_review_flag": ev["filters"]["single_pair_review_flag"]})
+        for p, v in b["per_pair_expectancy_r"].items():
+            pair_rows.append({"candidate_id": cid, "pair": p, "expectancy_r": v,
+                              "trade_count": b["per_pair_trade_count"][p]})
+        side_rows.append({"candidate_id": cid, "long_count": b["long_count"], "long_expectancy_r": b["long_expectancy_r"],
+                          "short_count": b["short_count"], "short_expectancy_r": b["short_expectancy_r"]})
+        exit_rows.append({"candidate_id": cid, **b["exit_reason_counts"]})
+        stress_rows.append({"candidate_id": cid, "base_expectancy_r": b["expectancy_r"], "stress_2x_expectancy_r": s["expectancy_r"]})
+        c011_rows.append({"candidate_id": cid, "expectancy_r": b["expectancy_r"], "c011_null": tm.C011_NULL_EXP_R,
+                          "beat_by": b["beat_c011_null_by"], "beat_by_margin_010": (b["beat_c011_null_by"] or -9) >= 0.010})
+        holding[cid] = {"avg_hold_bars": b["avg_hold_bars"], "median_hold_bars": b["median_hold_bars"]}
+        spread_atr[cid] = {"avg_spread_atr_ratio": b["avg_spread_atr_ratio"]}
+        funnel[cid] = ev["funnel_total"]
+
+    _csv("train_matrix_metrics.csv", metrics_rows)
+    _csv("train_matrix_gate_filters.csv", gate_rows)
+    _csv("train_matrix_pair_metrics.csv", pair_rows)
+    _csv("train_matrix_side_metrics.csv", side_rows)
+    _csv("train_matrix_exit_reason_summary.csv", exit_rows)
+    _csv("train_matrix_cost_stress_2x.csv", stress_rows)
+    _csv("train_matrix_comparison_to_c011_null.csv", c011_rows)
+    (TRAIN_DIR / "train_matrix_holding_period_diagnostics.json").write_text(json.dumps(holding, indent=2), encoding="utf-8")
+    (TRAIN_DIR / "train_matrix_spread_atr_diagnostics.json").write_text(json.dumps(spread_atr, indent=2), encoding="utf-8")
+    (TRAIN_DIR / "train_matrix_signal_funnel_diagnostics.json").write_text(json.dumps(funnel, indent=2), encoding="utf-8")
+    selection["train_window"] = {"start": train_start, "end": train_end}
+    selection["pairs"] = pairs
+    (TRAIN_DIR / "train_matrix_candidate_selection.json").write_text(json.dumps(selection, indent=2, default=str), encoding="utf-8")
+    (TRAIN_DIR / "train_matrix_run_manifest.json").write_text(json.dumps(
+        _run_manifest("train-matrix", {"train_window": [train_start, train_end], "candidates": len(candidates),
+                                       "champion": selection["champion_candidate_id"],
+                                       "classification": selection["classification"]}), indent=2), encoding="utf-8")
+    warnings = {"classification": selection["classification"],
+                "single_pair_review_flags": selection.get("single_pair_review_flags", []),
+                "validation_allowed": selection["champion_candidate_id"] is not None}
+    (TRAIN_DIR / "blocked_or_warning_conditions.json").write_text(json.dumps(warnings, indent=2), encoding="utf-8")
+    return selection
+
+
+def run_champion_validation(settings, raw, *, valid_start: str, valid_end: str) -> dict[str, Any]:
+    """Run validation ONCE on the train-selected champion only; never test."""
+    from forex_bot.research import campaign_025_train_matrix as tm
+
+    assert_execution_metadata(raw)
+    assert_registry_empty()
+    _assert_not_test_window(valid_start, valid_end)
+    sel_path = TRAIN_DIR / "train_matrix_candidate_selection.json"
+    if not sel_path.is_file():
+        raise SystemExit("no train selection found — run --train-matrix first")
+    selection = json.loads(sel_path.read_text(encoding="utf-8"))
+    champ_id = selection.get("champion_candidate_id")
+    if not champ_id:
+        return {"validation_run": False, "reason": "no champion selected on train", "classification": selection["classification"]}
+    champ = selection["champion_parameters"]
+    pairs = list(settings.market.instruments)
+    ws = datetime.fromisoformat(valid_start).replace(tzinfo=UTC)
+    we = datetime.fromisoformat(valid_end).replace(hour=23, minute=59, tzinfo=UTC)
+    store = _open_store()
+    feats = tm.load_features_for_window(store, pairs, window_start=ws, window_end=we)
+    ev = tm.evaluate_candidate(feats, champ, window_start=ws, window_end=we)
+    b, s = ev["base"], ev["stress_2x"]
+    gates = {
+        "validation_expectancy_gt_0": (b["expectancy_r"] or -9) > 0,
+        "validation_pf_gte_1_05": (b["profit_factor"] or 0) >= 1.05,
+        "validation_trades_gte_100": b["trade_count"] >= 100,
+        "validation_pairs_nonneg_gte_4": b["pairs_nonneg"] >= 4,
+        "stress_2x_expectancy_gte_0": (s["expectancy_r"] or -9) >= 0,
+        "beat_c011_null_by_010": (b["beat_c011_null_by"] or -9) >= 0.010,
+        "backtrader_parity_pass": False,  # parity not built this sprint
+    }
+    screening = all(v for k, v in gates.items() if k != "backtrader_parity_pass")
+    classification = (
+        "TRAIN_MATRIX_VALIDATION_PASS_PARITY_REQUIRED" if screening else "TRAIN_MATRIX_VALIDATION_REJECT"
+    )
+    out = {
+        "validation_run": True, "validation_run_once": True, "selection_uses_validation": False,
+        "champion_candidate_id": champ_id, "champion_parameters": champ,
+        "validation_window": {"start": valid_start, "end": valid_end},
+        "base": b, "stress_2x": s, "gates": gates, "screening_pass": screening,
+        "classification": f"{classification} / TEST_LOCKBOX_CLOSED / NOT_APPROVED",
+        "funnel_total": ev["funnel_total"], "test_lockbox_opened": False, "approved": False,
+    }
+    VALID_DIR.mkdir(parents=True, exist_ok=True)
+    (VALID_DIR / "champion_validation_result.json").write_text(json.dumps(out, indent=2, default=str), encoding="utf-8")
+    return out
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(description="CAMPAIGN_025 SCAFFOLD runner")
+    parser = argparse.ArgumentParser(description="CAMPAIGN_025 runner (scaffold + train-matrix evidence)")
     parser.add_argument("--preflight-only", action="store_true")
     parser.add_argument("--data-feature-preflight", action="store_true")
     parser.add_argument("--sample-signals-only", action="store_true")
     parser.add_argument("--validate-config", action="store_true")
+    parser.add_argument("--train-matrix", action="store_true")
+    parser.add_argument("--validate-champion", action="store_true")
+    parser.add_argument("--train-start", default="2021-07-01")
+    parser.add_argument("--train-end", default="2023-06-30")
+    parser.add_argument("--valid-start", default="2023-07-01")
+    parser.add_argument("--valid-end", default="2024-12-31")
     parser.add_argument("--sample-pair", default="EUR_USD")
     # Default start sits inside the materialized M5 coverage range (M5 begins
     # ~2021-05-27 in the train split), so the bounded probe is not empty.
@@ -296,6 +450,16 @@ def main() -> int:
     parser.add_argument("--sample-step", type=int, default=3)
     args = parser.parse_args()
     settings, raw = load_settings()
+
+    if args.train_matrix:
+        selection = run_train_matrix(settings, raw, train_start=args.train_start, train_end=args.train_end)
+        print(json.dumps({k: v for k, v in selection.items() if k != "ranking"}, indent=2, default=str))
+        return 0
+
+    if args.validate_champion:
+        out = run_champion_validation(settings, raw, valid_start=args.valid_start, valid_end=args.valid_end)
+        print(json.dumps({k: v for k, v in out.items() if k not in ("base", "stress_2x")}, indent=2, default=str))
+        return 0
 
     if args.validate_config:
         validate_frozen_config(settings, raw)
