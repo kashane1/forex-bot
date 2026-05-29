@@ -886,6 +886,39 @@
       "commit_hash": "684e94b"
     },
     {
+      "campaign_id": "CAMPAIGN_025",
+      "title": "M5 Donchian + HTF confluence breakout — train-matrix (16 archetypes)",
+      "report_path": "docs/research/CAMPAIGN_025_TRAIN_MATRIX_RESULT.md",
+      "artifact_folder": "research/campaign_025",
+      "strategy_family": "m5_donchian_htf_confluence_breakout",
+      "data_source": "postgres_m1_materialized|d1agg=native_h4",
+      "verdict": "REJECT",
+      "key_metrics": {
+        "classification": "REJECT_MATRIX_NO_TRAIN_CANDIDATE",
+        "train_window": "2021-07-01..2023-06-30",
+        "candidates": 16,
+        "candidates_eligible": 0,
+        "best_candidate_train_expectancy_r": -0.0767,
+        "worst_candidate_train_expectancy_r": -0.178,
+        "champion_selected": false,
+        "validation_ran": false,
+        "single_pair_review": false,
+        "spread_atr_ratio_approx": 0.45,
+        "fill_timing": "next_bar_open",
+        "execution_timeframe": "M5",
+        "approval_path": "none (REJECT — 0/16 train-eligible; validation/parity/test not run). configs/approved_strategies.yaml remains approved: []."
+      },
+      "test_window_opened": false,
+      "risk_engine_used": false,
+      "financing_treatment": "none",
+      "strategy_approved": false,
+      "fill_timing": "next_bar_open",
+      "execution_realism": "conservative",
+      "evidence_use": "approval_bound",
+      "promotion_eligible": false,
+      "commit_hash": "2f65d5f"
+    },
+    {
       "campaign_id": "CAMPAIGN_022",
       "title": "H4/H1 pullback-resolution entry (M15 exec, no D1)",
       "report_path": "docs/research/CAMPAIGN_022_TRAIN_VALIDATION_RESULT.md",
@@ -1881,6 +1914,48 @@
       "path": "docs/research/CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md",
       "kind": "precommit_design",
       "description": "CAMPAIGN_025 scaffold sprint close-out. SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_025_TRAIN_MATRIX_PLAN",
+      "path": "docs/research/CAMPAIGN_025_TRAIN_MATRIX_VALIDATION_001_PLAN.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_025 train-matrix sprint plan (no-validation-selection / no-tuning / no-lockbox). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_025_DATA_COVERAGE_SPLIT",
+      "path": "docs/research/CAMPAIGN_025_DATA_COVERAGE_AND_SPLIT_DECISION.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_025 frozen narrowed split from materialized M5 coverage. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_025_TRAIN_MATRIX_SPEC",
+      "path": "docs/research/CAMPAIGN_025_TRAIN_MATRIX_SPEC.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_025 frozen 16-candidate matrix spec + exit-model math + selection rules. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_025_CHAMPION_VALIDATION_RESULT",
+      "path": "docs/research/CAMPAIGN_025_SELECTED_CHAMPION_VALIDATION_RESULT.md",
+      "kind": "evidence_summary",
+      "description": "CAMPAIGN_025 validation NOT run (no champion). REJECT_MATRIX_NO_TRAIN_CANDIDATE. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_025_INTERPRETATION",
+      "path": "docs/research/CAMPAIGN_025_INTERPRETATION_AND_PRIOR_COMPARISON.md",
+      "kind": "evidence_summary",
+      "description": "CAMPAIGN_025 interpretation: spread/ATR ~0.45 defeats M5 breakout; vs C011/C020/C021. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "CAMPAIGN_025_BACKTRADER_PARITY_READINESS",
+      "path": "docs/research/CAMPAIGN_025_BACKTRADER_PARITY_READINESS.md",
+      "kind": "precommit_design",
+      "description": "CAMPAIGN_025 parity readiness = DEFER_PARITY_REJECTED (nothing passed train). strategy_evidence: false.",
       "strategy_evidence": false
     },
     {

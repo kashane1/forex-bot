@@ -334,14 +334,13 @@ map; the linked documents are the authoritative evidence.
 | [`../../tests/unit/test_h4_h1_pullback_resolution_adx22.py`](../../tests/unit/test_h4_h1_pullback_resolution_adx22.py) | Proves C023 == C022 except ADX gate |
 | [`CAMPAIGN_023_ADX22_SIBLING_SCAFFOLD_SUMMARY.md`](CAMPAIGN_023_ADX22_SIBLING_SCAFFOLD_SUMMARY.md) | Scaffold sprint close-out |
 
-## CAMPAIGN_025 M5 Donchian + HTF confluence breakout (scaffold only)
+## CAMPAIGN_025 M5 Donchian + HTF confluence breakout (REJECT — train-matrix)
 
-> **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED** — `strategy_evidence: false`,
-> `not_approved: true`. Returns to early Donchian/breakout price-action structure
-> but moves the trigger to **M5** under **M15 setup + H1/H4M1 trend + D1AGG
-> regime** confluence. `next_bar_open` fills; single frozen stop + 48-bar time
-> stop; no TP/trailing/protective. No train/validation/test evidence; no verdict;
-> paper/demo/live blocked. Pair-level diagnostics mandatory.
+> **REJECT** — `REJECT_MATRIX_NO_TRAIN_CANDIDATE / TEST_LOCKBOX_CLOSED /
+> NOT_APPROVED`. Train-matrix sprint (2026-05-28) ran 16 archetypes on train
+> 2021-07-01→2023-06-30; **0/16 eligible** (all net-negative; spread/ATR ≈ 0.45 on
+> M5). No champion → validation not run; no single-pair review; lockbox closed;
+> `not_approved: true`; paper/demo/live blocked. Scaffold (below) preceded this.
 
 | document | purpose |
 |---|---|
@@ -356,6 +355,14 @@ map; the linked documents are the authoritative evidence.
 | [`CAMPAIGN_025_BACKTRADER_PARITY_DESIGN.md`](CAMPAIGN_025_BACKTRADER_PARITY_DESIGN.md) | Parity design stub (precommitted gate) |
 | [`CAMPAIGN_025_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md`](CAMPAIGN_025_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md) | Distinctness + prior lessons |
 | [`CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_SUMMARY.md) | Scaffold sprint close-out |
+| [`CAMPAIGN_025_TRAIN_MATRIX_VALIDATION_001_PLAN.md`](CAMPAIGN_025_TRAIN_MATRIX_VALIDATION_001_PLAN.md) | Train-matrix sprint plan |
+| [`CAMPAIGN_025_DATA_COVERAGE_AND_SPLIT_DECISION.md`](CAMPAIGN_025_DATA_COVERAGE_AND_SPLIT_DECISION.md) | Frozen narrowed split from M5 coverage |
+| [`CAMPAIGN_025_TRAIN_MATRIX_SPEC.md`](CAMPAIGN_025_TRAIN_MATRIX_SPEC.md) | Frozen 16-candidate matrix + exit math + selection rules |
+| [`CAMPAIGN_025_TRAIN_MATRIX_RESULT.md`](CAMPAIGN_025_TRAIN_MATRIX_RESULT.md) | **Train-matrix result — REJECT_MATRIX_NO_TRAIN_CANDIDATE** |
+| [`CAMPAIGN_025_SELECTED_CHAMPION_VALIDATION_RESULT.md`](CAMPAIGN_025_SELECTED_CHAMPION_VALIDATION_RESULT.md) | Validation NOT run (no champion) |
+| [`CAMPAIGN_025_INTERPRETATION_AND_PRIOR_COMPARISON.md`](CAMPAIGN_025_INTERPRETATION_AND_PRIOR_COMPARISON.md) | Interpretation + prior-campaign comparison |
+| [`CAMPAIGN_025_BACKTRADER_PARITY_READINESS.md`](CAMPAIGN_025_BACKTRADER_PARITY_READINESS.md) | Parity readiness = DEFER_PARITY_REJECTED |
+| [`../../src/forex_bot/research/campaign_025_train_matrix.py`](../../src/forex_bot/research/campaign_025_train_matrix.py) | Vectorized M5 train-matrix simulator |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

@@ -34,15 +34,23 @@ broad-search re-entry gates are met.**
 
 ---
 
-## 0-active-c025. CAMPAIGN_025 M5 Donchian + HTF confluence breakout (SCAFFOLD — 2026-05-28)
+## 0-rejected-c025. CAMPAIGN_025 M5 Donchian + HTF confluence breakout (REJECT — 2026-05-28)
 
 - **Candidate.** `m5_donchian_htf_confluence_breakout 0.1.0-c025`. M5 Donchian(20)
   breakout trigger gated by M15 pullback/compression + H1/H4M1 trend + D1AGG
   (native-H4-derived) permissive regime; `next_bar_open` fills; single frozen stop
   (farther of 2.0×ATR and the opposite prior-20-bar channel side) + 48-bar time
   stop; no TP/trailing/protective.
-- **Status.** **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED.** Scaffold + precommit only;
-  no evidence run; test lockbox closed; paper/demo/live blocked.
+- **Status.** **REJECT — `REJECT_MATRIX_NO_TRAIN_CANDIDATE / TEST_LOCKBOX_CLOSED /
+  NOT_APPROVED`.** Train-matrix sprint ran 16 archetypes on train 2021-07-01→
+  2023-06-30; **0/16 eligible** (all net-negative, spread/ATR ≈ 0.45 on M5, none
+  beats the C011 null). No champion → validation not run; no single-pair review;
+  lockbox closed; paper/demo/live blocked. See
+  [`CAMPAIGN_025_TRAIN_MATRIX_RESULT.md`](CAMPAIGN_025_TRAIN_MATRIX_RESULT.md) and
+  [`CAMPAIGN_025_INTERPRETATION_AND_PRIOR_COMPARISON.md`](CAMPAIGN_025_INTERPRETATION_AND_PRIOR_COMPARISON.md).
+- **Reusable lesson.** M5 execution for spread-paying majors is defeated by a
+  spread/ATR ratio ≈ 0.5; future M5 ideas must clear a **cost-stress gate before
+  signal design** and target a much larger per-trade move or a lower-spread regime.
 - **Precommit / plan.**
   [`CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md),
   [`CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md).
@@ -54,10 +62,11 @@ broad-search re-entry gates are met.**
   pullback-resolution campaign (the trigger is a Donchian channel break on M5, not
   an M15 EMA20 reclaim), so it does **not** reopen the retired family and does not
   depend on its reopening bar.
-- **Recommended next sprint (only if a human authorizes it).**
-  `research-campaign-025-m5-donchian-htf-confluence-train-validation-001` — train/
-  validation only, no test lockbox unless the precommitted gates **and** Backtrader
-  parity pass.
+- **Next sprint.** None for this family — the train-matrix sprint
+  (`research-campaign-025-m5-donchian-htf-confluence-train-matrix-validation-001`)
+  is **complete and REJECT**. Do not re-gate or re-tune C025; any revival needs a
+  materially different idea that clears a cost-stress gate first (see lesson above).
+  Backtrader parity = `DEFER_PARITY_REJECTED`.
 
 ---
 

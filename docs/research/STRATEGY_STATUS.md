@@ -142,7 +142,7 @@ strategy is approved.**
 | `lower_timeframe_mtf_confluence_entry 0.1.0-c021` | rejected | NO | NO | NO | CAMPAIGN_021 |
 | `h4_h1_pullback_resolution_entry 0.1.0-c022` | rejected (family RETIRED) | NO | NO | NO | CAMPAIGN_022 |
 | `h4_h1_pullback_resolution_entry 0.1.0-c023` (ADX22 sibling of C022) | scaffold-only (not executed; family RETIRED) | NO | NO | NO | CAMPAIGN_023 (scaffold) |
-| `m5_donchian_htf_confluence_breakout 0.1.0-c025` | scaffold-only (not run) | NO | NO | NO | CAMPAIGN_025 (scaffold) |
+| `m5_donchian_htf_confluence_breakout 0.1.0-c025` | rejected (train-matrix; no train candidate) | NO | NO | NO | CAMPAIGN_025 |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be
@@ -491,25 +491,24 @@ for the FOMC-block + NFP-falsification analysis.
 
 ### `m5_donchian_htf_confluence_breakout 0.1.0-c025` — M5 Donchian + HTF confluence
 
-- **Status:** scaffold-only — **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED**
-  (no evidence verdict).
-- **Evidence:** None in scaffold sprint. M5 execution (Donchian(20) breakout
-  trigger) with M15 pullback/compression setup + H1/H4M1 trend + D1AGG
-  (native-H4-derived) permissive regime, all via `align_last_completed`
-  (last-completed HTF bars only). Materialized M1-derived M5/M15/H1/H4M1.
-  Preflight + data-feature preflight only.
+- **Status:** **REJECT** — `REJECT_MATRIX_NO_TRAIN_CANDIDATE / TEST_LOCKBOX_CLOSED
+  / NOT_APPROVED` (train-matrix executed 2026-05-28).
+- **Evidence:** Train-matrix sprint ran all **16** pre-committed archetypes on the
+  narrowed train window **2021-07-01 → 2023-06-30** (M5; 7 majors; M1-derived
+  M5/M15/H1/H4M1 + native-H4 D1AGG; `next_bar_open`). **0/16 candidates eligible**
+  — every candidate is net-negative after cost (train expectancy −0.077 to
+  −0.178R, PF 0.70–0.85, ≤1/7 pairs non-negative, 2× cost-stress −0.40 to −0.75R,
+  none beats the C011 null). No champion → **validation not run**. No
+  single-pair review (USD_JPY weakly positive but not cost-robust).
 - **Paper / demo / live:** NO / NO / NO.
-- **Reason:** Returns to early price-action/Donchian breakout structure but
-  moves the trigger from a blunt H4 channel to a precise M5 channel gated by
-  multi-timeframe agreement; requires an M15 pullback/compression precondition
-  to avoid turnover chasing; `next_bar_open` fills only; single frozen stop
-  (farther of 2.0×ATR and the opposite prior-20-bar channel side) + 48-bar time
-  stop, no TP/trailing/protective. Pair-level diagnostics mandatory; no assumed
-  universal seven-pair edge. Future execution sprint required for any
-  train/validation gates. See
-  [`CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md`](CAMPAIGN_025_PRECOMMIT_M5_DONCHIAN_HTF_CONFLUENCE_SCOPE.md)
-  and
-  [`CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md`](CAMPAIGN_025_M5_DONCHIAN_HTF_CONFLUENCE_SCAFFOLD_001_PLAN.md).
+- **Reason:** Robust badness driven by M5 cost structure — mean **spread/ATR ≈
+  0.45** (bid/ask ≈ half the per-bar ATR); faster candidates lose more (turnover
+  amplification); targets cap winners, channel exits exit late, trailing only
+  least-bad. Test lockbox stayed closed; no tuning; no rescue. Backtrader parity =
+  `DEFER_PARITY_REJECTED`. See
+  [`CAMPAIGN_025_TRAIN_MATRIX_RESULT.md`](CAMPAIGN_025_TRAIN_MATRIX_RESULT.md),
+  [`CAMPAIGN_025_INTERPRETATION_AND_PRIOR_COMPARISON.md`](CAMPAIGN_025_INTERPRETATION_AND_PRIOR_COMPARISON.md),
+  [`CAMPAIGN_025_TRAIN_MATRIX_SPEC.md`](CAMPAIGN_025_TRAIN_MATRIX_SPEC.md).
 
 ### `multi_timeframe_confluence_pullback 0.1.0-c020`
 
