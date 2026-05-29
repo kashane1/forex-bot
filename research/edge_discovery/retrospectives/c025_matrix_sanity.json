@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "diagnostic_only": true,
+    "strategy_evidence": false,
+    "not_approved": true,
+    "approves_strategy": false,
+    "test_lockbox_opened": false,
+    "changes_campaign_verdict": false,
+    "NOT_edge_claim": true,
+    "kind": "edge_discovery.retrospective.matrix_sanity",
+    "campaign": "C025",
+    "campaign_verdict_unchanged": "REJECT_MATRIX_NO_TRAIN_CANDIDATE / TEST_LOCKBOX_CLOSED / NOT_APPROVED",
+    "c011_null_reference": -0.0029154071495408797,
+    "c011_null_std": 0.04789840054747161,
+    "generated_at_utc": "2026-05-29T02:59:10.168316+00:00"
+  },
+  "input_csv": "research/campaign_025/train_matrix/train_matrix_metrics.csv",
+  "n_candidates": 16,
+  "best_candidate": "C025_MTX_009",
+  "result": {
+    "metric": "expectancy_r",
+    "higher_is_better": true,
+    "n_variants": 16,
+    "best_label": "C025_MTX_009",
+    "best_value": -0.0767369284141735,
+    "median_value": -0.13301319725202804,
+    "best_minus_median": 0.05627626883785454,
+    "null_reference": -0.0029154071495408797,
+    "best_vs_null": -0.07382152126463262,
+    "expected_max_under_null": 0.08294633239446068,
+    "expected_max_p95": 0.12767288325888276,
+    "deflated_improvement": -0.15968326080863418,
+    "prob_best_le_null_max": 1.0,
+    "pair_holdout": {
+      "kind": "pair",
+      "full_value": -0.07673531234256928,
+      "leave_one_out": {
+        "EUR_USD": -0.07067095592614651,
+        "GBP_USD": -0.07023876069637061,
+        "USD_JPY": -0.09336690597777111,
+        "AUD_USD": -0.07856484735023042,
+        "USD_CAD": -0.07160731815493791,
+        "USD_CHF": -0.07936936857142858,
+        "NZD_USD": -0.0734273126843658
+      },
+      "min_value": -0.09336690597777111,
+      "max_value": -0.07023876069637061,
+      "sign_flips": false,
+      "dominant_group": "USD_JPY"
+    },
+    "time_block_holdout": null,
+    "fragility_score": 1.0,
+    "flags": [
+      "INCONCLUSIVE",
+      "LIKELY_SELECTION_NOISE"
+    ],
+    "seed": 20260528,
+    "n_resample": 2000,
+    "notes": [
+      "time-block-holdout skipped: no per-time-block values supplied"
+    ]
+  }
+}

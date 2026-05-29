@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "diagnostic_only": true,
+    "strategy_evidence": false,
+    "not_approved": true,
+    "approves_strategy": false,
+    "test_lockbox_opened": false,
+    "changes_campaign_verdict": false,
+    "NOT_edge_claim": true,
+    "kind": "edge_discovery.retrospective.matrix_sanity",
+    "campaign": "C026",
+    "campaign_verdict_unchanged": "REJECT_TIMEFRAME_LADDER_NO_TRAIN_CANDIDATE / TEST_LOCKBOX_CLOSED / NOT_APPROVED",
+    "c011_null_reference": -0.0029154071495408797,
+    "c011_null_std": 0.04789840054747161,
+    "generated_at_utc": "2026-05-29T02:59:10.168316+00:00"
+  },
+  "input_csv": "research/campaign_026/timeframe_ladder/train_matrix_metrics.csv",
+  "n_candidates": 11,
+  "best_candidate": "C026_TF_010",
+  "result": {
+    "metric": "expectancy_r",
+    "higher_is_better": true,
+    "n_variants": 11,
+    "best_label": "C026_TF_010",
+    "best_value": -0.0083270654186315,
+    "median_value": -0.0604297896160654,
+    "best_minus_median": 0.0521027241974339,
+    "null_reference": -0.0029154071495408797,
+    "best_vs_null": -0.005411658269090621,
+    "expected_max_under_null": 0.0736063361911186,
+    "expected_max_p95": 0.12218092398648847,
+    "deflated_improvement": -0.0819334016097501,
+    "prob_best_le_null_max": 1.0,
+    "pair_holdout": {
+      "kind": "pair",
+      "full_value": -0.008327141959798997,
+      "leave_one_out": {
+        "EUR_USD": -0.00246605263157895,
+        "GBP_USD": 0.005828649253731341,
+        "USD_JPY": -0.042845995575221237,
+        "AUD_USD": -0.0076040071428571466,
+        "USD_CAD": 0.00992924276169265,
+        "USD_CHF": -0.005169721428571431,
+        "NZD_USD": -0.015564684554024658
+      },
+      "min_value": -0.042845995575221237,
+      "max_value": 0.00992924276169265,
+      "sign_flips": true,
+      "dominant_group": "USD_JPY"
+    },
+    "time_block_holdout": null,
+    "fragility_score": 1.0,
+    "flags": [
+      "INCONCLUSIVE",
+      "LIKELY_SELECTION_NOISE",
+      "FRAGILE_SINGLE_PAIR_RESULT"
+    ],
+    "seed": 20260528,
+    "n_resample": 2000,
+    "notes": [
+      "time-block-holdout skipped: no per-time-block values supplied"
+    ]
+  }
+}

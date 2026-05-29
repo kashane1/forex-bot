@@ -1,0 +1,120 @@
+{
+  "_meta": {
+    "diagnostic_only": true,
+    "strategy_evidence": false,
+    "not_approved": true,
+    "approves_strategy": false,
+    "test_lockbox_opened": false,
+    "changes_campaign_verdict": false,
+    "NOT_edge_claim": true,
+    "kind": "edge_discovery.retrospective.cost_feasibility",
+    "campaign": "C026",
+    "campaign_verdict_unchanged": "REJECT_TIMEFRAME_LADDER_NO_TRAIN_CANDIDATE / TEST_LOCKBOX_CLOSED / NOT_APPROVED",
+    "generated_at_utc": "2026-05-29T02:59:10.168316+00:00"
+  },
+  "input_json": "research/campaign_026/timeframe_ladder/train_matrix_spread_atr_diagnostics.json",
+  "n_candidates": 11,
+  "n_cost_hostile_candidates": 3,
+  "timeframe_summary": [
+    {
+      "label": "M15",
+      "spread_atr_ratio": 0.21789982447051504,
+      "opportunity_score": 0.12840070211793986,
+      "min_target_r": null,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "label": "M3",
+      "spread_atr_ratio": 0.6373823335206591,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "M30",
+      "spread_atr_ratio": 0.1438011722119764,
+      "opportunity_score": 0.42479531115209435,
+      "min_target_r": null,
+      "flags": "COST_FEASIBLE"
+    }
+  ],
+  "per_candidate": [
+    {
+      "label": "C026_TF_001",
+      "spread_atr_ratio": 0.6373823335206591,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C026_TF_002",
+      "spread_atr_ratio": 0.627898015909798,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C026_TF_003",
+      "spread_atr_ratio": 0.6446999827879484,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C026_TF_004",
+      "spread_atr_ratio": 0.21984380430135153,
+      "opportunity_score": 0.12062478279459388,
+      "min_target_r": null,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "label": "C026_TF_005",
+      "spread_atr_ratio": 0.21801235337451783,
+      "opportunity_score": 0.1279505865019287,
+      "min_target_r": null,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "label": "C026_TF_006",
+      "spread_atr_ratio": 0.2146893913427734,
+      "opportunity_score": 0.1412424346289064,
+      "min_target_r": null,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "label": "C026_TF_007",
+      "spread_atr_ratio": 0.21778729556651225,
+      "opportunity_score": 0.12885081773395102,
+      "min_target_r": null,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "label": "C026_TF_008",
+      "spread_atr_ratio": 0.1453158704064733,
+      "opportunity_score": 0.41873651837410675,
+      "min_target_r": null,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "label": "C026_TF_009",
+      "spread_atr_ratio": 0.14625242838713617,
+      "opportunity_score": 0.4149902864514553,
+      "min_target_r": null,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "label": "C026_TF_010",
+      "spread_atr_ratio": 0.14228647401747954,
+      "opportunity_score": 0.43085410393008183,
+      "min_target_r": null,
+      "flags": "COST_FEASIBLE"
+    },
+    {
+      "label": "C026_TF_011",
+      "spread_atr_ratio": 0.14116297817263,
+      "opportunity_score": 0.43534808730948005,
+      "min_target_r": null,
+      "flags": "COST_FEASIBLE"
+    }
+  ]
+}

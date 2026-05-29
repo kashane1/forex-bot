@@ -1,0 +1,79 @@
+{
+  "_meta": {
+    "diagnostic_only": true,
+    "strategy_evidence": false,
+    "not_approved": true,
+    "approves_strategy": false,
+    "test_lockbox_opened": false,
+    "changes_campaign_verdict": false,
+    "NOT_edge_claim": true,
+    "kind": "edge_discovery.retrospective.compatibility_gaps",
+    "generated_at_utc": "2026-05-29T02:59:10.168316+00:00",
+    "note": "C025/C026 persisted only rolled-up candidate metrics; per-trade / per-signal ledgers were never committed."
+  },
+  "campaigns": [
+    "C025",
+    "C026"
+  ],
+  "ran": [
+    "matrix_sanity",
+    "cost_feasibility"
+  ],
+  "skipped": [
+    {
+      "diagnostic": "matched_null_benchmark",
+      "module": "research.edge_discovery.matched_nulls",
+      "required_inputs": [
+        "per-trade or per-signal ledger (instrument, side, entry_time, bars_held)",
+        "per-pair candle frames"
+      ],
+      "available_inputs": [
+        "rolled-up candidate metrics CSV",
+        "per-pair aggregate metrics CSV"
+      ],
+      "ran": false,
+      "skip_reason": "SKIPPED_TRADE_LEDGER_UNAVAILABLE",
+      "future_fix": "future campaigns must emit a trade ledger (see FUTURE_CAMPAIGN_ARTIFACT_REQUIREMENTS.md)"
+    },
+    {
+      "diagnostic": "forward_return_information",
+      "module": "research.edge_discovery.windows",
+      "required_inputs": [
+        "signal ledger (instrument, signal_time, side)",
+        "per-pair candle frames"
+      ],
+      "available_inputs": [
+        "rolled-up candidate metrics CSV"
+      ],
+      "ran": false,
+      "skip_reason": "SKIPPED_SIGNAL_LEDGER_UNAVAILABLE",
+      "future_fix": "future campaigns must emit a signal ledger + keep frames resolvable"
+    },
+    {
+      "diagnostic": "entry_exit_decomposition",
+      "module": "research.edge_discovery.studies.exit_asymmetry_*",
+      "required_inputs": [
+        "per-trade ledger with entries, exits, exit_reason, r_multiple"
+      ],
+      "available_inputs": [
+        "exit_reason summary counts only (no per-trade rows)"
+      ],
+      "ran": false,
+      "skip_reason": "SKIPPED_TRADE_LEDGER_UNAVAILABLE",
+      "future_fix": "future campaigns must emit a per-trade ledger with exit_reason + r_multiple"
+    },
+    {
+      "diagnostic": "filter_ablation",
+      "module": "research.edge_discovery.filter_ablation",
+      "required_inputs": [
+        "per-signal staged funnel with boolean filter pass columns + value"
+      ],
+      "available_inputs": [
+        "aggregate gate-filter counts only (train_matrix_gate_filters.csv)"
+      ],
+      "ran": false,
+      "skip_reason": "SKIPPED_SIGNAL_LEDGER_UNAVAILABLE",
+      "future_fix": "future campaigns must emit a per-signal funnel ledger (pass columns + value proxy)"
+    }
+  ]
+}

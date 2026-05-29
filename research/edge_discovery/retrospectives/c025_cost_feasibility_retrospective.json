@@ -1,0 +1,141 @@
+{
+  "_meta": {
+    "diagnostic_only": true,
+    "strategy_evidence": false,
+    "not_approved": true,
+    "approves_strategy": false,
+    "test_lockbox_opened": false,
+    "changes_campaign_verdict": false,
+    "NOT_edge_claim": true,
+    "kind": "edge_discovery.retrospective.cost_feasibility",
+    "campaign": "C025",
+    "campaign_verdict_unchanged": "REJECT_MATRIX_NO_TRAIN_CANDIDATE / TEST_LOCKBOX_CLOSED / NOT_APPROVED",
+    "generated_at_utc": "2026-05-29T02:59:10.168316+00:00"
+  },
+  "input_json": "research/campaign_025/train_matrix/train_matrix_spread_atr_diagnostics.json",
+  "n_candidates": 16,
+  "n_cost_hostile_candidates": 16,
+  "timeframe_summary": [
+    {
+      "label": "M5",
+      "spread_atr_ratio": 0.4617094090316318,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    }
+  ],
+  "per_candidate": [
+    {
+      "label": "C025_MTX_001",
+      "spread_atr_ratio": 0.4636699066109521,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_002",
+      "spread_atr_ratio": 0.4646671399644352,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_003",
+      "spread_atr_ratio": 0.4551374554473153,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_004",
+      "spread_atr_ratio": 0.45945345269540405,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_005",
+      "spread_atr_ratio": 0.45127339956489493,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_006",
+      "spread_atr_ratio": 0.45853660490380177,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_007",
+      "spread_atr_ratio": 0.4887276503144782,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_008",
+      "spread_atr_ratio": 0.4543085538637328,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_009",
+      "spread_atr_ratio": 0.4427876819313463,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_010",
+      "spread_atr_ratio": 0.4672770658711625,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_011",
+      "spread_atr_ratio": 0.4886497444761435,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_012",
+      "spread_atr_ratio": 0.5025761212690409,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_013",
+      "spread_atr_ratio": 0.49657593680944917,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_014",
+      "spread_atr_ratio": 0.45402198176429237,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_015",
+      "spread_atr_ratio": 0.4670412752665965,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    },
+    {
+      "label": "C025_MTX_016",
+      "spread_atr_ratio": 0.4597489114523115,
+      "opportunity_score": 0.0,
+      "min_target_r": null,
+      "flags": "COST_HOSTILE;TIMEFRAME_TOO_FAST"
+    }
+  ]
+}
