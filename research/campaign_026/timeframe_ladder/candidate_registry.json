@@ -1,0 +1,125 @@
+{
+  "campaign_id": "CAMPAIGN_026",
+  "strategy_family": "donchian_htf_confluence_timeframe_ladder",
+  "version": "0.1.0-c026",
+  "frozen": true,
+  "note": "Pre-committed timeframe-ladder candidate matrix. Frozen before any train evidence. 11 candidates (preferred count; hard max 15). Selection is train-only; validation never selects. No approval, no test lockbox.",
+  "candidate_count": 11,
+  "execution_timeframes": ["M3", "M15", "M30"],
+  "context_ladder": {
+    "M3": {"local_setup": "M15", "trend": ["H1", "H4M1"], "regime": "D1AGG"},
+    "M15": {"local_setup": "M15_internal", "trend": ["H1", "H4M1"], "regime": "D1AGG"},
+    "M30": {"local_setup": "H1", "trend": ["H4M1"], "regime": "D1AGG"}
+  },
+  "train_only_selection_filters": {
+    "min_trades": {"M3": 150, "M15": 80, "M30": 80},
+    "min_expectancy_r": 0.0,
+    "min_profit_factor": 1.03,
+    "min_pairs_nonneg": 3,
+    "max_2x_stress_expectancy_loss_r": -0.005,
+    "max_single_pair_positive_r_concentration": 0.50,
+    "c011_null_expectancy_r": -0.0029154071495408797,
+    "beat_null_margin_r": 0.010
+  },
+  "candidates": [
+    {
+      "candidate_id": "C026_TF_001", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M3 diagnostic fast scalp",
+      "execution_timeframe": "M3", "local_setup_timeframe": "M15", "trend_timeframes": ["H1", "H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 20, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.0,
+      "exit_model": "fixed_2r_target", "target_r_multiple": 2.0, "breakeven_trigger_r": null, "trail_activation_r": null, "trail_atr_multiple": null, "channel_exit_length": null,
+      "time_stop_bars": 60, "context_mode": "standard", "local_setup_mode": "pullback_or_compression", "execution_fill": "next_bar_open", "not_approved": true
+    },
+    {
+      "candidate_id": "C026_TF_002", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M3 diagnostic runner",
+      "execution_timeframe": "M3", "local_setup_timeframe": "M15", "trend_timeframes": ["H1", "H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 30, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.5,
+      "exit_model": "breakeven_then_atr_trail", "target_r_multiple": null, "breakeven_trigger_r": 1.0, "trail_activation_r": 1.5, "trail_atr_multiple": 1.5, "channel_exit_length": null,
+      "time_stop_bars": 90, "context_mode": "strict", "local_setup_mode": "pullback_or_compression", "execution_fill": "next_bar_open", "not_approved": true
+    },
+    {
+      "candidate_id": "C026_TF_003", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M3 diagnostic channel",
+      "execution_timeframe": "M3", "local_setup_timeframe": "M15", "trend_timeframes": ["H1", "H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 30, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.5,
+      "exit_model": "donchian_channel_exit", "target_r_multiple": null, "breakeven_trigger_r": null, "trail_activation_r": null, "trail_atr_multiple": null, "channel_exit_length": 20,
+      "time_stop_bars": 90, "context_mode": "standard", "local_setup_mode": "pullback_or_compression", "execution_fill": "next_bar_open", "not_approved": true
+    },
+    {
+      "candidate_id": "C026_TF_004", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M15 balanced 2R",
+      "execution_timeframe": "M15", "local_setup_timeframe": "M15_internal", "trend_timeframes": ["H1", "H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 20, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.0,
+      "exit_model": "fixed_2r_target", "target_r_multiple": 2.0, "breakeven_trigger_r": null, "trail_activation_r": null, "trail_atr_multiple": null, "channel_exit_length": null,
+      "time_stop_bars": 32, "context_mode": "standard", "local_setup_mode": "pullback_or_compression", "execution_fill": "next_bar_open", "not_approved": true
+    },
+    {
+      "candidate_id": "C026_TF_005", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M15 balanced 3R",
+      "execution_timeframe": "M15", "local_setup_timeframe": "M15_internal", "trend_timeframes": ["H1", "H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 20, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.0,
+      "exit_model": "fixed_3r_target", "target_r_multiple": 3.0, "breakeven_trigger_r": null, "trail_activation_r": null, "trail_atr_multiple": null, "channel_exit_length": null,
+      "time_stop_bars": 48, "context_mode": "standard", "local_setup_mode": "pullback_or_compression", "execution_fill": "next_bar_open", "not_approved": true
+    },
+    {
+      "candidate_id": "C026_TF_006", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M15 trend runner",
+      "execution_timeframe": "M15", "local_setup_timeframe": "M15_internal", "trend_timeframes": ["H1", "H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 30, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.5,
+      "exit_model": "breakeven_then_atr_trail", "target_r_multiple": null, "breakeven_trigger_r": 1.0, "trail_activation_r": 1.5, "trail_atr_multiple": 1.5, "channel_exit_length": null,
+      "time_stop_bars": 48, "context_mode": "standard", "local_setup_mode": "pullback_or_compression", "execution_fill": "next_bar_open", "not_approved": true
+    },
+    {
+      "candidate_id": "C026_TF_007", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M15 strict pullback",
+      "execution_timeframe": "M15", "local_setup_timeframe": "M15_internal", "trend_timeframes": ["H1", "H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 20, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.0,
+      "exit_model": "fixed_2r_target", "target_r_multiple": 2.0, "breakeven_trigger_r": null, "trail_activation_r": null, "trail_atr_multiple": null, "channel_exit_length": null,
+      "time_stop_bars": 32, "context_mode": "strict", "local_setup_mode": "pullback_only", "execution_fill": "next_bar_open", "not_approved": true
+    },
+    {
+      "candidate_id": "C026_TF_008", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M30 balanced 2R",
+      "execution_timeframe": "M30", "local_setup_timeframe": "H1", "trend_timeframes": ["H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 20, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.0,
+      "exit_model": "fixed_2r_target", "target_r_multiple": 2.0, "breakeven_trigger_r": null, "trail_activation_r": null, "trail_atr_multiple": null, "channel_exit_length": null,
+      "time_stop_bars": 24, "context_mode": "standard", "local_setup_mode": "pullback_or_compression", "execution_fill": "next_bar_open", "not_approved": true
+    },
+    {
+      "candidate_id": "C026_TF_009", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M30 3R continuation",
+      "execution_timeframe": "M30", "local_setup_timeframe": "H1", "trend_timeframes": ["H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 20, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.0,
+      "exit_model": "fixed_3r_target", "target_r_multiple": 3.0, "breakeven_trigger_r": null, "trail_activation_r": null, "trail_atr_multiple": null, "channel_exit_length": null,
+      "time_stop_bars": 36, "context_mode": "standard", "local_setup_mode": "pullback_or_compression", "execution_fill": "next_bar_open", "not_approved": true
+    },
+    {
+      "candidate_id": "C026_TF_010", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M30 trend runner",
+      "execution_timeframe": "M30", "local_setup_timeframe": "H1", "trend_timeframes": ["H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 30, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.5,
+      "exit_model": "breakeven_then_atr_trail", "target_r_multiple": null, "breakeven_trigger_r": 1.0, "trail_activation_r": 1.5, "trail_atr_multiple": 1.5, "channel_exit_length": null,
+      "time_stop_bars": 36, "context_mode": "standard", "local_setup_mode": "pullback_or_compression", "execution_fill": "next_bar_open", "not_approved": true
+    },
+    {
+      "candidate_id": "C026_TF_011", "campaign_id": "CAMPAIGN_026",
+      "strategy_family": "donchian_htf_confluence_timeframe_ladder", "version": "0.1.0-c026",
+      "archetype": "M30 channel follower",
+      "execution_timeframe": "M30", "local_setup_timeframe": "H1", "trend_timeframes": ["H4M1"], "regime_timeframe": "D1AGG",
+      "donchian_length": 30, "initial_stop_model": "atr_or_channel_farther", "atr_stop_multiple": 2.5,
+      "exit_model": "donchian_channel_exit", "target_r_multiple": null, "breakeven_trigger_r": null, "trail_activation_r": null, "trail_atr_multiple": null, "channel_exit_length": 20,
+      "time_stop_bars": 36, "context_mode": "strict", "local_setup_mode": "pullback_or_compression", "execution_fill": "next_bar_open", "not_approved": true
+    }
+  ]
+}
