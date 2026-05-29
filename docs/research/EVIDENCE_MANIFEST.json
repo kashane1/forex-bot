@@ -2162,5 +2162,32 @@
     "thread_status": "FULLY_CLOSED_NO_ACTIONABLE_EDGE",
     "thread_closeout_doc": "docs/research/C022_C023_USDJPY_MICROSTRUCTURE_THREAD_CLOSEOUT.md",
     "no_further_mining_recommended": true
+  },
+  "strategy_search_pause_after_usdjpy_macro_context_001": {
+    "strategy_evidence": false,
+    "not_approved": true,
+    "diagnostic_only": true,
+    "status": "PAUSE_STRATEGY_RESEARCH",
+    "status_date": "2026-05-28",
+    "sprint": "research-strategy-search-pause-after-usdjpy-macro-context-001",
+    "scope": "documentation/closeout only; no new analysis, no mining, no campaign",
+    "c024_created": false,
+    "c023_execution_authorized": false,
+    "approved_strategies_yaml": "empty (approved: [])",
+    "paper_demo_live": "blocked",
+    "exhausted_lanes": [
+      "price-structure/technical entry (C002-C021)",
+      "C022/C023 H4/H1 pullback-resolution family (RETIRED)",
+      "USD_JPY M15 microstructure entry + post-entry management (CLOSED)",
+      "intraday volatility-compression -> expansion (FALSIFIED)",
+      "London compression-continuation lead (FAILED overfit-hardened confirmation)",
+      "slow macro/rates/calendar tradeability context (NO actionable conditioning)"
+    ],
+    "finding_note": "Both the price-structure and the slow macro/rates/calendar tradeability-context families are exhausted on current data. No internal USD/JPY lead survives a hardened test (realistic stop/cost, multiple-testing haircut, year robustness, latency-independence). The macro lane is lookahead-safe and latency-independent but provides no actionable tradeability conditioning (flat raw spread, ~0.50 whipsaw, mechanical event-vol, rate-regime non-identifiable on current single-cycle history with the JP leg absent). Standing decision: PAUSE_STRATEGY_RESEARCH. No verdict changed; approved_strategies.yaml remains empty.",
+    "restart_gated_by": "docs/research/STRATEGY_RESEARCH_RESTART_CRITERIA.md",
+    "pause_memo_doc": "docs/research/STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT.md",
+    "lessons_doc": "docs/research/FOREX_BOT_RESEARCH_LESSONS_LEARNED_001.md",
+    "next_action_doc": "docs/research/NEXT_ACTION_OPTIONS_AFTER_STRATEGY_SEARCH_PAUSE.md",
+    "summary_doc": "docs/research/STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT_001_SUMMARY.md"
   }
 }

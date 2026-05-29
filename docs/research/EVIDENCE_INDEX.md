@@ -1679,6 +1679,33 @@ layers; no further mining recommended. No verdict changed; no C024; `approved: [
 | [`USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_SUMMARY.md`](USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_SUMMARY.md) | trade-management sprint summary |
 | [`C022_C023_USDJPY_MICROSTRUCTURE_THREAD_CLOSEOUT.md`](C022_C023_USDJPY_MICROSTRUCTURE_THREAD_CLOSEOUT.md) | **full-thread closeout + lessons** |
 
+## Strategy-search pause: external-thesis → compression-expansion → macro-context (2026-05-28)
+
+Three genuinely-new read-only lanes after the microstructure closeout — all null/not-ready.
+No verdict changed; no C024; C023 not executed; `approved: []`; paper/demo/live blocked.
+**Standing decision: `PAUSE_STRATEGY_RESEARCH`.**
+
+| document | role |
+|---|---|
+| [`STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT.md`](STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT.md) | **final pause memo (read first)** |
+| [`STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT_001_PLAN.md`](STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT_001_PLAN.md) | pause sprint plan |
+| [`EXTERNAL_FX_THESIS_SOURCING_FRAMEWORK.md`](EXTERNAL_FX_THESIS_SOURCING_FRAMEWORK.md) | external-thesis sourcing framework |
+| [`USDJPY_SESSION_VOLATILITY_SPREAD_ATLAS.md`](USDJPY_SESSION_VOLATILITY_SPREAD_ATLAS.md) | session/vol/spread atlas (direction null) |
+| [`USDJPY_EXTERNAL_THESIS_CANDIDATE_SCORECARD.md`](USDJPY_EXTERNAL_THESIS_CANDIDATE_SCORECARD.md) | candidate-thesis scorecard |
+| [`USDJPY_VOLATILITY_COMPRESSION_EXPANSION_DIAGNOSTIC_RESULT.md`](USDJPY_VOLATILITY_COMPRESSION_EXPANSION_DIAGNOSTIC_RESULT.md) | compression→expansion result (falsified) |
+| [`USDJPY_COMPRESSION_EXPANSION_MONETIZATION_DIAGNOSTIC.md`](USDJPY_COMPRESSION_EXPANSION_MONETIZATION_DIAGNOSTIC.md) | monetization diagnostic + London lead |
+| [`USDJPY_VOLATILITY_COMPRESSION_EXPANSION_READINESS_DECISION.md`](USDJPY_VOLATILITY_COMPRESSION_EXPANSION_READINESS_DECISION.md) | compression→expansion readiness |
+| [`USDJPY_LONDON_COMPRESSION_CONTINUATION_CONFIRMATION_RESULT.md`](USDJPY_LONDON_COMPRESSION_CONTINUATION_CONFIRMATION_RESULT.md) | London confirmation (FAILED) |
+| [`USDJPY_LONDON_COMPRESSION_CONTINUATION_ROBUSTNESS.md`](USDJPY_LONDON_COMPRESSION_CONTINUATION_ROBUSTNESS.md) | London robustness/falsification |
+| [`USDJPY_LONDON_COMPRESSION_CONTINUATION_READINESS_DECISION.md`](USDJPY_LONDON_COMPRESSION_CONTINUATION_READINESS_DECISION.md) | London readiness = PAUSE |
+| [`MACRO_REGIME_CONTEXT_TRADEABILITY_THESIS_FRAMING.md`](MACRO_REGIME_CONTEXT_TRADEABILITY_THESIS_FRAMING.md) | slow-context framing (not fast-news) |
+| [`USDJPY_MACRO_REGIME_CONTEXT_RESULT.md`](USDJPY_MACRO_REGIME_CONTEXT_RESULT.md) | macro-context result (no conditioning) |
+| [`USDJPY_MACRO_REGIME_CONTEXT_ROBUSTNESS.md`](USDJPY_MACRO_REGIME_CONTEXT_ROBUSTNESS.md) | macro-context robustness + latency-independence |
+| [`USDJPY_MACRO_REGIME_CONTEXT_READINESS_DECISION.md`](USDJPY_MACRO_REGIME_CONTEXT_READINESS_DECISION.md) | macro-context readiness = PAUSE |
+
+(Lessons-learned, restart-criteria, next-action, next-prompt, and the pause-sprint summary
+docs are added to this index at closeout — Phase 7 of the pause sprint.)
+
 ## How to read the evidence
 
 - **Verdicts are bright lines.** Every campaign fixed its gates in a

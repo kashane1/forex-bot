@@ -83,6 +83,33 @@ broad-search re-entry gates are met.**
 
 ---
 
+## 0-paused-strategy-search. STRATEGY SEARCH PAUSED after macro-context (2026-05-28)
+
+- **What happened.** After the microstructure thread, three further genuinely-new
+  read-only lanes were run and all returned null: (a) external-thesis sourcing + USD_JPY
+  session/vol/spread atlas; (b) volatility-compression→expansion (broad thesis falsified;
+  one post-hoc London-continuation lead); (c) the London-continuation overfit-hardened
+  confirmation (**FAILED** — dies under any intrabar stop, conservative cost, Bonferroni
+  ×12, and is a 2022/2024 trend-regime artifact); (d) slow macro/rates/calendar
+  tradeability context (lookahead-safe + latency-independent but **no actionable
+  conditioning**; rate-regime non-identifiable on current history, JP leg absent).
+- **Standing decision.** **`PAUSE_STRATEGY_RESEARCH`** on the current data/thesis set.
+  Both the price-structure and macro-context families are exhausted. See
+  [`STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT.md`](STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT.md),
+  [`STRATEGY_RESEARCH_RESTART_CRITERIA.md`](STRATEGY_RESEARCH_RESTART_CRITERIA.md),
+  [`NEXT_ACTION_OPTIONS_AFTER_STRATEGY_SEARCH_PAUSE.md`](NEXT_ACTION_OPTIONS_AFTER_STRATEGY_SEARCH_PAUSE.md).
+- **C024 status.** **Not created; blocked by the pause** until the restart criteria are
+  met. C023 not executed. Verdicts unchanged; `approved: []`; paper/demo/live blocked.
+- **Forbidden.** No more indicator/threshold/stop tweaks as a "rescue"; no C022/C023 or
+  microstructure re-mining; no macro-context re-mining without new data; no C024; no new
+  campaign number until a restart criterion is met.
+- **Data-acquisition infra items that would UNBLOCK future work (not authorized):**
+  verified JP rate leg + multi-cycle history (to make a rate-differential regime
+  *identifiable*); verified BOJ/CPI economic-event calendar; options/vol or order-flow
+  proxy data; any non-price external source. These are infrastructure, not strategy.
+
+---
+
 ## 0-complete-c020. CAMPAIGN_020 MTF confluence execution (COMPLETE — REJECT)
 
 - **Sprint name.** `research-campaign-020-mtf-confluence-execution-001`

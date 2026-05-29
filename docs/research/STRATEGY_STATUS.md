@@ -92,6 +92,41 @@ CAMPAIGN_024 created; `approved: []`; paper/demo/live blocked.
 | [`USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_SUMMARY.md`](USDJPY_POST_ENTRY_TRADE_MANAGEMENT_DIAGNOSTIC_001_SUMMARY.md) | Trade-management sprint summary |
 | [`NEXT_RESEARCH_LANE_AFTER_USDJPY_MICROSTRUCTURE_CLOSEOUT.md`](NEXT_RESEARCH_LANE_AFTER_USDJPY_MICROSTRUCTURE_CLOSEOUT.md) | Next genuinely-new lane comparison |
 
+### External-thesis / atlas → compression-expansion → macro-context — ALL LANES NULL; STRATEGY SEARCH PAUSED (2026-05-28)
+
+After the microstructure thread closed, three genuinely-new, read-only lanes were run and
+all returned **null / not-ready**, with no verdict change and no approval:
+
+- **External thesis sourcing + USD_JPY session/vol/spread atlas** → atlas-level direction
+  null (~0.49 continuation≈reversion); rollover cost-toxic; vol timing predictable. Top
+  candidate carried forward = volatility-compression→expansion.
+- **Volatility-compression → expansion** → broad thesis **falsified for tradability**
+  (compression → smaller absolute range = vol clustering; direction null; aggregate
+  monetization loses on train). One post-hoc lead (London continuation) carried to a
+  hardened confirmation.
+- **London compression-continuation confirmation** → **FAILED**: every realistic intrabar
+  protective stop turns it −3 to −8 pips both splits; conservative cost flips train
+  negative; Bonferroni ×12 removes significance; trend-regime artifact (2022/2024).
+- **Slow macro/rates/calendar tradeability context** (framed as no-trade filter, not
+  fast-news) → lookahead-safe + latency-independent but **no actionable conditioning**
+  (flat raw spread, ~0.50 whipsaw, mechanical event-vol, rate-regime non-identifiable /
+  JP leg absent).
+
+**Standing decision: `PAUSE_STRATEGY_RESEARCH` on the current data/thesis set.** Both the
+price-structure and macro-context families are exhausted. No `CAMPAIGN_024` created; C023
+not executed; verdicts unchanged; `approved: []`; paper/demo/live blocked. Restart is gated
+by `STRATEGY_RESEARCH_RESTART_CRITERIA.md`.
+
+| document | purpose |
+|---|---|
+| [`STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT.md`](STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT.md) | **Final pause memo (read first)** |
+| [`FOREX_BOT_RESEARCH_LESSONS_LEARNED_001.md`](FOREX_BOT_RESEARCH_LESSONS_LEARNED_001.md) | Lessons learned + failure taxonomy |
+| [`STRATEGY_RESEARCH_RESTART_CRITERIA.md`](STRATEGY_RESEARCH_RESTART_CRITERIA.md) | Strict restart criteria (sufficient vs insufficient) |
+| [`USDJPY_MACRO_REGIME_CONTEXT_READINESS_DECISION.md`](USDJPY_MACRO_REGIME_CONTEXT_READINESS_DECISION.md) | Macro-context = PAUSE |
+| [`USDJPY_LONDON_COMPRESSION_CONTINUATION_READINESS_DECISION.md`](USDJPY_LONDON_COMPRESSION_CONTINUATION_READINESS_DECISION.md) | London lead = PAUSE |
+| [`USDJPY_SESSION_VOLATILITY_SPREAD_ATLAS.md`](USDJPY_SESSION_VOLATILITY_SPREAD_ATLAS.md) | Session/vol/spread atlas |
+| [`NEXT_ACTION_OPTIONS_AFTER_STRATEGY_SEARCH_PAUSE.md`](NEXT_ACTION_OPTIONS_AFTER_STRATEGY_SEARCH_PAUSE.md) | Next-action options |
+
 ### Evidence integrity (dedupe audit 001)
 
 Pre-fix bespoke campaigns on `data/campaign_002.sqlite3` may be
