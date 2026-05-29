@@ -1,0 +1,16 @@
+{
+  "pair": "EUR_USD",
+  "m1_bars": 1843476,
+  "m1_source": "oanda-practice-m1",
+  "span_start": "2021-05-27 00:00:00+00:00",
+  "span_end": "2026-05-26 23:59:00+00:00",
+  "n_signed_states": 18,
+  "horizons_min": [
+    5,
+    10,
+    15,
+    30,
+    60
+  ],
+  "cooldown_min": 60
+}
