@@ -226,3 +226,17 @@ research/edge_discovery/cli_runs/
 
 # CAMPAIGN_027: bounded artifact schema-check output (regenerated on demand)
 research/campaign_027/train_validation/schema_check/
+
+# infra-range-and-volatility-bars-001: non-time-bar (range/volatility) diagnostics.
+# Gitignore the whole output tree (bulky full generated bars: CSV/parquet/JSONL),
+# then whitelist ONLY the compact JSON summaries/manifests so they are committed.
+# Full generated bars are regenerable from local M1 and must never be committed.
+research/non_time_bars/*
+!research/non_time_bars/.gitkeep
+!research/non_time_bars/**/*_summary.json
+!research/non_time_bars/**/*_manifest.json
+# Re-assert the ignore for any nested full-bar dumps even under whitelisted dirs.
+research/non_time_bars/**/*.csv
+research/non_time_bars/**/*.parquet
+research/non_time_bars/**/*.jsonl
+research/non_time_bars/**/full_bars/
