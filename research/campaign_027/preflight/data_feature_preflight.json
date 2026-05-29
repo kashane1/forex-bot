@@ -1,6 +1,6 @@
 {
   "campaign_id": "CAMPAIGN_027",
-  "checked_at_utc": "2026-05-29T05:29:49.279853+00:00",
+  "checked_at_utc": "2026-05-29T05:37:24.114422+00:00",
   "diagnostic_only": true,
   "no_lookahead": "zscore mean/std and atr percentile are .shift(1)",
   "pairs": {

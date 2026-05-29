@@ -422,6 +422,7 @@ map; the linked documents are the authoritative evidence.
 | [`../../configs/campaign_027_h4_filtered_zscore_reversion.yaml`](../../configs/campaign_027_h4_filtered_zscore_reversion.yaml) | Campaign config (`not_approved`, scaffold_only) |
 | [`../../src/forex_bot/strategies/h4_filtered_zscore_reversion.py`](../../src/forex_bot/strategies/h4_filtered_zscore_reversion.py) | Short-only pure-signal strategy module |
 | [`../../scripts/run_campaign_027_h4_filtered_zscore_reversion.py`](../../scripts/run_campaign_027_h4_filtered_zscore_reversion.py) | Preflight-only runner (refuses evidence modes) |
+| [`CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_SUMMARY.md) | **Sprint close-out (25-item summary)** |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
