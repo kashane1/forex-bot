@@ -858,6 +858,57 @@ class M5DonchianHtfConfluenceBreakoutStrategyConfig(BaseModel):
         return self
 
 
+class H4FilteredZscoreReversionStrategyConfig(BaseModel):
+    # CAMPAIGN_027 research candidate (`h4_filtered_zscore_reversion 0.1.0-c027`).
+    # SCAFFOLD ONLY — not approved. See
+    # docs/research/CAMPAIGN_027_PRECOMMIT_H4_FILTERED_ZSCORE_REVERSION_SCOPE.md.
+    # The single frozen idea that survived the edge-discovery front gate:
+    # short-only filtered H4 z-score reversion (low-vol, quiet-session, strong
+    # extension). Borderline; must be killed quickly if train/validation fails.
+    model_config = ConfigDict(extra="forbid")
+
+    version: str
+    timeframe: Literal["H4"] = "H4"
+    zscore_lookback: int = 20
+    zscore_std_ddof: int = 1
+    base_trigger_abs_z: float = 2.0
+    strong_extension_abs_z: float = 2.5
+    atr_lookback: int = 14
+    atr_percentile_window: int = 250
+    atr_percentile_max: float = 0.33
+    quiet_sessions: list[str] = Field(default_factory=lambda: ["asia", "london"])
+    side_mode: Literal["short_only"] = "short_only"
+    atr_stop_multiple: float = 3.0
+    max_bars_in_trade: int = 12
+
+    @model_validator(mode="after")
+    def _check(self) -> H4FilteredZscoreReversionStrategyConfig:
+        if self.zscore_lookback < 2:
+            raise ConfigError("zscore_lookback must be >= 2")
+        if self.zscore_std_ddof not in (0, 1):
+            raise ConfigError("zscore_std_ddof must be 0 or 1")
+        if self.base_trigger_abs_z <= 0 or self.strong_extension_abs_z <= 0:
+            raise ConfigError("z thresholds must be > 0")
+        if self.strong_extension_abs_z < self.base_trigger_abs_z:
+            raise ConfigError("strong_extension_abs_z must be >= base_trigger_abs_z")
+        if self.atr_lookback < 2:
+            raise ConfigError("atr_lookback must be >= 2")
+        if self.atr_percentile_window < self.atr_lookback:
+            raise ConfigError("atr_percentile_window must be >= atr_lookback")
+        if not (0.0 < self.atr_percentile_max < 1.0):
+            raise ConfigError("atr_percentile_max must be in (0, 1)")
+        valid_sessions = {"asia", "london", "london_ny_overlap", "new_york", "late"}
+        if not self.quiet_sessions or not set(self.quiet_sessions) <= valid_sessions:
+            raise ConfigError(f"quiet_sessions must be a non-empty subset of {valid_sessions}")
+        if self.side_mode != "short_only":
+            raise ConfigError("side_mode must be short_only (long side hurts edge)")
+        if self.atr_stop_multiple <= 0:
+            raise ConfigError("atr_stop_multiple must be > 0")
+        if self.max_bars_in_trade < 1 or self.max_bars_in_trade > 200:
+            raise ConfigError("max_bars_in_trade must be in [1, 200]")
+        return self
+
+
 class MultiTimeframeConfluencePullbackStrategyConfig(BaseModel):
     # CAMPAIGN_020 research candidate (`multi_timeframe_confluence_pullback 0.1.0-c020`).
     # CANDIDATE SCAFFOLD ONLY — not approved for paper/demo/live.
@@ -1013,6 +1064,9 @@ class StrategyConfig(BaseModel):
     m5_donchian_htf_confluence_breakout: (
         M5DonchianHtfConfluenceBreakoutStrategyConfig | None
     ) = None
+    h4_filtered_zscore_reversion: (
+        H4FilteredZscoreReversionStrategyConfig | None
+    ) = None
 
     @model_validator(mode="after")
     def _check_enabled(self) -> StrategyConfig:
@@ -1138,6 +1192,13 @@ class StrategyConfig(BaseModel):
             raise ConfigError(
                 "strategy.m5_donchian_htf_confluence_breakout config "
                 "required when enabled"
+            )
+        if (
+            "h4_filtered_zscore_reversion" in self.enabled
+            and self.h4_filtered_zscore_reversion is None
+        ):
+            raise ConfigError(
+                "strategy.h4_filtered_zscore_reversion config required when enabled"
             )
         return self
 
