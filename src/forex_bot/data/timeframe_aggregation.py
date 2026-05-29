@@ -13,12 +13,17 @@ from zoneinfo import ZoneInfo
 from forex_bot.backtesting.d1_aggregation import aggregate_h4_to_d1
 from forex_bot.domain.candles import Candle, Granularity
 
-TargetGranularity = Literal["M5", "M15", "H1", "H4", "D1AGG"]
+TargetGranularity = Literal["M3", "M5", "M15", "M30", "H1", "H4", "D1AGG"]
 MissingPolicy = Literal["omit", "mark_incomplete"]
 
+# M3/M30 are M1-derived research timeframes added for the CAMPAIGN_026 timeframe
+# ladder. They use the identical fixed-minute bucketing rules as M5/M15/H1 (only
+# the bucket size differs); see _bucket_start for the generic minute alignment.
 _TARGET_MINUTES: dict[str, int] = {
+    "M3": 3,
     "M5": 5,
     "M15": 15,
+    "M30": 30,
     "H1": 60,
     "H4": 240,
 }

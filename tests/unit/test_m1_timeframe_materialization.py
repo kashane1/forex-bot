@@ -4,7 +4,12 @@ from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 
 from forex_bot.data.m1_timeframe_materialization import (
+    _TARGET_MINUTES,
+    MATERIALIZED_DIAGNOSTIC_FROM_M1,
+    MATERIALIZED_FROM_M1,
     MATERIALIZED_SOURCE,
+    STORAGE_GRANULARITY,
+    SUPPORTED_MATERIALIZATION_TARGETS,
     aggregation_config_hash,
     candle_to_record,
     verify_materialized_pair,
@@ -124,6 +129,70 @@ def _candle(ts: datetime) -> Candle:
 
 def test_aggregation_config_hash_is_stable():
     assert aggregation_config_hash() == aggregation_config_hash()
+
+
+def test_aggregation_config_hash_unchanged_by_diagnostic_targets():
+    # CAMPAIGN_026: adding diagnostic M3/M30 must NOT change the provenance
+    # fingerprint of already-materialized M5/M15/H1/H4M1 bars. The hash fingerprints
+    # the shared M1-derivation ruleset (which M3/M30 obey identically), so it stays
+    # pinned to the value recorded in research/m1_timeframe_materialization/*.json.
+    assert aggregation_config_hash() == "f9b7246b79a0635c"
+
+
+def test_diagnostic_targets_supported_but_not_in_recurring_set():
+    # M3/M30 are opt-in diagnostic timeframes, not part of the routine recurring set.
+    assert MATERIALIZED_DIAGNOSTIC_FROM_M1 == ("M3", "M30")
+    assert "M3" not in MATERIALIZED_FROM_M1
+    assert "M30" not in MATERIALIZED_FROM_M1
+    for tf in ("M3", "M30"):
+        assert tf in SUPPORTED_MATERIALIZATION_TARGETS
+        assert STORAGE_GRANULARITY[tf] == tf  # no native-broker name conflict
+    assert _TARGET_MINUTES["M3"] == 3
+    assert _TARGET_MINUTES["M30"] == 30
+
+
+def test_verify_materialized_pair_supports_m3(monkeypatch):
+    from forex_bot.domain.candles import Candle
+
+    start = datetime(2024, 1, 1, tzinfo=UTC)
+    end = start + timedelta(minutes=3)
+    candle = Candle(
+        instrument="EUR_USD",
+        granularity="M3",
+        time=start,
+        complete=True,
+        volume=6,
+        bid_o=Decimal("1.1000"),
+        bid_h=Decimal("1.1005"),
+        bid_l=Decimal("1.0998"),
+        bid_c=Decimal("1.1003"),
+        ask_o=Decimal("1.1002"),
+        ask_h=Decimal("1.1007"),
+        ask_l=Decimal("1.0997"),
+        ask_c=Decimal("1.1005"),
+    )
+    store = _store(
+        _FakeCursor(
+            rows=[(
+                "EUR_USD", "M3", start, True, 6,
+                1.1000, 1.1005, 1.0998, 1.1003,
+                1.1002, 1.1007, 1.0997, 1.1005,
+                None, None, None, None,
+                None, None, None, None,
+                MATERIALIZED_SOURCE, "run", "hash", start, start,
+            )]
+        )
+    )
+    monkeypatch.setattr(
+        "forex_bot.data.m1_timeframe_materialization.aggregate_m1_window",
+        lambda *_args, **_kwargs: {"M3": [candle]},
+    )
+    report = verify_materialized_pair(
+        store, "EUR_USD", from_utc=start, to_utc=end, targets=("M3",)
+    )
+    assert report["status"] == "PASS"
+    assert report["targets"]["M3"]["stored_count"] == 1
+    assert report["aggregation_config_hash"] == "f9b7246b79a0635c"
 
 
 def test_candle_to_record_sets_fetch_batch_id():

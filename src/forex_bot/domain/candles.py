@@ -13,7 +13,10 @@ from pydantic import BaseModel, ConfigDict, Field
 # this backtester, see CAMPAIGN_006). "D1AGG" is a synthetic daily bar
 # aggregated from H4 candles by forex_bot.backtesting.d1_aggregation; it is
 # the only valid daily-research source. The two are deliberately distinct.
-Granularity = Literal["M1", "M5", "M15", "M30", "H1", "H4", "D", "D1AGG"]
+# "M3"/"M30" are M1-derived research timeframes (CAMPAIGN_026 timeframe ladder),
+# materialized from canonical M1 by the same rules as M5/M15/H1; no native broker
+# M3/M30 source exists in this repo.
+Granularity = Literal["M1", "M3", "M5", "M15", "M30", "H1", "H4", "D", "D1AGG"]
 PriceComponent = Literal["B", "A", "M", "BA", "BM", "AM", "BAM"]
 
 

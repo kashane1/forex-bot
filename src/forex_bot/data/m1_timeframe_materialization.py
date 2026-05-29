@@ -1,4 +1,4 @@
-"""M1 → M5/M15/H1/H4 materialization for Postgres research store."""
+"""M1 → M5/M15/H1/H4 (+ diagnostic M3/M30) materialization for Postgres research store."""
 
 from __future__ import annotations
 
@@ -21,16 +21,33 @@ from forex_bot.data.postgres_candle_store import CandleRecord, PostgresCandleSto
 from forex_bot.data.timeframe_aggregation import aggregate_m1_candles
 from forex_bot.domain.candles import Candle
 
+# Canonical recurring materialization set. This drives the default targets for
+# routine (incremental) materialization and is the basis of the aggregation config
+# hash below. It is intentionally NOT expanded for M3/M30 so that routine runs and
+# the config-hash provenance fingerprint stay stable.
 MATERIALIZED_FROM_M1 = ("M5", "M15", "H1", "H4")
+# Diagnostic, on-demand timeframes (CAMPAIGN_026 timeframe ladder). Derived from
+# canonical M1 by the IDENTICAL aggregation rules as the canonical set; they are
+# materialized only when explicitly requested (e.g. --targets M3,M30) and are not
+# part of the routine recurring set. The shared rules mean their provenance is the
+# same aggregation_config_hash() as the canonical timeframes.
+MATERIALIZED_DIAGNOSTIC_FROM_M1 = ("M3", "M30")
+SUPPORTED_MATERIALIZATION_TARGETS = MATERIALIZED_FROM_M1 + MATERIALIZED_DIAGNOSTIC_FROM_M1
 MATERIALIZED_SOURCE = "m1_materialized"
 NATIVE_H4_SOURCES_PRESERVED = frozenset({"oanda-practice", "oanda-practice-readonly"})
 STORAGE_GRANULARITY = {
+    "M3": "M3",
     "M5": "M5",
     "M15": "M15",
+    "M30": "M30",
     "H1": "H1",
     "H4": "H4M1",
 }
 MISSING_POLICY = "omit"
+# Provenance fingerprint of the SHARED M1-derivation ruleset (source, missing
+# policy, alignment). ``targets`` lists the canonical recurring set; diagnostic
+# M3/M30 obey the identical rules and intentionally do not alter this hash. Keeping
+# it stable preserves the provenance of already-materialized M5/M15/H1/H4M1 bars.
 AGGREGATION_CONFIG = {
     "source_granularity": "M1",
     "missing_policy": MISSING_POLICY,
@@ -39,7 +56,7 @@ AGGREGATION_CONFIG = {
     "targets": list(MATERIALIZED_FROM_M1),
 }
 
-_TARGET_MINUTES = {"M5": 5, "M15": 15, "H1": 60, "H4": 240}
+_TARGET_MINUTES = {"M3": 3, "M5": 5, "M15": 15, "M30": 30, "H1": 60, "H4": 240}
 
 OHLC_TOLERANCE = 1e-5
 

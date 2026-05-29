@@ -17,6 +17,7 @@ from forex_bot.data.m1_corpus_validation import MAJOR_PAIRS
 from forex_bot.data.m1_timeframe_materialization import (
     MATERIALIZED_FROM_M1,
     MATERIALIZED_SOURCE,
+    SUPPORTED_MATERIALIZATION_TARGETS,
     aggregation_config_hash,
     materialize_pair,
     resolve_pair_window,
@@ -46,12 +47,16 @@ def _resolve_pairs(args: argparse.Namespace) -> list[str]:
 
 
 def _resolve_targets(raw: str | None) -> tuple[str, ...]:
+    # Default (no --targets) = canonical recurring set only. Diagnostic M3/M30 are
+    # opt-in via explicit --targets and validated against the supported union.
     if not raw:
         return MATERIALIZED_FROM_M1
     targets = tuple(part.strip() for part in raw.split(",") if part.strip())
-    bad = [target for target in targets if target not in MATERIALIZED_FROM_M1]
+    bad = [target for target in targets if target not in SUPPORTED_MATERIALIZATION_TARGETS]
     if bad:
-        raise SystemExit(f"unsupported targets: {bad}; allowed={MATERIALIZED_FROM_M1}")
+        raise SystemExit(
+            f"unsupported targets: {bad}; allowed={SUPPORTED_MATERIALIZATION_TARGETS}"
+        )
     return targets
 
 
@@ -60,7 +65,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pair")
     parser.add_argument("--all-majors", action="store_true")
-    parser.add_argument("--targets", help="Comma-separated: M5,M15,H1,H4")
+    parser.add_argument(
+        "--targets",
+        help="Comma-separated. Default (omit) = M5,M15,H1,H4. Diagnostic: M3,M30.",
+    )
     parser.add_argument("--from", dest="from_utc")
     parser.add_argument("--to", dest="to_utc")
     parser.add_argument("--incremental", action="store_true")
