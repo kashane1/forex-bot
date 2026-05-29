@@ -1886,6 +1886,30 @@ stay REJECT. This sprint is **idea-selection evidence, not strategy evidence.**
 | [`../../research/edge_discovery/front_gate_idea_selection/signal_probe_summary.csv`](../../research/edge_discovery/front_gate_idea_selection/signal_probe_summary.csv) | per-prototype probe summary |
 | [`../../research/edge_discovery/front_gate_idea_selection/matched_null_probe_summary.csv`](../../research/edge_discovery/front_gate_idea_selection/matched_null_probe_summary.csv) | matched-null per-mode results |
 
+## CAMPAIGN_031 Volatility-managed TSMOM front-gate screen (DOES_NOT_EARN_A_SCAFFOLD)
+
+> **FRONT_GATE_SCREEN_COMPLETE / DOES_NOT_EARN_A_SCAFFOLD / NOT_RUN_AS_CAMPAIGN /
+> NOT_APPROVED** (2026-05-29). Audit of a user-supplied spec-grade founders pack
+> (volatility-managed time-series momentum across the FX majors) + the cheapest
+> falsification, run through a new import-isolated **portfolio-level** lab screen.
+> Frozen house config (sign-blend TSMOM k∈{63,126,252}d · 1/σ sizing · full-Σ 10%
+> vol target · Moreira-Muir overlay · 15% no-trade band · half-spread turnover +
+> conservative financing stress), **train only** (2020-2022 D1AGG, 778 days, **7
+> USD-legged majors, no crosses**). Pre-cost Sharpe **+0.32 → net −0.07** (−0.46 at
+> 2× stress); **financing ≈4× spread cost**; book is structurally a **single USD bet**
+> (|net-USD|≈0.90); **MM overlay hurts**; **naive-self (+0.42) beats the house config**,
+> itself only at the random-entry null p95 (+0.43). All five frozen advance-conditions
+> fail → `COST_FINANCING_DEFEATED` + `WITHIN_NULL`. Limiters are data (history + crosses
+> + real financing), not construction. Freeze intact; lockbox untouched; nothing approved.
+
+| Document / artifact | What it is |
+| --- | --- |
+| [`CAMPAIGN_031_VOL_MANAGED_TSMOM_THESIS_AUDIT_AND_PRECOMMIT.md`](CAMPAIGN_031_VOL_MANAGED_TSMOM_THESIS_AUDIT_AND_PRECOMMIT.md) | Thesis audit + foundation-gap inventory + data finding + **frozen house config & decision rule** (precommit) |
+| [`CAMPAIGN_031_FRONT_GATE_SCREEN_RESULTS.md`](CAMPAIGN_031_FRONT_GATE_SCREEN_RESULTS.md) | **Results + decision against the frozen rule → DOES_NOT_EARN_A_SCAFFOLD** |
+| [`../../research/edge_discovery/vol_managed_tsmom.py`](../../research/edge_discovery/vol_managed_tsmom.py) | Import-isolated portfolio screen engine (first portfolio capability in the lab) |
+| [`../../scripts/run_edge_discovery_vol_managed_tsmom.py`](../../scripts/run_edge_discovery_vol_managed_tsmom.py) | Train-only Postgres→D1AGG runner |
+| [`../../research/campaign_031/front_gate/vol_managed_tsmom_screen.json`](../../research/campaign_031/front_gate/vol_managed_tsmom_screen.json) | Screen statistics + frozen decision inputs |
+
 ## CAMPAIGN_029 USD_JPY 10-pip range-bar MTF breakout (REJECT_TRAIN_GATE)
 
 > **REJECT_TRAIN_GATE / TEST_LOCKBOX_CLOSED / NOT_APPROVED** (2026-05-29). First

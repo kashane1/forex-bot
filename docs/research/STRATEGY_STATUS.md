@@ -13,6 +13,33 @@ loops.
 > `configs/approved_strategies.yaml` is empty; every order-capable loop
 > refuses to start. See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
+### CAMPAIGN_031 `vol_managed_tsmom` — DOES_NOT_EARN_A_SCAFFOLD (2026-05-29)
+
+`campaign-031-vol-managed-tsmom-front-gate-screen-001` audited a user-supplied
+spec-grade founders pack (volatility-managed time-series momentum across the FX
+majors) and ran the **cheapest falsification first** through a new import-isolated
+**portfolio-level** lab screen. Frozen house config (sign-blend TSMOM k∈{63,126,252}d,
+no signal-level vol-norm → avoids the 1/σ² trap · 1/σ sizing · full-Σ 10% portfolio
+vol target · Moreira-Muir overlay · 15% no-trade band · half-spread turnover +
+conservative financing stress), **train only** (2020-2022 D1AGG, 778 days, **7
+USD-legged majors — no crosses in the store**). **Verdict: `COST_FINANCING_DEFEATED`
+compounded by `WITHIN_NULL` → `DOES_NOT_EARN_A_SCAFFOLD`.** Pre-cost Sharpe **+0.32**
+collapses to **net −0.07** (−0.46 at 2× stress); **financing ≈4× the spread cost** is
+what flips it negative — the §7 warning realized, the same cost-defeat mode as
+C026/C029. The book is **structurally a single USD bet** (|net-USD| ≈0.90 of gross);
+the **Moreira-Muir overlay subtracts value** (MM-off +0.01 > MM-on −0.07) and the
+**naive-self baseline (+0.42) beats the full vol-managed config**, which itself only
+sits *at* the random-entry matched-turnover null p95 (+0.43) — no edge even at the top.
+All five frozen advance-conditions fail. Acknowledged **power** limit: ~3 annual cycles,
+bootstrap CI ≈±0.9 Sharpe. The limiters are **data, not construction** — revival needs
+**10-15y history + crosses + real OANDA financing**, fresh-precommit-only (restart
+criteria). **Status: paper: NO · demo: NO · live: NO.** Freeze intact;
+`configs/approved_strategies.yaml` stays empty; lockbox untouched; C011 stays the null;
+C025/C026/C027/C029 stay REJECT; C028 stays LIKELY_SELECTION_NOISE. Delivered the lab's
+**first portfolio-screen capability** + H4→D1AGG aggregator + 11 tests. See
+[`CAMPAIGN_031_FRONT_GATE_SCREEN_RESULTS.md`](CAMPAIGN_031_FRONT_GATE_SCREEN_RESULTS.md)
+and [`CAMPAIGN_031_VOL_MANAGED_TSMOM_THESIS_AUDIT_AND_PRECOMMIT.md`](CAMPAIGN_031_VOL_MANAGED_TSMOM_THESIS_AUDIT_AND_PRECOMMIT.md).
+
 ### CAMPAIGN_029 `usdjpy_range_bar_mtf_breakout` — REJECT_TRAIN_GATE (2026-05-29)
 
 `research-campaign-029-usdjpy-range-bar-scaffold-001` (continued into execution)
