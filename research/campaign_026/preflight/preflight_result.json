@@ -1,0 +1,322 @@
+{
+  "blocked_reasons": [],
+  "campaign_id": "CAMPAIGN_026",
+  "coverage": {
+    "blocked": [],
+    "campaign_id": "CAMPAIGN_026",
+    "d1agg_source": "native_h4_derived_d1agg",
+    "m1_derived_d1agg_used": false,
+    "materialized_source": "m1_materialized",
+    "not_approved": true,
+    "pairs": {
+      "AUD_USD": {
+        "M15": {
+          "counts": {
+            "H1": 24774,
+            "H4": 4362,
+            "M15": 109904
+          },
+          "execution_tf": "M15",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "AUD_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M3": {
+          "counts": {
+            "H1": 24774,
+            "H4": 4362,
+            "M15": 109904,
+            "M3": 591765
+          },
+          "execution_tf": "M3",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "AUD_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M30": {
+          "counts": {
+            "H1": 24774,
+            "H4": 4362,
+            "M30": 52459
+          },
+          "execution_tf": "M30",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "AUD_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        }
+      },
+      "EUR_USD": {
+        "M15": {
+          "counts": {
+            "H1": 27249,
+            "H4": 5234,
+            "M15": 116628
+          },
+          "execution_tf": "M15",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "EUR_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M3": {
+          "counts": {
+            "H1": 27249,
+            "H4": 5234,
+            "M15": 116628,
+            "M3": 606857
+          },
+          "execution_tf": "M3",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "EUR_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M30": {
+          "counts": {
+            "H1": 27249,
+            "H4": 5234,
+            "M30": 56671
+          },
+          "execution_tf": "M30",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "EUR_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        }
+      },
+      "GBP_USD": {
+        "M15": {
+          "counts": {
+            "H1": 26758,
+            "H4": 5186,
+            "M15": 115243
+          },
+          "execution_tf": "M15",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "GBP_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M3": {
+          "counts": {
+            "H1": 26758,
+            "H4": 5186,
+            "M15": 115243,
+            "M3": 602436
+          },
+          "execution_tf": "M3",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "GBP_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M30": {
+          "counts": {
+            "H1": 26758,
+            "H4": 5186,
+            "M30": 55863
+          },
+          "execution_tf": "M30",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "GBP_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        }
+      },
+      "NZD_USD": {
+        "M15": {
+          "counts": {
+            "H1": 23856,
+            "H4": 4199,
+            "M15": 110462
+          },
+          "execution_tf": "M15",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "NZD_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M3": {
+          "counts": {
+            "H1": 23856,
+            "H4": 4199,
+            "M15": 110462,
+            "M3": 594912
+          },
+          "execution_tf": "M3",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "NZD_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M30": {
+          "counts": {
+            "H1": 23856,
+            "H4": 4199,
+            "M30": 52125
+          },
+          "execution_tf": "M30",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "NZD_USD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        }
+      },
+      "USD_CAD": {
+        "M15": {
+          "counts": {
+            "H1": 26405,
+            "H4": 5015,
+            "M15": 114562
+          },
+          "execution_tf": "M15",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "USD_CAD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M3": {
+          "counts": {
+            "H1": 26405,
+            "H4": 5015,
+            "M15": 114562,
+            "M3": 601816
+          },
+          "execution_tf": "M3",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "USD_CAD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M30": {
+          "counts": {
+            "H1": 26405,
+            "H4": 5015,
+            "M30": 55339
+          },
+          "execution_tf": "M30",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "USD_CAD",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        }
+      },
+      "USD_CHF": {
+        "M15": {
+          "counts": {
+            "H1": 23400,
+            "H4": 4039,
+            "M15": 105604
+          },
+          "execution_tf": "M15",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "USD_CHF",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M3": {
+          "counts": {
+            "H1": 23400,
+            "H4": 4039,
+            "M15": 105604,
+            "M3": 573219
+          },
+          "execution_tf": "M3",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "USD_CHF",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M30": {
+          "counts": {
+            "H1": 23400,
+            "H4": 4039,
+            "M30": 50192
+          },
+          "execution_tf": "M30",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "USD_CHF",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        }
+      },
+      "USD_JPY": {
+        "M15": {
+          "counts": {
+            "H1": 28013,
+            "H4": 5448,
+            "M15": 118035
+          },
+          "execution_tf": "M15",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "USD_JPY",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M3": {
+          "counts": {
+            "H1": 28013,
+            "H4": 5448,
+            "M15": 118035,
+            "M3": 608321
+          },
+          "execution_tf": "M3",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "USD_JPY",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        },
+        "M30": {
+          "counts": {
+            "H1": 28013,
+            "H4": 5448,
+            "M30": 57767
+          },
+          "execution_tf": "M30",
+          "from_utc": "2021-01-01T00:00:00+00:00",
+          "instrument": "USD_JPY",
+          "materialized_source": "m1_materialized",
+          "status": "PASS",
+          "to_utc": "2026-12-31T00:00:00+00:00"
+        }
+      }
+    },
+    "preflight_ok": true,
+    "strategy_evidence": false
+  },
+  "materialized_source": "m1_materialized",
+  "not_approved": true,
+  "pairs": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "NZD_USD"
+  ],
+  "preflight_ok": true
+}

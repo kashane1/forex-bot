@@ -1,0 +1,188 @@
+{
+  "blocked": [],
+  "by_execution_tf": {
+    "M15": {
+      "AUD_USD": {
+        "exec_bars": 41832,
+        "exec_first": "2021-07-01T00:45:00+00:00",
+        "exec_last": "2023-06-30T20:30:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 41680
+      },
+      "EUR_USD": {
+        "exec_bars": 45803,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:30:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 45654
+      },
+      "GBP_USD": {
+        "exec_bars": 43995,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:30:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 43869
+      },
+      "NZD_USD": {
+        "exec_bars": 43063,
+        "exec_first": "2021-07-01T00:30:00+00:00",
+        "exec_last": "2023-06-30T20:15:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 42952
+      },
+      "USD_CAD": {
+        "exec_bars": 44412,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:30:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 44305
+      },
+      "USD_CHF": {
+        "exec_bars": 38170,
+        "exec_first": "2021-07-01T06:00:00+00:00",
+        "exec_last": "2023-06-30T20:30:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 38087
+      },
+      "USD_JPY": {
+        "exec_bars": 46309,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:30:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 46170
+      }
+    },
+    "M3": {
+      "AUD_USD": {
+        "exec_bars": 231575,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:54:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 230398
+      },
+      "EUR_USD": {
+        "exec_bars": 241120,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:54:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 240331
+      },
+      "GBP_USD": {
+        "exec_bars": 236482,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:54:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 235734
+      },
+      "NZD_USD": {
+        "exec_bars": 235489,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:54:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 234773
+      },
+      "USD_CAD": {
+        "exec_bars": 237748,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:54:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 237036
+      },
+      "USD_CHF": {
+        "exec_bars": 215415,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:54:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 214845
+      },
+      "USD_JPY": {
+        "exec_bars": 241846,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:54:00+00:00",
+        "h1_in_trend": true,
+        "status": "PASS",
+        "warm_bars": 241076
+      }
+    },
+    "M30": {
+      "AUD_USD": {
+        "exec_bars": 19760,
+        "exec_first": "2021-07-01T06:00:00+00:00",
+        "exec_last": "2023-06-30T20:00:00+00:00",
+        "h1_in_trend": false,
+        "status": "PASS",
+        "warm_bars": 19701
+      },
+      "EUR_USD": {
+        "exec_bars": 22145,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:00:00+00:00",
+        "h1_in_trend": false,
+        "status": "PASS",
+        "warm_bars": 22074
+      },
+      "GBP_USD": {
+        "exec_bars": 21002,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:00:00+00:00",
+        "h1_in_trend": false,
+        "status": "PASS",
+        "warm_bars": 20943
+      },
+      "NZD_USD": {
+        "exec_bars": 20174,
+        "exec_first": "2021-07-01T00:30:00+00:00",
+        "exec_last": "2023-06-30T20:00:00+00:00",
+        "h1_in_trend": false,
+        "status": "PASS",
+        "warm_bars": 20127
+      },
+      "USD_CAD": {
+        "exec_bars": 21236,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:00:00+00:00",
+        "h1_in_trend": false,
+        "status": "PASS",
+        "warm_bars": 21189
+      },
+      "USD_CHF": {
+        "exec_bars": 17972,
+        "exec_first": "2021-07-01T06:00:00+00:00",
+        "exec_last": "2023-06-30T19:30:00+00:00",
+        "h1_in_trend": false,
+        "status": "PASS",
+        "warm_bars": 17933
+      },
+      "USD_JPY": {
+        "exec_bars": 22442,
+        "exec_first": "2021-07-01T00:00:00+00:00",
+        "exec_last": "2023-06-30T20:00:00+00:00",
+        "h1_in_trend": false,
+        "status": "PASS",
+        "warm_bars": 22379
+      }
+    }
+  },
+  "campaign_id": "CAMPAIGN_026",
+  "materialized_source": "m1_materialized",
+  "not_approved": true,
+  "preflight_ok": true,
+  "strategy_evidence": false,
+  "window": {
+    "train_end": "2023-06-30",
+    "train_start": "2021-07-01"
+  }
+}
