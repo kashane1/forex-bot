@@ -1,0 +1,485 @@
+{
+  "EUR_USD": {
+    "horizons": {
+      "1": {
+        "by_bucket": {
+          "extreme": {
+            "mean": 0.59772,
+            "median": 19.5,
+            "n": 527,
+            "reversion_rate": 0.5066,
+            "sem": 1.36818,
+            "std": 31.40857
+          },
+          "large": {
+            "mean": 1.32368,
+            "median": 26.0,
+            "n": 511,
+            "reversion_rate": 0.5225,
+            "sem": 1.3583,
+            "std": 30.70479
+          },
+          "medium": {
+            "mean": 0.3121,
+            "median": 17.9,
+            "n": 529,
+            "reversion_rate": 0.5066,
+            "sem": 1.3509,
+            "std": 31.07078
+          },
+          "small": {
+            "mean": 2.57784,
+            "median": 27.05,
+            "n": 564,
+            "reversion_rate": 0.5426,
+            "sem": 1.32955,
+            "std": 31.57509
+          }
+        },
+        "top5pct_tail": {
+          "mean": -2.26449,
+          "median": -26.0,
+          "n": 107,
+          "reversion_rate": 0.4579,
+          "sem": 3.12006,
+          "std": 32.27415
+        },
+        "unconditional": {
+          "mean": 1.22496,
+          "median": 25.1,
+          "n": 2131,
+          "reversion_rate": 0.5199,
+          "sem": 0.67618,
+          "std": 31.21448
+        }
+      },
+      "2": {
+        "by_bucket": {
+          "extreme": {
+            "mean": 0.38235,
+            "median": -0.0,
+            "n": 527,
+            "reversion_rate": 0.4915,
+            "sem": 1.85752,
+            "std": 42.64218
+          },
+          "large": {
+            "mean": 0.82348,
+            "median": 0.0,
+            "n": 511,
+            "reversion_rate": 0.4971,
+            "sem": 1.88982,
+            "std": 42.72004
+          },
+          "medium": {
+            "mean": -0.74234,
+            "median": -0.2,
+            "n": 529,
+            "reversion_rate": 0.4877,
+            "sem": 1.85446,
+            "std": 42.65268
+          },
+          "small": {
+            "mean": 3.71492,
+            "median": 0.3,
+            "n": 563,
+            "reversion_rate": 0.5187,
+            "sem": 1.90162,
+            "std": 45.12097
+          }
+        },
+        "top5pct_tail": {
+          "mean": 0.23271,
+          "median": -0.6,
+          "n": 107,
+          "reversion_rate": 0.4673,
+          "sem": 4.05369,
+          "std": 41.93165
+        },
+        "unconditional": {
+          "mean": 1.08972,
+          "median": 0.0,
+          "n": 2130,
+          "reversion_rate": 0.4991,
+          "sem": 0.9396,
+          "std": 43.36439
+        }
+      },
+      "3": {
+        "by_bucket": {
+          "extreme": {
+            "mean": 1.0888,
+            "median": 21.9,
+            "n": 527,
+            "reversion_rate": 0.5237,
+            "sem": 2.2869,
+            "std": 52.49914
+          },
+          "large": {
+            "mean": 1.69119,
+            "median": -12.2,
+            "n": 511,
+            "reversion_rate": 0.499,
+            "sem": 2.36188,
+            "std": 53.39114
+          },
+          "medium": {
+            "mean": -1.12992,
+            "median": -18.0,
+            "n": 528,
+            "reversion_rate": 0.4905,
+            "sem": 2.18444,
+            "std": 50.19465
+          },
+          "small": {
+            "mean": 3.48313,
+            "median": 24.7,
+            "n": 563,
+            "reversion_rate": 0.5329,
+            "sem": 2.32026,
+            "std": 55.05435
+          }
+        },
+        "top5pct_tail": {
+          "mean": 1.66168,
+          "median": 24.2,
+          "n": 107,
+          "reversion_rate": 0.5888,
+          "sem": 5.10459,
+          "std": 52.80231
+        },
+        "unconditional": {
+          "mean": 1.3163,
+          "median": 20.8,
+          "n": 2129,
+          "reversion_rate": 0.512,
+          "sem": 1.1459,
+          "std": 52.8733
+        }
+      }
+    },
+    "instrument": "EUR_USD"
+  },
+  "GBP_USD": {
+    "horizons": {
+      "1": {
+        "by_bucket": {
+          "extreme": {
+            "mean": -0.20292,
+            "median": 5.85,
+            "n": 958,
+            "reversion_rate": 0.5021,
+            "sem": 1.05941,
+            "std": 32.79043
+          },
+          "large": {
+            "mean": 0.14526,
+            "median": 11.9,
+            "n": 928,
+            "reversion_rate": 0.5065,
+            "sem": 1.01262,
+            "std": 30.8474
+          },
+          "medium": {
+            "mean": 1.27656,
+            "median": 24.55,
+            "n": 964,
+            "reversion_rate": 0.5197,
+            "sem": 1.00073,
+            "std": 31.07093
+          },
+          "small": {
+            "mean": 0.73094,
+            "median": 23.2,
+            "n": 1002,
+            "reversion_rate": 0.512,
+            "sem": 0.98099,
+            "std": 31.05271
+          }
+        },
+        "top5pct_tail": {
+          "mean": -0.975,
+          "median": -2.8,
+          "n": 196,
+          "reversion_rate": 0.5,
+          "sem": 2.57982,
+          "std": 36.11749
+        },
+        "unconditional": {
+          "mean": 0.49413,
+          "median": 20.6,
+          "n": 3852,
+          "reversion_rate": 0.5101,
+          "sem": 0.50681,
+          "std": 31.45476
+        }
+      },
+      "2": {
+        "by_bucket": {
+          "extreme": {
+            "mean": 2.01545,
+            "median": 0.3,
+            "n": 958,
+            "reversion_rate": 0.5104,
+            "sem": 1.50858,
+            "std": 46.69291
+          },
+          "large": {
+            "mean": -0.78017,
+            "median": -0.5,
+            "n": 928,
+            "reversion_rate": 0.458,
+            "sem": 1.42353,
+            "std": 43.365
+          },
+          "medium": {
+            "mean": 1.23385,
+            "median": 0.2,
+            "n": 963,
+            "reversion_rate": 0.5099,
+            "sem": 1.35645,
+            "std": 42.09367
+          },
+          "small": {
+            "mean": 0.82535,
+            "median": 0.0,
+            "n": 1002,
+            "reversion_rate": 0.497,
+            "sem": 1.41466,
+            "std": 44.78032
+          }
+        },
+        "top5pct_tail": {
+          "mean": 3.40867,
+          "median": 0.5,
+          "n": 196,
+          "reversion_rate": 0.5204,
+          "sem": 3.48689,
+          "std": 48.81649
+        },
+        "unconditional": {
+          "mean": 0.83667,
+          "median": 0.0,
+          "n": 3851,
+          "reversion_rate": 0.4942,
+          "sem": 0.71367,
+          "std": 44.28754
+        }
+      },
+      "3": {
+        "by_bucket": {
+          "extreme": {
+            "mean": 2.33914,
+            "median": 19.3,
+            "n": 958,
+            "reversion_rate": 0.5261,
+            "sem": 1.83003,
+            "std": 56.64244
+          },
+          "large": {
+            "mean": -1.20086,
+            "median": -4.55,
+            "n": 928,
+            "reversion_rate": 0.4989,
+            "sem": 1.72884,
+            "std": 52.66577
+          },
+          "medium": {
+            "mean": -0.43583,
+            "median": 17.4,
+            "n": 963,
+            "reversion_rate": 0.5119,
+            "sem": 1.65221,
+            "std": 51.27165
+          },
+          "small": {
+            "mean": 0.13137,
+            "median": -12.6,
+            "n": 1001,
+            "reversion_rate": 0.4935,
+            "sem": 1.72393,
+            "std": 54.54275
+          }
+        },
+        "top5pct_tail": {
+          "mean": 4.33418,
+          "median": 16.65,
+          "n": 196,
+          "reversion_rate": 0.5459,
+          "sem": 4.02895,
+          "std": 56.40528
+        },
+        "unconditional": {
+          "mean": 0.21774,
+          "median": 10.6,
+          "n": 3850,
+          "reversion_rate": 0.5075,
+          "sem": 0.86784,
+          "std": 53.84826
+        }
+      }
+    },
+    "instrument": "GBP_USD"
+  },
+  "USD_JPY": {
+    "horizons": {
+      "1": {
+        "by_bucket": {
+          "extreme": {
+            "mean": -0.39358,
+            "median": -11.6,
+            "n": 1090,
+            "reversion_rate": 0.4899,
+            "sem": 1.00081,
+            "std": 33.04193
+          },
+          "large": {
+            "mean": 0.11759,
+            "median": 11.25,
+            "n": 1086,
+            "reversion_rate": 0.5037,
+            "sem": 1.01046,
+            "std": 33.29917
+          },
+          "medium": {
+            "mean": -0.21562,
+            "median": -21.6,
+            "n": 1101,
+            "reversion_rate": 0.4905,
+            "sem": 0.94031,
+            "std": 31.20087
+          },
+          "small": {
+            "mean": -0.34942,
+            "median": -16.8,
+            "n": 1125,
+            "reversion_rate": 0.4969,
+            "sem": 0.93837,
+            "std": 31.47377
+          }
+        },
+        "top5pct_tail": {
+          "mean": 0.27523,
+          "median": 6.0,
+          "n": 222,
+          "reversion_rate": 0.518,
+          "sem": 2.44305,
+          "std": 36.40062
+        },
+        "unconditional": {
+          "mean": -0.21168,
+          "median": -12.65,
+          "n": 4402,
+          "reversion_rate": 0.4952,
+          "sem": 0.4862,
+          "std": 32.25804
+        }
+      },
+      "2": {
+        "by_bucket": {
+          "extreme": {
+            "mean": 1.0256,
+            "median": 0.5,
+            "n": 1090,
+            "reversion_rate": 0.5239,
+            "sem": 1.3787,
+            "std": 45.51802
+          },
+          "large": {
+            "mean": 1.13862,
+            "median": -0.0,
+            "n": 1085,
+            "reversion_rate": 0.4995,
+            "sem": 1.39826,
+            "std": 46.05768
+          },
+          "medium": {
+            "mean": -0.30926,
+            "median": 0.1,
+            "n": 1101,
+            "reversion_rate": 0.5059,
+            "sem": 1.37626,
+            "std": 45.66605
+          },
+          "small": {
+            "mean": -0.18169,
+            "median": -0.2,
+            "n": 1125,
+            "reversion_rate": 0.4782,
+            "sem": 1.38222,
+            "std": 46.36093
+          }
+        },
+        "top5pct_tail": {
+          "mean": 3.22207,
+          "median": 1.95,
+          "n": 222,
+          "reversion_rate": 0.5586,
+          "sem": 3.41614,
+          "std": 50.89936
+        },
+        "unconditional": {
+          "mean": 0.41091,
+          "median": 0.1,
+          "n": 4401,
+          "reversion_rate": 0.5017,
+          "sem": 0.69203,
+          "std": 45.90959
+        }
+      },
+      "3": {
+        "by_bucket": {
+          "extreme": {
+            "mean": -0.65798,
+            "median": -8.3,
+            "n": 1090,
+            "reversion_rate": 0.4917,
+            "sem": 1.70884,
+            "std": 56.41747
+          },
+          "large": {
+            "mean": 1.20387,
+            "median": 3.8,
+            "n": 1085,
+            "reversion_rate": 0.5005,
+            "sem": 1.71413,
+            "std": 56.46229
+          },
+          "medium": {
+            "mean": 1.05159,
+            "median": 10.8,
+            "n": 1101,
+            "reversion_rate": 0.5041,
+            "sem": 1.68385,
+            "std": 55.87224
+          },
+          "small": {
+            "mean": -0.87669,
+            "median": -16.65,
+            "n": 1124,
+            "reversion_rate": 0.4867,
+            "sem": 1.65716,
+            "std": 55.55817
+          }
+        },
+        "top5pct_tail": {
+          "mean": -1.22387,
+          "median": -7.95,
+          "n": 222,
+          "reversion_rate": 0.4865,
+          "sem": 4.24139,
+          "std": 63.19532
+        },
+        "unconditional": {
+          "mean": 0.17305,
+          "median": -5.35,
+          "n": 4400,
+          "reversion_rate": 0.4957,
+          "sem": 0.84547,
+          "std": 56.08196
+        }
+      }
+    },
+    "instrument": "USD_JPY"
+  }
+}

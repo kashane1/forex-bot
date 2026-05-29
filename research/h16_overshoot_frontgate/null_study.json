@@ -1,0 +1,215 @@
+{
+  "EUR_USD": {
+    "horizons": {
+      "1": {
+        "extreme": {
+          "draws": 2000,
+          "n_group": 527,
+          "null_mean": 1.20026,
+          "null_p05": -0.75446,
+          "null_p95": 3.06528,
+          "observed_mean": 0.59772,
+          "one_sided_p_ge": 0.689,
+          "pct_rank": 0.311
+        },
+        "large_plus_extreme": {
+          "draws": 2000,
+          "n_group": 1038,
+          "null_mean": 1.24875,
+          "null_p05": 0.10058,
+          "null_p95": 2.35915,
+          "observed_mean": 0.95511,
+          "one_sided_p_ge": 0.677,
+          "pct_rank": 0.323
+        }
+      },
+      "2": {
+        "extreme": {
+          "draws": 2000,
+          "n_group": 527,
+          "null_mean": 1.18336,
+          "null_p05": -1.4556,
+          "null_p95": 3.98634,
+          "observed_mean": 0.38235,
+          "one_sided_p_ge": 0.683,
+          "pct_rank": 0.317
+        },
+        "large_plus_extreme": {
+          "draws": 2000,
+          "n_group": 1038,
+          "null_mean": 1.14383,
+          "null_p05": -0.41387,
+          "null_p95": 2.78988,
+          "observed_mean": 0.59952,
+          "one_sided_p_ge": 0.718,
+          "pct_rank": 0.282
+        }
+      },
+      "3": {
+        "extreme": {
+          "draws": 2000,
+          "n_group": 527,
+          "null_mean": 1.27569,
+          "null_p05": -2.17989,
+          "null_p95": 4.48387,
+          "observed_mean": 1.0888,
+          "one_sided_p_ge": 0.5505,
+          "pct_rank": 0.4495
+        },
+        "large_plus_extreme": {
+          "draws": 2000,
+          "n_group": 1038,
+          "null_mean": 1.30122,
+          "null_p05": -0.65713,
+          "null_p95": 3.24904,
+          "observed_mean": 1.38536,
+          "one_sided_p_ge": 0.4575,
+          "pct_rank": 0.5425
+        }
+      }
+    },
+    "instrument": "EUR_USD"
+  },
+  "GBP_USD": {
+    "horizons": {
+      "1": {
+        "extreme": {
+          "draws": 2000,
+          "n_group": 958,
+          "null_mean": 0.48484,
+          "null_p05": -0.93434,
+          "null_p95": 1.91576,
+          "observed_mean": -0.20292,
+          "one_sided_p_ge": 0.78,
+          "pct_rank": 0.22
+        },
+        "large_plus_extreme": {
+          "draws": 2000,
+          "n_group": 1886,
+          "null_mean": 0.48868,
+          "null_p05": -0.378,
+          "null_p95": 1.36214,
+          "observed_mean": -0.0316,
+          "one_sided_p_ge": 0.841,
+          "pct_rank": 0.159
+        }
+      },
+      "2": {
+        "extreme": {
+          "draws": 2000,
+          "n_group": 958,
+          "null_mean": 0.8446,
+          "null_p05": -1.23288,
+          "null_p95": 2.85532,
+          "observed_mean": 2.01545,
+          "one_sided_p_ge": 0.1725,
+          "pct_rank": 0.8275
+        },
+        "large_plus_extreme": {
+          "draws": 2000,
+          "n_group": 1886,
+          "null_mean": 0.8422,
+          "null_p05": -0.29894,
+          "null_p95": 2.03505,
+          "observed_mean": 0.63987,
+          "one_sided_p_ge": 0.605,
+          "pct_rank": 0.395
+        }
+      },
+      "3": {
+        "extreme": {
+          "draws": 2000,
+          "n_group": 958,
+          "null_mean": 0.24286,
+          "null_p05": -2.09363,
+          "null_p95": 2.74363,
+          "observed_mean": 2.33914,
+          "one_sided_p_ge": 0.0855,
+          "pct_rank": 0.9145
+        },
+        "large_plus_extreme": {
+          "draws": 2000,
+          "n_group": 1886,
+          "null_mean": 0.26397,
+          "null_p05": -1.22025,
+          "null_p95": 1.71013,
+          "observed_mean": 0.5973,
+          "one_sided_p_ge": 0.3515,
+          "pct_rank": 0.6485
+        }
+      }
+    },
+    "instrument": "GBP_USD"
+  },
+  "USD_JPY": {
+    "horizons": {
+      "1": {
+        "extreme": {
+          "draws": 2000,
+          "n_group": 1090,
+          "null_mean": -0.20623,
+          "null_p05": -1.63835,
+          "null_p95": 1.20339,
+          "observed_mean": -0.39358,
+          "one_sided_p_ge": 0.592,
+          "pct_rank": 0.408
+        },
+        "large_plus_extreme": {
+          "draws": 2000,
+          "n_group": 2176,
+          "null_mean": -0.20808,
+          "null_p05": -1.00951,
+          "null_p95": 0.61328,
+          "observed_mean": -0.13847,
+          "one_sided_p_ge": 0.44,
+          "pct_rank": 0.56
+        }
+      },
+      "2": {
+        "extreme": {
+          "draws": 2000,
+          "n_group": 1090,
+          "null_mean": 0.39642,
+          "null_p05": -1.50477,
+          "null_p95": 2.35385,
+          "observed_mean": 1.0256,
+          "one_sided_p_ge": 0.306,
+          "pct_rank": 0.694
+        },
+        "large_plus_extreme": {
+          "draws": 2000,
+          "n_group": 2175,
+          "null_mean": 0.3861,
+          "null_p05": -0.80331,
+          "null_p95": 1.53002,
+          "observed_mean": 1.08198,
+          "one_sided_p_ge": 0.155,
+          "pct_rank": 0.845
+        }
+      },
+      "3": {
+        "extreme": {
+          "draws": 2000,
+          "n_group": 1090,
+          "null_mean": 0.15414,
+          "null_p05": -2.32211,
+          "null_p95": 2.65578,
+          "observed_mean": -0.65798,
+          "one_sided_p_ge": 0.7105,
+          "pct_rank": 0.2895
+        },
+        "large_plus_extreme": {
+          "draws": 2000,
+          "n_group": 2175,
+          "null_mean": 0.1699,
+          "null_p05": -1.25163,
+          "null_p95": 1.53632,
+          "observed_mean": 0.2708,
+          "one_sided_p_ge": 0.4535,
+          "pct_rank": 0.5465
+        }
+      }
+    },
+    "instrument": "USD_JPY"
+  }
+}

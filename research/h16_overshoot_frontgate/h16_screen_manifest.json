@@ -1,0 +1,28 @@
+{
+  "computes_pnl_or_returns": "conditional forward returns only \u2014 NO positions/PnL/signals",
+  "elapsed_seconds": 60.6,
+  "horizons": [
+    1,
+    2,
+    3
+  ],
+  "is_campaign": false,
+  "kind": "front_gate_screen_conditional_distribution",
+  "not_approved": true,
+  "null_draws": 2000,
+  "null_seed": 20260529,
+  "pairs": [
+    "USD_JPY",
+    "EUR_USD",
+    "GBP_USD"
+  ],
+  "slippage_pips_per_side": 0.2,
+  "source": "local Postgres M1; NO broker/network/OANDA",
+  "sprint": "research-non-time-bar-overshoot-frontgate-001",
+  "test_lockbox_touched": false,
+  "threshold_pips": 30.0,
+  "window": {
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "to_utc": "2023-12-31T23:59:00+00:00"
+  }
+}

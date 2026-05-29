@@ -1,0 +1,491 @@
+{
+  "EUR_USD": {
+    "clustering_extreme": {
+      "base_rate": 0.2472,
+      "conditional_rate": 0.2998,
+      "lift": 1.2129,
+      "n_target": 527
+    },
+    "clustering_large_extreme": {
+      "base_rate": 0.4869,
+      "conditional_rate": 0.5202,
+      "lift": 1.0685,
+      "n_target": 1038
+    },
+    "instrument": "EUR_USD",
+    "mean_thresholds_crossed_by_bucket": {
+      "extreme": 1.038,
+      "large": 1.0,
+      "medium": 1.0,
+      "small": 1.0
+    },
+    "n_bars": 2132,
+    "overshoot_autocorr_lag1": 0.0703,
+    "overshoot_by_session": {
+      "london": {
+        "mean": 2.1973,
+        "median": 1.2,
+        "n": 563,
+        "p25": 0.4,
+        "p75": 2.8,
+        "p95": 7.4
+      },
+      "london_ny_overlap": {
+        "mean": 3.3187,
+        "median": 1.5,
+        "n": 894,
+        "p25": 0.6,
+        "p75": 3.3,
+        "p95": 11.4
+      },
+      "new_york": {
+        "mean": 2.6135,
+        "median": 1.2,
+        "n": 341,
+        "p25": 0.35,
+        "p75": 2.75,
+        "p95": 10.3
+      },
+      "rollover_late": {
+        "mean": 4.0534,
+        "median": 1.55,
+        "n": 58,
+        "p25": 0.375,
+        "p75": 3.55,
+        "p95": 9.8
+      },
+      "tokyo": {
+        "mean": 1.6659,
+        "median": 0.7,
+        "n": 276,
+        "p25": 0.2,
+        "p75": 1.875,
+        "p95": 6.5
+      }
+    },
+    "overshoot_stats_pips": {
+      "mean": 2.7158,
+      "median": 1.2,
+      "n": 2132,
+      "p25": 0.4,
+      "p75": 2.8,
+      "p95": 9.4
+    },
+    "quartile_edges_pips": [
+      0.4,
+      1.2,
+      2.8
+    ],
+    "session_distribution": {
+      "london": 563,
+      "london_ny_overlap": 894,
+      "new_york": 341,
+      "rollover_late": 58,
+      "tokyo": 276
+    },
+    "spread_by_overshoot_bucket_pips": {
+      "extreme": {
+        "mean": 1.8613,
+        "median": 1.6,
+        "n": 527,
+        "p25": 1.5,
+        "p75": 1.8,
+        "p95": 2.8
+      },
+      "large": {
+        "mean": 1.607,
+        "median": 1.5,
+        "n": 511,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 1.9
+      },
+      "medium": {
+        "mean": 1.5284,
+        "median": 1.5,
+        "n": 529,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 1.8
+      },
+      "small": {
+        "mean": 1.5018,
+        "median": 1.5,
+        "n": 565,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 1.8
+      }
+    },
+    "spread_by_session_pips": {
+      "london": {
+        "mean": 1.5451,
+        "median": 1.5,
+        "n": 563,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 1.9
+      },
+      "london_ny_overlap": {
+        "mean": 1.5623,
+        "median": 1.5,
+        "n": 894,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 2.0
+      },
+      "new_york": {
+        "mean": 1.5839,
+        "median": 1.5,
+        "n": 341,
+        "p25": 1.4,
+        "p75": 1.6,
+        "p95": 2.1
+      },
+      "rollover_late": {
+        "mean": 3.4655,
+        "median": 1.95,
+        "n": 58,
+        "p25": 1.6,
+        "p75": 4.8,
+        "p95": 10.0
+      },
+      "tokyo": {
+        "mean": 1.6355,
+        "median": 1.6,
+        "n": 276,
+        "p25": 1.5,
+        "p75": 1.7,
+        "p95": 1.9
+      }
+    },
+    "threshold_pips": 30.0,
+    "top5pct_threshold_pips": 9.5
+  },
+  "GBP_USD": {
+    "clustering_extreme": {
+      "base_rate": 0.2486,
+      "conditional_rate": 0.3434,
+      "lift": 1.3812,
+      "n_target": 958
+    },
+    "clustering_large_extreme": {
+      "base_rate": 0.4897,
+      "conditional_rate": 0.5509,
+      "lift": 1.1249,
+      "n_target": 1886
+    },
+    "instrument": "GBP_USD",
+    "mean_thresholds_crossed_by_bucket": {
+      "extreme": 1.064,
+      "large": 1.0,
+      "medium": 1.0,
+      "small": 1.0
+    },
+    "n_bars": 3853,
+    "overshoot_autocorr_lag1": 0.1921,
+    "overshoot_by_session": {
+      "london": {
+        "mean": 2.9167,
+        "median": 1.4,
+        "n": 1144,
+        "p25": 0.6,
+        "p75": 3.2,
+        "p95": 9.4
+      },
+      "london_ny_overlap": {
+        "mean": 3.7215,
+        "median": 1.8,
+        "n": 1453,
+        "p25": 0.6,
+        "p75": 3.85,
+        "p95": 13.2
+      },
+      "new_york": {
+        "mean": 2.4501,
+        "median": 1.0,
+        "n": 609,
+        "p25": 0.4,
+        "p75": 2.35,
+        "p95": 9.4
+      },
+      "rollover_late": {
+        "mean": 4.2096,
+        "median": 1.2,
+        "n": 104,
+        "p25": 0.3,
+        "p75": 2.775,
+        "p95": 25.2
+      },
+      "tokyo": {
+        "mean": 3.414,
+        "median": 1.2,
+        "n": 543,
+        "p25": 0.4,
+        "p75": 2.8,
+        "p95": 12.2
+      }
+    },
+    "overshoot_stats_pips": {
+      "mean": 3.2514,
+      "median": 1.4,
+      "n": 3853,
+      "p25": 0.5,
+      "p75": 3.2,
+      "p95": 11.4
+    },
+    "quartile_edges_pips": [
+      0.5,
+      1.4,
+      3.2
+    ],
+    "session_distribution": {
+      "london": 1144,
+      "london_ny_overlap": 1453,
+      "new_york": 609,
+      "rollover_late": 104,
+      "tokyo": 543
+    },
+    "spread_by_overshoot_bucket_pips": {
+      "extreme": {
+        "mean": 2.7578,
+        "median": 2.2,
+        "n": 958,
+        "p25": 1.9,
+        "p75": 2.7,
+        "p95": 5.1
+      },
+      "large": {
+        "mean": 2.1952,
+        "median": 2.0,
+        "n": 929,
+        "p25": 1.8,
+        "p75": 2.2,
+        "p95": 3.1
+      },
+      "medium": {
+        "mean": 2.0186,
+        "median": 1.9,
+        "n": 964,
+        "p25": 1.7,
+        "p75": 2.1,
+        "p95": 2.7
+      },
+      "small": {
+        "mean": 2.0205,
+        "median": 1.9,
+        "n": 1002,
+        "p25": 1.7,
+        "p75": 2.1,
+        "p95": 2.7
+      }
+    },
+    "spread_by_session_pips": {
+      "london": {
+        "mean": 2.0726,
+        "median": 1.9,
+        "n": 1144,
+        "p25": 1.8,
+        "p75": 2.2,
+        "p95": 2.8
+      },
+      "london_ny_overlap": {
+        "mean": 2.0799,
+        "median": 1.9,
+        "n": 1453,
+        "p25": 1.7,
+        "p75": 2.2,
+        "p95": 3.1
+      },
+      "new_york": {
+        "mean": 2.0834,
+        "median": 1.9,
+        "n": 609,
+        "p25": 1.75,
+        "p75": 2.2,
+        "p95": 3.0
+      },
+      "rollover_late": {
+        "mean": 5.8971,
+        "median": 3.05,
+        "n": 104,
+        "p25": 2.2,
+        "p75": 6.0,
+        "p95": 20.1
+      },
+      "tokyo": {
+        "mean": 2.5348,
+        "median": 2.2,
+        "n": 543,
+        "p25": 1.9,
+        "p75": 2.5,
+        "p95": 3.9
+      }
+    },
+    "threshold_pips": 30.0,
+    "top5pct_threshold_pips": 11.4
+  },
+  "USD_JPY": {
+    "clustering_extreme": {
+      "base_rate": 0.2476,
+      "conditional_rate": 0.3761,
+      "lift": 1.5194,
+      "n_target": 1090
+    },
+    "clustering_large_extreme": {
+      "base_rate": 0.4944,
+      "conditional_rate": 0.5593,
+      "lift": 1.1312,
+      "n_target": 2176
+    },
+    "instrument": "USD_JPY",
+    "mean_thresholds_crossed_by_bucket": {
+      "extreme": 1.147,
+      "large": 1.0,
+      "medium": 1.0,
+      "small": 1.0
+    },
+    "n_bars": 4403,
+    "overshoot_autocorr_lag1": 0.1758,
+    "overshoot_by_session": {
+      "london": {
+        "mean": 3.737,
+        "median": 1.55,
+        "n": 936,
+        "p25": 0.6,
+        "p75": 3.7,
+        "p95": 13.1
+      },
+      "london_ny_overlap": {
+        "mean": 5.3802,
+        "median": 2.2,
+        "n": 1474,
+        "p25": 0.8,
+        "p75": 5.5,
+        "p95": 18.4
+      },
+      "new_york": {
+        "mean": 3.7194,
+        "median": 1.4,
+        "n": 568,
+        "p25": 0.5,
+        "p75": 3.5,
+        "p95": 14.3
+      },
+      "rollover_late": {
+        "mean": 5.8352,
+        "median": 1.9,
+        "n": 273,
+        "p25": 0.6,
+        "p75": 4.5,
+        "p95": 21.4
+      },
+      "tokyo": {
+        "mean": 4.5818,
+        "median": 1.6,
+        "n": 1152,
+        "p25": 0.6,
+        "p75": 4.075,
+        "p95": 15.8
+      }
+    },
+    "overshoot_stats_pips": {
+      "mean": 4.6359,
+      "median": 1.7,
+      "n": 4403,
+      "p25": 0.6,
+      "p75": 4.4,
+      "p95": 15.9
+    },
+    "quartile_edges_pips": [
+      0.6,
+      1.7,
+      4.4
+    ],
+    "session_distribution": {
+      "london": 936,
+      "london_ny_overlap": 1474,
+      "new_york": 568,
+      "rollover_late": 273,
+      "tokyo": 1152
+    },
+    "spread_by_overshoot_bucket_pips": {
+      "extreme": {
+        "mean": 2.7396,
+        "median": 2.2,
+        "n": 1090,
+        "p25": 1.875,
+        "p75": 2.8,
+        "p95": 6.8
+      },
+      "large": {
+        "mean": 2.062,
+        "median": 1.9,
+        "n": 1087,
+        "p25": 1.7,
+        "p75": 2.1,
+        "p95": 2.9
+      },
+      "medium": {
+        "mean": 1.8535,
+        "median": 1.8,
+        "n": 1101,
+        "p25": 1.6,
+        "p75": 2.0,
+        "p95": 2.3
+      },
+      "small": {
+        "mean": 1.8263,
+        "median": 1.7,
+        "n": 1125,
+        "p25": 1.6,
+        "p75": 1.9,
+        "p95": 2.4
+      }
+    },
+    "spread_by_session_pips": {
+      "london": {
+        "mean": 1.9329,
+        "median": 1.8,
+        "n": 936,
+        "p25": 1.7,
+        "p75": 2.0,
+        "p95": 2.7
+      },
+      "london_ny_overlap": {
+        "mean": 1.9745,
+        "median": 1.8,
+        "n": 1474,
+        "p25": 1.6,
+        "p75": 2.0,
+        "p95": 3.1
+      },
+      "new_york": {
+        "mean": 1.9315,
+        "median": 1.75,
+        "n": 568,
+        "p25": 1.6,
+        "p75": 2.0,
+        "p95": 3.1
+      },
+      "rollover_late": {
+        "mean": 3.9209,
+        "median": 2.4,
+        "n": 273,
+        "p25": 2.0,
+        "p75": 4.45,
+        "p95": 10.0
+      },
+      "tokyo": {
+        "mean": 2.1144,
+        "median": 1.9,
+        "n": 1152,
+        "p25": 1.7,
+        "p75": 2.2,
+        "p95": 3.2
+      }
+    },
+    "threshold_pips": 30.0,
+    "top5pct_threshold_pips": 15.9
+  }
+}

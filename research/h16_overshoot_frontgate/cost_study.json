@@ -1,0 +1,62 @@
+{
+  "EUR_USD": {
+    "extreme_bucket_mean_fade_by_horizon": {
+      "1": 0.59772,
+      "2": 0.38235,
+      "3": 1.0888
+    },
+    "extreme_exceeds_cost_by_horizon": {
+      "1": false,
+      "2": false,
+      "3": false
+    },
+    "instrument": "EUR_USD",
+    "mean_spread_pips": 1.6225,
+    "round_trip_cost_pips": 2.0225,
+    "top5pct_mean_fade_by_horizon": {
+      "1": -2.26449,
+      "2": 0.23271,
+      "3": 1.66168
+    }
+  },
+  "GBP_USD": {
+    "extreme_bucket_mean_fade_by_horizon": {
+      "1": -0.20292,
+      "2": 2.01545,
+      "3": 2.33914
+    },
+    "extreme_exceeds_cost_by_horizon": {
+      "1": false,
+      "2": false,
+      "3": false
+    },
+    "instrument": "GBP_USD",
+    "mean_spread_pips": 2.2454,
+    "round_trip_cost_pips": 2.6454,
+    "top5pct_mean_fade_by_horizon": {
+      "1": -0.975,
+      "2": 3.40867,
+      "3": 4.33418
+    }
+  },
+  "USD_JPY": {
+    "extreme_bucket_mean_fade_by_horizon": {
+      "1": -0.39358,
+      "2": 1.0256,
+      "3": -0.65798
+    },
+    "extreme_exceeds_cost_by_horizon": {
+      "1": false,
+      "2": false,
+      "3": false
+    },
+    "instrument": "USD_JPY",
+    "mean_spread_pips": 2.1174,
+    "round_trip_cost_pips": 2.5174,
+    "top5pct_mean_fade_by_horizon": {
+      "1": 0.27523,
+      "2": 3.22207,
+      "3": -1.22387
+    }
+  }
+}
