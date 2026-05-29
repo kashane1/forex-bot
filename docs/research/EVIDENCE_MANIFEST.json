@@ -1959,6 +1959,13 @@
       "strategy_evidence": false
     },
     {
+      "artifact_id": "CAMPAIGN_025_TRAIN_MATRIX_SUMMARY",
+      "path": "docs/research/CAMPAIGN_025_TRAIN_MATRIX_VALIDATION_001_SUMMARY.md",
+      "kind": "evidence_summary",
+      "description": "CAMPAIGN_025 train-matrix sprint close-out (43-item). REJECT_MATRIX_NO_TRAIN_CANDIDATE. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
       "artifact_id": "CAMPAIGN_021_SCAFFOLD_PLAN",
       "path": "docs/research/CAMPAIGN_021_LTF_MTF_CONFLUENCE_SCAFFOLD_001_PLAN.md",
       "kind": "precommit_design",

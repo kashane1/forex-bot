@@ -363,6 +363,7 @@ map; the linked documents are the authoritative evidence.
 | [`CAMPAIGN_025_INTERPRETATION_AND_PRIOR_COMPARISON.md`](CAMPAIGN_025_INTERPRETATION_AND_PRIOR_COMPARISON.md) | Interpretation + prior-campaign comparison |
 | [`CAMPAIGN_025_BACKTRADER_PARITY_READINESS.md`](CAMPAIGN_025_BACKTRADER_PARITY_READINESS.md) | Parity readiness = DEFER_PARITY_REJECTED |
 | [`../../src/forex_bot/research/campaign_025_train_matrix.py`](../../src/forex_bot/research/campaign_025_train_matrix.py) | Vectorized M5 train-matrix simulator |
+| [`CAMPAIGN_025_TRAIN_MATRIX_VALIDATION_001_SUMMARY.md`](CAMPAIGN_025_TRAIN_MATRIX_VALIDATION_001_SUMMARY.md) | **Train-matrix sprint close-out (43-item summary)** |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 

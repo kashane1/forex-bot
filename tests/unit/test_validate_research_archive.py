@@ -25,7 +25,7 @@ from forex_bot.research_archive import (
     validate_archive,
 )
 
-_CAMPAIGN_IDS = {f"CAMPAIGN_{n:03d}" for n in (*range(1, 18), 19, 20, 21, 22)}
+_CAMPAIGN_IDS = {f"CAMPAIGN_{n:03d}" for n in (*range(1, 18), 19, 20, 21, 22, 25)}
 
 
 def test_real_research_archive_passes_every_check():
