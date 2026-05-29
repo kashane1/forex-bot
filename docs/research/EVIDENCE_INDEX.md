@@ -1886,6 +1886,33 @@ stay REJECT. This sprint is **idea-selection evidence, not strategy evidence.**
 | [`../../research/edge_discovery/front_gate_idea_selection/signal_probe_summary.csv`](../../research/edge_discovery/front_gate_idea_selection/signal_probe_summary.csv) | per-prototype probe summary |
 | [`../../research/edge_discovery/front_gate_idea_selection/matched_null_probe_summary.csv`](../../research/edge_discovery/front_gate_idea_selection/matched_null_probe_summary.csv) | matched-null per-mode results |
 
+## CAMPAIGN_029 USD_JPY 10-pip range-bar MTF breakout (SCAFFOLD_ONLY)
+
+> **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED** (2026-05-29). First strategy lane on
+> top of the merged non-time-bar infra: **USD_JPY 10-pip range bars** (from M1
+> mid) + mandatory **H4 (H4M1) EMA50-slope** trend bias + optional
+> **native-H4-derived D1AGG** "not against" confirmation; trigger = trend-aligned
+> continuation after a **pullback-and-reclaim** range bar, with an anti-spike
+> overshoot guard; structural stop = `max(5-bar swing, 20pip floor)`; 12-range-bar
+> time stop, **no** profit target; **next-range-bar-open** fill (no same-bar fill).
+> Numbered **029** because 028 was already consumed by the relative-value spread
+> screen (no-reuse discipline). **No strategy evidence run; test lockbox closed;
+> `approved_strategies.yaml` stays `[]`; paper/demo/live blocked.** The precommit
+> (below) is the binding frozen rule; the strategy module is pure-signal,
+> executor-unwired, and not registered in `strategies/__init__`.
+
+| document | purpose |
+|---|---|
+| [`CAMPAIGN_029_USDJPY_RANGE_BAR_SCAFFOLD_PLAN.md`](CAMPAIGN_029_USDJPY_RANGE_BAR_SCAFFOLD_PLAN.md) | Plan + baseline audit + campaign-number correction (028→029) |
+| [`CAMPAIGN_029_PRECOMMIT_SCOPE.md`](CAMPAIGN_029_PRECOMMIT_SCOPE.md) | **Frozen rule (binding precommit)** |
+| [`CAMPAIGN_029_HTF_ALIGNMENT_DESIGN.md`](CAMPAIGN_029_HTF_ALIGNMENT_DESIGN.md) | How each range bar reads H4/D1AGG with no lookahead |
+| [`CAMPAIGN_029_BACKTRADER_PARITY_DESIGN.md`](CAMPAIGN_029_BACKTRADER_PARITY_DESIGN.md) | Range-bar parity design (design only) |
+| [`CAMPAIGN_029_USDJPY_RANGE_BAR_SCAFFOLD_SUMMARY.md`](CAMPAIGN_029_USDJPY_RANGE_BAR_SCAFFOLD_SUMMARY.md) | Scaffold close-out summary |
+| [`../../configs/campaign_029_usdjpy_range_bar_mtf_breakout.yaml`](../../configs/campaign_029_usdjpy_range_bar_mtf_breakout.yaml) | Campaign config (`not_approved`, scaffold_only; not loop-loaded) |
+| [`../../src/forex_bot/strategies/usdjpy_range_bar_mtf_breakout.py`](../../src/forex_bot/strategies/usdjpy_range_bar_mtf_breakout.py) | Pure-signal range-bar strategy module (executor-unwired) |
+| [`../../scripts/preflight_campaign_029_usdjpy_range_bars.py`](../../scripts/preflight_campaign_029_usdjpy_range_bars.py) | Range-bar data preflight (compact diagnostics; no evidence) |
+| [`../../research/campaign_029/preflight/USD_JPY_range_10pip_diagnostics.md`](../../research/campaign_029/preflight/USD_JPY_range_10pip_diagnostics.md) | Preflight diagnostics (72,940 bars; 0 lookahead violations) |
+
 ## How to read the evidence
 
 - **Verdicts are bright lines.** Every campaign fixed its gates in a
