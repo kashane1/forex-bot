@@ -200,3 +200,23 @@ research/usdjpy_microstructure_diagnostic/*.parquet
 # USD_JPY post-entry trade-management diagnostic: full per-trade dataset local-only.
 # Only the manifest, summary/analysis JSON, and small preview CSV are committed.
 research/usdjpy_trade_management_diagnostic/*.parquet
+
+# external-thesis-sourcing-and-session-atlas-001: commit only the compact atlas
+# summary JSON; gitignore any bulky per-bar dumps written under the atlas dir.
+research/usdjpy_session_atlas/*
+!research/usdjpy_session_atlas/usdjpy_session_atlas_summary.json
+
+# vol-compression-expansion-diagnostic-001: commit only compact manifest + preview;
+# gitignore the bulky per-bar parquet dataset.
+research/usdjpy_vol_compression_expansion/*
+!research/usdjpy_vol_compression_expansion/dataset_manifest.json
+!research/usdjpy_vol_compression_expansion/feature_preview.csv
+!research/usdjpy_vol_compression_expansion/analysis_summary.json
+!research/usdjpy_vol_compression_expansion/monetization_diagnostic.json
+
+# london-compression-continuation-confirmation-001: commit only the compact summary.
+research/usdjpy_london_compression_continuation/*
+!research/usdjpy_london_compression_continuation/confirmation_summary.json
+
+# macro-regime-context-tradeability-001: commit compact summaries only; gitignore parquet.
+research/usdjpy_macro_regime_context/context_dataset.parquet

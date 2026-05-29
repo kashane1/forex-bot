@@ -1,0 +1,484 @@
+{
+  "_meta": {
+    "kind": "vol_compression_expansion_analysis",
+    "NOT_edge_claim": true,
+    "primary_horizon_bars": 8,
+    "primary_cut": 0.2,
+    "compression_cut_grid": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "compressed_def": ">= 3 of 4 percentile features (range/atr/bandwidth/realized_vol) <= cut",
+    "roundtrip_cost_pips_optimistic": 4.4,
+    "n_bars": 95756
+  },
+  "by_split": {
+    "train": {
+      "compression_cut": 0.2,
+      "horizons": {
+        "h4": {
+          "range": {
+            "n_compressed": 8541,
+            "n_uncompressed": 51311,
+            "mean_range_compressed": 17.6648,
+            "mean_range_uncompressed": 22.4827,
+            "ratio": 0.7857
+          },
+          "relative_expansion": {
+            "mean_fwd_range_over_atr_compressed": 2.2831,
+            "mean_fwd_range_over_atr_base": 2.1209,
+            "relative_ratio": 1.0765
+          },
+          "directional": {
+            "mean_signed_move_pips": -0.2138,
+            "p_up": 0.4985,
+            "mean_abs_move_pips": 8.7759,
+            "n": 8541
+          },
+          "breakout": {
+            "p_followthrough_given_breakout_compressed": 0.3709,
+            "p_followthrough_given_breakout_base": 0.3594,
+            "p_false_breakout_compressed": 0.4692,
+            "p_false_breakout_base": 0.4605,
+            "breakout_rate_compressed": 0.6194,
+            "breakout_rate_base": 0.516
+          },
+          "cost": {
+            "mean_mfe_pips": 8.5119,
+            "mean_mae_pips": -9.1529,
+            "mean_oracle_best_excursion_pips": 14.2545,
+            "roundtrip_cost_pips": 4.4,
+            "oracle_best_minus_cost_pips": 9.8545,
+            "mfe_minus_cost_pips": 4.1119,
+            "note": "oracle_best picks the better of MFE/MAE in hindsight; NOT live-tradable"
+          }
+        },
+        "h8": {
+          "range": {
+            "n_compressed": 8541,
+            "n_uncompressed": 51311,
+            "mean_range_compressed": 27.5616,
+            "mean_range_uncompressed": 32.2069,
+            "ratio": 0.8558
+          },
+          "relative_expansion": {
+            "mean_fwd_range_over_atr_compressed": 3.5761,
+            "mean_fwd_range_over_atr_base": 3.0721,
+            "relative_ratio": 1.1641
+          },
+          "directional": {
+            "mean_signed_move_pips": -0.5383,
+            "p_up": 0.5019,
+            "mean_abs_move_pips": 13.4088,
+            "n": 8541
+          },
+          "breakout": {
+            "p_followthrough_given_breakout_compressed": 0.4463,
+            "p_followthrough_given_breakout_base": 0.4029,
+            "p_false_breakout_compressed": 0.4968,
+            "p_false_breakout_base": 0.4779,
+            "breakout_rate_compressed": 0.8039,
+            "breakout_rate_base": 0.6599
+          },
+          "cost": {
+            "mean_mfe_pips": 13.2006,
+            "mean_mae_pips": -14.361,
+            "mean_oracle_best_excursion_pips": 22.0296,
+            "roundtrip_cost_pips": 4.4,
+            "oracle_best_minus_cost_pips": 17.6296,
+            "mfe_minus_cost_pips": 8.8006,
+            "note": "oracle_best picks the better of MFE/MAE in hindsight; NOT live-tradable"
+          }
+        },
+        "h16": {
+          "range": {
+            "n_compressed": 8541,
+            "n_uncompressed": 51311,
+            "mean_range_compressed": 41.9846,
+            "mean_range_uncompressed": 46.6192,
+            "ratio": 0.9006
+          },
+          "relative_expansion": {
+            "mean_fwd_range_over_atr_compressed": 5.4239,
+            "mean_fwd_range_over_atr_base": 4.5011,
+            "relative_ratio": 1.205
+          },
+          "directional": {
+            "mean_signed_move_pips": -0.771,
+            "p_up": 0.4978,
+            "mean_abs_move_pips": 20.4707,
+            "n": 8541
+          },
+          "breakout": {
+            "p_followthrough_given_breakout_compressed": 0.5312,
+            "p_followthrough_given_breakout_base": 0.4659,
+            "p_false_breakout_compressed": 0.5323,
+            "p_false_breakout_base": 0.4881,
+            "breakout_rate_compressed": 0.9395,
+            "breakout_rate_base": 0.8143
+          },
+          "cost": {
+            "mean_mfe_pips": 20.0186,
+            "mean_mae_pips": -21.9661,
+            "mean_oracle_best_excursion_pips": 33.344,
+            "roundtrip_cost_pips": 4.4,
+            "oracle_best_minus_cost_pips": 28.944,
+            "mfe_minus_cost_pips": 15.6186,
+            "note": "oracle_best picks the better of MFE/MAE in hindsight; NOT live-tradable"
+          }
+        },
+        "h32": {
+          "range": {
+            "n_compressed": 8541,
+            "n_uncompressed": 51311,
+            "mean_range_compressed": 62.6603,
+            "mean_range_uncompressed": 67.73,
+            "ratio": 0.9251
+          },
+          "relative_expansion": {
+            "mean_fwd_range_over_atr_compressed": 8.1634,
+            "mean_fwd_range_over_atr_base": 6.6078,
+            "relative_ratio": 1.2354
+          },
+          "directional": {
+            "mean_signed_move_pips": 0.6343,
+            "p_up": 0.5269,
+            "mean_abs_move_pips": 31.5276,
+            "n": 8541
+          },
+          "breakout": {
+            "p_followthrough_given_breakout_compressed": 0.6452,
+            "p_followthrough_given_breakout_base": 0.5511,
+            "p_false_breakout_compressed": 0.5794,
+            "p_false_breakout_base": 0.5137,
+            "breakout_rate_compressed": 0.9913,
+            "breakout_rate_base": 0.9218
+          },
+          "cost": {
+            "mean_mfe_pips": 30.1235,
+            "mean_mae_pips": -32.5368,
+            "mean_oracle_best_excursion_pips": 49.6061,
+            "roundtrip_cost_pips": 4.4,
+            "oracle_best_minus_cost_pips": 45.2061,
+            "mfe_minus_cost_pips": 25.7235,
+            "note": "oracle_best picks the better of MFE/MAE in hindsight; NOT live-tradable"
+          }
+        }
+      }
+    },
+    "validation": {
+      "compression_cut": 0.2,
+      "horizons": {
+        "h4": {
+          "range": {
+            "n_compressed": 5235,
+            "n_uncompressed": 30669,
+            "mean_range_compressed": 21.7261,
+            "mean_range_uncompressed": 27.8631,
+            "ratio": 0.7797
+          },
+          "relative_expansion": {
+            "mean_fwd_range_over_atr_compressed": 2.3327,
+            "mean_fwd_range_over_atr_base": 2.1156,
+            "relative_ratio": 1.1026
+          },
+          "directional": {
+            "mean_signed_move_pips": 0.0268,
+            "p_up": 0.4882,
+            "mean_abs_move_pips": 11.2898,
+            "n": 5233
+          },
+          "breakout": {
+            "p_followthrough_given_breakout_compressed": 0.3905,
+            "p_followthrough_given_breakout_base": 0.3604,
+            "p_false_breakout_compressed": 0.4425,
+            "p_false_breakout_base": 0.4586,
+            "breakout_rate_compressed": 0.6246,
+            "breakout_rate_base": 0.5313
+          },
+          "cost": {
+            "mean_mfe_pips": 10.5804,
+            "mean_mae_pips": -11.1458,
+            "mean_oracle_best_excursion_pips": 17.7165,
+            "roundtrip_cost_pips": 4.4,
+            "oracle_best_minus_cost_pips": 13.3165,
+            "mfe_minus_cost_pips": 6.1804,
+            "note": "oracle_best picks the better of MFE/MAE in hindsight; NOT live-tradable"
+          }
+        },
+        "h8": {
+          "range": {
+            "n_compressed": 5235,
+            "n_uncompressed": 30669,
+            "mean_range_compressed": 34.0855,
+            "mean_range_uncompressed": 39.7473,
+            "ratio": 0.8576
+          },
+          "relative_expansion": {
+            "mean_fwd_range_over_atr_compressed": 3.6824,
+            "mean_fwd_range_over_atr_base": 3.0579,
+            "relative_ratio": 1.2042
+          },
+          "directional": {
+            "mean_signed_move_pips": -0.3505,
+            "p_up": 0.4813,
+            "mean_abs_move_pips": 17.1228,
+            "n": 5230
+          },
+          "breakout": {
+            "p_followthrough_given_breakout_compressed": 0.4578,
+            "p_followthrough_given_breakout_base": 0.4119,
+            "p_false_breakout_compressed": 0.4691,
+            "p_false_breakout_base": 0.4747,
+            "breakout_rate_compressed": 0.8149,
+            "breakout_rate_base": 0.6715
+          },
+          "cost": {
+            "mean_mfe_pips": 16.3982,
+            "mean_mae_pips": -17.6873,
+            "mean_oracle_best_excursion_pips": 27.5307,
+            "roundtrip_cost_pips": 4.4,
+            "oracle_best_minus_cost_pips": 23.1307,
+            "mfe_minus_cost_pips": 11.9982,
+            "note": "oracle_best picks the better of MFE/MAE in hindsight; NOT live-tradable"
+          }
+        },
+        "h16": {
+          "range": {
+            "n_compressed": 5235,
+            "n_uncompressed": 30669,
+            "mean_range_compressed": 52.3464,
+            "mean_range_uncompressed": 57.2682,
+            "ratio": 0.9141
+          },
+          "relative_expansion": {
+            "mean_fwd_range_over_atr_compressed": 5.715,
+            "mean_fwd_range_over_atr_base": 4.4676,
+            "relative_ratio": 1.2792
+          },
+          "directional": {
+            "mean_signed_move_pips": -1.1317,
+            "p_up": 0.4951,
+            "mean_abs_move_pips": 25.956,
+            "n": 5227
+          },
+          "breakout": {
+            "p_followthrough_given_breakout_compressed": 0.5685,
+            "p_followthrough_given_breakout_base": 0.4684,
+            "p_false_breakout_compressed": 0.4833,
+            "p_false_breakout_base": 0.4892,
+            "breakout_rate_compressed": 0.9513,
+            "breakout_rate_base": 0.8214
+          },
+          "cost": {
+            "mean_mfe_pips": 24.7337,
+            "mean_mae_pips": -27.6127,
+            "mean_oracle_best_excursion_pips": 41.7072,
+            "roundtrip_cost_pips": 4.4,
+            "oracle_best_minus_cost_pips": 37.3072,
+            "mfe_minus_cost_pips": 20.3337,
+            "note": "oracle_best picks the better of MFE/MAE in hindsight; NOT live-tradable"
+          }
+        },
+        "h32": {
+          "range": {
+            "n_compressed": 5235,
+            "n_uncompressed": 30669,
+            "mean_range_compressed": 76.9222,
+            "mean_range_uncompressed": 83.4308,
+            "ratio": 0.922
+          },
+          "relative_expansion": {
+            "mean_fwd_range_over_atr_compressed": 8.516,
+            "mean_fwd_range_over_atr_base": 6.5963,
+            "relative_ratio": 1.291
+          },
+          "directional": {
+            "mean_signed_move_pips": 0.252,
+            "p_up": 0.5123,
+            "mean_abs_move_pips": 38.4489,
+            "n": 5227
+          },
+          "breakout": {
+            "p_followthrough_given_breakout_compressed": 0.6816,
+            "p_followthrough_given_breakout_base": 0.5458,
+            "p_false_breakout_compressed": 0.525,
+            "p_false_breakout_base": 0.51,
+            "breakout_rate_compressed": 0.9876,
+            "breakout_rate_base": 0.9297
+          },
+          "cost": {
+            "mean_mfe_pips": 35.9526,
+            "mean_mae_pips": -40.9696,
+            "mean_oracle_best_excursion_pips": 61.1013,
+            "roundtrip_cost_pips": 4.4,
+            "oracle_best_minus_cost_pips": 56.7013,
+            "mfe_minus_cost_pips": 31.5526,
+            "note": "oracle_best picks the better of MFE/MAE in hindsight; NOT live-tradable"
+          }
+        }
+      }
+    }
+  },
+  "robustness_grid_primary_horizon": {
+    "train": {
+      "0.1": {
+        "n_compressed": 3465,
+        "n_uncompressed": 56387,
+        "mean_range_compressed": 26.4385,
+        "mean_range_uncompressed": 31.8577,
+        "ratio": 0.8299
+      },
+      "0.2": {
+        "n_compressed": 8541,
+        "n_uncompressed": 51311,
+        "mean_range_compressed": 27.5616,
+        "mean_range_uncompressed": 32.2069,
+        "ratio": 0.8558
+      },
+      "0.3": {
+        "n_compressed": 13781,
+        "n_uncompressed": 46071,
+        "mean_range_compressed": 27.656,
+        "mean_range_uncompressed": 32.707,
+        "ratio": 0.8456
+      }
+    },
+    "validation": {
+      "0.1": {
+        "n_compressed": 2272,
+        "n_uncompressed": 33632,
+        "mean_range_compressed": 32.6647,
+        "mean_range_uncompressed": 39.345,
+        "ratio": 0.8302
+      },
+      "0.2": {
+        "n_compressed": 5235,
+        "n_uncompressed": 30669,
+        "mean_range_compressed": 34.0855,
+        "mean_range_uncompressed": 39.7473,
+        "ratio": 0.8576
+      },
+      "0.3": {
+        "n_compressed": 8360,
+        "n_uncompressed": 27544,
+        "mean_range_compressed": 34.5979,
+        "mean_range_uncompressed": 40.2339,
+        "ratio": 0.8599
+      }
+    }
+  },
+  "by_session_primary": {
+    "train": {
+      "london": {
+        "n_compressed": 846,
+        "range_ratio": 0.9184,
+        "mean_range_compressed": 31.7752,
+        "p_up": 0.5201,
+        "mean_signed_move_pips": 0.1324
+      },
+      "london_ny_overlap": {
+        "n_compressed": 226,
+        "range_ratio": 0.7422,
+        "mean_range_compressed": 31.9062,
+        "p_up": 0.531,
+        "mean_signed_move_pips": -1.6549
+      },
+      "ny": {
+        "n_compressed": 2088,
+        "range_ratio": 0.9328,
+        "mean_range_compressed": 22.0517,
+        "p_up": 0.4986,
+        "mean_signed_move_pips": -0.0714
+      },
+      "off_hours": {
+        "n_compressed": 2481,
+        "range_ratio": 0.8743,
+        "mean_range_compressed": 33.3385,
+        "p_up": 0.4982,
+        "mean_signed_move_pips": -0.7202
+      },
+      "rollover": {
+        "n_compressed": 256,
+        "range_ratio": 0.8849,
+        "mean_range_compressed": 30.3191,
+        "p_up": 0.4492,
+        "mean_signed_move_pips": -1.9574
+      },
+      "tokyo": {
+        "n_compressed": 2644,
+        "range_ratio": 0.8379,
+        "mean_range_compressed": 24.5055,
+        "p_up": 0.5049,
+        "mean_signed_move_pips": -0.7181
+      }
+    },
+    "validation": {
+      "london": {
+        "n_compressed": 714,
+        "range_ratio": 0.9245,
+        "mean_range_compressed": 37.5412,
+        "p_up": 0.479,
+        "mean_signed_move_pips": -0.3657
+      },
+      "london_ny_overlap": {
+        "n_compressed": 207,
+        "range_ratio": 0.8951,
+        "mean_range_compressed": 45.8019,
+        "p_up": 0.5169,
+        "mean_signed_move_pips": 2.6744
+      },
+      "ny": {
+        "n_compressed": 1443,
+        "range_ratio": 0.8452,
+        "mean_range_compressed": 25.9403,
+        "p_up": 0.4407,
+        "mean_signed_move_pips": -2.2568
+      },
+      "off_hours": {
+        "n_compressed": 1439,
+        "range_ratio": 0.8628,
+        "mean_range_compressed": 40.1388,
+        "p_up": 0.5098,
+        "mean_signed_move_pips": 0.7179
+      },
+      "rollover": {
+        "n_compressed": 290,
+        "range_ratio": 0.8449,
+        "mean_range_compressed": 34.6055,
+        "p_up": 0.4966,
+        "mean_signed_move_pips": 2.5421
+      },
+      "tokyo": {
+        "n_compressed": 1142,
+        "range_ratio": 0.8467,
+        "mean_range_compressed": 32.3601,
+        "p_up": 0.4877,
+        "mean_signed_move_pips": -0.5566
+      }
+    }
+  },
+  "per_feature_range_ratio_primary": {
+    "range_pct": {
+      "train": 0.7477,
+      "validation": 0.7804
+    },
+    "atr_pct": {
+      "train": 0.8332,
+      "validation": 0.8545
+    },
+    "bandwidth_pct": {
+      "train": 0.9167,
+      "validation": 0.9318
+    },
+    "realized_vol_pct": {
+      "train": 0.884,
+      "validation": 0.9166
+    },
+    "inside_bar_count>=2": {
+      "train": 0.975,
+      "validation": 0.8908
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "_meta": {
+    "instrument": "USD_JPY",
+    "kind": "macro_regime_context_dataset",
+    "NOT_edge_claim": true,
+    "NOT_strategy": true,
+    "NOT_fast_news": true,
+    "macro_is": "tradeability conditioner / no-trade filter, never an entry",
+    "window_start": "2021-06-01",
+    "window_end_exclusive": "2025-06-30",
+    "test_lockbox_excluded": "2025-07-01",
+    "val_split": "2024-01-01",
+    "publication_lag_days": 1,
+    "tradeability_horizon_bars": 16,
+    "n_bars": 95756,
+    "parquet_written": true,
+    "parquet_gitignored": "research/usdjpy_macro_regime_context/context_dataset.parquet",
+    "macro_context_cols": [
+      "us_2y_yield",
+      "us_10y_yield",
+      "us_2s10s",
+      "us_2y_trend",
+      "us_10y_trend",
+      "us_2y_regime",
+      "vix",
+      "vix_regime",
+      "vix_trend",
+      "sp500_trend",
+      "broad_usd_trend",
+      "risk_off"
+    ],
+    "events": {
+      "nfp": 49,
+      "fomc": 33,
+      "total": 82,
+      "deferred": [
+        "US_CPI",
+        "BOJ"
+      ]
+    }
+  },
+  "coverage_by_split": {
+    "train": 59852,
+    "validation": 35904
+  },
+  "context_coverage": {
+    "us_2y_regime": {
+      "high": 54251,
+      "mid": 20835,
+      "low": 20670
+    },
+    "us_2y_trend": {
+      "1.0": 54881,
+      "-1.0": 38015,
+      "0.0": 2860
+    },
+    "vix_regime": {
+      "low": 39922,
+      "high": 33628,
+      "mid": 22206
+    },
+    "risk_off": {
+      "False": 49254,
+      "True": 46502
+    },
+    "stab_bucket": {
+      "normal": 81885,
+      "pre_event": 7351,
+      "post_48h": 2112,
+      "post_24h": 2039,
+      "post_4h": 1223,
+      "post_8h": 1146
+    },
+    "evt_any_window": {
+      "False": 81862,
+      "True": 13894
+    },
+    "evt_nfp_window": {
+      "False": 89856,
+      "True": 5900
+    },
+    "evt_fomc_window": {
+      "False": 86769,
+      "True": 8987
+    }
+  }
+}
