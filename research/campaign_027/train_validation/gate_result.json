@@ -1,0 +1,55 @@
+{
+  "approved": false,
+  "backtrader_parity_required": true,
+  "campaign_id": "CAMPAIGN_027",
+  "classification": "REJECT_TRAIN_GATE / TEST_LOCKBOX_CLOSED / NOT_APPROVED",
+  "note": "Backtrader parity still required before any test-lockbox open or promotion review.",
+  "promotion_eligible": false,
+  "test_lockbox_opened": false,
+  "train_gates": [
+    {
+      "detail": "expectancy=0.00011974",
+      "gate": "train_expectancy_conservative_gt_0",
+      "passed": true
+    },
+    {
+      "detail": "pf=1.0432773928940484",
+      "gate": "train_profit_factor_gte_1_05",
+      "passed": false
+    },
+    {
+      "detail": "trades=180 (min=100)",
+      "gate": "train_trades_gte_min",
+      "passed": true
+    },
+    {
+      "detail": "pairs_nonneg=4/7",
+      "gate": "train_pairs_nonneg_gte_4",
+      "passed": true
+    },
+    {
+      "detail": "years_nonneg=1/3",
+      "gate": "train_years_nonneg_gte_2of3",
+      "passed": false
+    },
+    {
+      "detail": "stress_2x=-7.745e-05",
+      "gate": "train_cost_stress_2x_gte_0",
+      "passed": false
+    },
+    {
+      "detail": "session/full matched-null above random",
+      "gate": "train_matched_null_above_random",
+      "passed": true
+    },
+    {
+      "detail": "each retained filter FILTER_ADDS_EDGE on train",
+      "gate": "train_filter_ablation_retained_add_edge",
+      "passed": false
+    }
+  ],
+  "train_pass": false,
+  "validation_gates": [],
+  "validation_pass": false,
+  "validation_run": false
+}

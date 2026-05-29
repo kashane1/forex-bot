@@ -1,0 +1,30 @@
+{
+  "all_required_present": true,
+  "blocked": null,
+  "missing_fields": {},
+  "missing_files": [],
+  "required_artifacts": [
+    "run_manifest.json",
+    "candidate_registry.json",
+    "signal_ledger.csv",
+    "trade_ledger_train.csv",
+    "trade_ledger_validation.csv",
+    "filter_stage_ledger.csv",
+    "signal_funnel_ledger.csv",
+    "train_metrics.json",
+    "validation_metrics.json",
+    "gate_result.json",
+    "pair_metrics_train.csv",
+    "pair_metrics_validation.csv",
+    "year_metrics_train.csv",
+    "year_metrics_validation.csv",
+    "side_metrics_train.csv",
+    "side_metrics_validation.csv",
+    "cost_stress_2x.json",
+    "matched_null_result.json",
+    "filter_ablation_confirmation.json",
+    "recency_risk_report.json",
+    "artifact_contract_compliance.json",
+    "blocked_or_warning_conditions.json"
+  ]
+}

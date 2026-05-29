@@ -1,0 +1,10 @@
+{
+  "train": {
+    "expectancy_conservative_2x": -7.745e-05,
+    "profit_factor_2x": 0.9729630931992562,
+    "trade_count": 180
+  },
+  "validation": {
+    "validation_run": false
+  }
+}

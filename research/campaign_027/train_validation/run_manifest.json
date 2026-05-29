@@ -1,0 +1,58 @@
+{
+  "approved": false,
+  "campaign_id": "CAMPAIGN_027",
+  "checked_at_utc": "2026-05-29T06:19:53.510897+00:00",
+  "classification": "REJECT_TRAIN_GATE / TEST_LOCKBOX_CLOSED / NOT_APPROVED",
+  "commit_hash": "090f0aee69ac0bf0ffada7421dad06e9581c259f",
+  "dedupe_policy": "keep_last",
+  "diagnostic_only": false,
+  "fill_timing": "next_bar_open",
+  "full_evidence_run": true,
+  "input_data_path": "data/campaign_002.sqlite3",
+  "lab_modules": [
+    "research.edge_discovery.costs",
+    "research.edge_discovery.matched_nulls",
+    "research.edge_discovery.filter_ablation"
+  ],
+  "mode": "train-validation",
+  "not_approved": true,
+  "paper_demo_live_enabled": false,
+  "precommitted_rule": {
+    "atr_lookback": 14,
+    "atr_percentile_max": 0.33,
+    "atr_percentile_window": 250,
+    "atr_stop_multiple": 3.0,
+    "base_trigger_abs_z": 2.0,
+    "fill_timing": "next_bar_open",
+    "max_bars_in_trade": 12,
+    "quiet_sessions": [
+      "asia",
+      "london"
+    ],
+    "side_mode": "short_only",
+    "strong_extension_abs_z": 2.5,
+    "zscore_lookback": 20,
+    "zscore_std_ddof": 1
+  },
+  "promotion_eligible": false,
+  "random_seed_metadata": {
+    "matched_null_seeds": "range(0,50)"
+  },
+  "scaffold_only": false,
+  "strategy_evidence": true,
+  "strategy_name": "h4_filtered_zscore_reversion",
+  "test_lockbox_opened": false,
+  "test_window_sealed": [
+    "2025-01-01",
+    "2026-05-20"
+  ],
+  "train_pass": false,
+  "train_window": [
+    "2020-01-01",
+    "2022-12-31"
+  ],
+  "validation_pass": false,
+  "validation_run": false,
+  "validation_window": null,
+  "version": "0.1.0-c027"
+}

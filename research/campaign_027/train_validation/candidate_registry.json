@@ -1,0 +1,32 @@
+{
+  "campaign_id": "CAMPAIGN_027",
+  "candidates": [
+    {
+      "archetype": "h4_filtered_zscore_reversion_short_only",
+      "candidate_id": "c027_frozen_001",
+      "frozen": true,
+      "parameters": {
+        "atr_lookback": 14,
+        "atr_percentile_max": 0.33,
+        "atr_percentile_window": 250,
+        "atr_stop_multiple": 3.0,
+        "base_trigger_abs_z": 2.0,
+        "fill_timing": "next_bar_open",
+        "max_bars_in_trade": 12,
+        "quiet_sessions": [
+          "asia",
+          "london"
+        ],
+        "side_mode": "short_only",
+        "strong_extension_abs_z": 2.5,
+        "zscore_lookback": 20,
+        "zscore_std_ddof": 1
+      }
+    }
+  ],
+  "selection_metric": "expectancy_conservative",
+  "selection_window": "train_only",
+  "single_candidate": true,
+  "strategy_family": "h4_filtered_zscore_reversion",
+  "version": "0.1.0-c027"
+}

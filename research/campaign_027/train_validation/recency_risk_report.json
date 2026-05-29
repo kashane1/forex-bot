@@ -1,0 +1,11 @@
+{
+  "note": "2024 and 2026-partial were pre-registered recency risks. 2024 (in the validation window) is the binding recency gate; 2025-2026 stay in the sealed test lockbox.",
+  "test_2025_2026": "SEALED \u2014 not evaluated this sprint",
+  "train_by_year": {
+    "2020": -0.00057092,
+    "2021": -0.00029217,
+    "2022": 0.00119291
+  },
+  "validation_2024": null,
+  "validation_by_year": {}
+}

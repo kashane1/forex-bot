@@ -1,0 +1,70 @@
+{
+  "post_cost": "conservative",
+  "seeds": "range(0,50)",
+  "train": [
+    {
+      "effect_size": 1.377313875195433,
+      "flags": [
+        "ABOVE_MATCHED_NULL"
+      ],
+      "mode": "timestamp_random_same_pair",
+      "n_trades": 180,
+      "note": "",
+      "null_mean": -0.00048286082568969093,
+      "null_p95": 0.0005452457299543791,
+      "prob_null_ge_strategy": 0.1,
+      "sparse_buckets": [],
+      "strategy_expectancy": 0.0003916642138554541,
+      "strategy_percentile": 90.0
+    },
+    {
+      "effect_size": 1.3961888349613327,
+      "flags": [
+        "ABOVE_MATCHED_NULL"
+      ],
+      "mode": "session_matched_random",
+      "n_trades": 180,
+      "note": "",
+      "null_mean": -0.0005260540723049108,
+      "null_p95": 0.0004956156809485921,
+      "prob_null_ge_strategy": 0.1,
+      "sparse_buckets": [],
+      "strategy_expectancy": 0.0003916642138554541,
+      "strategy_percentile": 90.0
+    },
+    {
+      "effect_size": 1.1389928297802556,
+      "flags": [
+        "ABOVE_MATCHED_NULL"
+      ],
+      "mode": "full_matched_null",
+      "n_trades": 180,
+      "note": "",
+      "null_mean": -0.0002861810087379507,
+      "null_p95": 0.0004952978894280878,
+      "prob_null_ge_strategy": 0.1,
+      "sparse_buckets": [],
+      "strategy_expectancy": 0.0003286004894221734,
+      "strategy_percentile": 90.0
+    },
+    {
+      "effect_size": null,
+      "flags": [
+        "WITHIN_MATCHED_NULL"
+      ],
+      "mode": "side_shuffled",
+      "n_trades": 180,
+      "note": "degenerate for a short-only ledger \u2014 all sides identical, so the shuffle reproduces the strategy; not an informative benchmark here",
+      "null_mean": 0.0003916642138554541,
+      "null_p95": 0.0003916642138554541,
+      "prob_null_ge_strategy": 1.0,
+      "sparse_buckets": [],
+      "strategy_expectancy": 0.0003916642138554541,
+      "strategy_percentile": 0.0
+    }
+  ],
+  "validation": {
+    "validation_run": false
+  },
+  "window_bars": 12
+}

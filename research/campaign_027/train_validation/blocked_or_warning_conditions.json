@@ -1,0 +1,13 @@
+{
+  "known_risks": [
+    "wafer-thin edge inside cost band",
+    "2024/2026 recency",
+    "filter forking-path",
+    "raw-matrix LIKELY_SELECTION_NOISE"
+  ],
+  "matched_null_compatibility": "close-to-close information benchmark, not the realized next_bar_open post-cost PnL (separate trade ledger)",
+  "side_shuffled_degenerate_note": "short-only ledger \u2192 side_shuffled null is uninformative",
+  "test_lockbox_opened": false,
+  "train_dropped_trailing_signals": 0,
+  "validation_dropped_trailing_signals": null
+}
