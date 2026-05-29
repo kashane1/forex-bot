@@ -223,3 +223,6 @@ research/usdjpy_macro_regime_context/context_dataset.parquet
 
 # Edge-discovery CLI ad-hoc run outputs (regenerable; not committed)
 research/edge_discovery/cli_runs/
+
+# CAMPAIGN_027: bounded artifact schema-check output (regenerated on demand)
+research/campaign_027/train_validation/schema_check/
