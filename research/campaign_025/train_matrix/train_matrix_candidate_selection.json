@@ -1,0 +1,21 @@
+{
+  "champion_candidate_id": null,
+  "classification": "REJECT_MATRIX_NO_TRAIN_CANDIDATE",
+  "reason": "no candidate passed all train filters",
+  "selection_uses_validation": false,
+  "eligible_candidates": [],
+  "single_pair_review_flags": [],
+  "train_window": {
+    "start": "2021-07-01",
+    "end": "2023-06-30"
+  },
+  "pairs": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "NZD_USD"
+  ]
+}

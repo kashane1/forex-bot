@@ -1,0 +1,66 @@
+{
+  "C025_MTX_001": {
+    "avg_hold_bars": 37.480113134170054,
+    "median_hold_bars": 49.0
+  },
+  "C025_MTX_002": {
+    "avg_hold_bars": 25.322082810539523,
+    "median_hold_bars": 32.0
+  },
+  "C025_MTX_003": {
+    "avg_hold_bars": 25.58316661903401,
+    "median_hold_bars": 32.0
+  },
+  "C025_MTX_004": {
+    "avg_hold_bars": 34.75093188749577,
+    "median_hold_bars": 47.0
+  },
+  "C025_MTX_005": {
+    "avg_hold_bars": 34.91097979412886,
+    "median_hold_bars": 47.0
+  },
+  "C025_MTX_006": {
+    "avg_hold_bars": 48.8865306122449,
+    "median_hold_bars": 61.0
+  },
+  "C025_MTX_007": {
+    "avg_hold_bars": 45.35597753410003,
+    "median_hold_bars": 50.0
+  },
+  "C025_MTX_008": {
+    "avg_hold_bars": 46.118313689936535,
+    "median_hold_bars": 49.0
+  },
+  "C025_MTX_009": {
+    "avg_hold_bars": 46.19143576826197,
+    "median_hold_bars": 49.0
+  },
+  "C025_MTX_010": {
+    "avg_hold_bars": 36.01120597652081,
+    "median_hold_bars": 31.0
+  },
+  "C025_MTX_011": {
+    "avg_hold_bars": 43.55342857142857,
+    "median_hold_bars": 43.0
+  },
+  "C025_MTX_012": {
+    "avg_hold_bars": 23.860177318064277,
+    "median_hold_bars": 26.0
+  },
+  "C025_MTX_013": {
+    "avg_hold_bars": 25.699941509066093,
+    "median_hold_bars": 22.0
+  },
+  "C025_MTX_014": {
+    "avg_hold_bars": 51.279680365296805,
+    "median_hold_bars": 73.0
+  },
+  "C025_MTX_015": {
+    "avg_hold_bars": 34.48768618197906,
+    "median_hold_bars": 49.0
+  },
+  "C025_MTX_016": {
+    "avg_hold_bars": 54.819357930043125,
+    "median_hold_bars": 73.0
+  }
+}

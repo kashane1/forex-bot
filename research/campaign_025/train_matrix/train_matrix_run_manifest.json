@@ -1,0 +1,20 @@
+{
+  "campaign_id": "CAMPAIGN_025",
+  "strategy_name": "m5_donchian_htf_confluence_breakout",
+  "version": "0.1.0-c025",
+  "mode": "train-matrix",
+  "scaffold_only": true,
+  "not_approved": true,
+  "strategy_evidence": false,
+  "test_lockbox_opened": false,
+  "full_evidence_run": false,
+  "fill_timing": "next_bar_open",
+  "checked_at_utc": "2026-05-29T00:15:33.999842+00:00",
+  "train_window": [
+    "2021-07-01",
+    "2023-06-30"
+  ],
+  "candidates": 16,
+  "champion": null,
+  "classification": "REJECT_MATRIX_NO_TRAIN_CANDIDATE"
+}

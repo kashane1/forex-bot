@@ -1,0 +1,162 @@
+{
+  "C025_MTX_001": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 117353,
+    "signals_in_window": 21625,
+    "entries": 5657
+  },
+  "C025_MTX_002": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 153580,
+    "signals_in_window": 27663,
+    "entries": 7970
+  },
+  "C025_MTX_003": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 681178,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 153580,
+    "signals_in_window": 24521,
+    "entries": 6998
+  },
+  "C025_MTX_004": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 117353,
+    "signals_in_window": 21625,
+    "entries": 5902
+  },
+  "C025_MTX_005": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 681178,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 117353,
+    "signals_in_window": 18958,
+    "entries": 5246
+  },
+  "C025_MTX_006": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 117353,
+    "signals_in_window": 21625,
+    "entries": 4900
+  },
+  "C025_MTX_007": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 355115,
+    "m5_breakout_pass": 117353,
+    "signals_in_window": 11865,
+    "entries": 3739
+  },
+  "C025_MTX_008": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 94696,
+    "signals_in_window": 17726,
+    "entries": 4412
+  },
+  "C025_MTX_009": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 681178,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 94696,
+    "signals_in_window": 15368,
+    "entries": 3970
+  },
+  "C025_MTX_010": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 117353,
+    "signals_in_window": 21625,
+    "entries": 5622
+  },
+  "C025_MTX_011": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 355115,
+    "m5_breakout_pass": 94696,
+    "signals_in_window": 9898,
+    "entries": 3500
+  },
+  "C025_MTX_012": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 355115,
+    "m5_breakout_pass": 153580,
+    "signals_in_window": 14843,
+    "entries": 5414
+  },
+  "C025_MTX_013": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 355115,
+    "m5_breakout_pass": 153580,
+    "signals_in_window": 14843,
+    "entries": 5129
+  },
+  "C025_MTX_014": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 681178,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 117353,
+    "signals_in_window": 18958,
+    "entries": 4380
+  },
+  "C025_MTX_015": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 153580,
+    "signals_in_window": 27663,
+    "entries": 6781
+  },
+  "C025_MTX_016": {
+    "m5_bars_examined": 964176,
+    "h4_context_pass": 768425,
+    "h1_context_pass": 690669,
+    "d1agg_context_pass": 964176,
+    "m15_setup_pass": 964176,
+    "m5_breakout_pass": 94696,
+    "signals_in_window": 17726,
+    "entries": 4174
+  }
+}
