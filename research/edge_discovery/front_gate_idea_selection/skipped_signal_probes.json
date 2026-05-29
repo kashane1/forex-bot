@@ -1,0 +1,14 @@
+{
+  "diagnostic_only": true,
+  "skipped": [],
+  "data_blocked": [
+    {
+      "prototype": "carry_financing_swing",
+      "reason": "no local carry/swap-rate table; FRED has US leg only"
+    },
+    {
+      "prototype": "sub_hour_open_expansion",
+      "reason": "no local M1/M5/M15/M30 data to resolve the open bar"
+    }
+  ]
+}

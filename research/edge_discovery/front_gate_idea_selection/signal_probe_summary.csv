@@ -1,0 +1,7 @@
+prototype,timeframe,n_signals,n_pairs,sparse,mean_post_h6,null_mean_post_h6,prob_null_ge_h6,effect_size_h6,hit_rate_h6
+zscore_reversion_h4,H4,11935,7,False,-0.000157,-0.000279,0.0,2.645,0.4844
+failed_breakout_fade_h4,H4,8324,7,False,-7.2e-05,-0.000291,0.0,3.952,0.4936
+asia_range_breakout_h1,H1,9441,7,False,-0.000213,-0.00026,0.1,1.71,0.4703
+ny_open_continuation_h1,H1,11565,7,False,-0.000283,-0.000271,0.55,-0.418,0.459
+vol_compression_expansion_h4,H4,3199,7,False,-0.00044,-0.000276,0.95,-1.381,0.4709
+zscore_reversion_h4_usdjpy,H4,1731,1,False,-0.000246,-0.000178,0.65,-0.529,0.4766
