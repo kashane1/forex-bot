@@ -46,6 +46,12 @@ research-edge-discovery-null-benchmark-lab-001):
 from __future__ import annotations
 
 from research.edge_discovery.costs import apply_cost_overlay
+from research.edge_discovery.filter_ablation import (
+    FilterAblationResult,
+    FilterContribution,
+    StageMetrics,
+    filter_ablation,
+)
 from research.edge_discovery.loaders import (
     CandleSample,
     EventFixture,
@@ -81,17 +87,21 @@ __all__ = [
     "CampaignWalkForwardResult",
     "CandleSample",
     "EventFixture",
+    "FilterAblationResult",
+    "FilterContribution",
     "FoldPairSummary",
     "ForwardReturns",
     "MatchedNullResult",
     "NullBaseline",
     "Side",
+    "StageMetrics",
     "StudyInput",
     "StudyProvenance",
     "StudySummary",
     "apply_cost_overlay",
     "assert_real_data_kind",
     "compute_forward_returns",
+    "filter_ablation",
     "fold_pair_summaries_to_frame",
     "interpret_matched_null",
     "load_campaign_fold_pair_summaries",
