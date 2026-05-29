@@ -1,0 +1,73 @@
+{
+  "blocked_reasons": [],
+  "campaign_id": "CAMPAIGN_027",
+  "checked_at_utc": "2026-05-29T05:29:52.238053+00:00",
+  "fill_timing": "next_bar_open",
+  "not_approved": true,
+  "pair_coverage": {
+    "AUD_USD": {
+      "bars": 9949,
+      "max_time": "2026-05-24 21:00:00+00:00",
+      "min_time": "2020-01-01 22:00:00+00:00",
+      "status": "PASS",
+      "warmup_ok": true
+    },
+    "EUR_USD": {
+      "bars": 9949,
+      "max_time": "2026-05-24 21:00:00+00:00",
+      "min_time": "2020-01-01 22:00:00+00:00",
+      "status": "PASS",
+      "warmup_ok": true
+    },
+    "GBP_USD": {
+      "bars": 9949,
+      "max_time": "2026-05-24 21:00:00+00:00",
+      "min_time": "2020-01-01 22:00:00+00:00",
+      "status": "PASS",
+      "warmup_ok": true
+    },
+    "NZD_USD": {
+      "bars": 9953,
+      "max_time": "2026-05-24 21:00:00+00:00",
+      "min_time": "2020-01-01 22:00:00+00:00",
+      "status": "PASS",
+      "warmup_ok": true
+    },
+    "USD_CAD": {
+      "bars": 9949,
+      "max_time": "2026-05-24 21:00:00+00:00",
+      "min_time": "2020-01-01 22:00:00+00:00",
+      "status": "PASS",
+      "warmup_ok": true
+    },
+    "USD_CHF": {
+      "bars": 9949,
+      "max_time": "2026-05-24 21:00:00+00:00",
+      "min_time": "2020-01-01 22:00:00+00:00",
+      "status": "PASS",
+      "warmup_ok": true
+    },
+    "USD_JPY": {
+      "bars": 9950,
+      "max_time": "2026-05-24 21:00:00+00:00",
+      "min_time": "2020-01-01 22:00:00+00:00",
+      "status": "PASS",
+      "warmup_ok": true
+    }
+  },
+  "pairs": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "NZD_USD"
+  ],
+  "preflight_ok": true,
+  "store": "data/campaign_002.sqlite3",
+  "strategy_evidence": false,
+  "strategy_name": "h4_filtered_zscore_reversion",
+  "version": "0.1.0-c027",
+  "warmup_bars_required": 270
+}

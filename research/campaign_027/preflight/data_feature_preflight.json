@@ -1,0 +1,78 @@
+{
+  "campaign_id": "CAMPAIGN_027",
+  "checked_at_utc": "2026-05-29T05:29:49.279853+00:00",
+  "diagnostic_only": true,
+  "no_lookahead": "zscore mean/std and atr percentile are .shift(1)",
+  "pairs": {
+    "AUD_USD": {
+      "features_computable": true,
+      "history_bars_through_window": 4674,
+      "last_window_atr_percentile": 0.24,
+      "last_window_session": "new_york",
+      "last_window_zscore": 2.2714,
+      "status": "PASS",
+      "train_window_bars": 4674
+    },
+    "EUR_USD": {
+      "features_computable": true,
+      "history_bars_through_window": 4674,
+      "last_window_atr_percentile": 0.256,
+      "last_window_session": "new_york",
+      "last_window_zscore": 2.506,
+      "status": "PASS",
+      "train_window_bars": 4674
+    },
+    "GBP_USD": {
+      "features_computable": true,
+      "history_bars_through_window": 4674,
+      "last_window_atr_percentile": 0.224,
+      "last_window_session": "new_york",
+      "last_window_zscore": 2.4439,
+      "status": "PASS",
+      "train_window_bars": 4674
+    },
+    "NZD_USD": {
+      "features_computable": true,
+      "history_bars_through_window": 4676,
+      "last_window_atr_percentile": 0.352,
+      "last_window_session": "new_york",
+      "last_window_zscore": 1.2156,
+      "status": "PASS",
+      "train_window_bars": 4676
+    },
+    "USD_CAD": {
+      "features_computable": true,
+      "history_bars_through_window": 4674,
+      "last_window_atr_percentile": 0.252,
+      "last_window_session": "new_york",
+      "last_window_zscore": -0.1355,
+      "status": "PASS",
+      "train_window_bars": 4674
+    },
+    "USD_CHF": {
+      "features_computable": true,
+      "history_bars_through_window": 4674,
+      "last_window_atr_percentile": 0.372,
+      "last_window_session": "new_york",
+      "last_window_zscore": -0.5184,
+      "status": "PASS",
+      "train_window_bars": 4674
+    },
+    "USD_JPY": {
+      "features_computable": true,
+      "history_bars_through_window": 4675,
+      "last_window_atr_percentile": 0.412,
+      "last_window_session": "new_york",
+      "last_window_zscore": -2.4934,
+      "status": "PASS",
+      "train_window_bars": 4675
+    }
+  },
+  "preflight_ok": true,
+  "store": "data/campaign_002.sqlite3",
+  "strategy_evidence": false,
+  "window": [
+    "2020-01-01",
+    "2022-12-31"
+  ]
+}

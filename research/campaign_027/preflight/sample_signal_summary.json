@@ -1,0 +1,18 @@
+{
+  "campaign_id": "CAMPAIGN_027",
+  "diagnostic_only": true,
+  "evaluated_decisions": 300,
+  "f_low_vol_pass": 125,
+  "f_quiet_session_pass": 150,
+  "f_strong_extension_pass": 20,
+  "full_evidence_run": false,
+  "long_diagnostic_only_not_entered": 3,
+  "note": "signal counts only \u2014 NOT trades, NOT evidence; long counts are diagnostic-only and never entered",
+  "pair": "EUR_USD",
+  "sample_bars": 300,
+  "scaffold_only": true,
+  "short_entries": 1,
+  "status": "OK",
+  "window_end": "2021-03-12",
+  "window_start": "2021-01-01"
+}

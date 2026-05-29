@@ -1,0 +1,15 @@
+{
+  "campaign_id": "CAMPAIGN_027",
+  "checked_at_utc": "2026-05-29T05:29:52.754579+00:00",
+  "diagnostic_only": true,
+  "fill_timing": "next_bar_open",
+  "full_evidence_run": false,
+  "mode": "preflight-only",
+  "not_approved": true,
+  "preflight_ok": true,
+  "scaffold_only": true,
+  "strategy_evidence": false,
+  "strategy_name": "h4_filtered_zscore_reversion",
+  "test_lockbox_opened": false,
+  "version": "0.1.0-c027"
+}
