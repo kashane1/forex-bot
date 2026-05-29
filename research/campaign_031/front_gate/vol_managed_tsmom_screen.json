@@ -1,0 +1,141 @@
+{
+  "campaign": "CAMPAIGN_031",
+  "sprint": "campaign-031-vol-managed-tsmom-front-gate-screen-001",
+  "generated_utc": "2026-05-29T16:59:02.746422+00:00",
+  "freeze": "intact; train-only; validation/test untouched; nothing approved",
+  "train_window": {
+    "from": "2020-01-01T00:00:00Z",
+    "to": "2022-12-31T23:59:59Z"
+  },
+  "universe": [
+    "AUD_USD",
+    "EUR_USD",
+    "GBP_USD",
+    "NZD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "USD_JPY"
+  ],
+  "data_caveat": "7 USD-legged majors only, no crosses; ~3y train -> ~3 annual cycles after 252d warmup. Underpowered for a slow-signal deflated-Sharpe claim.",
+  "coverage": {
+    "AUD_USD": {
+      "h4_rows": 4674,
+      "d1agg_days": 779,
+      "from": "2020-01-01",
+      "to": "2022-12-29"
+    },
+    "EUR_USD": {
+      "h4_rows": 4674,
+      "d1agg_days": 779,
+      "from": "2020-01-01",
+      "to": "2022-12-29"
+    },
+    "GBP_USD": {
+      "h4_rows": 4674,
+      "d1agg_days": 779,
+      "from": "2020-01-01",
+      "to": "2022-12-29"
+    },
+    "NZD_USD": {
+      "h4_rows": 4676,
+      "d1agg_days": 779,
+      "from": "2020-01-01",
+      "to": "2022-12-29"
+    },
+    "USD_CAD": {
+      "h4_rows": 4674,
+      "d1agg_days": 779,
+      "from": "2020-01-01",
+      "to": "2022-12-29"
+    },
+    "USD_CHF": {
+      "h4_rows": 4674,
+      "d1agg_days": 779,
+      "from": "2020-01-01",
+      "to": "2022-12-29"
+    },
+    "USD_JPY": {
+      "h4_rows": 4675,
+      "d1agg_days": 779,
+      "from": "2020-01-01",
+      "to": "2022-12-29"
+    }
+  },
+  "books": {
+    "house_full_sigma_mm_on": {
+      "n_days": 778,
+      "sharpe_pre_cost": 0.32315414918046126,
+      "sharpe_net": -0.06664855966973074,
+      "sharpe_net_lo5": -0.8539262409321229,
+      "sharpe_net_hi95": 0.8782586943896545,
+      "ann_return_net": -0.006031450550356715,
+      "ann_vol_net": 0.09049633750894052,
+      "total_turnover_cost": 0.02036847531094126,
+      "total_financing": 0.08848945913975612,
+      "mean_gross": 1.4824859667568844,
+      "mean_abs_net_usd": 0.898784991148874,
+      "mean_gross_nonzero": 2.1927263918951634
+    },
+    "house_2x_cost_stress": {
+      "n_days": 778,
+      "sharpe_pre_cost": 0.32315414918046126,
+      "sharpe_net": -0.45567202496248826,
+      "sharpe_net_lo5": -1.247156065765171,
+      "sharpe_net_hi95": 0.485342549097695,
+      "ann_return_net": -0.04129134705623813,
+      "ann_vol_net": 0.0906163749236906,
+      "total_turnover_cost": 0.04073695062188252,
+      "total_financing": 0.17697891827951223,
+      "mean_gross": 1.4824859667568844,
+      "mean_abs_net_usd": 0.898784991148874,
+      "mean_gross_nonzero": 2.1927263918951634
+    },
+    "ablation_mm_off": {
+      "n_days": 778,
+      "sharpe_pre_cost": 0.39915768468937346,
+      "sharpe_net": 0.0144450877977074,
+      "sharpe_net_lo5": -0.8049280165029598,
+      "sharpe_net_hi95": 0.9526257897979561,
+      "ann_return_net": 0.0013537059862731014,
+      "ann_vol_net": 0.09371393273829391,
+      "total_turnover_cost": 0.01895802745135289,
+      "total_financing": 0.0923401974932007,
+      "mean_gross": 1.5488539838463138,
+      "mean_abs_net_usd": 0.9346331150471516,
+      "mean_gross_nonzero": 2.290890493217551
+    },
+    "ablation_naive_C": {
+      "n_days": 778,
+      "sharpe_pre_cost": 0.2827754833473619,
+      "sharpe_net": -0.03254463444782695,
+      "sharpe_net_lo5": -0.8829580265473375,
+      "sharpe_net_hi95": 0.8640124324992523,
+      "ann_return_net": -0.003909481572816395,
+      "ann_vol_net": 0.12012676249548217,
+      "total_turnover_cost": 0.013954368377969938,
+      "total_financing": 0.10299256974567285,
+      "mean_gross": 1.724965308433975,
+      "mean_abs_net_usd": 1.1937393586492548,
+      "mean_gross_nonzero": 2.551374543653294
+    }
+  },
+  "baselines": {
+    "random_entry_matched_turnover_null": {
+      "observed_sharpe": -0.06664855966973074,
+      "null_mean": -0.5326582392921351,
+      "null_p95": 0.43375484505849243,
+      "null_max": 0.9867768500972537,
+      "p_obs_le_null_max": 0.235,
+      "n_seeds": 200,
+      "beats_null_p95": false
+    },
+    "naive_self_sharpe_net": 0.4229253945512995
+  },
+  "frozen_decision_inputs": {
+    "house_net_sharpe_gt_0": false,
+    "house_2x_net_sharpe_gt_0": false,
+    "boot_lo5_gt_0": false,
+    "beats_null_p95": false,
+    "beats_naive_self": false
+  }
+}
