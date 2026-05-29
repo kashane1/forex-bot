@@ -1,0 +1,5 @@
+{
+  "classification": "REJECT_TIMEFRAME_LADDER_NO_TRAIN_CANDIDATE",
+  "reason": "no champion selected on train",
+  "validation_run": false
+}
