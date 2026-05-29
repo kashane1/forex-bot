@@ -1703,8 +1703,11 @@ No verdict changed; no C024; C023 not executed; `approved: []`; paper/demo/live 
 | [`USDJPY_MACRO_REGIME_CONTEXT_ROBUSTNESS.md`](USDJPY_MACRO_REGIME_CONTEXT_ROBUSTNESS.md) | macro-context robustness + latency-independence |
 | [`USDJPY_MACRO_REGIME_CONTEXT_READINESS_DECISION.md`](USDJPY_MACRO_REGIME_CONTEXT_READINESS_DECISION.md) | macro-context readiness = PAUSE |
 
-(Lessons-learned, restart-criteria, next-action, next-prompt, and the pause-sprint summary
-docs are added to this index at closeout — Phase 7 of the pause sprint.)
+| [`FOREX_BOT_RESEARCH_LESSONS_LEARNED_001.md`](FOREX_BOT_RESEARCH_LESSONS_LEARNED_001.md) | lessons learned + failure taxonomy |
+| [`STRATEGY_RESEARCH_RESTART_CRITERIA.md`](STRATEGY_RESEARCH_RESTART_CRITERIA.md) | strict restart criteria (sufficient vs insufficient) |
+| [`NEXT_ACTION_OPTIONS_AFTER_STRATEGY_SEARCH_PAUSE.md`](NEXT_ACTION_OPTIONS_AFTER_STRATEGY_SEARCH_PAUSE.md) | next-action options + recommendation |
+| [`NEXT_SPRINT_PROMPT_AFTER_STRATEGY_SEARCH_PAUSE.md`](NEXT_SPRINT_PROMPT_AFTER_STRATEGY_SEARCH_PAUSE.md) | non-strategy next-sprint prompt (3 tracks) |
+| [`STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT_001_SUMMARY.md`](STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT_001_SUMMARY.md) | pause-sprint summary |
 
 ## How to read the evidence
 
