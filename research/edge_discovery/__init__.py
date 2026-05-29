@@ -32,6 +32,15 @@ research-edge-discovery-lab-hydrate-001):
     load_campaign_trades(campaign_dir, *, instruments)
     load_event_fixture_json(path)
     StudyProvenance / StudyInput dataclasses
+
+Public API (matched-null / gap diagnostics — added by
+research-edge-discovery-null-benchmark-lab-001):
+
+    matched_null_baseline(ledger, frames_by_pair, *, mode, window_bars, seeds)
+    interpret_matched_null(result)
+    MatchedNullResult / MATCHED_NULL_MODES
+    (see also research.edge_discovery.filter_ablation and
+     research.edge_discovery.multiple_comparison)
 """
 
 from __future__ import annotations
@@ -42,6 +51,12 @@ from research.edge_discovery.loaders import (
     EventFixture,
     load_candles_csv,
     load_event_fixture,
+)
+from research.edge_discovery.matched_nulls import (
+    MATCHED_NULL_MODES,
+    MatchedNullResult,
+    interpret_matched_null,
+    matched_null_baseline,
 )
 from research.edge_discovery.null import NullBaseline, random_null_baseline
 from research.edge_discovery.real_data import (
@@ -62,11 +77,13 @@ from research.edge_discovery.report import StudySummary, summarize_study, write_
 from research.edge_discovery.windows import ForwardReturns, Side, compute_forward_returns
 
 __all__ = [
+    "MATCHED_NULL_MODES",
     "CampaignWalkForwardResult",
     "CandleSample",
     "EventFixture",
     "FoldPairSummary",
     "ForwardReturns",
+    "MatchedNullResult",
     "NullBaseline",
     "Side",
     "StudyInput",
@@ -76,6 +93,7 @@ __all__ = [
     "assert_real_data_kind",
     "compute_forward_returns",
     "fold_pair_summaries_to_frame",
+    "interpret_matched_null",
     "load_campaign_fold_pair_summaries",
     "load_campaign_trades",
     "load_campaign_walk_forward_result",
@@ -83,6 +101,7 @@ __all__ = [
     "load_event_fixture",
     "load_event_fixture_json",
     "load_h4_candles_from_sqlite",
+    "matched_null_baseline",
     "random_null_baseline",
     "resolve_h4_store_path",
     "summarize_study",
