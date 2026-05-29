@@ -1,0 +1,118 @@
+{
+  "campaign_id": "CAMPAIGN_027",
+  "strategy_family": "h4_filtered_zscore_reversion",
+  "version": "0.1.0-c027",
+  "timeframe": "H4",
+  "status": "SCAFFOLD_ONLY / PRECOMMITTED / NOT_RUN / NOT_APPROVED",
+  "contract_doc": "docs/research/CAMPAIGN_027_EDGE_DISCOVERY_ARTIFACT_CONTRACT.md",
+  "precommit_doc": "docs/research/CAMPAIGN_027_PRECOMMIT_H4_FILTERED_ZSCORE_REVERSION_SCOPE.md",
+  "scaffold_state": {
+    "not_approved": true,
+    "scaffold_only": true,
+    "promotion_eligible": false,
+    "paper_demo_live_enabled": false,
+    "strategy_evidence": false,
+    "approved": false
+  },
+  "test_lockbox": {
+    "window": ["2025-01-01", "2026-05-20"],
+    "sealed": true,
+    "runnable_in_scaffold": false,
+    "open_requires": ["train_pass", "validation_pass", "backtrader_parity_pass", "human_authorization"]
+  },
+  "universe": ["EUR_USD", "GBP_USD", "USD_JPY", "AUD_USD", "USD_CAD", "USD_CHF", "NZD_USD"],
+  "splits": {
+    "train": ["2020-01-01", "2022-12-31"],
+    "validation": ["2023-01-01", "2024-12-31"],
+    "test": ["2025-01-01", "2026-05-20"]
+  },
+  "cost_metrics_required": ["optimistic", "conservative"],
+  "binding_cost_metric": "conservative",
+  "c011_null_baseline_ref": "research/null_baselines/campaign_011_deduped_null_baseline.json",
+  "required_future_artifacts": [
+    {
+      "item": 1,
+      "name": "signal_ledger",
+      "produced_in_scaffold": false,
+      "row_grain": "one_per_triggered_signal_prefilter",
+      "required_fields": [
+        "instrument", "signal_time_utc", "side", "timeframe",
+        "zscore", "atr14", "atr_percentile", "session_bucket",
+        "f_low_vol", "f_strong_extension", "f_quiet_session", "entered"
+      ],
+      "includes_diagnostic_long_rows": true
+    },
+    {
+      "item": 2,
+      "name": "trade_ledger",
+      "produced_in_scaffold": false,
+      "row_grain": "one_per_executed_trade",
+      "layout": "backtests/CAMPAIGN_027_*/folds/fold_NN/fold_NN_<PAIR>_trades.csv",
+      "required_fields": [
+        "instrument", "side", "units", "entry_time", "exit_time",
+        "entry_price", "exit_price", "stop_price", "pnl", "r_multiple",
+        "bars_held", "spread_paid_pips", "exit_reason", "fill_timing"
+      ],
+      "side_constraint": "short_only_entered"
+    },
+    {
+      "item": 3,
+      "name": "signal_funnel_ledger",
+      "produced_in_scaffold": false,
+      "required_fields": [
+        "trigger", "f_low_vol_pass", "f_strong_extension_pass",
+        "f_quiet_session_pass", "log_return", "log_return_post_cost_conservative",
+        "r_multiple"
+      ]
+    },
+    {
+      "item": 8,
+      "name": "candidate_registry_and_matrix",
+      "produced_in_scaffold": false,
+      "files": ["candidate_registry.json", "train_metrics.csv", "train_pair_metrics.csv"],
+      "single_candidate_ok": true
+    }
+  ],
+  "required_metadata": {
+    "item_4_pair_side_session": true,
+    "item_5_hold_duration_bars_held": true,
+    "item_6_spread_cost_fields": ["spread_paid_pips", "spread_atr_diagnostics_per_cell"],
+    "item_7_split_window_tag_per_row": true,
+    "item_9_timeframe_column_explicit": "H4",
+    "item_10_null_benchmark_fields": ["instrument", "side", "entry_time_utc", "bars_held", "session", "weekday"],
+    "item_11_reproducibility_manifest": ["commit_hash", "input_data_path", "dedupe_policy", "date_span", "precommitted_rule", "lab_module_versions", "strategy_evidence_false"],
+    "item_12_random_seed_metadata": true
+  },
+  "lab_diagnostics_future": {
+    "cost_feasibility": "COST_FEASIBLE_required_on_traded_cell",
+    "forward_returns": "windows.compute_forward_returns_at_h12",
+    "matched_null": "BEATS_or_ABOVE_on_structure_matching_modes",
+    "filter_ablation": "FILTER_ADDS_EDGE_for_each_retained_filter",
+    "matrix_sanity": "ROBUST_MATRIX_SIGNAL_not_LIKELY_SELECTION_NOISE"
+  },
+  "precommitted_rule": {
+    "signal": {
+      "source": "mid_close",
+      "zscore_lookback": 20,
+      "zscore_shift_bars": 1,
+      "zscore_std_ddof": 1,
+      "base_trigger_abs_z": 2.0,
+      "strong_extension_abs_z": 2.5
+    },
+    "side": {"entered": "short_only", "short_when_z_ge": 2.5, "long_when_z_le": -2.5, "long_entered": false},
+    "filters": {
+      "low_vol": {"atr_lookback": 14, "atr_percentile_window": 250, "atr_percentile_shift_bars": 1, "threshold_le": 0.33},
+      "quiet_session": {"sessions": ["asia", "london"]},
+      "dropped": {"cost_adv_pair": "FILTER_ONLY_REDUCES_SAMPLE", "long_side": "FILTER_HURTS_EDGE"}
+    },
+    "entry": {"fill_timing": "next_bar_open"},
+    "exit": {"max_bars_in_trade": 12, "atr_stop_multiple": 3.0, "take_profit": "none", "trailing_stop": "none", "priority": ["protective_atr_stop", "time_stop"]}
+  },
+  "size_safety": {
+    "ledgers_compact_per_trade_or_signal": true,
+    "no_per_bar_dumps": true,
+    "no_raw_candles_or_db_or_env_committed": true,
+    "timestamps_utc": true,
+    "no_test_lockbox_sampling": true
+  }
+}
