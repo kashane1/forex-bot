@@ -1,0 +1,176 @@
+{
+  "bar_type": "volatility",
+  "instrument": "USD_JPY",
+  "thresholds": {
+    "abs_close_10pip": {
+      "bar_count": 218411,
+      "bar_type": "volatility",
+      "completion_reason_counts": {
+        "volatility": 218411
+      },
+      "compression_vs_m1": 8.44,
+      "compression_vs_m15_approx": 0.56,
+      "data_quality_warnings": [
+        "238 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 4334.0,
+        "mean": 10.6771,
+        "median": 6.0,
+        "min": 0.0,
+        "p25": 4.0,
+        "p75": 10.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 260040.0,
+        "mean": 640.6252,
+        "median": 360.0,
+        "min": 0.0,
+        "p25": 240.0,
+        "p75": 600.0
+      },
+      "first_bar_close_utc": "2021-05-27T00:08:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_JPY",
+      "last_bar_close_utc": "2026-05-26T23:41:00+00:00",
+      "m1_source_rows": 1844454,
+      "multi_threshold_bars": 2657,
+      "overshoot_pips_per_bar": {
+        "max": 194.1,
+        "mean": 1.6326,
+        "median": 0.9,
+        "min": 0.0,
+        "p25": 0.3,
+        "p75": 2.0
+      },
+      "session_distribution": {
+        "london": 49201,
+        "london_ny_overlap": 49756,
+        "new_york": 36905,
+        "rollover_late": 17903,
+        "tokyo": 64646
+      },
+      "source_m1_rows_per_bar": {
+        "max": 90.0,
+        "mean": 8.4448,
+        "median": 7.0,
+        "min": 1.0,
+        "p25": 5.0,
+        "p75": 11.0
+      },
+      "threshold": "abs_close_10pip",
+      "thresholds_crossed_distribution": {
+        "1": 215754,
+        "10": 5,
+        "11": 3,
+        "12": 6,
+        "13": 5,
+        "14": 2,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "2": 1982,
+        "20": 2,
+        "3": 353,
+        "4": 129,
+        "5": 66,
+        "6": 40,
+        "7": 26,
+        "8": 21,
+        "9": 13
+      },
+      "weekday_distribution": {
+        "Friday": 41917,
+        "Monday": 40472,
+        "Sunday": 4030,
+        "Thursday": 45022,
+        "Tuesday": 42920,
+        "Wednesday": 44050
+      }
+    },
+    "abs_close_20pip": {
+      "bar_count": 116965,
+      "bar_type": "volatility",
+      "completion_reason_counts": {
+        "volatility": 116965
+      },
+      "compression_vs_m1": 15.77,
+      "compression_vs_m15_approx": 1.05,
+      "data_quality_warnings": [
+        "255 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 4338.0,
+        "mean": 21.2262,
+        "median": 12.0,
+        "min": 0.0,
+        "p25": 8.0,
+        "p75": 19.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 260280.0,
+        "mean": 1273.5718,
+        "median": 720.0,
+        "min": 0.0,
+        "p25": 480.0,
+        "p75": 1140.0
+      },
+      "first_bar_close_utc": "2021-05-27T00:19:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_JPY",
+      "last_bar_close_utc": "2026-05-26T23:23:00+00:00",
+      "m1_source_rows": 1844454,
+      "multi_threshold_bars": 500,
+      "overshoot_pips_per_bar": {
+        "max": 202.3,
+        "mean": 1.7216,
+        "median": 0.9,
+        "min": 0.0,
+        "p25": 0.4,
+        "p75": 2.0
+      },
+      "session_distribution": {
+        "london": 26262,
+        "london_ny_overlap": 27104,
+        "new_york": 19533,
+        "rollover_late": 9515,
+        "tokyo": 34551
+      },
+      "source_m1_rows_per_bar": {
+        "max": 154.0,
+        "mean": 15.769,
+        "median": 13.0,
+        "min": 1.0,
+        "p25": 9.0,
+        "p75": 20.0
+      },
+      "threshold": "abs_close_20pip",
+      "thresholds_crossed_distribution": {
+        "1": 116465,
+        "10": 1,
+        "11": 1,
+        "2": 344,
+        "3": 84,
+        "4": 45,
+        "5": 6,
+        "6": 10,
+        "7": 5,
+        "8": 2,
+        "9": 2
+      },
+      "weekday_distribution": {
+        "Friday": 22525,
+        "Monday": 21577,
+        "Sunday": 2185,
+        "Thursday": 24159,
+        "Tuesday": 22884,
+        "Wednesday": 23635
+      }
+    }
+  },
+  "window": {
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  }
+}

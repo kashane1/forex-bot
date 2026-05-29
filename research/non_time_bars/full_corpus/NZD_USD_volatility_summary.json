@@ -1,0 +1,160 @@
+{
+  "bar_type": "volatility",
+  "instrument": "NZD_USD",
+  "thresholds": {
+    "abs_close_10pip": {
+      "bar_count": 125709,
+      "bar_type": "volatility",
+      "completion_reason_counts": {
+        "volatility": 125709
+      },
+      "compression_vs_m1": 14.51,
+      "compression_vs_m15_approx": 0.97,
+      "data_quality_warnings": [
+        "247 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 4164.0,
+        "mean": 19.485,
+        "median": 12.0,
+        "min": 0.0,
+        "p25": 8.0,
+        "p75": 17.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 249840.0,
+        "mean": 1169.0986,
+        "median": 720.0,
+        "min": 0.0,
+        "p25": 480.0,
+        "p75": 1020.0
+      },
+      "first_bar_close_utc": "2021-05-27T00:16:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "NZD_USD",
+      "last_bar_close_utc": "2026-05-26T23:48:00+00:00",
+      "m1_source_rows": 1824352,
+      "multi_threshold_bars": 311,
+      "overshoot_pips_per_bar": {
+        "max": 113.3,
+        "mean": 0.7703,
+        "median": 0.4,
+        "min": 0.0,
+        "p25": 0.2,
+        "p75": 1.0
+      },
+      "session_distribution": {
+        "london": 27993,
+        "london_ny_overlap": 29606,
+        "new_york": 22307,
+        "rollover_late": 10188,
+        "tokyo": 35615
+      },
+      "source_m1_rows_per_bar": {
+        "max": 109.0,
+        "mean": 14.5124,
+        "median": 13.0,
+        "min": 1.0,
+        "p25": 9.0,
+        "p75": 18.0
+      },
+      "threshold": "abs_close_10pip",
+      "thresholds_crossed_distribution": {
+        "1": 125398,
+        "12": 1,
+        "2": 220,
+        "3": 49,
+        "4": 20,
+        "5": 14,
+        "6": 4,
+        "7": 2,
+        "8": 1
+      },
+      "weekday_distribution": {
+        "Friday": 23417,
+        "Monday": 23156,
+        "Sunday": 2297,
+        "Thursday": 25647,
+        "Tuesday": 25240,
+        "Wednesday": 25952
+      }
+    },
+    "abs_close_20pip": {
+      "bar_count": 65082,
+      "bar_type": "volatility",
+      "completion_reason_counts": {
+        "volatility": 65082
+      },
+      "compression_vs_m1": 28.03,
+      "compression_vs_m15_approx": 1.87,
+      "data_quality_warnings": [
+        "255 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 4173.0,
+        "mean": 38.9371,
+        "median": 25.0,
+        "min": 0.0,
+        "p25": 18.0,
+        "p75": 35.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 250380.0,
+        "mean": 2336.2257,
+        "median": 1500.0,
+        "min": 0.0,
+        "p25": 1080.0,
+        "p75": 2100.0
+      },
+      "first_bar_close_utc": "2021-05-27T00:30:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "NZD_USD",
+      "last_bar_close_utc": "2026-05-26T23:39:00+00:00",
+      "m1_source_rows": 1824352,
+      "multi_threshold_bars": 73,
+      "overshoot_pips_per_bar": {
+        "max": 117.1,
+        "mean": 0.8034,
+        "median": 0.4,
+        "min": 0.0,
+        "p25": 0.2,
+        "p75": 1.0
+      },
+      "session_distribution": {
+        "london": 14465,
+        "london_ny_overlap": 15478,
+        "new_york": 11509,
+        "rollover_late": 5257,
+        "tokyo": 18373
+      },
+      "source_m1_rows_per_bar": {
+        "max": 168.0,
+        "mean": 28.0313,
+        "median": 26.0,
+        "min": 1.0,
+        "p25": 19.0,
+        "p75": 35.0
+      },
+      "threshold": "abs_close_20pip",
+      "thresholds_crossed_distribution": {
+        "1": 65009,
+        "2": 58,
+        "3": 13,
+        "4": 1,
+        "6": 1
+      },
+      "weekday_distribution": {
+        "Friday": 12135,
+        "Monday": 11935,
+        "Sunday": 1211,
+        "Thursday": 13274,
+        "Tuesday": 13056,
+        "Wednesday": 13471
+      }
+    }
+  },
+  "window": {
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  }
+}

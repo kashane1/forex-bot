@@ -1,0 +1,370 @@
+{
+  "bar_type": "range",
+  "instrument": "USD_JPY",
+  "thresholds": {
+    "10pip": {
+      "bar_count": 72940,
+      "bar_type": "range",
+      "completion_reason_counts": {
+        "range_down": 36081,
+        "range_up": 36859
+      },
+      "compression_vs_m1": 25.29,
+      "compression_vs_m15_approx": 1.69,
+      "data_quality_warnings": [
+        "261 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 4434.0,
+        "mean": 34.8884,
+        "median": 10.0,
+        "min": 0.0,
+        "p25": 3.0,
+        "p75": 25.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 266040.0,
+        "mean": 2093.3033,
+        "median": 600.0,
+        "min": 0.0,
+        "p25": 180.0,
+        "p75": 1500.0
+      },
+      "first_bar_close_utc": "2021-05-27T02:15:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_JPY",
+      "last_bar_close_utc": "2026-05-26T22:59:00+00:00",
+      "m1_source_rows": 1844454,
+      "multi_threshold_bars": 3167,
+      "overshoot_pips_per_bar": {
+        "max": 265.0,
+        "mean": 2.7208,
+        "median": 1.3,
+        "min": 0.0,
+        "p25": 0.5,
+        "p75": 2.9
+      },
+      "session_distribution": {
+        "london": 15862,
+        "london_ny_overlap": 21363,
+        "new_york": 9937,
+        "rollover_late": 4777,
+        "tokyo": 21001
+      },
+      "source_m1_rows_per_bar": {
+        "max": 1363.0,
+        "mean": 25.2865,
+        "median": 11.0,
+        "min": 1.0,
+        "p25": 4.0,
+        "p75": 26.0
+      },
+      "threshold": "10pip",
+      "thresholds_crossed_distribution": {
+        "1": 69773,
+        "10": 7,
+        "11": 12,
+        "12": 5,
+        "13": 6,
+        "14": 3,
+        "15": 1,
+        "16": 3,
+        "18": 1,
+        "19": 2,
+        "2": 2140,
+        "21": 1,
+        "24": 1,
+        "27": 1,
+        "3": 524,
+        "4": 203,
+        "5": 108,
+        "6": 61,
+        "7": 38,
+        "8": 34,
+        "9": 16
+      },
+      "weekday_distribution": {
+        "Friday": 14904,
+        "Monday": 12597,
+        "Sunday": 1441,
+        "Thursday": 15326,
+        "Tuesday": 13544,
+        "Wednesday": 15128
+      }
+    },
+    "15pip": {
+      "bar_count": 34841,
+      "bar_type": "range",
+      "completion_reason_counts": {
+        "range_down": 17189,
+        "range_up": 17652
+      },
+      "compression_vs_m1": 52.94,
+      "compression_vs_m15_approx": 3.53,
+      "data_quality_warnings": [
+        "272 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 5557.0,
+        "mean": 74.4493,
+        "median": 20.0,
+        "min": 0.0,
+        "p25": 7.0,
+        "p75": 54.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 333420.0,
+        "mean": 4466.9579,
+        "median": 1200.0,
+        "min": 0.0,
+        "p25": 420.0,
+        "p75": 3240.0
+      },
+      "first_bar_close_utc": "2021-05-27T12:09:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_JPY",
+      "last_bar_close_utc": "2026-05-26T13:02:00+00:00",
+      "m1_source_rows": 1844454,
+      "multi_threshold_bars": 1194,
+      "overshoot_pips_per_bar": {
+        "max": 258.0,
+        "mean": 3.2909,
+        "median": 1.4,
+        "min": 0.0,
+        "p25": 0.5,
+        "p75": 3.3
+      },
+      "session_distribution": {
+        "london": 7566,
+        "london_ny_overlap": 10427,
+        "new_york": 4595,
+        "rollover_late": 2237,
+        "tokyo": 10016
+      },
+      "source_m1_rows_per_bar": {
+        "max": 2553.0,
+        "mean": 52.9206,
+        "median": 21.0,
+        "min": 1.0,
+        "p25": 8.0,
+        "p75": 54.0
+      },
+      "threshold": "15pip",
+      "thresholds_crossed_distribution": {
+        "1": 33647,
+        "11": 3,
+        "12": 3,
+        "14": 1,
+        "16": 1,
+        "18": 1,
+        "2": 811,
+        "3": 180,
+        "4": 87,
+        "5": 55,
+        "6": 21,
+        "7": 13,
+        "8": 9,
+        "9": 9
+      },
+      "weekday_distribution": {
+        "Friday": 7218,
+        "Monday": 6004,
+        "Sunday": 723,
+        "Thursday": 7289,
+        "Tuesday": 6411,
+        "Wednesday": 7196
+      }
+    },
+    "20pip": {
+      "bar_count": 20547,
+      "bar_type": "range",
+      "completion_reason_counts": {
+        "range_down": 10113,
+        "range_up": 10434
+      },
+      "compression_vs_m1": 89.77,
+      "compression_vs_m15_approx": 5.98,
+      "data_quality_warnings": [
+        "294 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 5746.0,
+        "mean": 126.9252,
+        "median": 35.0,
+        "min": 0.0,
+        "p25": 11.0,
+        "p75": 95.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 344760.0,
+        "mean": 7615.5147,
+        "median": 2100.0,
+        "min": 0.0,
+        "p25": 660.0,
+        "p75": 5700.0
+      },
+      "first_bar_close_utc": "2021-05-27T12:14:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_JPY",
+      "last_bar_close_utc": "2026-05-26T08:10:00+00:00",
+      "m1_source_rows": 1844454,
+      "multi_threshold_bars": 582,
+      "overshoot_pips_per_bar": {
+        "max": 253.0,
+        "mean": 3.7279,
+        "median": 1.6,
+        "min": 0.0,
+        "p25": 0.6,
+        "p75": 3.6
+      },
+      "session_distribution": {
+        "london": 4363,
+        "london_ny_overlap": 6216,
+        "new_york": 2711,
+        "rollover_late": 1343,
+        "tokyo": 5914
+      },
+      "source_m1_rows_per_bar": {
+        "max": 3065.0,
+        "mean": 89.7218,
+        "median": 36.0,
+        "min": 1.0,
+        "p25": 12.0,
+        "p75": 95.0
+      },
+      "threshold": "20pip",
+      "thresholds_crossed_distribution": {
+        "1": 19965,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "2": 378,
+        "3": 108,
+        "4": 53,
+        "5": 17,
+        "6": 13,
+        "7": 4,
+        "8": 3,
+        "9": 3
+      },
+      "weekday_distribution": {
+        "Friday": 4246,
+        "Monday": 3523,
+        "Sunday": 448,
+        "Thursday": 4327,
+        "Tuesday": 3745,
+        "Wednesday": 4258
+      }
+    },
+    "5pip": {
+      "bar_count": 237197,
+      "bar_type": "range",
+      "completion_reason_counts": {
+        "range_down": 117630,
+        "range_up": 119567
+      },
+      "compression_vs_m1": 7.78,
+      "compression_vs_m15_approx": 0.52,
+      "data_quality_warnings": [
+        "249 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 4332.0,
+        "mean": 9.8825,
+        "median": 3.0,
+        "min": 0.0,
+        "p25": 1.0,
+        "p75": 7.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 259920.0,
+        "mean": 592.9489,
+        "median": 180.0,
+        "min": 0.0,
+        "p25": 60.0,
+        "p75": 420.0
+      },
+      "first_bar_close_utc": "2021-05-27T02:05:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_JPY",
+      "last_bar_close_utc": "2026-05-26T23:01:00+00:00",
+      "m1_source_rows": 1844454,
+      "multi_threshold_bars": 21383,
+      "overshoot_pips_per_bar": {
+        "max": 268.7,
+        "mean": 2.0929,
+        "median": 1.1,
+        "min": 0.0,
+        "p25": 0.4,
+        "p75": 2.4
+      },
+      "session_distribution": {
+        "london": 53092,
+        "london_ny_overlap": 66032,
+        "new_york": 33195,
+        "rollover_late": 15675,
+        "tokyo": 69203
+      },
+      "source_m1_rows_per_bar": {
+        "max": 649.0,
+        "mean": 7.7758,
+        "median": 4.0,
+        "min": 1.0,
+        "p25": 2.0,
+        "p75": 8.0
+      },
+      "threshold": "5pip",
+      "thresholds_crossed_distribution": {
+        "1": 215814,
+        "10": 53,
+        "11": 46,
+        "12": 37,
+        "13": 24,
+        "14": 25,
+        "15": 18,
+        "16": 19,
+        "17": 17,
+        "18": 6,
+        "19": 4,
+        "2": 15723,
+        "20": 6,
+        "21": 3,
+        "22": 4,
+        "23": 8,
+        "24": 3,
+        "25": 1,
+        "26": 2,
+        "27": 5,
+        "28": 1,
+        "29": 2,
+        "3": 3063,
+        "30": 1,
+        "31": 1,
+        "33": 2,
+        "37": 1,
+        "38": 2,
+        "4": 1067,
+        "42": 1,
+        "48": 1,
+        "5": 554,
+        "54": 1,
+        "6": 302,
+        "7": 196,
+        "8": 106,
+        "9": 78
+      },
+      "weekday_distribution": {
+        "Friday": 47637,
+        "Monday": 41408,
+        "Sunday": 4415,
+        "Thursday": 50134,
+        "Tuesday": 45458,
+        "Wednesday": 48145
+      }
+    }
+  },
+  "window": {
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  }
+}

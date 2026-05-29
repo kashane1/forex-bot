@@ -1,0 +1,212 @@
+{
+  "bar_type": "volatility",
+  "chunk_days": 30,
+  "elapsed_seconds": 400.2,
+  "finished_at_utc": "2026-05-29T09:47:42.963337+00:00",
+  "max_rows": null,
+  "method": "abs_close",
+  "network_or_broker_calls": false,
+  "not_approved": true,
+  "pair_results": {
+    "AUD_USD": {
+      "thresholds": {
+        "abs_close_10pip": {
+          "bar_count": 135713,
+          "compression_vs_m1": 13.43,
+          "compression_vs_m15_approx": 0.9,
+          "median_source_m1_rows_per_bar": 12.0,
+          "warnings": [
+            "252 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        },
+        "abs_close_20pip": {
+          "bar_count": 70485,
+          "compression_vs_m1": 25.85,
+          "compression_vs_m15_approx": 1.72,
+          "median_source_m1_rows_per_bar": 24.0,
+          "warnings": [
+            "257 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "EUR_USD": {
+      "thresholds": {
+        "abs_close_10pip": {
+          "bar_count": 149414,
+          "compression_vs_m1": 12.34,
+          "compression_vs_m15_approx": 0.82,
+          "median_source_m1_rows_per_bar": 11.0,
+          "warnings": [
+            "252 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        },
+        "abs_close_20pip": {
+          "bar_count": 78172,
+          "compression_vs_m1": 23.58,
+          "compression_vs_m15_approx": 1.57,
+          "median_source_m1_rows_per_bar": 20.0,
+          "warnings": [
+            "259 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "GBP_USD": {
+      "thresholds": {
+        "abs_close_10pip": {
+          "bar_count": 187566,
+          "compression_vs_m1": 9.79,
+          "compression_vs_m15_approx": 0.65,
+          "median_source_m1_rows_per_bar": 8.0,
+          "warnings": [
+            "239 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        },
+        "abs_close_20pip": {
+          "bar_count": 99268,
+          "compression_vs_m1": 18.5,
+          "compression_vs_m15_approx": 1.23,
+          "median_source_m1_rows_per_bar": 16.0,
+          "warnings": [
+            "251 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "NZD_USD": {
+      "thresholds": {
+        "abs_close_10pip": {
+          "bar_count": 125709,
+          "compression_vs_m1": 14.51,
+          "compression_vs_m15_approx": 0.97,
+          "median_source_m1_rows_per_bar": 13.0,
+          "warnings": [
+            "247 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        },
+        "abs_close_20pip": {
+          "bar_count": 65082,
+          "compression_vs_m1": 28.03,
+          "compression_vs_m15_approx": 1.87,
+          "median_source_m1_rows_per_bar": 26.0,
+          "warnings": [
+            "255 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "USD_CAD": {
+      "thresholds": {
+        "abs_close_10pip": {
+          "bar_count": 158222,
+          "compression_vs_m1": 11.6,
+          "compression_vs_m15_approx": 0.77,
+          "median_source_m1_rows_per_bar": 10.0,
+          "warnings": [
+            "243 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        },
+        "abs_close_20pip": {
+          "bar_count": 82894,
+          "compression_vs_m1": 22.15,
+          "compression_vs_m15_approx": 1.48,
+          "median_source_m1_rows_per_bar": 19.0,
+          "warnings": [
+            "256 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "USD_CHF": {
+      "thresholds": {
+        "abs_close_10pip": {
+          "bar_count": 132515,
+          "compression_vs_m1": 13.48,
+          "compression_vs_m15_approx": 0.9,
+          "median_source_m1_rows_per_bar": 12.0,
+          "warnings": [
+            "243 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        },
+        "abs_close_20pip": {
+          "bar_count": 69042,
+          "compression_vs_m1": 25.88,
+          "compression_vs_m15_approx": 1.73,
+          "median_source_m1_rows_per_bar": 23.0,
+          "warnings": [
+            "255 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    },
+    "USD_JPY": {
+      "thresholds": {
+        "abs_close_10pip": {
+          "bar_count": 218411,
+          "compression_vs_m1": 8.44,
+          "compression_vs_m15_approx": 0.56,
+          "median_source_m1_rows_per_bar": 7.0,
+          "warnings": [
+            "238 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        },
+        "abs_close_20pip": {
+          "bar_count": 116965,
+          "compression_vs_m1": 15.77,
+          "compression_vs_m15_approx": 1.05,
+          "median_source_m1_rows_per_bar": 13.0,
+          "warnings": [
+            "255 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        }
+      },
+      "window": {
+        "from_utc": "2021-05-27T00:00:00+00:00",
+        "to_utc": "2026-05-26T23:59:00+00:00"
+      }
+    }
+  },
+  "pairs": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "NZD_USD"
+  ],
+  "price_basis": "mid",
+  "source": "local Postgres M1 (granularity=M1); NO broker/network calls",
+  "sprint": "infra-range-and-volatility-bars-001",
+  "started_at_utc": "2026-05-29T09:41:02.780495+00:00",
+  "strategy_evidence": false,
+  "thresholds": [
+    10.0,
+    20.0
+  ]
+}

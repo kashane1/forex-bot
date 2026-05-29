@@ -1,0 +1,328 @@
+{
+  "bar_type": "range",
+  "instrument": "USD_CAD",
+  "thresholds": {
+    "10pip": {
+      "bar_count": 34170,
+      "bar_type": "range",
+      "completion_reason_counts": {
+        "range_down": 17010,
+        "range_up": 17160
+      },
+      "compression_vs_m1": 53.73,
+      "compression_vs_m15_approx": 3.58,
+      "data_quality_warnings": [
+        "260 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 4385.0,
+        "mean": 75.5104,
+        "median": 22.0,
+        "min": 0.0,
+        "p25": 8.0,
+        "p75": 57.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 263100.0,
+        "mean": 4530.6269,
+        "median": 1320.0,
+        "min": 0.0,
+        "p25": 480.0,
+        "p75": 3420.0
+      },
+      "first_bar_close_utc": "2021-05-27T01:21:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_CAD",
+      "last_bar_close_utc": "2026-05-26T14:55:00+00:00",
+      "m1_source_rows": 1836013,
+      "multi_threshold_bars": 580,
+      "overshoot_pips_per_bar": {
+        "max": 186.2,
+        "mean": 1.604,
+        "median": 0.8,
+        "min": 0.0,
+        "p25": 0.3,
+        "p75": 1.8
+      },
+      "session_distribution": {
+        "london": 6530,
+        "london_ny_overlap": 13690,
+        "new_york": 7467,
+        "rollover_late": 1380,
+        "tokyo": 5103
+      },
+      "source_m1_rows_per_bar": {
+        "max": 1157.0,
+        "mean": 53.716,
+        "median": 22.0,
+        "min": 1.0,
+        "p25": 9.0,
+        "p75": 58.0
+      },
+      "threshold": "10pip",
+      "thresholds_crossed_distribution": {
+        "1": 33590,
+        "10": 1,
+        "19": 1,
+        "2": 389,
+        "3": 102,
+        "4": 45,
+        "5": 19,
+        "6": 14,
+        "7": 5,
+        "8": 4
+      },
+      "weekday_distribution": {
+        "Friday": 7035,
+        "Monday": 5947,
+        "Sunday": 459,
+        "Thursday": 6819,
+        "Tuesday": 6740,
+        "Wednesday": 7170
+      }
+    },
+    "15pip": {
+      "bar_count": 15495,
+      "bar_type": "range",
+      "completion_reason_counts": {
+        "range_down": 7696,
+        "range_up": 7799
+      },
+      "compression_vs_m1": 118.49,
+      "compression_vs_m15_approx": 7.9,
+      "data_quality_warnings": [
+        "277 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 5071.0,
+        "mean": 168.462,
+        "median": 48.0,
+        "min": 0.0,
+        "p25": 17.0,
+        "p75": 134.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 304260.0,
+        "mean": 10107.7212,
+        "median": 2880.0,
+        "min": 0.0,
+        "p25": 1020.0,
+        "p75": 8040.0
+      },
+      "first_bar_close_utc": "2021-05-27T06:07:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_CAD",
+      "last_bar_close_utc": "2026-05-26T12:16:00+00:00",
+      "m1_source_rows": 1836013,
+      "multi_threshold_bars": 207,
+      "overshoot_pips_per_bar": {
+        "max": 181.2,
+        "mean": 1.8229,
+        "median": 0.8,
+        "min": 0.0,
+        "p25": 0.3,
+        "p75": 1.9
+      },
+      "session_distribution": {
+        "london": 2858,
+        "london_ny_overlap": 6379,
+        "new_york": 3395,
+        "rollover_late": 581,
+        "tokyo": 2282
+      },
+      "source_m1_rows_per_bar": {
+        "max": 2384.0,
+        "mean": 118.4458,
+        "median": 49.0,
+        "min": 1.0,
+        "p25": 18.0,
+        "p75": 132.0
+      },
+      "threshold": "15pip",
+      "thresholds_crossed_distribution": {
+        "1": 15288,
+        "13": 1,
+        "2": 144,
+        "3": 34,
+        "4": 19,
+        "5": 7,
+        "6": 2
+      },
+      "weekday_distribution": {
+        "Friday": 3227,
+        "Monday": 2765,
+        "Sunday": 210,
+        "Thursday": 3065,
+        "Tuesday": 3020,
+        "Wednesday": 3208
+      }
+    },
+    "20pip": {
+      "bar_count": 8749,
+      "bar_type": "range",
+      "completion_reason_counts": {
+        "range_down": 4337,
+        "range_up": 4412
+      },
+      "compression_vs_m1": 209.85,
+      "compression_vs_m15_approx": 13.99,
+      "data_quality_warnings": [
+        "306 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 7240.0,
+        "mean": 299.1304,
+        "median": 91.0,
+        "min": 0.0,
+        "p25": 31.0,
+        "p75": 266.5
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 434400.0,
+        "mean": 17947.8249,
+        "median": 5460.0,
+        "min": 0.0,
+        "p25": 1860.0,
+        "p75": 15990.0
+      },
+      "first_bar_close_utc": "2021-05-27T07:17:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_CAD",
+      "last_bar_close_utc": "2026-05-26T12:39:00+00:00",
+      "m1_source_rows": 1836013,
+      "multi_threshold_bars": 100,
+      "overshoot_pips_per_bar": {
+        "max": 166.2,
+        "mean": 2.0195,
+        "median": 0.8,
+        "min": 0.0,
+        "p25": 0.3,
+        "p75": 2.0
+      },
+      "session_distribution": {
+        "london": 1614,
+        "london_ny_overlap": 3624,
+        "new_york": 1952,
+        "rollover_late": 308,
+        "tokyo": 1251
+      },
+      "source_m1_rows_per_bar": {
+        "max": 4317.0,
+        "mean": 209.7772,
+        "median": 91.0,
+        "min": 1.0,
+        "p25": 32.0,
+        "p75": 259.0
+      },
+      "threshold": "20pip",
+      "thresholds_crossed_distribution": {
+        "1": 8649,
+        "2": 73,
+        "3": 21,
+        "4": 4,
+        "5": 1,
+        "9": 1
+      },
+      "weekday_distribution": {
+        "Friday": 1809,
+        "Monday": 1534,
+        "Sunday": 105,
+        "Thursday": 1764,
+        "Tuesday": 1742,
+        "Wednesday": 1795
+      }
+    },
+    "5pip": {
+      "bar_count": 124076,
+      "bar_type": "range",
+      "completion_reason_counts": {
+        "range_down": 61690,
+        "range_up": 62386
+      },
+      "compression_vs_m1": 14.8,
+      "compression_vs_m15_approx": 0.99,
+      "data_quality_warnings": [
+        "249 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 4371.0,
+        "mean": 19.816,
+        "median": 6.0,
+        "min": 0.0,
+        "p25": 2.0,
+        "p75": 15.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 262260.0,
+        "mean": 1188.96,
+        "median": 360.0,
+        "min": 0.0,
+        "p25": 120.0,
+        "p75": 900.0
+      },
+      "first_bar_close_utc": "2021-05-27T00:51:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_CAD",
+      "last_bar_close_utc": "2026-05-26T23:34:00+00:00",
+      "m1_source_rows": 1836013,
+      "multi_threshold_bars": 4633,
+      "overshoot_pips_per_bar": {
+        "max": 191.2,
+        "mean": 1.3202,
+        "median": 0.7,
+        "min": 0.0,
+        "p25": 0.2,
+        "p75": 1.6
+      },
+      "session_distribution": {
+        "london": 24489,
+        "london_ny_overlap": 46805,
+        "new_york": 27483,
+        "rollover_late": 5715,
+        "tokyo": 19584
+      },
+      "source_m1_rows_per_bar": {
+        "max": 699.0,
+        "mean": 14.7973,
+        "median": 7.0,
+        "min": 1.0,
+        "p25": 3.0,
+        "p75": 16.0
+      },
+      "threshold": "5pip",
+      "thresholds_crossed_distribution": {
+        "1": 119443,
+        "10": 12,
+        "11": 10,
+        "12": 5,
+        "13": 8,
+        "14": 1,
+        "15": 6,
+        "16": 1,
+        "17": 2,
+        "2": 3576,
+        "21": 1,
+        "3": 562,
+        "39": 1,
+        "4": 219,
+        "5": 95,
+        "6": 68,
+        "7": 30,
+        "8": 24,
+        "9": 12
+      },
+      "weekday_distribution": {
+        "Friday": 25092,
+        "Monday": 21629,
+        "Sunday": 1623,
+        "Thursday": 25098,
+        "Tuesday": 24762,
+        "Wednesday": 25872
+      }
+    }
+  },
+  "window": {
+    "from_utc": "2021-05-27T00:00:00+00:00",
+    "to_utc": "2026-05-26T23:59:00+00:00"
+  }
+}
