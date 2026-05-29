@@ -1,0 +1,18 @@
+{
+  "campaign_id": "CAMPAIGN_026",
+  "candidates": 11,
+  "champion": null,
+  "checked_at_utc": "2026-05-29T01:27:51.524404+00:00",
+  "classification": "REJECT_TIMEFRAME_LADDER_NO_TRAIN_CANDIDATE",
+  "fill_timing": "next_bar_open",
+  "mode": "train-matrix",
+  "not_approved": true,
+  "strategy_evidence": true,
+  "strategy_family": "donchian_htf_confluence_timeframe_ladder",
+  "test_lockbox_opened": false,
+  "train_window": [
+    "2021-07-01",
+    "2023-06-30"
+  ],
+  "version": "0.1.0-c026"
+}

@@ -1,0 +1,108 @@
+{
+  "C026_TF_001": {
+    "breakout_pass": 200664,
+    "d1agg_context_pass": 1639675,
+    "entries": 8544,
+    "exec_bars_examined": 1639675,
+    "h1_context_pass": 1174715,
+    "h4_context_pass": 1300537,
+    "local_setup_pass": 1639675,
+    "signals_in_window": 35710
+  },
+  "C026_TF_002": {
+    "breakout_pass": 161090,
+    "d1agg_context_pass": 1639675,
+    "entries": 6366,
+    "exec_bars_examined": 1639675,
+    "h1_context_pass": 1158711,
+    "h4_context_pass": 1300537,
+    "local_setup_pass": 1639675,
+    "signals_in_window": 29051
+  },
+  "C026_TF_003": {
+    "breakout_pass": 161090,
+    "d1agg_context_pass": 1639675,
+    "entries": 7209,
+    "exec_bars_examined": 1639675,
+    "h1_context_pass": 1174715,
+    "h4_context_pass": 1300537,
+    "local_setup_pass": 1639675,
+    "signals_in_window": 29115
+  },
+  "C026_TF_004": {
+    "breakout_pass": 36844,
+    "d1agg_context_pass": 303584,
+    "entries": 2659,
+    "exec_bars_examined": 303584,
+    "h1_context_pass": 217315,
+    "h4_context_pass": 244509,
+    "local_setup_pass": 303584,
+    "signals_in_window": 7359
+  },
+  "C026_TF_005": {
+    "breakout_pass": 36844,
+    "d1agg_context_pass": 303584,
+    "entries": 2270,
+    "exec_bars_examined": 303584,
+    "h1_context_pass": 217315,
+    "h4_context_pass": 244509,
+    "local_setup_pass": 303584,
+    "signals_in_window": 7359
+  },
+  "C026_TF_006": {
+    "breakout_pass": 29740,
+    "d1agg_context_pass": 303584,
+    "entries": 2032,
+    "exec_bars_examined": 303584,
+    "h1_context_pass": 217315,
+    "h4_context_pass": 244509,
+    "local_setup_pass": 303584,
+    "signals_in_window": 6167
+  },
+  "C026_TF_007": {
+    "breakout_pass": 36844,
+    "d1agg_context_pass": 303584,
+    "entries": 2414,
+    "exec_bars_examined": 303584,
+    "h1_context_pass": 214266,
+    "h4_context_pass": 244509,
+    "local_setup_pass": 303584,
+    "signals_in_window": 6179
+  },
+  "C026_TF_008": {
+    "breakout_pass": 17690,
+    "d1agg_context_pass": 144731,
+    "entries": 2197,
+    "exec_bars_examined": 144731,
+    "h4_context_pass": 117309,
+    "local_setup_pass": 144731,
+    "signals_in_window": 6273
+  },
+  "C026_TF_009": {
+    "breakout_pass": 17690,
+    "d1agg_context_pass": 144731,
+    "entries": 1899,
+    "exec_bars_examined": 144731,
+    "h4_context_pass": 117309,
+    "local_setup_pass": 144731,
+    "signals_in_window": 6273
+  },
+  "C026_TF_010": {
+    "breakout_pass": 14218,
+    "d1agg_context_pass": 144731,
+    "entries": 1592,
+    "exec_bars_examined": 144731,
+    "h4_context_pass": 117309,
+    "local_setup_pass": 144731,
+    "signals_in_window": 4912
+  },
+  "C026_TF_011": {
+    "breakout_pass": 14218,
+    "d1agg_context_pass": 144731,
+    "entries": 1635,
+    "exec_bars_examined": 144731,
+    "h4_context_pass": 117309,
+    "local_setup_pass": 144731,
+    "signals_in_window": 4912
+  }
+}
