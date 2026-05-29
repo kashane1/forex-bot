@@ -79,3 +79,42 @@ backtests/CAMPAIGN_0XX_*/folds/fold_NN/
 The specific gaps for older campaigns are recorded in
 `research/edge_discovery/retrospectives/retrospective_compatibility_gaps.json`.
 Future campaigns satisfying this doc will not appear there.
+
+---
+
+## Addendum (front-gate idea-selection 001) — confirmation + four added fields
+
+The `research-edge-discovery-front-gate-idea-selection-001` sprint *consumed* the
+lab end-to-end (cost-feasibility → forward-return → matched-null → filter-ablation
+→ matrix-sanity) and in doing so confirmed the emissions above are the right set:
+every diagnostic it ran maps onto one of items 1–8. It also surfaced **four
+fields that were implicit and are now made explicit**, because the front gate
+needed them and a campaign that omits them is only partly re-screenable:
+
+9.  **Timeframe metadata** — an explicit `timeframe` column on the signal and
+    trade ledgers (e.g. `H4`). Implicit in item 1; promoted to a hard field so
+    cost-feasibility (`TIMEFRAME_TOO_FAST`) and cross-TF comparisons are
+    unambiguous. The C025/C026 lesson was timeframe-specific; do not lose it.
+10. **Null-benchmark compatibility fields** — enough per-signal structure for the
+    matched-null modes to reconstruct each null *from the campaign's own ledger*:
+    `instrument`, `side` (long/short or ±1), `entry_time_utc`, `bars_held`, and a
+    derivable session/weekday. (This is exactly what C025/C026 lacked.) A campaign
+    should additionally record the **C011 deduped null baseline reference** it
+    benchmarks against (`research/null_baselines/campaign_011_deduped_null_baseline.json`).
+11. **Reproducibility metadata** — a small `run_manifest.json` per phase:
+    code/commit hash, input data path + dedupe policy, date span, parameter set
+    (precommitted rule), lab module versions used, and `strategy_evidence:false /
+    diagnostic_only:true` where applicable. So any result can be regenerated and
+    audited.
+12. **Random-seed metadata** — the explicit seed (or seed range) used for every
+    stochastic step (matched-null draws, bootstrap resampling, any sampling).
+    Record it in the run manifest and in each null/matrix artifact. The lab's
+    CLIs already default to `seeds=range(...)` and `seed=0`; campaigns must pin
+    and log theirs so null/matrix results are bit-reproducible.
+
+**Net:** the binding emission list is items **1–12**. Items 1–8 are the
+ledgers/tables; 9–12 are the metadata that make the ledgers *trustworthy and
+reproducible* under the lab. The compatibility checklist
+(`EDGE_DISCOVERY_COMPATIBILITY_CHECKLIST.md`) operationalizes this as a
+pass/fail gate a campaign must satisfy before claiming edge-discovery
+compatibility.
