@@ -13,6 +13,21 @@ loops.
 > `configs/approved_strategies.yaml` is empty; every order-capable loop
 > refuses to start. See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
+### Edge-discovery null-benchmark lab — INFRASTRUCTURE/DIAGNOSTIC (2026-05-28)
+
+`EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001` **extended** the existing
+import-isolated `research/edge_discovery/` lab with matched-null,
+filter-ablation, multiple-comparison, and cost-feasibility-flag modules + CLI
+diagnostics, plus the pre-campaign protocol / re-entry gates / search workflow /
+checklist / artifact-requirements docs, and an artifact-first C025/C026
+retrospective. **This is diagnostics/infrastructure only and changes no
+strategy status:** nothing approved, `configs/approved_strategies.yaml` stays
+empty, no test lockbox opened, **C011 remains the null benchmark (not an
+improvable strategy), and C025/C026 remain REJECT.** The lab cannot emit a
+verdict word by construction. See
+[`EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_SUMMARY.md`](EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_SUMMARY.md)
+and [`EDGE_DISCOVERY_PROTOCOL.md`](EDGE_DISCOVERY_PROTOCOL.md).
+
 ### Broad strategy search — PAUSED (2026-05-26)
 
 Post-dedup failure meta-analysis (`POST_DEDUP_FAILURE_META_ANALYSIS_001`)

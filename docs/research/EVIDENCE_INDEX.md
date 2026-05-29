@@ -1776,6 +1776,36 @@ No verdict changed; no C024; C023 not executed; `approved: []`; paper/demo/live 
 | [`NEXT_SPRINT_PROMPT_AFTER_STRATEGY_SEARCH_PAUSE.md`](NEXT_SPRINT_PROMPT_AFTER_STRATEGY_SEARCH_PAUSE.md) | non-strategy next-sprint prompt (3 tracks) |
 | [`STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT_001_SUMMARY.md`](STRATEGY_SEARCH_PAUSE_AFTER_USDJPY_MACRO_CONTEXT_001_SUMMARY.md) | pause-sprint summary |
 
+## Edge-discovery null-benchmark lab (EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001)
+
+Infrastructure/diagnostic sprint — **extended** the existing import-isolated
+`research/edge_discovery/` lab (it was NOT rebuilt). Added matched-null,
+filter-ablation, multiple-comparison, and cost-feasibility-flag modules + CLI
+diagnostics, the pre-campaign process docs, and an artifact-first C025/C026
+retrospective. Approves nothing; opens no test lockbox; C011 stays the null
+benchmark; C025/C026 stay REJECT.
+
+| document | purpose |
+|---|---|
+| [`EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_PLAN.md`](EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_PLAN.md) | sprint plan (extend-not-rebuild pivot) |
+| [`EDGE_DISCOVERY_EXISTING_LAB_AUDIT_001.md`](EDGE_DISCOVERY_EXISTING_LAB_AUDIT_001.md) | capability→gap map of the existing lab |
+| [`EDGE_DISCOVERY_PROTOCOL.md`](EDGE_DISCOVERY_PROTOCOL.md) | screen-before-campaign protocol |
+| [`FUTURE_CAMPAIGN_REENTRY_GATES.md`](FUTURE_CAMPAIGN_REENTRY_GATES.md) | strict G1–G9 pre-campaign gates |
+| [`FUTURE_STRATEGY_SEARCH_WORKFLOW.md`](FUTURE_STRATEGY_SEARCH_WORKFLOW.md) | 11-step search workflow |
+| [`PRE_CAMPAIGN_EDGE_DISCOVERY_CHECKLIST.md`](PRE_CAMPAIGN_EDGE_DISCOVERY_CHECKLIST.md) | copy-per-idea checklist |
+| [`FUTURE_CAMPAIGN_ARTIFACT_REQUIREMENTS.md`](FUTURE_CAMPAIGN_ARTIFACT_REQUIREMENTS.md) | ledgers future campaigns must emit |
+| [`EDGE_DISCOVERY_RETROSPECTIVE_C025_C026.md`](EDGE_DISCOVERY_RETROSPECTIVE_C025_C026.md) | C025/C026 retrospective (no verdict change) |
+| [`EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_SUMMARY.md`](EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_SUMMARY.md) | sprint summary |
+| [`../../research/edge_discovery/matched_nulls.py`](../../research/edge_discovery/matched_nulls.py) | matched-null module |
+| [`../../research/edge_discovery/filter_ablation.py`](../../research/edge_discovery/filter_ablation.py) | filter-ablation module |
+| [`../../research/edge_discovery/multiple_comparison.py`](../../research/edge_discovery/multiple_comparison.py) | multiple-comparison module |
+| [`../../research/edge_discovery/cost_feasibility.py`](../../research/edge_discovery/cost_feasibility.py) | cost-feasibility flagging module |
+| [`../../research/edge_discovery/retrospectives/c025_matrix_sanity.json`](../../research/edge_discovery/retrospectives/c025_matrix_sanity.json) | C025 matrix-sanity retrospective |
+| [`../../research/edge_discovery/retrospectives/c026_matrix_sanity.json`](../../research/edge_discovery/retrospectives/c026_matrix_sanity.json) | C026 matrix-sanity retrospective |
+| [`../../research/edge_discovery/retrospectives/c025_cost_feasibility_retrospective.json`](../../research/edge_discovery/retrospectives/c025_cost_feasibility_retrospective.json) | C025 cost-feasibility retrospective |
+| [`../../research/edge_discovery/retrospectives/c026_cost_feasibility_retrospective.json`](../../research/edge_discovery/retrospectives/c026_cost_feasibility_retrospective.json) | C026 cost-feasibility retrospective |
+| [`../../research/edge_discovery/retrospectives/retrospective_compatibility_gaps.json`](../../research/edge_discovery/retrospectives/retrospective_compatibility_gaps.json) | which retro diagnostics ran vs skipped |
+
 ## How to read the evidence
 
 - **Verdicts are bright lines.** Every campaign fixed its gates in a

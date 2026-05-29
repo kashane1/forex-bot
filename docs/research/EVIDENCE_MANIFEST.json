@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "description": "Machine-readable index of all research evidence: seventeen campaigns (CAMPAIGN_001-009 plus CAMPAIGN_010 session_breakout, CAMPAIGN_011 random_entry_anchor null-model, CAMPAIGN_012 regime_switcher_atr_percentile, CAMPAIGN_013 cross_pair_currency_strength_rotation, CAMPAIGN_014 calendar_event_window_anomaly, CAMPAIGN_015 failed_breakout_reversal, CAMPAIGN_016 weekly_cross_sectional_momentum_low_turnover, CAMPAIGN_017 weekly_volatility_contraction_breakout) plus diagnostic/parity artifacts. Audited by scripts/validate_research_archive.py. Every campaign is unapproved; the diagnostic artifacts are explicitly not strategy evidence; configs/approved_strategies.yaml is empty; the repo is research-only after the Research Marathon 001 NO-GO freeze. QuantConnect/LEAN CLI execution is RETIRED for this project (decision date 2026-05-22, branch infra-retire-quantconnect-lean-001); the LEAN algorithm, mapping spec, comparison harness, and export bundle are preserved as historical infrastructure evidence only.",
-  "generated": "2026-05-27",
-  "branch": "infra-next-bar-open-policy-and-htf-align-migration-001",
+  "generated": "2026-05-28",
+  "branch": "research-edge-discovery-null-benchmark-lab-001",
   "broad_strategy_search": {
     "status": "PAUSED",
     "pause_date": "2026-05-26",
@@ -979,7 +979,142 @@
       "strategy_approved": false
     }
   ],
+  "edge_discovery_null_benchmark_lab_001": {
+    "kind": "research_infrastructure_diagnostic",
+    "status": "EXECUTED",
+    "date": "2026-05-28",
+    "extends_existing_lab": "research/edge_discovery/ (research-edge-discovery-lab-001 / -hydrate-001 / -single-pair-probe-001)",
+    "summary": "Extended the existing import-isolated edge-discovery lab with matched-null, filter-ablation, multiple-comparison, and cost-feasibility-flag modules + CLI diagnostics; added the edge-discovery protocol / re-entry gates / future-search workflow / pre-campaign checklist / future-campaign artifact requirements; ran an artifact-first C025/C026 retrospective. Diagnostics/infrastructure only.",
+    "strategy_evidence": false,
+    "strategy_approved": false,
+    "test_window_opened": false,
+    "plan_doc": "docs/research/EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_PLAN.md",
+    "summary_doc": "docs/research/EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_SUMMARY.md",
+    "retrospective_doc": "docs/research/EDGE_DISCOVERY_RETROSPECTIVE_C025_C026.md",
+    "c011_status": "unchanged (null benchmark)",
+    "c025_status": "unchanged (REJECT)",
+    "c026_status": "unchanged (REJECT)"
+  },
   "diagnostic_artifacts": [
+    {
+      "artifact_id": "EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_PLAN",
+      "path": "docs/research/EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001_PLAN.md",
+      "kind": "edge_discovery_infrastructure",
+      "description": "Plan for extending the edge-discovery lab with matched-null/filter-ablation/multiple-comparison gaps. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_EXISTING_LAB_AUDIT_001",
+      "path": "docs/research/EDGE_DISCOVERY_EXISTING_LAB_AUDIT_001.md",
+      "kind": "edge_discovery_infrastructure",
+      "description": "Capability map of the existing lab vs the requested diagnostics; reconciliation to extend-in-place. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_PROTOCOL",
+      "path": "docs/research/EDGE_DISCOVERY_PROTOCOL.md",
+      "kind": "edge_discovery_process",
+      "description": "Protocol: an idea must pass cheap lab diagnostics before earning a campaign. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FUTURE_CAMPAIGN_REENTRY_GATES",
+      "path": "docs/research/FUTURE_CAMPAIGN_REENTRY_GATES.md",
+      "kind": "edge_discovery_process",
+      "description": "Strict G1-G9 gates an idea must clear before a new campaign is created. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FUTURE_STRATEGY_SEARCH_WORKFLOW",
+      "path": "docs/research/FUTURE_STRATEGY_SEARCH_WORKFLOW.md",
+      "kind": "edge_discovery_process",
+      "description": "11-step strategy-search workflow with lab screening before any campaign. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "PRE_CAMPAIGN_EDGE_DISCOVERY_CHECKLIST",
+      "path": "docs/research/PRE_CAMPAIGN_EDGE_DISCOVERY_CHECKLIST.md",
+      "kind": "edge_discovery_process",
+      "description": "Copy-per-idea pre-campaign edge-discovery checklist. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "FUTURE_CAMPAIGN_ARTIFACT_REQUIREMENTS",
+      "path": "docs/research/FUTURE_CAMPAIGN_ARTIFACT_REQUIREMENTS.md",
+      "kind": "edge_discovery_process",
+      "description": "Ledgers/metadata future campaigns must emit so the lab can re-screen them. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_RETROSPECTIVE_C025_C026",
+      "path": "docs/research/EDGE_DISCOVERY_RETROSPECTIVE_C025_C026.md",
+      "kind": "edge_discovery_retrospective",
+      "description": "Artifact-first retrospective applying the lab to rejected C025/C026; no verdict changes. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_MATCHED_NULLS_MODULE",
+      "path": "research/edge_discovery/matched_nulls.py",
+      "kind": "edge_discovery_module",
+      "description": "Matched-null benchmark module (six structure-matched modes). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_FILTER_ABLATION_MODULE",
+      "path": "research/edge_discovery/filter_ablation.py",
+      "kind": "edge_discovery_module",
+      "description": "Filter-ablation module (adds-edge vs only-reduces-sample). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_MULTIPLE_COMPARISON_MODULE",
+      "path": "research/edge_discovery/multiple_comparison.py",
+      "kind": "edge_discovery_module",
+      "description": "Multiple-comparison / selection-noise + holdout-fragility module. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_COST_FEASIBILITY_MODULE",
+      "path": "research/edge_discovery/cost_feasibility.py",
+      "kind": "edge_discovery_module",
+      "description": "Cost-feasibility flagging layer over spread/ATR numbers. strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_RETRO_C025_MATRIX_SANITY",
+      "path": "research/edge_discovery/retrospectives/c025_matrix_sanity.json",
+      "kind": "edge_discovery_retrospective",
+      "description": "C025 matrix-sanity retrospective (best below C011 null; selection-noise). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_RETRO_C026_MATRIX_SANITY",
+      "path": "research/edge_discovery/retrospectives/c026_matrix_sanity.json",
+      "kind": "edge_discovery_retrospective",
+      "description": "C026 matrix-sanity retrospective (below null; single-pair fragile). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_RETRO_C025_COST_FEASIBILITY",
+      "path": "research/edge_discovery/retrospectives/c025_cost_feasibility_retrospective.json",
+      "kind": "edge_discovery_retrospective",
+      "description": "C025 cost-feasibility retrospective (16/16 M5 candidates cost-hostile). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_RETRO_C026_COST_FEASIBILITY",
+      "path": "research/edge_discovery/retrospectives/c026_cost_feasibility_retrospective.json",
+      "kind": "edge_discovery_retrospective",
+      "description": "C026 cost-feasibility retrospective (M3 hostile; M15/M30 feasible). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
+    {
+      "artifact_id": "EDGE_DISCOVERY_RETRO_COMPATIBILITY_GAPS",
+      "path": "research/edge_discovery/retrospectives/retrospective_compatibility_gaps.json",
+      "kind": "edge_discovery_retrospective",
+      "description": "Which retrospective diagnostics ran vs were SKIPPED (no per-trade/signal ledger). strategy_evidence: false.",
+      "strategy_evidence": false
+    },
     {
       "artifact_id": "D1AGG_NEXT_OPEN_SMOKE",
       "path": "backtests/diagnostics/d1agg_next_open_smoke.md",

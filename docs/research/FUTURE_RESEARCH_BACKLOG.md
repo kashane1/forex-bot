@@ -34,6 +34,35 @@ broad-search re-entry gates are met.**
 
 ---
 
+## 0-complete-edge-discovery-lab. Edge-discovery null-benchmark lab (COMPLETE — 2026-05-28)
+
+- **What.** `EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001` **extended** the existing
+  import-isolated `research/edge_discovery/` lab (it did **not** rebuild it):
+  added `matched_nulls`, `filter_ablation`, `multiple_comparison`, and
+  `cost_feasibility` modules + four `scripts/run_edge_discovery_*.py` CLIs,
+  reused `windows`/`costs`/`null`/`report`/`real_data` and the existing
+  exit-asymmetry/session/pair studies.
+- **Process layer.** Added [`EDGE_DISCOVERY_PROTOCOL.md`](EDGE_DISCOVERY_PROTOCOL.md),
+  [`FUTURE_CAMPAIGN_REENTRY_GATES.md`](FUTURE_CAMPAIGN_REENTRY_GATES.md),
+  [`FUTURE_STRATEGY_SEARCH_WORKFLOW.md`](FUTURE_STRATEGY_SEARCH_WORKFLOW.md),
+  [`PRE_CAMPAIGN_EDGE_DISCOVERY_CHECKLIST.md`](PRE_CAMPAIGN_EDGE_DISCOVERY_CHECKLIST.md),
+  [`FUTURE_CAMPAIGN_ARTIFACT_REQUIREMENTS.md`](FUTURE_CAMPAIGN_ARTIFACT_REQUIREMENTS.md):
+  a future strategy idea must pass cheap lab diagnostics (cost feasibility,
+  matched-null, decomposition, ablation, multiple-comparison) **before** it
+  earns a full campaign.
+- **Retrospective.** Artifact-first C025/C026 retrospective
+  ([`EDGE_DISCOVERY_RETROSPECTIVE_C025_C026.md`](EDGE_DISCOVERY_RETROSPECTIVE_C025_C026.md)):
+  cost-feasibility + matrix-sanity reproduce both REJECTs from committed
+  artifacts; matched-null/forward-return/decomposition could not run (no
+  per-trade/signal ledger) and are documented as compatibility gaps.
+- **Status.** **COMPLETE** — infrastructure/diagnostic only; no strategy
+  approved; `configs/approved_strategies.yaml` stays empty; no test lockbox
+  opened; C011 stays the null benchmark; C025/C026 stay REJECT. **This is the
+  new front gate for any future strategy search** — use the checklist + gates
+  before scaffolding a campaign.
+
+---
+
 ## 0-rejected-c026. CAMPAIGN_026 Donchian + HTF confluence timeframe ladder (REJECT — 2026-05-28)
 
 - **Candidate.** `donchian_htf_confluence_timeframe_ladder 0.1.0-c026`. The C025 M5
