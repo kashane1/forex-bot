@@ -238,3 +238,17 @@ research/non_time_bars/**
 !research/non_time_bars/.gitkeep
 !research/non_time_bars/**/*_summary.json
 !research/non_time_bars/**/*_manifest.json
+
+# research-campaign-029-usdjpy-range-bar-scaffold-001: CAMPAIGN_029 range-bar
+# preflight diagnostics. Same policy as non_time_bars above — ignore the whole
+# output tree (bulky full generated range bars: CSV/parquet/JSONL) but re-include
+# directories so git descends, then whitelist ONLY the compact JSON/MD diagnostics
+# and manifests. Full generated bars are regenerable from local M1 and must never
+# be committed.
+research/campaign_029/**
+!research/campaign_029/**/
+!research/campaign_029/.gitkeep
+!research/campaign_029/**/*_summary.json
+!research/campaign_029/**/*_manifest.json
+!research/campaign_029/**/*_diagnostics.json
+!research/campaign_029/**/*_diagnostics.md
