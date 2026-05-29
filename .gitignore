@@ -253,3 +253,17 @@ research/campaign_029/**
 !research/campaign_029/**/*_diagnostics.json
 !research/campaign_029/**/*_diagnostics.md
 !research/campaign_029/**/*_decision.json
+
+# research-range-volatility-bar-feasibility-001: non-time-bar feasibility study.
+# Diagnostic-only. Same policy: ignore the whole output tree (bulky full generated
+# bars / M1 caches are regenerable from local M1 and must never be committed) but
+# re-include directories so git descends, then whitelist ONLY the compact
+# diagnostics: feasibility_summary.json, feasibility_matrix.csv,
+# pair_threshold_summary.json, cost_floor_summary.json, the report .md, and manifest.
+research/non_time_bar_feasibility/**
+!research/non_time_bar_feasibility/**/
+!research/non_time_bar_feasibility/.gitkeep
+!research/non_time_bar_feasibility/**/*_summary.json
+!research/non_time_bar_feasibility/**/*_manifest.json
+!research/non_time_bar_feasibility/**/feasibility_matrix.csv
+!research/non_time_bar_feasibility/**/*_report.md
