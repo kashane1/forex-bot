@@ -32,10 +32,8 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 if str(REPO_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(REPO_ROOT / "src"))
 
-from forex_bot.data.db import Database  # noqa: E402
-from forex_bot.data.repositories import CandleRepo  # noqa: E402
-from research.cost_atlas.loader import candles_to_frame  # noqa: E402
 from research.edge_discovery.costs import pip_value_for  # noqa: E402
+from research.edge_discovery.front_gate_idea_selection.data_access import load_frame  # noqa: E402
 from research.edge_discovery.matched_nulls import session_bucket_utc  # noqa: E402
 from research.edge_discovery.real_data import SEVEN_MAJORS, resolve_h4_store_path  # noqa: E402
 
@@ -64,14 +62,7 @@ class PairData:
 def _load_pairs(db_path: Path, timeframe: str) -> dict[str, PairData]:
     out: dict[str, PairData] = {}
     for inst in SEVEN_MAJORS:
-        db = Database(db_path)
-        try:
-            candles, _ = CandleRepo(db).list_with_dedupe_stats(
-                inst, timeframe, completed_only=True
-            )
-        finally:
-            db.close()
-        frame = candles_to_frame(candles)
+        frame = load_frame(db_path, inst, timeframe)
         if frame.empty:
             continue
         times = frame.index.values

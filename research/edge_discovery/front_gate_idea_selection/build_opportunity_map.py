@@ -28,16 +28,13 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 if str(REPO_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(REPO_ROOT / "src"))
 
-from forex_bot.data.candle_dedupe import DEDUPE_POLICY  # noqa: E402
-from forex_bot.data.db import Database  # noqa: E402
-from forex_bot.data.repositories import CandleRepo  # noqa: E402
-from research.cost_atlas.loader import candles_to_frame  # noqa: E402
 from research.cost_atlas.metrics import compute_bar_metrics  # noqa: E402
 from research.edge_discovery.cost_feasibility import (  # noqa: E402
     classify_cost_feasibility,
     min_target_r_to_overcome,
     round_trip_cost_pips,
 )
+from research.edge_discovery.front_gate_idea_selection.data_access import load_frame  # noqa: E402
 from research.edge_discovery.real_data import SEVEN_MAJORS, resolve_h4_store_path  # noqa: E402
 
 OUT_DIR = REPO_ROOT / "research" / "edge_discovery" / "front_gate_idea_selection"
@@ -47,21 +44,13 @@ HOSTILE_RATIO = 0.25  # lab default; M5≈0.45 was hostile, H4 is far below
 
 
 def _load_frame(db_path: Path, instrument: str, granularity: str) -> tuple[pd.DataFrame, dict]:
-    db = Database(db_path)
-    try:
-        repo = CandleRepo(db)
-        candles, stats = repo.list_with_dedupe_stats(
-            instrument, granularity, completed_only=True
-        )
-    finally:
-        db.close()
-    frame = candles_to_frame(candles)
+    # Raw-sqlite3 load (keep_last dedupe inside load_frame); no forex_bot.data
+    # import — required by the lab import-isolation rail.
+    frame = load_frame(db_path, instrument, granularity)
     prov = {
         "instrument": instrument,
         "granularity": granularity,
-        "dedupe_policy": DEDUPE_POLICY,
-        "raw_count": stats.raw_count,
-        "deduped_count": stats.deduped_count,
+        "dedupe_policy": "keep_last",
         "bar_count": len(frame),
     }
     return frame, prov

@@ -3,8 +3,8 @@
   "diagnostic_only": true,
   "prototype": "zscore_reversion_h4",
   "window_bars": 12,
-  "trigger_only_expectancy": 0.0003185,
-  "trigger_only_post_cost": 4.8e-05,
+  "trigger_only_expectancy": 0.0003182,
+  "trigger_only_post_cost": 5.51e-05,
   "all_filters_n": 286,
   "all_filters_post_cost": 0.0003093,
   "failure_reasons": {
@@ -18,48 +18,48 @@
   "edge_adding_subset_stability": {
     "subset": "f_low_vol & f_strong_extension & f_quiet_session",
     "n": 1065,
-    "post_cost_overall_optimistic": 0.0007535,
+    "post_cost_overall_optimistic": 0.000761,
     "post_cost_overall_conservative": 0.0006264,
-    "positive_years_optimistic": "4/7",
+    "positive_years_optimistic": "5/7",
     "positive_years_conservative": "4/7",
     "by_year_optimistic": {
       "2020": {
         "n": 157,
-        "post_cost": 0.0010032
+        "post_cost": 0.0010087
       },
       "2021": {
         "n": 146,
-        "post_cost": -4.6e-06
+        "post_cost": 2.4e-06
       },
       "2022": {
         "n": 127,
-        "post_cost": 0.0015617
+        "post_cost": 0.0015698
       },
       "2023": {
         "n": 170,
-        "post_cost": 0.0019841
+        "post_cost": 0.0019917
       },
       "2024": {
         "n": 181,
-        "post_cost": -0.000485
+        "post_cost": -0.0004785
       },
       "2025": {
         "n": 217,
-        "post_cost": 0.0009673
+        "post_cost": 0.0009769
       },
       "2026": {
         "n": 67,
-        "post_cost": -0.0001803
+        "post_cost": -0.0001724
       }
     },
     "by_year_conservative": {
-      "2020": 0.0008744,
-      "2021": -0.0001404,
-      "2022": 0.0014363,
-      "2023": 0.001865,
-      "2024": -0.0006167,
+      "2020": 0.0008741,
+      "2021": -0.0001402,
+      "2022": 0.0014361,
+      "2023": 0.0018651,
+      "2024": -0.0006166,
       "2025": 0.0008394,
-      "2026": -0.0002926
+      "2026": -0.0002925
     },
     "by_pair_optimistic": {
       "AUD_USD": {
@@ -76,7 +76,7 @@
       },
       "NZD_USD": {
         "n": 162,
-        "post_cost": 0.0014653
+        "post_cost": 0.0015103
       },
       "USD_CAD": {
         "n": 138,
@@ -84,7 +84,7 @@
       },
       "USD_CHF": {
         "n": 150,
-        "post_cost": -6.46e-05
+        "post_cost": -6.01e-05
       },
       "USD_JPY": {
         "n": 182,

@@ -28,7 +28,7 @@ in-sample winners**:
 
 ## Trigger-only baseline
 
-n = 11,925; pre-cost +0.000318; **post-cost +0.000048** (h12, realized-spread
+n = 11,924; pre-cost +0.000318; **post-cost +0.000055** (h12, realized-spread
 overlay) — the marginal positive from Phase 3.
 
 ## Filter contributions (lab noise-aware flags)
@@ -53,8 +53,8 @@ overlay) — the marginal positive from Phase 3.
 
 ## Cumulative / leave-one-out
 
-- Cumulative low_vol → +strong → +quiet reaches **post-cost +0.000754** at
-  n=1,065 (hit 0.552) — ~16× the trigger-only post-cost. Adding `f_cost_adv_pair`
+- Cumulative low_vol → +strong → +quiet reaches **post-cost +0.000761** at
+  n=1,065 (hit 0.552) — ~14× the trigger-only post-cost. Adding `f_cost_adv_pair`
   (+0.000726, n=615) and `f_long_side` (+0.000309, n=286) does not help / hurts.
 - Leave-one-out confirms: dropping any of the three edge-adders lowers post-cost;
   dropping `f_long_side` *raises* it (it was a drag).
@@ -69,8 +69,8 @@ still a 2023-regime artifact? Both were tested here:
 
 | | optimistic cost (realized spread + slip) | conservative cost (1.5-pip spread + slip + **financing**) |
 |---|---|---|
-| overall post-cost | **+0.000754** | **+0.000626** |
-| positive years | **4/7** | **4/7** |
+| overall post-cost | **+0.000761** | **+0.000626** |
+| positive years | **5/7** | **4/7** |
 
 - **Survives conservative cost.** Financing over the 48-hour (h12) hold shaves
   only ~0.00013; the edge does **not** vanish (unlike the *trigger-level* signal,
@@ -78,13 +78,13 @@ still a 2023-regime artifact? Both were tested here:
   clear of the cost band.
 - **Pair-robust:** positive in **6/7 pairs** (only USD_CHF ≈ −0.00006, flat);
   AUD_USD/NZD_USD strongest. No single-pair dependence.
-- **Partly time-robust, with a recency concern:** positive 2020 (+0.0009),
-  2022 (+0.0014), 2023 (+0.0019), 2025 (+0.0008); **negative 2021 (−0.0001),
-  2024 (−0.0006), 2026-partial (−0.0003)** under conservative cost. The filters
-  cured the Phase-4 *single-year* (2023-only) dominance — it is now multi-year
-  positive — but **two of the three most recent periods (2024, 2026) are
-  negative**, a deterioration/recency risk that train/validation/test must
-  adjudicate.
+- **Partly time-robust, with a recency concern:** under conservative cost,
+  positive 2020 (+0.0009), 2022 (+0.0014), 2023 (+0.0019), 2025 (+0.0008);
+  **negative 2021 (−0.0001), 2024 (−0.0006), 2026-partial (−0.0003)** (4/7
+  positive; 5/7 under optimistic cost). The filters cured the Phase-4
+  *single-year* (2023-only) dominance — it is now multi-year positive — but
+  **two of the three most recent periods (2024, 2026) are negative**, a
+  deterioration/recency risk that train/validation/test must adjudicate.
 
 ## Is a strategy campaign justified?
 

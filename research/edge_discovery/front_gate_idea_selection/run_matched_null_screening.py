@@ -31,10 +31,8 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 if str(REPO_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(REPO_ROOT / "src"))
 
-from forex_bot.data.db import Database  # noqa: E402
-from forex_bot.data.repositories import CandleRepo  # noqa: E402
-from research.cost_atlas.loader import candles_to_frame  # noqa: E402
 from research.edge_discovery.costs import apply_cost_overlay  # noqa: E402
+from research.edge_discovery.front_gate_idea_selection.data_access import load_frame  # noqa: E402
 from research.edge_discovery.front_gate_idea_selection.run_signal_probes import (  # noqa: E402
     _load_pairs,
     proto_failed_breakout_fade,
@@ -67,12 +65,7 @@ MODES = (
 def _frames_by_pair(db_path: Path) -> dict[str, pd.DataFrame]:
     frames = {}
     for inst in SEVEN_MAJORS:
-        db = Database(db_path)
-        try:
-            candles, _ = CandleRepo(db).list_with_dedupe_stats(inst, "H4", completed_only=True)
-        finally:
-            db.close()
-        frame = candles_to_frame(candles)
+        frame = load_frame(db_path, inst, "H4")
         if not frame.empty:
             frames[inst] = frame
     return frames

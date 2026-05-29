@@ -38,15 +38,16 @@ breakout fade (H4)**, **Asia-range breakout (H1)**, **NY-open continuation
 (H1)**, **vol compression→expansion (H4)**, plus a **USD_JPY z-score-reversion
 overlay**. Skipped (`skipped_signal_probes.json`): **carry/financing swing**
 (no local carry/swap-rate table; FRED has the US leg only) and **sub-hour open
-expansion** (no local M1/M5/M15/M30 to resolve the open bar) — both
-data/compatibility-blocked, consistent with Phases 0–1.
+expansion** (no sub-H4 frames in the lab's SQLite path; M1-materialized data
+exists in research Postgres but is not wired into the isolated lab) — both
+out-of-scope / data-blocked here, consistent with Phases 0–1.
 
 ## Headline: every prototype is net-negative post-cost; two carry real *information*
 
 | Prototype | n | post h6 | post h12 | post h24 | best prob_null≥strat | best effect | hit h12 |
 |---|---|---|---|---|---|---|---|
-| **z-score reversion (H4)** | 11,935 | −0.000157 | **+0.000048** | **+0.000071** | 0.00 (h6–h24) | **+5.58** (h12) | 0.505 |
-| **failed-breakout fade (H4)** | 8,324 | −0.000072 | **+0.000069** | −0.000006 | 0.00 (h1–h24) | +4.03 (h12) | 0.508 |
+| **z-score reversion (H4)** | 11,934 | −0.000151 | **+0.000055** | **+0.000077** | 0.00 (h6–h24) | **~+5** (h12) | 0.505 |
+| **failed-breakout fade (H4)** | 8,318 | −0.000062 | **+0.000078** | +0.000005 | 0.00 (h1–h24) | ~+4 (h12) | 0.508 |
 | Asia-range breakout (H1) | 9,441 | −0.000213 | −0.000219 | −0.000191 | 0.00 (h1 only) | +2.54 (h1) | 0.480 |
 | NY-open continuation (H1) | 11,565 | −0.000283 | — | — | 0.55 (h6) | −0.42 | 0.459 |
 | vol compression→expansion (H4) | 3,199 | −0.000440 | — | — | 0.95 (h6) | −1.38 | 0.471 |
@@ -59,11 +60,11 @@ data/compatibility-blocked, consistent with Phases 0–1.
   drift**. It **beats the cost-matched random-timestamp null with `prob_null_ge
   = 0.00` from h6 onward** (effect +2.6 → +5.6). Crucially, the *gross* drift
   outgrows the cost drag by **h12**, where post-cost turns marginally positive
-  (+0.000048, hit 0.505) and stays positive at h24 (+0.000071). This is the one
+  (+0.000055, hit 0.505) and stays positive at h24 (+0.000077). This is the one
   prototype with both (a) clear information beyond null and (b) post-cost
   positivity at the horizon it would actually trade.
 - **failed-breakout fade (H4)** — same qualitative shape; beats null strongly
-  (effect ~4), post-cost barely positive only at **h12** (+0.000069), back to ~0
+  (effect ~4), post-cost barely positive only at **h12** (+0.000078), back to ~0
   by h24. A secondary candidate, weaker and narrower than z-score reversion.
 - **Asia-range breakout (H1)** — pre-cost ≈ 0; post-cost negative at every
   horizon; the only above-null point is h1 (where both strategy and null ≈
@@ -87,7 +88,7 @@ data/compatibility-blocked, consistent with Phases 0–1.
   expectancy is a small asymmetry, not a win-rate edge.
 - The cost overlay uses realized spread + 0.2-pip slip. A more conservative slip
   (e.g. 0.5–1.0 pip, as event/illiquid fills warrant) would erase the h12
-  +0.000048 entirely. **The edge sits inside the cost-assumption uncertainty
+  +0.000055 entirely. **The edge sits inside the cost-assumption uncertainty
   band.** This must be stress-tested before any campaign claim.
 - The h6 by-pair breakdown shows the (still-negative) per-pair means are
   **not concentrated in one pair** but are also **not uniformly positive**

@@ -1,7 +1,7 @@
 {
   "strategy_evidence": false,
   "diagnostic_only": true,
-  "generated_at_utc": "2026-05-29T04:11:34.671059+00:00",
+  "generated_at_utc": "2026-05-29T04:40:09.545074+00:00",
   "timeframes": [
     "H4",
     "H1"
@@ -181,112 +181,84 @@
       "instrument": "EUR_USD",
       "granularity": "H4",
       "dedupe_policy": "keep_last",
-      "raw_count": 19880,
-      "deduped_count": 9949,
       "bar_count": 9949
     },
     {
       "instrument": "GBP_USD",
       "granularity": "H4",
       "dedupe_policy": "keep_last",
-      "raw_count": 19880,
-      "deduped_count": 9949,
       "bar_count": 9949
     },
     {
       "instrument": "USD_JPY",
       "granularity": "H4",
       "dedupe_policy": "keep_last",
-      "raw_count": 19882,
-      "deduped_count": 9950,
       "bar_count": 9950
     },
     {
       "instrument": "AUD_USD",
       "granularity": "H4",
       "dedupe_policy": "keep_last",
-      "raw_count": 19880,
-      "deduped_count": 9949,
       "bar_count": 9949
     },
     {
       "instrument": "USD_CAD",
       "granularity": "H4",
       "dedupe_policy": "keep_last",
-      "raw_count": 19880,
-      "deduped_count": 9949,
       "bar_count": 9949
     },
     {
       "instrument": "USD_CHF",
       "granularity": "H4",
       "dedupe_policy": "keep_last",
-      "raw_count": 19880,
-      "deduped_count": 9949,
       "bar_count": 9949
     },
     {
       "instrument": "NZD_USD",
       "granularity": "H4",
       "dedupe_policy": "keep_last",
-      "raw_count": 19888,
-      "deduped_count": 9953,
       "bar_count": 9953
     },
     {
       "instrument": "EUR_USD",
       "granularity": "H1",
       "dedupe_policy": "keep_last",
-      "raw_count": 39713,
-      "deduped_count": 39713,
       "bar_count": 39713
     },
     {
       "instrument": "GBP_USD",
       "granularity": "H1",
       "dedupe_policy": "keep_last",
-      "raw_count": 39712,
-      "deduped_count": 39712,
       "bar_count": 39712
     },
     {
       "instrument": "USD_JPY",
       "granularity": "H1",
       "dedupe_policy": "keep_last",
-      "raw_count": 39714,
-      "deduped_count": 39714,
       "bar_count": 39714
     },
     {
       "instrument": "AUD_USD",
       "granularity": "H1",
       "dedupe_policy": "keep_last",
-      "raw_count": 39708,
-      "deduped_count": 39708,
       "bar_count": 39708
     },
     {
       "instrument": "USD_CAD",
       "granularity": "H1",
       "dedupe_policy": "keep_last",
-      "raw_count": 39714,
-      "deduped_count": 39714,
       "bar_count": 39714
     },
     {
       "instrument": "USD_CHF",
       "granularity": "H1",
       "dedupe_policy": "keep_last",
-      "raw_count": 39709,
-      "deduped_count": 39709,
       "bar_count": 39709
     },
     {
       "instrument": "NZD_USD",
       "granularity": "H1",
       "dedupe_policy": "keep_last",
-      "raw_count": 39717,
-      "deduped_count": 39717,
       "bar_count": 39717
     }
   ]

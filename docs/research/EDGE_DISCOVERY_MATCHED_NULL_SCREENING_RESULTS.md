@@ -53,28 +53,29 @@ not *makes money*.
 - best variant = **`zscore_reversion_h4_usdjpy`** (+0.000117) — the single-pair
   USD_JPY result, the very thing Phase 3 already flagged as not robust.
 - `prob_best_le_null_max = 0.9375` → a ~94% chance the best is **best-of-N
-  selection noise**; `deflated_improvement = −0.000308` (negative after
-  deflation).
-- Flags: **`LIKELY_SELECTION_NOISE`, `FRAGILE_SINGLE_PAIR_RESULT`.**
+  selection noise**; `deflated_improvement` negative after deflation.
+- Flag: **`LIKELY_SELECTION_NOISE`.**
 
 The apparent "winner" is exactly what the multiple-comparison gate exists to
 catch: the most extreme of several screened variants, indistinguishable from the
 maximum of noise.
 
-## Result 4 — the marginal edge is regime- and pair-fragile
+## Result 4 — the marginal trigger-level edge is regime-fragile (pair-robust)
 
 Holdout fragility on the (optimistic-cost) h12 per-row post-cost means:
 
 | Prototype | pair-holdout sign-flip | year-holdout sign-flip | dominant block |
 |---|---|---|---|
-| zscore_reversion_h4 | **YES** (drop AUD_USD → +0.0000480 → −0.0000057) | **YES** | year **2023** |
+| zscore_reversion_h4 | no (pair-robust; 5/7 pairs positive) | **YES** | year **2023** |
 | failed_breakout_fade_h4 | no (pair-robust) | **YES** | year **2023** |
 
-Per-year breakdown (both prototypes): the positive aggregate is **dominated by
-2023** (+0.0013 / +0.00058) and is **negative in 2020, 2022, and 2026**. This is
-the C022/London-continuation lesson again — *a trend-regime artifact*, not a
-stationary edge. z-score reversion additionally collapses if any single pair
-(AUD_USD) is removed and is strongly negative on USD_CHF (−0.00055).
+Both trigger-level signals are **pair-robust** (no single-pair removal flips the
+aggregate sign), but both are **time-fragile**: the positive aggregate is
+**dominated by 2023** and is negative in several other years — the
+C022/London-continuation lesson again, a *trend-regime artifact* rather than a
+stationary edge at the trigger level. z-score reversion is strongly negative on
+USD_CHF (−0.00053) and NZD_USD (−0.00008); positive on the other five.
+(Whether *filtering* fixes the time-fragility is the Phase-5 question.)
 
 ## Does any prototype survive the front gate?
 
@@ -84,15 +85,17 @@ stationary edge. z-score reversion additionally collapses if any single pair
 |---|---|---|
 | cost feasibility passes | ✔ (H4 feasible) | ✔ |
 | forward-return information present | ✔ | ✔ |
-| **above matched null (post-cost, conservative)** | **✗ info only; expectancy < 0** | **✗ info only; expectancy < 0** |
-| not one-pair/one-session artifact | **✗ pair-fragile** | partial (pair-robust) |
-| not selection noise (matrix sanity) | **✗ LIKELY_SELECTION_NOISE** | **✗** |
-| time-block stable | **✗ 2023-dominated** | **✗ 2023-dominated** |
+| **above matched null (post-cost, conservative)** | **✗ info only; trigger expectancy < 0** | **✗ info only; trigger expectancy < 0** |
+| not one-pair/one-session artifact | ✔ pair-robust (5/7) | ✔ pair-robust |
+| not selection noise (matrix sanity) | **✗ `LIKELY_SELECTION_NOISE`** | **✗** |
+| time-block stable (trigger level) | **✗ 2023-dominated** | **✗ 2023-dominated** |
 
-Neither clears the bar. The reversion *information* is real and structure-robust,
-but it is **not a robust, stationary, cost-surviving edge** — it is a 2023-regime
-effect sitting inside the cost-uncertainty band, and the best single-pair variant
-is selection noise.
+Neither clears the bar **at the trigger level**: the reversion *information* is
+real, structure-robust, and pair-robust, but the *trigger-level* expectancy is
+net-negative under conservative cost and time-fragile (2023-dominated), and the
+best raw variant is selection noise. Whether a *filtered* subset converts this
+into a cost-surviving, more time-stable edge is the Phase-5 question — and for
+z-score reversion the answer turns out to be a qualified yes (see Phase 5).
 
 ## Should any be rejected cheaply?
 
@@ -107,11 +110,12 @@ is selection noise.
 ## Compatibility gaps (`probe_compatibility_gaps.json`)
 
 - Carry/financing matched null — no local carry/swap-rate table.
-- Sub-hour open-expansion matched null — no local M1/M5/M15/M30 frames.
+- Sub-hour open-expansion matched null — no sub-H4 frames in the lab's SQLite
+  path (M1-materialized data exists in research Postgres, not wired into the
+  isolated lab).
 - `holding_period_matched_random` ≈ `pair_matched_random` here because the
   probe ledgers use a fixed h12 hold (`bars_held = 12`); a real campaign with a
   variable hold distribution would exercise this mode distinctly.
 
 **No edge is claimed.** Phase 5 tests filter contribution on the single
-strongest prototype; Phase 6 ranks and decides campaign eligibility (expected:
-none).
+strongest prototype; Phase 6 ranks and decides campaign eligibility.

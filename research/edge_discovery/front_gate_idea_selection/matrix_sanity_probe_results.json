@@ -5,8 +5,8 @@
   "n_variants_in_matrix": 6,
   "best_label": "zscore_reversion_h4_usdjpy",
   "best_value": 0.000117,
-  "median_value": -8.55e-05,
-  "best_minus_median": 0.0002025,
+  "median_value": -8.2e-05,
+  "best_minus_median": 0.000199,
   "null_reference": 0.0,
   "best_vs_null": 0.000117,
   "expected_max_under_null": 0.000425,
@@ -14,10 +14,9 @@
   "prob_best_le_null_max": 0.9375,
   "fragility_score": 0.9375,
   "flags": [
-    "LIKELY_SELECTION_NOISE",
-    "FRAGILE_SINGLE_PAIR_RESULT"
+    "LIKELY_SELECTION_NOISE"
   ],
-  "pair_holdout_sign_flips": true,
+  "pair_holdout_sign_flips": false,
   "notes": [
     "null_std not supplied; used cross-variant dispersion as the noise scale (conservative \u2014 treats all variant spread as noise)",
     "time-block-holdout skipped: no per-time-block values supplied"
