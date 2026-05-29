@@ -61,12 +61,12 @@ PostgreSQL store `market_data.candles`, keyed `(instrument, granularity, time_ut
 Loader: `forex_bot.data.postgres_candle_store.PostgresCandleStore.query_candles(...)`.
 Config: `forex_bot.data.research_db.get_research_database_config()`.
 
-Native M1 (`source='oanda'`), verified counts and coverage:
+Native M1 is stored under `source='oanda-practice-m1'`. Verified counts and coverage:
 
 | Pair | M1 bars | Coverage (UTC) |
 |---|---|---|
-| USD_JPY | 1,844,454 | 2018-05-21 → 2024-04-19 (~5.9y) |
-| EUR_USD | 1,843,476 | 2018-05-21 → 2024-04-19 (~5.9y) |
+| USD_JPY | 1,844,454 | 2021-05-27 → 2026-05-26 (~5.0y) |
+| EUR_USD | 1,843,476 | 2021-05-27 → 2026-05-26 (~5.0y) |
 
 Each row carries `bid_o/h/l/c`, `ask_o/h/l/c`, `mid_o/h/l/c`, and `spread_open/high/low/close`
 (= ask − bid), so **per-bar spread is available** for spread-awareness. (Tick/volume is *not*
@@ -82,8 +82,8 @@ H4). Aggregation aligns to 17:00 America/New_York (OANDA convention),
 
 | Pair | M5 | M15 | H1 | H4M1 |
 |---|---|---|---|---|
-| USD_JPY | 428,943 | 142,989 | 35,745 | 9,220 |
-| EUR_USD | 426,372 | 142,153 | 35,539 | 9,162 |
+| USD_JPY | 362,519 | 118,035 | 28,013 | 5,448 |
+| EUR_USD | 360,972 | 116,628 | 27,249 | 5,234 |
 
 These are the structure/trend timeframes this sprint conditions on. M1 is the **execution /
 response** timeframe.
@@ -91,7 +91,7 @@ response** timeframe.
 ### 2.3 Reusable analysis components
 
 - Indicators (`forex_bot.strategies.indicators`): `ema(series,length)`,
-  `ema_slope(series,length,*,lookback=1)`, `atr(high,low,close,length=14)`,
+  `atr(high,low,close,length=14)`,
   `donchian_high/low(series,length)`, `rsi`, `sma`, `zscore`. Reused for the simple,
   explicit state primitives — no bespoke pattern recognition.
 - C021 multi-timeframe loader (`forex_bot.research.campaign_021_loader`) demonstrates the
