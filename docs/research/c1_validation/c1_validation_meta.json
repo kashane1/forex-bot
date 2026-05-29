@@ -1,0 +1,78 @@
+{
+  "m1_source": "oanda-practice-m1",
+  "materialized_source": "m1_materialized",
+  "horizons_min": [
+    5,
+    10,
+    15,
+    30,
+    60
+  ],
+  "cooldown_min": 60,
+  "null_seeds": 60,
+  "pairs": [
+    {
+      "pair": "EUR_USD",
+      "m1_bars": 1843476,
+      "span_start": "2021-05-27 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1595,
+      "n_c1_short_events": 1782,
+      "seconds": 348.1
+    },
+    {
+      "pair": "GBP_USD",
+      "m1_bars": 1836170,
+      "span_start": "2021-05-27 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1585,
+      "n_c1_short_events": 1682,
+      "seconds": 345.9
+    },
+    {
+      "pair": "USD_JPY",
+      "m1_bars": 1844454,
+      "span_start": "2021-05-27 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 2145,
+      "n_c1_short_events": 1156,
+      "seconds": 346.5
+    },
+    {
+      "pair": "AUD_USD",
+      "m1_bars": 1822196,
+      "span_start": "2021-05-27 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1562,
+      "n_c1_short_events": 1510,
+      "seconds": 340.4
+    },
+    {
+      "pair": "NZD_USD",
+      "m1_bars": 1824352,
+      "span_start": "2021-05-27 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1410,
+      "n_c1_short_events": 1618,
+      "seconds": 340.7
+    },
+    {
+      "pair": "USD_CAD",
+      "m1_bars": 1836013,
+      "span_start": "2021-05-27 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1809,
+      "n_c1_short_events": 1501,
+      "seconds": 346.2
+    },
+    {
+      "pair": "USD_CHF",
+      "m1_bars": 1786535,
+      "span_start": "2021-05-27 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1373,
+      "n_c1_short_events": 1421,
+      "seconds": 330.8
+    }
+  ]
+}
