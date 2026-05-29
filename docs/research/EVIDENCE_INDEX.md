@@ -1886,32 +1886,45 @@ stay REJECT. This sprint is **idea-selection evidence, not strategy evidence.**
 | [`../../research/edge_discovery/front_gate_idea_selection/signal_probe_summary.csv`](../../research/edge_discovery/front_gate_idea_selection/signal_probe_summary.csv) | per-prototype probe summary |
 | [`../../research/edge_discovery/front_gate_idea_selection/matched_null_probe_summary.csv`](../../research/edge_discovery/front_gate_idea_selection/matched_null_probe_summary.csv) | matched-null per-mode results |
 
-## CAMPAIGN_029 USD_JPY 10-pip range-bar MTF breakout (SCAFFOLD_ONLY)
+## CAMPAIGN_029 USD_JPY 10-pip range-bar MTF breakout (REJECT_TRAIN_GATE)
 
-> **SCAFFOLD_ONLY / NOT_RUN / NOT_APPROVED** (2026-05-29). First strategy lane on
-> top of the merged non-time-bar infra: **USD_JPY 10-pip range bars** (from M1
-> mid) + mandatory **H4 (H4M1) EMA50-slope** trend bias + optional
-> **native-H4-derived D1AGG** "not against" confirmation; trigger = trend-aligned
-> continuation after a **pullback-and-reclaim** range bar, with an anti-spike
-> overshoot guard; structural stop = `max(5-bar swing, 20pip floor)`; 12-range-bar
-> time stop, **no** profit target; **next-range-bar-open** fill (no same-bar fill).
-> Numbered **029** because 028 was already consumed by the relative-value spread
-> screen (no-reuse discipline). **No strategy evidence run; test lockbox closed;
-> `approved_strategies.yaml` stays `[]`; paper/demo/live blocked.** The precommit
-> (below) is the binding frozen rule; the strategy module is pure-signal,
-> executor-unwired, and not registered in `strategies/__init__`.
+> **REJECT_TRAIN_GATE / TEST_LOCKBOX_CLOSED / NOT_APPROVED** (2026-05-29). First
+> strategy lane on the merged non-time-bar infra: **USD_JPY 10-pip range bars**
+> (M1 mid) + mandatory **H4 (H4M1) EMA50-slope** bias + optional
+> **native-H4-derived D1AGG** "not against"; trigger = continuation after a
+> **pullback-and-reclaim** range bar with an anti-spike overshoot guard; stop =
+> `max(5-bar swing, 20pip)` walked on M1; 12-range-bar time stop; no TP;
+> next-range-bar-open fill. The execution sprint built an **M1-resolved engine**,
+> froze the **HTF/D1AGG staleness policy**, and an **independent parity harness
+> (PASS)**, then ran **train** (2021-05-27→2023-12-31, 2,387 trades): **gross
+> +0.0839R but net −0.0188R** (PF 0.974; 2× cost −0.121R) — a small gross edge
+> **fully cost-defeated** (~2.29 pip ≈ 0.095R cost vs 24-pip risk), the C026
+> failure mode. Train expectancy gate (≥0) fails catastrophically ⇒ **validation
+> NOT run, lockbox NOT opened**. The 10-pip candidate is **CLOSED**; `approved_strategies.yaml`
+> stays `[]`; paper/demo/live blocked. (Numbered 029 because 028 was the
+> relative-value spread screen.) The scaffold precommit below remains binding.
 
 | document | purpose |
 |---|---|
 | [`CAMPAIGN_029_USDJPY_RANGE_BAR_SCAFFOLD_PLAN.md`](CAMPAIGN_029_USDJPY_RANGE_BAR_SCAFFOLD_PLAN.md) | Plan + baseline audit + campaign-number correction (028→029) |
 | [`CAMPAIGN_029_PRECOMMIT_SCOPE.md`](CAMPAIGN_029_PRECOMMIT_SCOPE.md) | **Frozen rule (binding precommit)** |
 | [`CAMPAIGN_029_HTF_ALIGNMENT_DESIGN.md`](CAMPAIGN_029_HTF_ALIGNMENT_DESIGN.md) | How each range bar reads H4/D1AGG with no lookahead |
-| [`CAMPAIGN_029_BACKTRADER_PARITY_DESIGN.md`](CAMPAIGN_029_BACKTRADER_PARITY_DESIGN.md) | Range-bar parity design (design only) |
+| [`CAMPAIGN_029_BACKTRADER_PARITY_DESIGN.md`](CAMPAIGN_029_BACKTRADER_PARITY_DESIGN.md) | Range-bar parity design |
 | [`CAMPAIGN_029_USDJPY_RANGE_BAR_SCAFFOLD_SUMMARY.md`](CAMPAIGN_029_USDJPY_RANGE_BAR_SCAFFOLD_SUMMARY.md) | Scaffold close-out summary |
-| [`../../configs/campaign_029_usdjpy_range_bar_mtf_breakout.yaml`](../../configs/campaign_029_usdjpy_range_bar_mtf_breakout.yaml) | Campaign config (`not_approved`, scaffold_only; not loop-loaded) |
-| [`../../src/forex_bot/strategies/usdjpy_range_bar_mtf_breakout.py`](../../src/forex_bot/strategies/usdjpy_range_bar_mtf_breakout.py) | Pure-signal range-bar strategy module (executor-unwired) |
-| [`../../scripts/preflight_campaign_029_usdjpy_range_bars.py`](../../scripts/preflight_campaign_029_usdjpy_range_bars.py) | Range-bar data preflight (compact diagnostics; no evidence) |
-| [`../../research/campaign_029/preflight/USD_JPY_range_10pip_diagnostics.md`](../../research/campaign_029/preflight/USD_JPY_range_10pip_diagnostics.md) | Preflight diagnostics (72,940 bars; 0 lookahead violations) |
+| [`CAMPAIGN_029_EXECUTION_CONTINUATION_PLAN.md`](CAMPAIGN_029_EXECUTION_CONTINUATION_PLAN.md) | Execution continuation plan + audit |
+| [`CAMPAIGN_029_HTF_D1AGG_AVAILABILITY_AND_STALENESS.md`](CAMPAIGN_029_HTF_D1AGG_AVAILABILITY_AND_STALENESS.md) | Availability + **frozen staleness policy** |
+| [`CAMPAIGN_029_PARITY_RESULT.md`](CAMPAIGN_029_PARITY_RESULT.md) | **Independent parity → PASS** (2,387==2,387) |
+| [`CAMPAIGN_029_TRAIN_RESULT.md`](CAMPAIGN_029_TRAIN_RESULT.md) | **Train evidence + gate table → REJECT_TRAIN_GATE** |
+| [`CAMPAIGN_029_GATE_DECISION.md`](CAMPAIGN_029_GATE_DECISION.md) | Frozen gate decision path |
+| [`CAMPAIGN_029_FINAL_INTERPRETATION.md`](CAMPAIGN_029_FINAL_INTERPRETATION.md) | Real edge vs noise; family CLOSED |
+| [`CAMPAIGN_029_RANGE_BAR_EXECUTION_001_SUMMARY.md`](CAMPAIGN_029_RANGE_BAR_EXECUTION_001_SUMMARY.md) | **Execution sprint close-out** |
+| [`../../configs/campaign_029_usdjpy_range_bar_mtf_breakout.yaml`](../../configs/campaign_029_usdjpy_range_bar_mtf_breakout.yaml) | Campaign config (`not_approved`; not loop-loaded) |
+| [`../../src/forex_bot/strategies/usdjpy_range_bar_mtf_breakout.py`](../../src/forex_bot/strategies/usdjpy_range_bar_mtf_breakout.py) | Pure-signal range-bar strategy module |
+| [`../../src/forex_bot/research/range_bar_execution.py`](../../src/forex_bot/research/range_bar_execution.py) | M1-resolved execution engine |
+| [`../../src/forex_bot/research/campaign_029_parity.py`](../../src/forex_bot/research/campaign_029_parity.py) | Independent parity verifier (no shared execution code) |
+| [`../../scripts/run_campaign_029_usdjpy_range_bar_mtf_breakout.py`](../../scripts/run_campaign_029_usdjpy_range_bar_mtf_breakout.py) | Train/validation runner (refuses lockbox/paper/demo/live) |
+| [`../../research/campaign_029/execution/train_summary.json`](../../research/campaign_029/execution/train_summary.json) | Train metrics (compact) |
+| [`../../research/campaign_029/execution/gate_decision.json`](../../research/campaign_029/execution/gate_decision.json) | Machine gate decision |
 
 ## How to read the evidence
 

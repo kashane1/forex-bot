@@ -13,6 +13,35 @@ loops.
 > `configs/approved_strategies.yaml` is empty; every order-capable loop
 > refuses to start. See `docs/research/FINAL_RESEARCH_DECISION_MEMO.md`.
 
+### CAMPAIGN_029 `usdjpy_range_bar_mtf_breakout` — REJECT_TRAIN_GATE (2026-05-29)
+
+`research-campaign-029-usdjpy-range-bar-scaffold-001` (continued into execution)
+built an **M1-resolved range-bar execution engine**, froze the **HTF/D1AGG
+staleness policy**, implemented an **independent parity harness (PASS)**, and ran
+**train-only** evidence for the frozen rule (`usdjpy_range_bar_mtf_breakout
+0.1.0-c029`): USD_JPY 10-pip range bars from M1 mid, mandatory H4(H4M1) EMA50-slope
+bias + optional native-H4-derived D1AGG, pullback-and-reclaim trigger, anti-spike
+overshoot guard, `max(5-bar swing, 20pip)` stop walked on M1, 12-range-bar time
+stop, no TP, next-range-bar-open fill. **Verdict: `REJECT_TRAIN_GATE`** — over
+2,387 train trades (2021-05-27→2023-12-31) the rule was **gross-positive
+(+0.0839R, gross PF>1)** but **net −0.0188R** (PF 0.974; 2× cost −0.121R) after
+conservative **M1-resolved cost** (~2.29 pip ≈ 0.095R vs 24.0-pip avg risk): a
+small gross edge **fully cost-defeated**, the same failure mode as the C026 ladder.
+The binding train expectancy gate (≥0) failed catastrophically, so **validation was
+NOT run** (confirmation, not rescue) and the **test lockbox (2025-01-01→2026-05-20)
+was not opened**. **Parity PASS** (independent verifier reproduced all 2,387 trades
+exactly) confirms the reject is the strategy's, not a bookkeeping artifact.
+**Status: paper: NO · demo: NO · live: NO.** No tuning, no rule change after
+results; `configs/approved_strategies.yaml` stays empty; C011 stays the null
+benchmark; C025/C026/C027 stay REJECT; C028 stays LIKELY_SELECTION_NOISE. **The
+10-pip `usdjpy_range_bar_mtf_breakout` candidate is CLOSED** (cost-defeated);
+revival requires a new precommit with an externally-motivated change, not a
+re-tune. Noted data caveat: **H4M1 coverage ≈70% of native H4**. See
+[`CAMPAIGN_029_FINAL_INTERPRETATION.md`](CAMPAIGN_029_FINAL_INTERPRETATION.md),
+[`CAMPAIGN_029_TRAIN_RESULT.md`](CAMPAIGN_029_TRAIN_RESULT.md),
+[`CAMPAIGN_029_GATE_DECISION.md`](CAMPAIGN_029_GATE_DECISION.md), and
+[`CAMPAIGN_029_RANGE_BAR_EXECUTION_001_SUMMARY.md`](CAMPAIGN_029_RANGE_BAR_EXECUTION_001_SUMMARY.md).
+
 ### Edge-discovery null-benchmark lab — INFRASTRUCTURE/DIAGNOSTIC (2026-05-28)
 
 `EDGE_DISCOVERY_NULL_BENCHMARK_LAB_001` **extended** the existing
