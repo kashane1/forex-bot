@@ -1,0 +1,161 @@
+# CAMPAIGN_029 — USD_JPY 10-pip range-bar MTF breakout. RESEARCH SCAFFOLD ONLY.
+#
+# usdjpy_range_bar_mtf_breakout 0.1.0-c029 — execution on 10-pip range bars built
+# from USD_JPY M1 mid prices; H4 (H4M1) trend context; native-H4-derived D1AGG
+# optional macro confirmation.
+# Precommit: docs/research/CAMPAIGN_029_PRECOMMIT_SCOPE.md
+# HTF alignment: docs/research/CAMPAIGN_029_HTF_ALIGNMENT_DESIGN.md
+#
+# NOT APPROVED. configs/approved_strategies.yaml remains approved: [].
+# Full evidence requires a separate execution sprint. Test lockbox stays closed.
+#
+# NOTE: this config is a precommit/documentation artifact. The execution frame is
+# a sequence of non_time_bars.RangeBar records, NOT a clock granularity — range
+# bars are not a forex_bot.domain.candles.Granularity member, so this config is
+# NOT loaded by any paper/demo/live loop and the strategy is not executor-wired.
+
+campaign:
+  id: CAMPAIGN_029
+  strategy_family: usdjpy_range_bar_mtf_breakout
+  version: 0.1.0-c029
+  not_approved: true
+  scaffold_only: true
+  promotion_eligible: false
+  paper_demo_live_enabled: false
+  status: SCAFFOLD_ONLY
+
+research_metadata:
+  fill_timing: next_bar_open          # open of the NEXT completed range bar
+  execution_realism: conservative
+  evidence_use: approval_bound
+  promotion_eligible: false
+
+data_provenance:
+  execution_bars: range_bar_10pip_m1_mid   # 10-pip range bars from M1 mid prices
+  execution_price_basis: mid
+  context_h4: m1_derived                    # H4M1
+  d1agg_context: native_h4_derived_d1agg
+  m1_derived_d1agg_allowed: false
+  tick_data_assumed: false
+
+# --- Execution-bar spec (range bars — NOT a clock granularity) ---------------
+execution_bars:
+  type: range
+  threshold_pips: 10
+  price_basis: mid
+  duplicate_policy: reject
+  require_sorted: true
+  emit_incomplete_final: false          # incomplete final bar is never traded
+  source_granularity: M1
+  source_price_components: mid
+
+app:
+  name: oanda-forex-research-bot
+  mode: paper
+  trading_enabled: false
+  allow_order_submission: false
+  allow_live_trading: false
+  database_path: ./data/campaign_002.sqlite3
+  log_path: ./logs/campaign_029.jsonl
+  kill_switch_path: ./KILL_SWITCH
+
+broker:
+  name: oanda
+  environment: practice
+  account_id_env: OANDA_ACCOUNT_ID_PRACTICE
+  token_env: OANDA_ACCESS_TOKEN_PRACTICE
+  request_timeout_seconds: 15
+  max_retries: 3
+
+market:
+  account_currency: USD
+  instruments:
+    - USD_JPY            # single-pair by design (precommit §8)
+  granularity: M1        # SOURCE granularity for range-bar construction
+  candle_price_components: BA
+  daily_alignment: 17
+  alignment_timezone: America/New_York
+  weekly_alignment: Friday
+
+strategy:
+  enabled:
+    - usdjpy_range_bar_mtf_breakout
+  usdjpy_range_bar_mtf_breakout:
+    version: 0.1.0-c029
+    pair: USD_JPY
+    range_threshold_pips: 10
+    # range-bar trigger
+    pullback_lookback: 5
+    structure_lookback: 5
+    # H4 (H4M1) trend context
+    h4_ema_fast: 20
+    h4_ema_slow: 50
+    h4_ema_slope_bars: 3
+    # D1AGG optional macro confirmation (native-H4-derived)
+    d1_ema_fast: 20
+    d1_ema_slow: 50
+    d1_ema_slope_bars: 3
+    d1agg_required: false               # optional "not against" gate
+    # anti-spike overshoot guard
+    overshoot_max_thresholds: 1
+    overshoot_max_pips: 10.0
+    # stop & exit
+    stop_range_multiple: 2.0            # floor = 2.0 x 10pip = 20pip
+    max_bars_in_trade: 12               # range-bar-count time stop
+    take_profit: none                   # no profit target at scaffold
+
+risk:
+  starting_equity_usd: 500
+  risk_per_trade_pct: 0.25
+  max_risk_per_trade_pct: 0.50
+  max_daily_loss_pct: 1.00
+  max_weekly_loss_pct: 2.00
+  max_total_drawdown_pct: 8.00
+  max_open_positions: 1
+  max_pending_orders: 1
+  max_correlated_positions: 1
+  max_positions_per_instrument: 1
+  require_stop_loss: true
+  require_server_side_protection: true
+  allow_martingale: false
+  allow_grid: false
+  allow_averaging_down: false
+
+margin:
+  min_margin_available_pct_of_nav: 80
+  max_margin_used_pct_of_nav: 10
+  reject_if_margin_closeout_percent_above: 20
+
+spread_filter:
+  enabled: true
+  max_spread_to_atr_pct: 8.0
+  max_spread_pips:
+    USD_JPY: 2.0
+
+session_filter:
+  enabled: true
+  timezone: America/New_York
+  block_new_trades:
+    - name: rollover
+      start: "16:45"
+      end: "17:15"
+    - name: friday_close
+      day: Friday
+      start: "15:00"
+      end: "23:59"
+    - name: sunday_open
+      day: Sunday
+      start: "00:00"
+      end: "19:00"
+
+backtest:
+  fixed_slippage_pips: 0.2
+  spread_slippage_multiplier: 0.5
+  starting_equity_usd: 500
+  commission_per_unit: 0.0
+
+splits:
+  # USD_JPY M1 coverage 2021-05-27 → 2026-05-26 (Phase 0). Test = sealed lockbox.
+  train: ["2021-05-27", "2023-12-31"]
+  validation: ["2024-01-01", "2024-12-31"]
+  test: ["2025-01-01", "2026-05-20"]
