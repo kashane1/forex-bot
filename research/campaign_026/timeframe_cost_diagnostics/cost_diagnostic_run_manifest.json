@@ -1,0 +1,15 @@
+{
+  "campaign_id": "CAMPAIGN_026",
+  "checked_at_utc": "2026-05-29T01:22:10.406287+00:00",
+  "fill_timing": "next_bar_open",
+  "mode": "cost-diagnostic",
+  "not_approved": true,
+  "strategy_evidence": false,
+  "strategy_family": "donchian_htf_confluence_timeframe_ladder",
+  "test_lockbox_opened": false,
+  "version": "0.1.0-c026",
+  "window": [
+    "2021-07-01",
+    "2024-12-31"
+  ]
+}

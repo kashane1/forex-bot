@@ -1,0 +1,45 @@
+{
+  "campaign_id": "CAMPAIGN_026",
+  "cost_drag_r_per_1atr_stop": {
+    "M15": {
+      "AUD_USD": 0.2664,
+      "EUR_USD": 0.2974,
+      "GBP_USD": 0.2551,
+      "NZD_USD": 0.3396,
+      "USD_CAD": 0.3147,
+      "USD_CHF": 0.3161,
+      "USD_JPY": 0.2107
+    },
+    "M3": {
+      "AUD_USD": 0.6951,
+      "EUR_USD": 0.7574,
+      "GBP_USD": 0.6488,
+      "NZD_USD": 0.868,
+      "USD_CAD": 0.8137,
+      "USD_CHF": 0.8394,
+      "USD_JPY": 0.5424
+    },
+    "M30": {
+      "AUD_USD": 0.1771,
+      "EUR_USD": 0.1989,
+      "GBP_USD": 0.171,
+      "NZD_USD": 0.2266,
+      "USD_CAD": 0.2099,
+      "USD_CHF": 0.2118,
+      "USD_JPY": 0.1411
+    },
+    "M5": {
+      "AUD_USD": 0.5121,
+      "EUR_USD": 0.5633,
+      "GBP_USD": 0.4819,
+      "NZD_USD": 0.6444,
+      "USD_CAD": 0.6023,
+      "USD_CHF": 0.6138,
+      "USD_JPY": 0.4033
+    }
+  },
+  "window": {
+    "end": "2024-12-31",
+    "start": "2021-07-01"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "campaign_id": "CAMPAIGN_026",
+  "flags": {
+    "M15": {
+      "better_than_m5": true,
+      "cost_hostile_ge_0_30": false,
+      "median_spread_atr": 0.2315
+    },
+    "M3": {
+      "better_than_m5": false,
+      "cost_hostile_ge_0_30": true,
+      "median_spread_atr": 0.5924
+    },
+    "M30": {
+      "better_than_m5": true,
+      "cost_hostile_ge_0_30": false,
+      "median_spread_atr": 0.1548
+    },
+    "M5": {
+      "better_than_m5": false,
+      "cost_hostile_ge_0_30": true,
+      "median_spread_atr": 0.4387
+    }
+  },
+  "m5_reference_median_spread_atr": 0.4387
+}
