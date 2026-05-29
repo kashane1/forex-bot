@@ -365,6 +365,38 @@ map; the linked documents are the authoritative evidence.
 | [`../../src/forex_bot/research/campaign_025_train_matrix.py`](../../src/forex_bot/research/campaign_025_train_matrix.py) | Vectorized M5 train-matrix simulator |
 | [`CAMPAIGN_025_TRAIN_MATRIX_VALIDATION_001_SUMMARY.md`](CAMPAIGN_025_TRAIN_MATRIX_VALIDATION_001_SUMMARY.md) | **Train-matrix sprint close-out (43-item summary)** |
 
+## CAMPAIGN_026 Donchian + HTF confluence timeframe ladder (REJECT — M3/M15/M30)
+
+> **REJECT** — `REJECT_TIMEFRAME_LADDER_NO_TRAIN_CANDIDATE / TEST_LOCKBOX_CLOSED /
+> NOT_APPROVED`. Diagnostic sprint (2026-05-28) testing whether the C025 M5 family is
+> salvageable on a different execution timeframe. Materialized M3/M30 from M1; ran 11
+> pre-committed candidates on train 2021-07-01→2023-06-30 across M3/M15/M30. **0/11
+> eligible.** Cost and expectancy improve monotonically as the timeframe slows
+> (M3 −0.16R/0.59 spread-ATR → M15 −0.06/0.23 → M30 −0.008/0.15) — the cost hypothesis
+> is confirmed and M5 was not uniquely cost-defeated — but even the best M30 candidate
+> is net-negative, below the C011 null, failing 2× stress. No champion → validation not
+> run; no single-pair review; lockbox closed; `not_approved: true`; paper/demo/live
+> blocked. Family rejected across all lower timeframes.
+
+| document | purpose |
+|---|---|
+| [`CAMPAIGN_026_TIMEFRAME_LADDER_001_PLAN.md`](CAMPAIGN_026_TIMEFRAME_LADDER_001_PLAN.md) | Plan + truth audit |
+| [`CAMPAIGN_026_M3_M30_MATERIALIZATION_DESIGN.md`](CAMPAIGN_026_M3_M30_MATERIALIZATION_DESIGN.md) | M3/M30 materialization design (hash-stable, opt-in) |
+| [`CAMPAIGN_026_M3_M30_MATERIALIZATION_RESULT.md`](CAMPAIGN_026_M3_M30_MATERIALIZATION_RESULT.md) | Materialization result (PASS; ~4.18M M3 / ~380K M30) |
+| [`../../scripts/materialize_campaign_026_m3_m30.py`](../../scripts/materialize_campaign_026_m3_m30.py) | M3/M30 materialization + verification driver |
+| [`CAMPAIGN_026_TIMEFRAME_COST_ATR_DIAGNOSTIC.md`](CAMPAIGN_026_TIMEFRAME_COST_ATR_DIAGNOSTIC.md) | Pre-evidence spread/ATR diagnostic (PROCEED) |
+| [`CAMPAIGN_026_TIMEFRAME_LADDER_SPEC.md`](CAMPAIGN_026_TIMEFRAME_LADDER_SPEC.md) | Frozen 11-candidate matrix + selection rules |
+| [`../../research/campaign_026/timeframe_ladder/candidate_registry.json`](../../research/campaign_026/timeframe_ladder/candidate_registry.json) | Machine-readable frozen registry (`not_approved: true`) |
+| [`CAMPAIGN_026_DATA_COVERAGE_AND_SPLIT_DECISION.md`](CAMPAIGN_026_DATA_COVERAGE_AND_SPLIT_DECISION.md) | Frozen split (= C025, comparable) |
+| [`../../src/forex_bot/research/campaign_026_loader.py`](../../src/forex_bot/research/campaign_026_loader.py) | Variable execution-tf frame loader + context ladder |
+| [`../../src/forex_bot/research/campaign_026_timeframe_ladder.py`](../../src/forex_bot/research/campaign_026_timeframe_ladder.py) | Vectorized timeframe-ladder simulator |
+| [`../../scripts/run_campaign_026_donchian_htf_timeframe_ladder.py`](../../scripts/run_campaign_026_donchian_htf_timeframe_ladder.py) | Preflight / cost-diagnostic / train-matrix / validate runner |
+| [`CAMPAIGN_026_TRAIN_TIMEFRAME_LADDER_RESULT.md`](CAMPAIGN_026_TRAIN_TIMEFRAME_LADDER_RESULT.md) | **Train result — REJECT_TIMEFRAME_LADDER_NO_TRAIN_CANDIDATE** |
+| [`CAMPAIGN_026_SELECTED_CHAMPION_VALIDATION_RESULT.md`](CAMPAIGN_026_SELECTED_CHAMPION_VALIDATION_RESULT.md) | Validation NOT run (no champion) |
+| [`CAMPAIGN_026_TIMEFRAME_LADDER_INTERPRETATION.md`](CAMPAIGN_026_TIMEFRAME_LADDER_INTERPRETATION.md) | Interpretation + family-close decision |
+| [`CAMPAIGN_026_BACKTRADER_PARITY_READINESS.md`](CAMPAIGN_026_BACKTRADER_PARITY_READINESS.md) | Parity readiness = DEFER_PARITY_REJECTED |
+| [`CAMPAIGN_026_TIMEFRAME_LADDER_001_SUMMARY.md`](CAMPAIGN_026_TIMEFRAME_LADDER_001_SUMMARY.md) | **Sprint close-out (41-item summary)** |
+
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
 > **Implementation infrastructure / data only** — `strategy_evidence: false`. No

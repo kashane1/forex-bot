@@ -178,6 +178,7 @@ strategy is approved.**
 | `h4_h1_pullback_resolution_entry 0.1.0-c022` | rejected (family RETIRED) | NO | NO | NO | CAMPAIGN_022 |
 | `h4_h1_pullback_resolution_entry 0.1.0-c023` (ADX22 sibling of C022) | scaffold-only (not executed; family RETIRED) | NO | NO | NO | CAMPAIGN_023 (scaffold) |
 | `m5_donchian_htf_confluence_breakout 0.1.0-c025` | rejected (train-matrix; no train candidate) | NO | NO | NO | CAMPAIGN_025 |
+| `donchian_htf_confluence_timeframe_ladder 0.1.0-c026` | rejected (timeframe ladder M3/M15/M30; no train candidate) | NO | NO | NO | CAMPAIGN_026 |
 
 There is also a daily-trend hypothesis (CAMPAIGN_006) that is **blocked**
 — not a strategy verdict but an infrastructure one: D1 candles cannot be

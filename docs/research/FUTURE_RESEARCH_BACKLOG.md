@@ -34,6 +34,37 @@ broad-search re-entry gates are met.**
 
 ---
 
+## 0-rejected-c026. CAMPAIGN_026 Donchian + HTF confluence timeframe ladder (REJECT — 2026-05-28)
+
+- **Candidate.** `donchian_htf_confluence_timeframe_ladder 0.1.0-c026`. The C025 M5
+  family tested across execution timeframes **M3 / M15 / M30** (11 pre-committed
+  candidates) to ask whether M5 was *uniquely* cost-defeated. Materialized M3/M30 from
+  canonical M1 (~4.18M / ~380K bars; hash-stable, opt-in). Same signal, cost model, and
+  evidence discipline as C025; split identical (train 2021-07-01→2023-06-30).
+- **Status.** **REJECT — `REJECT_TIMEFRAME_LADDER_NO_TRAIN_CANDIDATE /
+  TEST_LOCKBOX_CLOSED / NOT_APPROVED`.** **0/11 eligible.** No champion → validation not
+  run; no single-pair review; lockbox closed; paper/demo/live blocked. See
+  [`CAMPAIGN_026_TRAIN_TIMEFRAME_LADDER_RESULT.md`](CAMPAIGN_026_TRAIN_TIMEFRAME_LADDER_RESULT.md)
+  and [`CAMPAIGN_026_TIMEFRAME_LADDER_INTERPRETATION.md`](CAMPAIGN_026_TIMEFRAME_LADDER_INTERPRETATION.md).
+- **Reusable lesson (decisive).** Cost **and** expectancy improve monotonically as the
+  timeframe slows — M3 −0.16R (spread/ATR 0.59) → M5 −0.12 (0.44) → M15 −0.06 (0.23) →
+  M30 −0.008 (0.15). **M5 was *not* uniquely cost-defeated**; it sits on a smooth
+  cost/timeframe curve and M15/M30 are genuinely much cheaper. But the best candidate
+  anywhere (M30 trend-runner) is still net-negative, below the C011 null, failing 2×
+  stress. **Removing cost reveals a coin-flip, not a hidden edge** — the Donchian + HTF
+  construct has no intrinsic directional edge on the majors. Cheaper execution is
+  *necessary but not sufficient*: do not assume a slower timeframe rescues a null signal.
+- **USD_JPY.** Again the lone consistently-positive leg (M30 +0.19R) — best explained
+  by its cheapest spread, fails 2× stress, aggregate negative → **not** a single-pair
+  trigger; overlaps the already-exhausted USD_JPY microstructure/price-structure thread.
+- **Next sprint.** **None for this family** — close the lower-timeframe Donchian + HTF
+  family across M3–M30; do not re-tune. Backtrader parity = `DEFER_PARITY_REJECTED`.
+  Any revival needs a **new external thesis or signal**, not another timeframe/param
+  sweep (consistent with the standing `PAUSE_STRATEGY_RESEARCH` posture). The M3/M30
+  materialization + timeframe cost-diagnostic infrastructure is reusable.
+
+---
+
 ## 0-rejected-c025. CAMPAIGN_025 M5 Donchian + HTF confluence breakout (REJECT — 2026-05-28)
 
 - **Candidate.** `m5_donchian_htf_confluence_breakout 0.1.0-c025`. M5 Donchian(20)
