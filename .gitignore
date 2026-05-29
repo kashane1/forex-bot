@@ -267,3 +267,16 @@ research/non_time_bar_feasibility/**
 !research/non_time_bar_feasibility/**/*_manifest.json
 !research/non_time_bar_feasibility/**/feasibility_matrix.csv
 !research/non_time_bar_feasibility/**/*_report.md
+
+# research-non-time-bar-overshoot-frontgate-001: H16 overshoot-exhaustion front-gate
+# screen. Diagnostic-only. Ignore the whole output tree (bulky per-bar event tables are
+# regenerable from local M1 and must never be committed) but re-include directories so
+# git descends, then whitelist ONLY the compact diagnostics + manifest.
+research/h16_overshoot_frontgate/**
+!research/h16_overshoot_frontgate/**/
+!research/h16_overshoot_frontgate/.gitkeep
+!research/h16_overshoot_frontgate/**/*_summary.json
+!research/h16_overshoot_frontgate/**/*_manifest.json
+!research/h16_overshoot_frontgate/**/*_study.json
+!research/h16_overshoot_frontgate/**/*_matrix.csv
+!research/h16_overshoot_frontgate/**/*_report.md
