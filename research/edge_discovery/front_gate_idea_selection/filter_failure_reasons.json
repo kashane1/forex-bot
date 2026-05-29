@@ -1,0 +1,96 @@
+{
+  "strategy_evidence": false,
+  "diagnostic_only": true,
+  "prototype": "zscore_reversion_h4",
+  "window_bars": 12,
+  "trigger_only_expectancy": 0.0003185,
+  "trigger_only_post_cost": 4.8e-05,
+  "all_filters_n": 286,
+  "all_filters_post_cost": 0.0003093,
+  "failure_reasons": {
+    "f_cost_adv_pair": [
+      "FILTER_ONLY_REDUCES_SAMPLE"
+    ],
+    "f_long_side": [
+      "FILTER_HURTS_EDGE"
+    ]
+  },
+  "edge_adding_subset_stability": {
+    "subset": "f_low_vol & f_strong_extension & f_quiet_session",
+    "n": 1065,
+    "post_cost_overall_optimistic": 0.0007535,
+    "post_cost_overall_conservative": 0.0006264,
+    "positive_years_optimistic": "4/7",
+    "positive_years_conservative": "4/7",
+    "by_year_optimistic": {
+      "2020": {
+        "n": 157,
+        "post_cost": 0.0010032
+      },
+      "2021": {
+        "n": 146,
+        "post_cost": -4.6e-06
+      },
+      "2022": {
+        "n": 127,
+        "post_cost": 0.0015617
+      },
+      "2023": {
+        "n": 170,
+        "post_cost": 0.0019841
+      },
+      "2024": {
+        "n": 181,
+        "post_cost": -0.000485
+      },
+      "2025": {
+        "n": 217,
+        "post_cost": 0.0009673
+      },
+      "2026": {
+        "n": 67,
+        "post_cost": -0.0001803
+      }
+    },
+    "by_year_conservative": {
+      "2020": 0.0008744,
+      "2021": -0.0001404,
+      "2022": 0.0014363,
+      "2023": 0.001865,
+      "2024": -0.0006167,
+      "2025": 0.0008394,
+      "2026": -0.0002926
+    },
+    "by_pair_optimistic": {
+      "AUD_USD": {
+        "n": 156,
+        "post_cost": 0.0013891
+      },
+      "EUR_USD": {
+        "n": 131,
+        "post_cost": 0.0006229
+      },
+      "GBP_USD": {
+        "n": 146,
+        "post_cost": 0.0002538
+      },
+      "NZD_USD": {
+        "n": 162,
+        "post_cost": 0.0014653
+      },
+      "USD_CAD": {
+        "n": 138,
+        "post_cost": 0.0009318
+      },
+      "USD_CHF": {
+        "n": 150,
+        "post_cost": -6.46e-05
+      },
+      "USD_JPY": {
+        "n": 182,
+        "post_cost": 0.0006092
+      }
+    }
+  },
+  "notes": []
+}

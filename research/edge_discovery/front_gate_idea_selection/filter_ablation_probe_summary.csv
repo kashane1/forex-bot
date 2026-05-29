@@ -1,0 +1,18 @@
+kind,stage,filters_applied,n,reduction_ratio,expectancy,expectancy_se,post_cost_expectancy,hit_rate,top_pair_concentration
+trigger_only,trigger_only,[],11925,0.0,0.0003185,7.4e-05,4.8e-05,0.5199,0.1452
+single_filter,filter:f_low_vol,['f_low_vol'],4303,0.6392,0.0006194,0.0001056,0.0003698,0.5361,0.1571
+single_filter,filter:f_strong_extension,['f_strong_extension'],5563,0.5335,0.0005269,0.0001102,0.0002612,0.5328,0.1571
+single_filter,filter:f_quiet_session,['f_quiet_session'],5343,0.5519,0.0005524,0.0001129,0.0003185,0.5276,0.1555
+single_filter,filter:f_cost_adv_pair,['f_cost_adv_pair'],6816,0.4284,0.000417,0.0001012,0.0001953,0.5352,0.254
+single_filter,filter:f_long_side,['f_long_side'],5811,0.5127,0.0001199,0.0001087,-0.000158,0.518,0.1564
+cumulative,cumulative:1,['f_low_vol'],4303,0.6392,0.0006194,0.0001056,0.0003698,0.5361,0.1571
+cumulative,cumulative:2,"['f_low_vol', 'f_strong_extension']",2089,0.8248,0.0007665,0.0001551,0.0005189,0.5448,0.1752
+cumulative,cumulative:3,"['f_low_vol', 'f_strong_extension', 'f_quiet_session']",1065,0.9107,0.0009833,0.0002121,0.0007535,0.5521,0.1709
+cumulative,cumulative:4,"['f_low_vol', 'f_strong_extension', 'f_quiet_session', 'f_cost_adv_pair']",615,0.9484,0.0009097,0.0002891,0.0007256,0.5642,0.2959
+cumulative,cumulative:5,"['f_low_vol', 'f_strong_extension', 'f_quiet_session', 'f_cost_adv_pair', 'f_long_side']",286,0.976,0.0004929,0.0004308,0.0003093,0.5559,0.2832
+leave_one_out,leave_out:f_low_vol,"['f_strong_extension', 'f_quiet_session', 'f_cost_adv_pair', 'f_long_side']",668,0.944,0.0007653,0.0003405,0.0005771,0.5509,0.2919
+leave_one_out,leave_out:f_strong_extension,"['f_low_vol', 'f_quiet_session', 'f_cost_adv_pair', 'f_long_side']",573,0.9519,0.0008663,0.0003224,0.0006796,0.5567,0.267
+leave_one_out,leave_out:f_quiet_session,"['f_low_vol', 'f_strong_extension', 'f_cost_adv_pair', 'f_long_side']",524,0.9561,0.0005142,0.0003374,0.000318,0.5553,0.271
+leave_one_out,leave_out:f_cost_adv_pair,"['f_low_vol', 'f_strong_extension', 'f_quiet_session', 'f_long_side']",519,0.9565,0.0007906,0.0003132,0.0005539,0.553,0.1715
+leave_one_out,leave_out:f_long_side,"['f_low_vol', 'f_strong_extension', 'f_quiet_session', 'f_cost_adv_pair']",615,0.9484,0.0009097,0.0002891,0.0007256,0.5642,0.2959
+all_filters,all_filters,"['f_low_vol', 'f_strong_extension', 'f_quiet_session', 'f_cost_adv_pair', 'f_long_side']",286,0.976,0.0004929,0.0004308,0.0003093,0.5559,0.2832
