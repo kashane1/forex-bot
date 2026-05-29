@@ -72,6 +72,30 @@ fails. See
 and
 [`CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_SUMMARY.md).
 
+### CAMPAIGN_027 `h4_filtered_zscore_reversion` — REJECT_TRAIN_GATE (2026-05-28)
+
+`research-campaign-027-h4-filtered-zscore-reversion-train-validation-001` ran the
+frozen rule's **train evidence** (2020–2022) on the campaign's own ledgers under
+the binding conservative cost. **Verdict: `REJECT_TRAIN_GATE`** — the rule failed
+**4 of 8 binding train gates**: profit factor 1.043 (<1.05); years non-negative
+1/3 (only 2022; 2020/2021 negative); 2× cost-stress expectancy −0.00007745 (<0);
+and filter-ablation (`f_strong_extension` only reduces sample, +0.000034, not
+`FILTER_ADDS_EDGE` — the forking-path risk). Train expectancy was a wafer-thin
++0.00011974 (PF 1.043, hit 0.50, 180 trades), AUD_USD-dominated with USD_JPY
+negative. The matched-null **information** gate passed (strategy above the
+structure-matched null, pctl 90) — but that is "loses less than random," not "makes
+money." **Validation was NOT run** (confirmation, not a rescue); the **test lockbox
+(2025-01-01 → 2026-05-20) was not opened**; Backtrader parity is **deferred
+(rejected)**. **Status: paper: NO · demo: NO · live: NO.** No tuning, no matrix, no
+long side, no gate weakening; `configs/approved_strategies.yaml` stays empty; C011
+stays the null benchmark; C025/C026 stay REJECT. **The
+`h4_filtered_zscore_reversion` family is CLOSED** — the last surviving
+edge-discovery front-gate idea; revival requires a new external thesis/data, not a
+re-tune. See
+[`CAMPAIGN_027_FINAL_INTERPRETATION.md`](CAMPAIGN_027_FINAL_INTERPRETATION.md),
+[`CAMPAIGN_027_TRAIN_RESULT.md`](CAMPAIGN_027_TRAIN_RESULT.md), and
+[`CAMPAIGN_027_TRAIN_VALIDATION_001_SUMMARY.md`](CAMPAIGN_027_TRAIN_VALIDATION_001_SUMMARY.md).
+
 ### Broad strategy search — PAUSED (2026-05-26)
 
 Post-dedup failure meta-analysis (`POST_DEDUP_FAILURE_META_ANALYSIS_001`)

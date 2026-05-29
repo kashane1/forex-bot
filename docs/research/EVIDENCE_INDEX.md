@@ -397,7 +397,16 @@ map; the linked documents are the authoritative evidence.
 | [`CAMPAIGN_026_BACKTRADER_PARITY_READINESS.md`](CAMPAIGN_026_BACKTRADER_PARITY_READINESS.md) | Parity readiness = DEFER_PARITY_REJECTED |
 | [`CAMPAIGN_026_TIMEFRAME_LADDER_001_SUMMARY.md`](CAMPAIGN_026_TIMEFRAME_LADDER_001_SUMMARY.md) | **Sprint close-out (41-item summary)** |
 
-## CAMPAIGN_027 Filtered H4 z-score reversion (SCAFFOLD_ONLY / PRECOMMITTED)
+## CAMPAIGN_027 Filtered H4 z-score reversion (REJECT_TRAIN_GATE)
+
+> **REJECT_TRAIN_GATE / TEST_LOCKBOX_CLOSED / NOT_APPROVED** (2026-05-28). The
+> train/validation sprint ran the frozen rule's train evidence (2020–2022) on the
+> campaign's own ledgers under binding conservative cost and **rejected it** (4/8
+> binding train gates failed: PF 1.043; years 1/3; 2× stress −0.00007745;
+> `f_strong_extension` filter-ablation). Validation NOT run; test lockbox NOT
+> opened; Backtrader parity deferred. The `h4_filtered_zscore_reversion` family is
+> **CLOSED**; revival needs a new external thesis/data, not a re-tune. The scaffold
+> (below) remains the binding precommit.
 
 > **SCAFFOLD_ONLY / PRECOMMITTED / NOT_RUN / NOT_APPROVED** (2026-05-28). Scaffold
 > for the single idea that survived the edge-discovery front gate: **short-only
@@ -421,8 +430,20 @@ map; the linked documents are the authoritative evidence.
 | [`NEXT_SPRINT_PROMPT_AFTER_CAMPAIGN_027_SCAFFOLD.md`](NEXT_SPRINT_PROMPT_AFTER_CAMPAIGN_027_SCAFFOLD.md) | Future train/validation prompt (NOT executed) |
 | [`../../configs/campaign_027_h4_filtered_zscore_reversion.yaml`](../../configs/campaign_027_h4_filtered_zscore_reversion.yaml) | Campaign config (`not_approved`, scaffold_only) |
 | [`../../src/forex_bot/strategies/h4_filtered_zscore_reversion.py`](../../src/forex_bot/strategies/h4_filtered_zscore_reversion.py) | Short-only pure-signal strategy module |
-| [`../../scripts/run_campaign_027_h4_filtered_zscore_reversion.py`](../../scripts/run_campaign_027_h4_filtered_zscore_reversion.py) | Preflight-only runner (refuses evidence modes) |
-| [`CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_SUMMARY.md) | **Sprint close-out (25-item summary)** |
+| [`../../scripts/run_campaign_027_h4_filtered_zscore_reversion.py`](../../scripts/run_campaign_027_h4_filtered_zscore_reversion.py) | Runner: preflight + `--train-validation` execution (refuses --train/--validation/--test/--backtest/--execute + lockbox) |
+| [`CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_SUMMARY.md`](CAMPAIGN_027_H4_FILTERED_ZSCORE_REVERSION_SCAFFOLD_001_SUMMARY.md) | Scaffold close-out (25-item summary) |
+| [`CAMPAIGN_027_TRAIN_VALIDATION_001_PLAN.md`](CAMPAIGN_027_TRAIN_VALIDATION_001_PLAN.md) | Train/validation plan + frozen gates (Phase 0) |
+| [`CAMPAIGN_027_DATA_COVERAGE_AND_SPLIT_DECISION.md`](CAMPAIGN_027_DATA_COVERAGE_AND_SPLIT_DECISION.md) | Per-pair H4 coverage + frozen split/completion policy |
+| [`CAMPAIGN_027_ARTIFACT_CONTRACT_COMPLIANCE_PRE_RUN.md`](CAMPAIGN_027_ARTIFACT_CONTRACT_COMPLIANCE_PRE_RUN.md) | Artifact-contract pre-run (22/22 schemas OK) |
+| [`CAMPAIGN_027_TRAIN_RESULT.md`](CAMPAIGN_027_TRAIN_RESULT.md) | **Train evidence + gate table → REJECT_TRAIN_GATE** |
+| [`CAMPAIGN_027_VALIDATION_NOT_RUN.md`](CAMPAIGN_027_VALIDATION_NOT_RUN.md) | Why validation was not run |
+| [`CAMPAIGN_027_EDGE_DISCOVERY_CONFIRMATION.md`](CAMPAIGN_027_EDGE_DISCOVERY_CONFIRMATION.md) | Matched-null + filter-ablation confirmation (train) |
+| [`CAMPAIGN_027_RECENCY_AND_ROBUSTNESS_INTERPRETATION.md`](CAMPAIGN_027_RECENCY_AND_ROBUSTNESS_INTERPRETATION.md) | Year/pair/session robustness + recency interpretation |
+| [`CAMPAIGN_027_BACKTRADER_PARITY_READINESS.md`](CAMPAIGN_027_BACKTRADER_PARITY_READINESS.md) | Parity readiness → DEFER_PARITY_REJECTED |
+| [`CAMPAIGN_027_FINAL_INTERPRETATION.md`](CAMPAIGN_027_FINAL_INTERPRETATION.md) | **Final verdict (REJECT_TRAIN_GATE)** |
+| [`CAMPAIGN_027_TRAIN_VALIDATION_001_SUMMARY.md`](CAMPAIGN_027_TRAIN_VALIDATION_001_SUMMARY.md) | **Sprint close-out (28-item summary)** |
+| [`../../research/campaign_027/train_validation/`](../../research/campaign_027/train_validation/) | Train/validation artifacts (ledgers, metrics, gates, matched-null, ablation) |
+| [`../../research/campaign_027/engine.py`](../../research/campaign_027/engine.py) | Train/validation execution engine (import-isolated) |
 
 ## Infra cross-asset real data ingest (INFRA_CROSS_ASSET_REAL_DATA_INGEST_001)
 
