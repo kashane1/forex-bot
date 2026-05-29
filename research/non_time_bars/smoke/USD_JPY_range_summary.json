@@ -1,0 +1,90 @@
+{
+  "bar_type": "range",
+  "instrument": "USD_JPY",
+  "thresholds": {
+    "10pip": {
+      "bar_count": 3539,
+      "bar_type": "range",
+      "completion_reason_counts": {
+        "range_down": 1768,
+        "range_up": 1771
+      },
+      "compression_vs_m1": 16.9,
+      "compression_vs_m15_approx": 1.13,
+      "data_quality_warnings": [
+        "8 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 3188.0,
+        "mean": 22.6013,
+        "median": 7.0,
+        "min": 0.0,
+        "p25": 2.0,
+        "p75": 18.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 191280.0,
+        "mean": 1356.078,
+        "median": 420.0,
+        "min": 0.0,
+        "p25": 120.0,
+        "p75": 1080.0
+      },
+      "first_bar_close_utc": "2023-01-01T23:59:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_JPY",
+      "last_bar_close_utc": "2023-02-28T23:34:00+00:00",
+      "m1_source_rows": 59813,
+      "multi_threshold_bars": 158,
+      "overshoot_pips_per_bar": {
+        "max": 155.3,
+        "mean": 2.983,
+        "median": 1.4,
+        "min": 0.0,
+        "p25": 0.6,
+        "p75": 3.4
+      },
+      "session_distribution": {
+        "london": 844,
+        "london_ny_overlap": 1061,
+        "new_york": 501,
+        "rollover_late": 199,
+        "tokyo": 934
+      },
+      "source_m1_rows_per_bar": {
+        "max": 359.0,
+        "mean": 16.8938,
+        "median": 8.0,
+        "min": 1.0,
+        "p25": 3.0,
+        "p75": 19.0
+      },
+      "threshold": "10pip",
+      "thresholds_crossed_distribution": {
+        "1": 3381,
+        "11": 1,
+        "12": 1,
+        "16": 1,
+        "2": 104,
+        "3": 23,
+        "4": 11,
+        "5": 7,
+        "6": 6,
+        "7": 3,
+        "9": 1
+      },
+      "weekday_distribution": {
+        "Friday": 704,
+        "Monday": 565,
+        "Sunday": 59,
+        "Thursday": 673,
+        "Tuesday": 733,
+        "Wednesday": 805
+      }
+    }
+  },
+  "window": {
+    "from_utc": "2023-01-01T00:00:00+00:00",
+    "to_utc": "2023-03-01T00:00:00+00:00"
+  }
+}

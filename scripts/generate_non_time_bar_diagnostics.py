@@ -122,17 +122,17 @@ def summarize_bars(
     elapsed_seconds = [(b.close_time - b.open_time).total_seconds() for b in completed]
     overshoot = [float(b.overshoot_pips) for b in completed]
 
-    sessions: Counter[str] = Counter(session_bucket(b.close_time.hour) for b in completed)
-    weekdays: Counter[str] = Counter(
-        b.close_time.strftime("%A") for b in completed
-    )
+    # Normalise to UTC before extracting hour/weekday: psycopg returns timestamptz
+    # in the session-local tz, so close_time.hour would otherwise be a local hour.
+    close_utc = [b.close_time.astimezone(UTC) for b in completed]
+    sessions: Counter[str] = Counter(session_bucket(ts.hour) for ts in close_utc)
+    weekdays: Counter[str] = Counter(ts.strftime("%A") for ts in close_utc)
     reasons: Counter[str] = Counter(b.completion_reason for b in completed)
     thresholds_crossed: Counter[int] = Counter(b.thresholds_crossed for b in completed)
     multi_threshold = sum(1 for b in completed if b.thresholds_crossed > 1)
     gap_spanning = sum(1 for s in elapsed_seconds if s > GAP_SECONDS)
 
     n = len(completed)
-    times = [b.close_time for b in completed]
     summary: dict[str, Any] = {
         "instrument": instrument,
         "bar_type": bar_type,
@@ -140,8 +140,8 @@ def summarize_bars(
         "bar_count": n,
         "incomplete_final_bars": len(incomplete),
         "m1_source_rows": m1_rows,
-        "first_bar_close_utc": min(times).isoformat() if times else None,
-        "last_bar_close_utc": max(times).isoformat() if times else None,
+        "first_bar_close_utc": min(close_utc).isoformat() if close_utc else None,
+        "last_bar_close_utc": max(close_utc).isoformat() if close_utc else None,
         "source_m1_rows_per_bar": _number_stats(source_counts),
         "elapsed_seconds_per_bar": _number_stats(elapsed_seconds),
         "elapsed_minutes_per_bar": _number_stats([s / 60 for s in elapsed_seconds]),
@@ -199,12 +199,22 @@ def _m1_candles(
     chunk_days: int,
     max_rows: int | None,
 ) -> Iterator[Any]:
+    # iter_m1_chunks uses inclusive [cursor, chunk_end] windows and advances
+    # cursor to chunk_end, so the boundary row repeats at each chunk edge. The
+    # M1 corpus is verified duplicate-free, so we drop that artifact by skipping
+    # any row whose timestamp equals the previously emitted one (same approach as
+    # forex_bot.data.m1_corpus_validation._dedupe_candles_by_time).
     emitted = 0
+    last_time: datetime | None = None
     for chunk in iter_m1_chunks(
         store, instrument=instrument, start_utc=from_utc, end_utc=to_utc, chunk_days=chunk_days
     ):
         for row in chunk:
-            yield _row_to_candle(row, instrument=instrument)
+            candle = _row_to_candle(row, instrument=instrument)
+            if last_time is not None and candle.time == last_time:
+                continue  # chunk-boundary overlap
+            last_time = candle.time
+            yield candle
             emitted += 1
             if max_rows is not None and emitted >= max_rows:
                 return

@@ -1,0 +1,84 @@
+{
+  "bar_type": "volatility",
+  "instrument": "USD_JPY",
+  "thresholds": {
+    "abs_close_20pip": {
+      "bar_count": 4747,
+      "bar_type": "volatility",
+      "completion_reason_counts": {
+        "volatility": 4747
+      },
+      "compression_vs_m1": 12.6,
+      "compression_vs_m15_approx": 0.84,
+      "data_quality_warnings": [
+        "8 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+      ],
+      "elapsed_minutes_per_bar": {
+        "max": 2926.0,
+        "mean": 16.5951,
+        "median": 10.0,
+        "min": 0.0,
+        "p25": 7.0,
+        "p75": 15.0
+      },
+      "elapsed_seconds_per_bar": {
+        "max": 175560.0,
+        "mean": 995.7068,
+        "median": 600.0,
+        "min": 0.0,
+        "p25": 420.0,
+        "p75": 900.0
+      },
+      "first_bar_close_utc": "2023-01-01T23:37:00+00:00",
+      "incomplete_final_bars": 0,
+      "instrument": "USD_JPY",
+      "last_bar_close_utc": "2023-02-28T23:50:00+00:00",
+      "m1_source_rows": 59813,
+      "multi_threshold_bars": 27,
+      "overshoot_pips_per_bar": {
+        "max": 161.1,
+        "mean": 2.0698,
+        "median": 1.2,
+        "min": 0.0,
+        "p25": 0.4,
+        "p75": 2.4
+      },
+      "session_distribution": {
+        "london": 1102,
+        "london_ny_overlap": 1103,
+        "new_york": 845,
+        "rollover_late": 337,
+        "tokyo": 1360
+      },
+      "source_m1_rows_per_bar": {
+        "max": 106.0,
+        "mean": 12.5981,
+        "median": 11.0,
+        "min": 1.0,
+        "p25": 8.0,
+        "p75": 16.0
+      },
+      "threshold": "abs_close_20pip",
+      "thresholds_crossed_distribution": {
+        "1": 4720,
+        "2": 18,
+        "3": 4,
+        "4": 3,
+        "5": 1,
+        "9": 1
+      },
+      "weekday_distribution": {
+        "Friday": 893,
+        "Monday": 878,
+        "Sunday": 65,
+        "Thursday": 935,
+        "Tuesday": 1016,
+        "Wednesday": 960
+      }
+    }
+  },
+  "window": {
+    "from_utc": "2023-01-01T00:00:00+00:00",
+    "to_utc": "2023-03-01T00:00:00+00:00"
+  }
+}

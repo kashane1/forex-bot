@@ -1,0 +1,40 @@
+{
+  "bar_type": "volatility",
+  "chunk_days": 30,
+  "elapsed_seconds": 1.0,
+  "finished_at_utc": "2026-05-29T09:38:58.156029+00:00",
+  "max_rows": null,
+  "method": "abs_close",
+  "network_or_broker_calls": false,
+  "not_approved": true,
+  "pair_results": {
+    "USD_JPY": {
+      "thresholds": {
+        "abs_close_20pip": {
+          "bar_count": 4747,
+          "compression_vs_m1": 12.6,
+          "compression_vs_m15_approx": 0.84,
+          "median_source_m1_rows_per_bar": 11.0,
+          "warnings": [
+            "8 bar(s) span >24h (weekend/holiday gaps \u2014 expected in FX)"
+          ]
+        }
+      },
+      "window": {
+        "from_utc": "2023-01-01T00:00:00+00:00",
+        "to_utc": "2023-03-01T00:00:00+00:00"
+      }
+    }
+  },
+  "pairs": [
+    "USD_JPY"
+  ],
+  "price_basis": "mid",
+  "source": "local Postgres M1 (granularity=M1); NO broker/network calls",
+  "sprint": "infra-range-and-volatility-bars-001",
+  "started_at_utc": "2026-05-29T09:38:57.181079+00:00",
+  "strategy_evidence": false,
+  "thresholds": [
+    20.0
+  ]
+}
