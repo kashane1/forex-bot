@@ -1,0 +1,12 @@
+{
+  "campaign": "CAMPAIGN_029",
+  "kind": "range_bar_preflight",
+  "instrument": "USD_JPY",
+  "threshold_pips": 10.0,
+  "outputs": [
+    "USD_JPY_range_10pip_diagnostics.json",
+    "USD_JPY_range_10pip_diagnostics.md"
+  ],
+  "evidence": false,
+  "note": "characterisation only; no signals/trades/PnL; lockbox not opened"
+}
