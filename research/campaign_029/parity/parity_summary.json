@@ -1,0 +1,26 @@
+{
+  "primary_trades": 2387,
+  "verifier_trades": 2387,
+  "common": 2387,
+  "trade_count_diff": 0,
+  "only_primary_signal_bars": [],
+  "only_verifier_signal_bars": [],
+  "exit_reason_aligned_share": 1.0,
+  "side_aligned": true,
+  "mean_net_r_diff": 0.0,
+  "max_net_r_diff": 0.0,
+  "acceptance": {
+    "trade_count_diff_le_1": true,
+    "exit_reason_share_ge_0_99": true,
+    "mean_r_diff_le_0_02": true
+  },
+  "status": "PASS",
+  "window": {
+    "from": "2021-05-27T00:00:00+00:00",
+    "to": "2023-12-31T23:59:00+00:00"
+  },
+  "range_bars": 33457,
+  "campaign": "CAMPAIGN_029",
+  "test_lockbox_opened": false,
+  "approved": false
+}
