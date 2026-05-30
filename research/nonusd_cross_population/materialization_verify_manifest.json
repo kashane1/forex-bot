@@ -1,0 +1,305 @@
+{
+  "aggregation_config_hash": "f9b7246b79a0635c",
+  "pairs": [
+    "EUR_GBP",
+    "EUR_JPY",
+    "GBP_JPY",
+    "AUD_JPY",
+    "NZD_JPY",
+    "EUR_CHF",
+    "GBP_CHF",
+    "EUR_AUD"
+  ],
+  "phase": 4,
+  "sprint": "nonusd-cross-data-population-001",
+  "status": "PASS",
+  "targets": [
+    "M5",
+    "M15",
+    "H1",
+    "H4M1"
+  ],
+  "verification": {
+    "AUD_JPY": {
+      "H1": {
+        "expected_count": 28770,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 28770
+      },
+      "H4": {
+        "expected_count": 5757,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 5757
+      },
+      "M15": {
+        "expected_count": 120433,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 120433
+      },
+      "M5": {
+        "expected_count": 367668,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 367668
+      },
+      "status": "PASS"
+    },
+    "EUR_AUD": {
+      "H1": {
+        "expected_count": 27797,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 27797
+      },
+      "H4": {
+        "expected_count": 5407,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 5407
+      },
+      "M15": {
+        "expected_count": 118250,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 118250
+      },
+      "M5": {
+        "expected_count": 363783,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 363783
+      },
+      "status": "PASS"
+    },
+    "EUR_CHF": {
+      "H1": {
+        "expected_count": 24120,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 24120
+      },
+      "H4": {
+        "expected_count": 4249,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 4249
+      },
+      "M15": {
+        "expected_count": 107931,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 107931
+      },
+      "M5": {
+        "expected_count": 343763,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 343763
+      },
+      "status": "PASS"
+    },
+    "EUR_GBP": {
+      "H1": {
+        "expected_count": 23598,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 23598
+      },
+      "H4": {
+        "expected_count": 4045,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 4045
+      },
+      "M15": {
+        "expected_count": 107953,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 107953
+      },
+      "M5": {
+        "expected_count": 346991,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 346991
+      },
+      "status": "PASS"
+    },
+    "EUR_JPY": {
+      "H1": {
+        "expected_count": 27403,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 27403
+      },
+      "H4": {
+        "expected_count": 5289,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 5289
+      },
+      "M15": {
+        "expected_count": 116586,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 116586
+      },
+      "M5": {
+        "expected_count": 360104,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 360104
+      },
+      "status": "PASS"
+    },
+    "GBP_CHF": {
+      "H1": {
+        "expected_count": 27209,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 27209
+      },
+      "H4": {
+        "expected_count": 5180,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 5180
+      },
+      "M15": {
+        "expected_count": 116985,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 116985
+      },
+      "M5": {
+        "expected_count": 360538,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 360538
+      },
+      "status": "PASS"
+    },
+    "GBP_JPY": {
+      "H1": {
+        "expected_count": 28446,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 28446
+      },
+      "H4": {
+        "expected_count": 5609,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 5609
+      },
+      "M15": {
+        "expected_count": 119806,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 119806
+      },
+      "M5": {
+        "expected_count": 365917,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 365917
+      },
+      "status": "PASS"
+    },
+    "NZD_JPY": {
+      "H1": {
+        "expected_count": 26431,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 26431
+      },
+      "H4": {
+        "expected_count": 4867,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 4867
+      },
+      "M15": {
+        "expected_count": 117075,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 117075
+      },
+      "M5": {
+        "expected_count": 362924,
+        "extra_in_store": 0,
+        "missing_in_store": 0,
+        "ohlc_mismatches": 0,
+        "status": "PASS",
+        "stored_count": 362924
+      },
+      "status": "PASS"
+    }
+  },
+  "verify_only": true
+}
