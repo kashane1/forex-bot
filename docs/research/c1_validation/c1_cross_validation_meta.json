@@ -1,0 +1,87 @@
+{
+  "m1_source": "oanda-practice-m1",
+  "materialized_source": "m1_materialized",
+  "horizons_min": [
+    5,
+    10,
+    15,
+    30,
+    60
+  ],
+  "cooldown_min": 60,
+  "null_seeds": 60,
+  "pairs": [
+    {
+      "pair": "EUR_GBP",
+      "m1_bars": 1823232,
+      "span_start": "2021-05-26 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1363,
+      "n_c1_short_events": 1853,
+      "seconds": 366.5
+    },
+    {
+      "pair": "EUR_JPY",
+      "m1_bars": 1841779,
+      "span_start": "2021-05-26 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 2069,
+      "n_c1_short_events": 1266,
+      "seconds": 372.0
+    },
+    {
+      "pair": "GBP_JPY",
+      "m1_bars": 1852770,
+      "span_start": "2021-05-26 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 2228,
+      "n_c1_short_events": 1320,
+      "seconds": 371.5
+    },
+    {
+      "pair": "AUD_JPY",
+      "m1_bars": 1857000,
+      "span_start": "2021-05-26 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 2080,
+      "n_c1_short_events": 1414,
+      "seconds": 370.4
+    },
+    {
+      "pair": "NZD_JPY",
+      "m1_bars": 1845840,
+      "span_start": "2021-05-26 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1921,
+      "n_c1_short_events": 1454,
+      "seconds": 365.9
+    },
+    {
+      "pair": "EUR_CHF",
+      "m1_bars": 1811686,
+      "span_start": "2021-05-26 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1304,
+      "n_c1_short_events": 1810,
+      "seconds": 356.0
+    },
+    {
+      "pair": "GBP_CHF",
+      "m1_bars": 1838790,
+      "span_start": "2021-05-26 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1741,
+      "n_c1_short_events": 1854,
+      "seconds": 365.5
+    },
+    {
+      "pair": "EUR_AUD",
+      "m1_bars": 1849425,
+      "span_start": "2021-05-26 00:00:00+00:00",
+      "span_end": "2026-05-26 23:59:00+00:00",
+      "n_c1_long_events": 1620,
+      "n_c1_short_events": 1840,
+      "seconds": 367.5
+    }
+  ]
+}
