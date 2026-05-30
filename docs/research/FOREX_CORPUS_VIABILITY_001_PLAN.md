@@ -124,10 +124,11 @@ C030 intentionally unused.)
 | 7 | `NEXT_PROMPT_AFTER_FOREX_CORPUS_VIABILITY_REVIEW.md` |
 | 8 | `FOREX_CORPUS_VIABILITY_AND_MARKET_SELECTION_001_SUMMARY.md` |
 
-Companion pairing docs (`FOREX_CORPUS_VIABILITY_001_SUMMARY.md` and
-`FOREX_CORPUS_VIABILITY_AND_MARKET_SELECTION_001_PLAN.md`) are added so
-the research-archive validator's PLAN/SUMMARY pairing check stays green;
-they cross-point to the canonical plan and summary above.
+(The plan and summary use different filename bases by design — the plan
+is keyed to this review, the summary to the full "market selection"
+branch name. The research-archive validator checks manifest/campaign/
+evidence-index/credential consistency, not PLAN/SUMMARY filename
+pairing, so no companion stub files are required.)
 
 ## Method
 
