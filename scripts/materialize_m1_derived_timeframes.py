@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from forex_bot.data.m1_corpus_validation import MAJOR_PAIRS
+from forex_bot.data.m1_corpus_validation import MAJOR_PAIRS, SUPPORTED_PAIRS
 from forex_bot.data.m1_timeframe_materialization import (
     MATERIALIZED_FROM_M1,
     MATERIALIZED_SOURCE,
@@ -25,6 +25,7 @@ from forex_bot.data.m1_timeframe_materialization import (
 )
 from forex_bot.data.postgres_candle_store import PostgresCandleStore
 from forex_bot.data.research_db import get_research_database_config
+from forex_bot.domain.cross_instruments import NONUSD_CROSS_PAIRS
 from forex_bot.project_env import bootstrap_environ
 
 OUT_DIR = ROOT / "research/m1_timeframe_materialization"
@@ -39,11 +40,15 @@ def _parse_utc(value: str) -> datetime:
 def _resolve_pairs(args: argparse.Namespace) -> list[str]:
     if args.all_majors:
         return list(MAJOR_PAIRS)
+    if args.all_crosses:
+        return list(NONUSD_CROSS_PAIRS)
     if args.pair:
-        if args.pair not in MAJOR_PAIRS:
-            raise SystemExit(f"pair not in major universe: {args.pair}")
+        # Majors (control universe) and registered non-USD crosses are both
+        # materializable via the same price-agnostic aggregation rules.
+        if args.pair not in SUPPORTED_PAIRS:
+            raise SystemExit(f"pair not in supported universe: {args.pair}")
         return [args.pair]
-    raise SystemExit("specify --pair EUR_USD or --all-majors")
+    raise SystemExit("specify --pair EUR_GBP, --all-majors, or --all-crosses")
 
 
 def _resolve_targets(raw: str | None) -> tuple[str, ...]:
@@ -65,6 +70,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--pair")
     parser.add_argument("--all-majors", action="store_true")
+    parser.add_argument(
+        "--all-crosses",
+        action="store_true",
+        help=f"Materialize every registered non-USD cross: {', '.join(NONUSD_CROSS_PAIRS)}",
+    )
     parser.add_argument(
         "--targets",
         help="Comma-separated. Default (omit) = M5,M15,H1,H4. Diagnostic: M3,M30.",

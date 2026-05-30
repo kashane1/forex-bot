@@ -11,7 +11,7 @@ from decimal import Decimal
 from typing import Any, Literal
 
 from forex_bot.data.m1_corpus_validation import (
-    MAJOR_PAIRS,
+    SUPPORTED_PAIRS,
     _dedupe_candles_by_time,
     _row_to_candle,
     iter_m1_chunks,
@@ -194,8 +194,11 @@ def materialize_pair(
     dry_run: bool = False,
     run_id: str | None = None,
 ) -> MaterializationResult:
-    if instrument not in MAJOR_PAIRS:
-        raise ValueError(f"instrument not in major universe: {instrument}")
+    # Control-universe majors and registered non-USD crosses are both
+    # supported; the M1→target aggregation rules are price-agnostic so the
+    # same code path serves crosses (incl. JPY-quote, 0.01-pip) unchanged.
+    if instrument not in SUPPORTED_PAIRS:
+        raise ValueError(f"instrument not in supported universe: {instrument}")
     run = run_id or str(uuid.uuid4())
     result = MaterializationResult(
         instrument=instrument,
