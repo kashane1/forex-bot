@@ -1,0 +1,2 @@
+# Verbose per-chunk ingestion progress logs — not committed (noise, no data).
+*.log
