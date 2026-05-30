@@ -1,0 +1,32 @@
+{
+  "pairs": [
+    {
+      "pair": "EUR_USD",
+      "threshold_atr_pips": 39.641839555450794,
+      "n_hivol": 532,
+      "n_all_c1_long": 1595
+    },
+    {
+      "pair": "USD_JPY",
+      "threshold_atr_pips": 54.071761535007205,
+      "n_hivol": 715,
+      "n_all_c1_long": 2145
+    },
+    {
+      "pair": "GBP_USD",
+      "threshold_atr_pips": 46.71634197665461,
+      "n_hivol": 528,
+      "n_all_c1_long": 1585
+    }
+  ],
+  "seeds": 200,
+  "vol_quantile": 0.6666666666666666,
+  "horizons_min": [
+    5,
+    10,
+    15,
+    30,
+    60
+  ],
+  "state": "C1_trend_cont_long"
+}
