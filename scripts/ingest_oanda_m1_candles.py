@@ -26,6 +26,10 @@ from forex_bot.data.research_db import (
     ResearchDatabaseUnsafe,
     get_research_database_config,
 )
+from forex_bot.domain.cross_instruments import (
+    NONUSD_CROSS_PAIRS,
+    PRIMARY_CROSS_PAIRS,
+)
 from forex_bot.logging_config import _scrub_value
 from forex_bot.project_env import bootstrap_environ
 
@@ -43,7 +47,10 @@ MAJOR_FOREX_PAIRS = (
     "USD_CHF",
     "NZD_USD",
 )
-ALLOWED_INSTRUMENTS = set(MAJOR_FOREX_PAIRS)
+# Non-USD crosses are additive (first multi-market expansion). The majors
+# remain the control universe; the allowlist is widened to the union so the
+# same practice-only, candle-endpoint-only ingestion path serves crosses.
+ALLOWED_INSTRUMENTS = set(MAJOR_FOREX_PAIRS) | set(NONUSD_CROSS_PAIRS)
 _INSTRUMENT_RE = re.compile(r"^[A-Z]{3}_[A-Z]{3}$")
 
 
@@ -62,11 +69,17 @@ def validate_instrument(instrument: str) -> str:
 def resolve_instruments(args: argparse.Namespace) -> list[str]:
     if args.majors:
         return list(MAJOR_FOREX_PAIRS)
+    if getattr(args, "crosses", False):
+        return list(PRIMARY_CROSS_PAIRS)
+    if getattr(args, "all_crosses", False):
+        return list(NONUSD_CROSS_PAIRS)
     if args.instruments:
         return [validate_instrument(item) for item in args.instruments]
     if args.instrument:
         return [validate_instrument(args.instrument)]
-    raise ValueError("one of --instrument, --instruments, or --majors is required")
+    raise ValueError(
+        "one of --instrument, --instruments, --majors, --crosses, or --all-crosses is required"
+    )
 
 
 def validate_endpoint_url(url: str) -> None:
@@ -284,6 +297,16 @@ def main(argv: list[str] | None = None, *, environ: dict[str, str] | None = None
         "--majors",
         action="store_true",
         help=f"Ingest all major pairs: {', '.join(MAJOR_FOREX_PAIRS)}",
+    )
+    parser.add_argument(
+        "--crosses",
+        action="store_true",
+        help=f"Ingest the primary wave-1 non-USD crosses: {', '.join(PRIMARY_CROSS_PAIRS)}",
+    )
+    parser.add_argument(
+        "--all-crosses",
+        action="store_true",
+        help=f"Ingest all registered non-USD crosses: {', '.join(NONUSD_CROSS_PAIRS)}",
     )
     parser.add_argument("--start", required=True)
     parser.add_argument("--end", required=True)
