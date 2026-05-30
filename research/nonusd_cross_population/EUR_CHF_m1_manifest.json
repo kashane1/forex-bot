@@ -1,0 +1,13 @@
+{
+  "candles_written": 1811686,
+  "chunk_count": 1827,
+  "end_utc": "2026-05-27T00:00:00+00:00",
+  "fetch_batch_id": "b2e4ae73-cd92-4804-8089-0f4bf2f1f019",
+  "granularity": "M1",
+  "instrument": "EUR_CHF",
+  "network_called": true,
+  "raw_payload_committed": false,
+  "start_utc": "2021-05-26T00:00:00+00:00",
+  "status": "PASS",
+  "store": "postgresql://bam_dev:***@localhost:5432/forex_bot?sslmode=disable"
+}

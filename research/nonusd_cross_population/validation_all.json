@@ -1,0 +1,859 @@
+{
+  "crosses": [
+    {
+      "aggregation": {
+        "D1AGG": {
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0
+        },
+        "H1": {
+          "bar_count": 23598,
+          "coverage_pct_vs_m1": 1.2557
+        },
+        "H4": {
+          "bar_count": 4045,
+          "coverage_pct_vs_m1": 0.2153
+        },
+        "M15": {
+          "bar_count": 107953,
+          "coverage_pct_vs_m1": 5.7446
+        },
+        "M5": {
+          "bar_count": 346991,
+          "coverage_pct_vs_m1": 18.4648
+        }
+      },
+      "cost_profile": {
+        "base_currency": "EUR",
+        "carry": {
+          "carry_legs": [
+            "EUR",
+            "GBP"
+          ],
+          "carry_model": "cross_conservative_stress",
+          "carry_treatment": "estimated",
+          "conservative_bp_per_day": 0.5,
+          "denomination": "quote_currency:GBP",
+          "financing_in_engine_pnl": false,
+          "financing_is_live_blocker": true,
+          "instrument": "EUR_GBP",
+          "is_carry_cross": false,
+          "note": "ESTIMATED stress only; quote\u2192USD needs a separate rate (not assumed)."
+        },
+        "diagnostic_only": true,
+        "instrument": "EUR_GBP",
+        "pip_size": "0.0001",
+        "quote_currency": "GBP",
+        "spread": {
+          "cost_band": "near_major",
+          "high_pips": 2.0,
+          "source": "registry_estimate",
+          "typical_pips": 1.5
+        },
+        "strategy_evidence": false,
+        "structural_breaks": [],
+        "tier": "primary"
+      },
+      "h4_consistency": {
+        "ohlc_mismatch_count": null,
+        "status": "WARN"
+      },
+      "instrument": "EUR_GBP",
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "quality": {
+        "duplicate_timestamps": 0,
+        "missing_minutes": 55967,
+        "spread_percentiles": {
+          "p50": 0.000140000000000029,
+          "p90": 0.000180000000000069,
+          "p99": 0.0008400000000000629
+        },
+        "status": "WARN"
+      },
+      "row_count": 1823232,
+      "session_spread": {
+        "asian": {
+          "median_pips": 1.5,
+          "n": 10410,
+          "p90_pips": 1.7
+        },
+        "london": {
+          "median_pips": 1.4,
+          "n": 7754,
+          "p90_pips": 1.6
+        },
+        "london_ny_overlap": {
+          "median_pips": 1.8,
+          "n": 3999,
+          "p90_pips": 7.9
+        },
+        "ny": {
+          "median_pips": 1.6,
+          "n": 6768,
+          "p90_pips": 1.8
+        }
+      },
+      "state": "INGESTED"
+    },
+    {
+      "aggregation": {
+        "D1AGG": {
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0
+        },
+        "H1": {
+          "bar_count": 27403,
+          "coverage_pct_vs_m1": 1.4582
+        },
+        "H4": {
+          "bar_count": 5289,
+          "coverage_pct_vs_m1": 0.2814
+        },
+        "M15": {
+          "bar_count": 116586,
+          "coverage_pct_vs_m1": 6.204
+        },
+        "M5": {
+          "bar_count": 360104,
+          "coverage_pct_vs_m1": 19.1626
+        }
+      },
+      "cost_profile": {
+        "base_currency": "EUR",
+        "carry": {
+          "carry_legs": [
+            "EUR",
+            "JPY"
+          ],
+          "carry_model": "cross_conservative_stress",
+          "carry_treatment": "estimated",
+          "conservative_bp_per_day": 0.8,
+          "denomination": "quote_currency:JPY",
+          "financing_in_engine_pnl": false,
+          "financing_is_live_blocker": true,
+          "instrument": "EUR_JPY",
+          "is_carry_cross": true,
+          "note": "ESTIMATED stress only; quote\u2192USD needs a separate rate (not assumed)."
+        },
+        "diagnostic_only": true,
+        "instrument": "EUR_JPY",
+        "pip_size": "0.01",
+        "quote_currency": "JPY",
+        "spread": {
+          "cost_band": "near_major",
+          "high_pips": 2.0,
+          "source": "registry_estimate",
+          "typical_pips": 1.5
+        },
+        "strategy_evidence": false,
+        "structural_breaks": [],
+        "tier": "primary"
+      },
+      "h4_consistency": {
+        "ohlc_mismatch_count": null,
+        "status": "WARN"
+      },
+      "instrument": "EUR_JPY",
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "quality": {
+        "duplicate_timestamps": 0,
+        "missing_minutes": 37420,
+        "spread_percentiles": {
+          "p50": 0.020999999999986585,
+          "p90": 0.029000000000024784,
+          "p99": 0.13100000000000023
+        },
+        "status": "WARN"
+      },
+      "row_count": 1841779,
+      "session_spread": {
+        "asian": {
+          "median_pips": 1.7,
+          "n": 10468,
+          "p90_pips": 1.9
+        },
+        "london": {
+          "median_pips": 1.6,
+          "n": 7758,
+          "p90_pips": 1.8
+        },
+        "london_ny_overlap": {
+          "median_pips": 1.9,
+          "n": 3956,
+          "p90_pips": 11.0
+        },
+        "ny": {
+          "median_pips": 1.7,
+          "n": 7361,
+          "p90_pips": 1.9
+        }
+      },
+      "state": "INGESTED"
+    },
+    {
+      "aggregation": {
+        "D1AGG": {
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0
+        },
+        "H1": {
+          "bar_count": 28446,
+          "coverage_pct_vs_m1": 1.5137
+        },
+        "H4": {
+          "bar_count": 5609,
+          "coverage_pct_vs_m1": 0.2985
+        },
+        "M15": {
+          "bar_count": 119806,
+          "coverage_pct_vs_m1": 6.3754
+        },
+        "M5": {
+          "bar_count": 365917,
+          "coverage_pct_vs_m1": 19.472
+        }
+      },
+      "cost_profile": {
+        "base_currency": "GBP",
+        "carry": {
+          "carry_legs": [
+            "GBP",
+            "JPY"
+          ],
+          "carry_model": "cross_conservative_stress",
+          "carry_treatment": "estimated",
+          "conservative_bp_per_day": 1.0,
+          "denomination": "quote_currency:JPY",
+          "financing_in_engine_pnl": false,
+          "financing_is_live_blocker": true,
+          "instrument": "GBP_JPY",
+          "is_carry_cross": true,
+          "note": "ESTIMATED stress only; quote\u2192USD needs a separate rate (not assumed)."
+        },
+        "diagnostic_only": true,
+        "instrument": "GBP_JPY",
+        "pip_size": "0.01",
+        "quote_currency": "JPY",
+        "spread": {
+          "cost_band": "wide",
+          "high_pips": 4.0,
+          "source": "registry_estimate",
+          "typical_pips": 3.25
+        },
+        "strategy_evidence": false,
+        "structural_breaks": [],
+        "tier": "primary"
+      },
+      "h4_consistency": {
+        "ohlc_mismatch_count": null,
+        "status": "WARN"
+      },
+      "instrument": "GBP_JPY",
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "quality": {
+        "duplicate_timestamps": 0,
+        "missing_minutes": 26429,
+        "spread_percentiles": {
+          "p50": 0.03100000000000591,
+          "p90": 0.04099999999999682,
+          "p99": 0.17300000000000182
+        },
+        "status": "WARN"
+      },
+      "row_count": 1852770,
+      "session_spread": {
+        "asian": {
+          "median_pips": 2.3,
+          "n": 10555,
+          "p90_pips": 2.5
+        },
+        "london": {
+          "median_pips": 2.2,
+          "n": 7912,
+          "p90_pips": 2.5
+        },
+        "london_ny_overlap": {
+          "median_pips": 2.8,
+          "n": 4689,
+          "p90_pips": 14.9
+        },
+        "ny": {
+          "median_pips": 2.4,
+          "n": 7791,
+          "p90_pips": 2.7
+        }
+      },
+      "state": "INGESTED"
+    },
+    {
+      "aggregation": {
+        "D1AGG": {
+          "bar_count": 2,
+          "coverage_pct_vs_m1": 0.0001
+        },
+        "H1": {
+          "bar_count": 28770,
+          "coverage_pct_vs_m1": 1.531
+        },
+        "H4": {
+          "bar_count": 5757,
+          "coverage_pct_vs_m1": 0.3064
+        },
+        "M15": {
+          "bar_count": 120433,
+          "coverage_pct_vs_m1": 6.4087
+        },
+        "M5": {
+          "bar_count": 367668,
+          "coverage_pct_vs_m1": 19.5651
+        }
+      },
+      "cost_profile": {
+        "base_currency": "AUD",
+        "carry": {
+          "carry_legs": [
+            "AUD",
+            "JPY"
+          ],
+          "carry_model": "cross_conservative_stress",
+          "carry_treatment": "estimated",
+          "conservative_bp_per_day": 1.2,
+          "denomination": "quote_currency:JPY",
+          "financing_in_engine_pnl": false,
+          "financing_is_live_blocker": true,
+          "instrument": "AUD_JPY",
+          "is_carry_cross": true,
+          "note": "ESTIMATED stress only; quote\u2192USD needs a separate rate (not assumed)."
+        },
+        "diagnostic_only": true,
+        "instrument": "AUD_JPY",
+        "pip_size": "0.01",
+        "quote_currency": "JPY",
+        "spread": {
+          "cost_band": "moderate",
+          "high_pips": 3.0,
+          "source": "registry_estimate",
+          "typical_pips": 2.25
+        },
+        "strategy_evidence": false,
+        "structural_breaks": [],
+        "tier": "primary"
+      },
+      "h4_consistency": {
+        "ohlc_mismatch_count": null,
+        "status": "WARN"
+      },
+      "instrument": "AUD_JPY",
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "quality": {
+        "duplicate_timestamps": 0,
+        "missing_minutes": 22199,
+        "spread_percentiles": {
+          "p50": 0.019000000000005457,
+          "p90": 0.025000000000005684,
+          "p99": 0.11700000000000443
+        },
+        "status": "WARN"
+      },
+      "row_count": 1857000,
+      "session_spread": {
+        "asian": {
+          "median_pips": 1.5,
+          "n": 10560,
+          "p90_pips": 1.6
+        },
+        "london": {
+          "median_pips": 1.5,
+          "n": 7917,
+          "p90_pips": 1.6
+        },
+        "london_ny_overlap": {
+          "median_pips": 1.7,
+          "n": 5083,
+          "p90_pips": 8.2
+        },
+        "ny": {
+          "median_pips": 1.5,
+          "n": 7891,
+          "p90_pips": 1.7
+        }
+      },
+      "state": "INGESTED"
+    },
+    {
+      "aggregation": {
+        "D1AGG": {
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0
+        },
+        "H1": {
+          "bar_count": 26431,
+          "coverage_pct_vs_m1": 1.4065
+        },
+        "H4": {
+          "bar_count": 4867,
+          "coverage_pct_vs_m1": 0.259
+        },
+        "M15": {
+          "bar_count": 117075,
+          "coverage_pct_vs_m1": 6.23
+        },
+        "M5": {
+          "bar_count": 362924,
+          "coverage_pct_vs_m1": 19.3127
+        }
+      },
+      "cost_profile": {
+        "base_currency": "NZD",
+        "carry": {
+          "carry_legs": [
+            "NZD",
+            "JPY"
+          ],
+          "carry_model": "cross_conservative_stress",
+          "carry_treatment": "estimated",
+          "conservative_bp_per_day": 1.2,
+          "denomination": "quote_currency:JPY",
+          "financing_in_engine_pnl": false,
+          "financing_is_live_blocker": true,
+          "instrument": "NZD_JPY",
+          "is_carry_cross": true,
+          "note": "ESTIMATED stress only; quote\u2192USD needs a separate rate (not assumed)."
+        },
+        "diagnostic_only": true,
+        "instrument": "NZD_JPY",
+        "pip_size": "0.01",
+        "quote_currency": "JPY",
+        "spread": {
+          "cost_band": "wide",
+          "high_pips": 4.0,
+          "source": "registry_estimate",
+          "typical_pips": 3.25
+        },
+        "strategy_evidence": false,
+        "structural_breaks": [],
+        "tier": "extended"
+      },
+      "h4_consistency": {
+        "ohlc_mismatch_count": null,
+        "status": "WARN"
+      },
+      "instrument": "NZD_JPY",
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "quality": {
+        "duplicate_timestamps": 0,
+        "missing_minutes": 33359,
+        "spread_percentiles": {
+          "p50": 0.024999999999991473,
+          "p90": 0.03299999999998704,
+          "p99": 0.14700000000000557
+        },
+        "status": "WARN"
+      },
+      "row_count": 1845840,
+      "session_spread": {
+        "asian": {
+          "median_pips": 1.9,
+          "n": 10560,
+          "p90_pips": 2.1
+        },
+        "london": {
+          "median_pips": 1.8,
+          "n": 7920,
+          "p90_pips": 2.1
+        },
+        "london_ny_overlap": {
+          "median_pips": 2.3,
+          "n": 5038,
+          "p90_pips": 11.9
+        },
+        "ny": {
+          "median_pips": 2.0,
+          "n": 7910,
+          "p90_pips": 2.2
+        }
+      },
+      "state": "INGESTED"
+    },
+    {
+      "aggregation": {
+        "D1AGG": {
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0
+        },
+        "H1": {
+          "bar_count": 24120,
+          "coverage_pct_vs_m1": 1.2835
+        },
+        "H4": {
+          "bar_count": 4249,
+          "coverage_pct_vs_m1": 0.2261
+        },
+        "M15": {
+          "bar_count": 107931,
+          "coverage_pct_vs_m1": 5.7435
+        },
+        "M5": {
+          "bar_count": 343763,
+          "coverage_pct_vs_m1": 18.2931
+        }
+      },
+      "cost_profile": {
+        "base_currency": "EUR",
+        "carry": {
+          "carry_legs": [
+            "EUR",
+            "CHF"
+          ],
+          "carry_model": "cross_conservative_stress",
+          "carry_treatment": "estimated",
+          "conservative_bp_per_day": 0.7,
+          "denomination": "quote_currency:CHF",
+          "financing_in_engine_pnl": false,
+          "financing_is_live_blocker": true,
+          "instrument": "EUR_CHF",
+          "is_carry_cross": false,
+          "note": "ESTIMATED stress only; quote\u2192USD needs a separate rate (not assumed)."
+        },
+        "diagnostic_only": true,
+        "instrument": "EUR_CHF",
+        "pip_size": "0.0001",
+        "quote_currency": "CHF",
+        "spread": {
+          "cost_band": "moderate",
+          "high_pips": 3.0,
+          "source": "registry_estimate",
+          "typical_pips": 2.25
+        },
+        "strategy_evidence": false,
+        "structural_breaks": [
+          {
+            "date": "2015-01-15",
+            "reason": "SNB removed the 1.20 EUR/CHF floor"
+          }
+        ],
+        "tier": "extended"
+      },
+      "h4_consistency": {
+        "ohlc_mismatch_count": null,
+        "status": "WARN"
+      },
+      "instrument": "EUR_CHF",
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "quality": {
+        "duplicate_timestamps": 0,
+        "missing_minutes": 67513,
+        "spread_percentiles": {
+          "p50": 0.000160000000000049,
+          "p90": 0.00021000000000004349,
+          "p99": 0.0012299999999999534
+        },
+        "status": "WARN"
+      },
+      "row_count": 1811686,
+      "session_spread": {
+        "asian": {
+          "median_pips": 1.5,
+          "n": 10226,
+          "p90_pips": 1.7
+        },
+        "london": {
+          "median_pips": 1.5,
+          "n": 7508,
+          "p90_pips": 1.6
+        },
+        "london_ny_overlap": {
+          "median_pips": 1.8,
+          "n": 3618,
+          "p90_pips": 13.2
+        },
+        "ny": {
+          "median_pips": 1.7,
+          "n": 6264,
+          "p90_pips": 2.0
+        }
+      },
+      "state": "INGESTED"
+    },
+    {
+      "aggregation": {
+        "D1AGG": {
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0
+        },
+        "H1": {
+          "bar_count": 27209,
+          "coverage_pct_vs_m1": 1.4479
+        },
+        "H4": {
+          "bar_count": 5180,
+          "coverage_pct_vs_m1": 0.2756
+        },
+        "M15": {
+          "bar_count": 116985,
+          "coverage_pct_vs_m1": 6.2253
+        },
+        "M5": {
+          "bar_count": 360538,
+          "coverage_pct_vs_m1": 19.1857
+        }
+      },
+      "cost_profile": {
+        "base_currency": "GBP",
+        "carry": {
+          "carry_legs": [
+            "GBP",
+            "CHF"
+          ],
+          "carry_model": "cross_conservative_stress",
+          "carry_treatment": "estimated",
+          "conservative_bp_per_day": 0.9,
+          "denomination": "quote_currency:CHF",
+          "financing_in_engine_pnl": false,
+          "financing_is_live_blocker": true,
+          "instrument": "GBP_CHF",
+          "is_carry_cross": false,
+          "note": "ESTIMATED stress only; quote\u2192USD needs a separate rate (not assumed)."
+        },
+        "diagnostic_only": true,
+        "instrument": "GBP_CHF",
+        "pip_size": "0.0001",
+        "quote_currency": "CHF",
+        "spread": {
+          "cost_band": "wide",
+          "high_pips": 4.0,
+          "source": "registry_estimate",
+          "typical_pips": 3.25
+        },
+        "strategy_evidence": false,
+        "structural_breaks": [],
+        "tier": "extended"
+      },
+      "h4_consistency": {
+        "ohlc_mismatch_count": null,
+        "status": "WARN"
+      },
+      "instrument": "GBP_CHF",
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "quality": {
+        "duplicate_timestamps": 0,
+        "missing_minutes": 40409,
+        "spread_percentiles": {
+          "p50": 0.00021999999999988695,
+          "p90": 0.00029999999999996696,
+          "p99": 0.0019899999999999363
+        },
+        "status": "WARN"
+      },
+      "row_count": 1838790,
+      "session_spread": {
+        "asian": {
+          "median_pips": 2.0,
+          "n": 10559,
+          "p90_pips": 2.3
+        },
+        "london": {
+          "median_pips": 2.0,
+          "n": 7918,
+          "p90_pips": 2.3
+        },
+        "london_ny_overlap": {
+          "median_pips": 2.9,
+          "n": 4744,
+          "p90_pips": 15.0
+        },
+        "ny": {
+          "median_pips": 2.2,
+          "n": 7890,
+          "p90_pips": 2.7
+        }
+      },
+      "state": "INGESTED"
+    },
+    {
+      "aggregation": {
+        "D1AGG": {
+          "bar_count": 0,
+          "coverage_pct_vs_m1": 0.0
+        },
+        "H1": {
+          "bar_count": 27797,
+          "coverage_pct_vs_m1": 1.4792
+        },
+        "H4": {
+          "bar_count": 5407,
+          "coverage_pct_vs_m1": 0.2877
+        },
+        "M15": {
+          "bar_count": 118250,
+          "coverage_pct_vs_m1": 6.2926
+        },
+        "M5": {
+          "bar_count": 363783,
+          "coverage_pct_vs_m1": 19.3584
+        }
+      },
+      "cost_profile": {
+        "base_currency": "EUR",
+        "carry": {
+          "carry_legs": [
+            "EUR",
+            "AUD"
+          ],
+          "carry_model": "cross_conservative_stress",
+          "carry_treatment": "estimated",
+          "conservative_bp_per_day": 0.8,
+          "denomination": "quote_currency:AUD",
+          "financing_in_engine_pnl": false,
+          "financing_is_live_blocker": true,
+          "instrument": "EUR_AUD",
+          "is_carry_cross": false,
+          "note": "ESTIMATED stress only; quote\u2192USD needs a separate rate (not assumed)."
+        },
+        "diagnostic_only": true,
+        "instrument": "EUR_AUD",
+        "pip_size": "0.0001",
+        "quote_currency": "AUD",
+        "spread": {
+          "cost_band": "moderate",
+          "high_pips": 3.0,
+          "source": "registry_estimate",
+          "typical_pips": 2.25
+        },
+        "strategy_evidence": false,
+        "structural_breaks": [],
+        "tier": "extended"
+      },
+      "h4_consistency": {
+        "ohlc_mismatch_count": null,
+        "status": "WARN"
+      },
+      "instrument": "EUR_AUD",
+      "last_timestamp": "2026-05-26T23:59:00+00:00",
+      "quality": {
+        "duplicate_timestamps": 0,
+        "missing_minutes": 29774,
+        "spread_percentiles": {
+          "p50": 0.00025999999999992696,
+          "p90": 0.0004099999999997994,
+          "p99": 0.0017799999999998928
+        },
+        "status": "PASS"
+      },
+      "row_count": 1849425,
+      "session_spread": {
+        "asian": {
+          "median_pips": 2.2,
+          "n": 10493,
+          "p90_pips": 2.4
+        },
+        "london": {
+          "median_pips": 2.1,
+          "n": 7816,
+          "p90_pips": 2.5
+        },
+        "london_ny_overlap": {
+          "median_pips": 2.6,
+          "n": 4097,
+          "p90_pips": 13.2
+        },
+        "ny": {
+          "median_pips": 2.2,
+          "n": 7513,
+          "p90_pips": 2.6
+        }
+      },
+      "state": "INGESTED"
+    }
+  ],
+  "db_state": "AVAILABLE",
+  "diagnostic_only": true,
+  "ingested_count": 8,
+  "metadata": [
+    {
+      "cost_band": "near_major",
+      "display_precision": 5,
+      "instrument": "EUR_GBP",
+      "ok": true,
+      "pip_location": -4,
+      "problems": [],
+      "quote": "GBP",
+      "tier": "primary"
+    },
+    {
+      "cost_band": "near_major",
+      "display_precision": 3,
+      "instrument": "EUR_JPY",
+      "ok": true,
+      "pip_location": -2,
+      "problems": [],
+      "quote": "JPY",
+      "tier": "primary"
+    },
+    {
+      "cost_band": "wide",
+      "display_precision": 3,
+      "instrument": "GBP_JPY",
+      "ok": true,
+      "pip_location": -2,
+      "problems": [],
+      "quote": "JPY",
+      "tier": "primary"
+    },
+    {
+      "cost_band": "moderate",
+      "display_precision": 3,
+      "instrument": "AUD_JPY",
+      "ok": true,
+      "pip_location": -2,
+      "problems": [],
+      "quote": "JPY",
+      "tier": "primary"
+    },
+    {
+      "cost_band": "wide",
+      "display_precision": 3,
+      "instrument": "NZD_JPY",
+      "ok": true,
+      "pip_location": -2,
+      "problems": [],
+      "quote": "JPY",
+      "tier": "extended"
+    },
+    {
+      "cost_band": "moderate",
+      "display_precision": 5,
+      "instrument": "EUR_CHF",
+      "ok": true,
+      "pip_location": -4,
+      "problems": [],
+      "quote": "CHF",
+      "tier": "extended"
+    },
+    {
+      "cost_band": "wide",
+      "display_precision": 5,
+      "instrument": "GBP_CHF",
+      "ok": true,
+      "pip_location": -4,
+      "problems": [],
+      "quote": "CHF",
+      "tier": "extended"
+    },
+    {
+      "cost_band": "moderate",
+      "display_precision": 5,
+      "instrument": "EUR_AUD",
+      "ok": true,
+      "pip_location": -4,
+      "problems": [],
+      "quote": "AUD",
+      "tier": "extended"
+    }
+  ],
+  "metadata_check": "PASS",
+  "not_ingested": [],
+  "scope": "all",
+  "strategy_evidence": false,
+  "target_count": 8
+}
