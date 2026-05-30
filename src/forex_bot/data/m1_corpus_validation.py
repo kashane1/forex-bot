@@ -18,6 +18,7 @@ from forex_bot.backtesting.ltf_preflight import run_ltf_backtest_preflight
 from forex_bot.data.postgres_candle_store import PostgresCandleStore
 from forex_bot.data.timeframe_aggregation import aggregate_m1_candles
 from forex_bot.domain.candles import Candle, CandleFrame
+from forex_bot.domain.cross_instruments import NONUSD_CROSS_PAIRS
 from forex_bot.features.ltf_htf_alignment import align_ltf_execution_context
 
 Status = Literal["PASS", "WARN", "FAIL"]
@@ -31,6 +32,12 @@ MAJOR_PAIRS = (
     "USD_CHF",
     "NZD_USD",
 )
+
+# Non-USD crosses are the first multi-market expansion (additive). The
+# seven `MAJOR_PAIRS` above stay the unchanged control/baseline universe;
+# `SUPPORTED_PAIRS` is the union that ingestion/materialization accept.
+# `NONUSD_CROSS_PAIRS` comes from the cross registry (single source of truth).
+SUPPORTED_PAIRS: tuple[str, ...] = MAJOR_PAIRS + NONUSD_CROSS_PAIRS
 
 EXPECTED_M1_COUNTS: dict[str, int] = {
     "EUR_USD": 1_843_476,
@@ -131,8 +138,10 @@ def inventory_sql(store: PostgresCandleStore) -> dict[str, Any]:
                 }
             )
     present = {p["instrument"] for p in pairs}
+    # Control universe (majors) must always be present; registered crosses
+    # are supported additions, so they are not flagged as anomalous extras.
     missing = [p for p in MAJOR_PAIRS if p not in present]
-    extra = [p for p in present if p not in MAJOR_PAIRS]
+    extra = [p for p in present if p not in SUPPORTED_PAIRS]
     overall = "FAIL" if missing or any(p["row_count_status"] == "FAIL" for p in pairs) else (
         "WARN" if any(p["row_count_status"] == "WARN" for p in pairs) else "PASS"
     )
