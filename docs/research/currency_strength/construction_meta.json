@@ -1,0 +1,57 @@
+{
+  "instruments": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "NZD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "EUR_GBP",
+    "EUR_JPY",
+    "GBP_JPY",
+    "AUD_JPY",
+    "NZD_JPY",
+    "EUR_CHF",
+    "GBP_CHF",
+    "EUR_AUD"
+  ],
+  "currencies": [
+    "USD",
+    "EUR",
+    "GBP",
+    "JPY",
+    "AUD",
+    "NZD",
+    "CHF",
+    "CAD"
+  ],
+  "leg_counts": {
+    "USD": 7,
+    "EUR": 5,
+    "GBP": 4,
+    "JPY": 5,
+    "AUD": 3,
+    "NZD": 2,
+    "CHF": 3,
+    "CAD": 1
+  },
+  "primary_L": 48,
+  "delta_D": 12,
+  "sample_every": 12,
+  "horizons_min": [
+    5,
+    15,
+    30,
+    60,
+    240
+  ],
+  "common_m5_bars": 304014,
+  "n_events": 25330,
+  "span_start": "2021-05-27 00:00:00+00:00",
+  "span_end": "2026-05-26 23:50:00+00:00",
+  "dispersion_mean": 0.001773,
+  "spread_mean": 0.005263,
+  "source": "m1_materialized",
+  "granularity": "M5"
+}
