@@ -276,3 +276,48 @@ def null_comparison(panels: FactorPanels, ev: np.ndarray, horizons=HORIZONS_BARS
                     "null_mean_bp": mu / 1e-4, "null_std_bp": sd / 1e-4, "z": z,
                 })
     return pd.DataFrame(rows)
+
+
+# --------------------------------------------------------------------------- #
+# Robustness variants (protocol §13): nearby ranking + nearby aggregation
+# --------------------------------------------------------------------------- #
+def build_currency_index_volnorm(logpx: pd.DataFrame, vol_win: int = 288) -> pd.DataFrame:
+    """Vol-normalized aggregation: weight each instrument leg by inverse rolling
+    vol of its M5 log returns (nearby-aggregation robustness variant)."""
+    sign_map = currency_sign_map()
+    rets = logpx.diff()
+    inv_vol = 1.0 / rets.rolling(vol_win, min_periods=vol_win // 2).std()
+    # cumulative vol-weighted signed log-price proxy per instrument
+    weighted_cumret = (rets * inv_vol).cumsum()
+    cols = {}
+    for c in CURRENCIES:
+        insts = list(sign_map[c].keys())
+        signed = pd.DataFrame(
+            {i: sign_map[c][i] * weighted_cumret[i] for i in insts}, index=logpx.index
+        )
+        cols[c] = signed.mean(axis=1)
+    return pd.DataFrame(cols, index=logpx.index)[CURRENCIES]
+
+
+def gather_response_bucket(panels: FactorPanels, ev: np.ndarray, k: int, horizons=HORIZONS_BARS) -> pd.DataFrame:
+    """Top-k / bottom-k bucket response (nearby-ranking robustness variant).
+
+    'strongest' -> mean forward return over the k strongest currencies per event;
+    'weakest'   -> mean over the k weakest. (k=1 reproduces the primary.)
+    """
+    ranks = panels.ranks.to_numpy()
+    ncur = len(CURRENCIES)
+    rows = []
+    for mins, hb in horizons.items():
+        fwd = forward_return(panels.cc, hb).to_numpy()
+        fwd_ev = fwd[ev]
+        rk_ev = ranks[ev]
+        for cond, sel_mask in (
+            ("strongest", rk_ev <= k),
+            ("weakest", rk_ev >= (ncur - k + 1)),
+        ):
+            vals = np.where(sel_mask, fwd_ev, np.nan)
+            m = np.nanmean(vals)
+            rows.append({"condition": cond, "horizon_min": mins, "k": k,
+                         "mean_bp": float(m / 1e-4)})
+    return pd.DataFrame(rows)
