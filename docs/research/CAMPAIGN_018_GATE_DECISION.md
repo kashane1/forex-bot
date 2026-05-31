@@ -1,49 +1,7 @@
-# CAMPAIGN_018 Gate Decision
+# Moved to archive
 
-**Date:** 2026-05-27  
-**Branch:** `research-campaign-018-protective-stop-execution-001`
+This document was archived on 2026-05-31 as part of the approved forex programme cleanup (`FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md`).
 
-> **Gate decision memo** — precommitted rules applied without modification.
+**Current location:** [`docs/research/archive/forex_programme/02_campaigns/planning/CAMPAIGN_018_GATE_DECISION.md`](docs/research/archive/forex_programme/02_campaigns/planning/CAMPAIGN_018_GATE_DECISION.md)
 
----
-
-## Screening outcome
-
-| field | value |
-|---|---|
-| screening_pass | **false** |
-| verdict | **REJECT** |
-| test_window_opened | **false** |
-
----
-
-## Failed gates
-
-| gate | required | observed |
-|---|---|---|
-| train_expectancy_gte_zero | ≥ 0 | **−0.119 R** |
-| full_stress_15x_expectancy_gte_zero | ≥ 0 | **negative** (full-window aggregate) |
-
----
-
-## Passed gates
-
-validation exp > 0 (+0.194), PF ≥ 1.05 (1.58), 6/6 pairs, 142 trades, 2× stress +0.178, beat-null vs C011, mechanism active (53.3%), zero targets.
-
----
-
-## Test lockbox
-
-**Closed.** See [`CAMPAIGN_018_TEST_LOCKBOX_NOT_OPENED.md`](CAMPAIGN_018_TEST_LOCKBOX_NOT_OPENED.md).
-
----
-
-## Classification
-
-**REJECT** — binding train gate failure. Not REVISE / RESEARCH_PASS (screening did not pass).
-
----
-
-## No approval
-
-Passing validation alone is insufficient. No registry update. No paper/demo/live.
+This stub preserves evidence-index links and docstring references. Read the archived file for full content.

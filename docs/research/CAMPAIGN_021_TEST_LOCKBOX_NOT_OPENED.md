@@ -1,21 +1,7 @@
-# CAMPAIGN_021 — Test Lockbox Not Opened
+# Moved to archive
 
-**Date:** 2026-05-28  
-**Reason:** Train gate failed before validation, Backtrader parity, or test execution.
+This document was archived on 2026-05-31 as part of the approved forex programme cleanup (`FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md`).
 
-## Binding failure
+**Current location:** [`docs/research/archive/forex_programme/02_campaigns/planning/CAMPAIGN_021_TEST_LOCKBOX_NOT_OPENED.md`](docs/research/archive/forex_programme/02_campaigns/planning/CAMPAIGN_021_TEST_LOCKBOX_NOT_OPENED.md)
 
-- Train aggregate expectancy: **−0.0174 R** (threshold ≥ 0)
-- Failed gate: `train_expectancy_gte_zero`
-
-## Actions not taken (by design)
-
-- Validation evidence not run
-- Backtrader parity not run
-- Test window not opened
-- No parameter retuning
-- No validation rescue
-
-## No approval
-
-`configs/approved_strategies.yaml` remains `approved: []`.
+This stub preserves evidence-index links and docstring references. Read the archived file for full content.

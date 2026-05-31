@@ -1,12 +1,7 @@
-# CAMPAIGN_020 — Test Lockbox Not Opened
+# Moved to archive
 
-**Date:** 2026-05-27  
-**Reason:** Train gate failed and screening did not pass.
+This document was archived on 2026-05-31 as part of the approved forex programme cleanup (`FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md`).
 
-## Blockers
+**Current location:** [`docs/research/archive/forex_programme/02_campaigns/planning/CAMPAIGN_020_TEST_LOCKBOX_NOT_OPENED.md`](docs/research/archive/forex_programme/02_campaigns/planning/CAMPAIGN_020_TEST_LOCKBOX_NOT_OPENED.md)
 
-1. **train_expectancy_gte_zero** failed (−0.035 R under `next_bar_open`).
-2. **backtrader_parity_pass** not satisfied (no C020 parity run).
-3. Gate discipline: validation uplift does **not** authorize test when train fails.
-
-Test window 2025-01-01 → 2026-05-20 was **not** executed.
+This stub preserves evidence-index links and docstring references. Read the archived file for full content.

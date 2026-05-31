@@ -1,35 +1,7 @@
-# CAMPAIGN_021 — Preflight Scaffold Result
+# Moved to archive
 
-**Date:** 2026-05-27  
-**Branch:** `research-campaign-021-ltf-mtf-confluence-scaffold-001`  
-**Status:** SCAFFOLD_ONLY — preflight PASS; no evidence run
+This document was archived on 2026-05-31 as part of the approved forex programme cleanup (`FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md`).
 
-## Command
+**Current location:** [`docs/research/archive/forex_programme/07_prompts_and_plans/CAMPAIGN_021_PREFLIGHT_SCAFFOLD_RESULT.md`](docs/research/archive/forex_programme/07_prompts_and_plans/CAMPAIGN_021_PREFLIGHT_SCAFFOLD_RESULT.md)
 
-```bash
-python scripts/run_campaign_021_ltf_mtf_confluence.py --preflight-only
-```
-
-## Outcome
-
-| check | result |
-|---|---|
-| `preflight_ok` | **true** |
-| M1 corpus (7 majors) | PASS |
-| native H4 rows | 69,648 |
-| D1AGG provenance | `native_h4_derived_d1agg` enforced |
-| M1-derived D1AGG | rejected in config + validator |
-| `fill_timing` | `next_bar_open` |
-| `strategy_evidence` | false |
-| `test_lockbox_opened` | false |
-| `not_approved` | true |
-
-Artifact: `research/campaign_021/preflight_result.json`
-
-## Blocked in scaffold sprint
-
-- `train-validation`, `test`, `full` subcommands return exit 2 with evidence-block message.
-
-## No approval
-
-`configs/approved_strategies.yaml` remains `approved: []`. Paper/demo/live blocked.
+This stub preserves evidence-index links and docstring references. Read the archived file for full content.

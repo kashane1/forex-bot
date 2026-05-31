@@ -2,8 +2,8 @@
 
 **Sprint:** `research-forex-archive-cleanup-and-crypto-roadmap-001`
 **Date:** 2026-05-31
-**Status:** PROPOSAL — awaiting human review
-**Type:** Authoritative cleanup proposal. No deletions or moves until reviewed and approved.
+**Status:** APPROVED · EXECUTED (2026-05-31)
+**Type:** Authoritative cleanup proposal. Execution on branch `research-forex-archive-cleanup-execution-001`.
 
 ---
 
@@ -15,9 +15,9 @@ The dominant failure mode is **lack of economically meaningful predictive power*
 
 This proposal inventories 2,119 documentation and artifact items, classifies them for KEEP / ARCHIVE / DELETE_CANDIDATE / NEEDS_REVIEW, defines a proposed archive folder structure, and specifies a staged cleanup sequence for a future execution sprint.
 
-> **No deletion or file move should occur until this proposal is reviewed and explicitly approved.**
+> **Executed 2026-05-31:** 380 ARCHIVE-classified docs moved to `docs/research/archive/forex_programme/` with redirect stubs at original paths. No deletions performed. See `FOREX_ARCHIVE_CLEANUP_EXECUTION_001_SUMMARY.md`.
 
-> **Cryptocurrency programme work begins only after this proposal is complete and reviewed.**
+> **Cryptocurrency programme work may proceed** — archive cleanup execution complete; data design sprint authorised.
 
 ---
 
@@ -262,17 +262,15 @@ All must pass (ruff pre-existing failures documented separately). Additionally a
 
 ---
 
-## 16. No deletion until reviewed
+## 16. Execution complete
 
-> **No file deletion should occur until this proposal is reviewed and explicitly approved by a human operator.**
-
-Archive moves may proceed only after review of this proposal and the structure design document. Deletion is a separate, explicit decision per file.
+> Archive moves executed 2026-05-31 on branch `research-forex-archive-cleanup-execution-001`. See `FOREX_ARCHIVE_CLEANUP_EXECUTION_001_SUMMARY.md`. No deletions performed.
 
 ---
 
 ## 17. Crypto programme gate
 
-> **Cryptocurrency programme work — including data ingestion, factor diagnostics, campaigns, and strategy construction — begins only after this cleanup proposal is complete and reviewed.**
+> **Gate cleared 2026-05-31.** Archive cleanup executed. Cryptocurrency data design sprint is authorised.
 
 The next authorised sprint is data design only: see `NEXT_PROMPT_CRYPTO_DATA_DESIGN_001.md`.
 

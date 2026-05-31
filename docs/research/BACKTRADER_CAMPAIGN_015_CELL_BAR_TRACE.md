@@ -1,17 +1,7 @@
-# CAMPAIGN_015 Cell Bar Trace
+# Moved to archive
 
-**Cell:** fold 1 / AUD_USD
-**Center:** `2022-05-06T17:00:00+00:00`
-**Window bars:** 40
+This document was archived on 2026-05-31 as part of the approved forex programme cleanup (`FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md`).
 
-> Diagnostic-only. `strategy_evidence: false`.
+**Current location:** [`docs/research/archive/forex_programme/06_infrastructure/backtrader/BACKTRADER_CAMPAIGN_015_CELL_BAR_TRACE.md`](docs/research/archive/forex_programme/06_infrastructure/backtrader/BACKTRADER_CAMPAIGN_015_CELL_BAR_TRACE.md)
 
-## First divergence in window
-
-- **Timestamp:** `2022-05-03T09:00:00+00:00`
-- **Kind:** `DATA_MISMATCH`
-
-### Notes
-
-- csv_close=0.7116549999999999 sqlite_close=0.71166
-- spread_csv=1.3 spread_sqlite=1.3
+This stub preserves evidence-index links and docstring references. Read the archived file for full content.

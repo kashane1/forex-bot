@@ -1,40 +1,7 @@
-# CAMPAIGN_018 — Test Lockbox Not Opened
+# Moved to archive
 
-**Date:** 2026-05-27  
-**Branch:** `research-campaign-018-protective-stop-execution-001`
+This document was archived on 2026-05-31 as part of the approved forex programme cleanup (`FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md`).
 
----
+**Current location:** [`docs/research/archive/forex_programme/02_campaigns/planning/CAMPAIGN_018_TEST_LOCKBOX_NOT_OPENED.md`](docs/research/archive/forex_programme/02_campaigns/planning/CAMPAIGN_018_TEST_LOCKBOX_NOT_OPENED.md)
 
-## Decision
-
-The 2025–2026 test lockbox was **not opened**.
-
----
-
-## Reason
-
-Precommitted screening gates **failed**:
-
-1. **train_expectancy_gte_zero** — observed **−0.119 R** (required ≥ 0)
-2. **full_stress_15x_expectancy_gte_zero** — full-window 1.5× stress aggregate **negative**
-
-Per [`CAMPAIGN_018_EXIT_HYPOTHESIS_GATE_DESIGN.md`](CAMPAIGN_018_EXIT_HYPOTHESIS_GATE_DESIGN.md), the test window opens only when **all** screening gates pass.
-
----
-
-## What was not run
-
-- No test split backtest (2025-01-01 → 2026-05-20)
-- No test gate evaluation (T1–T4)
-
----
-
-## Verdict impact
-
-Campaign classified **REJECT** at screening stage. No further splits authorized under this precommit.
-
----
-
-## No approval
-
-Test lockbox discipline preserved. No strategy approved.
+This stub preserves evidence-index links and docstring references. Read the archived file for full content.

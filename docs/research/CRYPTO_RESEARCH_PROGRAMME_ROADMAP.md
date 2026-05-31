@@ -150,19 +150,20 @@ Examples: momentum, trend continuation, breakout persistence, regime persistence
 
 - [x] Forex archive proposal written
 - [x] Final FX state index exists
-- [ ] Human review of cleanup proposal (pending)
-- [ ] No unresolved cleanup blockers that confuse active research
+- [x] Human review of cleanup proposal
+- [x] Archive cleanup executed (`FOREX_ARCHIVE_CLEANUP_EXECUTION_001_SUMMARY.md`)
+- [x] NEEDS_REVIEW triage complete (`FOREX_NEEDS_REVIEW_TRIAGE_001_SUMMARY.md`)
 
-### Stage 1 — Crypto data design
+### Stage 1 — Crypto data design ✓
 
-- Choose venue(s) and source options
-- Define spot vs futures scope
-- Define BTC/USD and ETH/USD symbol mapping
-- Define OHLCV, spread, provenance requirements
-- Define materialized timeframe requirements
-- Define cost model assumptions
-- Define minimum historical depth and gap policy
-- **Deliverable:** data ingestion plan (see `NEXT_PROMPT_CRYPTO_DATA_DESIGN_001.md`)
+- [x] Choose venue(s) and source options
+- [x] Define spot vs futures scope
+- [x] Define BTC/USD and ETH/USD symbol mapping
+- [x] Define OHLCV, spread, provenance requirements
+- [x] Define materialized timeframe requirements
+- [x] Define cost model assumptions
+- [x] Define minimum historical depth and gap policy
+- **Deliverable:** [`active/crypto_programme/CRYPTO_DATA_INGESTION_PLAN.md`](active/crypto_programme/CRYPTO_DATA_INGESTION_PLAN.md)
 
 ### Stage 2 — Crypto data ingestion infrastructure
 

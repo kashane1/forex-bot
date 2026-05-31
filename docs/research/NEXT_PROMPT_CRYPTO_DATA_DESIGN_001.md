@@ -2,8 +2,8 @@
 
 **Sprint type:** Data design only. Not a strategy sprint.
 **Branch:** `main` — work directly on main; do not create a branch or worktree.
-**Prerequisite:** `FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md` reviewed (brief review OK; do not execute cleanup yet)
-**Date authored:** 2026-05-31
+**Status:** EXECUTED · see [`active/crypto_programme/CRYPTO_DATA_DESIGN_001_SUMMARY.md`](active/crypto_programme/CRYPTO_DATA_DESIGN_001_SUMMARY.md)
+**Next sprint:** [`NEXT_PROMPT_CRYPTO_DATA_INGESTION_001.md`](NEXT_PROMPT_CRYPTO_DATA_INGESTION_001.md)
 
 ---
 

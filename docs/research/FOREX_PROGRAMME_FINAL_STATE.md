@@ -83,7 +83,9 @@ The FX-futures carry diagnostic was the pre-committed last experiment. It remove
 
 | Document | Content |
 |----------|---------|
-| [`FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md`](FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md) | Authoritative cleanup proposal |
+| [`FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md`](FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md) | Authoritative cleanup proposal (approved · executed) |
+| [`archive/forex_programme/README.md`](archive/forex_programme/README.md) | Archived sprint plans and historical prompts |
+| [`FOREX_ARCHIVE_CLEANUP_EXECUTION_001_SUMMARY.md`](FOREX_ARCHIVE_CLEANUP_EXECUTION_001_SUMMARY.md) | Archive move execution record |
 | [`FINAL_FOREX_PROGRAMME_EVIDENCE_INVENTORY.md`](FINAL_FOREX_PROGRAMME_EVIDENCE_INVENTORY.md) | Terminal evidence ledger by lane |
 | [`FINAL_RESEARCH_DECISION_MEMO.md`](FINAL_RESEARCH_DECISION_MEMO.md) | Early programme NO-GO memo (C001–C009) |
 | [`PROGRAMME_LESSONS_LEARNED.md`](PROGRAMME_LESSONS_LEARNED.md) | Cross-programme lessons |
@@ -97,6 +99,6 @@ The FX-futures carry diagnostic was the pre-committed last experiment. It remove
 
 ## Next programme
 
-Cryptocurrency research (BTC/USD, ETH/USD only) is designed but **not yet started**. See [`CRYPTO_RESEARCH_PROGRAMME_ROADMAP.md`](CRYPTO_RESEARCH_PROGRAMME_ROADMAP.md).
+Cryptocurrency research (BTC/USD, ETH/USD only) is authorised at **data design** stage. Archive cleanup executed 2026-05-31. See [`CRYPTO_RESEARCH_PROGRAMME_ROADMAP.md`](CRYPTO_RESEARCH_PROGRAMME_ROADMAP.md) and [`NEXT_PROMPT_CRYPTO_DATA_DESIGN_001.md`](NEXT_PROMPT_CRYPTO_DATA_DESIGN_001.md).
 
 Do not reopen forex strategy discovery unless overwhelming new evidence appears.

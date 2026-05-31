@@ -3,9 +3,8 @@
   "sprint": "research-forex-archive-cleanup-and-crypto-roadmap-001",
   "total_items": 2118,
   "counts": {
-    "KEEP": 1542,
-    "ARCHIVE": 380,
-    "NEEDS_REVIEW": 195,
+    "KEEP": 1598,
+    "ARCHIVE": 519,
     "DELETE_CANDIDATE": 1
   },
   "items": [
@@ -82,21 +81,21 @@
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_002_REAL_COMPARISON_003.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_002_REAL_RUN_003.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -112,81 +111,81 @@
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_011_BLOCKED_002.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_011_BLOCKED_003.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_011_FIDELITY_FIX_004.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_011_FULL_WINDOW_COMPARISON_004.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_011_FULL_WINDOW_RUN_004.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_011_HANDOFF_FROM_NORISK_REFERENCE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_011_PER_FOLD_DEFERRED_004.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_CELL_BAR_TRACE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -212,51 +211,51 @@
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_CELL_PARITY_FIX_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_CELL_PARITY_ROOT_CAUSE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_COMPARISON.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_DEDUPED_COMPARISON.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_FOLD_WINDOW_COMPARISON.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -272,21 +271,21 @@
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_POST_RUN_COMPARISON.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_POST_RUN_COMPARISON_AFTER_PROVENANCE_REPAIR.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -302,11 +301,11 @@
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_PROVENANCE_MISMATCH.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -342,11 +341,11 @@
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_PROVENANCE_REPAIR_RE_EXPORT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -382,11 +381,11 @@
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_RISKENGINE_FILL_COMPARISON.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -402,11 +401,11 @@
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_015_SIGNAL_DIFF.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -442,21 +441,21 @@
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_016_COMPARISON.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/BACKTRADER_CAMPAIGN_017_COMPARISON.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -962,21 +961,21 @@
     {
       "path": "docs/research/C1_COST_REALISM_STUDY.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/C1_CROSS_PAIR_STUDY.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
@@ -1002,11 +1001,11 @@
     {
       "path": "docs/research/C1_CROSS_REPLICATION_IMPLICATIONS.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
@@ -1032,11 +1031,11 @@
     {
       "path": "docs/research/C1_CROSS_REPLICATION_RESULT.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
@@ -1092,31 +1091,31 @@
     {
       "path": "docs/research/C1_HIGH_VOL_COST_STUDY.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/C1_HIGH_VOL_EVENT_STUDY.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/C1_HIGH_VOL_FRONTGATE_DECISION.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
@@ -1142,11 +1141,11 @@
     {
       "path": "docs/research/C1_HIGH_VOL_HYPOTHESIS.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
@@ -1162,21 +1161,21 @@
     {
       "path": "docs/research/C1_HIGH_VOL_STABILITY.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/C1_REGIME_STABILITY_STUDY.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
@@ -1192,11 +1191,11 @@
     {
       "path": "docs/research/C1_USD_CONFOUND_STUDY.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/c1/",
       "deletion_risk": "low"
     },
     {
@@ -1272,11 +1271,11 @@
     {
       "path": "docs/research/CAMPAIGN_002_FINANCING_RETROSPECTIVE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1292,51 +1291,51 @@
     {
       "path": "docs/research/CAMPAIGN_002_LEAN_MAPPING_SPEC.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_002_POSTMORTEM.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_002_WALK_FORWARD_RETROSPECTIVE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_003_POSTMORTEM.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_003_PROPOSAL.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1382,11 +1381,11 @@
     {
       "path": "docs/research/CAMPAIGN_008_HUMAN_REVIEW.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1412,11 +1411,11 @@
     {
       "path": "docs/research/CAMPAIGN_010_DATA_PROVENANCE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1432,11 +1431,11 @@
     {
       "path": "docs/research/CAMPAIGN_010_FINANCING_OVERLAY.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1462,11 +1461,11 @@
     {
       "path": "docs/research/CAMPAIGN_010_PORTFOLIO_RISK_DIAGNOSTICS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1482,11 +1481,11 @@
     {
       "path": "docs/research/CAMPAIGN_010_REJECTION_CLOSEOUT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1512,11 +1511,11 @@
     {
       "path": "docs/research/CAMPAIGN_010_WALK_FORWARD_EXECUTION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1552,18 +1551,18 @@
     {
       "path": "docs/research/CAMPAIGN_011_DATA_PROVENANCE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_011_DEDUPED_NULL_BASELINE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "KEEP",
+      "reasoning": "Manifest report_path \u2014 must remain at canonical location",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -1592,11 +1591,11 @@
     {
       "path": "docs/research/CAMPAIGN_011_DEDUPED_RUN_VERIFICATION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1612,11 +1611,11 @@
     {
       "path": "docs/research/CAMPAIGN_011_FINANCING_OVERLAY.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1662,11 +1661,11 @@
     {
       "path": "docs/research/CAMPAIGN_011_NORISK_REFERENCE_CONTRACT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1682,11 +1681,11 @@
     {
       "path": "docs/research/CAMPAIGN_011_NORISK_REFERENCE_RUNNER.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1702,21 +1701,21 @@
     {
       "path": "docs/research/CAMPAIGN_011_NULL_BASELINE_SUPERSESSION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_011_PORTFOLIO_RISK_DIAGNOSTICS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1752,11 +1751,11 @@
     {
       "path": "docs/research/CAMPAIGN_011_WALK_FORWARD_EXECUTION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1792,11 +1791,11 @@
     {
       "path": "docs/research/CAMPAIGN_012_DATA_PROVENANCE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1812,11 +1811,11 @@
     {
       "path": "docs/research/CAMPAIGN_012_FINANCING_OVERLAY.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1852,21 +1851,21 @@
     {
       "path": "docs/research/CAMPAIGN_012_PORTFOLIO_RISK_DIAGNOSTICS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_012_POST_DEDUP_NULL_REFERENCE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1882,11 +1881,11 @@
     {
       "path": "docs/research/CAMPAIGN_012_REJECTION_CLOSEOUT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1912,11 +1911,11 @@
     {
       "path": "docs/research/CAMPAIGN_012_WALK_FORWARD_EXECUTION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1952,11 +1951,11 @@
     {
       "path": "docs/research/CAMPAIGN_013_DATA_PROVENANCE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -1972,11 +1971,11 @@
     {
       "path": "docs/research/CAMPAIGN_013_FINANCING_OVERLAY.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2012,21 +2011,21 @@
     {
       "path": "docs/research/CAMPAIGN_013_PORTFOLIO_RISK_DIAGNOSTICS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_013_POST_DEDUP_NULL_REFERENCE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2042,11 +2041,11 @@
     {
       "path": "docs/research/CAMPAIGN_013_REJECTION_CLOSEOUT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2072,11 +2071,11 @@
     {
       "path": "docs/research/CAMPAIGN_013_WALK_FORWARD_EXECUTION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2112,31 +2111,31 @@
     {
       "path": "docs/research/CAMPAIGN_014_DATA_PROVENANCE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_014_EVENT_FIXTURE_DATE_VERIFICATION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_014_EVENT_FIXTURE_PROVENANCE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2152,11 +2151,11 @@
     {
       "path": "docs/research/CAMPAIGN_014_FINANCING_OVERLAY.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2192,21 +2191,21 @@
     {
       "path": "docs/research/CAMPAIGN_014_PORTFOLIO_RISK_DIAGNOSTICS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_014_POST_DEDUP_NULL_REFERENCE.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2242,11 +2241,11 @@
     {
       "path": "docs/research/CAMPAIGN_014_WALK_FORWARD_EXECUTION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2282,21 +2281,21 @@
     {
       "path": "docs/research/CAMPAIGN_015_CONCENTRATION_DIAGNOSTICS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_015_DEDUPED_NULL_AND_ANTI_OVERFIT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2332,21 +2331,21 @@
     {
       "path": "docs/research/CAMPAIGN_015_DUPLICATE_CANDLE_CONTAMINATION_MEMO.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_015_ENTRY_BAR_STOP_SEMANTICS_AUDIT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2372,51 +2371,51 @@
     {
       "path": "docs/research/CAMPAIGN_015_FAILED_BREAKOUT_REVERSAL_SUMMARY.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_015_GATE_FAILURE_AUTOPSY.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_015_NO_FOLLOWUP_DECISION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_015_NULL_AND_ANTI_OVERFIT_DIAGNOSTICS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_015_NULL_AND_ANTI_OVERFIT_POST_RUN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2452,21 +2451,21 @@
     {
       "path": "docs/research/CAMPAIGN_015_VS_DEDUPED_NULL_CHECK.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_016_NULL_AND_ANTI_OVERFIT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2522,11 +2521,11 @@
     {
       "path": "docs/research/CAMPAIGN_017_NULL_AND_ANTI_OVERFIT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2582,31 +2581,31 @@
     {
       "path": "docs/research/CAMPAIGN_018_EXIT_HYPOTHESIS_GATE_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_018_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_018_FAILURE_ANALYSIS_FOR_NEXT_EXIT_HYPOTHESIS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2622,11 +2621,11 @@
     {
       "path": "docs/research/CAMPAIGN_018_GATE_DECISION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2662,11 +2661,11 @@
     {
       "path": "docs/research/CAMPAIGN_018_TEST_LOCKBOX_NOT_OPENED.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2692,21 +2691,21 @@
     {
       "path": "docs/research/CAMPAIGN_019_EXIT_HYPOTHESIS_GATE_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_019_EXIT_HYPOTHESIS_IMPLEMENTATION_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2722,11 +2721,11 @@
     {
       "path": "docs/research/CAMPAIGN_019_GATE_DECISION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2742,11 +2741,11 @@
     {
       "path": "docs/research/CAMPAIGN_019_TEST_LOCKBOX_NOT_OPENED.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2782,11 +2781,11 @@
     {
       "path": "docs/research/CAMPAIGN_020_BACKTRADER_PARITY_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2812,11 +2811,11 @@
     {
       "path": "docs/research/CAMPAIGN_020_GATE_DECISION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2872,21 +2871,21 @@
     {
       "path": "docs/research/CAMPAIGN_020_STRUCTURAL_DISTINCTNESS_MEMO.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_020_TEST_LOCKBOX_NOT_OPENED.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2902,11 +2901,11 @@
     {
       "path": "docs/research/CAMPAIGN_021_BACKTRADER_PARITY_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -2952,11 +2951,11 @@
     {
       "path": "docs/research/CAMPAIGN_021_GATE_DECISION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3012,11 +3011,11 @@
     {
       "path": "docs/research/CAMPAIGN_021_MATERIALIZED_DATA_LOADER_VERIFICATION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3042,21 +3041,21 @@
     {
       "path": "docs/research/CAMPAIGN_021_STRUCTURAL_DISTINCTNESS_MEMO.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_021_TEST_LOCKBOX_NOT_OPENED.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3082,11 +3081,11 @@
     {
       "path": "docs/research/CAMPAIGN_022_BEHAVIOR_DIAGNOSTICS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3122,11 +3121,11 @@
     {
       "path": "docs/research/CAMPAIGN_022_GATE_DECISION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3152,21 +3151,21 @@
     {
       "path": "docs/research/CAMPAIGN_022_MFE_MAE_STOP_DIAGNOSTICS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_022_STRUCTURAL_DISTINCTNESS_MEMO.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3212,11 +3211,11 @@
     {
       "path": "docs/research/CAMPAIGN_025_BACKTRADER_PARITY_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3232,21 +3231,21 @@
     {
       "path": "docs/research/CAMPAIGN_025_DATA_COVERAGE_AND_SPLIT_DECISION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_025_DISTINCTNESS_AND_PRIOR_LESSONS_MEMO.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3312,11 +3311,11 @@
     {
       "path": "docs/research/CAMPAIGN_025_TRAIN_MATRIX_SPEC.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3352,21 +3351,21 @@
     {
       "path": "docs/research/CAMPAIGN_026_DATA_COVERAGE_AND_SPLIT_DECISION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_026_M3_M30_MATERIALIZATION_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3392,11 +3391,11 @@
     {
       "path": "docs/research/CAMPAIGN_026_TIMEFRAME_COST_ATR_DIAGNOSTIC.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3432,11 +3431,11 @@
     {
       "path": "docs/research/CAMPAIGN_026_TIMEFRAME_LADDER_SPEC.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3452,21 +3451,21 @@
     {
       "path": "docs/research/CAMPAIGN_027_ARTIFACT_CONTRACT_COMPLIANCE_PRE_RUN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_027_BACKTRADER_PARITY_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3482,31 +3481,31 @@
     {
       "path": "docs/research/CAMPAIGN_027_DATA_COVERAGE_AND_SPLIT_DECISION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_027_EDGE_DISCOVERY_ARTIFACT_CONTRACT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_027_EDGE_DISCOVERY_CONFIRMATION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3602,11 +3601,11 @@
     {
       "path": "docs/research/CAMPAIGN_027_VALIDATION_NOT_RUN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3622,21 +3621,21 @@
     {
       "path": "docs/research/CAMPAIGN_028_NEW_THESIS_BRIEF.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_029_BACKTRADER_PARITY_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3662,31 +3661,31 @@
     {
       "path": "docs/research/CAMPAIGN_029_GATE_DECISION.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_029_HTF_ALIGNMENT_DESIGN.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CAMPAIGN_029_HTF_D1AGG_AVAILABILITY_AND_STALENESS.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -3952,21 +3951,21 @@
     {
       "path": "docs/research/CARRY_DATASET_PLAUSIBILITY_REVIEW.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/carry/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CARRY_DATASET_VALIDATION.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/03_factor_validation/carry/",
       "deletion_risk": "low"
     },
     {
@@ -4232,11 +4231,11 @@
     {
       "path": "docs/research/CROSS_PAIR_CURRENCY_STRENGTH_ROTATION_IMPLEMENTATION_SPEC.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/02_campaigns/planning/",
       "deletion_risk": "low"
     },
     {
@@ -4362,21 +4361,21 @@
     {
       "path": "docs/research/CROSS_UNIVERSE_FACTOR_RANKING.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/08_superseded_working_notes/direction/",
       "deletion_risk": "low"
     },
     {
       "path": "docs/research/CROSS_UNIVERSE_FACTOR_SHORTLIST.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/08_superseded_working_notes/direction/",
       "deletion_risk": "low"
     },
     {
@@ -5832,11 +5831,11 @@
     {
       "path": "docs/research/FX_FUTURES_CARRY_DIAGNOSTIC_RESULT.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/00_final_synthesis/",
       "deletion_risk": "low"
     },
     {
@@ -5852,11 +5851,11 @@
     {
       "path": "docs/research/FX_FUTURES_CARRY_PROGRAMME_IMPLICATION.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/00_final_synthesis/",
       "deletion_risk": "low"
     },
     {
@@ -6232,11 +6231,11 @@
     {
       "path": "docs/research/INFRA_BACKTRADER_SECONDARY_LANE_004_CAMPAIGN_011_SUMMARY.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -6562,11 +6561,11 @@
     {
       "path": "docs/research/LEAN_PARITY_CAMPAIGN_002_BLOCKED.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": true,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/06_infrastructure/backtrader/",
       "deletion_risk": "low"
     },
     {
@@ -7292,11 +7291,11 @@
     {
       "path": "docs/research/NEW_FACTOR_FAMILIES_ENABLED_BY_CROSSES.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/08_superseded_working_notes/direction/",
       "deletion_risk": "low"
     },
     {
@@ -7502,11 +7501,11 @@
     {
       "path": "docs/research/NEXT_FACTOR_DISCOVERY_DIRECTION.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/08_superseded_working_notes/direction/",
       "deletion_risk": "low"
     },
     {
@@ -7832,11 +7831,11 @@
     {
       "path": "docs/research/NEXT_RESEARCH_DIRECTION_AFTER_CAMPAIGN_002_REJECT.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "ARCHIVE",
+      "reasoning": "Executive triage 2026-05-31: superseded intermediate doc archived",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
-      "proposed_archive_destination": null,
+      "proposed_archive_destination": "docs/research/archive/forex_programme/08_superseded_working_notes/direction/",
       "deletion_risk": "low"
     },
     {
@@ -9992,8 +9991,8 @@
     {
       "path": "docs/research/c1_highvol_frontgate/c1_hivol_meta.json",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10002,8 +10001,8 @@
     {
       "path": "docs/research/c1_highvol_frontgate/c1_hivol_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10012,8 +10011,8 @@
     {
       "path": "docs/research/c1_highvol_frontgate/eur_usd_c1_hivol_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10022,8 +10021,8 @@
     {
       "path": "docs/research/c1_highvol_frontgate/gbp_usd_c1_hivol_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10032,8 +10031,8 @@
     {
       "path": "docs/research/c1_highvol_frontgate/usd_jpy_c1_hivol_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10042,8 +10041,8 @@
     {
       "path": "docs/research/c1_validation/aud_jpy_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10052,8 +10051,8 @@
     {
       "path": "docs/research/c1_validation/aud_jpy_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10062,8 +10061,8 @@
     {
       "path": "docs/research/c1_validation/aud_usd_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10072,8 +10071,8 @@
     {
       "path": "docs/research/c1_validation/aud_usd_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10082,8 +10081,8 @@
     {
       "path": "docs/research/c1_validation/c1_cross_robustness.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10092,8 +10091,8 @@
     {
       "path": "docs/research/c1_validation/c1_cross_validation_meta.json",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10102,8 +10101,8 @@
     {
       "path": "docs/research/c1_validation/c1_robustness.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10112,8 +10111,8 @@
     {
       "path": "docs/research/c1_validation/c1_validation_meta.json",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10122,8 +10121,8 @@
     {
       "path": "docs/research/c1_validation/eur_aud_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10132,8 +10131,8 @@
     {
       "path": "docs/research/c1_validation/eur_aud_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10142,8 +10141,8 @@
     {
       "path": "docs/research/c1_validation/eur_chf_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10152,8 +10151,8 @@
     {
       "path": "docs/research/c1_validation/eur_chf_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10162,8 +10161,8 @@
     {
       "path": "docs/research/c1_validation/eur_gbp_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10172,8 +10171,8 @@
     {
       "path": "docs/research/c1_validation/eur_gbp_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10182,8 +10181,8 @@
     {
       "path": "docs/research/c1_validation/eur_jpy_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10192,8 +10191,8 @@
     {
       "path": "docs/research/c1_validation/eur_jpy_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10202,8 +10201,8 @@
     {
       "path": "docs/research/c1_validation/eur_usd_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10212,8 +10211,8 @@
     {
       "path": "docs/research/c1_validation/eur_usd_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10222,8 +10221,8 @@
     {
       "path": "docs/research/c1_validation/gbp_chf_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10232,8 +10231,8 @@
     {
       "path": "docs/research/c1_validation/gbp_chf_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10242,8 +10241,8 @@
     {
       "path": "docs/research/c1_validation/gbp_jpy_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10252,8 +10251,8 @@
     {
       "path": "docs/research/c1_validation/gbp_jpy_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10262,8 +10261,8 @@
     {
       "path": "docs/research/c1_validation/gbp_usd_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10272,8 +10271,8 @@
     {
       "path": "docs/research/c1_validation/gbp_usd_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10282,8 +10281,8 @@
     {
       "path": "docs/research/c1_validation/nzd_jpy_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10292,8 +10291,8 @@
     {
       "path": "docs/research/c1_validation/nzd_jpy_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10302,8 +10301,8 @@
     {
       "path": "docs/research/c1_validation/nzd_usd_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10312,8 +10311,8 @@
     {
       "path": "docs/research/c1_validation/nzd_usd_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10322,8 +10321,8 @@
     {
       "path": "docs/research/c1_validation/usd_cad_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10332,8 +10331,8 @@
     {
       "path": "docs/research/c1_validation/usd_cad_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10342,8 +10341,8 @@
     {
       "path": "docs/research/c1_validation/usd_chf_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10352,8 +10351,8 @@
     {
       "path": "docs/research/c1_validation/usd_chf_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10362,8 +10361,8 @@
     {
       "path": "docs/research/c1_validation/usd_jpy_c1_events.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10372,8 +10371,8 @@
     {
       "path": "docs/research/c1_validation/usd_jpy_c1_nulls.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -10382,8 +10381,8 @@
     {
       "path": "docs/research/carry_rates/carry_differentials.csv",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -16282,8 +16281,8 @@
     {
       "path": "research/campaign_028/front_gate/relative_value_spread_screen.json",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -16292,8 +16291,8 @@
     {
       "path": "research/campaign_028/front_gate/relative_value_spread_screen.md",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -16412,8 +16411,8 @@
     {
       "path": "research/carry/__pycache__/carry_factor.cpython-312.pyc",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -16422,8 +16421,8 @@
     {
       "path": "research/carry/__pycache__/carry_rates.cpython-312.pyc",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -16432,8 +16431,8 @@
     {
       "path": "research/carry/carry_factor.py",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -16442,8 +16441,8 @@
     {
       "path": "research/carry/carry_rates.py",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -16452,8 +16451,8 @@
     {
       "path": "research/carry/factor_validation/carry_factor_validation.json",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -17272,8 +17271,8 @@
     {
       "path": "research/edge_discovery/__pycache__/cross_relative_value.cpython-312.pyc",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -17282,8 +17281,8 @@
     {
       "path": "research/edge_discovery/__pycache__/currency_strength.cpython-312.pyc",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -17352,8 +17351,8 @@
     {
       "path": "research/edge_discovery/__pycache__/relative_value_spread.cpython-312.pyc",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -17412,8 +17411,8 @@
     {
       "path": "research/edge_discovery/cross_relative_value.py",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -17422,8 +17421,8 @@
     {
       "path": "research/edge_discovery/currency_strength.py",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -17742,8 +17741,8 @@
     {
       "path": "research/edge_discovery/relative_value_spread.py",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -19152,8 +19151,8 @@
     {
       "path": "research/fx_futures/__pycache__/carry_diagnostic.cpython-312.pyc",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -19182,8 +19181,8 @@
     {
       "path": "research/fx_futures/carry_diagnostic.py",
       "type": "factor_validation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
@@ -19542,8 +19541,8 @@
     {
       "path": "research/lean_parity/CAMPAIGN_002_PARITY_CHECKLIST.md",
       "type": "campaign_documentation",
-      "classification": "NEEDS_REVIEW",
-      "reasoning": "Campaign doc with unclear terminal status",
+      "classification": "KEEP",
+      "reasoning": "Executive triage 2026-05-31: keep \u2014 evidence artifact or referenced diagnostic in canonical location",
       "referenced_by_manifest_or_index": false,
       "visible_to_new_researcher": true,
       "proposed_archive_destination": null,
