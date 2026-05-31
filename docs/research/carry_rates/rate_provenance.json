@@ -1,0 +1,79 @@
+{
+  "source": "FRED (Federal Reserve Bank of St. Louis), OECD 3-month interbank rates",
+  "attribution": "OECD via FRED; harmonized series IR3TIB01<CC>M156N; public data.",
+  "note_no_api_key": "FRED_API_KEY read from env/.env, NEVER committed.",
+  "fetch_window": [
+    "1995-01-01",
+    "2026-05-31"
+  ],
+  "frequency": "monthly (annualized %)",
+  "interbank_not_broker_financing": true,
+  "series": [
+    {
+      "currency": "USD",
+      "series_id": "IR3TIB01USM156N",
+      "source": "cache",
+      "n_obs": 375,
+      "first": "1995-01-01",
+      "last": "2026-04-01"
+    },
+    {
+      "currency": "EUR",
+      "series_id": "IR3TIB01EZM156N",
+      "source": "cache",
+      "n_obs": 373,
+      "first": "1995-01-01",
+      "last": "2026-01-01"
+    },
+    {
+      "currency": "GBP",
+      "series_id": "IR3TIB01GBM156N",
+      "source": "cache",
+      "n_obs": 373,
+      "first": "1995-01-01",
+      "last": "2026-01-01"
+    },
+    {
+      "currency": "JPY",
+      "series_id": "IR3TIB01JPM156N",
+      "source": "cache",
+      "n_obs": 288,
+      "first": "2002-04-01",
+      "last": "2026-03-01"
+    },
+    {
+      "currency": "AUD",
+      "series_id": "IR3TIB01AUM156N",
+      "source": "cache",
+      "n_obs": 376,
+      "first": "1995-01-01",
+      "last": "2026-04-01"
+    },
+    {
+      "currency": "NZD",
+      "series_id": "IR3TIB01NZM156N",
+      "source": "cache",
+      "n_obs": 376,
+      "first": "1995-01-01",
+      "last": "2026-04-01"
+    },
+    {
+      "currency": "CHF",
+      "series_id": "IR3TIB01CHM156N",
+      "source": "cache",
+      "n_obs": 322,
+      "first": "1999-07-01",
+      "last": "2026-04-01"
+    },
+    {
+      "currency": "CAD",
+      "series_id": "IR3TIB01CAM156N",
+      "source": "cache",
+      "n_obs": 376,
+      "first": "1995-01-01",
+      "last": "2026-04-01"
+    }
+  ],
+  "triangular_rate_residual_max_abs_pct": 0.0,
+  "strategy_evidence": false
+}
