@@ -1,0 +1,142 @@
+{
+  "instruments": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD",
+    "NZD_USD",
+    "USD_CAD",
+    "USD_CHF",
+    "EUR_GBP",
+    "EUR_JPY",
+    "GBP_JPY",
+    "AUD_JPY",
+    "NZD_JPY",
+    "EUR_CHF",
+    "GBP_CHF",
+    "EUR_AUD"
+  ],
+  "triangles": {
+    "EUR_GBP": {
+      "EUR_USD": 1,
+      "GBP_USD": -1
+    },
+    "EUR_JPY": {
+      "EUR_USD": 1,
+      "USD_JPY": 1
+    },
+    "GBP_JPY": {
+      "GBP_USD": 1,
+      "USD_JPY": 1
+    },
+    "AUD_JPY": {
+      "AUD_USD": 1,
+      "USD_JPY": 1
+    },
+    "NZD_JPY": {
+      "NZD_USD": 1,
+      "USD_JPY": 1
+    },
+    "EUR_CHF": {
+      "EUR_USD": 1,
+      "USD_CHF": 1
+    },
+    "GBP_CHF": {
+      "GBP_USD": 1,
+      "USD_CHF": 1
+    },
+    "EUR_AUD": {
+      "EUR_USD": 1,
+      "AUD_USD": -1
+    }
+  },
+  "primary_L": 48,
+  "horizons_min": [
+    5,
+    15,
+    30,
+    60,
+    240
+  ],
+  "z_stretch": 2.0,
+  "z_extreme": 3.0,
+  "common_m5_bars": 304014,
+  "n_events": 25331,
+  "span_start": "2021-05-27 00:00:00+00:00",
+  "span_end": "2026-05-26 23:50:00+00:00",
+  "diagnostics": {
+    "EUR_GBP": {
+      "resid_std_bp": 0.227,
+      "ar1_phi": 0.33183372081653284,
+      "half_life_bars": 0.6283508398961899,
+      "autocorr_lag1": 0.3318343440688552,
+      "triangle_spread_band_bp": 4.97
+    },
+    "EUR_JPY": {
+      "resid_std_bp": 0.615,
+      "ar1_phi": 0.9304784411029486,
+      "half_life_bars": 9.619512587559313,
+      "autocorr_lag1": 0.930478379428635,
+      "triangle_spread_band_bp": 4.25
+    },
+    "GBP_JPY": {
+      "resid_std_bp": 0.527,
+      "ar1_phi": 0.9087617099524874,
+      "half_life_bars": 7.245009409301003,
+      "autocorr_lag1": 0.908761558700162,
+      "triangle_spread_band_bp": 4.87
+    },
+    "AUD_JPY": {
+      "resid_std_bp": 0.586,
+      "ar1_phi": 0.8660209701455949,
+      "half_life_bars": 4.818670174936088,
+      "autocorr_lag1": 0.8660208771449901,
+      "triangle_spread_band_bp": 5.66
+    },
+    "NZD_JPY": {
+      "resid_std_bp": 0.813,
+      "ar1_phi": 0.9037314902784765,
+      "half_life_bars": 6.84772503650935,
+      "autocorr_lag1": 0.9037313855369177,
+      "triangle_spread_band_bp": 7.18
+    },
+    "EUR_CHF": {
+      "resid_std_bp": 0.284,
+      "ar1_phi": 0.39780136149072065,
+      "half_life_bars": 0.7519476114096235,
+      "autocorr_lag1": 0.3978015313277479,
+      "triangle_spread_band_bp": 5.4
+    },
+    "GBP_CHF": {
+      "resid_std_bp": 0.313,
+      "ar1_phi": 0.40112116581374735,
+      "half_life_bars": 0.7587886694421584,
+      "autocorr_lag1": 0.40112127164186967,
+      "triangle_spread_band_bp": 5.9
+    },
+    "EUR_AUD": {
+      "resid_std_bp": 0.255,
+      "ar1_phi": 0.40011289139700235,
+      "half_life_bars": 0.7567038383048538,
+      "autocorr_lag1": 0.40011410851510615,
+      "triangle_spread_band_bp": 5.47
+    }
+  },
+  "rel_spread_bp": {
+    "EUR_USD": 1.46,
+    "GBP_USD": 1.62,
+    "USD_JPY": 1.27,
+    "AUD_USD": 2.08,
+    "NZD_USD": 2.72,
+    "USD_CAD": 1.49,
+    "USD_CHF": 2.01,
+    "EUR_GBP": 1.89,
+    "EUR_JPY": 1.53,
+    "GBP_JPY": 1.98,
+    "AUD_JPY": 2.31,
+    "NZD_JPY": 3.19,
+    "EUR_CHF": 1.93,
+    "GBP_CHF": 2.27,
+    "EUR_AUD": 1.93
+  }
+}
