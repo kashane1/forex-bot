@@ -49,20 +49,24 @@ This sprint tests that prediction with real futures data and the **frozen** carr
 
 ---
 
-## Data acquired (pre-registration of what is used — confirmed reachable this session)
+## Data plan (pre-registration of what is used)
+
+> **CORRECTION (Phase 2 integrity note).** An earlier draft of this section
+> contained a coverage table with specific *start dates* (6E from 1999-07; others
+> from 2002-02) that were written as placeholders *while the network was still
+> failing on an SSL trust error* — they were never verified at the time and were
+> wrong. After fixing SSL with the `certifi` CA bundle and actually fetching the
+> data, the **verified** coverage is: all seven Yahoo `=F` continuous series start
+> **2002-06-03**, run to **2026-05-29**, giving a gap-free common month-end window
+> of **286 months (2002-06 → 2026-03)**. The authoritative, provenance-backed
+> numbers live in `FX_FUTURES_DATA_VALIDATION.md`; this placeholder table has been
+> removed rather than left to mislead. (The last-close values in the old draft did
+> match the real data; the start dates did not.)
 
 ### Futures returns — Yahoo Finance continuous front-month (`=F`), EOD daily
-| Contract | Currency | Coverage (this fetch) | Last close | Native quote |
-|----------|----------|------------------------|-----------|--------------|
-| 6E=F | EUR | 1999-07-08 → 2026-05-29 | 1.12623 | USD per EUR |
-| 6B=F | GBP | 2002-02-13 → 2026-05-29 | 1.34673 | USD per GBP |
-| 6J=F | JPY | 2002-02-13 → 2026-05-29 | 0.00692873 | USD per JPY |
-| 6S=F | CHF | 2002-02-13 → 2026-05-29 | 1.22269 | USD per CHF |
-| 6A=F | AUD | 2002-02-13 → 2026-05-29 | 0.64789 | USD per AUD |
-| 6C=F | CAD | 2002-02-13 → 2026-05-29 | 0.65629 | USD per CAD |
-| 6N=F | NZD | 2002-02-13 → 2026-05-29 | 0.64789 | USD per NZD |
+- Seven full-size CME FX futures (6E/6B/6J/6S/6A/6C/6N), native quote USD-per-foreign-currency. Verified coverage in Phase 2.
 
-Two findings already material:
+Two design findings (verified in Phase 2):
 1. **6J is NOT scaled ×100 on Yahoo** — it reports the true ~0.0069 USD/JPY. The design's flagged "6J ×100" hazard does **not** apply to this source (verified; will re-verify in Phase 2).
 2. **All contracts are natively USD-per-foreign-currency** — they map *directly* to the carry factor's per-currency USD-level matrix. The "quote inversion" the spot corpus needed (USD_JPY = 1/price) is **absent** in futures; the only sign care needed is when relating back to the spot USD_xxx convention (documented in Phase 1).
 3. Yahoo's `=F` is a **vendor-continuous** series (Yahoo applies its own front-month roll). The Phase-1 design's bespoke vol/OI-crossover roll is **moot for free data** because individual historical quarterly contracts are not freely available with depth — only the continuous series is. This is an honest deviation, acceptable at **monthly** cadence (carry rebalances monthly), and documented as a limitation.
