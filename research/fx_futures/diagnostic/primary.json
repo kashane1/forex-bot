@@ -1,0 +1,109 @@
+{
+  "seed": 20260531,
+  "scheme": "hml",
+  "k": 3,
+  "primary_h": 3,
+  "n_months": 61,
+  "window_first": "2021-05-01",
+  "window_last": "2026-05-01",
+  "currencies": [
+    "USD",
+    "EUR",
+    "GBP",
+    "JPY",
+    "AUD",
+    "NZD",
+    "CHF",
+    "CAD"
+  ],
+  "rank_stability": 0.9836489067034573,
+  "cells": {
+    "h1": {
+      "n": 59,
+      "n_independent": 59,
+      "mean": 0.0002910855097916655,
+      "std": 0.014962850976275659,
+      "ann_ratio": 0.06739021769389361,
+      "sign_consistency": 0.6101694915254238,
+      "nw_t": 0.15600636696304365
+    },
+    "h3": {
+      "n": 57,
+      "n_independent": 19,
+      "mean": 0.0004264492390749342,
+      "std": 0.023943362322166713,
+      "ann_ratio": 0.03562149988267341,
+      "sign_consistency": 0.5964912280701754,
+      "nw_t": 0.09257814114338915
+    },
+    "h6": {
+      "n": 54,
+      "n_independent": 9,
+      "mean": 7.147825407010723e-05,
+      "std": 0.03266781124997731,
+      "ann_ratio": 0.0030943461607262023,
+      "sign_consistency": 0.5740740740740741,
+      "nw_t": 0.008535703830569761
+    },
+    "h12": {
+      "n": 48,
+      "n_independent": 4,
+      "mean": -0.0034439797751507927,
+      "std": 0.042795623780036283,
+      "ann_ratio": -0.08047504559934406,
+      "sign_consistency": 0.4583333333333333,
+      "nw_t": -0.28653134739823416
+    }
+  },
+  "venue_identity": "futures_total = futures_price_return; financing=0; no accrual leg",
+  "nulls": {
+    "observed_mean": 0.0004264492390749342,
+    "randomized_ranks": {
+      "null_mean": -0.00013341975633181065,
+      "null_std": 0.0027036168854399608,
+      "z": 0.20708148348305536,
+      "p_one_sided": 0.423
+    },
+    "shuffled_timestamp": {
+      "null_mean": 0.0004906773740190422,
+      "null_std": 0.0007543099198130168,
+      "z": -0.0851482040167645,
+      "p_one_sided": 0.536
+    },
+    "matched_random": {
+      "null_mean": 3.480027631919784e-07,
+      "null_std": 0.002765701554420745,
+      "z": 0.15406623886465792,
+      "p_one_sided": 0.4305
+    },
+    "unconditional_baseline_mean": -0.004648510315485892,
+    "n_draws": 2000,
+    "holm_bonferroni": {
+      "randomized_ranks": {
+        "p": 0.423,
+        "holm_threshold": 0.016666666666666666,
+        "reject_null": false
+      },
+      "matched_random": {
+        "p": 0.4305,
+        "holm_threshold": 0.025,
+        "reject_null": false
+      },
+      "shuffled_timestamp": {
+        "p": 0.536,
+        "holm_threshold": 0.05,
+        "reject_null": false
+      }
+    }
+  },
+  "drop_one_currency_h3": {
+    "drop_EUR": 0.0013443698896245606,
+    "drop_GBP": 0.00014889685072141007,
+    "drop_JPY": -0.004687319239154671,
+    "drop_AUD": -0.001079520552979089,
+    "drop_NZD": 0.0021603063634224634,
+    "drop_CHF": 0.004333676457933075,
+    "drop_CAD": 0.0013004766799545407,
+    "full": 0.0004264492390749342
+  }
+}

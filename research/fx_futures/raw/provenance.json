@@ -1,0 +1,77 @@
+{
+  "source": "yahoo_finance_chart_v8",
+  "fetched_on": "2026-05-31",
+  "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval=1d&range=30y",
+  "contracts": {
+    "EUR": {
+      "symbol": "6E=F",
+      "file": "EUR_6E_F.csv",
+      "rows": 6490,
+      "first": "2000-09-12",
+      "last": "2026-05-29",
+      "first_close": 0.8730000257492065,
+      "last_close": 1.1672999858856201,
+      "sha256": "6bce8150e51c58d5d3143bf5775145f80bed4c71f02e5dfab10f11152de0699f"
+    },
+    "GBP": {
+      "symbol": "6B=F",
+      "file": "GBP_6B_F.csv",
+      "rows": 6404,
+      "first": "2000-10-05",
+      "last": "2026-05-29",
+      "first_close": 1.4575999975204468,
+      "last_close": 1.3460999727249146,
+      "sha256": "713d607a4db771f938bede6fb3410fd11b90935318c23d913aa2fb67a311979d"
+    },
+    "JPY": {
+      "symbol": "6J=F",
+      "file": "JPY_6J_F.csv",
+      "rows": 6413,
+      "first": "2000-09-13",
+      "last": "2026-05-29",
+      "first_close": 0.009940000250935555,
+      "last_close": 0.0062865000218153,
+      "sha256": "3bf0cc162dee2fa1b1cfcdfac447f88ee617e9e96d07b01ee140ca0d0b7e36c6"
+    },
+    "AUD": {
+      "symbol": "6A=F",
+      "file": "AUD_6A_F.csv",
+      "rows": 6393,
+      "first": "2000-11-08",
+      "last": "2026-05-29",
+      "first_close": 0.5295000076293945,
+      "last_close": 0.7180500030517578,
+      "sha256": "79e2299c2563f3f8ecd9d6e5b8b8df753022d8fb464ce2f8ecb7bba03791e958"
+    },
+    "NZD": {
+      "symbol": "6N=F",
+      "file": "NZD_6N_F.csv",
+      "rows": 6382,
+      "first": "2000-06-09",
+      "last": "2026-05-29",
+      "first_close": 0.46970000863075256,
+      "last_close": 0.5987499952316284,
+      "sha256": "8224fb40081c11191737501438bbcdf50b8c303e7fce2c7747a820ef9c52136c"
+    },
+    "CHF": {
+      "symbol": "6S=F",
+      "file": "CHF_6S_F.csv",
+      "rows": 6398,
+      "first": "2000-11-10",
+      "last": "2026-05-29",
+      "first_close": 0.580299973487854,
+      "last_close": 1.2824000120162964,
+      "sha256": "456b5cd2d852d959db3d7a46b40f7168b0015facfa6719da7ea3db235fb0ac3c"
+    },
+    "CAD": {
+      "symbol": "6C=F",
+      "file": "CAD_6C_F.csv",
+      "rows": 6510,
+      "first": "2000-05-23",
+      "last": "2026-05-29",
+      "first_close": 0.6725000143051147,
+      "last_close": 0.725350022315979,
+      "sha256": "db867240d4bbe712ec1f5670bf5ed0ca0ede6ab0668e54501ff6354c3a25b2e9"
+    }
+  }
+}
