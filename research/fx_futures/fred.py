@@ -20,7 +20,7 @@ def _ssl_context() -> ssl.SSLContext | None:
     try:
         import certifi
         return ssl.create_default_context(cafile=certifi.where())
-    except Exception:  # noqa: BLE001
+    except Exception:
         return None
 
 # Same family as research.carry.carry_rates.RATE_SERIES, minus the retired JPY.
@@ -45,7 +45,7 @@ def fetch_deep_rates(out_dir: str | Path, fetched_on: str, timeout: int = 30) ->
     cols = {}
     for ccy, sid in DEEP_SERIES.items():
         req = urllib.request.Request(_URL.format(sid=sid), headers=_UA)
-        text = urllib.request.urlopen(req, context=_ssl_context()).read().decode("utf-8", "replace")  # noqa: S310
+        text = urllib.request.urlopen(req, context=_ssl_context()).read().decode("utf-8", "replace")
         (out / f"{ccy}_{sid}.csv").write_text(text)
         df = pd.read_csv(io.StringIO(text))
         df.columns = ["date", "rate"]

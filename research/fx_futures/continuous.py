@@ -62,10 +62,10 @@ def coverage_report(usd_levels: pd.DataFrame) -> dict:
     expected = pd.date_range(idx.min(), idx.max(), freq="MS")
     missing = expected.difference(idx)
     return {
-        "n_months": int(len(idx)),
+        "n_months": len(idx),
         "first": str(idx.min().date()),
         "last": str(idx.max().date()),
-        "expected_months": int(len(expected)),
-        "missing_months": int(len(missing)),
+        "expected_months": len(expected),
+        "missing_months": len(missing),
         "currencies": list(usd_levels.columns),
     }

@@ -17,10 +17,8 @@ import argparse
 import json
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
-
-from research.fx_futures import carry_diagnostic as DIAG
+from research.fx_futures import carry_diagnostic as DIAG  # noqa: N812
 from research.fx_futures import continuous, fred, ingest
 
 RAW_DIR = Path("research/fx_futures/raw")
@@ -81,7 +79,7 @@ def main() -> None:
         deep_result["drop_one_currency_h3"] = DIAG.drop_one_currency(
             deep_signal.dropna(how="all"), deep_levels, h=3)
         (OUT_DIR / "deep.json").write_text(json.dumps(deep_result, indent=2, default=float))
-    except Exception as e:  # noqa: BLE001 — deep run is optional robustness
+    except Exception as e:
         (OUT_DIR / "deep_error.json").write_text(json.dumps(
             {"error": type(e).__name__, "msg": str(e)[:200]}, indent=2))
 

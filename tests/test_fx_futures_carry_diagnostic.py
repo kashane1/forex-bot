@@ -10,11 +10,11 @@ from __future__ import annotations
 
 import numpy as np
 import pandas as pd
-
-from research.carry import carry_factor as CF
-from research.fx_futures import carry_diagnostic as DIAG
+from research.fx_futures import carry_diagnostic as DIAG  # noqa: N812
 from research.fx_futures import continuous
 from research.fx_futures.registry import CONTRACTS, FUTURES_CURRENCIES
+
+from research.carry import carry_factor as CF  # noqa: N812
 
 
 def _synthetic_raw():
@@ -23,7 +23,7 @@ def _synthetic_raw():
     for i, ccy in enumerate(FUTURES_CURRENCIES):
         # smooth drift per currency, daily
         vals = 1.0 + 0.0001 * (i + 1) * np.arange(len(dates))
-        raw[ccy] = [(d.date().isoformat(), float(v)) for d, v in zip(dates, vals)]
+        raw[ccy] = [(d.date().isoformat(), float(v)) for d, v in zip(dates, vals, strict=False)]
     return raw
 
 

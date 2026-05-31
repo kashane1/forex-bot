@@ -18,7 +18,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from research.carry import carry_factor as CF
+from research.carry import carry_factor as CF  # noqa: N812
 
 HORIZONS = (1, 3, 6, 12)
 PRIMARY_H = 3
@@ -71,7 +71,7 @@ def run_diagnostic(signal: pd.DataFrame, usd_levels: pd.DataFrame,
 
     out: dict = {
         "seed": seed, "scheme": SCHEME, "k": K, "primary_h": PRIMARY_H,
-        "n_months": int(len(common)),
+        "n_months": len(common),
         "window_first": str(common.min().date()) if len(common) else None,
         "window_last": str(common.max().date()) if len(common) else None,
         "currencies": list(signal.columns),

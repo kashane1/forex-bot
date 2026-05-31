@@ -26,7 +26,7 @@ def _ssl_context() -> ssl.SSLContext | None:
     try:
         import certifi
         return ssl.create_default_context(cafile=certifi.where())
-    except Exception:  # noqa: BLE001 — fall back to system default
+    except Exception:
         return None
 
 
@@ -35,13 +35,13 @@ def _fetch_symbol(symbol: str, timeout: int = 30) -> list[tuple[str, float]]:
     socket.setdefaulttimeout(timeout)
     url = _BASE.format(sym=symbol)
     req = urllib.request.Request(url, headers=_UA)
-    raw = urllib.request.urlopen(req, context=_ssl_context()).read()  # noqa: S310 (trusted public host)
+    raw = urllib.request.urlopen(req, context=_ssl_context()).read()
     payload = json.loads(raw)
     result = payload["chart"]["result"][0]
     ts = result["timestamp"]
     closes = result["indicators"]["quote"][0]["close"]
     rows: list[tuple[str, float]] = []
-    for t, c in zip(ts, closes):
+    for t, c in zip(ts, closes, strict=False):
         if c is None:
             continue
         d = _dt.datetime.utcfromtimestamp(t).date().isoformat()
