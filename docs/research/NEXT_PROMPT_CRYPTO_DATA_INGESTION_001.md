@@ -1,9 +1,6 @@
 # Next Prompt — Crypto Data Ingestion Sprint 001
 
-**Sprint type:** Data ingestion infrastructure. Not a strategy or factor sprint.
-**Branch:** `main` — work directly on main; do not create a branch or worktree.
-**Prerequisite:** `CRYPTO_DATA_DESIGN_001_SUMMARY.md` reviewed; operator authorizes ingestion
-**Date authored:** 2026-05-31
+**Status:** EXECUTED · see [`active/crypto_programme/CRYPTO_DATA_INGESTION_001_SUMMARY.md`](active/crypto_programme/CRYPTO_DATA_INGESTION_001_SUMMARY.md)
 
 ---
 

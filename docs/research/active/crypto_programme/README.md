@@ -1,6 +1,6 @@
 # Cryptocurrency Research Programme (Active)
 
-**Status:** Stage 1 complete · Stage 2 (ingestion) ready
+**Status:** Stage 2 complete · pilot accepted · full backfill awaits operator OK
 **Gate:** Forex archive cleanup executed 2026-05-31
 
 ---
@@ -16,13 +16,8 @@
 | [`CRYPTO_DATA_SCHEMA.md`](CRYPTO_DATA_SCHEMA.md) | Canonical schema + futures hooks |
 | [`CRYPTO_DATA_VALIDATION_REQUIREMENTS.md`](CRYPTO_DATA_VALIDATION_REQUIREMENTS.md) | Validation gates and cost model |
 | [`CRYPTO_DATA_INGESTION_PLAN.md`](CRYPTO_DATA_INGESTION_PLAN.md) | Implementation sequence |
-| [`CRYPTO_DATA_DESIGN_001_PLAN.md`](CRYPTO_DATA_DESIGN_001_PLAN.md) | Design sprint plan |
-
-## Next sprint
-
-| Document | Role |
-|----------|------|
-| [`../../NEXT_PROMPT_CRYPTO_DATA_INGESTION_001.md`](../../NEXT_PROMPT_CRYPTO_DATA_INGESTION_001.md) | **Active** — ingestion implementation prompt |
+| [`CRYPTO_DATA_INGESTION_001_SUMMARY.md`](CRYPTO_DATA_INGESTION_001_SUMMARY.md) | Ingestion sprint closeout |
+| [`CRYPTO_DATA_INGESTION_001_PILOT_RESULT.md`](CRYPTO_DATA_INGESTION_001_PILOT_RESULT.md) | 7-day pilot evidence |
 | [`../../CRYPTO_RESEARCH_PROGRAMME_ROADMAP.md`](../../CRYPTO_RESEARCH_PROGRAMME_ROADMAP.md) | Programme roadmap |
 
 Executed design prompt (archived reference): [`../../NEXT_PROMPT_CRYPTO_DATA_DESIGN_001.md`](../../NEXT_PROMPT_CRYPTO_DATA_DESIGN_001.md)

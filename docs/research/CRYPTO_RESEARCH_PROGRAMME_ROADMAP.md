@@ -165,13 +165,13 @@ Examples: momentum, trend continuation, breakout persistence, regime persistence
 - [x] Define minimum historical depth and gap policy
 - **Deliverable:** [`active/crypto_programme/CRYPTO_DATA_INGESTION_PLAN.md`](active/crypto_programme/CRYPTO_DATA_INGESTION_PLAN.md)
 
-### Stage 2 — Crypto data ingestion infrastructure
+### Stage 2 — Crypto data ingestion infrastructure ✓
 
-- Implement ingestion per plan
-- Validate data quality (gaps, outliers, venue consistency)
-- Build minimal BTC/ETH canonical dataset
-- Compare venue differences if multiple sources
-- **No strategy, no campaign**
+- [x] Implement ingestion per plan
+- [x] Validate data quality (7-day pilot)
+- [x] Build minimal BTC/ETH canonical pilot dataset in Postgres
+- [ ] Full 5y backfill (operator authorization required)
+- **Deliverables:** ingest/validate/materialize scripts; [`CRYPTO_DATA_INGESTION_001_SUMMARY.md`](active/crypto_programme/CRYPTO_DATA_INGESTION_001_SUMMARY.md)
 
 ### Stage 3 — Exploratory factor diagnostics
 
