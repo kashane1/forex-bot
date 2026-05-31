@@ -1,0 +1,108 @@
+{
+  "seed": 20260531,
+  "scheme": "hml",
+  "k": 3,
+  "primary_h": 3,
+  "n_months": 304,
+  "window_first": "2001-01-01",
+  "window_last": "2026-04-01",
+  "currencies": [
+    "EUR",
+    "GBP",
+    "AUD",
+    "NZD",
+    "CHF",
+    "CAD"
+  ],
+  "rank_stability": 0.9892338538280667,
+  "cells": {
+    "h1": {
+      "n": 302,
+      "n_independent": 302,
+      "mean": -0.0013378095702317578,
+      "std": 0.017459356529828985,
+      "ann_ratio": -0.2654340831558682,
+      "sign_consistency": 0.46688741721854304,
+      "nw_t": -1.3451222215376344
+    },
+    "h3": {
+      "n": 301,
+      "n_independent": 100,
+      "mean": -0.004116168169755662,
+      "std": 0.029060766785487777,
+      "ann_ratio": -0.28328007998819726,
+      "sign_consistency": 0.44518272425249167,
+      "nw_t": -1.6481587782545786
+    },
+    "h6": {
+      "n": 298,
+      "n_independent": 49,
+      "mean": -0.008717714416632305,
+      "std": 0.0397237186304524,
+      "ann_ratio": -0.3103614260182986,
+      "sign_consistency": 0.412751677852349,
+      "nw_t": -1.882688042031166
+    },
+    "h12": {
+      "n": 292,
+      "n_independent": 24,
+      "mean": -0.015975111251183408,
+      "std": 0.05499539723829469,
+      "ann_ratio": -0.29048087755350427,
+      "sign_consistency": 0.3801369863013699,
+      "nw_t": -1.9397806083696925
+    }
+  },
+  "venue_identity": "futures_total = futures_price_return; financing=0; no accrual leg",
+  "nulls": {
+    "observed_mean": -0.004116168169755662,
+    "randomized_ranks": {
+      "null_mean": 4.385571740007495e-05,
+      "null_std": 0.0013969112725403647,
+      "z": -2.9780158331677646,
+      "p_one_sided": 0.9985
+    },
+    "shuffled_timestamp": {
+      "null_mean": -0.001521194765117718,
+      "null_std": 0.0009164268125133128,
+      "z": -2.8316209971216297,
+      "p_one_sided": 0.997
+    },
+    "matched_random": {
+      "null_mean": 8.86018050723689e-06,
+      "null_std": 0.0013732827636355443,
+      "z": -3.003772026776592,
+      "p_one_sided": 0.998
+    },
+    "unconditional_baseline_mean": 0.0028140566018071554,
+    "n_draws": 2000,
+    "holm_bonferroni": {
+      "shuffled_timestamp": {
+        "p": 0.997,
+        "holm_threshold": 0.016666666666666666,
+        "reject_null": false
+      },
+      "matched_random": {
+        "p": 0.998,
+        "holm_threshold": 0.025,
+        "reject_null": false
+      },
+      "randomized_ranks": {
+        "p": 0.9985,
+        "holm_threshold": 0.05,
+        "reject_null": false
+      }
+    }
+  },
+  "jpy_excluded": true,
+  "note": "FRED IR3TIB01JPM156N retired (404); deep run is JPY-excluded breadth test over full futures history",
+  "drop_one_currency_h3": {
+    "drop_EUR": NaN,
+    "drop_GBP": NaN,
+    "drop_AUD": NaN,
+    "drop_NZD": NaN,
+    "drop_CHF": NaN,
+    "drop_CAD": NaN,
+    "full": -0.004116168169755662
+  }
+}
