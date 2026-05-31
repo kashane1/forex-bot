@@ -1,8 +1,8 @@
 # Next Prompt — Crypto Data Design Sprint 001
 
 **Sprint type:** Data design only. Not a strategy sprint.
-**Suggested branch:** `research-crypto-data-design-001`
-**Prerequisite:** `FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md` reviewed
+**Branch:** `main` — work directly on main; do not create a branch or worktree.
+**Prerequisite:** `FOREX_ARCHIVE_AND_CLEANUP_PROPOSAL.md` reviewed (brief review OK; do not execute cleanup yet)
 **Date authored:** 2026-05-31
 
 ---
@@ -31,19 +31,21 @@ Design minimal BTC/USD and ETH/USD data schema, choose source options, document 
 - Do **not** approve any strategy
 - Do **not** enable paper/demo/live
 - Do **not** call broker/trading APIs
-- Do **not** ingest large data unless explicitly authorized by operator
+- Do **not** ingest large datasets until source, schema, and cost-model decisions are written down
 - Do **not** commit secrets, raw databases, or bulky artifacts
 - Keep `configs/approved_strategies.yaml` empty
+- Work on `main` only; do not create a branch or worktree
+- Commit after each meaningful phase
 
 ---
 
 ## The prompt
 
-> We are starting the cryptocurrency data design sprint from updated origin/main.
+> We are starting the cryptocurrency data design sprint on `main`.
 >
-> **Branch:** `research-crypto-data-design-001`
+> Work directly on main. Do not create a branch or worktree. Commit after each meaningful phase.
 >
-> **Context:** The forex programme is archived (no approved strategies). The crypto programme roadmap (`CRYPTO_RESEARCH_PROGRAMME_ROADMAP.md`) specifies BTC/USD + ETH/USD, spot-first, with futures/funding hooks for later. Stage 1 is data design only.
+> **Context:** The forex programme is archived (no approved strategies). The cleanup proposal has been reviewed; do not execute archive cleanup in this sprint. The crypto programme roadmap (`CRYPTO_RESEARCH_PROGRAMME_ROADMAP.md`) specifies BTC/USD + ETH/USD, spot-first, with futures/funding hooks for later. Stage 1 is data design only — no ingestion of large datasets until source, schema, and cost-model decisions are documented.
 >
 > **Goal:** Produce a complete data ingestion plan for BTC/USD and ETH/USD spot OHLCV that reuses existing ingestion abstractions where possible.
 >
@@ -133,4 +135,4 @@ Design minimal BTC/USD and ETH/USD data schema, choose source options, document 
 
 - This sprint produces documentation and minimal schema stubs only.
 - Actual ingestion is a separate sprint after operator review and authorization.
-- First factor family after data validation will be Family C (Trend Persistence) per the crypto roadmap.
+- First factor family after data validation will be Family C (Trend Persistence) per the crypto roadmap — not MTF confluence. If raw persistence is not worth testing, MTF confluence is unlikely to add edge.
