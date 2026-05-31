@@ -1,0 +1,14 @@
+{
+  "batch_id": "60c45f69-033c-4556-b2a6-2620fe2266ed",
+  "candles_fetched": 10043,
+  "candles_upserted": 0,
+  "end_utc": "2026-05-31T23:10:42+00:00",
+  "error": "cannot assign to field 'fetch_batch_id'",
+  "finished_at_utc": "2026-05-31T23:10:55.166005+00:00",
+  "granularity": "M1",
+  "instrument": "BTC_USD",
+  "source": "coinbase-spot",
+  "start_utc": "2026-05-24T23:10:42+00:00",
+  "started_at_utc": "2026-05-31T23:10:43.689205+00:00",
+  "status": "FAIL"
+}

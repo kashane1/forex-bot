@@ -26,6 +26,7 @@ _TARGET_MINUTES: dict[str, int] = {
     "M30": 30,
     "H1": 60,
     "H4": 240,
+    "D1": 1440,
 }
 
 

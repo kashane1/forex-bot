@@ -42,6 +42,7 @@ STORAGE_GRANULARITY = {
     "M30": "M30",
     "H1": "H1",
     "H4": "H4M1",
+    "D1": "D1",
 }
 MISSING_POLICY = "omit"
 # Provenance fingerprint of the SHARED M1-derivation ruleset (source, missing
@@ -193,11 +194,13 @@ def materialize_pair(
     chunk_days: int = 30,
     dry_run: bool = False,
     run_id: str | None = None,
+    alignment_tz: str = "America/New_York",
+    alignment_hour: int = 17,
+    allowed_instruments: tuple[str, ...] | None = None,
 ) -> MaterializationResult:
-    # Control-universe majors and registered non-USD crosses are both
-    # supported; the M1→target aggregation rules are price-agnostic so the
-    # same code path serves crosses (incl. JPY-quote, 0.01-pip) unchanged.
-    if instrument not in SUPPORTED_PAIRS:
+    # Control-universe majors, registered non-USD crosses, and crypto spot pairs.
+    universe = allowed_instruments if allowed_instruments is not None else SUPPORTED_PAIRS
+    if instrument not in universe:
         raise ValueError(f"instrument not in supported universe: {instrument}")
     run = run_id or str(uuid.uuid4())
     result = MaterializationResult(
@@ -223,7 +226,13 @@ def materialize_pair(
         result.m1_rows_read += len(candles)
         per_target: dict[str, list[Candle]] = {target: [] for target in targets}
         for target in targets:
-            agg = aggregate_m1_candles(candles, target=target, missing_policy=MISSING_POLICY)
+            agg = aggregate_m1_candles(
+                candles,
+                target=target,
+                missing_policy=MISSING_POLICY,
+                alignment_tz=alignment_tz,
+                alignment_hour=alignment_hour,
+            )
             result.targets[target].omitted_incomplete_blocks += agg.omitted_incomplete_blocks
             per_target[target] = agg.candles
         for target in targets:

@@ -1,0 +1,35 @@
+{
+  "dry_run": false,
+  "from_utc": "2026-05-24T23:11:35+00:00",
+  "instrument": "BTC_USD",
+  "m1_rows_read": 10043,
+  "run_id": "5c86c7e3-0034-4787-8a42-36e70adc8174",
+  "targets": {
+    "D1": {
+      "first_utc": null,
+      "last_utc": null,
+      "rows_upserted": 0
+    },
+    "H1": {
+      "first_utc": "2026-05-25T00:00:00+00:00",
+      "last_utc": "2026-05-31T22:00:00+00:00",
+      "rows_upserted": 132
+    },
+    "H4": {
+      "first_utc": "2026-05-25T00:00:00+00:00",
+      "last_utc": "2026-05-31T16:00:00+00:00",
+      "rows_upserted": 9
+    },
+    "M15": {
+      "first_utc": "2026-05-24T23:15:00+00:00",
+      "last_utc": "2026-05-31T22:45:00+00:00",
+      "rows_upserted": 635
+    },
+    "M5": {
+      "first_utc": "2026-05-24T23:15:00+00:00",
+      "last_utc": "2026-05-31T23:05:00+00:00",
+      "rows_upserted": 1979
+    }
+  },
+  "to_utc": "2026-05-31T23:11:35+00:00"
+}
