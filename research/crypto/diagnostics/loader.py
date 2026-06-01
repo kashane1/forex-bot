@@ -81,3 +81,45 @@ def load_all_series(
             )
             out[instrument][tf] = rows_to_ohlcv(rows)
     return out
+
+
+def align_btc_eth_pair(
+    btc: dict[str, np.ndarray],
+    eth: dict[str, np.ndarray],
+) -> dict[str, np.ndarray]:
+    """Intersect timestamps; no forward-fill. Drops bars missing either leg."""
+    btc_map = {t: i for i, t in enumerate(btc["times"])}
+    eth_map = {t: i for i, t in enumerate(eth["times"])}
+    common = sorted(set(btc_map) & set(eth_map))
+    if not common:
+        empty = np.array([], dtype=float)
+        return {
+            "times": np.array([], dtype=object),
+            "btc_close": empty,
+            "eth_close": empty,
+            "btc_open": empty,
+            "eth_open": empty,
+            "btc_high": empty,
+            "eth_high": empty,
+            "btc_low": empty,
+            "eth_low": empty,
+            "n_dropped_btc_only": len(btc["times"]),
+            "n_dropped_eth_only": len(eth["times"]),
+            "n_aligned": 0,
+        }
+    bi = [btc_map[t] for t in common]
+    ei = [eth_map[t] for t in common]
+    return {
+        "times": np.array(common, dtype=object),
+        "btc_close": btc["close"][bi],
+        "eth_close": eth["close"][ei],
+        "btc_open": btc["open"][bi],
+        "eth_open": eth["open"][bi],
+        "btc_high": btc["high"][bi],
+        "eth_high": eth["high"][ei],
+        "btc_low": btc["low"][bi],
+        "eth_low": eth["low"][ei],
+        "n_dropped_btc_only": len(btc["times"]) - len(common),
+        "n_dropped_eth_only": len(eth["times"]) - len(common),
+        "n_aligned": len(common),
+    }
