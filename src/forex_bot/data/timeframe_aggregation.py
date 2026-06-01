@@ -13,7 +13,7 @@ from zoneinfo import ZoneInfo
 from forex_bot.backtesting.d1_aggregation import aggregate_h4_to_d1
 from forex_bot.domain.candles import Candle, Granularity
 
-TargetGranularity = Literal["M3", "M5", "M15", "M30", "H1", "H4", "D1AGG"]
+TargetGranularity = Literal["M3", "M5", "M15", "M30", "H1", "H4", "D1", "D1AGG"]
 MissingPolicy = Literal["omit", "mark_incomplete"]
 
 # M3/M30 are M1-derived research timeframes added for the CAMPAIGN_026 timeframe
@@ -143,7 +143,8 @@ def _aggregate_fixed_minutes(
         if not is_complete and missing_policy == "omit":
             omitted += 1
             continue
-        output.append(_build_candle(bucket_time, group, target, complete=is_complete))
+        candle_granularity: Granularity = "D" if target == "D1" else target
+        output.append(_build_candle(bucket_time, group, candle_granularity, complete=is_complete))
 
     return TimeframeAggregationResult(
         instrument=rows[0].instrument,
