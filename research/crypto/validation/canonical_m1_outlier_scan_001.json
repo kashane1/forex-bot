@@ -1,0 +1,78 @@
+{
+  "BTC_USD": {
+    "instrument": "BTC_USD",
+    "rows": 2629439,
+    "zero_price_bars": 0,
+    "ohlc_invariant_failures": 0,
+    "single_bar_return_outliers": 0,
+    "flash_wick_outliers": 0,
+    "stale_flat_runs_over_60": 0,
+    "max_stale_run": 0,
+    "gap_count": 1739,
+    "largest_gaps": [
+      {
+        "from": "2026-05-07T18:16:00-07:00",
+        "to": "2026-05-08T00:48:00-07:00",
+        "missing_bars": 391
+      },
+      {
+        "from": "2025-10-25T08:13:00-07:00",
+        "to": "2025-10-25T14:03:00-07:00",
+        "missing_bars": 349
+      },
+      {
+        "from": "2023-03-04T08:59:00-08:00",
+        "to": "2023-03-04T13:37:00-08:00",
+        "missing_bars": 277
+      },
+      {
+        "from": "2024-10-26T09:06:00-07:00",
+        "to": "2024-10-26T10:18:00-07:00",
+        "missing_bars": 71
+      },
+      {
+        "from": "2024-05-31T15:11:00-07:00",
+        "to": "2024-05-31T16:19:00-07:00",
+        "missing_bars": 67
+      }
+    ]
+  },
+  "ETH_USD": {
+    "instrument": "ETH_USD",
+    "rows": 2629403,
+    "zero_price_bars": 0,
+    "ohlc_invariant_failures": 0,
+    "single_bar_return_outliers": 0,
+    "flash_wick_outliers": 0,
+    "stale_flat_runs_over_60": 0,
+    "max_stale_run": 0,
+    "gap_count": 1775,
+    "largest_gaps": [
+      {
+        "from": "2026-05-07T18:15:00-07:00",
+        "to": "2026-05-08T00:50:00-07:00",
+        "missing_bars": 394
+      },
+      {
+        "from": "2025-10-25T08:12:00-07:00",
+        "to": "2025-10-25T14:03:00-07:00",
+        "missing_bars": 350
+      },
+      {
+        "from": "2023-03-04T09:00:00-08:00",
+        "to": "2023-03-04T13:39:00-08:00",
+        "missing_bars": 278
+      },
+      {
+        "from": "2024-10-26T09:06:00-07:00",
+        "to": "2024-10-26T10:18:00-07:00",
+        "missing_bars": 71
+      },
+      {
+        "from": "2024-05-31T15:11:00-07:00",
+        "to": "2024-05-31T16:19:00-07:00",
+        "missing_bars": 67
+      }
+    ]
+  }
+}
