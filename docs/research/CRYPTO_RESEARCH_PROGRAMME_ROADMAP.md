@@ -173,12 +173,13 @@ Examples: momentum, trend continuation, breakout persistence, regime persistence
 - [x] Full 5y backfill (BTC/ETH M1 + derived TFs)
 - **Deliverables:** ingest/validate/materialize scripts; [`CRYPTO_DATA_INGESTION_001_SUMMARY.md`](active/crypto_programme/CRYPTO_DATA_INGESTION_001_SUMMARY.md)
 
-### Stage 3 — Exploratory factor diagnostics ✓ (Family C)
+### Stage 3 — Exploratory factor diagnostics (in progress)
 
-- [x] Family C Trend Persistence exploratory diagnostics (`CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001_SYNTHESIS.md`)
-- [x] Classification: **STATISTICAL_ONLY_COST_DEFEATED** — no cost-surviving momentum at frozen 120 bps taker RT
-- [x] Null baselines, regime terciles, four cost variants (gross / spread / all-in / 2×)
-- [ ] Families A, B, D exploratory passes (Family B recommended next)
+- [x] Family C Trend Persistence — **STATISTICAL_ONLY_COST_DEFEATED**
+- [x] Family B Relative Value — **STATISTICAL_ONLY_COST_DEFEATED** (gross H4 rel-momentum ~4.6 bps; paired all-in hurdle ~260 bps)
+- [x] Null baselines, regime terciles, one-leg + paired cost variants
+- [ ] Family D non-time bars and/or Family E prep (see `NEXT_PROMPT_CRYPTO_FAMILY_D_OR_E_SELECTION_001.md`)
+- [ ] Family A MTF confluence (deferred)
 - **No campaigns, no front-gate yet**
 
 ### Stage 4 — First factor-family validation

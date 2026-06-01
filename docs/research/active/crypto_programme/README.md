@@ -1,21 +1,26 @@
 # Cryptocurrency Research Programme (Active)
 
-**Status:** Stage 3 complete · Family C exploratory diagnostics done
+**Status:** Stage 3 · Family B relative value diagnostics complete
 **Gate:** Forex archive cleanup executed 2026-05-31
 
 ---
 
 ## Current stage
 
-**Stage 3 — exploratory factor diagnostics** (Family C Trend Persistence complete).
+**Stage 3 — exploratory factor diagnostics** (Family C + Family B complete).
 
-**Classification:** `STATISTICAL_ONLY_COST_DEFEATED` — pivot to Family B relative value (see next prompt).
+| Family | Classification |
+|--------|----------------|
+| C Trend Persistence | `STATISTICAL_ONLY_COST_DEFEATED` |
+| B Relative Value | `STATISTICAL_ONLY_COST_DEFEATED` |
+
+**Next:** Family D or E selection — [`NEXT_PROMPT_CRYPTO_FAMILY_D_OR_E_SELECTION_001.md`](NEXT_PROMPT_CRYPTO_FAMILY_D_OR_E_SELECTION_001.md)
 
 | Document | Role |
 |----------|------|
+| [`CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001_SYNTHESIS.md`](CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001_SYNTHESIS.md) | Family B synthesis |
+| [`CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001_SUMMARY.md`](CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001_SUMMARY.md) | Family B sprint closeout |
 | [`CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001_SYNTHESIS.md`](CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001_SYNTHESIS.md) | Family C synthesis |
-| [`CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001_SUMMARY.md`](CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001_SUMMARY.md) | Sprint closeout |
-| [`NEXT_PROMPT_CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001.md`](NEXT_PROMPT_CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001.md) | Recommended next sprint |
 
 **Stage 2 — data ingestion** (complete). Design sprint complete.
 
