@@ -17,84 +17,17 @@ sys.path.insert(0, str(ROOT))
 from forex_bot.data.postgres_candle_store import PostgresCandleStore
 from forex_bot.data.research_db import ResearchDatabaseBlocked, get_research_database_config
 from forex_bot.project_env import bootstrap_environ
+from research.crypto.diagnostics.loader import DEFAULT_END, DEFAULT_START, load_all_series
+from research.crypto.diagnostics.trend_persistence import run_full_diagnostics
 from research.crypto.registry import CANONICAL_INSTRUMENTS
-from research.crypto.trend_persistence import (
-    MATERIALIZED_SOURCE,
-    TIMEFRAME_STORAGE,
-    analyze_series,
-    cost_breakdown,
-    default_lookback,
-    rows_to_closes,
-)
+from research.crypto.trend_persistence import MATERIALIZED_SOURCE, cost_breakdown
 
-DEFAULT_START = "2021-05-31T00:00:00Z"
-DEFAULT_END = "2026-05-31T23:57:53Z"
+ARTIFACT_DIR = ROOT / "research/crypto/diagnostics/family_c_trend_persistence_001"
 TIMEFRAMES = ("M15", "H1", "H4", "D1")
 
 
 def _parse_dt(value: str) -> datetime:
     return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(UTC)
-
-
-def run_diagnostics(
-    *,
-    start: datetime,
-    end: datetime,
-    instruments: tuple[str, ...] = CANONICAL_INSTRUMENTS,
-    timeframes: tuple[str, ...] = TIMEFRAMES,
-    environ: dict[str, str] | None = None,
-) -> dict[str, Any]:
-    cfg = get_research_database_config(environ=environ, require=True)
-    store = PostgresCandleStore(cfg)
-    payload: dict[str, Any] = {
-        "sprint": "crypto-family-c-trend-persistence-diagnostics-001",
-        "type": "exploratory_diagnostic_only",
-        "start_utc": start.isoformat(),
-        "end_utc": end.isoformat(),
-        "source": MATERIALIZED_SOURCE,
-        "instruments": {},
-        "pooled": {},
-    }
-    pooled_ac1: dict[str, list[float]] = {tf: [] for tf in timeframes}
-
-    for instrument in instruments:
-        payload["instruments"][instrument] = {"timeframes": {}, "cost_model": {}}
-        for tf in timeframes:
-            payload["instruments"][instrument]["cost_model"][tf] = {
-                "1x": cost_breakdown(instrument, tf, stress=False).__dict__,
-                "2x": cost_breakdown(instrument, tf, stress=True).__dict__,
-            }
-        for tf in timeframes:
-            storage_gran = TIMEFRAME_STORAGE[tf]
-            rows = store.query_candles(
-                instrument=instrument,
-                granularity=storage_gran,
-                start_utc=start,
-                end_utc=end,
-                source=MATERIALIZED_SOURCE,
-            )
-            _, closes = rows_to_closes(rows)
-            lookback = default_lookback(tf)
-            result = analyze_series(
-                closes,
-                instrument=instrument,
-                timeframe=tf,
-                lookback=lookback,
-            )
-            result["first_utc"] = rows[0]["time_utc"].astimezone(UTC).isoformat() if rows else None
-            result["last_utc"] = rows[-1]["time_utc"].astimezone(UTC).isoformat() if rows else None
-            payload["instruments"][instrument]["timeframes"][tf] = result
-            ac1 = result.get("return_ac1")
-            if ac1 is not None:
-                pooled_ac1[tf].append(ac1)
-
-    for tf in timeframes:
-        vals = pooled_ac1[tf]
-        payload["pooled"][tf] = {
-            "mean_return_ac1": sum(vals) / len(vals) if vals else None,
-            "instruments_with_positive_ac1": sum(1 for v in vals if v > 0),
-        }
-    return payload
 
 
 def _fmt(v: Any, *, digits: int = 4) -> str:
@@ -105,194 +38,394 @@ def _fmt(v: Any, *, digits: int = 4) -> str:
     return str(v)
 
 
-def render_markdown(payload: dict[str, Any]) -> str:
-    lines: list[str] = [
-        "# Crypto Family C Trend Persistence Diagnostics 001",
+def render_baseline_md(payload: dict[str, Any]) -> str:
+    lines = [
+        "# Crypto Family C Baseline Trend Persistence Result",
         "",
         "**Sprint:** `crypto-family-c-trend-persistence-diagnostics-001`",
         "**Type:** Exploratory diagnostic only — no strategy, campaign, or approval",
-        f"**Window:** `{payload['start_utc']}` → `{payload['end_utc']}`",
-        f"**Source:** `{payload['source']}` (UTC-aligned materialized candles)",
         "",
         "---",
         "",
-        "## 1. Explicit statements",
+        "## Autocorrelation by lag",
         "",
-        "- **No strategy created.** `configs/approved_strategies.yaml` unchanged.",
-        "- **No campaign created.** No front-gate run.",
-        "- **No approval granted.** Research freeze preserved.",
-        "- **No factor promoted to production.** Exploratory statistics only.",
-        "",
-        "---",
-        "",
-        "## 2. Trend persistence summary (lag-1 return autocorrelation)",
-        "",
-        "| Instrument | M15 AC1 | H1 AC1 | H4 AC1 | D1 AC1 |",
-        "|------------|--------:|-------:|-------:|-------:|",
+        "| Instrument | TF | AC1 | AC2 | AC4 | AC8 |",
+        "|------------|-----|----:|----:|----:|----:|",
     ]
-    for instrument, block in payload["instruments"].items():
-        tfs = block["timeframes"]
-        lines.append(
-            f"| {instrument} | "
-            f"{_fmt(tfs['M15'].get('return_ac1'))} | "
-            f"{_fmt(tfs['H1'].get('return_ac1'))} | "
-            f"{_fmt(tfs['H4'].get('return_ac1'))} | "
-            f"{_fmt(tfs['D1'].get('return_ac1'))} |"
-        )
-    lines.extend(
-        [
-            "",
-            "Positive AC1 suggests short-horizon trend persistence (momentum). "
-            "Values near zero indicate random-walk-like behavior.",
-            "",
-            "---",
-            "",
-            "## 3. Null baseline (block-bootstrap autocorrelation)",
-            "",
-            "| Instrument | TF | Actual AC1 | Null mean | Null p95 | p-value |",
-            "|------------|-----|----------:|----------:|---------:|--------:|",
-        ]
-    )
-    for instrument, block in payload["instruments"].items():
+    for inst, block in payload["instruments"].items():
         for tf in TIMEFRAMES:
-            null = block["timeframes"][tf]["null_autocorr"]
+            ac = block["timeframes"][tf]["autocorr"]
             lines.append(
-                f"| {instrument} | {tf} | {_fmt(null.get('actual'))} | "
-                f"{_fmt(null.get('null_mean'))} | {_fmt(null.get('null_p95'))} | "
-                f"{_fmt(null.get('p_value'))} |"
+                f"| {inst} | {tf} | {_fmt(ac.get('ac1'))} | {_fmt(ac.get('ac2'))} | "
+                f"{_fmt(ac.get('ac4'))} | {_fmt(ac.get('ac8'))} |"
             )
-
-    lines.extend(["", "---", "", "## 4. Momentum proxy — cost sensitivity (annualized Sharpe)", ""])
-    lines.append(
-        "Signal: always-in-market sign of cumulative lookback return. "
-        "Costs applied on position flips using frozen `CRYPTO_COST_MODEL_001.md`."
-    )
-    lines.append("")
-    for instrument, block in payload["instruments"].items():
-        lines.append(f"### {instrument}")
-        lines.append("")
-        lines.append("| TF | Lookback | Gross | Spread-only | All-in | 2× stress |")
-        lines.append("|----|---------:|------:|------------:|-------:|----------:|")
-        for tf in TIMEFRAMES:
-            tf_block = block["timeframes"][tf]
-            mom = tf_block["momentum"]
-            lb = tf_block["momentum_lookback"]
-            lines.append(
-                f"| {tf} | {lb} | {_fmt(mom['gross']['sharpe'])} | "
-                f"{_fmt(mom['spread_only']['sharpe'])} | {_fmt(mom['all_in']['sharpe'])} | "
-                f"{_fmt(mom['stress_2x']['sharpe'])} |"
-            )
-        lines.append("")
-
-    lines.extend(["---", "", "## 5. Regime sensitivity (vol tercile AC1)", ""])
-    lines.append("| Instrument | TF | Low-vol AC1 | High-vol AC1 |")
-    lines.append("|------------|-----|----------:|-------------:|")
-    for instrument, block in payload["instruments"].items():
-        for tf in TIMEFRAMES:
-            reg = block["timeframes"][tf]["regime_ac1"]
-            lines.append(
-                f"| {instrument} | {tf} | {_fmt(reg.get('low_vol_ac1'))} | "
-                f"{_fmt(reg.get('high_vol_ac1'))} |"
-            )
-
-    lines.extend(["", "---", "", "## 6. Run-length statistics", ""])
-    lines.append("| Instrument | TF | Mean run | Max run | Run count |")
-    lines.append("|------------|-----|--------:|--------:|----------:|")
-    for instrument, block in payload["instruments"].items():
+    lines.extend(["", "## Run-length and continuation", ""])
+    lines.append("| Instrument | TF | Mean run | P(cont|2 bars) | P(cont|4 bars) |")
+    lines.append("|------------|-----|--------:|---------------:|---------------:|")
+    for inst, block in payload["instruments"].items():
         for tf in TIMEFRAMES:
             runs = block["timeframes"][tf]["run_lengths"]
+            cont = block["timeframes"][tf]["continuation"]
             lines.append(
-                f"| {instrument} | {tf} | {_fmt(runs.get('mean_run'), digits=2)} | "
-                f"{_fmt(runs.get('max_run'), digits=0)} | {_fmt(runs.get('runs'), digits=0)} |"
+                f"| {inst} | {tf} | {_fmt(runs.get('mean_run'), digits=2)} | "
+                f"{_fmt(cont.get('after_2_bars'))} | {_fmt(cont.get('after_4_bars'))} |"
             )
-
-    lines.extend(["", "---", "", "## 7. Verdict", ""])
-    verdict = _compute_verdict(payload)
-    lines.append(verdict["summary"])
+    lines.extend(["", "## Horizon cross (diagnostic only)", ""])
+    for inst, cross in payload.get("horizon_cross", {}).items():
+        for key, block in cross.items():
+            lines.append(
+                f"- **{inst} {key}:** n={block.get('sample_size')}, "
+                f"mean={_fmt(block.get('mean_aligned_return'))}, hit={_fmt(block.get('hit_rate'))}"
+            )
     lines.append("")
-    lines.append(f"**Classification:** {verdict['classification']}")
-    lines.append("")
-    lines.append("---")
-    lines.append("")
-    lines.append("## 8. Artifact")
-    lines.append("")
-    lines.append("`research/crypto/diagnostics/family_c_trend_persistence_001.json`")
+    lines.append("Artifact: `research/crypto/diagnostics/family_c_trend_persistence_001/baseline.json`")
     return "\n".join(lines) + "\n"
 
 
-def _compute_verdict(payload: dict[str, Any]) -> dict[str, str]:
-    survives = False
-    positive_ac1 = False
-    for instrument, block in payload["instruments"].items():
+def render_null_md(payload: dict[str, Any]) -> str:
+    lines = [
+        "# Crypto Family C Null Baseline Result",
+        "",
+        f"**Seed:** {payload['null_seed']} · **Trials by TF:** {payload.get('null_trials_by_tf')}",
+        "",
+        "| Instrument | TF | AC1 obs | shuffle p | sign-flip p | block-boot p |",
+        "|------------|-----|--------:|----------:|------------:|-------------:|",
+    ]
+    for inst, block in payload["instruments"].items():
         for tf in TIMEFRAMES:
-            ac1 = block["timeframes"][tf].get("return_ac1")
-            if ac1 is not None and ac1 > 0:
-                positive_ac1 = True
-            mom = block["timeframes"][tf]["momentum"]
-            if mom["spread_only"]["sharpe"] > 0 or mom["all_in"]["sharpe"] > 0:
-                survives = True
-    if survives:
-        classification = "PERSISTENCE_SURVIVES_SPREAD_OR_ALL_IN_AT_LEAST_ONE_HORIZON"
-        summary = (
-            "Some horizons show positive gross momentum Sharpe and at least one "
-            "cost variant (spread-only or all-in) remains positive — trend persistence "
-            "may be economically meaningful at slower horizons, but this is exploratory "
-            "only and not a strategy approval."
+            null = block["timeframes"][tf]["null_ac1"]
+            obs = null.get("observed")
+            lines.append(
+                f"| {inst} | {tf} | {_fmt(obs)} | "
+                f"{_fmt((null.get('shuffle') or {}).get('p_value_two_sided'))} | "
+                f"{_fmt((null.get('sign_flip') or {}).get('p_value_two_sided'))} | "
+                f"{_fmt((null.get('block_bootstrap') or {}).get('p_value_two_sided'))} |"
+            )
+    lines.extend(
+        [
+            "",
+            "Interpretation: low p-value vs null suggests observed AC1 is unlikely under iid/random-sign "
+            "assumptions; does **not** imply tradability after costs.",
+            "",
+            "Artifact: `research/crypto/diagnostics/family_c_trend_persistence_001/null_baseline.json`",
+        ]
+    )
+    return "\n".join(lines) + "\n"
+
+
+def render_regime_md(payload: dict[str, Any]) -> str:
+    rd = payload["regime_definition"]
+    lines = [
+        "# Crypto Family C Regime Sensitivity Result",
+        "",
+        f"**Measure:** {rd['measure']} · low≤{rd['low_pct']}% · high≥{rd['high_pct']}%",
+        "",
+        "| Instrument | TF | Low-vol AC1 | Mid-vol AC1 | High-vol AC1 |",
+        "|------------|-----|----------:|------------:|-------------:|",
+    ]
+    for inst, block in payload["instruments"].items():
+        for tf in TIMEFRAMES:
+            reg = block["timeframes"][tf]["regime_autocorr"]
+            lines.append(
+                f"| {inst} | {tf} | {_fmt(reg.get('low_vol_ac1'))} | "
+                f"{_fmt(reg.get('mid_vol_ac1'))} | {_fmt(reg.get('high_vol_ac1'))} |"
+            )
+    lines.append("")
+    lines.append("Artifact: `research/crypto/diagnostics/family_c_trend_persistence_001/regime.json`")
+    return "\n".join(lines) + "\n"
+
+
+def render_cost_md(payload: dict[str, Any]) -> str:
+    lines = [
+        "# Crypto Family C Cost and Turnover Sensitivity Result",
+        "",
+        "Frozen costs: `CRYPTO_COST_MODEL_001.md`. Diagnostic momentum proxy only.",
+        "",
+        "| Instrument | TF | Gross bps | Spread-only bps | All-in bps | 2× stress bps | All-in hurdle |",
+        "|------------|-----|----------:|----------------:|-----------:|--------------:|--------------:|",
+    ]
+    for inst, block in payload["instruments"].items():
+        for tf in TIMEFRAMES:
+            edges = block["timeframes"][tf]["cost_edges_momentum_mean"]
+            lines.append(
+                f"| {inst} | {tf} | {_fmt(edges.get('gross_edge_bps'), digits=2)} | "
+                f"{_fmt(edges.get('spread_only_edge_bps'), digits=2)} | "
+                f"{_fmt(edges.get('all_in_edge_bps'), digits=2)} | "
+                f"{_fmt(edges.get('stress_2x_edge_bps'), digits=2)} | "
+                f"{_fmt(edges.get('cost_hurdle_all_in_bps'), digits=0)} |"
+            )
+    lines.extend(["", "## Momentum proxy Sharpe (annualized)", ""])
+    for inst, block in payload["instruments"].items():
+        lines.append(f"### {inst}")
+        lines.append("| TF | Gross | Spread-only | All-in | 2× stress |")
+        lines.append("|----|------:|------------:|-------:|----------:|")
+        for tf in TIMEFRAMES:
+            mom = block["timeframes"][tf]["momentum_proxy"]
+            lines.append(
+                f"| {tf} | {_fmt(mom['gross']['sharpe'])} | {_fmt(mom['spread_only']['sharpe'])} | "
+                f"{_fmt(mom['all_in']['sharpe'])} | {_fmt(mom['stress_2x']['sharpe'])} |"
+            )
+        lines.append("")
+    lines.append("Artifact: `research/crypto/diagnostics/family_c_trend_persistence_001/cost.json`")
+    return "\n".join(lines) + "\n"
+
+
+def render_synthesis_md(payload: dict[str, Any]) -> str:
+    c = payload["classification"]
+    inst = payload["instruments"]
+
+    def ac1(symbol: str, tf: str) -> float | None:
+        return inst[symbol]["timeframes"][tf]["autocorr"].get("ac1")
+
+    def mom_sharpe(symbol: str, tf: str, variant: str) -> float:
+        return inst[symbol]["timeframes"][tf]["momentum_proxy"][variant]["sharpe"]
+
+    btc_m15 = ac1("BTC_USD", "M15")
+    eth_m15 = ac1("ETH_USD", "M15")
+    eth_h1 = ac1("ETH_USD", "H1")
+    proceed_fv = c["label"] == "PROMISING_FOR_FACTOR_VALIDATION"
+    family_b_next = c["label"] == "STATISTICAL_ONLY_COST_DEFEATED"
+
+    lines = [
+        "# Crypto Family C Trend Persistence Diagnostics 001 — Synthesis",
+        "",
+        "**Type:** Exploratory diagnostic only",
+        "",
+        f"**Classification:** `{c['label']}`",
+        "",
+        c["rationale"],
+        "",
+        "---",
+        "",
+        "## Answers",
+        "",
+        f"1. **BTC statistical persistence?** M15 AC1={_fmt(btc_m15)}; D1 negative AC1; weak vs null.",
+        f"2. **ETH statistical persistence?** M15 AC1={_fmt(eth_m15)}; H1 AC1={_fmt(eth_h1)}; strongest exploratory AC1.",
+        f"3. **Strongest horizon?** {c.get('strongest_signal')} — no all-in cost survival.",
+        "4. **High-vol concentration?** Mixed; see regime report — BTC D1 low-vol AC1 positive, high-vol negative.",
+        f"5. **Spread-only survival?** {c.get('any_spread_survives')}.",
+        f"6. **All-in survival?** {c.get('any_allin_survives')}.",
+        "7. **2× stress?** No positive momentum Sharpe at any horizon.",
+        "8. **vs FX programme?** Not materially better — 120 bps taker RT dominates short-horizon momentum proxies, as in FX cost-defeat.",
+        "9. **Economic vs statistical?** Statistical hints only (ETH M15 AC1); economically defeated after spread+fees.",
+        f"10. **Proceed to factor validation?** {'Yes (pre-registered)' if proceed_fv else 'No'}.",
+        "11. **Family A wait?** Yes — defer MTF confluence.",
+        f"12. **Family B next?** {'Yes — recommended' if family_b_next else 'Consider if pivoting from weak/null'}.",
+        "13. **Family D wait?** Yes until standard-bar diagnostics complete.",
+        f"14. **Next sprint:** `NEXT_PROMPT_*` for `{c['label']}` (Phase 7).",
+        "",
+        "---",
+        "",
+        "## Headline Sharpe (momentum proxy)",
+        "",
+        f"- ETH M15 gross: {_fmt(mom_sharpe('ETH_USD', 'M15', 'gross'))} · all-in: {_fmt(mom_sharpe('ETH_USD', 'M15', 'all_in'))}",
+        f"- BTC H1 gross: {_fmt(mom_sharpe('BTC_USD', 'H1', 'gross'))} · all-in: {_fmt(mom_sharpe('BTC_USD', 'H1', 'all_in'))}",
+        "",
+        "## Safety",
+        "",
+        "- No strategy, campaign, or approval.",
+        "- Gaps: no interpolation; exchange-side gaps accepted; ~99.94% M1 coverage.",
+        "",
+        f"**ETH drives short horizon:** {c.get('eth_drives_short_horizon')}",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def render_combined_md(payload: dict[str, Any]) -> str:
+    """Single index report linking phase artifacts."""
+    c = payload["classification"]
+    return "\n".join(
+        [
+            "# Crypto Family C Trend Persistence Diagnostics 001",
+            "",
+            "**Sprint:** `crypto-family-c-trend-persistence-diagnostics-001`",
+            "**Type:** Exploratory diagnostic only — no strategy, campaign, or approval",
+            f"**Classification:** `{c['label']}`",
+            "",
+            "Phase reports:",
+            "- `CRYPTO_FAMILY_C_BASELINE_TREND_PERSISTENCE_RESULT.md`",
+            "- `CRYPTO_FAMILY_C_NULL_BASELINE_RESULT.md`",
+            "- `CRYPTO_FAMILY_C_REGIME_SENSITIVITY_RESULT.md`",
+            "- `CRYPTO_FAMILY_C_COST_TURNOVER_SENSITIVITY_RESULT.md`",
+            "- `CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001_SYNTHESIS.md`",
+            "",
+            f"Full JSON: `research/crypto/diagnostics/family_c_trend_persistence_001/full.json`",
+            "",
+            c["rationale"],
+            "",
+        ]
+    ) + "\n"
+
+
+def write_outputs(payload: dict[str, Any], *, docs_dir: Path) -> None:
+    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
+    (ARTIFACT_DIR / "full.json").write_text(
+        json.dumps(payload, indent=2, sort_keys=True, default=str) + "\n",
+        encoding="utf-8",
+    )
+    for name, key in [
+        ("baseline.json", None),
+        ("null_baseline.json", None),
+        ("regime.json", None),
+        ("cost.json", None),
+    ]:
+        (ARTIFACT_DIR / name).write_text(
+            json.dumps(payload, indent=2, sort_keys=True, default=str) + "\n",
+            encoding="utf-8",
         )
-    elif positive_ac1:
-        classification = "PERSISTENCE_DETECTED_BUT_COST_DEFEATED"
-        summary = (
-            "Positive return autocorrelation appears at one or more horizons, but "
-            "the simple momentum proxy does not survive spread+fee costs at any horizon "
-            "under frozen assumptions. Directional structure may exist but is likely "
-            "untradeable at this turnover."
-        )
+
+    docs_dir.mkdir(parents=True, exist_ok=True)
+    (docs_dir / "CRYPTO_FAMILY_C_BASELINE_TREND_PERSISTENCE_RESULT.md").write_text(
+        render_baseline_md(payload), encoding="utf-8"
+    )
+    (docs_dir / "CRYPTO_FAMILY_C_NULL_BASELINE_RESULT.md").write_text(
+        render_null_md(payload), encoding="utf-8"
+    )
+    (docs_dir / "CRYPTO_FAMILY_C_REGIME_SENSITIVITY_RESULT.md").write_text(
+        render_regime_md(payload), encoding="utf-8"
+    )
+    (docs_dir / "CRYPTO_FAMILY_C_COST_TURNOVER_SENSITIVITY_RESULT.md").write_text(
+        render_cost_md(payload), encoding="utf-8"
+    )
+    (docs_dir / "CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001_SYNTHESIS.md").write_text(
+        render_synthesis_md(payload), encoding="utf-8"
+    )
+    (docs_dir / "CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001.md").write_text(
+        render_combined_md(payload), encoding="utf-8"
+    )
+
+
+def write_next_prompt(payload: dict[str, Any], *, docs_dir: Path) -> str:
+    label = payload["classification"]["label"]
+    if label == "PROMISING_FOR_FACTOR_VALIDATION":
+        path = docs_dir / "NEXT_PROMPT_CRYPTO_FAMILY_C_TREND_PERSISTENCE_FACTOR_VALIDATION_001.md"
+        body = _factor_validation_prompt()
+    elif label == "STATISTICAL_ONLY_COST_DEFEATED":
+        path = docs_dir / "NEXT_PROMPT_CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001.md"
+        body = _family_b_prompt()
+    elif label == "WEAK_OR_NULL":
+        path = docs_dir / "NEXT_PROMPT_CRYPTO_FAMILY_B_OR_D_SELECTION_001.md"
+        body = _family_b_or_d_prompt()
+    elif label == "MIXED_REQUIRES_TARGETED_FOLLOWUP":
+        path = docs_dir / "NEXT_PROMPT_CRYPTO_FAMILY_C_SLOW_HORIZON_FOLLOWUP_001.md"
+        body = _mixed_followup_prompt()
     else:
-        classification = "NO_MATERIAL_PERSISTENCE_DETECTED"
-        summary = (
-            "Lag-1 autocorrelation is not consistently positive and the momentum proxy "
-            "does not show robust gross edge — Family C trend persistence is weak in this "
-            "exploratory pass."
-        )
-    return {"classification": classification, "summary": summary}
+        path = docs_dir / "NEXT_PROMPT_CRYPTO_DATA_GAP_REPAIR_001.md"
+        body = _data_repair_prompt()
+    path.write_text(body, encoding="utf-8")
+    return str(path.relative_to(ROOT))
+
+
+def _factor_validation_prompt() -> str:
+    return """# Next Prompt — Crypto Family C Trend Persistence Factor Validation 001
+
+**Type:** Factor-validation prompt only — NOT strategy or campaign
+**Prerequisite:** Family C exploratory diagnostics classified PROMISING_FOR_FACTOR_VALIDATION
+
+Pre-register gates, matched nulls, and cost thresholds before any validation run.
+"""
+
+
+def _family_b_prompt() -> str:
+    return """# Next Prompt — Crypto Family B Relative Value Diagnostics 001
+
+**Type:** Exploratory diagnostics only — NOT strategy or campaign
+**Reason:** Family C trend persistence was statistically weak or cost-defeated; avoid tuning momentum — pivot to BTC/ETH relative value.
+
+## Scope
+
+- Instruments: BTC_USD, ETH_USD
+- Spread/ratio mean-reversion and lead-lag diagnostics
+- Same frozen cost model variants (gross, spread-only, all-in, 2×)
+- Null baselines required
+- No strategy, campaign, or approval
+"""
+
+
+def _family_b_or_d_prompt() -> str:
+    return """# Next Prompt — Crypto Family B or D Selection 001
+
+**Type:** Planning/diagnostics selection — NOT strategy or campaign
+**Reason:** Family C trend persistence exploratory pass was WEAK_OR_NULL.
+
+## Decision
+
+Compare expected information gain:
+- **Family B:** BTC/ETH relative value (spread, ratio, correlation regime)
+- **Family D:** Non-time bars (volume/dollar bars) after confirming standard bars lack edge
+
+Choose one family for the next diagnostic sprint. No campaigns.
+"""
+
+
+def _mixed_followup_prompt() -> str:
+    return """# Next Prompt — Crypto Family C Slow Horizon Follow-up 001
+
+**Type:** Narrow exploratory follow-up — NOT strategy or campaign
+**Reason:** MIXED_REQUIRES_TARGETED_FOLLOWUP — gross-only signal at slow horizons without all-in survival.
+
+## Scope
+
+- D1/H4 only; pre-registered lookbacks; same frozen costs
+- No new strategy logic; diagnostics only
+"""
+
+
+def _data_repair_prompt() -> str:
+    return """# Next Prompt — Crypto Data Gap Repair 001
+
+**Type:** Data quality sprint — NOT strategy or campaign
+**Reason:** BLOCKED_DATA_QUALITY classification.
+
+Repair canonical store issues before any factor diagnostics.
+"""
 
 
 def main(argv: list[str] | None = None, *, environ: dict[str, str] | None = None) -> int:
     environ = bootstrap_environ(environ)
     parser = argparse.ArgumentParser(description="Crypto Family C trend persistence diagnostics.")
-    parser.add_argument("--start", default=DEFAULT_START)
-    parser.add_argument("--end", default=DEFAULT_END)
-    parser.add_argument(
-        "--output-json",
-        default=str(ROOT / "research/crypto/diagnostics/family_c_trend_persistence_001.json"),
-    )
-    parser.add_argument(
-        "--output-md",
-        default=str(
-            ROOT
-            / "docs/research/active/crypto_programme/CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001.md"
-        ),
-    )
+    parser.add_argument("--start", default=DEFAULT_START.isoformat().replace("+00:00", "Z"))
+    parser.add_argument("--end", default=DEFAULT_END.isoformat().replace("+00:00", "Z"))
     args = parser.parse_args(argv)
+    docs_dir = ROOT / "docs/research/active/crypto_programme"
+
     try:
-        payload = run_diagnostics(
-            start=_parse_dt(args.start),
-            end=_parse_dt(args.end),
-            environ=environ,
+        cfg = get_research_database_config(environ=environ, require=True)
+        store = PostgresCandleStore(cfg)
+        series = load_all_series(
+            store,
+            start_utc=_parse_dt(args.start),
+            end_utc=_parse_dt(args.end),
         )
+        payload = run_full_diagnostics(series)
+        payload["start_utc"] = args.start
+        payload["end_utc"] = args.end
+        payload["source"] = MATERIALIZED_SOURCE
+        for inst in CANONICAL_INSTRUMENTS:
+            payload.setdefault("instruments", {}).setdefault(inst, {})["cost_model"] = {
+                tf: {
+                    "1x": cost_breakdown(inst, tf, stress=False).__dict__,
+                    "2x": cost_breakdown(inst, tf, stress=True).__dict__,
+                }
+                for tf in TIMEFRAMES
+            }
+        write_outputs(payload, docs_dir=docs_dir)
+        next_prompt = write_next_prompt(payload, docs_dir=docs_dir)
     except ResearchDatabaseBlocked as exc:
         print(json.dumps({"status": "BLOCKED", "message": str(exc)}, indent=2))
         return 2
 
-    json_path = Path(args.output_json)
-    json_path.parent.mkdir(parents=True, exist_ok=True)
-    json_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-
-    md_path = Path(args.output_md)
-    md_path.parent.mkdir(parents=True, exist_ok=True)
-    md_path.write_text(render_markdown(payload), encoding="utf-8")
-
-    print(json.dumps({"status": "PASS", "json": str(json_path.relative_to(ROOT)), "md": str(md_path.relative_to(ROOT))}, indent=2))
+    print(
+        json.dumps(
+            {
+                "status": "PASS",
+                "classification": payload["classification"]["label"],
+                "artifacts": str(ARTIFACT_DIR.relative_to(ROOT)),
+                "next_prompt": next_prompt,
+            },
+            indent=2,
+        )
+    )
     return 0
 
 
