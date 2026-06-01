@@ -114,7 +114,7 @@ def align_btc_eth_pair(
         "btc_close": btc["close"][bi],
         "eth_close": eth["close"][ei],
         "btc_open": btc["open"][bi],
-        "eth_open": eth["open"][bi],
+        "eth_open": eth["open"][ei],
         "btc_high": btc["high"][bi],
         "eth_high": eth["high"][ei],
         "btc_low": btc["low"][bi],

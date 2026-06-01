@@ -286,7 +286,9 @@ def divergence_reversion_block(
     w_beta = BETA_WINDOW_BY_TF[timeframe]
     w_z = ZSCORE_WINDOW_BY_TF[timeframe]
     beta = rolling_beta(eth_rets, btc_rets, w_beta)
-    spread = beta_adjusted_spread(log_btc, log_eth, beta)
+    log_b = log_btc[1:]
+    log_e = log_eth[1:]
+    spread = beta_adjusted_spread(log_b, log_e, beta)
     z = rolling_zscore(spread, w_z)
     costs = paired_cost_report(timeframe)
     bands: dict[str, Any] = {}
