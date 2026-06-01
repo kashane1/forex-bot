@@ -1,0 +1,14 @@
+{
+  "batch_id": "1d00f0c0-554d-4970-9141-a6480170316f",
+  "candles_fetched": 118,
+  "candles_upserted": 118,
+  "end_utc": "2026-05-31T23:57:35+00:00",
+  "error": null,
+  "finished_at_utc": "2026-05-31T23:57:36.948282+00:00",
+  "granularity": "M1",
+  "instrument": "BTC_USD",
+  "source": "coinbase-spot",
+  "start_utc": "2026-05-31T21:57:35+00:00",
+  "started_at_utc": "2026-05-31T23:57:36.502326+00:00",
+  "status": "PASS"
+}
