@@ -170,14 +170,15 @@ Examples: momentum, trend continuation, breakout persistence, regime persistence
 - [x] Implement ingestion per plan
 - [x] Validate data quality (7-day pilot)
 - [x] Build minimal BTC/ETH canonical pilot dataset in Postgres
-- [ ] Full 5y backfill (operator authorization required)
+- [x] Full 5y backfill (BTC/ETH M1 + derived TFs)
 - **Deliverables:** ingest/validate/materialize scripts; [`CRYPTO_DATA_INGESTION_001_SUMMARY.md`](active/crypto_programme/CRYPTO_DATA_INGESTION_001_SUMMARY.md)
 
-### Stage 3 — Exploratory factor diagnostics
+### Stage 3 — Exploratory factor diagnostics ✓ (Family C)
 
-- Compare Families A–D on effect size, turnover, robustness, cost sensitivity
-- Require null comparisons on every diagnostic
-- Require BTC-only, ETH-only, and pooled splits
+- [x] Family C Trend Persistence exploratory diagnostics (`CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001_SYNTHESIS.md`)
+- [x] Classification: **STATISTICAL_ONLY_COST_DEFEATED** — no cost-surviving momentum at frozen 120 bps taker RT
+- [x] Null baselines, regime terciles, four cost variants (gross / spread / all-in / 2×)
+- [ ] Families A, B, D exploratory passes (Family B recommended next)
 - **No campaigns, no front-gate yet**
 
 ### Stage 4 — First factor-family validation
