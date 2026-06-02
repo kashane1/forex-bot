@@ -180,10 +180,10 @@ Examples: momentum, trend continuation, breakout persistence, regime persistence
 - [x] Null baselines, regime terciles, one-leg + paired cost variants
 - [x] Family D vs E selection → **Family E chosen**; derivatives data prep complete (`CRYPTO_FAMILY_E_DERIVATIVES_DATA_PREP_001_SUMMARY.md`)
 - [x] Derivatives backfill executed (`CRYPTO_DERIVATIVES_BACKFILL_001_RESULT.md`) — BTC+ETH 6.4y USD funding/OHLCV/basis; frozen cost model (`CRYPTO_DERIVATIVES_COST_MODEL_001.md`)
-- [ ] Family E exploratory diagnostics (data-ready for 1–3/6/7; OI-dependent 4/5 low-power)
-- [ ] Family D non-time bars (deferred, not rejected)
+- [x] Family E exploratory diagnostics — **NO CANDIDATE** (`CRYPTO_FAMILY_E_EXPLORATORY_SYNTHESIS_001.md`): diagnostics 1/2/3/6/7 `rejected`, 4/5 `blocked_low_power_oi`. Strongest thread = downtrend-conditioned funding reversion (BTC+ETH 2×-positive) but fails the frozen bar (single regime slice on a rejected base). Third family to miss the bar (C/B cost-defeated).
+- [ ] Family D non-time bars (deferred; low-info — re-samples spot OHLCV C/B already showed cost-defeated)
 - [ ] Family A MTF confluence (deferred)
-- **No campaigns, no front-gate yet**
+- **Decision: → crypto programme PAUSE synthesis** (`NEXT_PROMPT_CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md`). No campaigns, no front-gate, no approval.
 
 ### Stage 4 — First factor-family validation
 

@@ -1,20 +1,29 @@
 # Cryptocurrency Research Programme (Active)
 
-**Status:** Stage 3 · Family E derivatives backfill complete (diagnostics 1–3/6/7 data-ready; not yet run)
+**Status:** Stage 3 · Family E exploratory diagnostics complete — **NO CANDIDATE**; next = programme PAUSE synthesis
 **Gate:** Forex archive cleanup executed 2026-05-31
 
 ---
 
 ## Current stage
 
-**Stage 3 — exploratory factor diagnostics** (Family C + Family B complete).
+**Stage 3 — exploratory factor diagnostics** (Family C, B, E complete).
 
 | Family | Classification |
 |--------|----------------|
 | C Trend Persistence | `STATISTICAL_ONLY_COST_DEFEATED` |
 | B Relative Value | `STATISTICAL_ONLY_COST_DEFEATED` |
+| E Derivatives (funding/basis/OI) | **NO CANDIDATE** — diag 1/2/3/6/7 `rejected`, 4/5 `blocked_low_power_oi` |
 
-**Decision:** Family E chosen over Family D (derivatives add new info; D re-samples spot). Data-prep done; next = derivatives backfill, then exploratory diagnostics — [`NEXT_PROMPT_CRYPTO_FAMILY_E_EXPLORATORY_DIAGNOSTICS_001.md`](NEXT_PROMPT_CRYPTO_FAMILY_E_EXPLORATORY_DIAGNOSTICS_001.md)
+**Decision:** Three families now miss the front-gate bar. Family D is low-information (re-samples spot OHLCV C/B already showed cost-defeated). → **crypto programme PAUSE synthesis** — [`NEXT_PROMPT_CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md`](NEXT_PROMPT_CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md). One thread carried forward: downtrend-conditioned funding reversion (BTC+ETH 2×-positive but sub-bar — fresh pre-registration only).
+
+| Family E document | Role |
+|----------|------|
+| [`CRYPTO_FAMILY_E_EXPLORATORY_DIAGNOSTICS_001_PLAN.md`](CRYPTO_FAMILY_E_EXPLORATORY_DIAGNOSTICS_001_PLAN.md) | Phase 0 plan + truth audit |
+| [`CRYPTO_FAMILY_E_EXPLORATORY_RUN_SPEC_001.md`](CRYPTO_FAMILY_E_EXPLORATORY_RUN_SPEC_001.md) | FROZEN pre-registration (thresholds/nulls/regimes/gates) |
+| [`CRYPTO_FAMILY_E_DATA_READINESS_AUDIT_001.md`](CRYPTO_FAMILY_E_DATA_READINESS_AUDIT_001.md) | Phase 3 readiness audit |
+| [`CRYPTO_FAMILY_E_EXPLORATORY_SYNTHESIS_001.md`](CRYPTO_FAMILY_E_EXPLORATORY_SYNTHESIS_001.md) | Synthesis + decision |
+| `CRYPTO_FAMILY_E_DIAGNOSTIC_{1,2,3,6}_*_RESULT.md` · `_4_5_OI_LOW_POWER_RESULT.md` · `_7_REGIME_CONDITIONING_RESULT.md` | Per-diagnostic results |
 
 | Document | Role |
 |----------|------|

@@ -1,5 +1,13 @@
 # Next Prompt — Crypto Family E Exploratory Diagnostics 001
 
+> **STATUS: SUPERSEDED / COMPLETED (2026-06-02).** Executed as sprint
+> `crypto-family-e-exploratory-diagnostics-001`. Outcome: **NO `candidate_for_front_gate`**
+> — diagnostics 1/2/3/6/7 `rejected`, 4/5 `blocked_low_power_oi`. See
+> `CRYPTO_FAMILY_E_EXPLORATORY_SYNTHESIS_001.md` and
+> `CRYPTO_FAMILY_E_EXPLORATORY_DIAGNOSTICS_001_SUMMARY.md`. Next →
+> `NEXT_PROMPT_CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md`.
+
+
 **Precondition status (updated 2026-06-02):** The readiness gate is **MET for diagnostics 1–3, 6, 7** via `crypto-derivatives-backfill-001`:
 - BTC+ETH USD-quoted funding backfilled 2020→2026 (56,186 hourly rows each, 99.86% coverage) — `CRYPTO_DERIVATIVES_BACKFILL_001_RESULT.md`;
 - perp OHLCV (H1 + D1), hourly index, and basis_h1 (USD, ~6.4y) available;
