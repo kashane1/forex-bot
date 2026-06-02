@@ -1,6 +1,11 @@
 # Next Prompt — Crypto Family E Exploratory Diagnostics 001
 
-**Precondition:** Start this sprint **only after** the derivatives data readiness gate in `CRYPTO_FAMILY_E_DIAGNOSTIC_DESIGN.md` is met (full BTC+ETH funding backfill validated; perp OHLCV + USD-quoted reference available where a diagnostic needs them; a **frozen derivatives cost model** written). If the gate is not met, the next sprint is derivatives **backfill**, not diagnostics.
+**Precondition status (updated 2026-06-02):** The readiness gate is **MET for diagnostics 1–3, 6, 7** via `crypto-derivatives-backfill-001`:
+- BTC+ETH USD-quoted funding backfilled 2020→2026 (56,186 hourly rows each, 99.86% coverage) — `CRYPTO_DERIVATIVES_BACKFILL_001_RESULT.md`;
+- perp OHLCV (H1 + D1), hourly index, and basis_h1 (USD, ~6.4y) available;
+- derivatives cost model **frozen** — `CRYPTO_DERIVATIVES_COST_MODEL_001.md`.
+
+Diagnostics **4 and 5 (OI-dependent) remain low-power** — only ~180d aggregate daily OI is free; run them only with documented coverage caveats or after forward-collecting OI. Data lives as gitignored CSVs under `research/crypto/derivatives/backfill/<inst>/` (regenerate via `scripts/backfill_crypto_derivatives.py --execute-public-fetch`).
 
 ---
 

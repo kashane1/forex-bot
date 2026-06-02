@@ -1,6 +1,6 @@
 # Cryptocurrency Research Programme (Active)
 
-**Status:** Stage 3 · Family E derivatives data prep complete (diagnostics not yet run)
+**Status:** Stage 3 · Family E derivatives backfill complete (diagnostics 1–3/6/7 data-ready; not yet run)
 **Gate:** Forex archive cleanup executed 2026-05-31
 
 ---
@@ -18,6 +18,8 @@
 
 | Document | Role |
 |----------|------|
+| [`CRYPTO_DERIVATIVES_BACKFILL_001_RESULT.md`](CRYPTO_DERIVATIVES_BACKFILL_001_RESULT.md) | Backfill result — 6.4y USD funding/OHLCV/basis |
+| [`CRYPTO_DERIVATIVES_COST_MODEL_001.md`](CRYPTO_DERIVATIVES_COST_MODEL_001.md) | FROZEN perp cost model |
 | [`CRYPTO_FAMILY_E_DERIVATIVES_DATA_PREP_001_SUMMARY.md`](CRYPTO_FAMILY_E_DERIVATIVES_DATA_PREP_001_SUMMARY.md) | Family E data-prep closeout |
 | [`CRYPTO_DERIVATIVES_PUBLIC_DATA_SOURCE_REVIEW.md`](CRYPTO_DERIVATIVES_PUBLIC_DATA_SOURCE_REVIEW.md) | Derivatives source hierarchy |
 | [`CRYPTO_DERIVATIVES_DATA_MODEL.md`](CRYPTO_DERIVATIVES_DATA_MODEL.md) | Derivatives schema + provenance |
