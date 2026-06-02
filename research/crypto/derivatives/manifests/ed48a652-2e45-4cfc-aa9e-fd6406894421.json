@@ -1,0 +1,15 @@
+{
+  "batch_id": "ed48a652-2e45-4cfc-aa9e-fd6406894421",
+  "canonical_symbol": "BTC_PERP_USD",
+  "end_utc": null,
+  "endpoint_category": "funding",
+  "fetched_at_utc": "2026-06-02T14:52:40.946174+00:00",
+  "instrument": "BTC_PERP_USD",
+  "local_raw_path": "research/crypto/derivatives/raw/ed48a652-2e45-4cfc-aa9e-fd6406894421.json",
+  "native_symbol": "BTC-USDT-SWAP",
+  "quote_ccy": "USDT",
+  "rows_fetched": 30,
+  "source": "okx",
+  "start_utc": null,
+  "status": "PASS"
+}

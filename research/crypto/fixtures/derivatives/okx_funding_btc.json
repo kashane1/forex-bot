@@ -1,0 +1,9 @@
+{
+  "code": "0",
+  "msg": "",
+  "data": [
+    {"instId": "BTC-USDT-SWAP", "fundingRate": "0.00010000", "realizedRate": "0.00009800", "fundingTime": "1717200000000"},
+    {"instId": "BTC-USDT-SWAP", "fundingRate": "-0.00000400", "realizedRate": "-0.00000300", "fundingTime": "1717228800000"},
+    {"instId": "BTC-USDT-SWAP", "fundingRate": "0.00007500", "realizedRate": "0.00007100", "fundingTime": "1717257600000"}
+  ]
+}

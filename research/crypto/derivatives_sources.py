@@ -93,6 +93,8 @@ PUBLIC_ENDPOINTS: tuple[SourceEndpoint, ...] = (
     SourceEndpoint("bybit", "open_interest", "/v5/market/open-interest", "OI history"),
     SourceEndpoint("bybit", "funding", "/v5/market/funding/history", "8h funding history"),
     SourceEndpoint("kraken-futures", "funding", "/derivatives/api/v3/historicalfundingrates", "USD perp funding"),
+    SourceEndpoint("okx", "funding", "/api/v5/public/funding-rate-history", "8h funding history"),
+    SourceEndpoint("okx", "open_interest", "/api/v5/public/open-interest", "current OI snapshot"),
 )
 
 
@@ -269,6 +271,62 @@ def parse_bybit_open_interest(
         )
     out.sort(key=lambda r: r.time_utc)
     return _dedup(out, key=lambda r: r.time_utc)
+
+
+def parse_okx_funding(
+    payload: dict[str, Any], *, venue: str = "okx"
+) -> list[FundingRateRecord]:
+    """OKX ``/api/v5/public/funding-rate-history`` → FundingRateRecord list.
+
+    Payload shape: ``{"code": "0", "data": [{"instId", "fundingRate", "fundingTime"}]}``.
+    """
+    out: list[FundingRateRecord] = []
+    for row in payload.get("data", []):
+        canonical = resolve_canonical(str(row["instId"]), venue)
+        out.append(
+            FundingRateRecord(
+                canonical_id=canonical,
+                venue=venue,
+                venue_symbol=str(row["instId"]),
+                funding_time_utc=_ms_to_utc(row["fundingTime"]),
+                funding_rate=float(row["fundingRate"]),
+                funding_interval_hours=8,
+            )
+        )
+    out.sort(key=lambda r: r.funding_time_utc)
+    return _dedup(out, key=lambda r: r.funding_time_utc)
+
+
+def parse_okx_open_interest(
+    payload: dict[str, Any], *, interval: str = "snapshot", venue: str = "okx"
+) -> list[OpenInterestRecord]:
+    """OKX ``/api/v5/public/open-interest`` → OpenInterestRecord list (current snapshot)."""
+    out: list[OpenInterestRecord] = []
+    for row in payload.get("data", []):
+        canonical = resolve_canonical(str(row["instId"]), venue)
+        out.append(
+            OpenInterestRecord(
+                canonical_id=canonical,
+                venue=venue,
+                time_utc=_ms_to_utc(row["ts"]),
+                interval=interval,
+                open_interest_base=float(row["oiCcy"]) if row.get("oiCcy") not in (None, "") else None,
+                open_interest_usd=float(row["oiUsd"]) if row.get("oiUsd") not in (None, "") else None,
+            )
+        )
+    out.sort(key=lambda r: r.time_utc)
+    return _dedup(out, key=lambda r: r.time_utc)
+
+
+def count_payload_rows(payload: Any) -> int:
+    """Best-effort row count across venue payload shapes (list / result.list / data)."""
+    if isinstance(payload, list):
+        return len(payload)
+    if isinstance(payload, dict):
+        if "data" in payload and isinstance(payload["data"], list):
+            return len(payload["data"])
+        return len(payload.get("result", {}).get("list", []))
+    return 0
 
 
 def _dedup(records: list[Any], *, key: Any) -> list[Any]:

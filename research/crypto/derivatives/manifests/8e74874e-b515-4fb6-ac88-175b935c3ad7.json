@@ -1,0 +1,15 @@
+{
+  "batch_id": "8e74874e-b515-4fb6-ac88-175b935c3ad7",
+  "canonical_symbol": "ETH_PERP_USD",
+  "end_utc": null,
+  "endpoint_category": "funding",
+  "fetched_at_utc": "2026-06-02T14:52:41.371558+00:00",
+  "instrument": "ETH_PERP_USD",
+  "local_raw_path": "research/crypto/derivatives/raw/8e74874e-b515-4fb6-ac88-175b935c3ad7.json",
+  "native_symbol": "ETH-USDT-SWAP",
+  "quote_ccy": "USDT",
+  "rows_fetched": 30,
+  "source": "okx",
+  "start_utc": null,
+  "status": "PASS"
+}

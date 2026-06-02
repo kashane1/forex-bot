@@ -37,6 +37,7 @@ from research.crypto.derivatives_sources import (
     UnsafeSourceError,
     assert_no_credentials_required,
     build_request_url,
+    count_payload_rows,
     endpoint_for,
 )
 
@@ -72,6 +73,41 @@ def build_plan(args: argparse.Namespace) -> dict[str, Any]:
     }
 
 
+def _venue_params(plan: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
+    """Build venue-specific public query params (symbol + window).
+
+    Only ``binance-usdm`` and ``bybit`` are wired for execute mode in this prep
+    sprint; other venues are reachable in dry-run but raise here to avoid sending
+    a malformed request. The native symbol is path-encoded for kraken-futures.
+    """
+    venue = plan["venue"]
+    params: dict[str, Any] = {}
+    if plan["start_utc"]:
+        params["startTime"] = int(_parse_dt(args.start).timestamp() * 1000)
+    if plan["end_utc"]:
+        params["endTime"] = int(_parse_dt(args.end).timestamp() * 1000)
+    if args.limit:
+        params["limit"] = args.limit
+    if venue == "binance-usdm":
+        params["symbol"] = plan["venue_symbol"]
+    elif venue == "bybit":
+        params["symbol"] = plan["venue_symbol"]
+        params["category"] = "linear"
+        if plan["data_class"] == "open_interest":
+            params["intervalTime"] = "1h"
+    elif venue == "okx":
+        params.pop("startTime", None)
+        params.pop("endTime", None)
+        params["instId"] = plan["venue_symbol"]
+        if plan["data_class"] == "open_interest":
+            params["instType"] = "SWAP"
+    else:
+        raise UnsafeSourceError(
+            f"execute-public-fetch wired for binance-usdm/bybit/okx only in prep sprint; got {venue!r}"
+        )
+    return params
+
+
 def run(args: argparse.Namespace, *, environ: dict[str, str] | None = None) -> dict[str, Any]:
     # Public-only guard: refuse if exchange credentials are present.
     assert_no_credentials_required(environ if environ is not None else {})
@@ -85,19 +121,13 @@ def run(args: argparse.Namespace, *, environ: dict[str, str] | None = None) -> d
 
     started_at = datetime.now(UTC)
     batch_id = str(uuid.uuid4())
-    params: dict[str, Any] = {}
-    if plan["start_utc"]:
-        params["startTime"] = int(_parse_dt(args.start).timestamp() * 1000)
-    if plan["end_utc"]:
-        params["endTime"] = int(_parse_dt(args.end).timestamp() * 1000)
-    if args.limit:
-        params["limit"] = args.limit
+    params = _venue_params(plan, args)
     with httpx.Client(timeout=30.0) as client:
         resp = client.get(plan["request_url"], params=params)
         resp.raise_for_status()
         payload = resp.json()
 
-    raw_rows = len(payload) if isinstance(payload, list) else len(payload.get("result", {}).get("list", []))
+    raw_rows = count_payload_rows(payload)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     raw_path = RAW_DIR / f"{batch_id}.json"
     raw_path.write_text(json.dumps(payload), encoding="utf-8")  # gitignored
@@ -115,7 +145,7 @@ def run(args: argparse.Namespace, *, environ: dict[str, str] | None = None) -> d
         "end_utc": plan["end_utc"],
         "rows_fetched": raw_rows,
         "fetched_at_utc": started_at.isoformat(),
-        "local_raw_path": str(raw_path),  # path only; file never committed
+        "local_raw_path": str(raw_path.relative_to(ROOT)),  # repo-relative; file itself gitignored
     }
     MANIFEST_DIR.mkdir(parents=True, exist_ok=True)
     (MANIFEST_DIR / f"{batch_id}.json").write_text(

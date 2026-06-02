@@ -1,0 +1,15 @@
+{
+  "batch_id": "161dcacb-e6d3-4723-8207-b32a9999a3ac",
+  "canonical_symbol": "BTC_PERP_USD",
+  "end_utc": null,
+  "endpoint_category": "open_interest",
+  "fetched_at_utc": "2026-06-02T14:52:41.798333+00:00",
+  "instrument": "BTC_PERP_USD",
+  "local_raw_path": "research/crypto/derivatives/raw/161dcacb-e6d3-4723-8207-b32a9999a3ac.json",
+  "native_symbol": "BTC-USDT-SWAP",
+  "quote_ccy": "USDT",
+  "rows_fetched": 1,
+  "source": "okx",
+  "start_utc": null,
+  "status": "PASS"
+}

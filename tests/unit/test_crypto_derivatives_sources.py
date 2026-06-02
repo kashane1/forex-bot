@@ -16,11 +16,14 @@ from research.crypto.derivatives_sources import (  # noqa: E402
     UnsafeSourceError,
     assert_no_credentials_required,
     build_request_url,
+    count_payload_rows,
     is_public_url,
     parse_binance_funding,
     parse_binance_mark_klines,
     parse_binance_perp_klines,
     parse_bybit_open_interest,
+    parse_okx_funding,
+    parse_okx_open_interest,
 )
 
 FIX = ROOT / "research" / "crypto" / "fixtures" / "derivatives"
@@ -104,6 +107,35 @@ def test_parse_bybit_open_interest_fixture():
     assert len(recs) == 3
     assert recs[0].open_interest_base is not None
     assert recs[0].open_interest_usd is not None
+
+
+def test_parse_okx_funding_fixture():
+    recs = parse_okx_funding(_load("okx_funding_btc.json"))
+    assert len(recs) == 3
+    assert all(r.canonical_id == "BTC_PERP_USD" for r in recs)
+    assert all(r.funding_interval_hours == 8 for r in recs)
+    assert all(r.venue == "okx" for r in recs)
+
+
+def test_parse_okx_open_interest_fixture():
+    recs = parse_okx_open_interest(_load("okx_open_interest_btc.json"))
+    assert len(recs) == 1
+    assert recs[0].canonical_id == "BTC_PERP_USD"
+    assert recs[0].open_interest_base is not None
+    assert recs[0].open_interest_usd is not None
+
+
+def test_okx_funding_refuses_altcoin():
+    bad = {"code": "0", "data": [{"instId": "SOL-USDT-SWAP", "fundingRate": "0.0001", "fundingTime": "1717200000000"}]}
+    with pytest.raises(ValueError, match="unauthorized / unknown"):
+        parse_okx_funding(bad)
+
+
+def test_count_payload_rows_shapes():
+    assert count_payload_rows([1, 2, 3]) == 3
+    assert count_payload_rows({"data": [1, 2]}) == 2
+    assert count_payload_rows({"result": {"list": [1]}}) == 1
+    assert count_payload_rows({"nothing": 1}) == 0
 
 
 def test_funding_parser_refuses_altcoin_symbol():
