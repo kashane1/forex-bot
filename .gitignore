@@ -293,3 +293,7 @@ research/h03_thin_move_frontgate/**
 !research/h03_thin_move_frontgate/**/*_study.json
 !research/h03_thin_move_frontgate/**/*_matrix.csv
 !research/h03_thin_move_frontgate/**/*_report.md
+
+# Crypto derivatives (Family E) raw public-API responses — local-only/gitignored.
+# Bulky/regenerable; only compact manifests + synthetic fixtures are committed.
+research/crypto/derivatives/raw/
