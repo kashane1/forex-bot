@@ -243,6 +243,75 @@ def diagnostic_7_regime_conditioning(
     return out
 
 
+_REGIME_BASE_BUILDERS = {
+    "diag1_funding_reversion_h24": (lambda s: build_funding_sample(s, horizon_h=24), -1.0, 1.0, True),
+    "diag2_continuation_k6_h24": (
+        lambda s: build_funding_persistence_sample(s, k=6, horizon_h=24), None, None, False),
+    "diag3_basis_reversion_h24": (lambda s: build_basis_sample(s, horizon_h=24), -1.0, 1.0, True),
+}
+
+# A regime cell whose conditioning variable IS the diagnostic's own signal is
+# circular (re-selects the signal), not an independent regime effect.
+_CIRCULAR = {
+    ("diag1_funding_reversion_h24", "abs_funding"),
+    ("diag3_basis_reversion_h24", "basis"),
+}
+
+
+def audit_notable_regime_cells(
+    series_by_inst: dict[str, InstrumentSeries], regime_result: dict, *,
+    seed: int, n_draws: int,
+) -> list[dict]:
+    """Recompute, per BTC/ETH, every pooled regime cell flagged as notable.
+
+    Notable (pre-Holm) = pooled gross>0 AND all_in>0 AND shuffled p<0.05. For each
+    we recompute the BTC-only and ETH-only legs (with 2x stress + nulls) so the
+    result doc can honestly show whether a candidate-looking cell is single-asset
+    and whether it is a circular (self-conditioned) slice.
+    """
+    insts = list(series_by_inst)
+    notable: list[dict] = []
+    for base, block in regime_result["base_diagnostics"].items():
+        builder, top_sign, bottom_sign, is_decile = _REGIME_BASE_BUILDERS[base]
+        for regime, cells in block.items():
+            for t in (0, 1, 2):
+                pooled = cells[f"tercile_{t}"]
+                ng = pooled.get("nulls_gross")
+                if not ng:
+                    continue
+                p = ng["shuffled"]["p_value_two_sided"]
+                if not (pooled["edges"]["gross"] > 0 and pooled["edges"]["all_in"] > 0 and p < 0.05):
+                    continue
+                per_asset = {}
+                for inst, series in series_by_inst.items():
+                    sample = builder(series)
+                    if is_decile:
+                        signs, _ = _decile_signs(sample.signal, top_sign=top_sign, bottom_sign=bottom_sign)
+                    else:
+                        signs = sample.signal.copy()
+                    rv = _regime_values(series, sample.entry_hours, sample.signal)
+                    terc = _tercile_labels(rv[regime])
+                    mask = (terc == t) & (signs != 0)
+                    labels = np.array([inst] * sample.n, dtype=object)
+                    per_asset[inst] = evaluate_cohort(
+                        signs, sample.fwd_ret, sample.funding_hold, labels, mask,
+                        seed=seed + t, n_draws=n_draws,
+                    )
+                btc_ok = per_asset[insts[0]]["edges"]["gross"] > 0
+                eth_ok = per_asset[insts[1]]["edges"]["gross"] > 0
+                btc_stress_pos = per_asset[insts[0]]["edges"]["stress_2x"] > 0
+                eth_stress_pos = per_asset[insts[1]]["edges"]["stress_2x"] > 0
+                notable.append({
+                    "base": base, "regime": regime, "tercile": t,
+                    "circular": (base, regime) in _CIRCULAR,
+                    "pooled": pooled, "per_asset": per_asset,
+                    "btc_and_eth_supportive": btc_ok and eth_ok,
+                    "both_stress_2x_positive": btc_stress_pos and eth_stress_pos,
+                    "shuffled_p_pooled": p,
+                })
+    return notable
+
+
 # ----------------------------------------------------------------------------- #
 # Diagnostics 4 & 5 — OI impulse / funding-OI interaction (LOW-POWER)
 # ----------------------------------------------------------------------------- #

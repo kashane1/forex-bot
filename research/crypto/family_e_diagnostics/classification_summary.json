@@ -29,8 +29,11 @@
     "rationale": "best cell = agreement_directional h8: gross=4.84e-05, all_in=-1.27e-03, Holm-adj shuffled p=1.000 (does not clear after multiple comparisons)."
   },
   "diagnostic_7": {
+    "cells_passing_btc_eth_and_2x_before_slice_gate": 1,
     "label": "rejected",
-    "rationale": "No regime cell overrides a base-diagnostic result; base diagnostics 1\u20133 are not candidate, so regime conditioning yields no front-gate candidate (forking-path discipline applied)."
+    "meets_full_candidate_bar": false,
+    "notable_non_circular_cells": 1,
+    "rationale": "1 non-circular regime cell(s) flagged notable; the strongest is downtrend-conditioned funding mean reversion (BTC+ETH supportive, both 2\u00d7-stress-positive). It FAILS the frozen candidate bar: it is a single regime slice conditioning a REJECTED base diagnostic and is borderline/failing under full-family Holm (incl. assets). Per pre-registration a tiny regime slice must not override base failure \u2192 no front-gate candidate this sprint, but it is the single thread worth a future fresh-pre-registered, walk-forward re-test."
   },
   "holm_pvalues": {
     "diag1|h24|pooled_gross": 1.0,

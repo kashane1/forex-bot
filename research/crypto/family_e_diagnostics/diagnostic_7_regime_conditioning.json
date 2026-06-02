@@ -1,0 +1,3003 @@
+{
+  "base_diagnostics": {
+    "diag1_funding_reversion_h24": {
+      "abs_funding": {
+        "tercile_0": {
+          "edges": {
+            "all_in": 0.0,
+            "gross": 0.0,
+            "spread_only": 0.0,
+            "stress_2x": 0.0
+          },
+          "n": 0
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": 0.0017799833710680918,
+            "gross": 0.003329420711449773,
+            "spread_only": 0.0028905209079134278,
+            "stress_2x": 0.00014108356753174625
+          },
+          "n": 509,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016733781344068358,
+              "null_p05": -0.004547410580211792,
+              "null_p95": 0.001066814463671706,
+              "observed": 0.0017799833710680918,
+              "p_value_greater": 0.015,
+              "p_value_two_sided": 0.488,
+              "seed": 20330060
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001625114448028127,
+              "null_p05": -0.0043590073773149135,
+              "null_p95": 0.0012001881572916066,
+              "observed": 0.0017799833710680918,
+              "p_value_greater": 0.022,
+              "p_value_two_sided": 0.482,
+              "seed": 20330059
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0008701383809215302,
+              "null_p05": -0.003435957631854308,
+              "null_p95": 0.001610244852337233,
+              "observed": 0.0017799833710680918,
+              "p_value_greater": 0.045,
+              "p_value_two_sided": 0.334,
+              "seed": 20330058
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -5.067041180942813e-05,
+              "null_p05": -0.002891019465597448,
+              "null_p95": 0.0027364939912744575,
+              "observed": 0.003329420711449773,
+              "p_value_greater": 0.02,
+              "p_value_two_sided": 0.048,
+              "seed": 20329960
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 8.745650468079815e-06,
+              "null_p05": -0.0029205474862831764,
+              "null_p95": 0.002744816400895864,
+              "observed": 0.003329420711449773,
+              "p_value_greater": 0.02,
+              "p_value_two_sided": 0.048,
+              "seed": 20329959
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0009452038149223443,
+              "null_p05": -0.00166715957805709,
+              "null_p95": 0.0036513912603803535,
+              "observed": 0.003329420711449773,
+              "p_value_greater": 0.076,
+              "p_value_two_sided": 0.077,
+              "seed": 20329958
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.0019425526100788732,
+            "gross": -0.0011593116265443055,
+            "spread_only": -0.0016735842286553658,
+            "stress_2x": -0.0036568252121899343
+          },
+          "n": 2179,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017052071710279377,
+              "null_p05": -0.0031053674295885604,
+              "null_p95": -0.00037336632393157793,
+              "observed": -0.0019425526100788732,
+              "p_value_greater": 0.604,
+              "p_value_two_sided": 0.396,
+              "seed": 20328485
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017323392512716353,
+              "null_p05": -0.003324019780269806,
+              "null_p95": -0.00021575608353914617,
+              "observed": -0.0019425526100788732,
+              "p_value_greater": 0.591,
+              "p_value_two_sided": 0.409,
+              "seed": 20328484
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0019009758168993059,
+              "null_p05": -0.0031750333444501666,
+              "null_p95": -0.0006053590985304819,
+              "observed": -0.0019425526100788732,
+              "p_value_greater": 0.53,
+              "p_value_two_sided": 0.47,
+              "seed": 20328483
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.3465529901385238e-05,
+              "null_p05": -0.0011934202493421753,
+              "null_p95": 0.0012948508952152693,
+              "observed": -0.0011593116265443055,
+              "p_value_greater": 0.946,
+              "p_value_two_sided": 0.124,
+              "seed": 20328385
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -1.14097722399868e-05,
+              "null_p05": -0.0015262986935526534,
+              "null_p95": 0.0015694607503869034,
+              "observed": -0.0011593116265443055,
+              "p_value_greater": 0.881,
+              "p_value_two_sided": 0.228,
+              "seed": 20328384
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.00020196304236200747,
+              "null_p05": -0.0015043667424778872,
+              "null_p95": 0.0010655737044601454,
+              "observed": -0.0011593116265443055,
+              "p_value_greater": 0.878,
+              "p_value_two_sided": 0.166,
+              "seed": 20328383
+            }
+          }
+        }
+      },
+      "basis": {
+        "tercile_0": {
+          "edges": {
+            "all_in": -0.0007456172820530692,
+            "gross": 0.00022878109494148748,
+            "spread_only": -0.000269717403557011,
+            "stress_2x": -0.0024441157805515676
+          },
+          "n": 999,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016467061656076352,
+              "null_p05": -0.0034417567644312924,
+              "null_p95": 0.00023259831386406962,
+              "observed": -0.0007456172820530692,
+              "p_value_greater": 0.217,
+              "p_value_two_sided": 0.801,
+              "seed": 20308340
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017779998529673464,
+              "null_p05": -0.004174765269143433,
+              "null_p95": 0.0006590949558244949,
+              "observed": -0.0007456172820530692,
+              "p_value_greater": 0.221,
+              "p_value_two_sided": 0.825,
+              "seed": 20308339
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0016606657055252324,
+              "null_p05": -0.0036910155851902085,
+              "null_p95": 0.00021648346589024994,
+              "observed": -0.0007456172820530692,
+              "p_value_greater": 0.225,
+              "p_value_two_sided": 0.796,
+              "seed": 20308338
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -3.824649590162417e-05,
+              "null_p05": -0.001963606512816827,
+              "null_p95": 0.00198992956503257,
+              "observed": 0.00022878109494148748,
+              "p_value_greater": 0.4,
+              "p_value_two_sided": 0.844,
+              "seed": 20308240
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -2.7123225200355066e-05,
+              "null_p05": -0.00232484344292721,
+              "null_p95": 0.002257963411023261,
+              "observed": 0.00022878109494148748,
+              "p_value_greater": 0.426,
+              "p_value_two_sided": 0.88,
+              "seed": 20308239
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 5.400990415904698e-05,
+              "null_p05": -0.001803443777190863,
+              "null_p95": 0.0019172608297201412,
+              "observed": 0.00022878109494148748,
+              "p_value_greater": 0.439,
+              "p_value_two_sided": 0.85,
+              "seed": 20308238
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": -0.0023298806879694374,
+            "gross": -0.0013512710980041144,
+            "spread_only": -0.001849490682573848,
+            "stress_2x": -0.004028100272539171
+          },
+          "n": 674,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016579744382514573,
+              "null_p05": -0.004095414794791076,
+              "null_p95": 0.0006762499350310635,
+              "observed": -0.0023298806879694374,
+              "p_value_greater": 0.679,
+              "p_value_two_sided": 0.326,
+              "seed": 20355149
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017848906294106327,
+              "null_p05": -0.004130482584195926,
+              "null_p95": 0.0007901794808750823,
+              "observed": -0.0023298806879694374,
+              "p_value_greater": 0.642,
+              "p_value_two_sided": 0.359,
+              "seed": 20355148
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0016788124785020809,
+              "null_p05": -0.004018782508886893,
+              "null_p95": 0.0005825070456222445,
+              "observed": -0.0023298806879694374,
+              "p_value_greater": 0.683,
+              "p_value_two_sided": 0.321,
+              "seed": 20355147
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.2562561701890456e-05,
+              "null_p05": -0.0023251460440179283,
+              "null_p95": 0.002441175158231059,
+              "observed": -0.0013512710980041144,
+              "p_value_greater": 0.814,
+              "p_value_two_sided": 0.369,
+              "seed": 20355049
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -1.8103410179187165e-05,
+              "null_p05": -0.0026195188268024875,
+              "null_p95": 0.0024642706274023572,
+              "observed": -0.0013512710980041144,
+              "p_value_greater": 0.808,
+              "p_value_two_sided": 0.371,
+              "seed": 20355048
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 5.947794322300677e-05,
+              "null_p05": -0.0023271201172625345,
+              "null_p95": 0.002444996256401026,
+              "observed": -0.0013512710980041144,
+              "p_value_greater": 0.843,
+              "p_value_two_sided": 0.333,
+              "seed": 20355047
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.0009966496088924034,
+            "gross": -0.00014705466591515256,
+            "spread_only": -0.000649714764437321,
+            "stress_2x": -0.0026993097074145714
+          },
+          "n": 1015,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001702140255476463,
+              "null_p05": -0.0036877138904708034,
+              "null_p95": 0.000412342547951718,
+              "observed": -0.0009966496088924034,
+              "p_value_greater": 0.27,
+              "p_value_two_sided": 0.745,
+              "seed": 20353574
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001758114093025918,
+              "null_p05": -0.004282783429969164,
+              "null_p95": 0.0006408998140968446,
+              "observed": -0.0009966496088924034,
+              "p_value_greater": 0.306,
+              "p_value_two_sided": 0.726,
+              "seed": 20353573
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0018011176077581985,
+              "null_p05": -0.0036857508815242323,
+              "null_p95": -2.0621627964530085e-05,
+              "observed": -0.0009966496088924034,
+              "p_value_greater": 0.248,
+              "p_value_two_sided": 0.756,
+              "seed": 20353572
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -2.4697293547733665e-05,
+              "null_p05": -0.0019447452703698705,
+              "null_p95": 0.0018827116945060419,
+              "observed": -0.00014705466591515256,
+              "p_value_greater": 0.544,
+              "p_value_two_sided": 0.906,
+              "seed": 20353474
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -2.6135398556602973e-05,
+              "null_p05": -0.002416336990578379,
+              "null_p95": 0.002420825480930833,
+              "observed": -0.00014705466591515256,
+              "p_value_greater": 0.535,
+              "p_value_two_sided": 0.93,
+              "seed": 20353473
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -5.6022685191048844e-05,
+              "null_p05": -0.002024728192775529,
+              "null_p95": 0.0018313490008205085,
+              "observed": -0.00014705466591515256,
+              "p_value_greater": 0.523,
+              "p_value_two_sided": 0.905,
+              "seed": 20353472
+            }
+          }
+        }
+      },
+      "trend": {
+        "tercile_0": {
+          "edges": {
+            "all_in": 0.0036110424609938907,
+            "gross": 0.004686974537891254,
+            "spread_only": 0.0041857536721864805,
+            "stress_2x": 0.0019098215952891176
+          },
+          "n": 901,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017329380367320387,
+              "null_p05": -0.003935883379517272,
+              "null_p95": 0.00024240902910443277,
+              "observed": 0.0036110424609938907,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.075,
+              "seed": 20365615
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017189678847991826,
+              "null_p05": -0.004705456782605318,
+              "null_p95": 0.0011804361225846189,
+              "observed": 0.0036110424609938907,
+              "p_value_greater": 0.001,
+              "p_value_two_sided": 0.141,
+              "seed": 20365614
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0012094435298327375,
+              "null_p05": -0.0033533027554640345,
+              "null_p95": 0.000878903787961432,
+              "observed": 0.0036110424609938907,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.03,
+              "seed": 20365613
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -2.824229803708065e-05,
+              "null_p05": -0.0018949358498600052,
+              "null_p95": 0.001926190527601992,
+              "observed": 0.004686974537891254,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.001,
+              "seed": 20365515
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -5.606722960608228e-05,
+              "null_p05": -0.0026583984327220546,
+              "null_p95": 0.002769009483404389,
+              "observed": 0.004686974537891254,
+              "p_value_greater": 0.005,
+              "p_value_two_sided": 0.01,
+              "seed": 20365514
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0006647892000125485,
+              "null_p05": -0.0015574290430072693,
+              "null_p95": 0.002625131400466151,
+              "observed": 0.004686974537891254,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20365513
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": -0.003239134480033359,
+            "gross": -0.0021744892063284794,
+            "spread_only": -0.0026670016855298104,
+            "stress_2x": -0.00493164695923469
+          },
+          "n": 601,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001716589754089611,
+              "null_p05": -0.004139684911496595,
+              "null_p95": 0.0007101510004548012,
+              "observed": -0.003239134480033359,
+              "p_value_greater": 0.853,
+              "p_value_two_sided": 0.148,
+              "seed": 20320865
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0018123890195042263,
+              "null_p05": -0.004230807545788837,
+              "null_p95": 0.0004458423548266434,
+              "observed": -0.003239134480033359,
+              "p_value_greater": 0.834,
+              "p_value_two_sided": 0.166,
+              "seed": 20320864
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0016189607599149385,
+              "null_p05": -0.004023999932969795,
+              "null_p95": 0.0008923586610154087,
+              "observed": -0.003239134480033359,
+              "p_value_greater": 0.85,
+              "p_value_two_sided": 0.151,
+              "seed": 20320863
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.00011135551956510845,
+              "null_p05": -0.0025943736805183353,
+              "null_p95": 0.0023810324119190427,
+              "observed": -0.0021744892063284794,
+              "p_value_greater": 0.909,
+              "p_value_two_sided": 0.153,
+              "seed": 20320765
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -5.57528198075991e-05,
+              "null_p05": -0.002405454148320861,
+              "null_p95": 0.0023207589173224064,
+              "observed": -0.0021744892063284794,
+              "p_value_greater": 0.934,
+              "p_value_two_sided": 0.13,
+              "seed": 20320764
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 6.983782749635597e-05,
+              "null_p05": -0.002590126385012041,
+              "null_p95": 0.0026241982668527347,
+              "observed": -0.0021744892063284794,
+              "p_value_greater": 0.921,
+              "p_value_two_sided": 0.164,
+              "seed": 20320763
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.003963189008388243,
+            "gross": -0.003218468313985741,
+            "spread_only": -0.0037210887704523517,
+            "stress_2x": -0.005665809464854853
+          },
+          "n": 1183,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001664125057758008,
+              "null_p05": -0.0033396313786418835,
+              "null_p95": 0.000236758798335811,
+              "observed": -0.003963189008388243,
+              "p_value_greater": 0.988,
+              "p_value_two_sided": 0.012,
+              "seed": 20399546
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017282420393754801,
+              "null_p05": -0.003854491805658842,
+              "null_p95": 0.0004168559585456998,
+              "observed": -0.003963189008388243,
+              "p_value_greater": 0.958,
+              "p_value_two_sided": 0.042,
+              "seed": 20399545
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.002097533847946642,
+              "null_p05": -0.0037570409967236018,
+              "null_p95": -0.00034466921165762126,
+              "observed": -0.003963189008388243,
+              "p_value_greater": 0.965,
+              "p_value_two_sided": 0.035,
+              "seed": 20399544
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 2.9406245429205167e-05,
+              "null_p05": -0.0016791129124346968,
+              "null_p95": 0.0017998228376731194,
+              "observed": -0.003218468313985741,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.002,
+              "seed": 20399446
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -4.084922157822426e-05,
+              "null_p05": -0.0021380723983218533,
+              "null_p95": 0.002050023153494753,
+              "observed": -0.003218468313985741,
+              "p_value_greater": 0.995,
+              "p_value_two_sided": 0.009,
+              "seed": 20399445
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0005035299073303662,
+              "null_p05": -0.002348641444053338,
+              "null_p95": 0.0012407937374872141,
+              "observed": -0.003218468313985741,
+              "p_value_greater": 0.991,
+              "p_value_two_sided": 0.009,
+              "seed": 20399444
+            }
+          }
+        }
+      },
+      "volatility": {
+        "tercile_0": {
+          "edges": {
+            "all_in": -0.0003728060497516842,
+            "gross": 0.0007216333643305872,
+            "spread_only": 0.00023231712501434692,
+            "stress_2x": -0.002062122289067924
+          },
+          "n": 468,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001736251968822654,
+              "null_p05": -0.004661362409719875,
+              "null_p95": 0.001061926930367466,
+              "observed": -0.0003728060497516842,
+              "p_value_greater": 0.224,
+              "p_value_two_sided": 0.887,
+              "seed": 20374291
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017118463025624386,
+              "null_p05": -0.0038674527907813405,
+              "null_p95": 0.00046738456920285477,
+              "observed": -0.0003728060497516842,
+              "p_value_greater": 0.168,
+              "p_value_two_sided": 0.891,
+              "seed": 20374290
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.001754586933188653,
+              "null_p05": -0.004662540394378676,
+              "null_p95": 0.0010436454707363721,
+              "observed": -0.0003728060497516842,
+              "p_value_greater": 0.209,
+              "p_value_two_sided": 0.89,
+              "seed": 20374289
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -5.234920042896724e-05,
+              "null_p05": -0.0028562268929255763,
+              "null_p95": 0.002849327757975736,
+              "observed": 0.0007216333643305872,
+              "p_value_greater": 0.318,
+              "p_value_two_sided": 0.652,
+              "seed": 20374191
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 3.2370019605625964e-05,
+              "null_p05": -0.0021933748130031866,
+              "null_p95": 0.0023526086056062726,
+              "observed": 0.0007216333643305872,
+              "p_value_greater": 0.298,
+              "p_value_two_sided": 0.581,
+              "seed": 20374190
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.00010163503031370208,
+              "null_p05": -0.0028414080757537055,
+              "null_p95": 0.0024891090744665334,
+              "observed": 0.0007216333643305872,
+              "p_value_greater": 0.299,
+              "p_value_two_sided": 0.642,
+              "seed": 20374189
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": -0.0031741475857758323,
+            "gross": -0.002162708296158557,
+            "spread_only": -0.002666266578367145,
+            "stress_2x": -0.004877705867984421
+          },
+          "n": 815,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001687082455076125,
+              "null_p05": -0.003916957534748592,
+              "null_p95": 0.0004216110102183098,
+              "observed": -0.0031741475857758323,
+              "p_value_greater": 0.877,
+              "p_value_two_sided": 0.123,
+              "seed": 20321100
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016629917090814034,
+              "null_p05": -0.003675018706531686,
+              "null_p95": 0.00028611304735986235,
+              "observed": -0.0031741475857758323,
+              "p_value_greater": 0.892,
+              "p_value_two_sided": 0.108,
+              "seed": 20321099
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0016886491375315451,
+              "null_p05": -0.0038594782572883486,
+              "null_p95": 0.0005600339297603,
+              "observed": -0.0031741475857758323,
+              "p_value_greater": 0.864,
+              "p_value_two_sided": 0.136,
+              "seed": 20321098
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -7.958248157314039e-05,
+              "null_p05": -0.0022756928833707105,
+              "null_p95": 0.001979638905117322,
+              "observed": -0.002162708296158557,
+              "p_value_greater": 0.941,
+              "p_value_two_sided": 0.096,
+              "seed": 20321000
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -1.3784646375780176e-05,
+              "null_p05": -0.0018643404528675008,
+              "null_p95": 0.002035254967662355,
+              "observed": -0.002162708296158557,
+              "p_value_greater": 0.966,
+              "p_value_two_sided": 0.078,
+              "seed": 20320999
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.00010198583236069008,
+              "null_p05": -0.0022815826234330334,
+              "null_p95": 0.0020789580906058693,
+              "observed": -0.002162708296158557,
+              "p_value_greater": 0.94,
+              "p_value_two_sided": 0.102,
+              "seed": 20320998
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.00040242497352107774,
+            "gross": 0.000422361533630179,
+            "spread_only": -7.913312829152927e-05,
+            "stress_2x": -0.002103919635442787
+          },
+          "n": 1405,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016648767780725608,
+              "null_p05": -0.0032470039663740273,
+              "null_p95": -0.0001354230970670772,
+              "observed": -0.00040242497352107774,
+              "p_value_greater": 0.089,
+              "p_value_two_sided": 0.933,
+              "seed": 20308222
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001680215317136013,
+              "null_p05": -0.003980192734963649,
+              "null_p95": 0.0005448715586739828,
+              "observed": -0.00040242497352107774,
+              "p_value_greater": 0.185,
+              "p_value_two_sided": 0.877,
+              "seed": 20308221
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0016481538218655967,
+              "null_p05": -0.0033089383981419417,
+              "null_p95": -3.6672020015817104e-07,
+              "observed": -0.00040242497352107774,
+              "p_value_greater": 0.125,
+              "p_value_two_sided": 0.894,
+              "seed": 20308220
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.4474167377841952e-05,
+              "null_p05": -0.0016181927962040528,
+              "null_p95": 0.0016305013529507948,
+              "observed": 0.000422361533630179,
+              "p_value_greater": 0.337,
+              "p_value_two_sided": 0.66,
+              "seed": 20308122
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 3.161216152486799e-05,
+              "null_p05": -0.0022690547957217536,
+              "null_p95": 0.002176958050428382,
+              "observed": 0.000422361533630179,
+              "p_value_greater": 0.398,
+              "p_value_two_sided": 0.769,
+              "seed": 20308121
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.00010048434836172633,
+              "null_p05": -0.001567288270366006,
+              "null_p95": 0.0017485133811679595,
+              "observed": 0.000422361533630179,
+              "p_value_greater": 0.382,
+              "p_value_two_sided": 0.668,
+              "seed": 20308120
+            }
+          }
+        }
+      }
+    },
+    "diag2_continuation_k6_h24": {
+      "abs_funding": {
+        "tercile_0": {
+          "edges": {
+            "all_in": -0.00500181563264079,
+            "gross": -0.0032353014794303738,
+            "spread_only": -0.003739346991440487,
+            "stress_2x": -0.0067058611446509046
+          },
+          "n": 1582,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001714933985783987,
+              "null_p05": -0.0032078717127971734,
+              "null_p95": -0.00030542902935324446,
+              "observed": -0.00500181563264079,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20398560
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001717301567730876,
+              "null_p05": -0.0031246625333183112,
+              "null_p95": -0.0003441376336238657,
+              "observed": -0.00500181563264079,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20398559
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0014789312890628877,
+              "null_p05": -0.0030038524905911476,
+              "null_p95": 4.914681900580898e-06,
+              "observed": -0.00500181563264079,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20398558
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 2.8947685125508148e-05,
+              "null_p05": -0.0015319093189485476,
+              "null_p95": 0.0016175736500389137,
+              "observed": -0.0032353014794303738,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.002,
+              "seed": 20398460
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 6.946691742443258e-07,
+              "null_p05": -0.0014047827059547307,
+              "null_p95": 0.0014314073308206222,
+              "observed": -0.0032353014794303738,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.001,
+              "seed": 20398459
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.00034957007524464954,
+              "null_p05": -0.0012291141798859016,
+              "null_p95": 0.001945381235774179,
+              "observed": -0.0032353014794303738,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20398458
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": -0.0030093755237674126,
+            "gross": -0.0011414231123145979,
+            "spread_only": -0.0016352012232591256,
+            "stress_2x": -0.004703153634711939
+          },
+          "n": 2668,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017074274653153419,
+              "null_p05": -0.0028149722701742443,
+              "null_p95": -0.0006088986422133951,
+              "observed": -0.0030093755237674126,
+              "p_value_greater": 0.976,
+              "p_value_two_sided": 0.024,
+              "seed": 20396985
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016956263095560611,
+              "null_p05": -0.00273008107496467,
+              "null_p95": -0.0006608881989287877,
+              "observed": -0.0030093755237674126,
+              "p_value_greater": 0.987,
+              "p_value_two_sided": 0.013,
+              "seed": 20396984
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0012838181652571638,
+              "null_p05": -0.002400798177981719,
+              "null_p95": -0.00018000408673279398,
+              "observed": -0.0030093755237674126,
+              "p_value_greater": 0.996,
+              "p_value_two_sided": 0.004,
+              "seed": 20396983
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.1438345999440824e-05,
+              "null_p05": -0.001216696448262363,
+              "null_p95": 0.0011361344770180197,
+              "observed": -0.0011414231123145979,
+              "p_value_greater": 0.943,
+              "p_value_two_sided": 0.107,
+              "seed": 20396885
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -3.7964246387413165e-06,
+              "null_p05": -0.0010320812530672206,
+              "null_p95": 0.0010538990335954466,
+              "observed": -0.0011414231123145979,
+              "p_value_greater": 0.966,
+              "p_value_two_sided": 0.072,
+              "seed": 20396884
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0005015114125912682,
+              "null_p05": -0.0005837924331650595,
+              "null_p95": 0.0016240856245085561,
+              "observed": -0.0011414231123145979,
+              "p_value_greater": 0.993,
+              "p_value_two_sided": 0.18,
+              "seed": 20396883
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.0005984608539729142,
+            "gross": 0.0017723651064831104,
+            "spread_only": 0.0012774534835586326,
+            "stress_2x": -0.002293372476897392
+          },
+          "n": 3734,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016948448913369893,
+              "null_p05": -0.0026744858371205962,
+              "null_p95": -0.0006926525332178469,
+              "observed": -0.0005984608539729142,
+              "p_value_greater": 0.038,
+              "p_value_two_sided": 0.964,
+              "seed": 20332491
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001726467912585569,
+              "null_p05": -0.0027011591196955307,
+              "null_p95": -0.000685361758857141,
+              "observed": -0.0005984608539729142,
+              "p_value_greater": 0.032,
+              "p_value_two_sided": 0.968,
+              "seed": 20332490
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0011666964721368212,
+              "null_p05": -0.002083990580108037,
+              "null_p95": -0.000181900701992534,
+              "observed": -0.0005984608539729142,
+              "p_value_greater": 0.17,
+              "p_value_two_sided": 0.83,
+              "seed": 20332489
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -8.571357146923904e-06,
+              "null_p05": -0.0010050643272939478,
+              "null_p95": 0.0009321830580920754,
+              "observed": 0.0017723651064831104,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.004,
+              "seed": 20332391
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 9.929170893247366e-06,
+              "null_p05": -0.0009481344023064703,
+              "null_p95": 0.001092013939165847,
+              "observed": 0.0017723651064831104,
+              "p_value_greater": 0.006,
+              "p_value_two_sided": 0.006,
+              "seed": 20332390
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0006711485713629295,
+              "null_p05": -0.00024320912217425483,
+              "null_p95": 0.0016290078689857332,
+              "observed": 0.0017723651064831104,
+              "p_value_greater": 0.034,
+              "p_value_two_sided": 0.034,
+              "seed": 20332389
+            }
+          }
+        }
+      },
+      "basis": {
+        "tercile_0": {
+          "edges": {
+            "all_in": -0.0019356965283319264,
+            "gross": 0.0001199900567050697,
+            "spread_only": -0.00037722899091397806,
+            "stress_2x": -0.003632915575950974
+          },
+          "n": 2625,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017114567902874642,
+              "null_p05": -0.002908052130586892,
+              "null_p95": -0.0005611884700084472,
+              "observed": -0.0019356965283319264,
+              "p_value_greater": 0.624,
+              "p_value_two_sided": 0.376,
+              "seed": 20355521
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001712692370235521,
+              "null_p05": -0.002922640165271226,
+              "null_p95": -0.000566211277161643,
+              "observed": -0.0019356965283319264,
+              "p_value_greater": 0.633,
+              "p_value_two_sided": 0.367,
+              "seed": 20355520
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0012791746239261205,
+              "null_p05": -0.002450568476290909,
+              "null_p95": -0.00015362355437141436,
+              "observed": -0.0019356965283319264,
+              "p_value_greater": 0.813,
+              "p_value_two_sided": 0.187,
+              "seed": 20355519
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 5.766878174850721e-05,
+              "null_p05": -0.001152352386126397,
+              "null_p95": 0.0013062468466388149,
+              "observed": 0.0001199900567050697,
+              "p_value_greater": 0.474,
+              "p_value_two_sided": 0.888,
+              "seed": 20355421
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -3.5038588199641986e-06,
+              "null_p05": -0.0012035714351704163,
+              "null_p95": 0.0011610000998484578,
+              "observed": 0.0001199900567050697,
+              "p_value_greater": 0.433,
+              "p_value_two_sided": 0.863,
+              "seed": 20355420
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0005392669191082331,
+              "null_p05": -0.0006023906160045559,
+              "null_p95": 0.0015968351605184805,
+              "observed": 0.0001199900567050697,
+              "p_value_greater": 0.729,
+              "p_value_two_sided": 0.893,
+              "seed": 20355419
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": -0.0016542164301966797,
+            "gross": 0.0003772524328520442,
+            "spread_only": -0.00011890720570217267,
+            "stress_2x": -0.003350376068750897
+          },
+          "n": 2656,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017245603952278014,
+              "null_p05": -0.002878664484632337,
+              "null_p95": -0.0005997919872595352,
+              "observed": -0.0016542164301966797,
+              "p_value_greater": 0.446,
+              "p_value_two_sided": 0.554,
+              "seed": 20310771
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017086801763956218,
+              "null_p05": -0.0027649258935461257,
+              "null_p95": -0.0006771448496278537,
+              "observed": -0.0016542164301966797,
+              "p_value_greater": 0.463,
+              "p_value_two_sided": 0.537,
+              "seed": 20310770
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.001229669851409997,
+              "null_p05": -0.002386192004619118,
+              "null_p95": -0.00012773291635436983,
+              "observed": -0.0016542164301966797,
+              "p_value_greater": 0.728,
+              "p_value_two_sided": 0.272,
+              "seed": 20310769
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -3.667820120294915e-05,
+              "null_p05": -0.0012450454887720634,
+              "null_p95": 0.0011361581347598979,
+              "observed": 0.0003772524328520442,
+              "p_value_greater": 0.286,
+              "p_value_two_sided": 0.599,
+              "seed": 20310671
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 2.306041481399331e-06,
+              "null_p05": -0.0010008132364654945,
+              "null_p95": 0.0010629756778464203,
+              "observed": 0.0003772524328520442,
+              "p_value_greater": 0.269,
+              "p_value_two_sided": 0.534,
+              "seed": 20310670
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0005624304944812088,
+              "null_p05": -0.0005423709279129627,
+              "null_p95": 0.0016788447183810715,
+              "observed": 0.0003772524328520442,
+              "p_value_greater": 0.6,
+              "p_value_two_sided": 0.69,
+              "seed": 20310669
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.003219288505923181,
+            "gross": -0.0010590117857980394,
+            "spread_only": -0.0015546832619356644,
+            "stress_2x": -0.004914959982060806
+          },
+          "n": 2703,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017220098521722198,
+              "null_p05": -0.0029411874948899195,
+              "null_p95": -0.0005464281548729446,
+              "observed": -0.003219288505923181,
+              "p_value_greater": 0.981,
+              "p_value_two_sided": 0.019,
+              "seed": 20357580
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016846301292981916,
+              "null_p05": -0.0029338406597275483,
+              "null_p95": -0.0004169252155547131,
+              "observed": -0.003219288505923181,
+              "p_value_greater": 0.981,
+              "p_value_two_sided": 0.019,
+              "seed": 20357579
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0012458832668892051,
+              "null_p05": -0.002375672969531877,
+              "null_p95": -0.00011398060731289927,
+              "observed": -0.003219288505923181,
+              "p_value_greater": 0.998,
+              "p_value_two_sided": 0.002,
+              "seed": 20357578
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -4.679085882912741e-05,
+              "null_p05": -0.0012273098254469731,
+              "null_p95": 0.0010341445175686855,
+              "observed": -0.0010590117857980394,
+              "p_value_greater": 0.921,
+              "p_value_two_sided": 0.126,
+              "seed": 20357480
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 8.853848018168233e-06,
+              "null_p05": -0.001182739056600121,
+              "null_p95": 0.0012122931038517201,
+              "observed": -0.0010590117857980394,
+              "p_value_greater": 0.924,
+              "p_value_two_sided": 0.152,
+              "seed": 20357479
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0005121194955378907,
+              "null_p05": -0.0006222677941343742,
+              "null_p95": 0.0016634910262412336,
+              "observed": -0.0010590117857980394,
+              "p_value_greater": 0.988,
+              "p_value_two_sided": 0.234,
+              "seed": 20357478
+            }
+          }
+        }
+      },
+      "trend": {
+        "tercile_0": {
+          "edges": {
+            "all_in": -0.004690111599874672,
+            "gross": -0.0027345279886725805,
+            "spread_only": -0.003236766126541873,
+            "stress_2x": -0.006392349737743965
+          },
+          "n": 2234,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016610242128288746,
+              "null_p05": -0.002987804319787251,
+              "null_p95": -0.00039710274168902685,
+              "observed": -0.004690111599874672,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20369621
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016740569540844273,
+              "null_p05": -0.0030688495094887375,
+              "null_p95": -0.00027375351452084,
+              "observed": -0.004690111599874672,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20369620
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0014954972517603237,
+              "null_p05": -0.002733408964127449,
+              "null_p95": -0.00016194062732888143,
+              "observed": -0.004690111599874672,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20369619
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -1.9311256705729175e-05,
+              "null_p05": -0.0013741267144472351,
+              "null_p95": 0.0013201187526204064,
+              "observed": -0.0027345279886725805,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20369521
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -1.4724432220874675e-05,
+              "null_p05": -0.0013456096945022738,
+              "null_p95": 0.0014063042758672123,
+              "observed": -0.0027345279886725805,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.001,
+              "seed": 20369520
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.00023789693828628753,
+              "null_p05": -0.0010359873724185176,
+              "null_p95": 0.0015616900914335317,
+              "observed": -0.0027345279886725805,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.001,
+              "seed": 20369519
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": -0.00249687149954048,
+            "gross": -0.0005004771805306098,
+            "spread_only": -0.0009946933144727714,
+            "stress_2x": -0.004191087633482641
+          },
+          "n": 2628,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016943654682769313,
+              "null_p05": -0.0028813870833113457,
+              "null_p95": -0.0005478582367562813,
+              "observed": -0.00249687149954048,
+              "p_value_greater": 0.868,
+              "p_value_two_sided": 0.132,
+              "seed": 20368046
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017251812166383398,
+              "null_p05": -0.002643595152984786,
+              "null_p95": -0.0007080971551651859,
+              "observed": -0.00249687149954048,
+              "p_value_greater": 0.914,
+              "p_value_two_sided": 0.086,
+              "seed": 20368045
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.001265537183852942,
+              "null_p05": -0.002381956790200074,
+              "null_p95": -0.00010077238613029709,
+              "observed": -0.00249687149954048,
+              "p_value_greater": 0.967,
+              "p_value_two_sided": 0.033,
+              "seed": 20368044
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -2.7036305661754032e-05,
+              "null_p05": -0.0012556068500095515,
+              "null_p95": 0.0011841045981043578,
+              "observed": -0.0005004771805306098,
+              "p_value_greater": 0.743,
+              "p_value_two_sided": 0.497,
+              "seed": 20367946
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 6.510711744328124e-07,
+              "null_p05": -0.0009104061755290287,
+              "null_p95": 0.0008849450270159187,
+              "observed": -0.0005004771805306098,
+              "p_value_greater": 0.821,
+              "p_value_two_sided": 0.353,
+              "seed": 20367945
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0005722152575874073,
+              "null_p05": -0.0005095712004727218,
+              "null_p95": 0.0016870625454429278,
+              "observed": -0.0005004771805306098,
+              "p_value_greater": 0.948,
+              "p_value_two_sided": 0.584,
+              "seed": 20367944
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.00046695201216208246,
+            "gross": 0.001782941906413595,
+            "spread_only": 0.001288737141442571,
+            "stress_2x": -0.0021611567771331066
+          },
+          "n": 3106,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016686815524789597,
+              "null_p05": -0.002751746783550689,
+              "null_p95": -0.0006139575564407529,
+              "observed": -0.00046695201216208246,
+              "p_value_greater": 0.022,
+              "p_value_two_sided": 0.978,
+              "seed": 20371680
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016866069844394132,
+              "null_p05": -0.0027610905251266187,
+              "null_p95": -0.0006384561030426361,
+              "observed": -0.00046695201216208246,
+              "p_value_greater": 0.026,
+              "p_value_two_sided": 0.974,
+              "seed": 20371679
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0011592700741499993,
+              "null_p05": -0.0021706692186881553,
+              "null_p95": -0.00013421736862369787,
+              "observed": -0.00046695201216208246,
+              "p_value_greater": 0.145,
+              "p_value_two_sided": 0.859,
+              "seed": 20371678
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.0388288161345286e-05,
+              "null_p05": -0.001066801018974862,
+              "null_p95": 0.001083779073751105,
+              "observed": 0.001782941906413595,
+              "p_value_greater": 0.002,
+              "p_value_two_sided": 0.005,
+              "seed": 20371580
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 1.2077816586901967e-05,
+              "null_p05": -0.0010438421681773532,
+              "null_p95": 0.001084369011530583,
+              "observed": 0.001782941906413595,
+              "p_value_greater": 0.001,
+              "p_value_two_sided": 0.004,
+              "seed": 20371579
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0006774665336661634,
+              "null_p05": -0.00035349210974396886,
+              "null_p95": 0.0016654189984818286,
+              "observed": 0.001782941906413595,
+              "p_value_greater": 0.032,
+              "p_value_two_sided": 0.033,
+              "seed": 20371578
+            }
+          }
+        }
+      },
+      "volatility": {
+        "tercile_0": {
+          "edges": {
+            "all_in": -0.001242617006653455,
+            "gross": 0.0007434182092400684,
+            "spread_only": 0.00024499042130588167,
+            "stress_2x": -0.0029410447945876416
+          },
+          "n": 2735,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016903797237408406,
+              "null_p05": -0.002791114279182695,
+              "null_p95": -0.0005753339585193641,
+              "observed": -0.001242617006653455,
+              "p_value_greater": 0.247,
+              "p_value_two_sided": 0.753,
+              "seed": 20312680
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016823516130575896,
+              "null_p05": -0.0025461911828730385,
+              "null_p95": -0.0008221330290074184,
+              "observed": -0.001242617006653455,
+              "p_value_greater": 0.197,
+              "p_value_two_sided": 0.803,
+              "seed": 20312679
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0011767345221073981,
+              "null_p05": -0.002303950537651327,
+              "null_p95": -4.658390669438307e-05,
+              "observed": -0.001242617006653455,
+              "p_value_greater": 0.551,
+              "p_value_two_sided": 0.449,
+              "seed": 20312678
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -6.1199641914194694e-06,
+              "null_p05": -0.0011759483528611986,
+              "null_p95": 0.0011918380711665308,
+              "observed": 0.0007434182092400684,
+              "p_value_greater": 0.154,
+              "p_value_two_sided": 0.305,
+              "seed": 20312580
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -2.127343843207352e-05,
+              "null_p05": -0.000883462926582791,
+              "null_p95": 0.0008575288546158441,
+              "observed": 0.0007434182092400684,
+              "p_value_greater": 0.069,
+              "p_value_two_sided": 0.154,
+              "seed": 20312579
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0006533189439086107,
+              "null_p05": -0.000390384285318349,
+              "null_p95": 0.001693880394554803,
+              "observed": 0.0007434182092400684,
+              "p_value_greater": 0.445,
+              "p_value_two_sided": 0.462,
+              "seed": 20312578
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": -0.0022350181877981725,
+            "gross": -0.0001727153853100794,
+            "spread_only": -0.0006685794916616307,
+            "stress_2x": -0.003930882294149723
+          },
+          "n": 2708,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016843526739825164,
+              "null_p05": -0.002843472955361776,
+              "null_p95": -0.0005429628026943422,
+              "observed": -0.0022350181877981725,
+              "p_value_greater": 0.795,
+              "p_value_two_sided": 0.205,
+              "seed": 20342977
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017045318755591332,
+              "null_p05": -0.002726647727995517,
+              "null_p95": -0.0006628337270942706,
+              "observed": -0.0022350181877981725,
+              "p_value_greater": 0.791,
+              "p_value_two_sided": 0.209,
+              "seed": 20342976
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0012482277371497449,
+              "null_p05": -0.00234282493978599,
+              "null_p95": -0.00019992612005123277,
+              "observed": -0.0022350181877981725,
+              "p_value_greater": 0.93,
+              "p_value_two_sided": 0.07,
+              "seed": 20342975
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -8.230312715318574e-06,
+              "null_p05": -0.0011595523735963265,
+              "null_p95": 0.0012163870794670985,
+              "observed": -0.0001727153853100794,
+              "p_value_greater": 0.588,
+              "p_value_two_sided": 0.802,
+              "seed": 20342877
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 5.4379366966516896e-05,
+              "null_p05": -0.0010345660631750405,
+              "null_p95": 0.00108786545068053,
+              "observed": -0.0001727153853100794,
+              "p_value_greater": 0.648,
+              "p_value_two_sided": 0.807,
+              "seed": 20342876
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0005681197978646311,
+              "null_p05": -0.0006037834909356878,
+              "null_p95": 0.0017116409361512153,
+              "observed": -0.0001727153853100794,
+              "p_value_greater": 0.859,
+              "p_value_two_sided": 0.86,
+              "seed": 20342875
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.003433904876516881,
+            "gross": -0.0012243557793617293,
+            "spread_only": -0.0017189642012428788,
+            "stress_2x": -0.0051285132983980315
+          },
+          "n": 2541,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017543856520658924,
+              "null_p05": -0.002945131479446764,
+              "null_p95": -0.0006747111116920583,
+              "observed": -0.003433904876516881,
+              "p_value_greater": 0.991,
+              "p_value_two_sided": 0.009,
+              "seed": 20346611
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017346717534738277,
+              "null_p05": -0.003225166807553469,
+              "null_p95": -0.00023060066521006736,
+              "observed": -0.003433904876516881,
+              "p_value_greater": 0.971,
+              "p_value_two_sided": 0.029,
+              "seed": 20346610
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0014072788359653066,
+              "null_p05": -0.0026119939810639154,
+              "null_p95": -0.00025504803449188365,
+              "observed": -0.003433904876516881,
+              "p_value_greater": 0.999,
+              "p_value_two_sided": 0.001,
+              "seed": 20346609
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -1.7174729691234263e-05,
+              "null_p05": -0.0012350257126309708,
+              "null_p95": 0.0011591744767131568,
+              "observed": -0.0012243557793617293,
+              "p_value_greater": 0.948,
+              "p_value_two_sided": 0.092,
+              "seed": 20346511
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -3.0132762563396003e-05,
+              "null_p05": -0.0015213444325621705,
+              "null_p95": 0.0014449964019090432,
+              "observed": -0.0012243557793617293,
+              "p_value_greater": 0.904,
+              "p_value_two_sided": 0.176,
+              "seed": 20346510
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0003737051843874888,
+              "null_p05": -0.0007997014174029459,
+              "null_p95": 0.0016078358873443162,
+              "observed": -0.0012243557793617293,
+              "p_value_greater": 0.992,
+              "p_value_two_sided": 0.137,
+              "seed": 20346509
+            }
+          }
+        }
+      }
+    },
+    "diag3_basis_reversion_h24": {
+      "abs_funding": {
+        "tercile_0": {
+          "edges": {
+            "all_in": -0.0016324870686516908,
+            "gross": 3.2901200502816135e-05,
+            "spread_only": -0.00046323193704001317,
+            "stress_2x": -0.00332862020619452
+          },
+          "n": 6129,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017209215533435134,
+              "null_p05": -0.002512982149604167,
+              "null_p95": -0.0009285772488219268,
+              "observed": -0.0016324870686516908,
+              "p_value_greater": 0.426,
+              "p_value_two_sided": 0.574,
+              "seed": 20334208
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017061026024606614,
+              "null_p05": -0.0026563779289266653,
+              "null_p95": -0.0007706228656473947,
+              "observed": -0.0016324870686516908,
+              "p_value_greater": 0.448,
+              "p_value_two_sided": 0.552,
+              "seed": 20334207
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.001670924408916759,
+              "null_p05": -0.0024845012241364955,
+              "null_p95": -0.0009646723707270293,
+              "observed": -0.0016324870686516908,
+              "p_value_greater": 0.49,
+              "p_value_two_sided": 0.51,
+              "seed": 20334206
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.6573649424966593e-06,
+              "null_p05": -0.0007147900097846965,
+              "null_p95": 0.000769420897743564,
+              "observed": 3.2901200502816135e-05,
+              "p_value_greater": 0.468,
+              "p_value_two_sided": 0.95,
+              "seed": 20334108
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 3.074425897960959e-05,
+              "null_p05": -0.0009014782510519806,
+              "null_p95": 0.0009619290602159002,
+              "observed": 3.2901200502816135e-05,
+              "p_value_greater": 0.494,
+              "p_value_two_sided": 0.942,
+              "seed": 20334107
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 3.5199401250465254e-05,
+              "null_p05": -0.0007183524749097266,
+              "null_p95": 0.000798376549170329,
+              "observed": 3.2901200502816135e-05,
+              "p_value_greater": 0.497,
+              "p_value_two_sided": 0.936,
+              "seed": 20334106
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": -0.002027766538578166,
+            "gross": -0.00038599311547358507,
+            "spread_only": -0.0008855521849581525,
+            "stress_2x": -0.0037273256080627326
+          },
+          "n": 6577,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016926002129145274,
+              "null_p05": -0.0024299753281030716,
+              "null_p95": -0.0009576591145827437,
+              "observed": -0.002027766538578166,
+              "p_value_greater": 0.766,
+              "p_value_two_sided": 0.234,
+              "seed": 20332633
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001721238143589621,
+              "null_p05": -0.0026569430548647314,
+              "null_p95": -0.0007799315257774955,
+              "observed": -0.002027766538578166,
+              "p_value_greater": 0.687,
+              "p_value_two_sided": 0.313,
+              "seed": 20332632
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0016602052599193726,
+              "null_p05": -0.002373916345156368,
+              "null_p95": -0.000928494825749314,
+              "observed": -0.002027766538578166,
+              "p_value_greater": 0.799,
+              "p_value_two_sided": 0.201,
+              "seed": 20332631
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -7.127374819073257e-06,
+              "null_p05": -0.0007552914543440732,
+              "null_p95": 0.0007403009426970221,
+              "observed": -0.00038599311547358507,
+              "p_value_greater": 0.794,
+              "p_value_two_sided": 0.392,
+              "seed": 20332533
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 5.483995772241325e-06,
+              "null_p05": -0.0009685503981085176,
+              "null_p95": 0.0009402927398774619,
+              "observed": -0.00038599311547358507,
+              "p_value_greater": 0.748,
+              "p_value_two_sided": 0.51,
+              "seed": 20332532
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 1.4280256228468222e-05,
+              "null_p05": -0.0007246151646503681,
+              "null_p95": 0.0008064615785033406,
+              "observed": -0.00038599311547358507,
+              "p_value_greater": 0.806,
+              "p_value_two_sided": 0.409,
+              "seed": 20332531
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.0011299766194186817,
+            "gross": 0.0003486540783285542,
+            "spread_only": -0.00015442586168759552,
+            "stress_2x": -0.002833056559434831
+          },
+          "n": 8669,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017160585213925037,
+              "null_p05": -0.0023603399229519574,
+              "null_p95": -0.0011006782406558268,
+              "observed": -0.0011299766194186817,
+              "p_value_greater": 0.065,
+              "p_value_two_sided": 0.935,
+              "seed": 20379442
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017376245473489755,
+              "null_p05": -0.002628308934379268,
+              "null_p95": -0.0008555104910700254,
+              "observed": -0.0011299766194186817,
+              "p_value_greater": 0.121,
+              "p_value_two_sided": 0.879,
+              "seed": 20379441
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0017397705187930815,
+              "null_p05": -0.0024145948576253006,
+              "null_p95": -0.0010644547638689408,
+              "observed": -0.0011299766194186817,
+              "p_value_greater": 0.068,
+              "p_value_two_sided": 0.932,
+              "seed": 20379440
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -2.2634801193134342e-05,
+              "null_p05": -0.0007045389835582416,
+              "null_p95": 0.0006199541816994885,
+              "observed": 0.0003486540783285542,
+              "p_value_greater": 0.171,
+              "p_value_two_sided": 0.375,
+              "seed": 20379342
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -1.6766502541621288e-05,
+              "null_p05": -0.0009504052245647261,
+              "null_p95": 0.0008651502635176336,
+              "observed": 0.0003486540783285542,
+              "p_value_greater": 0.258,
+              "p_value_two_sided": 0.52,
+              "seed": 20379341
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -4.1290145826396815e-05,
+              "null_p05": -0.0007145098497108018,
+              "null_p95": 0.000595182594686129,
+              "observed": 0.0003486540783285542,
+              "p_value_greater": 0.156,
+              "p_value_two_sided": 0.365,
+              "seed": 20379340
+            }
+          }
+        }
+      },
+      "basis": {
+        "tercile_0": {
+          "edges": {
+            "all_in": 0.0007130644901444409,
+            "gross": 0.002468904987900838,
+            "spread_only": 0.001968904987900837,
+            "stress_2x": -0.0009869355098555594
+          },
+          "n": 10854,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017161688148322547,
+              "null_p05": -0.0022708297942848478,
+              "null_p95": -0.0011424124494724102,
+              "observed": 0.0007130644901444409,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.998,
+              "seed": 20324914
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016838987083644108,
+              "null_p05": -0.0024325526754486425,
+              "null_p95": -0.0008695354041734461,
+              "observed": 0.0007130644901444409,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.975,
+              "seed": 20324913
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0009292602818653328,
+              "null_p05": -0.0014632295338786875,
+              "null_p95": -0.0003464506225864478,
+              "observed": 0.0007130644901444409,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.729,
+              "seed": 20324912
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -1.340297226051049e-05,
+              "null_p05": -0.0005628811740998593,
+              "null_p95": 0.0005459845312631795,
+              "observed": 0.002468904987900838,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20324814
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 1.8790146589543595e-05,
+              "null_p05": -0.0006801312511894035,
+              "null_p95": 0.0007494737834876159,
+              "observed": 0.002468904987900838,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20324813
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0009204489247366453,
+              "null_p05": 0.0003860610618363977,
+              "null_p95": 0.0014104258045474127,
+              "observed": 0.002468904987900838,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20324812
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": 0.0,
+            "gross": 0.0,
+            "spread_only": 0.0,
+            "stress_2x": 0.0
+          },
+          "n": 0
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.003606780167165526,
+            "gross": -0.0021952872374870203,
+            "spread_only": -0.0026952872374870207,
+            "stress_2x": -0.005306780167165527
+          },
+          "n": 10854,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016943744157907666,
+              "null_p05": -0.0023134637863701617,
+              "null_p95": -0.0010663668758632958,
+              "observed": -0.003606780167165526,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20326973
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001710799725259112,
+              "null_p05": -0.002443973827501845,
+              "null_p95": -0.0009898599842028252,
+              "observed": -0.003606780167165526,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20326972
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0024335238215418683,
+              "null_p05": -0.003003982560576394,
+              "null_p95": -0.0018273350649183656,
+              "observed": -0.003606780167165526,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20326971
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -8.16165402754929e-06,
+              "null_p05": -0.0006526602611186321,
+              "null_p95": 0.0005736419552160416,
+              "observed": -0.0021952872374870203,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20326873
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 1.301222283607836e-05,
+              "null_p05": -0.0006923490455961335,
+              "null_p95": 0.000738996092947016,
+              "observed": -0.0021952872374870203,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20326872
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0009094843739392342,
+              "null_p05": -0.001423407639242527,
+              "null_p95": -0.00039943333044170317,
+              "observed": -0.0021952872374870203,
+              "p_value_greater": 1.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20326871
+            }
+          }
+        }
+      },
+      "trend": {
+        "tercile_0": {
+          "edges": {
+            "all_in": -0.0005240308462209538,
+            "gross": 0.001111190916273849,
+            "spread_only": 0.0006125454444278844,
+            "stress_2x": -0.0022226763180669185
+          },
+          "n": 8933,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001696252382678464,
+              "null_p05": -0.0023561445700120325,
+              "null_p95": -0.0010426742128560238,
+              "observed": -0.0005240308462209538,
+              "p_value_greater": 0.003,
+              "p_value_two_sided": 0.997,
+              "seed": 20382189
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016876298094625328,
+              "null_p05": -0.002619870119857481,
+              "null_p95": -0.0007343049190741653,
+              "observed": -0.0005240308462209538,
+              "p_value_greater": 0.015,
+              "p_value_two_sided": 0.985,
+              "seed": 20382188
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.001576045414013978,
+              "null_p05": -0.00222803128790169,
+              "null_p95": -0.0009411430108368425,
+              "observed": -0.0005240308462209538,
+              "p_value_greater": 0.005,
+              "p_value_two_sided": 0.995,
+              "seed": 20382187
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -2.4855088886035798e-05,
+              "null_p05": -0.0006738766718180667,
+              "null_p95": 0.0006360982987933116,
+              "observed": 0.001111190916273849,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.002,
+              "seed": 20382089
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -4.876990472097084e-05,
+              "null_p05": -0.001000685973011383,
+              "null_p95": 0.0008500976043938061,
+              "observed": 0.001111190916273849,
+              "p_value_greater": 0.021,
+              "p_value_two_sided": 0.048,
+              "seed": 20382088
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.00014204676357184998,
+              "null_p05": -0.0005048135419852171,
+              "null_p95": 0.0007976183892601646,
+              "observed": 0.001111190916273849,
+              "p_value_greater": 0.005,
+              "p_value_two_sided": 0.008,
+              "seed": 20382087
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": -0.0017554187672601351,
+            "gross": -0.00015321285069587313,
+            "spread_only": -0.0006529636812606577,
+            "stress_2x": -0.003455169597824919
+          },
+          "n": 4816,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017113169273521426,
+              "null_p05": -0.0026062164014726457,
+              "null_p95": -0.0008056165713110247,
+              "observed": -0.0017554187672601351,
+              "p_value_greater": 0.525,
+              "p_value_two_sided": 0.475,
+              "seed": 20385823
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017008011379066866,
+              "null_p05": -0.002650423639510578,
+              "null_p95": -0.0008065901125798694,
+              "observed": -0.0017554187672601351,
+              "p_value_greater": 0.556,
+              "p_value_two_sided": 0.444,
+              "seed": 20385822
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0017489344100865218,
+              "null_p05": -0.0025738198467608825,
+              "null_p95": -0.0009302302533806294,
+              "observed": -0.0017554187672601351,
+              "p_value_greater": 0.512,
+              "p_value_two_sided": 0.488,
+              "seed": 20385821
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -7.867934898419435e-06,
+              "null_p05": -0.000883902861422912,
+              "null_p95": 0.000839018170097677,
+              "observed": -0.00015321285069587313,
+              "p_value_greater": 0.605,
+              "p_value_two_sided": 0.794,
+              "seed": 20385723
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 1.8032140969453445e-06,
+              "null_p05": -0.000930324772095158,
+              "null_p95": 0.0008938691176357556,
+              "observed": -0.00015321285069587313,
+              "p_value_greater": 0.617,
+              "p_value_two_sided": 0.783,
+              "seed": 20385722
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -9.667726024852646e-06,
+              "null_p05": -0.000868269112164047,
+              "null_p95": 0.000844403659497646,
+              "observed": -0.00015321285069587313,
+              "p_value_greater": 0.621,
+              "p_value_two_sided": 0.747,
+              "seed": 20385721
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.002319612565689919,
+            "gross": -0.0008064229461286095,
+            "spread_only": -0.0013081444651159516,
+            "stress_2x": -0.004021334084677261
+          },
+          "n": 7900,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016927324387490917,
+              "null_p05": -0.0024064738566102477,
+              "null_p95": -0.0009784887690377259,
+              "observed": -0.002319612565689919,
+              "p_value_greater": 0.931,
+              "p_value_two_sided": 0.069,
+              "seed": 20384248
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016965649621449987,
+              "null_p05": -0.0024843475142587285,
+              "null_p95": -0.0009126350188014415,
+              "observed": -0.002319612565689919,
+              "p_value_greater": 0.901,
+              "p_value_two_sided": 0.099,
+              "seed": 20384247
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0018114320217546933,
+              "null_p05": -0.002508789825697673,
+              "null_p95": -0.0011276960957039587,
+              "observed": -0.002319612565689919,
+              "p_value_greater": 0.892,
+              "p_value_two_sided": 0.108,
+              "seed": 20384246
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.57198141601479e-05,
+              "null_p05": -0.0007035473125416027,
+              "null_p95": 0.0006984982391925586,
+              "observed": -0.0008064229461286095,
+              "p_value_greater": 0.968,
+              "p_value_two_sided": 0.06,
+              "seed": 20384148
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -8.75373573628939e-06,
+              "null_p05": -0.0008400829667286655,
+              "null_p95": 0.0008228780640905102,
+              "observed": -0.0008064229461286095,
+              "p_value_greater": 0.945,
+              "p_value_two_sided": 0.107,
+              "seed": 20384147
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.00015277287606111755,
+              "null_p05": -0.0008356148320032399,
+              "null_p95": 0.0005375152573079441,
+              "observed": -0.0008064229461286095,
+              "p_value_greater": 0.943,
+              "p_value_two_sided": 0.074,
+              "seed": 20384146
+            }
+          }
+        }
+      },
+      "volatility": {
+        "tercile_0": {
+          "edges": {
+            "all_in": -0.002063044965082091,
+            "gross": -0.00045177233868071257,
+            "spread_only": -0.0009522575138828695,
+            "stress_2x": -0.0037635301402842475
+          },
+          "n": 1855,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017088216175426573,
+              "null_p05": -0.003130523060020783,
+              "null_p95": -0.00037163564790721094,
+              "observed": -0.002063044965082091,
+              "p_value_greater": 0.659,
+              "p_value_two_sided": 0.341,
+              "seed": 20357120
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017188186856198237,
+              "null_p05": -0.0028005045630404577,
+              "null_p95": -0.0006569724729093826,
+              "observed": -0.002063044965082091,
+              "p_value_greater": 0.687,
+              "p_value_two_sided": 0.313,
+              "seed": 20357119
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0016954669347845207,
+              "null_p05": -0.0030849292283254594,
+              "null_p95": -0.0002851452781626087,
+              "observed": -0.002063044965082091,
+              "p_value_greater": 0.664,
+              "p_value_two_sided": 0.336,
+              "seed": 20357118
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -8.80101731717004e-05,
+              "null_p05": -0.0015269144810852895,
+              "null_p95": 0.001382376612032906,
+              "observed": -0.00045177233868071257,
+              "p_value_greater": 0.685,
+              "p_value_two_sided": 0.569,
+              "seed": 20357020
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -8.576254152903029e-07,
+              "null_p05": -0.0011714693874693195,
+              "null_p95": 0.0011248773164440026,
+              "observed": -0.00045177233868071257,
+              "p_value_greater": 0.755,
+              "p_value_two_sided": 0.503,
+              "seed": 20357019
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 1.1389574959880806e-05,
+              "null_p05": -0.001356886976728003,
+              "null_p95": 0.0014480697488475553,
+              "observed": -0.00045177233868071257,
+              "p_value_greater": 0.696,
+              "p_value_two_sided": 0.602,
+              "seed": 20357018
+            }
+          }
+        },
+        "tercile_1": {
+          "edges": {
+            "all_in": -0.002323625481907351,
+            "gross": -0.0007253479880287132,
+            "spread_only": -0.001224764897649705,
+            "stress_2x": -0.004023042391528342
+          },
+          "n": 6174,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017054599041591962,
+              "null_p05": -0.002480265435004223,
+              "null_p95": -0.0009236742445849768,
+              "observed": -0.002323625481907351,
+              "p_value_greater": 0.916,
+              "p_value_two_sided": 0.084,
+              "seed": 20360754
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016662588595308043,
+              "null_p05": -0.0024299496190169907,
+              "null_p95": -0.0008865277776321272,
+              "observed": -0.002323625481907351,
+              "p_value_greater": 0.917,
+              "p_value_two_sided": 0.083,
+              "seed": 20360753
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0016837888437003302,
+              "null_p05": -0.002413319014171419,
+              "null_p95": -0.0009196705907470922,
+              "observed": -0.002323625481907351,
+              "p_value_greater": 0.928,
+              "p_value_two_sided": 0.072,
+              "seed": 20360752
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -2.0958667119936616e-05,
+              "null_p05": -0.0007600009668041718,
+              "null_p95": 0.0007539723233135563,
+              "observed": -0.0007253479880287132,
+              "p_value_greater": 0.943,
+              "p_value_two_sided": 0.112,
+              "seed": 20360654
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 3.554168264603575e-06,
+              "null_p05": -0.0007490962092246006,
+              "null_p95": 0.0007844499316540512,
+              "observed": -0.0007253479880287132,
+              "p_value_greater": 0.941,
+              "p_value_two_sided": 0.122,
+              "seed": 20360653
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 1.5303263414950204e-05,
+              "null_p05": -0.0007369062670558996,
+              "null_p95": 0.0008055656253635647,
+              "observed": -0.0007253479880287132,
+              "p_value_greater": 0.944,
+              "p_value_two_sided": 0.121,
+              "seed": 20360652
+            }
+          }
+        },
+        "tercile_2": {
+          "edges": {
+            "all_in": -0.0009641735819297487,
+            "gross": 0.000609137371021604,
+            "spread_only": 0.00010893995930850878,
+            "stress_2x": -0.002664370993642844
+          },
+          "n": 13677,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017106200355993804,
+              "null_p05": -0.002254419154258777,
+              "null_p95": -0.0011823024913157627,
+              "observed": -0.0009641735819297487,
+              "p_value_greater": 0.012,
+              "p_value_two_sided": 0.988,
+              "seed": 20359179
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001694708500121044,
+              "null_p05": -0.002425894128374903,
+              "null_p95": -0.0009522722234433118,
+              "observed": -0.0009641735819297487,
+              "p_value_greater": 0.052,
+              "p_value_two_sided": 0.948,
+              "seed": 20359178
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0017227000950210884,
+              "null_p05": -0.0022680109004544146,
+              "null_p95": -0.0011403992826088244,
+              "observed": -0.0009641735819297487,
+              "p_value_greater": 0.016,
+              "p_value_two_sided": 0.984,
+              "seed": 20359177
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -1.3468795209422425e-05,
+              "null_p05": -0.0005522942155639153,
+              "null_p95": 0.0005275925626355095,
+              "observed": 0.000609137371021604,
+              "p_value_greater": 0.035,
+              "p_value_two_sided": 0.067,
+              "seed": 20359079
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 6.1161313322369815e-06,
+              "null_p05": -0.000730170239079348,
+              "null_p95": 0.000745969067279204,
+              "observed": 0.000609137371021604,
+              "p_value_greater": 0.101,
+              "p_value_two_sided": 0.197,
+              "seed": 20359078
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -1.149621765655884e-05,
+              "null_p05": -0.0004835981817433854,
+              "null_p95": 0.0005190729806258496,
+              "observed": 0.000609137371021604,
+              "p_value_greater": 0.033,
+              "p_value_two_sided": 0.059,
+              "seed": 20359077
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "diagnostic_7_regime_conditioning",
+  "notable_cells_audit": [
+    {
+      "base": "diag1_funding_reversion_h24",
+      "both_stress_2x_positive": true,
+      "btc_and_eth_supportive": true,
+      "circular": false,
+      "per_asset": {
+        "BTC_PERP_USD": {
+          "edges": {
+            "all_in": 0.004327505597596249,
+            "gross": 0.005388608685681316,
+            "spread_only": 0.004988608685681316,
+            "stress_2x": 0.0027275055975962484
+          },
+          "n": 445,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0015001148860959055,
+              "null_p05": -0.0040722001210190435,
+              "null_p95": 0.0010181208475015218,
+              "observed": 0.004327505597596249,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.034,
+              "seed": 20305705
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016161200928528415,
+              "null_p05": -0.0051554940455145765,
+              "null_p95": 0.0017727722246964667,
+              "observed": 0.004327505597596249,
+              "p_value_greater": 0.002,
+              "p_value_two_sided": 0.1,
+              "seed": 20305704
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0010358014279976686,
+              "null_p05": -0.003411122147395579,
+              "null_p95": 0.0014117061160681774,
+              "observed": 0.004327505597596249,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.011,
+              "seed": 20305703
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 3.5945589050021836e-05,
+              "null_p05": -0.002530257839758532,
+              "null_p95": 0.002609663563678707,
+              "observed": 0.005388608685681316,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20305605
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 7.11614359485618e-05,
+              "null_p05": -0.0031298045978408965,
+              "null_p95": 0.0034026978882864146,
+              "observed": 0.005388608685681316,
+              "p_value_greater": 0.004,
+              "p_value_two_sided": 0.009,
+              "seed": 20305604
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.000551822788948533,
+              "null_p05": -0.0017951014404394424,
+              "null_p95": 0.0030517430772597897,
+              "observed": 0.005388608685681316,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20305603
+            }
+          }
+        },
+        "ETH_PERP_USD": {
+          "edges": {
+            "all_in": 0.0029118624263709766,
+            "gross": 0.004002265775245251,
+            "spread_only": 0.003402265775245251,
+            "stress_2x": 0.0011118624263709756
+          },
+          "n": 456,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0018687534490647265,
+              "null_p05": -0.00511237020251017,
+              "null_p95": 0.0014331010522657436,
+              "observed": 0.0029118624263709766,
+              "p_value_greater": 0.004,
+              "p_value_two_sided": 0.32,
+              "seed": 20305705
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017209565689012014,
+              "null_p05": -0.00625208256937466,
+              "null_p95": 0.002685333319223144,
+              "observed": 0.0029118624263709766,
+              "p_value_greater": 0.041,
+              "p_value_two_sided": 0.38,
+              "seed": 20305704
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0011094867015827195,
+              "null_p05": -0.004338475843473655,
+              "null_p95": 0.0020355735295821695,
+              "observed": 0.0029118624263709766,
+              "p_value_greater": 0.021,
+              "p_value_two_sided": 0.195,
+              "seed": 20305703
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 6.116570896539861e-05,
+              "null_p05": -0.003119779025238335,
+              "null_p95": 0.0033852432366941096,
+              "observed": 0.004002265775245251,
+              "p_value_greater": 0.025,
+              "p_value_two_sided": 0.044,
+              "seed": 20305605
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -5.89784184676236e-05,
+              "null_p05": -0.004459525979910218,
+              "null_p95": 0.0045850590927447145,
+              "observed": 0.004002265775245251,
+              "p_value_greater": 0.07,
+              "p_value_two_sided": 0.145,
+              "seed": 20305604
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0006266142085445866,
+              "null_p05": -0.002560090568182673,
+              "null_p95": 0.003749152556351667,
+              "observed": 0.004002265775245251,
+              "p_value_greater": 0.038,
+              "p_value_two_sided": 0.046,
+              "seed": 20305603
+            }
+          }
+        }
+      },
+      "pooled": {
+        "edges": {
+          "all_in": 0.0036110424609938907,
+          "gross": 0.004686974537891254,
+          "spread_only": 0.0041857536721864805,
+          "stress_2x": 0.0019098215952891176
+        },
+        "n": 901,
+        "nulls_all_in": {
+          "matched_random": {
+            "n_draws": 1000,
+            "null_mean": -0.0017329380367320387,
+            "null_p05": -0.003935883379517272,
+            "null_p95": 0.00024240902910443277,
+            "observed": 0.0036110424609938907,
+            "p_value_greater": 0.0,
+            "p_value_two_sided": 0.075,
+            "seed": 20365615
+          },
+          "randomized_sign": {
+            "n_draws": 1000,
+            "null_mean": -0.0017189678847991826,
+            "null_p05": -0.004705456782605318,
+            "null_p95": 0.0011804361225846189,
+            "observed": 0.0036110424609938907,
+            "p_value_greater": 0.001,
+            "p_value_two_sided": 0.141,
+            "seed": 20365614
+          },
+          "shuffled": {
+            "n_draws": 1000,
+            "null_mean": -0.0012094435298327375,
+            "null_p05": -0.0033533027554640345,
+            "null_p95": 0.000878903787961432,
+            "observed": 0.0036110424609938907,
+            "p_value_greater": 0.0,
+            "p_value_two_sided": 0.03,
+            "seed": 20365613
+          }
+        },
+        "nulls_gross": {
+          "matched_random": {
+            "n_draws": 1000,
+            "null_mean": -2.824229803708065e-05,
+            "null_p05": -0.0018949358498600052,
+            "null_p95": 0.001926190527601992,
+            "observed": 0.004686974537891254,
+            "p_value_greater": 0.0,
+            "p_value_two_sided": 0.001,
+            "seed": 20365515
+          },
+          "randomized_sign": {
+            "n_draws": 1000,
+            "null_mean": -5.606722960608228e-05,
+            "null_p05": -0.0026583984327220546,
+            "null_p95": 0.002769009483404389,
+            "observed": 0.004686974537891254,
+            "p_value_greater": 0.005,
+            "p_value_two_sided": 0.01,
+            "seed": 20365514
+          },
+          "shuffled": {
+            "n_draws": 1000,
+            "null_mean": 0.0006647892000125485,
+            "null_p05": -0.0015574290430072693,
+            "null_p95": 0.002625131400466151,
+            "observed": 0.004686974537891254,
+            "p_value_greater": 0.0,
+            "p_value_two_sided": 0.0,
+            "seed": 20365513
+          }
+        }
+      },
+      "regime": "trend",
+      "shuffled_p_pooled": 0.0,
+      "tercile": 0
+    },
+    {
+      "base": "diag3_basis_reversion_h24",
+      "both_stress_2x_positive": false,
+      "btc_and_eth_supportive": true,
+      "circular": true,
+      "per_asset": {
+        "BTC_PERP_USD": {
+          "edges": {
+            "all_in": 0.0002099863129638694,
+            "gross": 0.00189981711295408,
+            "spread_only": 0.0014998171129540804,
+            "stress_2x": -0.001390013687036131
+          },
+          "n": 5427,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0015789007983154674,
+              "null_p05": -0.002305118732264214,
+              "null_p95": -0.000854324947258254,
+              "observed": 0.0002099863129638694,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 1.0,
+              "seed": 20305705
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.00161462589889766,
+              "null_p05": -0.0025344922220219457,
+              "null_p95": -0.0006296401463966434,
+              "observed": 0.0002099863129638694,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.995,
+              "seed": 20305704
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0009691457052213368,
+              "null_p05": -0.0016025491674008015,
+              "null_p95": -0.0003604466542033813,
+              "observed": 0.0002099863129638694,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.975,
+              "seed": 20305703
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 4.993350385257512e-06,
+              "null_p05": -0.0006777490868426542,
+              "null_p95": 0.0007054036181767899,
+              "observed": 0.00189981711295408,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20305605
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -8.769479413247233e-06,
+              "null_p05": -0.0009073260955149044,
+              "null_p95": 0.0009120058168669825,
+              "observed": 0.00189981711295408,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20305604
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0008245181374838795,
+              "null_p05": 0.00017821366517068859,
+              "null_p95": 0.0014889576186400046,
+              "observed": 0.00189981711295408,
+              "p_value_greater": 0.005,
+              "p_value_two_sided": 0.005,
+              "seed": 20305603
+            }
+          }
+        },
+        "ETH_PERP_USD": {
+          "edges": {
+            "all_in": 0.0012161426673250122,
+            "gross": 0.0030379928628475952,
+            "spread_only": 0.002437992862847594,
+            "stress_2x": -0.0005838573326749877
+          },
+          "n": 5427,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001763554466455068,
+              "null_p05": -0.002737799040819436,
+              "null_p95": -0.000857935513971006,
+              "observed": 0.0012161426673250122,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.828,
+              "seed": 20305705
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017638146391783715,
+              "null_p05": -0.0029824000186814614,
+              "null_p95": -0.0004805442970948619,
+              "observed": 0.0012161426673250122,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.782,
+              "seed": 20305704
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0009505151935274183,
+              "null_p05": -0.0018430600745224749,
+              "null_p95": -4.1968442635163205e-05,
+              "observed": 0.0012161426673250122,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.308,
+              "seed": 20305703
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -4.80301297619435e-08,
+              "null_p05": -0.0008863492891710429,
+              "null_p95": 0.000872459339925157,
+              "observed": 0.0030379928628475952,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20305605
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 2.1234037796230633e-05,
+              "null_p05": -0.0011443270989664738,
+              "null_p95": 0.0011811157538218567,
+              "observed": 0.0030379928628475952,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20305604
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 0.0010317338465230402,
+              "null_p05": 0.0001645407309179223,
+              "null_p95": 0.00195020268580267,
+              "observed": 0.0030379928628475952,
+              "p_value_greater": 0.0,
+              "p_value_two_sided": 0.0,
+              "seed": 20305603
+            }
+          }
+        }
+      },
+      "pooled": {
+        "edges": {
+          "all_in": 0.0007130644901444409,
+          "gross": 0.002468904987900838,
+          "spread_only": 0.001968904987900837,
+          "stress_2x": -0.0009869355098555594
+        },
+        "n": 10854,
+        "nulls_all_in": {
+          "matched_random": {
+            "n_draws": 1000,
+            "null_mean": -0.0017161688148322547,
+            "null_p05": -0.0022708297942848478,
+            "null_p95": -0.0011424124494724102,
+            "observed": 0.0007130644901444409,
+            "p_value_greater": 0.0,
+            "p_value_two_sided": 0.998,
+            "seed": 20324914
+          },
+          "randomized_sign": {
+            "n_draws": 1000,
+            "null_mean": -0.0016838987083644108,
+            "null_p05": -0.0024325526754486425,
+            "null_p95": -0.0008695354041734461,
+            "observed": 0.0007130644901444409,
+            "p_value_greater": 0.0,
+            "p_value_two_sided": 0.975,
+            "seed": 20324913
+          },
+          "shuffled": {
+            "n_draws": 1000,
+            "null_mean": -0.0009292602818653328,
+            "null_p05": -0.0014632295338786875,
+            "null_p95": -0.0003464506225864478,
+            "observed": 0.0007130644901444409,
+            "p_value_greater": 0.0,
+            "p_value_two_sided": 0.729,
+            "seed": 20324912
+          }
+        },
+        "nulls_gross": {
+          "matched_random": {
+            "n_draws": 1000,
+            "null_mean": -1.340297226051049e-05,
+            "null_p05": -0.0005628811740998593,
+            "null_p95": 0.0005459845312631795,
+            "observed": 0.002468904987900838,
+            "p_value_greater": 0.0,
+            "p_value_two_sided": 0.0,
+            "seed": 20324814
+          },
+          "randomized_sign": {
+            "n_draws": 1000,
+            "null_mean": 1.8790146589543595e-05,
+            "null_p05": -0.0006801312511894035,
+            "null_p95": 0.0007494737834876159,
+            "observed": 0.002468904987900838,
+            "p_value_greater": 0.0,
+            "p_value_two_sided": 0.0,
+            "seed": 20324813
+          },
+          "shuffled": {
+            "n_draws": 1000,
+            "null_mean": 0.0009204489247366453,
+            "null_p05": 0.0003860610618363977,
+            "null_p95": 0.0014104258045474127,
+            "observed": 0.002468904987900838,
+            "p_value_greater": 0.0,
+            "p_value_two_sided": 0.0,
+            "seed": 20324812
+          }
+        }
+      },
+      "regime": "basis",
+      "shuffled_p_pooled": 0.0,
+      "tercile": 0
+    }
+  ],
+  "regimes": [
+    "volatility",
+    "trend",
+    "abs_funding",
+    "basis"
+  ]
+}

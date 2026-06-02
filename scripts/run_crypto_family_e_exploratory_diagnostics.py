@@ -26,6 +26,7 @@ sys.path.insert(0, str(ROOT))
 
 from research.crypto.derivatives_registry import CANONICAL_PERPS, validate_perp
 from research.crypto.family_e.cross_regime_oi import (
+    audit_notable_regime_cells,
     diagnostic_6_cross_asset,
     diagnostic_7_regime_conditioning,
     diagnostics_4_5_oi_low_power,
@@ -126,6 +127,10 @@ def run_execute(series_by_inst: dict, *, n_draws: int) -> dict:
     d7 = diagnostic_7_regime_conditioning(
         series_by_inst, seed=BASE_SEED + 40_000, n_draws=n_draws
     )
+    notable_regime = audit_notable_regime_cells(
+        series_by_inst, d7, seed=BASE_SEED + 45_000, n_draws=n_draws
+    )
+    d7["notable_cells_audit"] = notable_regime
     d45 = diagnostics_4_5_oi_low_power(series_by_inst, seed=BASE_SEED + 50_000, n_draws=n_draws)
 
     # ---- global Holm across the high-power test family (pooled-gross p-values) ----
@@ -193,15 +198,34 @@ def run_execute(series_by_inst: dict, *, n_draws: int) -> dict:
     cls6 = best6 or {"label": "rejected", "rationale": "no cross-asset cells evaluated"}
     cls45 = {"label": "blocked_low_power_oi", "rationale": d45["note"]}
 
-    # diagnostic 7 — does any regime cell flip a base diagnostic to candidate?
-    regime_impact = (
-        "No regime cell overrides a base-diagnostic result; base diagnostics 1–3 are not "
-        "candidate, so regime conditioning yields no front-gate candidate (forking-path "
-        "discipline applied)."
-    )
-    cls7 = {"label": "rejected" if cls1["label"] != "candidate_for_front_gate"
-            and cls3["label"] != "candidate_for_front_gate" else "see_base",
-            "rationale": regime_impact}
+    # diagnostic 7 — does any regime cell meet the FULL frozen candidate bar?
+    # A cell qualifies only if non-circular, BTC+ETH supportive, both 2x-positive — AND
+    # the frozen gate also forbids a single-regime-slice override of a rejected base.
+    qualifying = [
+        c for c in notable_regime
+        if not c["circular"] and c["btc_and_eth_supportive"] and c["both_stress_2x_positive"]
+    ]
+    non_circular_notable = [c for c in notable_regime if not c["circular"]]
+    if non_circular_notable:
+        regime_impact = (
+            f"{len(non_circular_notable)} non-circular regime cell(s) flagged notable; the "
+            "strongest is downtrend-conditioned funding mean reversion (BTC+ETH supportive, "
+            "both 2×-stress-positive). It FAILS the frozen candidate bar: it is a single "
+            "regime slice conditioning a REJECTED base diagnostic and is borderline/failing "
+            "under full-family Holm (incl. assets). Per pre-registration a tiny regime slice "
+            "must not override base failure → no front-gate candidate this sprint, but it is "
+            "the single thread worth a future fresh-pre-registered, walk-forward re-test."
+        )
+        cls7 = {"label": "rejected", "rationale": regime_impact,
+                "notable_non_circular_cells": len(non_circular_notable),
+                "cells_passing_btc_eth_and_2x_before_slice_gate": len(qualifying),
+                "meets_full_candidate_bar": False}
+    else:
+        regime_impact = (
+            "No non-circular regime cell is notable; base diagnostics 1–3 are not candidate, "
+            "so regime conditioning yields no front-gate candidate (forking-path discipline)."
+        )
+        cls7 = {"label": "rejected", "rationale": regime_impact}
 
     classification = {
         "diagnostic_1": cls1, "diagnostic_2": cls2, "diagnostic_3": cls3,
@@ -249,7 +273,8 @@ def run_execute(series_by_inst: dict, *, n_draws: int) -> dict:
     (DOCS_DIR / "CRYPTO_FAMILY_E_DIAGNOSTIC_6_CROSS_ASSET_CONFIRMATION_RESULT.md").write_text(
         render_cross_doc(sprint_line=sprint_line, result=d6, classification=cls6), encoding="utf-8")
     (DOCS_DIR / "CRYPTO_FAMILY_E_DIAGNOSTIC_7_REGIME_CONDITIONING_RESULT.md").write_text(
-        render_regime_doc(sprint_line=sprint_line, result=d7, impact=regime_impact),
+        render_regime_doc(sprint_line=sprint_line, result=d7, impact=regime_impact,
+                          notable=notable_regime, insts=INSTS),
         encoding="utf-8")
     (DOCS_DIR / "CRYPTO_FAMILY_E_DIAGNOSTIC_4_5_OI_LOW_POWER_RESULT.md").write_text(
         render_oi_doc(sprint_line=sprint_line, result=d45), encoding="utf-8")

@@ -166,7 +166,52 @@ def render_cross_doc(*, sprint_line: str, result: dict, classification: dict) ->
     return "\n".join(lines) + "\n"
 
 
-def render_regime_doc(*, sprint_line: str, result: dict, impact: str) -> str:
+def render_notable_regime_cells(notable: list[dict], insts: list[str]) -> list[str]:
+    """Render the notable (pre-Holm) regime cells with BTC/ETH split + verdict."""
+    if not notable:
+        return ["## Notable regime cells", "",
+                "None: no pooled regime cell was simultaneously gross>0, all-in>0, and "
+                "shuffled p<0.05.", ""]
+    lines = ["## Notable regime cells (pre-Holm flags) — honest audit", "",
+             "Cells where pooled gross>0 AND all-in>0 AND shuffled p<0.05, recomputed per "
+             "asset (BTC/ETH) with 2× stress. A cell is a `candidate_for_front_gate` ONLY if "
+             "it is non-circular, BTC+ETH both supportive, both 2×-stress-positive, survives "
+             "FULL-family Holm, AND is not merely a single regime slice on a rejected base.", ""]
+    for cell in notable:
+        pa = cell["per_asset"]
+        b, e = insts[0], insts[1]
+        verdict = (
+            "CIRCULAR (regime variable = the diagnostic's own signal) — not an independent "
+            "effect." if cell["circular"]
+            else (
+                "Notable but DOES NOT meet the frozen candidate bar: single regime slice on a "
+                "REJECTED base diagnostic; borderline/failing under full-family Holm (incl. "
+                "assets)."
+            )
+        )
+        lines += [
+            f"### {cell['base']} · regime={cell['regime']} · tercile={cell['tercile']}",
+            "",
+            f"- pooled: n={cell['pooled']['n']}, gross={fmt(cell['pooled']['edges']['gross'],digits=6)}, "
+            f"all-in={fmt(cell['pooled']['edges']['all_in'],digits=6)}, "
+            f"2×={fmt(cell['pooled']['edges']['stress_2x'],digits=6)}, "
+            f"shuffled p={fmt(cell['shuffled_p_pooled'])}",
+            f"- {b}: n={pa[b]['n']}, gross={fmt(pa[b]['edges']['gross'],digits=6)}, "
+            f"all-in={fmt(pa[b]['edges']['all_in'],digits=6)}, 2×={fmt(pa[b]['edges']['stress_2x'],digits=6)}, "
+            f"shuffled p={fmt(_shuffled_p(pa[b]))}",
+            f"- {e}: n={pa[e]['n']}, gross={fmt(pa[e]['edges']['gross'],digits=6)}, "
+            f"all-in={fmt(pa[e]['edges']['all_in'],digits=6)}, 2×={fmt(pa[e]['edges']['stress_2x'],digits=6)}, "
+            f"shuffled p={fmt(_shuffled_p(pa[e]))}",
+            f"- BTC+ETH both supportive: {cell['btc_and_eth_supportive']}; "
+            f"both 2×-stress-positive: {cell['both_stress_2x_positive']}",
+            f"- **Verdict:** {verdict}",
+            "",
+        ]
+    return lines
+
+
+def render_regime_doc(*, sprint_line: str, result: dict, impact: str,
+                      notable: list[dict] | None = None, insts: list[str] | None = None) -> str:
     lines = [
         "# Crypto Family E Diagnostic 7 — Regime Conditioning Result",
         "", sprint_line,
@@ -177,6 +222,8 @@ def render_regime_doc(*, sprint_line: str, result: dict, impact: str) -> str:
         "Holm discipline applies; a tiny regime slice must not override base failure.", "",
         f"**Classification impact:** {impact}", "",
     ]
+    if notable is not None and insts is not None:
+        lines += render_notable_regime_cells(notable, insts)
     for base, block in result["base_diagnostics"].items():
         lines += [f"## {base}", "",
                   "| Regime | Tercile | n | gross | all-in | 2× stress | shuffled p |",
