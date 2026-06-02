@@ -1,6 +1,6 @@
 # Cryptocurrency Research Programme (Active)
 
-**Status:** Stage 3 · Family B relative value diagnostics complete
+**Status:** Stage 3 · Family E derivatives data prep complete (diagnostics not yet run)
 **Gate:** Forex archive cleanup executed 2026-05-31
 
 ---
@@ -14,10 +14,15 @@
 | C Trend Persistence | `STATISTICAL_ONLY_COST_DEFEATED` |
 | B Relative Value | `STATISTICAL_ONLY_COST_DEFEATED` |
 
-**Next:** Family D or E selection — [`NEXT_PROMPT_CRYPTO_FAMILY_D_OR_E_SELECTION_001.md`](NEXT_PROMPT_CRYPTO_FAMILY_D_OR_E_SELECTION_001.md)
+**Decision:** Family E chosen over Family D (derivatives add new info; D re-samples spot). Data-prep done; next = derivatives backfill, then exploratory diagnostics — [`NEXT_PROMPT_CRYPTO_FAMILY_E_EXPLORATORY_DIAGNOSTICS_001.md`](NEXT_PROMPT_CRYPTO_FAMILY_E_EXPLORATORY_DIAGNOSTICS_001.md)
 
 | Document | Role |
 |----------|------|
+| [`CRYPTO_FAMILY_E_DERIVATIVES_DATA_PREP_001_SUMMARY.md`](CRYPTO_FAMILY_E_DERIVATIVES_DATA_PREP_001_SUMMARY.md) | Family E data-prep closeout |
+| [`CRYPTO_DERIVATIVES_PUBLIC_DATA_SOURCE_REVIEW.md`](CRYPTO_DERIVATIVES_PUBLIC_DATA_SOURCE_REVIEW.md) | Derivatives source hierarchy |
+| [`CRYPTO_DERIVATIVES_DATA_MODEL.md`](CRYPTO_DERIVATIVES_DATA_MODEL.md) | Derivatives schema + provenance |
+| [`CRYPTO_DERIVATIVES_PUBLIC_DATA_PILOT_RESULT.md`](CRYPTO_DERIVATIVES_PUBLIC_DATA_PILOT_RESULT.md) | OKX BTC/ETH funding+OI pilot |
+| [`CRYPTO_FAMILY_E_DIAGNOSTIC_DESIGN.md`](CRYPTO_FAMILY_E_DIAGNOSTIC_DESIGN.md) | 7 pre-registered diagnostics (design only) |
 | [`CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001_SYNTHESIS.md`](CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001_SYNTHESIS.md) | Family B synthesis |
 | [`CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001_SUMMARY.md`](CRYPTO_FAMILY_B_RELATIVE_VALUE_DIAGNOSTICS_001_SUMMARY.md) | Family B sprint closeout |
 | [`CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001_SYNTHESIS.md`](CRYPTO_FAMILY_C_TREND_PERSISTENCE_DIAGNOSTICS_001_SYNTHESIS.md) | Family C synthesis |

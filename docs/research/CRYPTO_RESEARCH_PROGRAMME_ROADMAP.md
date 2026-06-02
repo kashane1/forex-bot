@@ -178,7 +178,9 @@ Examples: momentum, trend continuation, breakout persistence, regime persistence
 - [x] Family C Trend Persistence — **STATISTICAL_ONLY_COST_DEFEATED**
 - [x] Family B Relative Value — **STATISTICAL_ONLY_COST_DEFEATED** (gross H4 rel-momentum ~4.6 bps; paired all-in hurdle ~260 bps)
 - [x] Null baselines, regime terciles, one-leg + paired cost variants
-- [ ] Family D non-time bars and/or Family E prep (see `NEXT_PROMPT_CRYPTO_FAMILY_D_OR_E_SELECTION_001.md`)
+- [x] Family D vs E selection → **Family E chosen**; derivatives data prep complete (`CRYPTO_FAMILY_E_DERIVATIVES_DATA_PREP_001_SUMMARY.md`) — diagnostics not yet run
+- [ ] Family E exploratory diagnostics (after derivatives backfill + frozen cost model)
+- [ ] Family D non-time bars (deferred, not rejected)
 - [ ] Family A MTF confluence (deferred)
 - **No campaigns, no front-gate yet**
 
