@@ -1,0 +1,38 @@
+{
+  "backfill_dir": "research/crypto/derivatives/backfill",
+  "batch_id": "4c490d0e-4a3d-4b85-8cc5-abd3d9233d13",
+  "classes": [
+    "funding",
+    "ohlcv_1h",
+    "ohlcv_1d",
+    "oi_daily"
+  ],
+  "end_utc": "2026-06-02T18:35:19.736035+00:00",
+  "fetched_at_utc": "2026-06-02T18:38:43.431067+00:00",
+  "instruments": [
+    "BTC_PERP_USD",
+    "ETH_PERP_USD"
+  ],
+  "row_counts": {
+    "BTC_PERP_USD": {
+      "funding": 56186,
+      "index": 56186,
+      "ohlcv_1d": 2345,
+      "ohlcv_1h": 56267,
+      "oi_daily": 180
+    },
+    "ETH_PERP_USD": {
+      "funding": 56186,
+      "index": 56186,
+      "ohlcv_1d": 2345,
+      "ohlcv_1h": 56267,
+      "oi_daily": 180
+    }
+  },
+  "sources": {
+    "funding/ohlcv/index": "deribit (USD)",
+    "oi_daily": "okx-rubik (USD notional, aggregate)"
+  },
+  "start_utc": "2020-01-01T08:00:00+00:00",
+  "status": "WARN"
+}
