@@ -1,0 +1,21 @@
+{
+  "backfill_dir": "research/crypto/derivatives/backfill",
+  "base_seed": 20260602,
+  "diagnostics_high_power": [
+    "1",
+    "2",
+    "3",
+    "6",
+    "7"
+  ],
+  "diagnostics_low_power": [
+    "4",
+    "5"
+  ],
+  "instruments": [
+    "BTC_PERP_USD",
+    "ETH_PERP_USD"
+  ],
+  "mode": "preflight",
+  "n_draws": 1000
+}

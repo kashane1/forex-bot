@@ -1,0 +1,33 @@
+{
+  "high_power_runnable": true,
+  "instruments": {
+    "BTC_PERP_USD": {
+      "basis_h1": 56186,
+      "funding_8h_windows": 6953,
+      "funding_hours": 56186,
+      "index_h1": 56186,
+      "ohlcv_h1": 56267,
+      "oi_rows": 180
+    },
+    "ETH_PERP_USD": {
+      "basis_h1": 56186,
+      "funding_8h_windows": 6953,
+      "funding_hours": 56186,
+      "index_h1": 56186,
+      "ohlcv_h1": 56267,
+      "oi_rows": 180
+    }
+  },
+  "oi": {
+    "BTC_PERP_USD": {
+      "low_power": true,
+      "n_oi_rows": 180
+    },
+    "ETH_PERP_USD": {
+      "low_power": true,
+      "n_oi_rows": 180
+    }
+  },
+  "oi_low_power_only": true,
+  "status": "PASS"
+}
