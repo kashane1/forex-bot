@@ -1,5 +1,13 @@
 # Next Prompt — Crypto Programme Pause Synthesis 001
 
+> **STATUS: SUPERSEDED / COMPLETED (2026-06-02).** Executed as sprint
+> `crypto-programme-pause-synthesis-001`. Outcome: **`PAUSE_CRYPTO_RESEARCH`**. See
+> `CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md` (decision + failure-mode diagnosis),
+> `CRYPTO_STRATEGY_RESEARCH_RESTART_CRITERIA.md` (standing restart bar), and
+> `CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001_SUMMARY.md`. No further crypto sprint is queued until
+> a restart trigger is met.
+
+
 **Type:** Programme-level synthesis + decision sprint. **NOT** a diagnostics, factor,
 campaign, strategy, front-gate, tuning, or paper/demo/live sprint.
 **Precondition:** Three crypto factor families have now failed to clear the front-gate bar

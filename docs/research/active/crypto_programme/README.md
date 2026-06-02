@@ -1,13 +1,13 @@
 # Cryptocurrency Research Programme (Active)
 
-**Status:** Stage 3 · Family E exploratory diagnostics complete — **NO CANDIDATE**; next = programme PAUSE synthesis
+**Status:** Stage 3 complete · **`PAUSE_CRYPTO_RESEARCH`** — three families missed the bar
 **Gate:** Forex archive cleanup executed 2026-05-31
 
 ---
 
 ## Current stage
 
-**Stage 3 — exploratory factor diagnostics** (Family C, B, E complete).
+**Stage 3 — exploratory factor diagnostics COMPLETE.** Standing decision: **`PAUSE_CRYPTO_RESEARCH`**.
 
 | Family | Classification |
 |--------|----------------|
@@ -15,7 +15,12 @@
 | B Relative Value | `STATISTICAL_ONLY_COST_DEFEATED` |
 | E Derivatives (funding/basis/OI) | **NO CANDIDATE** — diag 1/2/3/6/7 `rejected`, 4/5 `blocked_low_power_oi` |
 
-**Decision:** Three families now miss the front-gate bar. Family D is low-information (re-samples spot OHLCV C/B already showed cost-defeated). → **crypto programme PAUSE synthesis** — [`NEXT_PROMPT_CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md`](NEXT_PROMPT_CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md). One thread carried forward: downtrend-conditioned funding reversion (BTC+ETH 2×-positive but sub-bar — fresh pre-registration only).
+**Decision:** All three exploratory factor families failed the front-gate bar on the BTC/ETH
+corpus — cost wall (C/B) then idea-quality/efficiency wall (E, on the cheaper perp venue).
+→ **`PAUSE_CRYPTO_RESEARCH`**: [`CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md`](CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md) ·
+restart bar [`CRYPTO_STRATEGY_RESEARCH_RESTART_CRITERIA.md`](CRYPTO_STRATEGY_RESEARCH_RESTART_CRITERIA.md).
+Two conditional reopen threads (both need a fresh pre-registration): downtrend-conditioned
+funding reversion; deep/forward per-instrument OI.
 
 | Family E document | Role |
 |----------|------|

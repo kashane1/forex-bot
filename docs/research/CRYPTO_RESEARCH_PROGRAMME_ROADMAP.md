@@ -181,9 +181,17 @@ Examples: momentum, trend continuation, breakout persistence, regime persistence
 - [x] Family D vs E selection → **Family E chosen**; derivatives data prep complete (`CRYPTO_FAMILY_E_DERIVATIVES_DATA_PREP_001_SUMMARY.md`)
 - [x] Derivatives backfill executed (`CRYPTO_DERIVATIVES_BACKFILL_001_RESULT.md`) — BTC+ETH 6.4y USD funding/OHLCV/basis; frozen cost model (`CRYPTO_DERIVATIVES_COST_MODEL_001.md`)
 - [x] Family E exploratory diagnostics — **NO CANDIDATE** (`CRYPTO_FAMILY_E_EXPLORATORY_SYNTHESIS_001.md`): diagnostics 1/2/3/6/7 `rejected`, 4/5 `blocked_low_power_oi`. Strongest thread = downtrend-conditioned funding reversion (BTC+ETH 2×-positive) but fails the frozen bar (single regime slice on a rejected base). Third family to miss the bar (C/B cost-defeated).
+- [x] **Programme pause synthesis — `PAUSE_CRYPTO_RESEARCH`** (`CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md`): three families hit both walls — cost (C/B) and idea-quality/efficiency (E, on the cheaper perp venue). Restart bar in `CRYPTO_STRATEGY_RESEARCH_RESTART_CRITERIA.md`.
 - [ ] Family D non-time bars (deferred; low-info — re-samples spot OHLCV C/B already showed cost-defeated)
 - [ ] Family A MTF confluence (deferred)
-- **Decision: → crypto programme PAUSE synthesis** (`NEXT_PROMPT_CRYPTO_PROGRAMME_PAUSE_SYNTHESIS_001.md`). No campaigns, no front-gate, no approval.
+- **Standing decision: `PAUSE_CRYPTO_RESEARCH`.** No campaigns, no front-gate, no approval. Two conditional reopen threads (downtrend funding reversion under fresh pre-registration; deep/forward OI) — see restart criteria.
+
+### Stage 3 outcome — `PAUSE_CRYPTO_RESEARCH`
+
+All three exploratory factor families failed to clear the front-gate bar on the BTC/ETH corpus
+(C/B `STATISTICAL_ONLY_COST_DEFEATED`, E `NO CANDIDATE`). The disciplined disposition is a
+**pause**, with infrastructure preserved and a strict, documented restart bar. Stage 4/5 below
+do not begin unless a restart trigger is met.
 
 ### Stage 4 — First factor-family validation
 
