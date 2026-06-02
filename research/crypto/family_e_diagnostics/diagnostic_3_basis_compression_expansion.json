@@ -1,0 +1,944 @@
+{
+  "expansion": {
+    "direction": {
+      "bottom": -1.0,
+      "top": 1.0
+    },
+    "horizons": {
+      "4": {
+        "BTC_PERP_USD": {
+          "decile_cuts": {
+            "p10": -56.1358719465361,
+            "p90": 62.129466000883106
+          },
+          "edges": {
+            "all_in": -0.0017864206036917725,
+            "gross": -0.00016462463772450392,
+            "spread_only": -0.0005646246377245039,
+            "stress_2x": -0.0033864206036917726
+          },
+          "n": 11174,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016015979108128001,
+              "null_p05": -0.0018083263781536597,
+              "null_p95": -0.00139988378549407,
+              "observed": -0.0017864206036917725,
+              "p_value_greater": 0.928,
+              "p_value_two_sided": 0.072,
+              "seed": 20280716
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001603689889458869,
+              "null_p05": -0.001893942227177714,
+              "null_p95": -0.0013100157941283894,
+              "observed": -0.0017864206036917725,
+              "p_value_greater": 0.852,
+              "p_value_two_sided": 0.148,
+              "seed": 20280715
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0015967054028403727,
+              "null_p05": -0.0017867760855300755,
+              "null_p95": -0.001403603030775329,
+              "observed": -0.0017864206036917725,
+              "p_value_greater": 0.949,
+              "p_value_two_sided": 0.051,
+              "seed": 20280714
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -8.739487885086337e-06,
+              "null_p05": -0.0002125747902470543,
+              "null_p95": 0.00020866493921912533,
+              "observed": -0.00016462463772450392,
+              "p_value_greater": 0.899,
+              "p_value_two_sided": 0.195,
+              "seed": 20280616
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 3.9201100947250885e-06,
+              "null_p05": -0.0002827557413689605,
+              "null_p95": 0.0003147450587132834,
+              "observed": -0.00016462463772450392,
+              "p_value_greater": 0.827,
+              "p_value_two_sided": 0.355,
+              "seed": 20280615
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -1.0010599544364837e-07,
+              "null_p05": -0.00021346161484334995,
+              "null_p95": 0.00019761857645100156,
+              "observed": -0.00016462463772450392,
+              "p_value_greater": 0.894,
+              "p_value_two_sided": 0.195,
+              "seed": 20280614
+            }
+          }
+        },
+        "ETH_PERP_USD": {
+          "decile_cuts": {
+            "p10": -77.3887329422275,
+            "p90": 82.01971987952385
+          },
+          "edges": {
+            "all_in": -0.002137822466131235,
+            "gross": -0.0003118125863520529,
+            "spread_only": -0.0009118125863520534,
+            "stress_2x": -0.003937822466131235
+          },
+          "n": 11174,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017939084606160565,
+              "null_p05": -0.0020548653160628455,
+              "null_p95": -0.0015336448941029451,
+              "observed": -0.002137822466131235,
+              "p_value_greater": 0.987,
+              "p_value_two_sided": 0.013,
+              "seed": 20280716
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017980949622794264,
+              "null_p05": -0.0021440765396714507,
+              "null_p95": -0.0014088206264264366,
+              "observed": -0.002137822466131235,
+              "p_value_greater": 0.946,
+              "p_value_two_sided": 0.054,
+              "seed": 20280715
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0017956011057976861,
+              "null_p05": -0.0020513549867268318,
+              "null_p95": -0.001521819448686495,
+              "observed": -0.002137822466131235,
+              "p_value_greater": 0.987,
+              "p_value_two_sided": 0.013,
+              "seed": 20280714
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -1.046221226761147e-05,
+              "null_p05": -0.0002824355853585284,
+              "null_p95": 0.00027037127811997095,
+              "observed": -0.0003118125863520529,
+              "p_value_greater": 0.972,
+              "p_value_two_sided": 0.059,
+              "seed": 20280616
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -1.0108978503116504e-05,
+              "null_p05": -0.00039428985945914527,
+              "null_p95": 0.00037893087735012813,
+              "observed": -0.0003118125863520529,
+              "p_value_greater": 0.896,
+              "p_value_two_sided": 0.192,
+              "seed": 20280615
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -4.223746189854415e-06,
+              "null_p05": -0.00027393813130071384,
+              "null_p95": 0.00025300413888687897,
+              "observed": -0.0003118125863520529,
+              "p_value_greater": 0.969,
+              "p_value_two_sided": 0.051,
+              "seed": 20280614
+            }
+          }
+        },
+        "pooled": {
+          "edges": {
+            "all_in": -0.0019621215349115034,
+            "gross": -0.00023821861203827849,
+            "spread_only": -0.0007382186120382787,
+            "stress_2x": -0.0036621215349115035
+          },
+          "n": 22348,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0017059554392552746,
+              "null_p05": -0.001877758777461828,
+              "null_p95": -0.0015397430469327302,
+              "observed": -0.0019621215349115034,
+              "p_value_greater": 0.992,
+              "p_value_two_sided": 0.008,
+              "seed": 20280766
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017044589743302546,
+              "null_p05": -0.0019487989699151682,
+              "null_p95": -0.0014670222276296824,
+              "observed": -0.0019621215349115034,
+              "p_value_greater": 0.962,
+              "p_value_two_sided": 0.038,
+              "seed": 20280765
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0017009407632357404,
+              "null_p05": -0.001865619079504105,
+              "null_p95": -0.0015291186889673696,
+              "observed": -0.0019621215349115034,
+              "p_value_greater": 0.997,
+              "p_value_two_sided": 0.003,
+              "seed": 20280764
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -4.3098426295706785e-06,
+              "null_p05": -0.00017843985785508573,
+              "null_p95": 0.00016755223545147628,
+              "observed": -0.00023821861203827849,
+              "p_value_greater": 0.985,
+              "p_value_two_sided": 0.028,
+              "seed": 20280666
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -3.5018865840685228e-06,
+              "null_p05": -0.00023577293041238424,
+              "null_p95": 0.00024346579360876532,
+              "observed": -0.00023821861203827849,
+              "p_value_greater": 0.952,
+              "p_value_two_sided": 0.104,
+              "seed": 20280665
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 2.73837375555083e-06,
+              "null_p05": -0.00016566669147522096,
+              "null_p95": 0.0001601658036517791,
+              "observed": -0.00023821861203827849,
+              "p_value_greater": 0.993,
+              "p_value_two_sided": 0.013,
+              "seed": 20280664
+            }
+          }
+        }
+      },
+      "24": {
+        "BTC_PERP_USD": {
+          "decile_cuts": {
+            "p10": -55.800636873804685,
+            "p90": 61.92995328600589
+          },
+          "edges": {
+            "all_in": -0.0015843563033748013,
+            "gross": 0.00012481976545915878,
+            "spread_only": -0.0002751802345408409,
+            "stress_2x": -0.003184356303374801
+          },
+          "n": 10854,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016069142549632342,
+              "null_p05": -0.002096417695091957,
+              "null_p95": -0.0010954389456361443,
+              "observed": -0.0015843563033748013,
+              "p_value_greater": 0.471,
+              "p_value_two_sided": 0.529,
+              "seed": 20280736
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001599640777115112,
+              "null_p05": -0.0022641628939664765,
+              "null_p95": -0.0009777646521492982,
+              "observed": -0.0015843563033748013,
+              "p_value_greater": 0.494,
+              "p_value_two_sided": 0.506,
+              "seed": 20280735
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0016030623228140176,
+              "null_p05": -0.002104884934043927,
+              "null_p95": -0.0010808982397417033,
+              "observed": -0.0015843563033748013,
+              "p_value_greater": 0.481,
+              "p_value_two_sided": 0.519,
+              "seed": 20280734
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.1850559737105609e-05,
+              "null_p05": -0.0005019642918377418,
+              "null_p95": 0.000542934449214808,
+              "observed": 0.00012481976545915878,
+              "p_value_greater": 0.359,
+              "p_value_two_sided": 0.682,
+              "seed": 20280636
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 4.792497896050207e-06,
+              "null_p05": -0.0006727980055526609,
+              "null_p95": 0.0006463023185008048,
+              "observed": 0.00012481976545915878,
+              "p_value_greater": 0.389,
+              "p_value_two_sided": 0.754,
+              "seed": 20280635
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -4.728890876708964e-07,
+              "null_p05": -0.000482687996695727,
+              "null_p95": 0.00046219397822036724,
+              "observed": 0.00012481976545915878,
+              "p_value_greater": 0.328,
+              "p_value_two_sided": 0.655,
+              "seed": 20280634
+            }
+          }
+        },
+        "ETH_PERP_USD": {
+          "decile_cuts": {
+            "p10": -77.02638716256715,
+            "p90": 81.69091462458202
+          },
+          "edges": {
+            "all_in": -0.0023219280196041135,
+            "gross": -0.00039843751587297554,
+            "spread_only": -0.0009984375158729765,
+            "stress_2x": -0.004121928019604114
+          },
+          "n": 10854,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001816587457100532,
+              "null_p05": -0.002478865791692457,
+              "null_p95": -0.0011483464104550404,
+              "observed": -0.0023219280196041135,
+              "p_value_greater": 0.9,
+              "p_value_two_sided": 0.1,
+              "seed": 20280736
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017922903096297654,
+              "null_p05": -0.002630909416862395,
+              "null_p95": -0.0009793736344426921,
+              "observed": -0.0023219280196041135,
+              "p_value_greater": 0.848,
+              "p_value_two_sided": 0.152,
+              "seed": 20280735
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.001822812072800678,
+              "null_p05": -0.00247342542290017,
+              "null_p95": -0.0011835304714564812,
+              "observed": -0.0023219280196041135,
+              "p_value_greater": 0.893,
+              "p_value_two_sided": 0.107,
+              "seed": 20280734
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.372415650692653e-05,
+              "null_p05": -0.0006312743000721344,
+              "null_p95": 0.0006887065467459136,
+              "observed": -0.00039843751587297554,
+              "p_value_greater": 0.848,
+              "p_value_two_sided": 0.327,
+              "seed": 20280636
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -2.8105825340974035e-06,
+              "null_p05": -0.0008171192851553786,
+              "null_p95": 0.0008107460771472581,
+              "observed": -0.00039843751587297554,
+              "p_value_greater": 0.784,
+              "p_value_two_sided": 0.424,
+              "seed": 20280635
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 1.874162178038103e-06,
+              "null_p05": -0.0006472611577209318,
+              "null_p95": 0.0006699153354083231,
+              "observed": -0.00039843751587297554,
+              "p_value_greater": 0.82,
+              "p_value_two_sided": 0.354,
+              "seed": 20280634
+            }
+          }
+        },
+        "pooled": {
+          "edges": {
+            "all_in": -0.0019531421614894574,
+            "gross": -0.00013680887520690842,
+            "spread_only": -0.0006368088752069089,
+            "stress_2x": -0.0036531421614894575
+          },
+          "n": 21708,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016948784230355755,
+              "null_p05": -0.0021167206625296226,
+              "null_p95": -0.0012646669541399181,
+              "observed": -0.0019531421614894574,
+              "p_value_greater": 0.846,
+              "p_value_two_sided": 0.154,
+              "seed": 20280786
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017047602939479084,
+              "null_p05": -0.002223206925860307,
+              "null_p95": -0.0012037658941147545,
+              "observed": -0.0019531421614894574,
+              "p_value_greater": 0.782,
+              "p_value_two_sided": 0.218,
+              "seed": 20280785
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0016896127903395946,
+              "null_p05": -0.002074658853054114,
+              "null_p95": -0.0012852401052818778,
+              "observed": -0.0019531421614894574,
+              "p_value_greater": 0.857,
+              "p_value_two_sided": 0.143,
+              "seed": 20280784
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -1.5161117184789383e-07,
+              "null_p05": -0.00040384767003175337,
+              "null_p95": 0.0004013193607997014,
+              "observed": -0.00013680887520690842,
+              "p_value_greater": 0.698,
+              "p_value_two_sided": 0.595,
+              "seed": 20280686
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -1.0586406357819708e-05,
+              "null_p05": -0.0005672274193392394,
+              "null_p95": 0.0005113072324387368,
+              "observed": -0.00013680887520690842,
+              "p_value_greater": 0.656,
+              "p_value_two_sided": 0.674,
+              "seed": 20280685
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 1.8067385075500365e-05,
+              "null_p05": -0.0003874289361520308,
+              "null_p95": 0.0004578985940566813,
+              "observed": -0.00013680887520690842,
+              "p_value_greater": 0.737,
+              "p_value_two_sided": 0.576,
+              "seed": 20280684
+            }
+          }
+        }
+      }
+    },
+    "skipped": {
+      "BTC_PERP_USD": 321,
+      "ETH_PERP_USD": 321
+    }
+  },
+  "hypothesis": "Stretched perp-vs-index basis predicts convergence (reversion) or expansion (momentum).",
+  "name": "diagnostic_3_basis_compression_expansion",
+  "reversion": {
+    "direction": {
+      "bottom": 1.0,
+      "top": -1.0
+    },
+    "horizons": {
+      "4": {
+        "BTC_PERP_USD": {
+          "decile_cuts": {
+            "p10": -56.1358719465361,
+            "p90": 62.129466000883106
+          },
+          "edges": {
+            "all_in": -0.0014135793963082276,
+            "gross": 0.00016462463772450392,
+            "spread_only": -0.00023537536227549602,
+            "stress_2x": -0.003013579396308228
+          },
+          "n": 11174,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016014892400350513,
+              "null_p05": -0.0017964724192330742,
+              "null_p95": -0.0014014254503752956,
+              "observed": -0.0014135793963082276,
+              "p_value_greater": 0.064,
+              "p_value_two_sided": 0.936,
+              "seed": 20280709
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0015993649124433755,
+              "null_p05": -0.0019085585855701803,
+              "null_p95": -0.0013068054864053573,
+              "observed": -0.0014135793963082276,
+              "p_value_greater": 0.15,
+              "p_value_two_sided": 0.85,
+              "seed": 20280708
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.001588409700268719,
+              "null_p05": -0.0017953943183649991,
+              "null_p95": -0.0013780167732950516,
+              "observed": -0.0014135793963082276,
+              "p_value_greater": 0.086,
+              "p_value_two_sided": 0.914,
+              "seed": 20280707
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.414380991425328e-06,
+              "null_p05": -0.00019950536901526823,
+              "null_p95": 0.0002048881208751997,
+              "observed": 0.00016462463772450392,
+              "p_value_greater": 0.099,
+              "p_value_two_sided": 0.19,
+              "seed": 20280609
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 2.151409981270256e-06,
+              "null_p05": -0.00028826637440976195,
+              "null_p95": 0.00029768664910470225,
+              "observed": 0.00016462463772450392,
+              "p_value_greater": 0.184,
+              "p_value_two_sided": 0.352,
+              "seed": 20280608
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 1.4270921782185822e-06,
+              "null_p05": -0.00019726457662784216,
+              "null_p95": 0.0002105115451670302,
+              "observed": 0.00016462463772450392,
+              "p_value_greater": 0.09,
+              "p_value_two_sided": 0.173,
+              "seed": 20280607
+            }
+          }
+        },
+        "ETH_PERP_USD": {
+          "decile_cuts": {
+            "p10": -77.3887329422275,
+            "p90": 82.01971987952385
+          },
+          "edges": {
+            "all_in": -0.001462177533868765,
+            "gross": 0.0003118125863520529,
+            "spread_only": -0.00028818741364794725,
+            "stress_2x": -0.003262177533868765
+          },
+          "n": 11174,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0018001259565031456,
+              "null_p05": -0.002050869949899599,
+              "null_p95": -0.001541699159691253,
+              "observed": -0.001462177533868765,
+              "p_value_greater": 0.012,
+              "p_value_two_sided": 0.988,
+              "seed": 20280709
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.001808267380948206,
+              "null_p05": -0.00217377283714872,
+              "null_p95": -0.001429374721715241,
+              "observed": -0.001462177533868765,
+              "p_value_greater": 0.063,
+              "p_value_two_sided": 0.937,
+              "seed": 20280708
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0017931762954724166,
+              "null_p05": -0.0020504729921481855,
+              "null_p95": -0.0015372624516526833,
+              "observed": -0.001462177533868765,
+              "p_value_greater": 0.025,
+              "p_value_two_sided": 0.975,
+              "seed": 20280707
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -1.4400153316645069e-06,
+              "null_p05": -0.00026392987764934034,
+              "null_p95": 0.00027484245115690233,
+              "observed": 0.0003118125863520529,
+              "p_value_greater": 0.031,
+              "p_value_two_sided": 0.062,
+              "seed": 20280609
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 5.280611232789894e-07,
+              "null_p05": -0.00037614013198327827,
+              "null_p95": 0.0003604407167290718,
+              "observed": 0.0003118125863520529,
+              "p_value_greater": 0.084,
+              "p_value_two_sided": 0.165,
+              "seed": 20280608
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -2.97215381631343e-06,
+              "null_p05": -0.00026276797253293966,
+              "null_p95": 0.00025495619951736436,
+              "observed": 0.0003118125863520529,
+              "p_value_greater": 0.022,
+              "p_value_two_sided": 0.049,
+              "seed": 20280607
+            }
+          }
+        },
+        "pooled": {
+          "edges": {
+            "all_in": -0.0014378784650884967,
+            "gross": 0.00023821861203827849,
+            "spread_only": -0.0002617813879617216,
+            "stress_2x": -0.003137878465088496
+          },
+          "n": 22348,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001693134605749048,
+              "null_p05": -0.0018588101531334502,
+              "null_p95": -0.0015233561149185012,
+              "observed": -0.0014378784650884967,
+              "p_value_greater": 0.005,
+              "p_value_two_sided": 0.995,
+              "seed": 20280759
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016925389121594263,
+              "null_p05": -0.0019337242966872112,
+              "null_p95": -0.00144708819496897,
+              "observed": -0.0014378784650884967,
+              "p_value_greater": 0.045,
+              "p_value_two_sided": 0.955,
+              "seed": 20280758
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.001697300383565576,
+              "null_p05": -0.001862151145581846,
+              "null_p95": -0.001529359646875435,
+              "observed": -0.0014378784650884967,
+              "p_value_greater": 0.005,
+              "p_value_two_sided": 0.995,
+              "seed": 20280757
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -2.7648057004518736e-06,
+              "null_p05": -0.0001696059829032833,
+              "null_p95": 0.00015676785061993212,
+              "observed": 0.00023821861203827849,
+              "p_value_greater": 0.009,
+              "p_value_two_sided": 0.023,
+              "seed": 20280659
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -6.426009690497246e-06,
+              "null_p05": -0.000233593041834833,
+              "null_p95": 0.00022748285029376307,
+              "observed": 0.00023821861203827849,
+              "p_value_greater": 0.041,
+              "p_value_two_sided": 0.088,
+              "seed": 20280658
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 2.827403208849953e-06,
+              "null_p05": -0.00016952814503403747,
+              "null_p95": 0.00016969622306594914,
+              "observed": 0.00023821861203827849,
+              "p_value_greater": 0.009,
+              "p_value_two_sided": 0.017,
+              "seed": 20280657
+            }
+          }
+        }
+      },
+      "24": {
+        "BTC_PERP_USD": {
+          "decile_cuts": {
+            "p10": -55.800636873804685,
+            "p90": 61.92995328600589
+          },
+          "edges": {
+            "all_in": -0.0016156436966251984,
+            "gross": -0.00012481976545915878,
+            "spread_only": -0.0005248197654591585,
+            "stress_2x": -0.003215643696625199
+          },
+          "n": 10854,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0015873179727206202,
+              "null_p05": -0.0020980907928088953,
+              "null_p95": -0.0010827596670941145,
+              "observed": -0.0016156436966251984,
+              "p_value_greater": 0.532,
+              "p_value_two_sided": 0.468,
+              "seed": 20280729
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016097365200362253,
+              "null_p05": -0.0022333092747287915,
+              "null_p95": -0.000970723025608599,
+              "observed": -0.0016156436966251984,
+              "p_value_greater": 0.506,
+              "p_value_two_sided": 0.494,
+              "seed": 20280728
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0015943662710344274,
+              "null_p05": -0.0021032376438679824,
+              "null_p95": -0.0010835209561948368,
+              "observed": -0.0016156436966251984,
+              "p_value_greater": 0.534,
+              "p_value_two_sided": 0.466,
+              "seed": 20280727
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 6.856993885625545e-06,
+              "null_p05": -0.00048577501450860187,
+              "null_p95": 0.0005005204596795157,
+              "observed": -0.00012481976545915878,
+              "p_value_greater": 0.664,
+              "p_value_two_sided": 0.691,
+              "seed": 20280629
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 3.003955689692656e-06,
+              "null_p05": -0.0006257559037204768,
+              "null_p95": 0.0006487107131344573,
+              "observed": -0.00012481976545915878,
+              "p_value_greater": 0.634,
+              "p_value_two_sided": 0.751,
+              "seed": 20280628
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -3.725447581167513e-06,
+              "null_p05": -0.000505682072985726,
+              "null_p95": 0.0005055288383808789,
+              "observed": -0.00012481976545915878,
+              "p_value_greater": 0.652,
+              "p_value_two_sided": 0.701,
+              "seed": 20280627
+            }
+          }
+        },
+        "ETH_PERP_USD": {
+          "decile_cuts": {
+            "p10": -77.02638716256715,
+            "p90": 81.69091462458202
+          },
+          "edges": {
+            "all_in": -0.001278071980395887,
+            "gross": 0.00039843751587297554,
+            "spread_only": -0.00020156248412702552,
+            "stress_2x": -0.003078071980395887
+          },
+          "n": 10854,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.001783949651675639,
+              "null_p05": -0.0024285151571236544,
+              "null_p95": -0.0011201890786506914,
+              "observed": -0.001278071980395887,
+              "p_value_greater": 0.105,
+              "p_value_two_sided": 0.895,
+              "seed": 20280729
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0017948440249415652,
+              "null_p05": -0.0026742829626111558,
+              "null_p95": -0.0009442264578518625,
+              "observed": -0.001278071980395887,
+              "p_value_greater": 0.154,
+              "p_value_two_sided": 0.846,
+              "seed": 20280728
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.00179371243930179,
+              "null_p05": -0.002450577585323875,
+              "null_p95": -0.0011373336856177706,
+              "observed": -0.001278071980395887,
+              "p_value_greater": 0.097,
+              "p_value_two_sided": 0.903,
+              "seed": 20280727
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": 1.3656740112901911e-05,
+              "null_p05": -0.0005956728927946179,
+              "null_p95": 0.00064440149264024,
+              "observed": 0.00039843751587297554,
+              "p_value_greater": 0.163,
+              "p_value_two_sided": 0.313,
+              "seed": 20280629
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -1.680127586063821e-05,
+              "null_p05": -0.0008402704181705272,
+              "null_p95": 0.0008275915153361795,
+              "observed": 0.00039843751587297554,
+              "p_value_greater": 0.196,
+              "p_value_two_sided": 0.409,
+              "seed": 20280628
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -6.2332117909681854e-06,
+              "null_p05": -0.0006713979603265439,
+              "null_p95": 0.0006665464432569269,
+              "observed": 0.00039843751587297554,
+              "p_value_greater": 0.153,
+              "p_value_two_sided": 0.314,
+              "seed": 20280627
+            }
+          }
+        },
+        "pooled": {
+          "edges": {
+            "all_in": -0.0014468578385105429,
+            "gross": 0.00013680887520690842,
+            "spread_only": -0.0003631911247930919,
+            "stress_2x": -0.0031468578385105426
+          },
+          "n": 21708,
+          "nulls_all_in": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -0.0016982854894210843,
+              "null_p05": -0.0020932578409725826,
+              "null_p95": -0.0012755916753479104,
+              "observed": -0.0014468578385105429,
+              "p_value_greater": 0.163,
+              "p_value_two_sided": 0.837,
+              "seed": 20280779
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": -0.0016971733461515967,
+              "null_p05": -0.002214675382983678,
+              "null_p95": -0.001143836627070918,
+              "observed": -0.0014468578385105429,
+              "p_value_greater": 0.209,
+              "p_value_two_sided": 0.791,
+              "seed": 20280778
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": -0.0017072293099573553,
+              "null_p05": -0.0021184654686819946,
+              "null_p95": -0.0012957747096367688,
+              "observed": -0.0014468578385105429,
+              "p_value_greater": 0.138,
+              "p_value_two_sided": 0.862,
+              "seed": 20280777
+            }
+          },
+          "nulls_gross": {
+            "matched_random": {
+              "n_draws": 1000,
+              "null_mean": -1.1198553343668335e-06,
+              "null_p05": -0.00044136955796299026,
+              "null_p95": 0.0004059246126763309,
+              "observed": 0.00013680887520690842,
+              "p_value_greater": 0.3,
+              "p_value_two_sided": 0.596,
+              "seed": 20280679
+            },
+            "randomized_sign": {
+              "n_draws": 1000,
+              "null_mean": 4.892145280790948e-06,
+              "null_p05": -0.0005599913859051847,
+              "null_p95": 0.0005593054948816006,
+              "observed": 0.00013680887520690842,
+              "p_value_greater": 0.336,
+              "p_value_two_sided": 0.662,
+              "seed": 20280678
+            },
+            "shuffled": {
+              "n_draws": 1000,
+              "null_mean": 4.798513499477624e-06,
+              "null_p05": -0.0004195085496844437,
+              "null_p95": 0.00040226044047650866,
+              "observed": 0.00013680887520690842,
+              "p_value_greater": 0.297,
+              "p_value_two_sided": 0.582,
+              "seed": 20280677
+            }
+          }
+        }
+      }
+    },
+    "skipped": {
+      "BTC_PERP_USD": 321,
+      "ETH_PERP_USD": 321
+    }
+  }
+}

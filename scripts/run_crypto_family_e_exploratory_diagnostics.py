@@ -151,21 +151,29 @@ def run_execute(series_by_inst: dict, *, n_draws: int) -> dict:
     # diagnostic 2 — best (most favorable) continuation cell across k,h
     order = ("candidate_for_front_gate", "statistical_only_cost_defeated",
              "cost_defeated", "rejected", "blocked_data_quality")
-    best2 = {"label": "rejected", "rationale": "no cell evaluated"}
+    best2 = None
     for k, block in d2["k_values"].items():
         for h, cell in block["horizons"].items():
             key = f"diag2|k{k}|h{h}|cont_pooled_gross"
+            pooled = cell["pooled"]["continuation"]
             c = classify_cell(
-                cell["pooled"]["continuation"],
+                pooled,
                 btc_cell=cell[INSTS[0]]["continuation"],
                 eth_cell=cell[INSTS[1]]["continuation"],
                 holm_p=holm.get(key, 1.0),
             )
-            if order.index(c["label"]) < order.index(best2["label"]):
+            c["rationale"] = (
+                f"best cell = continuation k{k} h{h}: gross={pooled['edges']['gross']:.2e}, "
+                f"all_in={pooled['edges']['all_in']:.2e}, Holm-adj shuffled p="
+                f"{holm.get(key, 1.0):.3f}. {c['rationale']}"
+            )
+            if best2 is None or order.index(c["label"]) < order.index(best2["label"]):
                 best2 = {**c, "k": k, "horizon": h}
-    cls2 = best2
-    # diagnostic 6 — best of agreement/disagreement
-    best6 = {"label": "rejected", "rationale": "no cell evaluated"}
+    cls2 = best2 or {"label": "rejected", "rationale": "no continuation cells evaluated"}
+    # diagnostic 6 — best (most favorable) of agreement / disagreement cells
+    order6 = ("candidate_for_front_gate", "statistical_only_cost_defeated",
+              "cost_defeated", "rejected")
+    best6 = None
     for h, cell in d6.get("horizons", {}).items():
         for key_name, jkey in (("agreement_directional", "agreement"),
                                ("disagreement_relative_value", "disagreement")):
@@ -175,11 +183,14 @@ def run_execute(series_by_inst: dict, *, n_draws: int) -> dict:
             label = ("statistical_only_cost_defeated" if gate_clears and c["edges"]["all_in"] <= 0
                      else ("candidate_for_front_gate" if gate_clears and c["edges"]["all_in"] > 0
                            and c["edges"]["stress_2x"] > 0 else "rejected"))
-            order = ("candidate_for_front_gate", "statistical_only_cost_defeated",
-                     "cost_defeated", "rejected")
-            if order.index(label) < order.index(best6["label"]):
-                best6 = {"label": label, "rationale": f"{key_name} h{h}", "holm_adj_p": holm_p}
-    cls6 = best6
+            rationale = (
+                f"best cell = {key_name} h{h}: gross={c['edges']['gross']:.2e}, "
+                f"all_in={c['edges']['all_in']:.2e}, Holm-adj shuffled p={holm_p:.3f} "
+                f"(does not clear after multiple comparisons)."
+            )
+            if best6 is None or order6.index(label) < order6.index(best6["label"]):
+                best6 = {"label": label, "rationale": rationale, "holm_adj_p": holm_p}
+    cls6 = best6 or {"label": "rejected", "rationale": "no cross-asset cells evaluated"}
     cls45 = {"label": "blocked_low_power_oi", "rationale": d45["note"]}
 
     # diagnostic 7 — does any regime cell flip a base diagnostic to candidate?

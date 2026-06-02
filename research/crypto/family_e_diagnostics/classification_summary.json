@@ -1,0 +1,73 @@
+{
+  "any_candidate_for_front_gate": false,
+  "diagnostic_1": {
+    "decisive_horizon": 72,
+    "holm_adj_p_pooled_gross": 1.0,
+    "label": "rejected",
+    "rationale": "Single-asset only (not robust across BTC and ETH) and not net-positive \u2014 rejected."
+  },
+  "diagnostic_2": {
+    "holm_adj_p": 1.0,
+    "horizon": 24,
+    "k": 3,
+    "label": "rejected",
+    "rationale": "best cell = continuation k3 h24: gross=3.77e-04, all_in=-1.66e-03, Holm-adj shuffled p=1.000. No effect distinguishable from the matched null; rejected."
+  },
+  "diagnostic_3": {
+    "decisive_horizon": 4,
+    "holm_adj_p_pooled_gross": 0.272,
+    "label": "rejected",
+    "rationale": "No effect distinguishable from the matched null; rejected."
+  },
+  "diagnostic_4_5": {
+    "label": "blocked_low_power_oi",
+    "rationale": "Only ~180d aggregate daily OI (OKX rubik venue-aggregate USD notional) is freely available; per-instrument multi-year OI is the binding gap. Diagnostics 4 (OI impulse) and 5 (funding/OI interaction) are LOW-POWER and cannot reach candidate_for_front_gate from this sample."
+  },
+  "diagnostic_6": {
+    "holm_adj_p": 1.0,
+    "label": "rejected",
+    "rationale": "best cell = agreement_directional h8: gross=4.84e-05, all_in=-1.27e-03, Holm-adj shuffled p=1.000 (does not clear after multiple comparisons)."
+  },
+  "diagnostic_7": {
+    "label": "rejected",
+    "rationale": "No regime cell overrides a base-diagnostic result; base diagnostics 1\u20133 are not candidate, so regime conditioning yields no front-gate candidate (forking-path discipline applied)."
+  },
+  "holm_pvalues": {
+    "diag1|h24|pooled_gross": 1.0,
+    "diag1|h72|pooled_gross": 1.0,
+    "diag1|h8|pooled_gross": 1.0,
+    "diag2|k3|h24|cont_pooled_gross": 1.0,
+    "diag2|k3|h72|cont_pooled_gross": 1.0,
+    "diag2|k6|h24|cont_pooled_gross": 1.0,
+    "diag2|k6|h72|cont_pooled_gross": 1.0,
+    "diag2|k9|h24|cont_pooled_gross": 1.0,
+    "diag2|k9|h72|cont_pooled_gross": 1.0,
+    "diag3exp|h24|pooled_gross": 1.0,
+    "diag3exp|h4|pooled_gross": 0.221,
+    "diag3rev|h24|pooled_gross": 1.0,
+    "diag3rev|h4|pooled_gross": 0.272,
+    "diag6|h24|agreement_gross": 1.0,
+    "diag6|h24|disagreement_gross": 1.0,
+    "diag6|h8|agreement_gross": 1.0,
+    "diag6|h8|disagreement_gross": 1.0
+  },
+  "raw_pvalues": {
+    "diag1|h24|pooled_gross": 0.677,
+    "diag1|h72|pooled_gross": 0.257,
+    "diag1|h8|pooled_gross": 0.827,
+    "diag2|k3|h24|cont_pooled_gross": 0.588,
+    "diag2|k3|h72|cont_pooled_gross": 0.968,
+    "diag2|k6|h24|cont_pooled_gross": 0.854,
+    "diag2|k6|h72|cont_pooled_gross": 0.994,
+    "diag2|k9|h24|cont_pooled_gross": 0.986,
+    "diag2|k9|h72|cont_pooled_gross": 0.965,
+    "diag3exp|h24|pooled_gross": 0.576,
+    "diag3exp|h4|pooled_gross": 0.013,
+    "diag3rev|h24|pooled_gross": 0.582,
+    "diag3rev|h4|pooled_gross": 0.017,
+    "diag6|h24|agreement_gross": 0.514,
+    "diag6|h24|disagreement_gross": 0.931,
+    "diag6|h8|agreement_gross": 0.953,
+    "diag6|h8|disagreement_gross": 0.654
+  }
+}
