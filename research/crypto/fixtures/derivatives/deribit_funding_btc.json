@@ -1,0 +1,5 @@
+{"jsonrpc":"2.0","result":[
+ {"timestamp":1717200000000,"index_price":68000.5,"interest_8h":0.00008,"interest_1h":0.00001,"prev_index_price":67950.0},
+ {"timestamp":1717203600000,"index_price":68120.0,"interest_8h":0.00010,"interest_1h":0.0000125,"prev_index_price":68000.5},
+ {"timestamp":1717207200000,"index_price":67980.0,"interest_8h":-0.00004,"interest_1h":-0.000005,"prev_index_price":68120.0}
+]}

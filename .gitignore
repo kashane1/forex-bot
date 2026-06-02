@@ -297,3 +297,7 @@ research/h03_thin_move_frontgate/**
 # Crypto derivatives (Family E) raw public-API responses — local-only/gitignored.
 # Bulky/regenerable; only compact manifests + synthetic fixtures are committed.
 research/crypto/derivatives/raw/
+
+# Crypto derivatives backfill — normalized CSVs are bulky/regenerable, local-only.
+# Only compact manifests + the validation summary JSON are committed.
+research/crypto/derivatives/backfill/

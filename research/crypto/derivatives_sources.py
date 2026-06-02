@@ -95,6 +95,9 @@ PUBLIC_ENDPOINTS: tuple[SourceEndpoint, ...] = (
     SourceEndpoint("kraken-futures", "funding", "/derivatives/api/v3/historicalfundingrates", "USD perp funding"),
     SourceEndpoint("okx", "funding", "/api/v5/public/funding-rate-history", "8h funding history"),
     SourceEndpoint("okx", "open_interest", "/api/v5/public/open-interest", "current OI snapshot"),
+    SourceEndpoint("okx", "open_interest", "/api/v5/rubik/stat/contracts/open-interest-volume", "daily OI history (aggregate)"),
+    SourceEndpoint("deribit", "funding", "/api/v2/public/get_funding_rate_history", "hourly realized funding + index (USD)"),
+    SourceEndpoint("deribit", "perp_ohlcv", "/api/v2/public/get_tradingview_chart_data", "perp OHLCV (USD)"),
 )
 
 
@@ -312,6 +315,121 @@ def parse_okx_open_interest(
                 interval=interval,
                 open_interest_base=float(row["oiCcy"]) if row.get("oiCcy") not in (None, "") else None,
                 open_interest_usd=float(row["oiUsd"]) if row.get("oiUsd") not in (None, "") else None,
+            )
+        )
+    out.sort(key=lambda r: r.time_utc)
+    return _dedup(out, key=lambda r: r.time_utc)
+
+
+def parse_okx_oi_volume(
+    payload: dict[str, Any], *, canonical_id: str, interval: str = "1D", venue: str = "okx"
+) -> list[OpenInterestRecord]:
+    """OKX ``/api/v5/rubik/stat/contracts/open-interest-volume`` → OpenInterestRecord.
+
+    Rows: ``[ts_ms, oi_usd, vol_usd]`` (venue-aggregate per base ccy, USD notional).
+    """
+    out: list[OpenInterestRecord] = []
+    for row in payload.get("data", []):
+        if len(row) < 2:
+            continue
+        out.append(
+            OpenInterestRecord(
+                canonical_id=canonical_id,
+                venue=venue,
+                time_utc=_ms_to_utc(row[0]),
+                interval=interval,
+                open_interest_base=None,
+                open_interest_usd=float(row[1]) if row[1] not in (None, "") else None,
+            )
+        )
+    out.sort(key=lambda r: r.time_utc)
+    return _dedup(out, key=lambda r: r.time_utc)
+
+
+def parse_deribit_funding(
+    result: list[dict[str, Any]], *, canonical_id: str, venue: str = "deribit"
+) -> list[FundingRateRecord]:
+    """Deribit ``get_funding_rate_history`` result → hourly FundingRateRecord list.
+
+    Rows: ``{"timestamp": ms, "index_price", "interest_8h", "interest_1h"}``. Deribit
+    funding is continuous/hourly-realized; ``funding_rate`` = ``interest_1h`` and
+    ``funding_interval_hours = 1`` (not pooled with 8h venues). USD-quoted.
+    """
+    out: list[FundingRateRecord] = []
+    for row in result:
+        out.append(
+            FundingRateRecord(
+                canonical_id=canonical_id,
+                venue=venue,
+                venue_symbol=venue_symbol(canonical_id, venue),
+                funding_time_utc=_ms_to_utc(row["timestamp"]),
+                funding_rate=float(row["interest_1h"]),
+                funding_interval_hours=1,
+                mark_price=None,
+            )
+        )
+    out.sort(key=lambda r: r.funding_time_utc)
+    return _dedup(out, key=lambda r: r.funding_time_utc)
+
+
+def parse_deribit_index_from_funding(
+    result: list[dict[str, Any]],
+    *,
+    canonical_id: str,
+    granularity: str = "H1",
+    venue: str = "deribit",
+) -> list[MarkIndexRecord]:
+    """Extract the hourly ``index_price`` carried in the Deribit funding payload."""
+    out: list[MarkIndexRecord] = []
+    for row in result:
+        if row.get("index_price") in (None, ""):
+            continue
+        out.append(
+            MarkIndexRecord(
+                canonical_id=canonical_id,
+                venue=venue,
+                granularity=granularity,
+                time_utc=_ms_to_utc(row["timestamp"]),
+                mark_close=None,
+                index_close=float(row["index_price"]),
+            )
+        )
+    out.sort(key=lambda r: r.time_utc)
+    return _dedup(out, key=lambda r: r.time_utc)
+
+
+def parse_deribit_chart(
+    result: dict[str, Any],
+    *,
+    canonical_id: str,
+    granularity: str,
+    venue: str = "deribit",
+) -> list[PerpOhlcvRecord]:
+    """Deribit ``get_tradingview_chart_data`` result (parallel arrays) → PerpOhlcvRecord.
+
+    Result keys: ``ticks`` (ms), ``open``, ``high``, ``low``, ``close``, ``volume``.
+    """
+    ticks = result.get("ticks", [])
+    opens = result.get("open", [])
+    highs = result.get("high", [])
+    lows = result.get("low", [])
+    closes = result.get("close", [])
+    volumes = result.get("volume", [])
+    out: list[PerpOhlcvRecord] = []
+    for i, ts in enumerate(ticks):
+        out.append(
+            PerpOhlcvRecord(
+                canonical_id=canonical_id,
+                venue=venue,
+                venue_symbol=venue_symbol(canonical_id, venue),
+                granularity=granularity,
+                time_utc=_ms_to_utc(ts),
+                open=float(opens[i]),
+                high=float(highs[i]),
+                low=float(lows[i]),
+                close=float(closes[i]),
+                volume=float(volumes[i]) if i < len(volumes) else 0.0,
+                quote_ccy="USD",
             )
         )
     out.sort(key=lambda r: r.time_utc)
