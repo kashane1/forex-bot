@@ -1,0 +1,15 @@
+{
+  "availability": {
+    "BTC_PERP_USD": {
+      "low_power": true,
+      "n_oi_rows": 180
+    },
+    "ETH_PERP_USD": {
+      "low_power": true,
+      "n_oi_rows": 180
+    }
+  },
+  "evaluable": true,
+  "name": "diagnostics_4_5_oi_low_power",
+  "note": "Only ~180d aggregate daily OI (OKX rubik venue-aggregate USD notional) is freely available; per-instrument multi-year OI is the binding gap. Diagnostics 4 (OI impulse) and 5 (funding/OI interaction) are LOW-POWER and cannot reach candidate_for_front_gate from this sample."
+}
